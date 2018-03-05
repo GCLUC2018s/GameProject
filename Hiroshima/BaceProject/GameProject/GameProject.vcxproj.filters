@@ -8,34 +8,6 @@
     <ClCompile Include="Game\CPlayer.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CMap.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CBullet.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="ImageResource.cpp" />
-    <ClCompile Include="Game\CEnemy.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CEffect.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CItem.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Global.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CScore.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CClear.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CFlag.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -44,31 +16,6 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\CPlayer.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CMap.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CBullet.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageResource.h" />
-    <ClInclude Include="Game\CEnemy.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CEffect.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CItem.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CScore.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CClear.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CFlag.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
