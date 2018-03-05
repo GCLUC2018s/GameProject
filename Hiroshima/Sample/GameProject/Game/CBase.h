@@ -24,7 +24,6 @@ protected:
 	int		m_state;
 	bool	m_move;
 	int		m_type;
-	int		m_changeanim_num;//アニメーションナンバー
 	float	m_color;		//色
 	static CVector2D m_scroll;
 
@@ -47,10 +46,6 @@ public:
 	}
 	CVector2D GetPos() {
 		return m_pos;
-	}
-	//アニメーションナンバーを取得
-	int GetAnimNum() {
-		return m_changeanim_num;
 	}
 
 	//当たったときに呼ばれる関数
