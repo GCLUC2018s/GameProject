@@ -11,7 +11,7 @@
 #include "../GameProject/Game/CBase.h"
 #include "../GameProject/Game/CPlayer.h"
 
-TexAnim _anim1[] = {
+TexAnim _anim0[] = {
 	{ 0,5 },
 	{ 1,5 },
 	{ 2,5 },
@@ -25,8 +25,17 @@ TexAnim _anim1[] = {
 	{ 10,5 },
 	{ 11,5 },
 };
+TexAnim _anim1[] = {
+	{ 52,5 },
+	{ 53,5 },
+	{ 54,5 },
+	{ 55,5 },
+	{ 56,5 },
+	{ 57,5 },
+};
 
 TexAnimData anim_data[] = {
+	ANIMDATA(_anim0),
 	ANIMDATA(_anim1),
 };
 CAnimImage image;
@@ -35,20 +44,12 @@ CBase* PL;
 
 
 void MainLoop(void) {
-	image_title.ChangeAnimation(0);
-	image_title.UpdateAnimation();
-	image_title.SetSize(1280, 720);
-	image_title.Draw();
-	image.ChangeAnimation(0);
-	image.UpdateAnimation();
-	image.SetSize(213, 256);
-	image.Draw();
 	PL->Update();
 	image_title.ChangeAnimation(0);
 	image_title.UpdateAnimation();
 	image_title.SetSize(1280, 720);
 	image_title.Draw();
-	image.ChangeAnimation(0);
+	image.ChangeAnimation(PL->GetAnimNum());
 	image.UpdateAnimation();
 	image.SetSize(213, 256);
 	image.SetPos(PL->GetPos());
