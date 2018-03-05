@@ -7,7 +7,7 @@
 */
 class CEnemy :public CBase {
 public:
-	CEnemy();
+	CEnemy(CVector2D pos);
 	~CEnemy();
 	virtual void Update();
 };
