@@ -16,6 +16,7 @@ void CEnemy::Update() {
 
 //ˆÈ‰º’Ç‰Á—p
 
+
 //Ÿˆ‚©‚ç
 
 //ADD_RESOURCE("Eenmy", CAnimImage::LoadImage("enemy.png", anim_enemy_data, 96, 96));
