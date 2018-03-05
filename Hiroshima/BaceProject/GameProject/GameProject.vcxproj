@@ -91,10 +91,12 @@
     <ClInclude Include="Game\CPlayer.h" />
     <ClInclude Include="GID.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="ImageResource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\CBase.cpp" />
     <ClCompile Include="Game\CPlayer.cpp" />
+    <ClCompile Include="ImageResource.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

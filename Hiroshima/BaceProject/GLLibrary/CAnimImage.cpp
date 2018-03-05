@@ -8,7 +8,7 @@ CAnimImage::CAnimImage() : m_animData(nullptr) {
 CAnimImage::~CAnimImage() {
 
 }
-CAnimImage* CAnimImage::LoadImage(const char* filename, TexAnimData *d, int width , int height) {
+CAnimImage* CAnimImage::LoadImage(const char* filename, TexAnimData *d, int width, int height) {
 	CAnimImage *img = new CAnimImage();
 	if (img->Load(filename, d, width, height)) {
 		return img;
@@ -65,7 +65,7 @@ void CAnimImage::AttachAnimationData(TexAnimData *d, int width, int height) {
 	m_pat_height = height;
 
 }
-void CAnimImage::ChangeAnimation(int num,  bool loop, int index, bool check) {
+void CAnimImage::ChangeAnimation(int num, bool loop, int index, bool check) {
 	if (!m_animData) return;
 	if (check) {
 		if (m_animJam == num) return;

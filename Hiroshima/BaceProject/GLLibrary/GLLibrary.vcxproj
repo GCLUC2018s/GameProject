@@ -83,6 +83,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CAnimImage.cpp" />
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="CCollision.cpp" />
     <ClCompile Include="CFont.cpp" />
@@ -110,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BmpFormat.h" />
+    <ClInclude Include="CAnimImage.h" />
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="CCollision.h" />
     <ClInclude Include="CFont.h" />

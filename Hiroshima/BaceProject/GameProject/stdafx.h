@@ -31,3 +31,4 @@
 #include <CResource.h>
 #include <CNetWork.h>
 
+#include "CAnimImage.h"

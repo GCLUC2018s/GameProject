@@ -15,7 +15,7 @@ struct TexAnim {
 
 #define ANIMDATA(data) { data,sizeof(data) / sizeof(data[0])}
 
-struct TexAnimData{
+struct TexAnimData {
 	TexAnim	*pData;
 	int		size;
 };
@@ -58,7 +58,7 @@ public:
 	@param	width		[in] 一枚当たりの幅
 	@param	height		[in] 一枚当たりの高さ
 	**/
-	CAnimImage(const CImage& img, TexAnimData *d=nullptr, int width=0, int height=0);
+	CAnimImage(const CImage& img, TexAnimData *d = nullptr, int width = 0, int height = 0);
 	/*!
 	@brief	コピーコンストラクタ
 	@param	img			[in] 読み込み済みの画像オブジェクト
@@ -82,7 +82,7 @@ public:
 	@param	width		[in] 一枚当たりの幅
 	@param	height		[in] 一枚当たりの高さ
 	**/
-	void AttachAnimationData(TexAnimData *d,int width, int height);
+	void AttachAnimationData(TexAnimData *d, int width, int height);
 	/*!
 	@brief	アニメーション切り替え
 	@param	num			[in] アニメーション番号
@@ -90,7 +90,7 @@ public:
 	@param	index		[in] 開始位置
 	@param	check		[in] 既に再生中なら切り替えない（再スタートしない）
 	**/
-	void ChangeAnimation(int num, bool loop = true, int index = 0,  bool check = true);
+	void ChangeAnimation(int num, bool loop = true, int index = 0, bool check = true);
 	/*!
 	@brief	アニメーション速度変更
 	@param	speed		[in] 再生速度（デフォルト1）
