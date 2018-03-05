@@ -23,7 +23,7 @@ void CEnemy::Update() {
 //ENE = new CEnemy();
 //
 //
-//
+//ENE->Update();
 //image_enemy.ChangeAnimation(0);
 //image_enemy.UpdateAnimation();
 //image_enemy.SetSize(213, 256);
