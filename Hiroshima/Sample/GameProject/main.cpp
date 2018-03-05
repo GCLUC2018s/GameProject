@@ -8,23 +8,16 @@
 #include "stdafx.h"
 #include "Global.h"
 #include "GID.h"
+#include "../GameProject/Game/CBase.h"
+#include "../GameProject/Game/CPlayer.h"
 
-TexAnim _anim1[] = {
-	{ 0,5 },
-	{ 1,5 },
-	{ 2,5 },
-};
-
-TexAnimData anim_data[] = {
-	ANIMDATA(_anim1),
-};
-CAnimImage image;
+CBase* PL;
 
 
 void MainLoop(void) {
-	image.ChangeAnimation(0);
-	image.UpdateAnimation();
-	image.Draw();
+	PL->Update();
+	PL->Draw();
+
 
 }
 void Init(void)
@@ -71,9 +64,9 @@ void Init(void)
 
 	CSound::GetInstance();
 //èâä˙âª
-	ADD_RESOURCE("Player", CAnimImage::LoadImage("player01.png", anim_data,144,120));
-	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
-	
+	PL = new CPlayer();
+
+
 
 }
 
@@ -148,6 +141,10 @@ int __main(int* argcp, char** argv) {
 	HDC glDc = wglGetCurrentDC();
 	GL::hWnd = WindowFromDC(glDc);
 
+
+	GLint tex_size[2];
+	glGetIntegerv(GL_MAX_TEXTURE_SIZE, tex_size);
+	printf("MaxTextureSize %d %d\n", tex_size[0], tex_size[1]);
 
 	Init();
 
