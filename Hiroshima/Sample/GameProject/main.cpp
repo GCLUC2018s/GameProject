@@ -35,6 +35,14 @@ CBase* PL;
 
 
 void MainLoop(void) {
+	image_title.ChangeAnimation(0);
+	image_title.UpdateAnimation();
+	image_title.SetSize(1280, 720);
+	image_title.Draw();
+	image.ChangeAnimation(0);
+	image.UpdateAnimation();
+	image.SetSize(213, 256);
+	image.Draw();
 	PL->Update();
 	image_title.ChangeAnimation(0);
 	image_title.UpdateAnimation();
@@ -95,7 +103,10 @@ void Init(void)
 	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png", anim_data,1280,720));
 	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
+	
 	PL = new CPlayer();
+
+
 
 }
 
