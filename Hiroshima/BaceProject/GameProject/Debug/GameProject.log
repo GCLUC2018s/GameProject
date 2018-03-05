@@ -1,0 +1,53 @@
+﻿  main.cpp
+c:\users\mitsu_91\desktop\baseproject\gllibrary\cvector.h(227): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\mitsu_91\desktop\baseproject\gllibrary\cshadow.h(40): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\mitsu_91\desktop\baseproject\gameproject\main.cpp(142): warning C4244: '=': 'LONGLONG' から 'long' への変換です。データが失われる可能性があります。
+c:\users\mitsu_91\desktop\baseproject\gameproject\main.cpp(145): warning C4244: '=': 'LONGLONG' から 'long' への変換です。データが失われる可能性があります。
+c:\users\mitsu_91\desktop\baseproject\gameproject\main.cpp(283): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  freeglut_static.lib(freeglut_init.obj) : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
+LINK : warning LNK4075: /INCREMENTAL は /LTCG の指定によって無視されます。
+main.obj : warning LNK4075: /EDITANDCONTINUE は /OPT:LBR の指定によって無視されます。
+     ライブラリ C:\Users\Mitsu_91\Desktop\BaseProject\Debug\GameProject.lib とオブジェクト C:\Users\Mitsu_91\Desktop\BaseProject\Debug\GameProject.exp を作成中
+  コード生成しています。
+  コード生成が終了しました。
+freeglut_static.lib(freeglut_init.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_init.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_main.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_main.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_window.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_window.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_display.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_display.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_callbacks.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_callbacks.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_geometry.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_geometry.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_state.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_state.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_input_devices.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_input_devices.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_structure.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_structure.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_joystick.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_joystick.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_gamemode.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_gamemode.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_cursor.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_cursor.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_menu.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_menu.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_spaceball.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_spaceball.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_font.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_font.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_font_data.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_font_data.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_stroke_mono_roman.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_stroke_mono_roman.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+freeglut_static.lib(freeglut_stroke_roman.obj) : warning LNK4099: PDB 'freeglut.pdb' が 'freeglut_static.lib(freeglut_stroke_roman.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\freeglut.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glewd.lib(glew.obj) : warning LNK4099: PDB 'glew.pdb' が 'glewd.lib(glew.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glew.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(adler32.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(adler32.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(crc32.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(crc32.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(glpng.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(glpng.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(infblock.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(infblock.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(infcodes.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(infcodes.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(inffast.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(inffast.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(inflate.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(inflate.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(inftrees.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(inftrees.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(infutil.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(infutil.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(png.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(png.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngerror.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngerror.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngget.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngget.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngmem.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngmem.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngread.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngread.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngrio.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngrio.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngrtran.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngrtran.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngrutil.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngrutil.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngset.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngset.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(pngtrans.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(pngtrans.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+glpngd.lib(zutil.obj) : warning LNK4099: PDB 'glpng.pdb' が 'glpngd.lib(zutil.obj)' で、または 'C:\Users\Mitsu_91\Desktop\BaseProject\Debug\glpng.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
+  GameProject.vcxproj -> C:\Users\Mitsu_91\Desktop\BaseProject\Debug\GameProject.exe
+  GameProject.vcxproj -> C:\Users\Mitsu_91\Desktop\BaseProject\Debug\GameProject.pdb (Full PDB)
