@@ -10,53 +10,14 @@
 #include "GID.h"
 #include "../GameProject/Game/CBase.h"
 #include "../GameProject/Game/CPlayer.h"
-//Ç±Ç±Ç©ÇÁ
-#include "../GameProject/Game/CGimmick.h"
 
-TexAnim _anim0[] = {
-	{ 0,5 },
-	{ 1,5 },
-	{ 2,5 },
-	{ 3,5 },
-	{ 4,5 },
-	{ 5,5 },
-	{ 6,5 },
-	{ 7,5 },
-	{ 8,5 },
-	{ 9,5 },
-	{ 10,5 },
-	{ 11,5 },
-};
-TexAnim _anim1[] = {
-	{ 52,5 },
-	{ 53,5 },
-	{ 54,5 },
-	{ 55,5 },
-	{ 56,5 },
-	{ 57,5 },
-};
-
-TexAnimData anim_data[] = {
-	ANIMDATA(_anim0),
-	ANIMDATA(_anim1),
-};
-
-CAnimImage image;
-CAnimImage image_title;
 CBase* PL;
 
 
 void MainLoop(void) {
 	PL->Update();
-	image_title.ChangeAnimation(0);
-	image_title.UpdateAnimation();
-	image_title.SetSize(1280, 720);
-	image_title.Draw();
-	image.ChangeAnimation(PL->GetAnimNum());
-	image.UpdateAnimation();
-	image.SetSize(213, 256);
-	image.SetPos(PL->GetPos());
-	image.Draw();
+	PL->Draw();
+
 
 }
 void Init(void)
@@ -103,11 +64,6 @@ void Init(void)
 
 	CSound::GetInstance();
 //èâä˙âª
-	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", anim_data,80,96));
-	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
-	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png", anim_data,1280,720));
-	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
-	
 	PL = new CPlayer();
 
 
