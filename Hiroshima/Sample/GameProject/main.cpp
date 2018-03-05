@@ -32,14 +32,14 @@ CAnimImage image_title;
 
 
 void MainLoop(void) {
-	image_title.ChangeAnimation(0);
-	image_title.UpdateAnimation();
-	image_title.SetSize(1280, 720);
-	image_title.Draw();
-	image.ChangeAnimation(0);
-	image.UpdateAnimation();
-	image.SetSize(213, 256);
-	image.Draw();
+	//image_title.ChangeAnimation(0);
+	//image_title.UpdateAnimation();
+	//image_title.SetSize(1280, 720);
+	//image_title.Draw();
+	//image.ChangeAnimation(0);
+	//image.UpdateAnimation();
+	//image.SetSize(213, 256);
+	//image.Draw();
 
 }
 void Init(void)
@@ -90,6 +90,8 @@ void Init(void)
 	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png", anim_data,1280,720));
 	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
+	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("enemy.png", anim_data, 80, 96));
+	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy"));
 	
 
 }
