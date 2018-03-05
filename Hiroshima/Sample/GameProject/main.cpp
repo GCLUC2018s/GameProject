@@ -41,6 +41,16 @@ void MainLoop(void) {
 	//image.SetSize(213, 256);
 	//image.Draw();
 
+	//“G
+	//image_enemy.ChangeAnimation(0);
+	//image_enemy.UpdateAnimation();
+	//image_enemy.SetSize(1280, 720);
+	//image_enemy.Draw();
+	//image.ChangeAnimation(0);
+	//image.UpdateAnimation();
+	//image.SetSize(213, 256);
+	//image.Draw();
+
 }
 void Init(void)
 {
