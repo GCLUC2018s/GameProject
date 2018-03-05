@@ -13,17 +13,32 @@ TexAnim _anim1[] = {
 	{ 0,5 },
 	{ 1,5 },
 	{ 2,5 },
+	{ 3,5 },
+	{ 4,5 },
+	{ 5,5 },
+	{ 6,5 },
+	{ 7,5 },
+	{ 8,5 },
+	{ 9,5 },
+	{ 10,5 },
+	{ 11,5 },
 };
 
 TexAnimData anim_data[] = {
 	ANIMDATA(_anim1),
 };
 CAnimImage image;
+CAnimImage image_title;
 
 
 void MainLoop(void) {
+	image_title.ChangeAnimation(0);
+	image_title.UpdateAnimation();
+	image_title.SetSize(1280, 720);
+	image_title.Draw();
 	image.ChangeAnimation(0);
 	image.UpdateAnimation();
+	image.SetSize(213, 256);
 	image.Draw();
 
 }
@@ -71,8 +86,10 @@ void Init(void)
 
 	CSound::GetInstance();
 //èâä˙âª
-	ADD_RESOURCE("Player", CAnimImage::LoadImage("player01.png", anim_data,144,120));
+	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", anim_data,80,96));
 	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
+	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png", anim_data,1280,720));
+	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
 	
 
 }
@@ -148,6 +165,10 @@ int __main(int* argcp, char** argv) {
 	HDC glDc = wglGetCurrentDC();
 	GL::hWnd = WindowFromDC(glDc);
 
+
+	GLint tex_size[2];
+	glGetIntegerv(GL_MAX_TEXTURE_SIZE, tex_size);
+	printf("MaxTextureSize %d %d\n", tex_size[0], tex_size[1]);
 
 	Init();
 
