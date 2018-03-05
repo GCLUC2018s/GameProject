@@ -16,6 +16,7 @@ void CEnemy::Update() {
 
 //ˆÈ‰º’Ç‰Á—p
 
+
 //Ÿˆ‚©‚ç
 
 //ADD_RESOURCE("Eenmy", CAnimImage::LoadImage("enemy.png", anim_enemy_data, 96, 96));
@@ -23,7 +24,7 @@ void CEnemy::Update() {
 //ENE = new CEnemy();
 //
 //
-//
+//ENE->Update();
 //image_enemy.ChangeAnimation(0);
 //image_enemy.UpdateAnimation();
 //image_enemy.SetSize(213, 256);

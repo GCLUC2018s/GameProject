@@ -10,6 +10,7 @@ CBase::CBase(int tag) {
 	m_active = true;
 	m_color = 0;
 	m_type = 0;
+	m_move = false;
 }
 CBase::~CBase() {
 
