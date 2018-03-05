@@ -10,6 +10,8 @@
 #include "GID.h"
 #include "../GameProject/Game/CBase.h"
 #include "../GameProject/Game/CPlayer.h"
+//‚±‚±‚©‚ç
+#include "../GameProject/Game/CGimmick.h"
 
 TexAnim _anim1[] = {
 	{ 0,5 },
@@ -29,20 +31,14 @@ TexAnim _anim1[] = {
 TexAnimData anim_data[] = {
 	ANIMDATA(_anim1),
 };
+
 CAnimImage image;
 CAnimImage image_title;
 CBase* PL;
 
 
 void MainLoop(void) {
-	image_title.ChangeAnimation(0);
-	image_title.UpdateAnimation();
-	image_title.SetSize(1280, 720);
-	image_title.Draw();
-	image.ChangeAnimation(0);
-	image.UpdateAnimation();
-	image.SetSize(213, 256);
-	image.Draw();
+
 	PL->Update();
 	image_title.ChangeAnimation(0);
 	image_title.UpdateAnimation();
