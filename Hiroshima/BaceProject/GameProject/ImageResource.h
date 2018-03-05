@@ -1,28 +1,49 @@
 #pragma once
 #include "stdafx.h"
 enum {
-	eImagePlayer,
-	eImageEnemy01,
-	eImageMap,
-	eImageBackGround,
+	eImageArrowDoor,
+	eImageArrowDown,
+	eImageArrowLeft,
+	eImageArrowUp,
+	eImageBackGround1,
+	eImageBackGround2,
+	eImageBackGround3,
+	eImageBackGround4,
+	eImageBackGround5,
+	eImageBackGround6,
+	eImageBackGround7,
+	eImageBlack,
+	eImageBlackLight,
 	eImageBullet,
-	eImageItem,
-	eImageNumber,
-	eImageFlag,
+	eImageButton,
 	eImageClear,
 	eImageEffect,
-	eImageEffectBomb,
-	eImageEffectSlash,
 	eImageEffectBlood,
+	eImageEffectBomb,
 	eImageEffectShotHit,
+	eImageEffectSlash,
 	eImageEffectSmoke,
+	eImageEnemy01,
+	eImageFlag,
+	eImageHollyWater,
+	eImageItem,
+	eImageLifeScreen,
+	eImageMark,
+	eImageMap,
+	eImageNumber,
+	eImagePanel,
+	eImagePlayer,
+	eImageShutter,
+	eImageTitle,
+	eImageWater,
+	eImageWord1,
 	eImageMax
 };
 extern CImage g_image[eImageMax];
 
 //!アニメーションの種類
 enum  {
-	eAnimIdle,
+	eAnimIdle = 0,
 	eAnimRun,
 	eAnimJumpUp,
 	eAnimJumpDown,
@@ -48,21 +69,27 @@ enum  {
 	eAnimExtAttack02End,
 	eAnimStep,
 };
-//player.pngのアニメーションデータ
-extern TexAnimData enemy01AnimData[];
-//enemy01.pngのアニメーションデータ
-extern TexAnimData playerAnimData[];
-//Effect_Bomb.pngのアニメーションデータ
-extern TexAnimData Effect_Bomb_AnimData[];
+//Arrowのアニメーションデータ
+extern TexAnimData Arrow_AnimData[];
 //Bullet.pngのアニメーションデータ
 extern TexAnimData bullet_anim_Data[];
-//Item.pngのアニメーションデータ
-extern TexAnimData Item01AnimData[];
-//Effect_Slash.pngのアニメーションデータ
-extern TexAnimData Effect_Slash_AnimData[];
 //Effect_Blood.pngのアニメーションデータ
 extern TexAnimData Effect_Blood_AnimData[];
+//Effect_Bomb.pngのアニメーションデータ
+extern TexAnimData Effect_Bomb_AnimData[];
 //Effect_ShotHit.pngのアニメーションデータ
 extern TexAnimData Effect_ShotHit_AnimData[];
+//Effect_Slash.pngのアニメーションデータ
+extern TexAnimData Effect_Slash_AnimData[];
 //Effect_Smoke.pngのアニメーションデータ
 extern TexAnimData Effect_Smoke_AnimData[];
+//player.pngのアニメーションデータ
+extern TexAnimData playerAnimData[];
+//Item.pngのアニメーションデータ
+extern TexAnimData Item01AnimData[];
+//Mark.pngのアニメーションデータ
+extern TexAnimData Mark_AnimData[];
+//panel.pngのアニメーションデータ
+extern TexAnimData Panel_AnimData[];
+//enemy.pngのアニメーションデータ
+extern TexAnimData enemy01AnimData[];
