@@ -126,11 +126,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\CBase.h" />
+    <ClInclude Include="Game\CPlayer.h" />
     <ClInclude Include="GID.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\CBase.cpp" />
+    <ClCompile Include="Game\CPlayer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
