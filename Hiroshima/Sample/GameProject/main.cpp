@@ -28,9 +28,14 @@ TexAnimData anim_data[] = {
 	ANIMDATA(_anim1),
 };
 CAnimImage image;
+CAnimImage image_title;
 
 
 void MainLoop(void) {
+	image_title.ChangeAnimation(0);
+	image_title.UpdateAnimation();
+	image_title.SetSize(1280, 720);
+	image_title.Draw();
 	image.ChangeAnimation(0);
 	image.UpdateAnimation();
 	image.SetSize(213, 256);
@@ -83,6 +88,8 @@ void Init(void)
 //èâä˙âª
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", anim_data,80,96));
 	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
+	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png", anim_data,1280,720));
+	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
 	
 
 }
