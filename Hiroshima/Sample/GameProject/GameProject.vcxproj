@@ -128,6 +128,7 @@
   <ItemGroup>
     <ClInclude Include="Game\CBase.h" />
     <ClInclude Include="Game\CEnemy.h" />
+    <ClInclude Include="Game\CGimmick.h" />
     <ClInclude Include="Game\CPlayer.h" />
     <ClInclude Include="GID.h" />
     <ClInclude Include="Global.h" />
@@ -136,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="Game\CBase.cpp" />
     <ClCompile Include="Game\CEnemy.cpp" />
+    <ClCompile Include="Game\CGimmick.cpp" />
     <ClCompile Include="Game\CPlayer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
