@@ -33,6 +33,12 @@
     <ClInclude Include="Game\CBase.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CEnemy.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CGimmick.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,6 +48,12 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\CBase.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CEnemy.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CGimmick.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>

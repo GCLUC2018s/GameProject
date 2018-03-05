@@ -8,33 +8,16 @@
 #include "stdafx.h"
 #include "Global.h"
 #include "GID.h"
+#include "../GameProject/Game/CBase.h"
+#include "../GameProject/Game/CPlayer.h"
 
-TexAnim _anim1[] = {
-	{ 0,5 },
-	{ 1,5 },
-	{ 2,5 },
-	{ 3,5 },
-	{ 4,5 },
-	{ 5,5 },
-	{ 6,5 },
-	{ 7,5 },
-	{ 8,5 },
-	{ 9,5 },
-	{ 10,5 },
-	{ 11,5 },
-};
-
-TexAnimData anim_data[] = {
-	ANIMDATA(_anim1),
-};
-CAnimImage image;
+CBase* PL;
 
 
 void MainLoop(void) {
-	image.ChangeAnimation(0);
-	image.UpdateAnimation();
-	image.SetSize(213, 256);
-	image.Draw();
+	PL->Update();
+	PL->Draw();
+
 
 }
 void Init(void)
@@ -81,9 +64,9 @@ void Init(void)
 
 	CSound::GetInstance();
 //èâä˙âª
-	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", anim_data,80,96));
-	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
-	
+	PL = new CPlayer();
+
+
 
 }
 
