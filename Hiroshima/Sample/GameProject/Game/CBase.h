@@ -10,6 +10,7 @@
 
 enum {
 	eTagPlayer,
+	eTagUI,
 };
 
 class CBase {

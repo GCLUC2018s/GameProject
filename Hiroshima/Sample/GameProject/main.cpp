@@ -10,6 +10,8 @@
 #include "GID.h"
 #include "../GameProject/Game/CBase.h"
 #include "../GameProject/Game/CPlayer.h"
+//‚±‚±‚©‚ç
+#include "../GameProject/Game/CGimmick.h"
 
 TexAnim _anim0[] = {
 	{ 0,5 },
@@ -38,6 +40,7 @@ TexAnimData anim_data[] = {
 	ANIMDATA(_anim0),
 	ANIMDATA(_anim1),
 };
+
 CAnimImage image;
 CAnimImage image_title;
 CBase* PL;
