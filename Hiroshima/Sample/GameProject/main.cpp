@@ -8,6 +8,8 @@
 #include "stdafx.h"
 #include "Global.h"
 #include "GID.h"
+#include "../GameProject/Game/CBase.h"
+#include "../GameProject/Game/CPlayer.h"
 
 TexAnim _anim1[] = {
 	{ 0,5 },
@@ -28,12 +30,28 @@ TexAnimData anim_data[] = {
 	ANIMDATA(_anim1),
 };
 CAnimImage image;
+CAnimImage image_title;
+CBase* PL;
 
 
 void MainLoop(void) {
+	image_title.ChangeAnimation(0);
+	image_title.UpdateAnimation();
+	image_title.SetSize(1280, 720);
+	image_title.Draw();
 	image.ChangeAnimation(0);
 	image.UpdateAnimation();
 	image.SetSize(213, 256);
+	image.Draw();
+	PL->Update();
+	image_title.ChangeAnimation(0);
+	image_title.UpdateAnimation();
+	image_title.SetSize(1280, 720);
+	image_title.Draw();
+	image.ChangeAnimation(0);
+	image.UpdateAnimation();
+	image.SetSize(213, 256);
+	image.SetPos(PL->GetPos());
 	image.Draw();
 
 }
@@ -83,7 +101,12 @@ void Init(void)
 //èâä˙âª
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", anim_data,80,96));
 	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
+	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png", anim_data,1280,720));
+	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
 	
+	PL = new CPlayer();
+
+
 
 }
 
