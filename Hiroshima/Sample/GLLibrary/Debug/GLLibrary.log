@@ -6,14 +6,14 @@
   CResource.cpp
   CMatrix.cpp
   CInput.cpp
-c:\users\mitsu_91\desktop\sample\gllibrary\cinput.cpp(124): warning C4244: '引数': 'LONG' から 'float' への変換です。データが失われる可能性があります。
+c:\users\oc\desktop\20180301~0325\gameproject\hiroshima\sample\gllibrary\cinput.cpp(124): warning C4244: 'argument': conversion from 'LONG' to 'float', possible loss of data
   CImage.cpp
   CFPS.cpp
   CFont.cpp
   CCollision.cpp
   CAnimImage.cpp
-c:\users\mitsu_91\desktop\sample\gllibrary\canimimage.cpp(23): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-  コードを生成中...
-  GLFW.lib(context.obj) : MSIL .netmodule または /GL を伴ってコンパイルされたモジュールが見つかりました。/LTCG を使用して再開始してください。リンカーのパフォーマンスを向上させるためには、コマンドラインに /LTCG を追加してください。
-glew.lib(visualinfo.obj) : warning LNK4006: _main は glew.lib(glewinfo.obj) で定義されています。2 つ目以降の定義は無視されます。
-  GLLibrary.vcxproj -> C:\Users\Mitsu_91\Desktop\Sample\Debug\GLLibrary.lib
+c:\users\oc\desktop\20180301~0325\gameproject\hiroshima\sample\gllibrary\canimimage.cpp(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  GLFW.lib(context.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+glew.lib(visualinfo.obj) : warning LNK4006: _main already defined in glew.lib(glewinfo.obj); second definition ignored
+  GLLibrary.vcxproj -> C:\Users\OC\Desktop\20180301~0325\GameProject\Hiroshima\Sample\Debug\GLLibrary.lib
