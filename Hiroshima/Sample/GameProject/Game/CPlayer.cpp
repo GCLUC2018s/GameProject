@@ -15,35 +15,52 @@ CPlayer::CPlayer():CBase(eTagPlayer){
 CPlayer::~CPlayer(){
 }
 
-void CPlayer::Update(){
-		m_move = false;
-	if (HOLD_UP) {
-		m_pos.y -= m_vec.y;
-		m_move = true;
+void CPlayer::Update() {
+	m_move = false;
+	m_squat = false;
+	if (HOLD_X) {
+		m_squat = true;
 	}
-	if (HOLD_DOWN) {
-		m_pos.y += m_vec.y;
-		m_move = true;
+	if (!m_squat) {
+		if (HOLD_UP) {
+			m_pos.y -= m_vec.y;
+			m_move = true;
+		}
+		if (HOLD_DOWN) {
+			m_pos.y += m_vec.y;
+			m_move = true;
+		}
+		if (HOLD_RIGHT) {
+			m_pos.x += m_vec.x;
+			m_move = true;
+			m_flipH = false;
+		}
+		if (HOLD_LEFT) {
+			m_pos.x -= m_vec.x;
+			m_move = true;
+			m_flipH = true;
+		}
 	}
-	if (HOLD_RIGHT) {
-		m_pos.x += m_vec.x;
-		m_move = true;
-		m_flipH = false;
-	}
-	if (HOLD_LEFT) {
-		m_pos.x -= m_vec.x;
-		m_move = true;
-		m_flipH = true;
-	}
-	if (PUSH_Z) {
+	//if (PUSH_Z) {
 
-	}
+	//}
 
-	if (m_move){
+	if (m_move) {
 		m_img.ChangeAnimation(eAnimDash);
-	}else {
+	}
+	else if (m_squat) {
+		m_img.ChangeAnimation(eAnimSquat);
+	}
+	else {
 		m_img.ChangeAnimation(eAnimIdol);
 	}
-	m_img.UpdateAnimation();
+	if (m_squat&&m_img.GetCount() == 1) {
+
+	}
+	else {
+		m_img.UpdateAnimation();
+	}
+
+
 
 }

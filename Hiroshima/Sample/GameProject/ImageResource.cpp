@@ -37,9 +37,15 @@ TexAnim _PL_jamp[] = {
 	{ 41,5 },
 	{ 42,5 },
 };
+TexAnim _PL_Squat[] = {
+	{ 23,5 },
+	{ 24,5 },
+};
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
 	ANIMDATA(_PL_dash),
+	ANIMDATA(_PL_jamp),
+	ANIMDATA(_PL_Squat),
 };
 
 TexAnim _ENE_anim[] = {

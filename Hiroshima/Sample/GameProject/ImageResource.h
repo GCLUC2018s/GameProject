@@ -6,8 +6,8 @@
 enum  {
 	eAnimIdol,
 	eAnimDash,
-	eAnimSquat,
 	eAnimJamp,
+	eAnimSquat,
 };
 //player.pngのアニメーションデータ
 extern TexAnimData player_AnimData[];
