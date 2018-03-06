@@ -1,6 +1,9 @@
-#pragma once
+#ifndef BASE_GUARD
+#define BASE_GUARD
+
 #include "../stdafx.h"
 #include "../Global.h"
+#include "../ImageResource.h"
 #include <list>
 
 /*
@@ -10,6 +13,8 @@
 
 enum {
 	eTagPlayer,
+	eTagEnemy,
+	eTagUI,
 };
 
 class CBase {
@@ -22,9 +27,11 @@ protected:
 	bool	m_active;		//¶‘¶ƒtƒ‰ƒO
 	int		m_cnt;			//ŠÔ
 	int		m_state;
+	bool	m_move;
 	int		m_type;
 	float	m_color;		//F
 	static CVector2D m_scroll;
+
 
 public:
 	CBase(int tag);
@@ -53,3 +60,5 @@ public:
 };
 
 extern std::list<CBase*> g_list;
+
+#endif // !BASE_GUARD

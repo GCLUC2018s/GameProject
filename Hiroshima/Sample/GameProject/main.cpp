@@ -8,38 +8,35 @@
 #include "stdafx.h"
 #include "Global.h"
 #include "GID.h"
+#include "Gamesource.h"
 
-TexAnim _anim1[] = {
-	{ 0,5 },
-	{ 1,5 },
-	{ 2,5 },
-	{ 3,5 },
-	{ 4,5 },
-	{ 5,5 },
-	{ 6,5 },
-	{ 7,5 },
-	{ 8,5 },
-	{ 9,5 },
-	{ 10,5 },
-	{ 11,5 },
-};
+/*
 
-TexAnimData anim_data[] = {
-	ANIMDATA(_anim1),
-};
-CAnimImage image;
-CAnimImage image_title;
+éÂÇ»ï“èWÅ@ã{˙±
+
+*/
+
+CBase* PL;
+CBase* ENE;
+CBase* GM1;
+CBase* GM2;
+CBase* GM3;
 
 
 void MainLoop(void) {
-	//image_title.ChangeAnimation(0);
-	//image_title.UpdateAnimation();
-	//image_title.SetSize(1280, 720);
-	//image_title.Draw();
-	//image.ChangeAnimation(0);
-	//image.UpdateAnimation();
-	//image.SetSize(213, 256);
-	//image.Draw();
+	//UpDate
+	PL->Update();
+	ENE->Update();
+	GM1->Update();
+	GM2->Update();
+	GM3->Update();
+	//Draw
+	PL->Draw();
+	ENE->Draw();
+	GM1->Draw();
+	GM2->Draw();
+	GM3->Draw();
+
 
 }
 void Init(void)
@@ -86,13 +83,17 @@ void Init(void)
 
 	CSound::GetInstance();
 //èâä˙âª
-	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", anim_data,80,96));
-	image = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
-	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png", anim_data,1280,720));
-	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
-	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("enemy.png", anim_data, 80, 96));
-	image_title = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy"));
-	
+	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", player_AnimData, 80, 96));
+	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("enemy.png", enemy_AnimData, 96, 96));
+	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
+
+	PL = new CPlayer();
+	ENE = new CEnemy(CVector2D(500,500));
+	GM1 = new CGimmick(CVector2D(500, 500));
+	GM2 = new CGimmick(CVector2D(250, 500));
+	GM3 = new CGimmick(CVector2D(500, 250));
+
+
 
 }
 

@@ -1,9 +1,17 @@
-#pragma once
-#include "CBase.h"
+#ifndef ENEMY_GUARD
+#define ENEMY_GUARD
 
+#include "CBase.h"
+/*
+
+êªçÏé“Å@ê¬ñÿ
+
+*/
 class CEnemy :public CBase {
 public:
-	CEnemy();
+	CEnemy(CVector2D pos);
 	~CEnemy();
 	virtual void Update();
 };
+
+#endif // !ENEMY_GUARD
