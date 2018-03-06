@@ -22,6 +22,21 @@ TexAnim _PL_dash[] = {
 	{ 56,5 },
 	{ 57,5 },
 };
+TexAnim _PL_jamp[] = {
+	{ 30,5 },
+	{ 31,5 },
+	{ 32,5 },
+	{ 33,5 },
+	{ 34,5 },
+	{ 35,5 },
+	{ 36,5 },
+	{ 37,5 },
+	{ 38,5 },
+	{ 39,5 },
+	{ 40,5 },
+	{ 41,5 },
+	{ 42,5 },
+};
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
 	ANIMDATA(_PL_dash),

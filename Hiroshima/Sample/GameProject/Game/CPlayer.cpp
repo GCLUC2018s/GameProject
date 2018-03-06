@@ -35,10 +35,14 @@ void CPlayer::Update(){
 		m_move = true;
 		m_flipH = true;
 	}
+	if (PUSH_Z) {
+
+	}
+
 	if (m_move){
-		m_img.ChangeAnimation(1);
+		m_img.ChangeAnimation(eAnimDash);
 	}else {
-		m_img.ChangeAnimation(0);
+		m_img.ChangeAnimation(eAnimIdol);
 	}
 	m_img.UpdateAnimation();
 
