@@ -28,6 +28,7 @@ protected:
 	int		m_cnt;			//ŠÔ
 	int		m_state;
 	bool	m_move;
+	bool	m_squat;
 	int		m_type;
 	float	m_color;		//F
 	static CVector2D m_scroll;

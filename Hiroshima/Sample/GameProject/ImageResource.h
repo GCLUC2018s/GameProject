@@ -4,10 +4,10 @@
 #include "stdafx.h"
 //!アニメーションの種類
 enum  {
-	eAnimUp,
-	eAnimDown,
-	eAnimLeft,
-	eAnimRight,
+	eAnimIdol,
+	eAnimDash,
+	eAnimJamp,
+	eAnimSquat,
 };
 //player.pngのアニメーションデータ
 extern TexAnimData player_AnimData[];
