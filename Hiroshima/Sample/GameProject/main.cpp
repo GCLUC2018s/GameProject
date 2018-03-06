@@ -8,15 +8,34 @@
 #include "stdafx.h"
 #include "Global.h"
 #include "GID.h"
-#include "../GameProject/Game/CBase.h"
-#include "../GameProject/Game/CPlayer.h"
+#include "Gamesource.h"
+
+/*
+
+éÂÇ»ï“èWÅ@ã{˙±
+
+*/
 
 CBase* PL;
+CBase* ENE;
+CBase* GM1;
+CBase* GM2;
+CBase* GM3;
 
 
 void MainLoop(void) {
+	//UpDate
 	PL->Update();
+	ENE->Update();
+	GM1->Update();
+	GM2->Update();
+	GM3->Update();
+	//Draw
 	PL->Draw();
+	ENE->Draw();
+	GM1->Draw();
+	GM2->Draw();
+	GM3->Draw();
 
 
 }
@@ -64,7 +83,15 @@ void Init(void)
 
 	CSound::GetInstance();
 //èâä˙âª
+	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", player_AnimData, 80, 96));
+	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("enemy.png", enemy_AnimData, 96, 96));
+	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
+
 	PL = new CPlayer();
+	ENE = new CEnemy(CVector2D(500,500));
+	GM1 = new CGimmick(CVector2D(500, 500));
+	GM2 = new CGimmick(CVector2D(250, 500));
+	GM3 = new CGimmick(CVector2D(500, 250));
 
 
 
