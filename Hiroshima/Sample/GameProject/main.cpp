@@ -21,16 +21,19 @@ CBase* ENE;
 CBase* GM1;
 CBase* GM2;
 CBase* GM3;
+CBase* TITLE;
 
 
 void MainLoop(void) {
 	//UpDate
+	TITLE->Update();
 	PL->Update();
 	ENE->Update();
 	GM1->Update();
 	GM2->Update();
 	GM3->Update();
 	//Draw
+	TITLE->Draw();
 	PL->Draw();
 	ENE->Draw();
 	GM1->Draw();
@@ -86,12 +89,14 @@ void Init(void)
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", player_AnimData, 80, 96));
 	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("enemy.png", enemy_AnimData, 96, 96));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
+	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 
 	PL = new CPlayer();
 	ENE = new CEnemy(CVector2D(500,500));
 	GM1 = new CGimmick(CVector2D(500, 500));
 	GM2 = new CGimmick(CVector2D(250, 500));
 	GM3 = new CGimmick(CVector2D(500, 250));
+	TITLE = new CTitle();
 
 
 
