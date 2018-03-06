@@ -79,14 +79,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CColorBall.cpp" />
     <ClCompile Include="CMain.cpp" />
-    <ClCompile Include="ColorBall.cpp" />
+    <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CColorBall.h" />
     <ClInclude Include="CMain.h" />
-    <ClInclude Include="ColorBall.h" />
-    <ClInclude Include="CVector2.h" />
+    <ClInclude Include="CRectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
