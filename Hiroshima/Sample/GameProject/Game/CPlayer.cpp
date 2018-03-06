@@ -7,7 +7,7 @@
 */
 
 CPlayer::CPlayer():CBase(eTagPlayer){
-	m_vec = CVector2D(3, 3);
+	m_vec = CVector2D(5, 5);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	m_img.SetSize(80 * 2, 96 * 2);
 }
