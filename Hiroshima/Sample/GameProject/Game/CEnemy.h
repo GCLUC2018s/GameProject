@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ENEMY_GUARD
+#define ENEMY_GUARD
+
 #include "CBase.h"
 /*
 
@@ -11,3 +13,5 @@ public:
 	~CEnemy();
 	virtual void Update();
 };
+
+#endif // !ENEMY_GUARD

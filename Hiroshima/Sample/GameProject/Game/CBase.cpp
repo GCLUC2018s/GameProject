@@ -11,6 +11,7 @@ CBase::CBase(int tag) {
 	m_color = 0;
 	m_type = 0;
 	m_move = false;
+	m_squat = false;
 }
 CBase::~CBase() {
 

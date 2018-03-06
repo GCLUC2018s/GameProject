@@ -16,6 +16,12 @@
     <Filter Include="Game">
       <UniqueIdentifier>{51cb08dc-2143-4751-867e-296fffbbad33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ImageResource">
+      <UniqueIdentifier>{47062110-11ed-4f2c-b20a-22c270f2ee18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Gamesource">
+      <UniqueIdentifier>{202c9150-3828-40e0-b2eb-b3f20124b074}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -39,6 +45,12 @@
     <ClInclude Include="Game\CGimmick.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="ImageResource.h">
+      <Filter>ImageResource</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamesource.h">
+      <Filter>Game\Gamesource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="Game\CGimmick.cpp">
       <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageResource.cpp">
+      <Filter>ImageResource</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

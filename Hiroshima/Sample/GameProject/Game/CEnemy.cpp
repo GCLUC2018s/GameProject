@@ -4,51 +4,34 @@
 êªçÏé“Å@ê¬ñÿ
 
 */
-CEnemy::CEnemy(CVector2D pos) :CBase(eTagPlayer) {
+CEnemy::CEnemy(CVector2D pos) :CBase(eTagEnemy) {
+	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy"));
+	m_img.SetSize(213, 256);
+	m_pos=pos;
+	
 }
 
 CEnemy::~CEnemy() {
 }
 
 void CEnemy::Update() {
+
+	if (m_pos.x < 0) {
+		m_flipH = true;
+	}
+
+	if (m_pos.x > 1280-213) {
+		m_flipH = false;
+	}
+
+	if (m_flipH) {
+		m_pos.x += 5;
+	}
+	else {
+		m_pos.x -= 5;
+	}
+	
+
+	m_img.ChangeAnimation(0);
+	m_img.UpdateAnimation();
 }
-
-
-//à»â∫í«â¡óp
-
-
-//çüèàÇ©ÇÁ
-
-//ADD_RESOURCE("Eenmy", CAnimImage::LoadImage("enemy.png", anim_enemy_data, 96, 96));
-//m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy"));
-//ENE = new CEnemy(CVector2D(500,500));
-//
-//
-//ENE->Update();
-
-
-//m_img.ChangeAnimation(0);
-//m_img.UpdateAnimation();
-//m_img.SetSize(213, 256);
-//m_pos=pos;
-//
-//
-//
-//
-//CBase* ENE;
-//
-//
-//TexAnim _anim_enemy[] = {
-//	{ 4,5 },
-//	{ 5,5 },
-//	{ 6,5 },
-//	{ 7,5 },
-//
-//};
-//
-//TexAnimData anim_enemy_data[] = {
-//	ANIMDATA(_anim_enemy),
-//};
-//
-
-//#include "../GameProject/Game/CEnemy.h"
