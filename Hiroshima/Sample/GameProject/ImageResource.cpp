@@ -108,6 +108,7 @@ TexAnim _GI_fire[] = {
 	{ 45,1 },
 	{ 46,1 },
 	{ 47,1 },
+	{ 48,1 },
 };
 TexAnimData fire_Animdata[] = {
 	ANIMDATA(_GI_fire),

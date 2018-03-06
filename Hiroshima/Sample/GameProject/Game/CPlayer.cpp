@@ -47,11 +47,9 @@ void CPlayer::Update() {
 
 	if (m_move) {
 		m_img.ChangeAnimation(eAnimDash);
-	}
-	else if (m_squat) {
+	}else if (m_squat) {
 		m_img.ChangeAnimation(eAnimSquat);
-	}
-	else {
+	}else {
 		m_img.ChangeAnimation(eAnimIdol);
 	}
 	if (m_squat&&m_img.GetCount() == 1) {
