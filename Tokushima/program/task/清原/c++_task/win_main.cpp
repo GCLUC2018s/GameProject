@@ -1,63 +1,48 @@
-#include "myLib.h"
-#include "main.h"
+#include "DxLib.h"
+#include "math.h"
+#include <list>
 
-//ローカル変数
-CMain*		g_pMain = NULL;
-const bool	WINDOW_SCREEN = true;
+#include "player.h"
+#include "task.h"
+#include "taskmanager.h"
 
-//ローカル関数
-void win_main_init();
-void win_main_loop();
-void win_main_dest();
+using namespace std;
 
 //ウィンドウ画面のメイン
-int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevinstance, LPSTR IpCmdLine,
-	int nShowCmd)
+int WINAPI WinMain(HINSTANCE hl, HINSTANCE hP, LPSTR IpC,
+	int nC)
 {
-	win_main_init();
+	ChangeWindowMode(TRUE);
+	SetGraphMode(800, 600, 32);
+	SetMainWindowText("サンプルプログラム");
 
-	while (true){
-		win_main_loop();
-#if defined( _DEBUG ) | defined( DEBUG )
-		if (CheckHitKey(KEY_INPUT_ESCAPE) == 1) exit(-1);
-#endif
+	//DXライブラリ初期化
+	if (DxLib_Init() == -1)return -1;
+
+	// グラフィックの描画先を裏画面にセット
+	SetDrawScreen(DX_SCREEN_BACK);
+	
+	int color_white = GetColor(255, 255, 255);//色取得
+	int time = 1;
+	
+	//考え方.TaskManagerからTaskのupdate()を呼び出しています
+	TaskManager *tm = new TaskManager();
+
+	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0){
+		ClearDrawScreen();
+
+		for (int i = 0; i < 10; i++){
+			tm->BTask = new Player();
+			
+		}
+		tm->update();
+		//ここまで
+
+		ScreenFlip();
 	}
-	win_main_dest();
-}
+	delete tm->BTask;
 
-//メインの初期化処理
-
-void win_main_init()
-{
-	//DirectX関係
-
-	ChangeWindowMode(WINDOW_SCREEN);
-	if (WINDOW_SCREEN)
-	{
-		SetGraphMode(800, 600, 32);
-		SetMainWindowText(_T("テストプログラム"));
-	}
-	if (DxLib_Init() == -1)		//ライブラリの初期化処理
-		return;
-
-	//GAME関係
-	g_pMain = new CMain();
-	g_pMain->Init();
-}
-
-//メインループ処理
-void win_main_loop()
-{
-	//メイン処理
-	g_pMain->Update();
-	g_pMain->Draw();
-	ScreenFlip();
-}
-
-//メイン終了処理
-void win_main_dest()
-{
-	g_pMain->Dest();
-	delete g_pMain;
-	g_pMain = NULL;
+	//DXライブラリの終了処理
+	DxLib_End();
+	return 0;
 }
