@@ -1,0 +1,21 @@
+
+screen.hでスクリーンの属性クラスを作成
+class CScreen
+enum SCREEN
+
+
+game.h
+game.cppでゲーム全体の制御、各シーンの処理を行う
+
+プロトタイプ作成し
+enum SCREEN;
+class CScreen;
+
+class CGameを作成
+private:
+	CScreen* m_pScreen;
+	SCREEN m_now_screen;
+
+game.cpp
+
+　m_now_screenにscreenのclass を参照して使用
