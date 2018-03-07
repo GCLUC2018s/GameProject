@@ -1,0 +1,38 @@
+オブジェクトが死んだとき
+　死んだオブジェクト（以下　ｔ）がTopの場合
+	Top = ｔの次のオブジェクト
+
+　ｔが中間
+	t　＝　ｔの次のオブジェクト
+　ｔがEnd
+	t　＝　Topのオブジェクト
+	
+で、元のｔは死ぬ
+			/*
+			if(t->m_activ == false && t == TOP){
+				TOP = t->next;
+			}
+			*/
+if(t->m_activ == false && t->next){
+	m_next = t->next;
+}
+if(t->m_activ == false && t == END){
+	m_next = TOP;
+}
+delete t;
+t = m_next;
+
+if(t->m_rect.bottom > t_next->m_rect.bottom){
+t = w;
+t = t_next;
+t_next = w;
+}
+
+
+新しいオブジェクトを途中に入れたい
+int 希望番号 5;
+if(希望番号 != null){
+	new希望番号-1の位置のオブジェクトをtにして
+	new_obj->next = t->next;
+	t->next = new_obj;
+}
