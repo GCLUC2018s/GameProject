@@ -54,6 +54,9 @@
     <ClInclude Include="Game\CTitle.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CEnemy1.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,6 +78,9 @@
       <Filter>ImageResource</Filter>
     </ClCompile>
     <ClCompile Include="Game\CTitle.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CEnemy1.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
