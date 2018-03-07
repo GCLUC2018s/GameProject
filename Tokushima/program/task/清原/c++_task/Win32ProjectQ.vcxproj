@@ -11,24 +11,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="gameclear_screen.cpp" />
-    <ClCompile Include="game_screen.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="gameover_screen.cpp" />
-    <ClCompile Include="gametitle_screen.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="task.cpp" />
+    <ClCompile Include="taskmanager.cpp" />
     <ClCompile Include="win_main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h" />
-    <ClInclude Include="gameover_screen.h" />
-    <ClInclude Include="game_data.h" />
-    <ClInclude Include="game_screen.h" />
-    <ClInclude Include="main.h" />
-    <ClInclude Include="screen.h" />
-    <ClInclude Include="gameclear_screen.h" />
-    <ClInclude Include="gametitle_screen.h" />
-    <ClInclude Include="myLib.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="stdlibrary.h" />
+    <ClInclude Include="task.h" />
+    <ClInclude Include="taskmanager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1501E368-312A-4362-AD24-4176DB647B66}</ProjectGuid>
