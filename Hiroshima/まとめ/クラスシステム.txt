@@ -1,0 +1,74 @@
+Task.h / Task.cpp
+
+// タスク（個々の処理）
+class Task
+{
+    bool    m_kill;
+    
+    virutla void    Update()
+    {
+        printf("a");
+    }
+}
+
+
+TaskManager.h / TaskManager.cpp
+
+// タスクを管理
+class TaskManager
+{
+
+    Update()
+    {
+        // そのフレームに登録済みのすべてのTaskのUpdateを呼ぶ
+
+        // 死亡処理
+        //    (前後のリストをつなぎなおし)
+        //    (削除 delete)
+    }
+}
+
+
+class    Player : public Task
+{
+    virtual void    Update()
+    {
+        printf( "player");
+    }
+};
+
+
+
+C++ コンソールプロジェクト
+
+main()
+{
+    TaskManager    *tm = new TaskManager();
+
+    for ( int i=0; i < 10; ++i ) {
+        new Task();
+    }    
+
+    
+    tm->Update();
+
+}
+
+
+
+①Task/ TaskManagerをまずは制作
+    ↓
+    テスト
+
+
+②Taskを継承したクラスを制作
+    ↓
+    テスト
+
+③Taskの削除を制作
+    ↓
+    テスト
+
+④Taskの処理順序を制御
+    ↓
+    テスト

@@ -9,7 +9,8 @@
 CPlayer::CPlayer():CBase(eTagPlayer){
 	m_vec = CVector2D(5, 5);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
-	m_img.SetSize(80 * 2, 96 * 2);
+	m_img.SetSize(256,256);
+	m_img.SetFlipH(m_flipH);
 }
 
 CPlayer::~CPlayer(){
@@ -58,7 +59,10 @@ void CPlayer::Update() {
 	else {
 		m_img.UpdateAnimation();
 	}
+}
 
-
-
+void CPlayer::Draw(){
+	m_img.SetFlipH(!m_flipH);
+	m_img.SetPos(m_pos - m_scroll);
+	m_img.Draw();
 }

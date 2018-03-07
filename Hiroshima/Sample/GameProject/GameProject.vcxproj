@@ -129,6 +129,7 @@
     <ClInclude Include="Gamesource.h" />
     <ClInclude Include="Game\CBase.h" />
     <ClInclude Include="Game\CEnemy.h" />
+    <ClInclude Include="Game\CEnemy2.h" />
     <ClInclude Include="Game\CGimmick.h" />
     <ClInclude Include="Game\CPlayer.h" />
     <ClInclude Include="Game\CTitle.h" />
@@ -140,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Game\CBase.cpp" />
     <ClCompile Include="Game\CEnemy.cpp" />
+    <ClCompile Include="Game\CEnemy2.cpp" />
     <ClCompile Include="Game\CGimmick.cpp" />
     <ClCompile Include="Game\CPlayer.cpp" />
     <ClCompile Include="Game\CTitle.cpp" />
