@@ -12,7 +12,7 @@ class CEnemy1 :public CBase {
 public:
 	CEnemy1(CVector2D pos);
 	~CEnemy1();
-	virtual void Update();
+	void Update();
 };
 
 
