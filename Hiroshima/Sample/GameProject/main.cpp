@@ -86,7 +86,7 @@ void Init(void)
 
 	CSound::GetInstance();
 //èâä˙âª
-	ADD_RESOURCE("Player", CAnimImage::LoadImage("player1.png", player_AnimData, 80, 96));
+	ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("enemy.png", enemy_AnimData, 96, 96));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));

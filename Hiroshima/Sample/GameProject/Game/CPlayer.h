@@ -13,7 +13,9 @@ class CPlayer :public CBase {
 public:
 	CPlayer();
 	~CPlayer();
-	virtual void Update();
+	 void Update();
+	 void Draw();
+
 };
 
 #endif // !PLAYER_GUARD

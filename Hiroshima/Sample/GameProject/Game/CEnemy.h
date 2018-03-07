@@ -11,7 +11,7 @@ class CEnemy :public CBase {
 public:
 	CEnemy(CVector2D pos);
 	~CEnemy();
-	virtual void Update();
+	void Update();
 };
 
 #endif // !ENEMY_GUARD

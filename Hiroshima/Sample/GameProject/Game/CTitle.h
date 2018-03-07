@@ -13,7 +13,7 @@ class CTitle :public CBase {
 public:
 	CTitle();
 	~CTitle();
-	virtual void Update();
+	void Update();
 };
 
 #endif // !TITLE_GUARD
