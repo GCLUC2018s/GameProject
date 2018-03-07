@@ -6,10 +6,12 @@ struct Vector3 {
 	float x, y, z;
 };
 
-Vector3 Update( Vector3 pos, Vector3 speed, Vector3 gravity) {
-	pos.x += speed.x;
-	pos.y += speed.y + gravity.y / 2;
-	pos.z += speed.z;
+Vector3 Update( Vector3 pos, Vector3 speed, Vector3 gravity, float time) {
+	//‘¬“x
+	//ˆÊ’u
+	pos.x += speed.x * time;
+	pos.y += speed.y * time + (gravity.y * time ) / 2;
+	pos.z += speed.z * time;
 	return pos;
 }
 
@@ -27,8 +29,8 @@ void main() {
 	gravity.y = -9.8f;
 	gravity.z = 0.0f;
 	//1•b
-	for (int i = 0; i < 5 ; ++i) {
-		pos = Update(pos, speed, gravity);
+	for (int i = 0; i < 5 * FPS ; ++i) {
+		pos = Update(pos, speed, gravity, 1.0f / (float)FPS);
 	}
 	printf("%f %f %f", pos.x, pos.y, pos.z);
 	getchar();

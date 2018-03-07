@@ -12,7 +12,7 @@ class CGimmick :public CBase {
 public:
 	CGimmick(CVector2D pos);
 	~CGimmick();
-	virtual void Update();
+	void Update();
 };
 
 #endif // !GIMMICK_GUARD
