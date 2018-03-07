@@ -1,6 +1,9 @@
-#pragma once
+#ifndef BASE_GUARD
+#define BASE_GUARD
+
 #include "../stdafx.h"
 #include "../Global.h"
+#include "../ImageResource.h"
 #include <list>
 
 /*
@@ -10,6 +13,8 @@
 
 enum {
 	eTagPlayer,
+	eTagEnemy,
+	eTagUI,
 };
 
 class CBase {
@@ -23,8 +28,8 @@ protected:
 	int		m_cnt;			//時間
 	int		m_state;
 	bool	m_move;
+	bool	m_squat;
 	int		m_type;
-	int		m_changeanim_num;//アニメーションナンバー
 	float	m_color;		//色
 	static CVector2D m_scroll;
 
@@ -48,10 +53,6 @@ public:
 	CVector2D GetPos() {
 		return m_pos;
 	}
-	//アニメーションナンバーを取得
-	int GetAnimNum() {
-		return m_changeanim_num;
-	}
 
 	//当たったときに呼ばれる関数
 	virtual void HitCallback(CBase* b);
@@ -60,3 +61,5 @@ public:
 };
 
 extern std::list<CBase*> g_list;
+
+#endif // !BASE_GUARD
