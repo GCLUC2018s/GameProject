@@ -1,6 +1,7 @@
 #include "CTaskManager.h"
 #include "CTask.h"
 #include "CTaskLinker.h"
+#include "../CBullet.h"
 
 
 CTaskManager* CTaskManager::mp_instance = nullptr;
@@ -142,6 +143,9 @@ void CTaskManager::UpdateAll()
 	while ( p )
 	{
 		p->mp_task->Update();
+		if (p->mp_task->GetBulletFlag()) {
+			Add(new CBullet(p->mp_task->m_pos));
+		}
 		p = p->mp_next;
 	}
 }

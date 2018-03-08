@@ -9,14 +9,15 @@
 #include "Global.h"
 #include "GID.h"
 #include "Gamesource.h"
+#include "../GameProject/Game/Player/player.h"
 #include "Task\CTask.h"
+#include "Task\CTaskManager.h"
 
-
+CTaskManager* PM;
 
 void MainLoop(void) {
-	
-
-
+	PM->UpdateAll();
+	PM->DrawAll();
 }
 void Init(void)
 {
@@ -62,8 +63,9 @@ void Init(void)
 
 	CSound::GetInstance();
 //‰Šú‰»
-	//ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
-
+	PM = CTaskManager::GetInstance();
+	ADD_RESOURCE("Player", CAnimImage::LoadImage("RMAKE.png"));
+	PM->Add(new CPlayer());
 }
 
 

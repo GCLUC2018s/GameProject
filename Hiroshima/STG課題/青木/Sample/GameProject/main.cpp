@@ -10,16 +10,21 @@
 #include "GID.h"
 #include "Gamesource.h"
 #include "Task\CTask.h"
+#include "Task\CTaskManager.h"
+#include "GAME/CPlayer.h"
 
-
+CTaskManager *LIST;
 
 void MainLoop(void) {
-	
+	LIST->UpdateAll();
+	LIST->DrawAll();
 
 
 }
 void Init(void)
 {
+	
+
 	glClearColor(1.0, 1.0, 1.0, 1.0);
 
 	glEnable(GL_DEPTH_TEST);
@@ -62,8 +67,10 @@ void Init(void)
 
 	CSound::GetInstance();
 //‰Šú‰»
+	LIST = CTaskManager::GetInstance();
 	//ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
-
+	ADD_RESOURCE("Player", CAnimImage::LoadImage("RMAKE_________.png"));
+	LIST->Add(new CPlayer());
 }
 
 

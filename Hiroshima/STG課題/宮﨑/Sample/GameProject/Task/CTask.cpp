@@ -20,6 +20,11 @@ CTask::CTask(int id, int updatePrio, int drawPrio) :
 	m_updLinker(updatePrio,this),
 	m_drwLinker(drawPrio,this)
 {
+	m_pos = CVector2D(0,0);
+	m_vec = CVector2D(0,0);
+	m_rect = CRect(0,0,0,0);
+	m_activ = true;
+	m_bullet_on = false;
 	printf( "CTask[ %5d ] Prio( %d / %d )\n", id, updatePrio, drawPrio );
 	//É^ÉXÉNçÏê¨å„ÅAé©ìÆÇ≈ManagerÇ…ìoò^
 	CTaskManager::GetInstance()->Add(this);
@@ -31,11 +36,13 @@ CTask::~CTask()
 void CTask::Update()
 {
 	//îhê∂êÊÇ≈íËã`
-	printf( "Update[%3d] PRIO:%6d\n", m_id, m_updLinker.GetPriority() );
+	//printf( "Update[%3d] PRIO:%6d\n", m_id, m_updLinker.GetPriority() );
 }
 void CTask::Draw()
 {
-	printf( "Draw[%3d] PRIO:%6d\n", m_id, m_drwLinker.GetPriority() );	
+	m_img.SetPos(m_pos);
+	m_img.Draw();
+	//printf( "Draw[%3d] PRIO:%6d\n", m_id, m_drwLinker.GetPriority() );	
 }
 
 

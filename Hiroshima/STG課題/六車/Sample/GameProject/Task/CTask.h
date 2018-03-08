@@ -8,6 +8,8 @@
 #define TASK_GUARD
 
 #include "CTaskLinker.h"
+#include"CAnimImage.h"
+#include"../Global.h"
 
 
 //更新順序
@@ -36,7 +38,6 @@ protected:
 	bool m_destroyFlg;				//削除フラグ
 	bool m_pauseFlg;				//更新停止フラグ
 	int m_id;
-
 	CTaskLinker		m_updLinker;		// Update用のCTaskLinker 
 	CTaskLinker		m_drwLinker;		// Draw用のCTaskLinker 
 
@@ -46,6 +47,13 @@ public:
 	virtual ~CTask();				//CTaskクラスのデストラクタ
 	virtual void Update();			//派生先クラスでの更新を行う関数
 	virtual void Draw();			//派生先クラスでの描写を行う関数
+	bool	m_flipH;		//反転フラグ
+	bool	m_active;		//生存フラグ
+	bool	m_move;
+	CAnimImage	m_img;		//画像オブジェクト
+	CVector2D	m_pos;		//座標
+	CVector2D	m_vec;		//移動量
+	CRect	m_rect;			//当たり判定用短形
 
 	//更新順位取得関数
 	int GetUpdatePrio() const;

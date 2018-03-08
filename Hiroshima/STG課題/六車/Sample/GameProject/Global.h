@@ -5,8 +5,8 @@
 * @brief	ã§í ÉfÅ[É^
 **/
 
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 720
+#define SCREEN_WIDTH 500
+#define SCREEN_HEIGHT 800
 
 #define HOLD_UP		CInput::GetState(0, CInput::eHold, CInput::eUp)
 #define HOLD_DOWN	CInput::GetState(0, CInput::eHold, CInput::eDown)

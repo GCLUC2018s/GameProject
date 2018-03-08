@@ -8,6 +8,8 @@
 #define TASK_GUARD
 
 #include "CTaskLinker.h"
+#include "CAnimImage.h"
+#include "../Global.h"
 
 
 //更新順序
@@ -43,9 +45,21 @@ protected:
 public:
 	CTask();						//CTaskクラスのコンストラクタ
 	CTask(int id, int updateprio, int drawPrio);
+	CAnimImage m_img;
+	CVector2D m_pos;
+	CVector2D m_vec;
+	CRect m_rect;
+	bool m_bullet_on;
+	CRect m_BG_rect = CRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
+	bool m_activ;
 	virtual ~CTask();				//CTaskクラスのデストラクタ
 	virtual void Update();			//派生先クラスでの更新を行う関数
 	virtual void Draw();			//派生先クラスでの描写を行う関数
+
+	//弾発射フラグ取得
+	bool GetBulletFlag() {
+		return m_bullet_on;
+	}
 
 	//更新順位取得関数
 	int GetUpdatePrio() const;
