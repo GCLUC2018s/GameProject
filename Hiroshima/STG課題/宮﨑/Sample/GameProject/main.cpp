@@ -16,6 +16,7 @@
 void MainLoop(void) {
 	CTaskManager::GetInstance()->UpdateAll();
 	CTaskManager::GetInstance()->DrawAll();
+	CTaskManager::GetInstance()->KillAppoint();
 }
 void Init(void)
 {
@@ -64,9 +65,9 @@ void Init(void)
 	ADD_RESOURCE("TIP", CAnimImage::LoadImage("RMAKE_________.png"));
 	ADD_RESOURCE("BG", CAnimImage::LoadImage("unnamed.png"));
 
-	new CBG();
 	new CPlayer();
 	new CEnemy();
+	new CBG();
 }
 
 

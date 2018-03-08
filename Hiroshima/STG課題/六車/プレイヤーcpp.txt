@@ -1,4 +1,4 @@
-#include "player.h"
+#include "CPlayer.h"
 
 CPlayer::CPlayer(){
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
