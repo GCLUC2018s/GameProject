@@ -5,3 +5,5 @@ Debug
 Release
 *.db
 *.sdf
+/Hiroshima/Program/Task/Task.VC.VC.opendb
+*.vcxproj
