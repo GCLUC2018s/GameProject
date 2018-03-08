@@ -53,7 +53,7 @@ void CPlayer::Update() {
 			m_anim = 4;
 			m_pos.x++;
 
-		}
+			}
 	}else{
 		m_anim = 0;
 	}
