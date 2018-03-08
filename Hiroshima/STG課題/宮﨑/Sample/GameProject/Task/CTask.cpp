@@ -24,7 +24,6 @@ CTask::CTask(int id, int updatePrio, int drawPrio) :
 	m_vec = CVector2D(0,0);
 	m_rect = CRect(0,0,0,0);
 	m_activ = true;
-	m_bullet_on = false;
 	printf( "CTask[ %5d ] Prio( %d / %d )\n", id, updatePrio, drawPrio );
 	//ƒ^ƒXƒNì¬ŒãAŽ©“®‚ÅManager‚É“o˜^
 	CTaskManager::GetInstance()->Add(this);

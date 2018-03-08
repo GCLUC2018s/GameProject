@@ -66,7 +66,7 @@
     <ClInclude Include="Game\CEnemy\CEnemy.h">
       <Filter>Game\CEnemy</Filter>
     </ClInclude>
-    <ClInclude Include="CBullet.h">
+    <ClInclude Include="Game\CBullet\CBullet.h">
       <Filter>Game\CBullet</Filter>
     </ClInclude>
   </ItemGroup>
@@ -90,10 +90,10 @@
       <Filter>Game\CBG</Filter>
     </ClCompile>
     <ClCompile Include="Game\CEnemy\CEnemy.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>Game\CEnemy</Filter>
     </ClCompile>
-    <ClCompile Include="CBullet.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Game\CBullet\CBullet.cpp">
+      <Filter>Game\CBullet</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

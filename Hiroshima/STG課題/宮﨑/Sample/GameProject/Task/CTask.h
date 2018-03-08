@@ -19,6 +19,7 @@ enum E_UpdatePrio
 	eUDP_Player,
 	eUDP_Camera,
 	eUDP_Enemy,
+	eUDP_Bullet,
 	eUDP_Map,
 	eUDP_Null,
 };
@@ -28,9 +29,21 @@ enum E_DrawPrio
 	eDWP_Map,
 	eDWP_Player,
 	eDWP_Enemy,
+	eDWP_Bullet,
 	eDWP_Tutorial,
 	eDWP_Null,
 };
+//ID
+enum E_IDPrio
+{
+	eID_Map,
+	eID_Player,
+	eID_Enemy,
+	eID_Bullet,
+	eID_Tutorial,
+	eID_Null,
+};
+
 
 class CTask
 {
@@ -49,23 +62,16 @@ public:
 	CVector2D m_pos;
 	CVector2D m_vec;
 	CRect m_rect;
-	bool m_bullet_on;
 	CRect m_BG_rect = CRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
 	bool m_activ;
 	virtual ~CTask();				//CTaskクラスのデストラクタ
 	virtual void Update();			//派生先クラスでの更新を行う関数
 	virtual void Draw();			//派生先クラスでの描写を行う関数
 
-	//弾発射フラグ取得
-	bool GetBulletFlag() {
-		return m_bullet_on;
-	}
-
 	//更新順位取得関数
 	int GetUpdatePrio() const;
 	//描画順位取得関数
 	int GetDrawPrio() const;
-
 	//更新順位変更
 	void ChangeUpdatePrio(int updatePrio);
 	//描画順位変更

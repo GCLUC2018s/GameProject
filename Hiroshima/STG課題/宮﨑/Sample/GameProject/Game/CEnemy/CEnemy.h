@@ -7,6 +7,7 @@ class CEnemy :public CTask
 {
 public:
 	CEnemy();
+	~CEnemy();
 	void Update();
 
 

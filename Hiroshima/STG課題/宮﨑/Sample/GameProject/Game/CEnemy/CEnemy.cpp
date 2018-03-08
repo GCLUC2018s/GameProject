@@ -1,6 +1,6 @@
 #include "CEnemy.h"
 
-CEnemy::CEnemy()
+CEnemy::CEnemy() : CTask(eID_Enemy, eUDP_Enemy, eDWP_Enemy)
 {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("TIP"));
 	m_img.SetRect(0, 64, 64, 128);
@@ -10,7 +10,15 @@ CEnemy::CEnemy()
 	m_rect = CRect(0, 0, 64, 64);
 }
 
+CEnemy::~CEnemy()
+{
+	new CEnemy();
+}
+
 void CEnemy::Update()
 {
 	m_pos.y += m_vec.y;
+	if (m_pos.y + m_rect.m_top > SCREEN_HEIGHT) {
+		SetKill();
+	}
 }
