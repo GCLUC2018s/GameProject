@@ -15,6 +15,8 @@ public:
 	~CPlayer();
 	 void Update();
 	 void Draw();
+private:
+	bool m_punch;
 
 };
 

@@ -7,13 +7,11 @@
 class Task
 {
 public:
-	Task() {
-		TaskManager::m_instan->Add(this);
-	};
-	virtual void Update() {
-		printf("Task\n");
-	};
+	Task();
+	virtual void Update();
 	bool m_kill;
+	Task* m_next;
+	Task* m_prev;
 
 };
 #endif // !TASK_GUARD
