@@ -10,13 +10,13 @@
 #include "GID.h"
 #include "Gamesource.h"
 #include "Task\CTask.h"
+#include "Task\CTaskManager.h"
 
-
+CTaskManager* TM_a;
 
 void MainLoop(void) {
-	
-
-
+	TM_a->UpdateAll();
+	TM_a->DrawAll();
 }
 void Init(void)
 {
@@ -62,8 +62,12 @@ void Init(void)
 
 	CSound::GetInstance();
 //‰Šú‰»
-	//ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
-
+	ADD_RESOURCE("TIP", CAnimImage::LoadImage("RMAKE_________.png"));
+	ADD_RESOURCE("BG", CAnimImage::LoadImage("unnamed.png"));
+	TM_a = CTaskManager::GetInstance();
+	TM_a->Add(new CBG());
+	TM_a->Add(new CPlayer());
+	TM_a->Add(new CEnemy());
 }
 
 
