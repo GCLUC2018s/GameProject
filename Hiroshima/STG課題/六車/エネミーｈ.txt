@@ -1,0 +1,12 @@
+#ifndef ENEMY_GUARD
+#define ENEMY_GUARD
+
+#include"../GameProject/Task/CTask.h"
+
+class CEnemy :public CTask {
+public:
+	CEnemy(CVector2D pos);
+	void Update();
+};
+
+#endif//ENEMY_GUARD

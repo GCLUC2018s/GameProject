@@ -1,0 +1,43 @@
+CTaskManager.h.cpp
+
+class CTaskManager
+
+static CTackManager* mp_instance ←一度だけ呼び出すためのもの
+
+
+
+
+
+CTack.h
+
+enum　更新、描画の優先順位決定
+
+class CTack
+
+------------------------------------------------------------------------
+
+全体の流れ
+CTackManager　mp_instance = nullptr　自分が重複しないためのもの
+
+CTaskのコンストラクタ　タスクを作ると自動的にマネージャーが作られる
+必要な情報を入力後、
+CTaskManagerのポインタを貰い、Add()一度目 ポインタクラスタスクマネージャーの作成
+二度目以降はそのポインタを使用
+
+Add()  Update用とdraw用分け、一度目はpHeadに保存し、次からはその後ろに追加されていく
+
+CTaskManager UpdateAll()とDrawAll()を繰り返す
+
+CTaskManager UpdateAll()　*pにアップデートのタスク開始地点ポインタを入れ、
+そのポインタに入っているCTaskのUpdate()を行い、ポインタをずらすを繰り返す
+
+CTaskManager UpdateAll()　*pにドローのタスク開始地点ポインタを入れ、
+そのポインタに入っているCTaskのDraw()を行い、ポインタをずらすを繰り返す
+
+CTaskManager Kill()
+
+
+CTaskManager RemoveTaskLinker()　リストから除外する
+自分の前の席が空いていたら自分の次に設定し、自分の後ろの席が空いていたら自分の前に設定する
+
+
