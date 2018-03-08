@@ -51,6 +51,9 @@
     <ClInclude Include="Task\CTaskManager.h">
       <Filter>TaskSample</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CPlayer.h">
+      <Filter>Game\Gamesource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -67,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="Task\CTaskManager.cpp">
       <Filter>TaskSample</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CPlayer.cpp">
+      <Filter>Game\Gamesource</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@
 #define TASK_GUARD
 
 #include "CTaskLinker.h"
+#include "CAnimImage.h"
 
 
 //更新順序
@@ -36,6 +37,9 @@ protected:
 	bool m_destroyFlg;				//削除フラグ
 	bool m_pauseFlg;				//更新停止フラグ
 	int m_id;
+	CImage m_img;       //画像を入れる
+	CVector2D m_vec;    //移動量
+	CVector2D m_pos;    //座標
 
 	CTaskLinker		m_updLinker;		// Update用のCTaskLinker 
 	CTaskLinker		m_drwLinker;		// Draw用のCTaskLinker 
