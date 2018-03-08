@@ -1,10 +1,10 @@
 #ifndef PLYER_GUARD
 #define PLYER_GUARD
 
-#include "Task.h"
-#include "Task.h"
+#include "CTask.h"
+#include "CTask.h"
 
-class Player : public Task
+class Player : public CTask
 {
 public:
 	Player(int i);
@@ -14,8 +14,6 @@ public:
 			m_kill = true;
 		}
 	};
-private:
-	int m_num;
 
 };
 #endif // !PLYER_GUARD
