@@ -12,6 +12,7 @@
 #include "Task\CTask.h"
 #include "Task\CTaskManager.h"
 #include "Game/CPlayer.h"
+#include "CBullet.h"
 
 CTaskManager *whole;
 
@@ -73,6 +74,7 @@ void Init(void)
 
 	ADD_RESOURCE("date", CAnimImage::LoadImage("date.png"));
 	whole->Add(new CPlayer());
+
 }
 
 

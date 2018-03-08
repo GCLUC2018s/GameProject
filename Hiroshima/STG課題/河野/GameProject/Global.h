@@ -40,3 +40,4 @@
 #define PUSH_UP CInput::GetState(0, CInput::ePush, CInput::eUp)
 #define PUSH_DOWN CInput::GetState(0, CInput::ePush, CInput::eDown)
 
+//CVector2D player_pos;

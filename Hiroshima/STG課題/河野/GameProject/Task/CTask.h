@@ -8,6 +8,8 @@
 #define TASK_GUARD
 
 #include "CTaskLinker.h"
+#include "../Global.h"
+#include "../stdafx.h"
 
 
 //XV‡˜
