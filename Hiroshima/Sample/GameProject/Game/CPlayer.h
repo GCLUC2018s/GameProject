@@ -17,7 +17,7 @@ public:
 	 void Draw();
 private:
 	bool m_punch;
-
+	int m_anim;
 };
 
 #endif // !PLAYER_GUARD

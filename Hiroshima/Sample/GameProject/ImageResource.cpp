@@ -24,7 +24,8 @@ TexAnim _PL_squat[] = {
 TexAnim _PL_punch[] = {
 	{ 10,5 },
 	{ 11,5 },
-	{ 12,5 },
+	{ 12,15 },
+	{ 10,5 },
 };
 
 TexAnimData player_AnimData[] = {
