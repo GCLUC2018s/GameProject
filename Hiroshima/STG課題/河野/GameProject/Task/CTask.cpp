@@ -1,7 +1,9 @@
 #include "CTask.h"
 #include "CTaskManager.h"
+#include "../Game/CPlayer.h"
 
 #include <stdio.h>
+#include "../stdafx.h"
 
 //デフォルトコンストラクタ
 CTask::CTask() :
@@ -26,7 +28,6 @@ CTask::CTask(int id, int updatePrio, int drawPrio) :
 }
 CTask::~CTask()
 {
-	
 }
 void CTask::Update()
 {
