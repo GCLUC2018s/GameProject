@@ -6,9 +6,12 @@
 class Player : public Task
 {
 public:
+	Player(int i);
 	void Update() {
-		printf("player\n");
+		printf("player%d\n",m_num);
 	};
+private:
+	int m_num;
 
 };
 #endif // !PLYER_GUARD
