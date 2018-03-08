@@ -1,0 +1,6 @@
+#ifndef GAME_SOURCE_GUARD
+#define GAME_SOURCE_GUARD
+
+
+
+#endif // !GAME_SOURCE_GUARD
