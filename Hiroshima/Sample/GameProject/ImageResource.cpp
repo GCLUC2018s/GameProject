@@ -13,19 +13,26 @@ TexAnim _PL_dash[] = {
 	{ 38,5 },
 };
 TexAnim _PL_jamp[] = {
+	{ 25,5 },
 	{ 26,5 },
 	{ 27,5 },
-	{ 28,5 },
 };
-TexAnim _PL_Squat[] = {
+TexAnim _PL_squat[] = {
 	{ 41,5 },
 	{ 42,5 },
 };
+TexAnim _PL_punch[] = {
+	{ 10,5 },
+	{ 11,5 },
+	{ 12,5 },
+};
+
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
 	ANIMDATA(_PL_dash),
 	ANIMDATA(_PL_jamp),
-	ANIMDATA(_PL_Squat),
+	ANIMDATA(_PL_squat),
+	ANIMDATA(_PL_punch),
 };
 
 TexAnim _ENE_anim[] = {
