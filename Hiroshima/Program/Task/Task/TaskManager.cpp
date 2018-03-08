@@ -1,7 +1,7 @@
 #include "TaskManager.h"
 #include "Task.h"
 
-TaskManager* m_instance = nullptr;
+TaskManager* TaskManager::m_instance = nullptr;
 TaskManager::TaskManager()
 {
 	m_TOP = nullptr;
