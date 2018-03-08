@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{51cb08dc-2143-4751-867e-296fffbbad33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageResource">
+      <UniqueIdentifier>{47062110-11ed-4f2c-b20a-22c270f2ee18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Gamesource">
+      <UniqueIdentifier>{202c9150-3828-40e0-b2eb-b3f20124b074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TaskSample">
+      <UniqueIdentifier>{c94bb9f1-4687-4fbf-849a-2cbb89613e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\CEnemy">
+      <UniqueIdentifier>{bbe22747-1294-4724-9169-4fe305b5e10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\CPlayer">
+      <UniqueIdentifier>{26c479c6-9bef-42cc-b771-893828e200ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CBullet">
+      <UniqueIdentifier>{67517c95-e52c-4425-9a98-94a80c52a308}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GID.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageResource.h">
+      <Filter>ImageResource</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamesource.h">
+      <Filter>Game\Gamesource</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTask.h">
+      <Filter>TaskSample</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTaskLinker.h">
+      <Filter>TaskSample</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTaskManager.h">
+      <Filter>TaskSample</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CEnemy\CEnemy.h">
+      <Filter>Game\CEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CPLayer\CPlayer.h">
+      <Filter>Game\CPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="CBullet.h">
+      <Filter>CBullet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageResource.cpp">
+      <Filter>ImageResource</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTask.cpp">
+      <Filter>TaskSample</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTaskLinker.cpp">
+      <Filter>TaskSample</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTaskManager.cpp">
+      <Filter>TaskSample</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CEnemy\CEnemy.cpp">
+      <Filter>Game\CEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CPLayer\CPlayer.cpp">
+      <Filter>Game\CPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="CBullet.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
