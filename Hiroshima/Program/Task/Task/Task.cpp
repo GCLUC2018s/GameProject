@@ -3,6 +3,7 @@
 
 Task::Task()
 {
+	m_kill = false;
 	m_next = nullptr;
 	m_prev = nullptr;
 	TaskManager::m_instance->Add(this);
@@ -10,4 +11,5 @@ Task::Task()
 
 void Task::Update() {
 	printf("Task\n");
+
 }
