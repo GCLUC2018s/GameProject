@@ -7,6 +7,7 @@
 CTask::CTask() :
 	m_destroyFlg(false),
 	m_pauseFlg(false),
+
 	m_id(0),
 	m_updLinker(eUDP_Null,this),
 	m_drwLinker(eDWP_Null,this)
@@ -35,7 +36,9 @@ void CTask::Update()
 }
 void CTask::Draw()
 {
-	printf( "Draw[%3d] PRIO:%6d\n", m_id, m_drwLinker.GetPriority() );	
+//	printf( "Draw[%3d] PRIO:%6d\n", m_id, m_drwLinker.GetPriority() );	
+	m_img.SetPos(m_pos);
+	m_img.Draw();
 }
 
 

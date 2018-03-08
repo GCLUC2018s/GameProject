@@ -25,6 +25,9 @@
     <Filter Include="TaskSample">
       <UniqueIdentifier>{c94bb9f1-4687-4fbf-849a-2cbb89613e19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{26c479c6-9bef-42cc-b771-893828e200ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -51,6 +54,9 @@
     <ClInclude Include="Task\CTaskManager.h">
       <Filter>TaskSample</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Player\player.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -67,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="Task\CTaskManager.cpp">
       <Filter>TaskSample</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\player.cpp">
+      <Filter>Game\Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
