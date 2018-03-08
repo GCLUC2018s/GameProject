@@ -15,6 +15,7 @@ CPlayer::CPlayer() : CTask(eID_Player, eUDP_Player, eDWP_Player)
 
 void CPlayer::Update()
 {
+	m_old_pos = m_pos;
 	if (HOLD_UP) {
 		m_pos.y -= m_vec.y;
 	}
@@ -29,5 +30,11 @@ void CPlayer::Update()
 	}
 	if (PUSH_C) {
 		new CBullet(m_pos);
+	}
+	if (m_pos.x + m_rect.m_right < 0 ||
+		m_pos.x + m_rect.m_left > SCREEN_WIDTH ||
+		m_pos.y - m_rect.m_bottom < 0 ||
+		m_pos.y - m_rect.m_top > SCREEN_HEIGHT) {
+		m_pos = m_old_pos;
 	}
 }
