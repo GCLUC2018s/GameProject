@@ -1,0 +1,2 @@
+taskのコンストラクタ
+GetInstance -> Add -> AddTaskInner でリストに追加
