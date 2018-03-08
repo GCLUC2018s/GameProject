@@ -21,6 +21,7 @@ CTask::CTask(int id, int updatePrio, int drawPrio) :
 	m_drwLinker(drawPrio,this)
 {
 	m_pos = CVector2D(0,0);
+	m_old_pos = CVector2D(0,0);
 	m_vec = CVector2D(0,0);
 	m_rect = CRect(0,0,0,0);
 	m_activ = true;
