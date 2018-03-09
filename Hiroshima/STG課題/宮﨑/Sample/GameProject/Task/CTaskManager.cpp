@@ -1,7 +1,6 @@
 #include "CTaskManager.h"
 #include "CTask.h"
 #include "CTaskLinker.h"
-#include "../CBullet.h"
 
 
 CTaskManager* CTaskManager::mp_instance = nullptr;
@@ -143,9 +142,6 @@ void CTaskManager::UpdateAll()
 	while ( p )
 	{
 		p->mp_task->Update();
-		if (p->mp_task->GetBulletFlag()) {
-			Add(new CBullet(p->mp_task->m_pos));
-		}
 		p = p->mp_next;
 	}
 }
@@ -159,6 +155,18 @@ void CTaskManager::DrawAll()
 		p->mp_task->Draw();
 		p = p->mp_next;
 	}
+}
+
+void CTaskManager::CollisionAll()
+{	
+	//æ“ª‚©‚ç‡‚Éƒqƒbƒg”»’è‚µ‚Ä‚¢‚­
+	CTaskLinker *p1 = mp_drwHead;
+	CTaskLinker *p2 = mp_drwHead;
+	//while (p2)
+	//{
+	//	p1->
+	//	p2 = p2->mp_next;
+	//}
 }
 
 

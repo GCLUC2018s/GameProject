@@ -12,6 +12,7 @@
 #include "Task\CTask.h"
 #include "Task\CTaskManager.h"
 #include "GAME/CPlayer.h"
+#include "CBullet.h"
 
 CTaskManager *LIST;
 
@@ -70,7 +71,9 @@ void Init(void)
 	LIST = CTaskManager::GetInstance();
 	//ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("RMAKE_________.png"));
+	ADD_RESOURCE("Bullet", CAnimImage::LoadImage("RMAKE_________.png"));
 	LIST->Add(new CPlayer());
+	
 }
 
 

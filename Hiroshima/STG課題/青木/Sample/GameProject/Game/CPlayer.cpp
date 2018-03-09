@@ -1,4 +1,5 @@
 #include "CPlayer.h"
+#include "../CBullet.h"
 #include "../Global.h"
 
 CPlayer::CPlayer()
@@ -23,6 +24,10 @@ void CPlayer:: Update(){
 
 	if (HOLD_RIGHT) {
 		m_pos.x += m_vec.x;
+	}
+
+	if (PUSH_ENTER) {
+		new CBullet(m_pos);
 	}
 }
 

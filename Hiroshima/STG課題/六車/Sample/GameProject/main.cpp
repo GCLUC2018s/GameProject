@@ -9,15 +9,16 @@
 #include "Global.h"
 #include "GID.h"
 #include "Gamesource.h"
-#include "../GameProject/Game/Player/player.h"
+#include "../GameProject/Game/CPlayer/CPlayer.h"
+#include "../GameProject/Game/CEnemy/CEnemy.h"
 #include "Task\CTask.h"
 #include "Task\CTaskManager.h"
 
-CTaskManager* PM;
 
 void MainLoop(void) {
-	PM->UpdateAll();
-	PM->DrawAll();
+	CTaskManager::GetInstance()->UpdateAll();
+	CTaskManager::GetInstance()->DrawAll();
+	CTaskManager::GetInstance()->KillAppoint();
 }
 void Init(void)
 {
@@ -63,9 +64,11 @@ void Init(void)
 
 	CSound::GetInstance();
 //‰Šú‰»
-	PM = CTaskManager::GetInstance();
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("RMAKE.png"));
-	PM->Add(new CPlayer());
+	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("RMAKE.png"));
+	CTaskManager::GetInstance()->Add(new CPlayer());
+	new CEnemy();
+
 }
 
 
