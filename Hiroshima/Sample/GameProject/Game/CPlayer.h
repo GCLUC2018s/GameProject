@@ -17,9 +17,7 @@ public:
 	 void Draw();
 private:
 	bool m_punch;
-	bool m_jump;
 	int m_anim;
-	int y;
 };
 
 #endif // !PLAYER_GUARD

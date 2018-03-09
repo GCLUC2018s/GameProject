@@ -87,12 +87,12 @@ void Init(void)
 	CSound::GetInstance();
 //èâä˙âª
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
-	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma_motion.png"));
-	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));  
+	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("enemy.png", enemy_AnimData, 96, 96));
+	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 
 	PL = new CPlayer();
-	ENE = new CEnemy(CVector2D(500, 450));
+	ENE = new CEnemy(CVector2D(500,500));
 	GM1 = new CGimmick(CVector2D(500, 500));
 	GM2 = new CGimmick(CVector2D(250, 500));
 	GM3 = new CGimmick(CVector2D(500, 250));

@@ -1,19 +1,19 @@
-#ifndef CMYRECT_H
-#define CMYRECT_H
+#ifndef CRECTANGLE_H
+#define CRECTANGLE_H
 
 #include "CTexture.h"
 #include "../task/CTask.h"
 #include "../task/CTaskManager.h"
 
-class CRectangle:public CTask{
+class C_Rectangle:public CTask{
 public:
-	float mLeft, mRight, mBottom, mTop;
-	float mAdjust;
+	float m_Left, m_Right, m_Bottom, m_Top;
+	float m_Adjust;
 	void Init(){};
 	void Update(){};
 	void Render();
 	void SetVertex(float left, float right, float bottom, float top);
-	bool mEnabled;
+	bool m_Enabled;
 };
 
 #endif
