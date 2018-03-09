@@ -22,6 +22,7 @@ CBase* GM1;
 CBase* GM2;
 CBase* GM3;
 CBase* TITLE;
+CBase* IT;
 
 
 void MainLoop(void) {
@@ -32,6 +33,7 @@ void MainLoop(void) {
 	GM1->Update();
 	GM2->Update();
 	GM3->Update();
+	IT->Update();
 	//Draw
 	TITLE->Draw();
 	PL->Draw();
@@ -39,6 +41,7 @@ void MainLoop(void) {
 	GM1->Draw();
 	GM2->Draw();
 	GM3->Draw();
+	IT->Draw();
 
 
 }
@@ -90,13 +93,16 @@ void Init(void)
 	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma_motion.png"));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));  
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
+	ADD_RESOURCE("Item", CAnimImage::LoadImage("item_matome_1.png"));
 
 	PL = new CPlayer();
 	ENE = new CEnemy(CVector2D(500, 450));
 	GM1 = new CGimmick(CVector2D(500, 500));
 	GM2 = new CGimmick(CVector2D(250, 500));
 	GM3 = new CGimmick(CVector2D(500, 250));
+	IT = new CItem(CVector2D(400,400));
 	TITLE = new CTitle();
+
 
 
 
