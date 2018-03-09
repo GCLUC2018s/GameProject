@@ -131,7 +131,6 @@
     <ClInclude Include="Game\CEnemy.h" />
     <ClInclude Include="Game\CEnemy2.h" />
     <ClInclude Include="Game\CGimmick.h" />
-    <ClInclude Include="Game\CItem.h" />
     <ClInclude Include="Game\CPlayer.h" />
     <ClInclude Include="Game\CTitle.h" />
     <ClInclude Include="GID.h" />
@@ -144,7 +143,6 @@
     <ClCompile Include="Game\CEnemy.cpp" />
     <ClCompile Include="Game\CEnemy2.cpp" />
     <ClCompile Include="Game\CGimmick.cpp" />
-    <ClCompile Include="Game\CItem.cpp" />
     <ClCompile Include="Game\CPlayer.cpp" />
     <ClCompile Include="Game\CTitle.cpp" />
     <ClCompile Include="ImageResource.cpp" />

@@ -12,7 +12,6 @@ public:
 	CEnemy(CVector2D pos);
 	~CEnemy();
 	void Update();
-	void Draw();
 };
 
 #endif // !ENEMY_GUARD

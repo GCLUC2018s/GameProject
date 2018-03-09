@@ -6,7 +6,7 @@
 */
 CEnemy::CEnemy(CVector2D pos) :CBase(eTagEnemy) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy"));
-	
+	m_img.SetSize(213, 256);
 	m_pos=pos;
 	
 }
@@ -32,18 +32,6 @@ void CEnemy::Update() {
 	}
 	
 
-	/*m_img.ChangeAnimation(0);
-	m_img.UpdateAnimation();*/
+	m_img.ChangeAnimation(0);
+	m_img.UpdateAnimation();
 }
-
-void CEnemy::Draw() {
-	m_img.SetPos(m_pos);
-	m_img.SetSize(213, 256);
-	m_img.SetRect(0, 0, 512, 512);
-	m_img.Draw();
-}
-
-
-//‰º‚Ì“z‚Æ—‚½•¶Í‚ª‚»‚ê‚¼‚êmain.cpp‚É‚ ‚é‚Ì‚Å‚»‚ê‚É‚±‚ê‚ğã‘‚«‚µ‚Ä‚¨‚¢‚Ä‚­‚¾‚³‚¢B
-//ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma_motion.png"));
-//ENE = new CEnemy(CVector2D(500, 450));
