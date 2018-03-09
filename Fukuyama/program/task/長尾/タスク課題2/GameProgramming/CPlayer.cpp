@@ -1,7 +1,7 @@
 #include "CPlayer.h"
-#include "random"
 #define KEY(a) GetKeyState(a)&0x8000
-float Erand = rand()%GLUT_WINDOW_WIDTH;
+//#include "random"
+//float Erand = rand()%GLUT_WINDOW_WIDTH;
 void CPlayer::Init(){
 	mTexture.Load("Player.tga");
 	mTexture.DrawImage(mLeft, mRight, mBottom, mTop, 0, 32, 32, 0);
