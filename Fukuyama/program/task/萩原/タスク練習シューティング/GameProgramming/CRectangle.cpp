@@ -2,6 +2,7 @@
 
 void CRectangle::Init(){
 	tPlayer.Load("Image/Player.tga");
+	tPlayerBullet.Load("Image/Bullet.tga");
 }
 
 void CRectangle::SetVertex(int Left,int Right, int Bottom, int Top){
