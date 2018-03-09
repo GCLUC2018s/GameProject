@@ -6,3 +6,4 @@ class CEnemy :public CRectangle{
 	void Update();
 	void Draw();
 };
+#endif

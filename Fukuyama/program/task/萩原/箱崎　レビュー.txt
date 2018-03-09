@@ -1,0 +1,3 @@
+はぎさん
+Playerの移動をマジックナンバーにしてる　Good
+PlayerにInitをいれてみては？
