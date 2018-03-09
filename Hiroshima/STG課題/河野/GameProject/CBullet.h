@@ -8,5 +8,9 @@ public:
 	CBullet(CVector2D pos);
 	void Update();
 	void Draw();
+private:
+	CImage b_img;
+	CVector2D b_pos;
+	CVector2D b_vec;
 };
 #endif // !BULLET_GUARD
