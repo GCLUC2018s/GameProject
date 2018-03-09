@@ -54,6 +54,9 @@
     <ClInclude Include="Game\CPlayer.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="CBullet.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +75,9 @@
       <Filter>TaskSample</Filter>
     </ClCompile>
     <ClCompile Include="Game\CPlayer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="CBullet.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
