@@ -57,9 +57,6 @@
     <ClInclude Include="Game\CEnemy2.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CItem.h">
-      <Filter>Game</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -84,9 +81,6 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\CEnemy2.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CItem.cpp">
       <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
