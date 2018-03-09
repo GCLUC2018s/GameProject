@@ -5,5 +5,6 @@
 #include "../GameProject/Game/CEnemy.h"
 #include "../GameProject/Game/CGimmick.h"
 #include "../GameProject/Game/CTitle.h"
+#include "../GameProject/Game/CItem.h"
 
 #endif // !GAME_SOURCE_GUARD
