@@ -8,8 +8,14 @@
 #define TASK_GUARD
 
 #include "CTaskLinker.h"
+#include "windows.h"
+#include "../CMain.h"
 
-
+//ID
+enum E_ID
+{
+	E_SCROLL,
+};
 //XV‡˜
 enum E_UpdatePrio
 {
