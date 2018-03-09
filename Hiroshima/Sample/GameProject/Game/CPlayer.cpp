@@ -6,12 +6,14 @@
 
 */
 
+
 CPlayer::CPlayer():CBase(eTagPlayer){
 	m_vec = CVector2D(10, 10);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	m_img.SetSize(256,256);
 	m_img.SetFlipH(m_flipH);
 	m_punch = false;
+	m_jump = false;
 }
 
 CPlayer::~CPlayer(){
@@ -21,11 +23,12 @@ void CPlayer::Update() {
 	m_move = false;
 	m_squat = false;
 	m_punch = false;
+	m_anim = 0;
 	if (HOLD_X) {
 		m_squat = true;
 		m_anim = 3;
 	}
-	if (!m_squat) {
+	if (!m_squat && !m_jump) {
 		if (HOLD_UP) {
 			m_pos.y -= m_vec.y;
 			m_move = true;
@@ -53,13 +56,23 @@ void CPlayer::Update() {
 			m_anim = 4;
 			m_pos.x++;
 
-			}
-	}else{
-		m_anim = 0;
+		}
 	}
-	//if (PUSH_Z) {
-
-	//}
+	if (PUSH_Z && !m_jump) {
+		y = m_pos.y;
+		m_jump = true;
+		m_anim = 2;
+		m_vec.y = -32;
+	}
+	if (m_jump) {
+		m_pos.y += m_vec.y;
+		m_vec.y += 1.2;
+		if (m_pos.y > y) {
+			m_vec.y = 10;
+			m_pos.y = y;
+			m_jump = false;
+		}
+	}
 	
 
 	m_img.ChangeAnimation(m_anim);
