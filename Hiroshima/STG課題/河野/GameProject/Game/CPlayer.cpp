@@ -1,14 +1,12 @@
 #include "CPlayer.h"
 #include "../CBullet.h"
 
-CImage p_img;
-CVector2D p_pos;
-CVector2D p_vec;
 
 CPlayer::CPlayer(){
 	p_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("date"));
 	p_vec = CVector2D(4, 4);
 	p_pos = CVector2D(400, 480);
+	m_time = 0;
 }
 
 void CPlayer::Update() {
@@ -24,9 +22,13 @@ void CPlayer::Update() {
 	if (HOLD_LEFT) {
 		p_pos.x -= p_vec.x;
 	}
-	if (PUSH_Z) {
-		new CBullet(p_pos);
+	if (HOLD_Z) {
+		if (m_time % 5 == 0) {
+			new CBullet(p_pos);
+			new CBullet(CVector2D(p_pos.x + 67,p_pos.y));
+		}
 	}
+	m_time++;
 };
 void CPlayer::Draw() {
 	p_img.SetRect(0, 0, 64, 64);
