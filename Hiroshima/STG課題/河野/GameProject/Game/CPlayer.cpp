@@ -1,6 +1,5 @@
 #include "CPlayer.h"
-#include "../stdafx.h"
-#include "../Global.h"
+#include "../CBullet.h"
 
 CImage p_img;
 CVector2D p_pos;
@@ -24,6 +23,9 @@ void CPlayer::Update() {
 	}
 	if (HOLD_LEFT) {
 		p_pos.x -= p_vec.x;
+	}
+	if (PUSH_Z) {
+		new CBullet(p_pos);
 	}
 };
 void CPlayer::Draw() {

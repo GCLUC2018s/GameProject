@@ -1,5 +1,5 @@
-#ifndef PLYER_GUARD
-#define PLYER_GUARD
+#ifndef PLAYER_GUARD
+#define PLAYER_GUARD
 
 #include "../Task/CTask.h"
 
@@ -9,4 +9,4 @@ public:
 	void Update();
 	void Draw();
 };
-#endif // !PLYER_GUARD
+#endif // !PLAYER_GUARD

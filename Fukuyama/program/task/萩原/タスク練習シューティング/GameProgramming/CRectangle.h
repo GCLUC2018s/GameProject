@@ -8,6 +8,7 @@
 class CRectangle:public CTask{
 public:
 	CTexture tPlayer;
+	CTexture tPlayerBullet;
 	void Init();
 	int mRight, mLeft, mBottom, mTop;
 	void SetVertex(int Left, int Right, int Bottom, int top);
