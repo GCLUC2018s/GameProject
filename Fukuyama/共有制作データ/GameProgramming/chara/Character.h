@@ -4,7 +4,7 @@
 #include "../draw/CRectangle.h"
 #include "scroll.h"
 
-class CCharacter :public Cscroll{
+class C_Character :public C_scroll{
 public:
 
 };

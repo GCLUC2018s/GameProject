@@ -3,7 +3,7 @@
 
 #include "../draw/CRectangle.h"
 
-class Cscroll :public CRectangle{
+class C_scroll :public C_Rectangle{
 public:
 	void Update();
 };

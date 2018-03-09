@@ -1,22 +1,22 @@
 #include"CRectangle.h"
 #include"glut.h"
 
-void CRectangle::Render(){
-	if (!mEnabled) return;
+void C_Rectangle::Render(){
+	if (!m_Enabled) return;
 	glBegin(GL_TRIANGLES);
-	glVertex2d(mLeft, mTop);
-	glVertex2d(mLeft, mBottom);
-	glVertex2d(mRight, mBottom);
-	glVertex2d(mLeft, mTop);
-	glVertex2d(mRight, mBottom);
-	glVertex2d(mRight, mTop);
+	glVertex2d(m_Left, m_Top);
+	glVertex2d(m_Left, m_Bottom);
+	glVertex2d(m_Right, m_Bottom);
+	glVertex2d(m_Left, m_Top);
+	glVertex2d(m_Right, m_Bottom);
+	glVertex2d(m_Right, m_Top);
 	glEnd();
 }
 
-void CRectangle::SetVertex(float left, float right, float bottom, float top)
+void C_Rectangle::SetVertex(float left, float right, float bottom, float top)
 {
-	mLeft = left;
-	mRight = right;
-	mBottom = bottom;
-	mTop = top;
+	m_Left = left;
+	m_Right = right;
+	m_Bottom = bottom;
+	m_Top = top;
 }
