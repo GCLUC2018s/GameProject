@@ -80,14 +80,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CColorBall.cpp" />
+    <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CMain.cpp" />
     <ClCompile Include="CRectangle.cpp" />
+    <ClCompile Include="CTask.cpp" />
+    <ClCompile Include="CTaskLinker.cpp" />
+    <ClCompile Include="CTaskManager.cpp" />
+    <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CColorBall.h" />
+    <ClInclude Include="CKey.h" />
     <ClInclude Include="CMain.h" />
     <ClInclude Include="CRectangle.h" />
+    <ClInclude Include="CTask.h" />
+    <ClInclude Include="CTaskLinker.h" />
+    <ClInclude Include="CTaskManager.h" />
+    <ClInclude Include="CTexture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
