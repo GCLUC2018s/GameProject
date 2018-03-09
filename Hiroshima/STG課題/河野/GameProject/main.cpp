@@ -14,12 +14,12 @@
 #include "Game/CPlayer.h"
 #include "CBullet.h"
 
-CTaskManager *whole;
 
 void MainLoop(void) {
 
-	whole->UpdateAll();
-	whole->DrawAll();
+	CTaskManager::GetInstance()->UpdateAll();
+	CTaskManager::GetInstance()->DrawAll();
+	CTaskManager::GetInstance()->KillAppoint();
 
 
 }
@@ -68,12 +68,10 @@ void Init(void)
 	CSound::GetInstance();
 //‰Šú‰»
 
-	whole = CTaskManager::GetInstance();
-
 	//ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
 
 	ADD_RESOURCE("date", CAnimImage::LoadImage("date.png"));
-	whole->Add(new CPlayer());
+	CTaskManager::GetInstance()->Add(new CPlayer());
 
 }
 
