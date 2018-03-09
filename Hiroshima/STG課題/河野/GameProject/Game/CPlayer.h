@@ -1,5 +1,5 @@
-#ifndef PLYER_GUARD
-#define PLYER_GUARD
+#ifndef PLAYER_GUARD
+#define PLAYER_GUARD
 
 #include "../Task/CTask.h"
 
@@ -8,5 +8,10 @@ public:
 	CPlayer();
 	void Update();
 	void Draw();
+private:
+	CImage p_img;
+	CVector2D p_pos;
+	CVector2D p_vec;
+	int m_time;
 };
-#endif // !PLYER_GUARD
+#endif // !PLAYER_GUARD
