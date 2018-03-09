@@ -1,13 +1,18 @@
 #pragma once
 
 #include "glut.h"
-
+#include"draw/CTexture.h"
 #define W_H		1200 //Windowïù
 #define W_V		900 //WindowçÇÇ≥
 
 class CMain {
 	int		mState;
+	int GameScene;
+	int Mode;
+	int PawsCount;
 public:
+	CTexture mTexture;
+	CTexture mTexture2;
 	CMain() : mState(0) {}
 
 	void MainLoop() {

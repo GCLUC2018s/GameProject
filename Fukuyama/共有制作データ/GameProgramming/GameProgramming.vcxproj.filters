@@ -13,30 +13,84 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\draw">
+      <UniqueIdentifier>{2fbf0ffd-76bf-4b1b-baf5-75465d24948b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\task">
+      <UniqueIdentifier>{f8356e69-11d3-4ecc-801b-1c8fc7050e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\object">
+      <UniqueIdentifier>{8e97c0a1-2ee2-436f-9be0-c7bdfefcfd86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\chara">
+      <UniqueIdentifier>{fa12ac2f-bca5-4dca-b3ef-e5047040150a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CMain.cpp">
-      <Filter>リソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>リソース ファイル</Filter>
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CRectangle.cpp">
-      <Filter>リソース ファイル</Filter>
+    <ClCompile Include="CKey.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CColorBall.cpp">
-      <Filter>リソース ファイル</Filter>
+    <ClCompile Include="CMain.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="draw\CRectangle.cpp">
+      <Filter>ソース ファイル\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="draw\CTexture.cpp">
+      <Filter>ソース ファイル\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="object\CColorBall.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="task\CTask.cpp">
+      <Filter>ソース ファイル\task</Filter>
+    </ClCompile>
+    <ClCompile Include="task\CTaskLinker.cpp">
+      <Filter>ソース ファイル\task</Filter>
+    </ClCompile>
+    <ClCompile Include="task\CTaskManager.cpp">
+      <Filter>ソース ファイル\task</Filter>
+    </ClCompile>
+    <ClCompile Include="chara\Character.cpp">
+      <Filter>ソース ファイル\chara</Filter>
+    </ClCompile>
+    <ClCompile Include="chara\scroll.cpp">
+      <Filter>ソース ファイル\chara</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CKey.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
     <ClInclude Include="CMain.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CRectangle.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="draw\CRectangle.h">
+      <Filter>ソース ファイル\draw</Filter>
     </ClInclude>
-    <ClInclude Include="CColorBall.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="draw\CTexture.h">
+      <Filter>ソース ファイル\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="object\CColorBall.h">
+      <Filter>ソース ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="task\CTask.h">
+      <Filter>ソース ファイル\task</Filter>
+    </ClInclude>
+    <ClInclude Include="task\CTaskLinker.h">
+      <Filter>ソース ファイル\task</Filter>
+    </ClInclude>
+    <ClInclude Include="task\CTaskManager.h">
+      <Filter>ソース ファイル\task</Filter>
+    </ClInclude>
+    <ClInclude Include="chara\Character.h">
+      <Filter>ソース ファイル\chara</Filter>
+    </ClInclude>
+    <ClInclude Include="chara\scroll.h">
+      <Filter>ソース ファイル\chara</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
