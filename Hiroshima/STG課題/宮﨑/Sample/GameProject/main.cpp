@@ -12,11 +12,11 @@
 #include "Task\CTask.h"
 #include "Task\CTaskManager.h"
 
-CTaskManager* TM_a;
 
 void MainLoop(void) {
-	TM_a->UpdateAll();
-	TM_a->DrawAll();
+	CTaskManager::GetInstance()->UpdateAll();
+	CTaskManager::GetInstance()->DrawAll();
+	CTaskManager::GetInstance()->KillAppoint();
 }
 void Init(void)
 {
@@ -64,10 +64,10 @@ void Init(void)
 //‰Šú‰»
 	ADD_RESOURCE("TIP", CAnimImage::LoadImage("RMAKE_________.png"));
 	ADD_RESOURCE("BG", CAnimImage::LoadImage("unnamed.png"));
-	TM_a = CTaskManager::GetInstance();
-	TM_a->Add(new CBG());
-	TM_a->Add(new CPlayer());
-	TM_a->Add(new CEnemy());
+
+	new CPlayer();
+	new CEnemy();
+	new CBG();
 }
 
 
