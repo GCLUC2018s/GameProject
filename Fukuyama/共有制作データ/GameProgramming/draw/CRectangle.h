@@ -2,8 +2,8 @@
 #define CMYRECT_H
 
 #include "CTexture.h"
-#include "CTask.h"
-#include "CTaskManager.h"
+#include "../task/CTask.h"
+#include "../task/CTaskManager.h"
 
 class CRectangle:public CTask{
 public:
