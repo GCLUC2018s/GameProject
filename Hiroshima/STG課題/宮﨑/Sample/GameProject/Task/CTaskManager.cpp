@@ -157,6 +157,18 @@ void CTaskManager::DrawAll()
 	}
 }
 
+void CTaskManager::CollisionAll()
+{	
+	//先頭から順にヒット判定していく
+	CTaskLinker *p1 = mp_drwHead;
+	CTaskLinker *p2 = mp_drwHead;
+	//while (p2)
+	//{
+	//	p1->
+	//	p2 = p2->mp_next;
+	//}
+}
+
 
 // 更新優先度を変更 
 void CTaskManager::ChangeUpdatePrio(CTask *p, int prio)

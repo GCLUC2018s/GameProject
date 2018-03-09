@@ -16,6 +16,7 @@ class CTask;
 class CTaskManager
 {
 private:
+	CTaskManager();
 	static CTaskManager* mp_instance;	//シングルトン化のためのポインタ
 protected:
 	CTaskLinker *mp_updHead;		// Update用 先頭要素を指すポインタ
@@ -25,7 +26,6 @@ protected:
 	CTaskLinker *mp_drwTail;		// Draw用 末尾要素を指すポインタ
 
 public:
-	CTaskManager();
 	~CTaskManager();
 	//リスト追加関数
 	void Add(CTask *p);
@@ -39,6 +39,8 @@ public:
 	void UpdateAll();
 	//リスト描画関数
 	void DrawAll();
+	//当たり判定関数
+	void CollisionAll();
 
 	// 更新優先度を変更 
 	void ChangeUpdatePrio(CTask *p, int prio);

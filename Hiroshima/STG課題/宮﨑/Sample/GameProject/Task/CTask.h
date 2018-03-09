@@ -16,10 +16,10 @@
 enum E_UpdatePrio
 {
 	eUDP_Tutorial,
+	eUDP_Bullet,
 	eUDP_Player,
 	eUDP_Camera,
 	eUDP_Enemy,
-	eUDP_Bullet,
 	eUDP_Map,
 	eUDP_Null,
 };
@@ -27,9 +27,9 @@ enum E_UpdatePrio
 enum E_DrawPrio
 {
 	eDWP_Map,
+	eDWP_Bullet,
 	eDWP_Player,
 	eDWP_Enemy,
-	eDWP_Bullet,
 	eDWP_Tutorial,
 	eDWP_Null,
 };
@@ -37,9 +37,9 @@ enum E_DrawPrio
 enum E_IDPrio
 {
 	eID_Map,
+	eID_Bullet,
 	eID_Player,
 	eID_Enemy,
-	eID_Bullet,
 	eID_Tutorial,
 	eID_Null,
 };
@@ -60,6 +60,7 @@ public:
 	CTask(int id, int updateprio, int drawPrio);
 	CAnimImage m_img;
 	CVector2D m_pos;
+	CVector2D m_old_pos;
 	CVector2D m_vec;
 	CRect m_rect;
 	CRect m_BG_rect = CRect(0,0,SCREEN_WIDTH,SCREEN_HEIGHT);
@@ -67,6 +68,10 @@ public:
 	virtual ~CTask();				//CTaskクラスのデストラクタ
 	virtual void Update();			//派生先クラスでの更新を行う関数
 	virtual void Draw();			//派生先クラスでの描写を行う関数
+
+	//当たり判定
+	void Hit() {
+	}
 
 	//更新順位取得関数
 	int GetUpdatePrio() const;

@@ -31,6 +31,15 @@ enum E_DrawPrio
 	eDWP_Tutorial,
 	eDWP_Null,
 };
+//IDèáèò
+enum E_IDPrio
+{
+	eID_Map,
+	eID_Player,
+	eID_Enemy,
+	eID_Tutorial,
+	eID_Null,
+};
 
 class CTask
 {
