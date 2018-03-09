@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Game">
+      <UniqueIdentifier>{b35d156e-b3b8-4934-9bd1-aecb0f2df5d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scene">
+      <UniqueIdentifier>{47703350-4639-4793-a2e5-2ba9842d96b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Task">
+      <UniqueIdentifier>{e2e7514f-1f1a-488a-ba1e-3866a24266bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Utillity">
+      <UniqueIdentifier>{662a6a2f-e91f-48d6-9c77-950b0a92508d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Bullet">
+      <UniqueIdentifier>{6c38c3b9-61bf-4b2b-a8d2-8bfb411ec8d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Enemy">
+      <UniqueIdentifier>{7938e33c-2f3d-4793-a9f8-406c2ba96374}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game\Player">
+      <UniqueIdentifier>{b2d0e31e-0533-44e2-a982-0d6e0bb9189b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Include.hpp">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\GameBoard.hpp">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\GameDef.hpp">
+      <Filter>Source\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Bullet\Bullet.hpp">
+      <Filter>Source\Game\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Bullet\BulletManager.hpp">
+      <Filter>Source\Game\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Enemy\Enemy.hpp">
+      <Filter>Source\Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Enemy\EnemyManager.hpp">
+      <Filter>Source\Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Player\Player.hpp">
+      <Filter>Source\Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\GameScene.hpp">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneBase.hpp">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneManager.hpp">
+      <Filter>Source\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Task\CTask.h">
+      <Filter>Source\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Task\CTaskLinker.h">
+      <Filter>Source\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Task\CTaskManager.h">
+      <Filter>Source\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\CppMacro.hpp">
+      <Filter>Source\Utillity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Font.hpp">
+      <Filter>Source\Utillity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Image.hpp">
+      <Filter>Source\Utillity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\InputManager.hpp">
+      <Filter>Source\Utillity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\InputTable.hpp">
+      <Filter>Source\Utillity</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Timer.hpp">
+      <Filter>Source\Utillity</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\SampleSTG.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\GameBoard.cpp">
+      <Filter>Source\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Bullet\Bullet.cpp">
+      <Filter>Source\Game\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Bullet\BulletManager.cpp">
+      <Filter>Source\Game\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Enemy\Enemy.cpp">
+      <Filter>Source\Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Enemy\EnemyManager.cpp">
+      <Filter>Source\Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game\Player\Player.cpp">
+      <Filter>Source\Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\GameScene.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneBase.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneManager.cpp">
+      <Filter>Source\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Task\CTask.cpp">
+      <Filter>Source\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Task\CTaskLinker.cpp">
+      <Filter>Source\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Task\CTaskManager.cpp">
+      <Filter>Source\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Font.cpp">
+      <Filter>Source\Utillity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Image.cpp">
+      <Filter>Source\Utillity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\InputManager.cpp">
+      <Filter>Source\Utillity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\InputTable.cpp">
+      <Filter>Source\Utillity</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Timer.cpp">
+      <Filter>Source\Utillity</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
