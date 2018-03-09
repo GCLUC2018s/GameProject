@@ -2,7 +2,6 @@
 #define ENEMY2GUARD
 
 #include "CBase.h"
-#include "CEnemy.h"
 
 class CEnemy2 :public CBase {
 public:
