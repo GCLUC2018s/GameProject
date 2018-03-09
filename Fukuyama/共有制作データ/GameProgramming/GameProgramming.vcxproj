@@ -79,25 +79,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CColorBall.cpp" />
     <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CMain.cpp" />
-    <ClCompile Include="CRectangle.cpp" />
-    <ClCompile Include="CTask.cpp" />
-    <ClCompile Include="CTaskLinker.cpp" />
-    <ClCompile Include="CTaskManager.cpp" />
-    <ClCompile Include="CTexture.cpp" />
+    <ClCompile Include="draw\CRectangle.cpp" />
+    <ClCompile Include="draw\CTexture.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="object\CColorBall.cpp" />
+    <ClCompile Include="task\CTask.cpp" />
+    <ClCompile Include="task\CTaskLinker.cpp" />
+    <ClCompile Include="task\CTaskManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CColorBall.h" />
     <ClInclude Include="CKey.h" />
     <ClInclude Include="CMain.h" />
-    <ClInclude Include="CRectangle.h" />
-    <ClInclude Include="CTask.h" />
-    <ClInclude Include="CTaskLinker.h" />
-    <ClInclude Include="CTaskManager.h" />
-    <ClInclude Include="CTexture.h" />
+    <ClInclude Include="draw\CRectangle.h" />
+    <ClInclude Include="draw\CTexture.h" />
+    <ClInclude Include="object\CColorBall.h" />
+    <ClInclude Include="task\CTask.h" />
+    <ClInclude Include="task\CTaskLinker.h" />
+    <ClInclude Include="task\CTaskManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
