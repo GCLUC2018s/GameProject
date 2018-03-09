@@ -5,7 +5,8 @@
 
 */
 
-CGimmick::CGimmick(CVector2D pos):CBase(eTagUI){
+CGimmick::CGimmick(CVector2D pos):
+	CBase(eTagUI){
 	m_img.SetSize(30, 200);
 	m_pos = pos;
 	m_rect = CRect(0, 0, 30, 200);
