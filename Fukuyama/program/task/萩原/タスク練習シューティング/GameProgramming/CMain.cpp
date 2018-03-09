@@ -7,6 +7,7 @@
 
 //初めに1回だけ実行する処理の定義
 void CMain::Init() {
+	//プレイヤーを作成
 	Player = new CPlayer();
 	Player->Init();
 	Player->SetVertex(-32,32,-32,32);
@@ -17,5 +18,8 @@ void CMain::Init() {
 void CMain::Update() {
 	//タスクを更新していく
 	CTaskManager::GetInstance()->UpdateAll();
+	//描画していく
 	CTaskManager::GetInstance()->DrawAll();
+	//フラグが立っているものを削除する
+	CTaskManager::GetInstance()->KillAppoint();
 }
