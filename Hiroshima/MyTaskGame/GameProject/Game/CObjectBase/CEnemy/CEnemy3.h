@@ -1,14 +1,15 @@
-#ifndef EBEMY3GUAD
-#define EBEMY3GUAD
+#ifndef ENEMY3GUARD
+#define ENEMY3GUARD
 #include"../CObjectBase.h"
 /*
 
 êªçÏé“Å@ê¬ñÿ
 
 */
+//âŒÇÃã 
 class CEnemy3 :public CObjectBase {
 public:
-	CEnemy3(CVector2D *pos);
+	CEnemy3(CVector3D *pos);
 	~CEnemy3();
 	void Update();
 };
@@ -16,4 +17,4 @@ public:
 
 
 
-#endif // !EBEMY3GUAD
+#endif // !ENEMY3GUARD
