@@ -130,7 +130,8 @@ void CTaskManager::KillAll()
 	while ( p )
 	{
 		CTaskLinker *next = p->mp_next;
-		Kill( p->mp_task );
+		if(p->GetPriority() != eUDP_Scene)
+			Kill( p->mp_task );
 		p = next;
 	}
 }
