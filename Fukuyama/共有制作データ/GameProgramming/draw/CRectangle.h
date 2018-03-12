@@ -4,6 +4,7 @@
 #include "CTexture.h"
 #include "../task/CTask.h"
 #include "../task/CTaskManager.h"
+#include "../CKey.h"
 
 class C_Rectangle:public CTask{
 public:

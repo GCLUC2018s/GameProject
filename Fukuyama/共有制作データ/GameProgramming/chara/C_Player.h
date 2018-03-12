@@ -13,7 +13,6 @@ class C_Player :public C_Scroll{
 protected:
 	C_Player(){
 		//キャラクターアニメーション画像の読み込み
-		CTexture i_Chara_Motion_1;
 		i_Chara_Motion_1.Load("../image/chara_motion_1.tga");
 
 		//IDとプライオリティを設定します
@@ -23,8 +22,11 @@ protected:
 		SetVertex(PLAYER_START_LEFT, PLAYER_START_RIGHT, PLAYER_START_BOTTOM, PLAYER_START_TOP);
 	}
 public:
+	CTexture i_Chara_Motion_1;
 	int m_Anime;            //アニメーション管理変数
+	int m_Anime_s;          //アニメーション秒数管理
 	int m_Turn;             //右を向いているか左を向いているか
+	void Init();
 	void Update();
 	void Draw();
 };
