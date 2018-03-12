@@ -35,7 +35,15 @@ void CPlayer::Update() {
 		m_squat = true;
 		m_anim = 3;
 	}
-	if (!m_squat && !m_jump) {
+
+	//キック
+	if (m_punch1 && PUSH_R) {
+		m_punch2 = true;
+		m_punch1 = false;
+		m_pos3D.x++;
+	}
+
+	if (!m_squat && !m_jump && !m_punch1 && !m_punch2) {
 		//移動
 		if (HOLD_UP) {
 			m_vec3D.z = -10;
@@ -62,12 +70,6 @@ void CPlayer::Update() {
 			m_move_side = true;
 			m_flipH = true;
 			m_anim = 1;
-		}
-		//キック
-		if (m_punch1 && PUSH_R) {
-			m_punch2 = true;
-			m_punch1 = false;
-			m_pos3D.x++;
 		}
 		//パンチ
 		if (!m_punch2 && PUSH_R) {
