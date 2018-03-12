@@ -8,8 +8,8 @@
 class CMain {
 	int		mState;
 	int GameScene;
-	int Mode;
-	int PawsCount;
+	int m_Mode;
+	int m_PawsCount;
 public:
 	CTexture mTexture;
 	CTexture mTexture2;
