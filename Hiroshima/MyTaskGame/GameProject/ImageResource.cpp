@@ -24,8 +24,13 @@ TexAnim _PL_squat[] = {
 TexAnim _PL_punch[] = {
 	{ 10,5 },
 	{ 11,5 },
-	{ 12,15 },
-	{ 10,5 },
+	{ 12,10 },
+	{ 10,10 },
+};
+TexAnim _PL_kick[] = {
+	{ 15,5 },
+	{ 16,10 },
+	{ 15,5 },
 };
 
 TexAnimData player_AnimData[] = {
@@ -34,6 +39,7 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_jamp),
 	ANIMDATA(_PL_squat),
 	ANIMDATA(_PL_punch),
+	ANIMDATA(_PL_kick),
 };
 
 TexAnim _ENE_anim[] = {

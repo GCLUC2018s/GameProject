@@ -87,6 +87,21 @@
     <ClInclude Include="Game\CScene\CSceneManager.h">
       <Filter>Game\Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -121,6 +136,21 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp">
       <Filter>Game\ObjectBase\TitleBG</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

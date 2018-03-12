@@ -15,7 +15,8 @@ public:
 	 void Update();
 	 void Draw();
 private:
-	bool	m_punch;
+	bool	m_punch1;
+	bool	m_punch2;
 	bool	m_jump;
 	bool	m_move_length;
 	bool	m_move_side;

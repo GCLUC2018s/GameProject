@@ -1,5 +1,5 @@
-#ifndef BOSSGUAD
-#define BOSSGUAD
+#ifndef BOSSGUARD
+#define BOSSGUARD
 
 #include"../CObjectBase.h"
 /*
@@ -9,7 +9,7 @@
 */
 class CBoss :public CObjectBase {
 public:
-	CBoss(CVector2D *pos);
+	CBoss(CVector3D *pos);
 	~CBoss();
 	void Update();
 };
@@ -17,4 +17,4 @@ public:
 
 
 
-#endif // !EBEMY1GUAD
+#endif // !EBEMY1GUARD
