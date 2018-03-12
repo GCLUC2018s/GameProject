@@ -6,6 +6,7 @@ void C_Player::Init(){
 	m_Anime_s = 0;
 }
 
+
 void C_Player::Update(){
 	//アニメーションカウンタを1秒分回す
 	if (m_Anime < 60)++m_Anime;
@@ -14,9 +15,19 @@ void C_Player::Update(){
 		m_Anime = 0;
 		++m_Anime_s;
 	}
-
+	if (CKey::Push(VK_RIGHT)){
+		m_Right += PLAYER_LR_SPEED;
+		m_Left += PLAYER_LR_SPEED;
+	}
+	if (CKey::Push(VK_LEFT)){
+		m_Right -= PLAYER_LR_SPEED;
+		m_Left -= PLAYER_LR_SPEED;
+	}
+	if (CKey::Push(VK_UP)&&m_Bottom>-)
 	
 }
+
+
 void C_Player::Draw(){
 	if (!(CKey::Push(VK_RIGHT) 
 		|| CKey::Push(VK_LEFT)
