@@ -1,107 +1,137 @@
 #include "CTaskManager.h"
 #include "CTask.h"
+#include "CTaskLinker.h"
+
 
 CTaskManager* CTaskManager::mp_instance = nullptr;
 
 CTaskManager::CTaskManager()
+		:	mp_updHead(nullptr)
+		,	mp_updTail(nullptr)
+		,	mp_drwHead(nullptr)
+		,	mp_drwTail(nullptr)
 {
-	mp_Upd_Top = nullptr;
-	mp_Upd_End = nullptr;
-	mp_Drw_Top = nullptr;
-	mp_Drw_End = nullptr;
-}
-void CTaskManager::AddTaskIn(CTask **p, CTask **pTop, CTask **pEnd, bool flag)
-{
-	if ((*pTop) == nullptr) {
-		//先頭がなかったら、追加されたタスクを先頭に
-		*pTop = *p;
-		if (flag == eUpdate) {
-			(*p)->mp_Upd_next = nullptr;
-			(*p)->mp_Upd_prev = nullptr;
-		}
-		else {
-			(*p)->mp_Drw_next = nullptr;
-			(*p)->mp_Drw_prev = nullptr;
-		}
-		*pEnd = *p;
-	}
-	//先頭が存在していれば
-	else {
-		//末尾に追加
-		if (flag == eUpdate) {
-			(*p)->mp_Upd_prev = *pEnd;
-			(*pEnd)->mp_Upd_next = *p;
-		}
-		else {
-			(*p)->mp_Drw_prev = *pEnd;
-			(*pEnd)->mp_Drw_next = *p;
-		}
-		*pEnd = *p;
-	}
-}
-void CTaskManager::RemoveTask(CTask **p, CTask **pTop, CTask **pEnd, bool flag)
-{
-	if (flag == eUpdate) {
-		if ((*p) == (*pTop)) {
-			*pTop = (*p)->mp_Upd_next;
-		}
-		if ((*p) == (*pEnd)) {
-			*pEnd = (*p)->mp_Upd_prev;
-		}
-		(*p)->mp_Upd_prev->mp_Upd_next = (*p)->mp_Upd_next;
-		// 自身のリンクをクリア 
-		(*p)->mp_Upd_prev = nullptr;
-		(*p)->mp_Upd_next = nullptr;
-	}
-	else {
-		if ((*p) == (*pTop)) {
-			*pTop = (*p)->mp_Drw_next;
-		}
-		if ((*p) == (*pEnd)) {
-			*pEnd = (*p)->mp_Drw_prev;
-		}
-		(*p)->mp_Drw_prev->mp_Drw_next = (*p)->mp_Drw_next;
-		// 自身のリンクをクリア 
-		(*p)->mp_Drw_prev = nullptr;
-		(*p)->mp_Drw_next = nullptr;
-	}
 }
 CTaskManager::~CTaskManager()
 {
 }
 
-void CTaskManager::Add(CTask * p)
+// リスト追加内部処理 
+void CTaskManager::AddTaskInner( CTaskLinker *p, CTaskLinker **pHead, CTaskLinker **pTail )
 {
-	//Update用の線つなぎ
-	AddTaskIn(&p, &mp_Upd_Top, &mp_Upd_End,eUpdate);
-	//Draw用の線つなぎ
-	AddTaskIn(&p, &mp_Drw_Top, &mp_Drw_End,eDraw);
+	//先頭が存在しなければ
+	if ( (*pHead) == nullptr )
+	{
+		//追加されたタスクを先頭に
+		*pHead = p;
+		p->mp_prev = nullptr;
+		p->mp_next = nullptr;
+		*pTail = p;
+	}
+	//先頭が存在していれば
+	else
+	{
+		CTaskLinker *t = (*pHead);
+
+		while ( t != nullptr )
+		{
+			// 挿入すべき優先度を探す 
+			if ( p->GetPriority() < t->GetPriority() ) {
+				// 挿入 
+				CTaskLinker	*prev = t->mp_prev;
+				if ( prev != nullptr ) prev->mp_next = p;
+				t->mp_prev = p;
+				p->mp_prev = prev;
+				p->mp_next = t;
+				// 先頭の場合 
+				if ( t == *pHead ) *pHead = p;
+				return;
+			}
+			// 次へ 
+			t = t->mp_next;
+		}
+		// 末尾に追加  
+		CTaskLinker* prev = *pTail;
+		if ( prev != nullptr ) prev->mp_next = p;
+		p->mp_prev = prev;
+		p->mp_next = nullptr;
+		(*pTail)->mp_next = p;
+		(*pTail) = p;
+	}
 }
 
-CTask * CTaskManager::Kill(CTask * p)
+
+void CTaskManager::Add(CTask *p)
+{
+	// Update用リストに追加 
+	AddTaskInner( &(p->m_updLinker), &mp_updHead, &mp_updTail );
+
+	// Draw用リストに追加 
+	AddTaskInner( &(p->m_drwLinker), &mp_drwHead, &mp_drwTail );
+
+}
+
+
+// リストから外す 
+void CTaskManager::RemoveTaskLinker( CTaskLinker *p, CTaskLinker **pHead, CTaskLinker **pTail )
+{
+	// 前後を繋ぎ直し 
+	CTaskLinker *prev = p->mp_prev;
+	CTaskLinker *next = p->mp_next;
+	if ( prev != nullptr ) prev->mp_next = next;
+	if ( next != nullptr ) next->mp_prev = prev;
+
+	// 自身のリンクをクリア 
+	p->mp_prev = nullptr;
+	p->mp_next = nullptr;
+
+	// 先頭を再設定 
+	if ( *pHead == p ) *pHead = next;
+	// 終端を再設定 
+	if ( *pTail == p ) *pTail = prev;
+}
+
+
+
+CTask* CTaskManager::Kill(CTask *p)
 {
 	CTask *next = nullptr;
-	if (p->mp_Upd_next != nullptr) next = mp_Upd_Top;
+	if ( p->m_updLinker.mp_next != nullptr ) next = p->m_updLinker.mp_next->mp_task;
 
 	// リストから外す 
-	RemoveTask(&p, &mp_Upd_Top, &mp_Upd_End, eUpdate);
-	RemoveTask(&p, &mp_Drw_Top, &mp_Drw_End, eDraw);
+	RemoveTaskLinker( &(p->m_updLinker), &mp_updHead, &mp_updTail );
+	RemoveTaskLinker( &(p->m_drwLinker), &mp_drwHead, &mp_drwTail );
 
 	// 削除 
 	delete p;
 
 	// 後続を返す 
 	return next;
+
 }
 
 void CTaskManager::KillAppoint()
 {
 	//先頭から順に削除フラグが真のタスクを削除していく
-	CTask *p = mp_Upd_Top;
+	CTaskLinker *p = mp_updHead;
 	while (p)
 	{
-		CTask	*next = p->mp_Upd_next;
-		if (p->m_death_flag) Kill(p);
+		CTaskLinker	*next = p->mp_next;
+		if ( p->mp_task->m_destroyFlg ) Kill(p->mp_task);
+		p = next;
+	}
+
+}
+
+void CTaskManager::KillAll()
+{
+	//先頭からタスクを削除していく
+	CTaskLinker *p = mp_updHead;
+	while ( p )
+	{
+		CTaskLinker *next = p->mp_next;
+		if(p->GetPriority() != eUDP_Scene)
+			Kill( p->mp_task );
 		p = next;
 	}
 }
@@ -109,32 +139,97 @@ void CTaskManager::KillAppoint()
 void CTaskManager::UpdateAll()
 {
 	//先頭から順にタスクを更新していく
-	CTask *p = mp_Upd_Top;
-	while (p)
+	CTaskLinker *p = mp_updHead;
+	while ( p )
 	{
-		p->Update();
-		p = p->mp_Upd_next;
+		p->mp_task->Update();
+		p = p->mp_next;
 	}
 }
 
 void CTaskManager::DrawAll()
 {
 	//先頭から順にタスクを描画していく
-	CTask *p = mp_Drw_Top;
-	while (p)
+	CTaskLinker *p = mp_drwHead;
+	while ( p )
 	{
-		p->Draw();
-		p = p->mp_Drw_next;
+		p->mp_task->Draw();
+		p = p->mp_next;
 	}
 }
 
 
-CTaskManager * CTaskManager::GetInstance()
+// 更新優先度を変更 
+void CTaskManager::ChangeUpdatePrio(CTask *p, int prio)
 {
-	//タスクマネージャーは一個しかいらないので、なかった時だけ作る
-	if (mp_instance == nullptr) {
+	// リンクから除外する 
+	RemoveTaskLinker( &(p->m_updLinker), &mp_updHead, &mp_updTail );
+
+	// プライオリティーを設定 
+	p->m_updLinker.SetPriority(prio);
+
+	// Update用リストに追加 
+	AddTaskInner( &(p->m_updLinker), &mp_updHead, &mp_updTail );
+
+}
+
+// 描画優先度を変更 
+void CTaskManager::ChangeDrawPrio(CTask *p, int prio)
+{
+	// リンクから除外する 
+	RemoveTaskLinker( &(p->m_drwLinker), &mp_drwHead, &mp_drwTail );
+
+	// プライオリティーを設定 
+	p->m_drwLinker.SetPriority(prio);
+
+	// Update用リストに追加 
+	AddTaskInner( &(p->m_drwLinker), &mp_drwHead, &mp_drwTail );
+}
+
+
+
+
+CTask* CTaskManager::GetTask(int id)
+{
+	CTaskLinker *p = mp_updHead;
+	while ( p )
+	{
+		if ( p->mp_task->m_id == id ) return p->mp_task;
+		p = p->mp_next;
+	}
+
+	//以外ならnullを返す
+	return nullptr;
+}
+
+int CTaskManager::GetCount(int id)
+{
+	int cnt = 0;
+
+	CTaskLinker *p = mp_updHead;
+	while ( p )
+	{
+		if ( p->mp_task->m_id == id ) cnt ++;
+		p = p->mp_next;
+	}
+
+	//個数を返す
+	return cnt;
+}
+
+CTaskManager* CTaskManager::GetInstance()
+{
+	//CTaskManagerを一度のみ（シングルトン）生成して格納
+	if (mp_instance == nullptr)
+	{
 		mp_instance = new CTaskManager();
 	}
 	//それを返す
 	return mp_instance;
+}
+
+void CTaskManager::ClearInstance()
+{
+	//メモリリーク回避
+	if (mp_instance != nullptr) delete mp_instance;
 }

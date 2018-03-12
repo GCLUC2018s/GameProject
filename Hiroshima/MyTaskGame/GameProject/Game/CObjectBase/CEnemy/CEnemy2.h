@@ -1,13 +1,26 @@
 #ifndef ENEMY2GUARD
 #define ENEMY2GUARD
-
 #include"../CObjectBase.h"
 
+#define CHOCHIN_HP 5
+#define CHOCHIN_AT 3
+#define CHOCHIN_SPEED 4
+/*
+
+êªçÏé“Å@ê¬ñÿ
+
+*/
+//íÒìî
 class CEnemy2 :public CObjectBase {
+private:
+	float m_a;
 public:
-	CEnemy2(CVector2D pos);
+	CEnemy2(CVector3D *pos);
 	~CEnemy2();
-	virtual void Update();
+	void Update();
 };
 
-#endif // !ENEMY2GUARD
+
+
+
+#endif // !ENEMY4GUARD

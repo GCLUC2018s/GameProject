@@ -19,9 +19,6 @@
     <Filter Include="Game">
       <UniqueIdentifier>{4d80ae17-12f3-447b-8098-792a7bc69029}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Gamesource.h">
-      <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ImageResource">
       <UniqueIdentifier>{ee4e96f5-12b5-43e7-afb9-5b7ce4c2dd32}</UniqueIdentifier>
     </Filter>
@@ -37,6 +34,21 @@
     <Filter Include="Game\ObjectBase\Gimmick">
       <UniqueIdentifier>{01313ea2-920d-41ae-96f8-fa4e397c9329}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Scene">
+      <UniqueIdentifier>{3bb60d5d-eab7-47f5-93f5-8984f6c4f843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\TitleBG">
+      <UniqueIdentifier>{bf551686-a7a2-4e31-b0e4-f554977eee3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Source">
+      <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG">
+      <UniqueIdentifier>{e7a59b18-d4f7-4c67-a2e6-5cd11d272634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldSky">
+      <UniqueIdentifier>{ebafcdab-3f78-4647-b713-67bf1841856b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -48,14 +60,8 @@
     <ClInclude Include="stdafx.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Task\CTask.h">
-      <Filter>Task</Filter>
-    </ClInclude>
-    <ClInclude Include="Task\CTaskManager.h">
-      <Filter>Task</Filter>
-    </ClInclude>
     <ClInclude Include="Gamesource.h">
-      <Filter>Game\Gamesource.h</Filter>
+      <Filter>Game\Source</Filter>
     </ClInclude>
     <ClInclude Include="ImageResource.h">
       <Filter>ImageResource</Filter>
@@ -69,22 +75,49 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
+      <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTaskLinker.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTaskManager.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h">
+      <Filter>Game\ObjectBase\TitleBG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CScene\CSceneManager.h">
+      <Filter>Game\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
-      <Filter>Game\ObjectBase\Gimmick</Filter>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBG.h">
+      <Filter>Game\ObjectBase\FieldBG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Task\CTask.cpp">
-      <Filter>Task</Filter>
-    </ClCompile>
-    <ClCompile Include="Task\CTaskManager.cpp">
-      <Filter>Task</Filter>
     </ClCompile>
     <ClCompile Include="ImageResource.cpp">
       <Filter>ImageResource</Filter>
@@ -98,11 +131,44 @@
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
+      <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTask.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTaskLinker.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTaskManager.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CScene\CSceneManager.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp">
+      <Filter>Game\ObjectBase\TitleBG</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
-      <Filter>Game\ObjectBase\Gimmick</Filter>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBG.cpp">
+      <Filter>Game\ObjectBase\FieldBG</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,27 +5,36 @@ TexAnim _PL_idol[] = {
 	{ 1,5 },
 	{ 2,5 },
 	{ 3,5 },
+	{ 4,5 },
+	{ 5,5 },
+	{ 6,5 },
+	{ 7,5 },
 };
 TexAnim _PL_dash[] = {
-	{ 35,5 },
-	{ 36,5 },
-	{ 37,5 },
-	{ 38,5 },
+	{ 70,5 },
+	{ 71,5 },
+	{ 72,5 },
+	{ 73,5 },
 };
 TexAnim _PL_jamp[] = {
-	{ 25,5 },
-	{ 26,5 },
-	{ 27,5 },
+	{ 50,5 },
+	{ 51,5 },
+	{ 52,5 },
 };
 TexAnim _PL_squat[] = {
-	{ 41,5 },
-	{ 42,5 },
+	{ 80,5 },
+	{ 81,5 },
 };
 TexAnim _PL_punch[] = {
-	{ 10,5 },
-	{ 11,5 },
-	{ 12,15 },
-	{ 10,5 },
+	{ 20,5 },
+	{ 21,5 },
+	{ 22,10 },
+	{ 20,10 },
+};
+TexAnim _PL_kick[] = {
+	{ 30,5 },
+	{ 31,10 },
+	{ 30,5 },
 };
 
 TexAnimData player_AnimData[] = {
@@ -34,13 +43,12 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_jamp),
 	ANIMDATA(_PL_squat),
 	ANIMDATA(_PL_punch),
+	ANIMDATA(_PL_kick),
 };
 
 TexAnim _ENE_anim[] = {
-	{ 4,5 },
-	{ 5,5 },
-	{ 6,5 },
-	{ 7,5 },
+	{ 0,30 },
+	{ 1,30 },
 
 };
 TexAnimData enemy_AnimData[] = {

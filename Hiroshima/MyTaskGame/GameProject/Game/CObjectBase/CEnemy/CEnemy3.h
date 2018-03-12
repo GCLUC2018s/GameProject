@@ -1,0 +1,26 @@
+#ifndef ENEMY3GUARD
+#define ENEMY3GUARD
+#include"../CObjectBase.h"
+
+#define HI_HP 3
+#define HI_AT 7
+#define HI_SPEED 5
+/*
+
+êªçÏé“Å@ê¬ñÿ
+
+*/
+//âŒÇÃã 
+class CEnemy3 :public CObjectBase {
+private:
+	float m_a;
+public:
+	CEnemy3(CVector3D *pos);
+	~CEnemy3();
+	void Update();
+};
+
+
+
+
+#endif // !ENEMY3GUARD
