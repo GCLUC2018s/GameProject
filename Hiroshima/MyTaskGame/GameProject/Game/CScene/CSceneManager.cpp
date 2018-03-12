@@ -43,6 +43,7 @@ void CSceneManager::MainScene(){
 	new CGimmick(&(CVector3D(500, 500, 0)));
 	new CGimmick(&(CVector3D(250, 500, 0)));
 	new CGimmick(&(CVector3D(500, 250, 0)));
+	new CFieldBG();
 }
 
 void CSceneManager::BossScene(){

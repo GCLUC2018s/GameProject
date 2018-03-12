@@ -8,6 +8,7 @@
 
 */
 class CFieldBG :public CObjectBase {
+public:
 	CFieldBG();
 	~CFieldBG();
 	void Update();

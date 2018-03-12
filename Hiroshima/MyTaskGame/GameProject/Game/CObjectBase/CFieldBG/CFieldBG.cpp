@@ -14,3 +14,7 @@ CFieldBG::CFieldBG() : CObjectBase(0, eUDP_Map, eDWP_Map) {
 CFieldBG::~CFieldBG(){
 
 }
+
+void CFieldBG::Update(){
+
+}

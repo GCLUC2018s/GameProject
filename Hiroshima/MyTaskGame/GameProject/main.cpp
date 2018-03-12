@@ -72,20 +72,16 @@ void Init(void)
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
+	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));
+//	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
+//	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
+//	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground"));
+
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 
-	//new CPlayer();
-	//new CEnemy1(&(CVector3D(200,200, 0)));
-	//new CGimmick(&(CVector3D(500, 500, 0)));
-	//new CGimmick(&(CVector3D(250, 500, 0)));
-	//new CGimmick(&(CVector3D(500, 250, 0)));
+	
 	NEW_SCENE(eTitle)
-	//new CEnemy2(&(CVector3D(200, 100, 0)));
-	//new CEnemy3(&(CVector3D(100, 300, 0)));
-	//new CEnemy4(&(CVector3D(300, 400, 0)));
-	//new CEnemy5(&(CVector3D(400, 500, 0)));
-	//new CBoss(&(CVector3D(200, 200, 0)));
-
+	
 }
 
 
