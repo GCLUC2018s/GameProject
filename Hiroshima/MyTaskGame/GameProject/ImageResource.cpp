@@ -37,10 +37,8 @@ TexAnimData player_AnimData[] = {
 };
 
 TexAnim _ENE_anim[] = {
-	{ 4,5 },
-	{ 5,5 },
-	{ 6,5 },
-	{ 7,5 },
+	{ 0,30 },
+	{ 1,30 },
 
 };
 TexAnimData enemy_AnimData[] = {
