@@ -3,6 +3,10 @@
 
 #include "../draw/CRectangle.h"
 
+#define PLAYER_SPEED 3     //プレイヤーの移動速度
+#define SCROLL_PERCENTAGE 60   //スクロールの基準点（左基準でパーセント換算）
+#define SCROLL_POINT W_H/100*SCROLL_PERCENTAGE-(W_H/2)   //スクロールの基準点の横座標
+
 class C_Scroll :public C_Rectangle{
 protected:
 	C_Scroll(){

@@ -57,10 +57,10 @@
     <ClCompile Include="task\CTaskManager.cpp">
       <Filter>ソース ファイル\task</Filter>
     </ClCompile>
-    <ClCompile Include="chara\Character.cpp">
+    <ClCompile Include="chara\scroll.cpp">
       <Filter>ソース ファイル\chara</Filter>
     </ClCompile>
-    <ClCompile Include="chara\scroll.cpp">
+    <ClCompile Include="chara\C_Player.cpp">
       <Filter>ソース ファイル\chara</Filter>
     </ClCompile>
     <ClCompile Include="Hagi.cpp">
@@ -101,10 +101,10 @@
     <ClInclude Include="task\CTaskManager.h">
       <Filter>ソース ファイル\task</Filter>
     </ClInclude>
-    <ClInclude Include="chara\Character.h">
+    <ClInclude Include="chara\scroll.h">
       <Filter>ソース ファイル\chara</Filter>
     </ClInclude>
-    <ClInclude Include="chara\scroll.h">
+    <ClInclude Include="chara\C_Player.h">
       <Filter>ソース ファイル\chara</Filter>
     </ClInclude>
     <ClInclude Include="Nagao.h">
