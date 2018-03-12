@@ -2,8 +2,8 @@
 
 
 CObjectBase::CObjectBase() {
-	m_pos = CVector2D(0, 0);
-	m_vec = CVector2D(0, 0);
+	m_pos3D = CVector3D(0, 0, 0);
+	m_vec3D = CVector3D(0, 0, 0);
 	m_flipH = false;
 	m_active = true;
 	m_color = 0;
@@ -13,6 +13,6 @@ CObjectBase::CObjectBase() {
 void CObjectBase::Draw()
 {
 	m_img.SetFlipH(m_flipH);
-	m_img.SetPos(m_pos - m_scroll);
+	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
 	m_img.Draw();
 }
