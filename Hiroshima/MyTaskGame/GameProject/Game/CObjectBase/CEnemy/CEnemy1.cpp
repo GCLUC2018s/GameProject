@@ -5,6 +5,7 @@
 »ìÒ@Â–Ø
 
 */
+//‚¾‚é‚Ü
 CEnemy1::CEnemy1(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy"));
 	m_img.SetSize(213, 256);

@@ -128,7 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Gamesource.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
@@ -141,7 +146,12 @@
     <ClInclude Include="Task\CTaskManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />
