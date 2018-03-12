@@ -14,7 +14,11 @@
 //ID
 enum E_ID
 {
-	E_SCROLL,
+	E_PLAYER,
+	E_ENEMY,
+	E_BG,
+	E_OBJ,
+	E_UI,
 };
 //XV‡˜
 enum E_UpdatePrio
