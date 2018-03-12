@@ -132,6 +132,8 @@
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
+    <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h" />
+    <ClInclude Include="Game\CScene\CSceneManager.h" />
     <ClInclude Include="GID.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="ImageResource.h" />
@@ -145,6 +147,8 @@
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />
+    <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp" />
+    <ClCompile Include="Game\CScene\CSceneManager.cpp" />
     <ClCompile Include="ImageResource.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Task\CTask.cpp" />

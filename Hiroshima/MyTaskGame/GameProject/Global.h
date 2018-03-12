@@ -39,3 +39,5 @@
 #define PUSH_UP CInput::GetState(0, CInput::ePush, CInput::eUp)
 #define PUSH_DOWN CInput::GetState(0, CInput::ePush, CInput::eDown)
 
+class CSceneManager;
+#define NEW_SCENE(name) new CSceneManager(name);
