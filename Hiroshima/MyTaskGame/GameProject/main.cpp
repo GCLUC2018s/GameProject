@@ -5,10 +5,12 @@
 #define FULL_SCREEN 0
 #define GAME_MODE	1
 
+
 #include "stdafx.h"
 #include "Global.h"
 #include "GID.h"
 #include "Gamesource.h"
+#include "../GameProject/Game/CScene/CSceneManager.h"
 
 
 void MainLoop(void) {
@@ -59,7 +61,7 @@ void Init(void)
 	SetCurrentDirectory("data");
 
 	CSound::GetInstance();
-//‰Šú‰»
+	//‰Šú‰»
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy2", CAnimImage::LoadImage("zako_chochin_motion.png", enemy_AnimData, 512, 512));
@@ -68,18 +70,21 @@ void Init(void)
 	ADD_RESOURCE("Enemy5", CAnimImage::LoadImage("zako_niku_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Boss", CAnimImage::LoadImage("boss_b_image.png", enemy_AnimData, 4093, 2894));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
+	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
+	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
+	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 
-	new CPlayer();
-	new CEnemy1(&(CVector3D(200,200, 0)));
-	new CGimmick(&(CVector3D(500, 500, 0)));
-	new CGimmick(&(CVector3D(250, 500, 0)));
-	new CGimmick(&(CVector3D(500, 250, 0)));
-	new CEnemy2(&(CVector3D(200, 100, 0)));
-	new CEnemy3(&(CVector3D(100, 300, 0)));
-	new CEnemy4(&(CVector3D(300, 400, 0)));
-	new CEnemy5(&(CVector3D(400, 500, 0)));
+	//new CPlayer();
+	//new CEnemy1(&(CVector3D(200,200, 0)));
+	//new CGimmick(&(CVector3D(500, 500, 0)));
+	//new CGimmick(&(CVector3D(250, 500, 0)));
+	//new CGimmick(&(CVector3D(500, 250, 0)));
+	NEW_SCENE(eTitle)
+	//new CEnemy2(&(CVector3D(200, 100, 0)));
+	//new CEnemy3(&(CVector3D(100, 300, 0)));
+	//new CEnemy4(&(CVector3D(300, 400, 0)));
+	//new CEnemy5(&(CVector3D(400, 500, 0)));
 	//new CBoss(&(CVector3D(200, 200, 0)));
-
 
 }
 

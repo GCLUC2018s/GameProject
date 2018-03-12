@@ -3,7 +3,6 @@
 
 #include "../GameProject/Task/CTask.h"
 #include "../GameProject/stdafx.h"
-#include "../GameProject/Global.h"
 
 class CObjectBase : public CTask
 {
@@ -15,7 +14,6 @@ protected:
 	CVector3D	m_vec3D;		//移動量
 	CRect	m_rect;			//当たり判定用短形
 	bool	m_flipH;		//反転フラグ
-	bool	m_active;		//生存フラグ
 	bool	m_move;
 	int		m_type;
 	float	m_color;		//色
