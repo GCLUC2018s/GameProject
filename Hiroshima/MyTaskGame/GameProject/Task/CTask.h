@@ -58,7 +58,6 @@ public:
 		m_death_flag = true;
 	}
 	friend class CTaskManager;
-	static CVector2D m_scroll;
 };
 
 

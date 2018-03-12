@@ -1,5 +1,6 @@
 #include "CObjectBase.h"
 
+CVector2D CObjectBase::m_scroll(0, 0);
 
 CObjectBase::CObjectBase() {
 	m_pos = CVector2D(0, 0);
