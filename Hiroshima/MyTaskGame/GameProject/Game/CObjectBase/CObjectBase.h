@@ -18,6 +18,8 @@ protected:
 	int		m_type;
 	float	m_color;		//êF
 	static CVector2D m_scroll;
+	int m_hp;
+	int m_at;
 public:
 	CObjectBase();
 	//~CCharaBase();

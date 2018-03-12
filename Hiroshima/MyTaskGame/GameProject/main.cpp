@@ -61,7 +61,12 @@ void Init(void)
 	CSound::GetInstance();
 //èâä˙âª
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("Player_motion_.png", player_AnimData, 512, 512));
-	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma.png"));
+	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma_motion.png", enemy_AnimData, 512, 512));
+	ADD_RESOURCE("Enemy2", CAnimImage::LoadImage("zako_chochin_motion.png", enemy_AnimData, 512, 512));
+	ADD_RESOURCE("Enemy3", CAnimImage::LoadImage("zako_hi_motion.png", enemy_AnimData, 512, 512));
+	ADD_RESOURCE("Enemy4", CAnimImage::LoadImage("zako_kamaitachi_motion.png", enemy_AnimData, 512, 512));
+	ADD_RESOURCE("Enemy5", CAnimImage::LoadImage("zako_niku_motion.png", enemy_AnimData, 512, 512));
+	ADD_RESOURCE("Boss", CAnimImage::LoadImage("boss_b_image.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 
 	new CPlayer();
