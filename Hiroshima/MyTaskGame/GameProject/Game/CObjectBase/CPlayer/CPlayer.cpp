@@ -25,7 +25,7 @@ void CPlayer::Update() {
 	m_move_length = false;
 	m_move_side = false;
 	m_squat = false;
-	if (!m_punch1 && !m_punch2) {
+	if (!m_punch1 && !m_punch2 && !m_jump) {
 		m_anim = 0;
 	}
 
@@ -38,7 +38,6 @@ void CPlayer::Update() {
 
 	//キック
 	if (m_punch1 && PUSH_R) {
-		SOUND("SE_PUNCH_KARA")->Play();
 		m_punch2 = true;
 		m_punch1 = false;
 		m_pos3D.x++;
@@ -126,9 +125,10 @@ void CPlayer::Update() {
 	//アニメーション
 	m_img.ChangeAnimation(m_anim);
 	if (m_anim == 4 && m_img.GetIndex() == 3) {
-		if (m_punch2)
+		if (m_punch2) {
 			m_anim = 5;
-		else {
+			SOUND("SE_PUNCH_KARA")->Play();
+		}else {
 			m_punch1 = false;
 		}
 	}
@@ -136,11 +136,16 @@ void CPlayer::Update() {
 		m_punch2 = false;
 	}
 
-	if (m_squat&&m_img.GetCount() == 1) {
 
-	}
-	else {
+	if (m_squat&&m_img.GetIndex() == 1) {
+	}else if(m_jump && m_img.GetIndex() == 0){
+		if (m_vec3D.y > 0) {
+			m_img.UpdateAnimation();
+		}
+	}else if (m_jump && m_img.GetIndex() == 1) {
+	}else {
 		m_img.UpdateAnimation();
+
 	}
 }
 
