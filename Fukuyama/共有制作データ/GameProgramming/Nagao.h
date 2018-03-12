@@ -1,8 +1,9 @@
 #ifndef NAGAO_H
 #define NAGAO_H
-class Nagao{
+#include"task/CTask.h"
+class Nagao:public CTask{
 public:
-
+	
 private:
 
 };
