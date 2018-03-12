@@ -83,9 +83,13 @@
     <ClCompile Include="chara\scroll.cpp" />
     <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CMain.cpp" />
+    <ClCompile Include="CSceneGame.cpp" />
     <ClCompile Include="draw\CRectangle.cpp" />
     <ClCompile Include="draw\CTexture.cpp" />
+    <ClCompile Include="Hagi.cpp" />
+    <ClCompile Include="Hako.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Nagao.cpp" />
     <ClCompile Include="object\CColorBall.cpp" />
     <ClCompile Include="task\CTask.cpp" />
     <ClCompile Include="task\CTaskLinker.cpp" />
@@ -96,8 +100,12 @@
     <ClInclude Include="chara\scroll.h" />
     <ClInclude Include="CKey.h" />
     <ClInclude Include="CMain.h" />
+    <ClInclude Include="CSceneGame.h" />
     <ClInclude Include="draw\CRectangle.h" />
     <ClInclude Include="draw\CTexture.h" />
+    <ClInclude Include="Hagi.h" />
+    <ClInclude Include="Hako.h" />
+    <ClInclude Include="Nagao.h" />
     <ClInclude Include="object\CColorBall.h" />
     <ClInclude Include="task\CTask.h" />
     <ClInclude Include="task\CTaskLinker.h" />

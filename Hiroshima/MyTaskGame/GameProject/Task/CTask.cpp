@@ -1,7 +1,6 @@
 #include "CTask.h"
 #include "CTaskManager.h"
 
-CVector2D CTask::m_scroll(0, 0);
 
 CTask::CTask()
 {
