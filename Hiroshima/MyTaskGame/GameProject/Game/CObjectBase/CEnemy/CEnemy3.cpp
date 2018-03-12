@@ -10,6 +10,8 @@ CEnemy3::CEnemy3(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy3"));
 	m_img.SetSize(213, 256);
 	m_pos3D = *pos;
+	m_hp = HI_HP;
+	m_at = HI_AT;
 
 }
 
@@ -17,6 +19,7 @@ CEnemy3::~CEnemy3() {
 }
 
 void CEnemy3::Update() {
+	m_pos3D += m_vec3D;
 
 	if (m_pos3D.x < 0) {
 		m_flipH = true;
@@ -27,10 +30,10 @@ void CEnemy3::Update() {
 	}
 
 	if (m_flipH) {
-		m_pos3D.x += 5;
+		m_vec3D.x = HI_SPEED;
 	}
 	else {
-		m_pos3D.x -= 5;
+		m_vec3D.x  = -HI_SPEED;
 	}
 
 

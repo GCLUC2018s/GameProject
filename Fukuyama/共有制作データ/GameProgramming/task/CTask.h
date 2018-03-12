@@ -8,8 +8,9 @@
 #define TASK_GUARD
 
 #include "CTaskLinker.h"
-#include "windows.h"
-#include "../CMain.h"
+
+//#include "windows.h"
+//#include "../CMain.h"
 
 //ID
 enum E_ID

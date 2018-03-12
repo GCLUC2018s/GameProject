@@ -13,7 +13,8 @@ CPlayer::CPlayer() :CObjectBase(0, eUDP_Player, eDWP_Player) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	m_img.SetSize(256, 256);
 	m_img.SetFlipH(m_flipH);
-	m_punch = false;
+	m_punch1 = false;
+	m_punch2 = false;
 	m_jump = false;
 }
 
@@ -24,16 +25,25 @@ void CPlayer::Update() {
 	m_move_length = false;
 	m_move_side = false;
 	m_squat = false;
-	m_punch = false;
-	m_anim = 0;
+	if (!m_punch1 && !m_punch2) {
+		m_anim = 0;
+	}
 
 	m_pos3D += m_vec3D;
 
-	if (HOLD_X) {
+	if (HOLD_X && !m_jump) {
 		m_squat = true;
 		m_anim = 3;
 	}
-	if (!m_squat && !m_jump) {
+
+	//キック
+	if (m_punch1 && PUSH_R) {
+		m_punch2 = true;
+		m_punch1 = false;
+		m_pos3D.x++;
+	}
+
+	if (!m_squat && !m_jump && !m_punch1 && !m_punch2) {
 		//移動
 		if (HOLD_UP) {
 			m_vec3D.z = -10;
@@ -62,15 +72,15 @@ void CPlayer::Update() {
 			m_anim = 1;
 		}
 		//パンチ
-		if (PUSH_R) {
-			m_punch = true;
+		if (!m_punch2 && PUSH_R) {
+			m_punch1 = true;
 			m_anim = 4;
 			m_pos3D.x++;
-
 		}
+
 	}
 	//ジャンプ
-	if (PUSH_Z && !m_jump) {
+	if (PUSH_Z && !m_jump && !m_squat) {
 		//ジャンプする前のy座標を取得
 		m_y = m_pos3D.y;
 		m_jump = true;
@@ -114,8 +124,16 @@ void CPlayer::Update() {
 	//アニメーション
 	m_img.ChangeAnimation(m_anim);
 	if (m_anim == 4 && m_img.GetIndex() == 3) {
-		m_anim = 0;
+		if (m_punch2)
+			m_anim = 5;
+		else {
+			m_punch1 = false;
+		}
 	}
+	if (m_anim == 5 && m_img.GetIndex() == 2) {
+		m_punch2 = false;
+	}
+
 	if (m_squat&&m_img.GetCount() == 1) {
 
 	}

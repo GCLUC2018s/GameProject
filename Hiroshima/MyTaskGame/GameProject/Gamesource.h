@@ -7,6 +7,7 @@
 #include "../GameProject/Game/CObjectBase/CPlayer/CPlayer.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy1.h"
 #include "../GameProject/Game/CObjectBase/CGimmick/CGimmick.h"
+#include "../GameProject/Game/CObjectBase/CTitleBG/CTitleBG.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy2.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy3.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy4.h"

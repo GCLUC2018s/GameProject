@@ -8,11 +8,13 @@
 #define TASK_GUARD
 
 #include "CTaskLinker.h"
+#include "../Global.h"
 
 
 //XV‡˜
 enum E_UpdatePrio
 {
+	eUDP_Scene,
 	eUDP_Tutorial,
 	eUDP_Player,
 	eUDP_Camera,

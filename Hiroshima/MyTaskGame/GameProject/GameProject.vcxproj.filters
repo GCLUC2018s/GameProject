@@ -19,9 +19,6 @@
     <Filter Include="Game">
       <UniqueIdentifier>{4d80ae17-12f3-447b-8098-792a7bc69029}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Gamesource.h">
-      <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ImageResource">
       <UniqueIdentifier>{ee4e96f5-12b5-43e7-afb9-5b7ce4c2dd32}</UniqueIdentifier>
     </Filter>
@@ -37,6 +34,15 @@
     <Filter Include="Game\ObjectBase\Gimmick">
       <UniqueIdentifier>{01313ea2-920d-41ae-96f8-fa4e397c9329}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Scene">
+      <UniqueIdentifier>{3bb60d5d-eab7-47f5-93f5-8984f6c4f843}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\TitleBG">
+      <UniqueIdentifier>{bf551686-a7a2-4e31-b0e4-f554977eee3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Source">
+      <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -49,7 +55,7 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Gamesource.h">
-      <Filter>Game\Gamesource.h</Filter>
+      <Filter>Game\Source</Filter>
     </ClInclude>
     <ClInclude Include="ImageResource.h">
       <Filter>ImageResource</Filter>
@@ -74,6 +80,12 @@
     </ClInclude>
     <ClInclude Include="Task\CTaskManager.h">
       <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h">
+      <Filter>Game\ObjectBase\TitleBG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CScene\CSceneManager.h">
+      <Filter>Game\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h">
       <Filter>Game\ObjectBase\Enemy</Filter>
@@ -118,6 +130,12 @@
     </ClCompile>
     <ClCompile Include="Task\CTaskManager.cpp">
       <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CScene\CSceneManager.cpp">
+      <Filter>Game\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp">
+      <Filter>Game\ObjectBase\TitleBG</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp">
       <Filter>Game\ObjectBase\Enemy</Filter>

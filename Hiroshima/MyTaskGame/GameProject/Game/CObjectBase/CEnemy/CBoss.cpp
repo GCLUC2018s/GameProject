@@ -9,6 +9,8 @@ CBoss::CBoss(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
 	m_img.SetSize(213, 256);
 	m_pos3D = *pos;
+	m_hp = BOSS_HP;
+	m_at = BOSS_AT;
 
 }
 
@@ -16,6 +18,7 @@ CBoss::~CBoss() {
 }
 
 void CBoss::Update() {
+	m_pos3D += m_vec3D;
 
 	if (m_pos3D.x < 0) {
 		m_flipH = true;
@@ -26,10 +29,10 @@ void CBoss::Update() {
 	}
 
 	if (m_flipH) {
-		m_pos3D.x += 5;
+		m_vec3D.x = BOSS_SPEED;
 	}
 	else {
-		m_pos3D.x -= 5;
+		m_vec3D.x = -BOSS_SPEED;
 	}
 
 
