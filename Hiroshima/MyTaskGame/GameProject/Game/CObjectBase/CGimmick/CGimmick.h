@@ -10,7 +10,7 @@
 
 class CGimmick :public CObjectBase {
 public:
-	CGimmick(CVector2D *pos);
+	CGimmick(CVector3D *pos);
 	~CGimmick();
 	void Update();
 private:
