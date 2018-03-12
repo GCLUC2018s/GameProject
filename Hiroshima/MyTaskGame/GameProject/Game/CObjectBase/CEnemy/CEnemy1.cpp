@@ -11,6 +11,8 @@ CEnemy1::CEnemy1(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
 	m_img.SetSize(213, 256);
 	m_img.SetRect(0, 0, 512, 512);
 	m_pos3D = *pos;
+	m_hp = DARUMA_HP;
+	m_at = DARUMA_AT;
 
 }
 
@@ -29,10 +31,10 @@ void CEnemy1::Update() {
 	}
 
 	if (m_flipH) {
-		m_vec3D.x = 3;
+		m_vec3D.x = DARUMA_SPEED;
 	}
 	else {
-		m_vec3D.x = -3;
+		m_vec3D.x = -DARUMA_SPEED;
 	}
 
 
