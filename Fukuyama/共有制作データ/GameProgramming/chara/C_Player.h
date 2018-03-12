@@ -14,6 +14,7 @@ protected:
 	C_Player(){
 		//キャラクターアニメーション画像の読み込み
 		i_Chara_Motion_1.Load("../image/chara_motion_1.tga");
+		i_Chara_Motion_2.Load("../image/chara_motion_2.tga");
 		//IDとプライオリティを設定します
 		C_Player::CTask(E_PLAYER, eUDP_Player, eDWP_Player);
 		//プレイヤーのサイズ
@@ -28,8 +29,11 @@ public:
 	};
 
 	CTexture i_Chara_Motion_1;
+	CTexture i_Chara_Motion_2;
 	int m_Anime;            //アニメーション管理変数
 	int m_Anime_s;          //アニメーション秒数管理
+	int m_Anime_Taiki;      //アニメーション管理変数
+	int m_Anime_Taiki_s;    //アニメーション秒数管理(待機)
 	int m_Turn;             //右を向いているか左を向いているか
 	void Init();
 	void Update();
