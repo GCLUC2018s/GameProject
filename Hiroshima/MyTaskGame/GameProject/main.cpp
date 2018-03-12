@@ -65,10 +65,10 @@ void Init(void)
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 
 	new CPlayer();
-	new CEnemy1(&(CVector2D(200,200)));
-	new CGimmick(&(CVector2D(500, 500)));
-	new CGimmick(&(CVector2D(250, 500)));
-	new CGimmick(&(CVector2D(500, 250)));
+	new CEnemy1(&(CVector3D(200,200, 0)));
+	new CGimmick(&(CVector3D(500, 500, 0)));
+	new CGimmick(&(CVector3D(250, 500, 0)));
+	new CGimmick(&(CVector3D(500, 250, 0)));
 
 
 }
