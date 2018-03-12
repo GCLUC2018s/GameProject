@@ -36,6 +36,7 @@ void CEnemy4::Update() {
 		m_vec3D.x = -KAMAITACHI_SPEED;
 	}
 
+	//è„â∫ïÇóV
 	m_a += 0.1f;
 	m_vec3D.y = sin(m_a) * 5;
 

@@ -35,6 +35,8 @@ void CEnemy3::Update() {
 	else {
 		m_vec3D.x  = -HI_SPEED;
 	}
+
+	//è„â∫ïÇóV
 	m_a += 0.1f;
 	m_vec3D.y = sin(m_a) * 5;
 
