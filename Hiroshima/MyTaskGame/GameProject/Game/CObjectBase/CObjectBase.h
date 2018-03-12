@@ -17,6 +17,7 @@ protected:
 	bool	m_move;
 	int		m_type;
 	float	m_color;		//êF
+	static CVector2D m_scroll;
 public:
 	CObjectBase();
 	//~CCharaBase();

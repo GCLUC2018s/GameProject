@@ -19,6 +19,7 @@ enum E_ID
 	E_BG,
 	E_OBJ,
 	E_UI,
+	E_SCROLL,
 };
 //XV‡˜
 enum E_UpdatePrio
