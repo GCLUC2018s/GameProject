@@ -12,6 +12,8 @@
 */
 //‚©‚Ü‚¢‚½‚¿
 class CEnemy4 :public CObjectBase {
+private:
+	float m_a;
 public:
 	CEnemy4(CVector3D *pos);
 	~CEnemy4();

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include"CSceneGame.h"
 #include"CKey.h"
 
@@ -7,7 +8,7 @@ void CSceneGame::Init(){
 	//テクスチャ読み込み
 	mTexture.Load("Image(kari).tga");
 	mTexture2.Load("spray-icon.tga");
-	m_PawsCount == 0;
+	m_PawsCount = 0;
 	GameScene = 0;
 }
 void CSceneGame::Update(){
@@ -46,3 +47,5 @@ void CSceneGame::Update(){
 
 	}
 }
+=======
+>>>>>>> 189d1420510f60b31020b8a715577dba1d0dd30f

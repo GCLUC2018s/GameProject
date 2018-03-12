@@ -36,6 +36,10 @@ void CEnemy2::Update() {
 		m_vec3D.x = -CHOCHIN_SPEED;
 	}
 
+	//è„â∫ïÇóV
+	m_a += 0.3f;
+	m_vec3D.y = sin(m_a) * 2;
+
 
 	m_img.ChangeAnimation(0);
 	m_img.UpdateAnimation();
