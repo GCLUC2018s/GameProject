@@ -34,10 +34,13 @@ void CSceneManager::SetSceneObject(int scene_num)
 }
 
 void CSceneManager::TitleScene(){
+	SOUND("BGM_Title")->Play(true);
 	new CTitleBG();
 }
 
 void CSceneManager::MainScene(){
+	SOUND("BGM_Title")->Stop();
+	SOUND("BGM_Main")->Play(true);
 	new CPlayer();
 	new CEnemy1(&(CVector3D(200, 200, 0)));
 	new CGimmick(&(CVector3D(500, 500, 0)));
