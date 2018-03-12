@@ -2,6 +2,8 @@
 #define CHARABASE_GUARD
 
 #include "../GameProject/Task/CTask.h"
+#include "../GameProject/stdafx.h"
+#include "../GameProject/Global.h"
 
 class CObjectBase : public CTask
 {
@@ -21,7 +23,7 @@ protected:
 	int m_hp;
 	int m_at;
 public:
-	CObjectBase();
+	CObjectBase(int id, int updatePrio, int drawPrio);
 	//~CCharaBase();
 
 	/*!

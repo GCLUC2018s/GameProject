@@ -48,12 +48,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Task\CTask.h">
-      <Filter>Task</Filter>
-    </ClInclude>
-    <ClInclude Include="Task\CTaskManager.h">
-      <Filter>Task</Filter>
-    </ClInclude>
     <ClInclude Include="Gamesource.h">
       <Filter>Game\Gamesource.h</Filter>
     </ClInclude>
@@ -69,22 +63,22 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
       <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTaskLinker.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="Task\CTaskManager.h">
+      <Filter>Task</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Task\CTask.cpp">
-      <Filter>Task</Filter>
-    </ClCompile>
-    <ClCompile Include="Task\CTaskManager.cpp">
-      <Filter>Task</Filter>
     </ClCompile>
     <ClCompile Include="ImageResource.cpp">
       <Filter>ImageResource</Filter>
@@ -98,11 +92,17 @@
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
       <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTask.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTaskLinker.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Task\CTaskManager.cpp">
+      <Filter>Task</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

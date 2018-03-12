@@ -28,13 +28,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClInclude Include="Gamesource.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h" />
-    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
@@ -138,17 +137,18 @@
     <ClInclude Include="ImageResource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Task\CTask.h" />
+    <ClInclude Include="Task\CTaskLinker.h" />
     <ClInclude Include="Task\CTaskManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp" />
-    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />
     <ClCompile Include="ImageResource.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Task\CTask.cpp" />
+    <ClCompile Include="Task\CTaskLinker.cpp" />
     <ClCompile Include="Task\CTaskManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
