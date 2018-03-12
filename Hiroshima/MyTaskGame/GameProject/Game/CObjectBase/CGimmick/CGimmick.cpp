@@ -5,9 +5,9 @@
 
 */
 
-CGimmick::CGimmick(CVector2D *pos){
+CGimmick::CGimmick(CVector3D *pos) :CObjectBase(0, eUDP_Gimmick, eDWP_Gimmick) {
 	m_img.SetSize(30, 200);
-	m_pos = *pos;
+	m_pos3D = *pos;
 	m_rect = CRect(0, 0, 30, 200);
 	m_cnt = 1;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Fire"));
