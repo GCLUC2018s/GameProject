@@ -2,6 +2,7 @@
 #include "glew.h"
 #include "glut.h"
 #include "GLFW/glfw3.h"
+#include "draw/CRectangle.h"
 
 #include "CMain.h"
 

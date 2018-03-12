@@ -1,5 +1,9 @@
-#ifndef EBEMY1GUAD
-#define EBEMY1GUAD
+#ifndef ENEMY1GUARD
+#define ENEMY1GUARD
+
+#define DARUMA_HP 10
+#define DARUMA_AT 5
+#define DARUMA_SPEED 3
 
 #include"../CObjectBase.h"
 /*
@@ -7,6 +11,7 @@
 êªçÏé“Å@ê¬ñÿ
 
 */
+//ÇæÇÈÇ‹
 class CEnemy1 :public CObjectBase {
 public:
 	CEnemy1(CVector3D *pos);
@@ -17,4 +22,4 @@ public:
 
 
 
-#endif // !EBEMY1GUAD
+#endif // !ENEMY1GUARD
