@@ -1,9 +1,10 @@
+/*
 #include"CFieldBG.h"
 /*
 
-êªçÏé“Å@òZé‘
+//êªçÏé“Å@òZé‘
 
-*/
+
 
 CFieldBG::CFieldBG() : CObjectBase(0, eUDP_Map, eDWP_Map) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Sky"));
@@ -18,3 +19,4 @@ CFieldBG::~CFieldBG(){
 void CFieldBG::Update(){
 
 }
+*/

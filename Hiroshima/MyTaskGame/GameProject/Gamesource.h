@@ -14,6 +14,7 @@
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy5.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CBoss.h"
 #include "../GameProject/Game/CObjectBase/CFieldBG/CFieldBG.h"
+#include "../GameProject/Game/CObjectBase/CFieldBG/CFieldSky/CFieldSky.h"
 //#include "../GameProject/Game/CEnemy.h"
 //#include "../GameProject/Game/CGimmick.h"
 //#include "../GameProject/Game/CTitle.h"
