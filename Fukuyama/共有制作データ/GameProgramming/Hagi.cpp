@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include"Hagi.h"
 
 void Hagi::Init(){
@@ -7,5 +6,3 @@ void Hagi::Init(){
 	//‰Šú‰»
 	Player->Init();
 }
-=======
->>>>>>> 189d1420510f60b31020b8a715577dba1d0dd30f
