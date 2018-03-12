@@ -78,10 +78,9 @@ void Init(void)
 //	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
-
-	
-	NEW_SCENE(eTitle)
-}
+	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
+	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav",10);
+	NEW_SCENE(eTitle)}
 
 
 void release()
