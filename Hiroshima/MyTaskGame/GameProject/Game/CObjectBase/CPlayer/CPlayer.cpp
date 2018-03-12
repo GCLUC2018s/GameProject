@@ -38,6 +38,7 @@ void CPlayer::Update() {
 
 	//キック
 	if (m_punch1 && PUSH_R) {
+		SOUND("SE_PUNCH_KARA")->Play();
 		m_punch2 = true;
 		m_punch1 = false;
 		m_pos3D.x++;
@@ -73,6 +74,7 @@ void CPlayer::Update() {
 		}
 		//パンチ
 		if (!m_punch2 && PUSH_R) {
+			SOUND("SE_PUNCH_KARA")->Play();
 			m_punch1 = true;
 			m_anim = 4;
 			m_pos3D.x++;
