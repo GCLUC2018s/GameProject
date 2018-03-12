@@ -73,18 +73,10 @@ void Init(void)
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
+	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
+	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav",10);
 
-	//new CPlayer();
-	//new CEnemy1(&(CVector3D(200,200, 0)));
-	//new CGimmick(&(CVector3D(500, 500, 0)));
-	//new CGimmick(&(CVector3D(250, 500, 0)));
-	//new CGimmick(&(CVector3D(500, 250, 0)));
 	NEW_SCENE(eTitle)
-	//new CEnemy2(&(CVector3D(200, 100, 0)));
-	//new CEnemy3(&(CVector3D(100, 300, 0)));
-	//new CEnemy4(&(CVector3D(300, 400, 0)));
-	//new CEnemy5(&(CVector3D(400, 500, 0)));
-	//new CBoss(&(CVector3D(200, 200, 0)));
 
 }
 
