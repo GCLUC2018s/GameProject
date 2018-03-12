@@ -1,14 +1,18 @@
 //ヘッダファイルのインクルード
 #include "CMain.h"
 #include "glut.h"
+#include"windows.h"
 #include"CKey.h"
-#include"task\CTask.h"
-#include"task\CTaskManager.h"
+//ポーズ画面の判定用
+int PawsCount = 0;
 //初めに1回だけ実行する処理の定義
 void CMain::Init() {
+	//テクスチャ読み込み
+	mTexture.Load("Image(kari).tga");
+	mTexture2.Load("spray-icon.tga");
 	//タイトル画面の表示
 	m_Mode = 0;
-	SceneState = 0;
+	m_PawsCount == 0;
 }
 
 //繰り返し実行する処理の定義
@@ -17,40 +21,75 @@ void CMain::Update() {
 	{
 	case 0:
 		//モード選択
-		if (CKey::Once('1') && SceneState == 0){
+		if (GetKeyState('1') & 0x8000){
 			//長尾テストエリアへ
-			ip_Nagao = new Nagao();
-			//ip_Nagao->Init();
-			CTaskManager::GetInstance()->Add((CTask*)ip_Nagao);
-			SceneState = 1;
+			m_Mode = 1;
 		}
-		if (CKey::Once('3') && SceneState == 0){
+		if (GetKeyState('3') & 0x8000){
 			//萩しゃんテストエリアへ
-			ip_Hagi = new Hagi();
-			//ip_Nagao->Init();
-			CTaskManager::GetInstance()->Add((CTask*)ip_Hagi);
-			SceneState = 1;
+			m_Mode = 2;
 		}
-		if (CKey::Once('5') && SceneState == 0){
+		if (GetKeyState('5') & 0x8000){
 			//はこテストエリアへ
-			ip_Hako = new Hako();
-			//ip_Hako->Init();
-			CTaskManager::GetInstance()->Add((CTask*)ip_Hako);
-			SceneState = 1;
+			m_Mode = 3;
 		}
-		if (CKey::Once('7') && SceneState == 0){
+		if (GetKeyState('7') & 0x8000){
 			//ゲームタイトルへ
-			ip_SceneGame = new CSceneGame();
-			ip_SceneGame->Init();
-			CTaskManager::GetInstance()->Add(ip_SceneGame);
-			SceneState = 1;
+			m_Mode = 4;
+			GameScene = 0;
 		}
-		if (CKey::Once(VK_RETURN) && SceneState == 1){
-			CTaskManager::GetInstance()->KillAll();
-			SceneState = 0;
+		break;
+	case 1:
+		//長尾テストエリア
+		break;
+	case 2:
+		//萩しゃんテストエリア
+		break;
+	case 3:
+		//はこテストエリア
+		break;
+	case 4:
+		//ゲームモード
+		switch (GameScene)
+		{
+		case 0:
+			//タイトル画面
+			mTexture2.DrawImage(-600, 600, -440, 450, 0, 90, 90, 0);
+			if (GetKeyState(VK_RETURN) & 0x8000){
+				//プレイ画面に移動
+				GameScene = 1;
+			}
+			break;
+		case 1:
+				//プレイ画面
+			//ポーズ画面でない場合
+			if (m_PawsCount == 0){
+				mTexture.DrawImage(-600, 600, -440, 450, 0, 1200, 900, 0);
+				if (CKey::Once('P')){
+					//ポーズへ
+					m_PawsCount =1;
+				}
+			}
+			else{
+				if (CKey::Once('P')){
+					//ポーズ解除
+					m_PawsCount = 0;
+				}
+				if (GetKeyState(' ') & 0x8000){
+					//タイトル画面へ
+					GameScene = 0;
+					m_PawsCount = 0;
+				}
+			}
+			break;
+
 		}
 		break;
 	}
+<<<<<<< HEAD
 	CTaskManager::GetInstance()->UpdateAll();
 	CTaskManager::GetInstance()->DrawAll();
+=======
+
+>>>>>>> 189d1420510f60b31020b8a715577dba1d0dd30f
 }

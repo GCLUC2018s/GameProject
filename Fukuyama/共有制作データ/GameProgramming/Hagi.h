@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef HAGI_H
 #define HAGI_H
 #include"task/CTask.h"
@@ -10,3 +11,5 @@ public:
 	void Init();
 };
 #endif
+=======
+>>>>>>> 189d1420510f60b31020b8a715577dba1d0dd30f

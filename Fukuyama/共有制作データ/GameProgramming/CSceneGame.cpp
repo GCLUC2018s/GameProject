@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include"CSceneGame.h"
 #include"CKey.h"
 
@@ -46,3 +47,5 @@ void CSceneGame::Update(){
 
 	}
 }
+=======
+>>>>>>> 189d1420510f60b31020b8a715577dba1d0dd30f
