@@ -23,9 +23,8 @@ protected:
 		SetVertex(PLAYER_START_LEFT, PLAYER_START_RIGHT, PLAYER_START_BOTTOM, PLAYER_START_TOP);
 	}
 public:
-
-	//アニメーション管理変数
-	int m_Anime;
+	int m_Anime;            //アニメーション管理変数
+	int m_Turn;             //右を向いているか左を向いているか
 	void Update();
 	void Draw();
 };
