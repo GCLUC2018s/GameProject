@@ -81,7 +81,6 @@ void Init(void)
 
 	
 	NEW_SCENE(eTitle)
-	
 }
 
 

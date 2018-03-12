@@ -1,6 +1,10 @@
 #ifndef ENEMY4GUARD
 #define ENEMY4GUARD
 #include"../CObjectBase.h"
+
+#define KAMAITACHI_HP 10
+#define KAMAITACHI_AT 10
+#define KAMAITACHI_SPEED 7
 /*
 
 êªçÏé“Å@ê¬ñÿ

@@ -2,6 +2,10 @@
 #define ENEMY5GUARD
 
 #include"../CObjectBase.h"
+
+#define NIKU_HP 20
+#define NIKU_AT 20
+#define NIKU_SPEED 2
 /*
 
 »ìÒ@Â–Ø
