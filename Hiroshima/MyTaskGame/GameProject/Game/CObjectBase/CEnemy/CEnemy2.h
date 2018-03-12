@@ -1,6 +1,10 @@
 #ifndef ENEMY2GUARD
 #define ENEMY2GUARD
 #include"../CObjectBase.h"
+
+#define CHOCHIN_HP 5
+#define CHOCHIN_AT 3
+#define CHOCHIN_SPEED 4
 /*
 
 êªçÏé“Å@ê¬ñÿ
