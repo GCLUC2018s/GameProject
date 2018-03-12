@@ -5,8 +5,6 @@
 #include"Hagi.h"
 #include"Hako.h"
 #include"CSceneGame.h"
-#define W_H		1200 //Window•
-#define W_V		900 //Window‚‚³
 
 class CMain {
 public:

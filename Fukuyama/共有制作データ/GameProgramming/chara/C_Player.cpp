@@ -1,9 +1,18 @@
 #include "C_Player.h"
+#include <stdio.h>
+
+#define PLAYER_SCROLL ((100-SCROLL_PERCENTAGE)/100)*1200    //プレイヤーとスクロール基準点の距離
+#define PLAYER_START_BOTTOM -135               //プレイヤーの初期位置（下）←上下位置調整は下のみ変更してください。
+#define PLAYER_START_TOP (PLAYER_START_BOTTOM+135)          //プレイヤーの初期位置（上）
+#define PLAYER_START_RIGHT (-PLAYER_SCROLL)          //プレイヤーの初期位置（右）
+#define PLAYER_START_LEFT (PLAYER_START_RIGHT-90)       //プレイヤーの初期位置（左）
 
 void C_Player::Init(){
 	//アニメーションカウンタの初期化
 	m_Anime = 0;
 	m_Anime_s = 0;
+	//プレイヤーのサイズ
+	SetVertex(PLAYER_START_LEFT, PLAYER_START_RIGHT, PLAYER_START_BOTTOM, PLAYER_START_TOP);
 }
 
 
@@ -46,12 +55,15 @@ void C_Player::Update(){
 		m_Bottom -= PLAYER_UD_SPEED;
 		m_Top -= PLAYER_UD_SPEED;
 	}
+
+	C_Rectangle::Scroll(m_Left, m_Right);              //スクロール処理
 }
 
 
 //プレイヤーの描画
 void C_Player::Draw(){
-	if (!(CKey::Push(VK_RIGHT) 
+	//待機モーションの描画
+	if (!(CKey::Push(VK_RIGHT)
 		|| CKey::Push(VK_LEFT)
 		|| CKey::Push(VK_UP)
 		|| CKey::Push(VK_DOWN))){
@@ -61,10 +73,13 @@ void C_Player::Draw(){
 			if (m_Turn == E_LEFT)
 				i_Chara_Motion_2.DrawImage(m_Left, m_Right, m_Bottom, m_Top, 90, 0, 135, 0);
 		}
+		//1秒でアニメーションカウンタをリセットします
 		else if (m_Anime_Taiki_s == 1){
 			m_Anime_Taiki = 0;
 			m_Anime_Taiki_s = 0;
+		}
 	}
+	//移動モーションの描画
 	else{
 		//アニメーションカウンタを1秒分回す
 		if (m_Anime < 60)++m_Anime;

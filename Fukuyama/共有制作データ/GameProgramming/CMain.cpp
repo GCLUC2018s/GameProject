@@ -52,4 +52,5 @@ void CMain::Update() {
 		break;
 	}
 	CTaskManager::GetInstance()->UpdateAll();
+	CTaskManager::GetInstance()->DrawAll();
 }

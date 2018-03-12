@@ -80,7 +80,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="chara\C_Player.cpp" />
-    <ClCompile Include="chara\scroll.cpp" />
     <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CMain.cpp" />
     <ClCompile Include="CSceneGame.cpp" />
@@ -97,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="chara\C_Player.h" />
-    <ClInclude Include="chara\scroll.h" />
     <ClInclude Include="CKey.h" />
     <ClInclude Include="CMain.h" />
     <ClInclude Include="CSceneGame.h" />
