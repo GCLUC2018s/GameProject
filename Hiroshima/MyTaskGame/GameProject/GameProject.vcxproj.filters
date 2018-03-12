@@ -43,6 +43,12 @@
     <Filter Include="Game\Source">
       <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG">
+      <UniqueIdentifier>{e7a59b18-d4f7-4c67-a2e6-5cd11d272634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldSky">
+      <UniqueIdentifier>{ebafcdab-3f78-4647-b713-67bf1841856b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -102,6 +108,12 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBG.h">
+      <Filter>Game\ObjectBase\FieldBG</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -151,6 +163,12 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp">
       <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBG.cpp">
+      <Filter>Game\ObjectBase\FieldBG</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

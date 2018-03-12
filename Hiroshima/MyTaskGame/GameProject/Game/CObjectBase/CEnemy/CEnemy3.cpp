@@ -36,6 +36,10 @@ void CEnemy3::Update() {
 		m_vec3D.x  = -HI_SPEED;
 	}
 
+	//è„â∫ïÇóV
+	m_a += 0.1f;
+	m_vec3D.y = sin(m_a) * 5;
+
 
 	m_img.ChangeAnimation(0);
 	m_img.UpdateAnimation();
