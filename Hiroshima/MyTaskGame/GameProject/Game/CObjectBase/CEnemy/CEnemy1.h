@@ -1,6 +1,10 @@
 #ifndef ENEMY1GUARD
 #define ENEMY1GUARD
 
+#define DARUMA_HP 10
+#define DARUMA_AT 5
+#define DARUMA_SPEED 3
+
 #include"../CObjectBase.h"
 /*
 
