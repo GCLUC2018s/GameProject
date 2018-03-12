@@ -31,7 +31,7 @@ void CPlayer::Update() {
 
 	m_pos3D += m_vec3D;
 
-	if (HOLD_X) {
+	if (HOLD_X && !m_jump) {
 		m_squat = true;
 		m_anim = 3;
 	}
