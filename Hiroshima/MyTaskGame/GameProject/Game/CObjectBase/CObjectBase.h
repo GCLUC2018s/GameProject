@@ -18,8 +18,9 @@ protected:
 	int		m_type;
 	float	m_color;		//F
 	static CVector2D m_scroll;
-	int m_hp;
-	int m_at;
+	int m_hp;  //‘Ì—Í
+	int m_at;  //UŒ‚—Í
+	int m_state; //ó‘Ô
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
 	//~CCharaBase();
