@@ -1,12 +1,13 @@
+/*
 #ifndef FIELDBG_GUARD
 #define FIELDBG_GUARD
 
 #include"../CObjectBase.h"
 /*
 
-êßçÏé“Å@òZé‘
+//êßçÏé“Å@òZé‘
 
-*/
+
 class CFieldBG :public CObjectBase {
 public:
 	CFieldBG();
@@ -14,3 +15,5 @@ public:
 	void Update();
 };
 #endif // !FIELDBG_GUARD
+
+*/
