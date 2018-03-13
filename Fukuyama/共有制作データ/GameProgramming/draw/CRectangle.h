@@ -18,7 +18,7 @@
 
 class C_Rectangle :public CTask{
 public:
-	C_Rectangle(int a, int b, int c) :CTask(a, b, c){}
+	C_Rectangle(int id, int updatePrio, int drawPrio) :CTask(id, updatePrio, drawPrio){}
 	float m_Left, m_Right, m_Bottom, m_Top;
 	float m_Adjust;
 	void Init(){};

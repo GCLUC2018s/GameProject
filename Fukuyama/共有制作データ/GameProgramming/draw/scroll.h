@@ -7,9 +7,12 @@
 #define SCROLL_SPEED 8
 
 class C_Scroll{
+	C_Scroll(){
+		m_Scroll = 210;
+	}
 public:
-	float m_Left, m_Right;
-	void Scroll(float left, float right);
+	static float m_Scroll;
+	static void Scroll(C_Rectangle*p);
 };
 
 #endif

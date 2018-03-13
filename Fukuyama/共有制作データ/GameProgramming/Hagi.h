@@ -6,9 +6,12 @@
 
 class Hagi :public C_Player{
 public:
+	Hagi(){
+		//プレイヤーのインスタンスを作成
+		Player = new C_Player();
+	}
 	//プレイヤーのインスタンスを宣言します
 	C_Player *Player;
-	void Init();
 	void Update();
 	void Draw();
 };
