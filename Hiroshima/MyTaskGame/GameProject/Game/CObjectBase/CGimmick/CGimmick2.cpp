@@ -5,7 +5,7 @@
 
 */
 
-CGimmick2::CGimmick2(CVector3D *pos) :CObjectBase(0, eUDP_Gimmick, eDWP_Gimmick) {
+CGimmick2::CGimmick2(CVector3D *pos) :CObjectBase(0, eU_Gimmick, eD_Gimmick) {
 	m_img.SetSize(30, 200);
 	m_pos3D = *pos;
 	m_cnt = 1;

@@ -6,7 +6,7 @@
 
 */
 //’ñ“”
-CEnemy2::CEnemy2(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
+CEnemy2::CEnemy2(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy2"));
 	m_img.SetSize(213, 256);
 	m_pos3D = *pos;
@@ -25,7 +25,7 @@ void CEnemy2::Update() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 1280 - 213) {
+	if (m_pos3D.x > 4000 - 213) {
 		m_flipH = false;
 	}
 

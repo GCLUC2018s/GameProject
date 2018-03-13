@@ -6,7 +6,7 @@
 
 */
 //‚©‚Ü‚¢‚½‚¿
-CEnemy4::CEnemy4(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
+CEnemy4::CEnemy4(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy4"));
 	m_img.SetSize(213, 256);
 	m_pos3D = *pos;
@@ -39,6 +39,7 @@ void CEnemy4::Update() {
 		break;
 	}
 
+	//Ÿˆ‚Å‘Ò‹@ŠÔ‚ğ’²®‰Â”\
 	if (m_cnt > 130) {
 		m_state = eMove;
 		m_cnt = 0;
@@ -68,14 +69,15 @@ void CEnemy4::Attack() {
 void CEnemy4::Move() {
 	m_vec3D.y = 0;
 
+	//ˆê’è‚ÌêŠ‚Ü‚Å—ˆ‚½‚ç”½“]
 	if (m_pos3D.x < 0) {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 1280 - 213) {
+	if (m_pos3D.x > 4000 - 213) {
 		m_flipH = false;
 	}
-
+	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Ş
 	if (m_flipH) {
 		m_vec3D.x = KAMAITACHI_SPEED;
 	}
@@ -90,10 +92,9 @@ void CEnemy4::Move() {
 	}
 	else {
 		m_state = eAttack;
-		//m_state = eIdol;
 	}
 
-	if (m_move_cnt > 20) {
+	if (m_move_cnt > 30) {
 		m_stop = true;
 		m_move_cnt = 0;
 	}

@@ -27,7 +27,7 @@ void CMain::Update() {
 		if (CKey::Once('3') && SceneState == 0){
 			//萩しゃんテストエリアへ
 			ip_Hagi = new Hagi();
-			ip_Hagi->Init();
+			//ip_Nagao->Init();
 			CTaskManager::GetInstance()->Add((CTask*)ip_Hagi);
 			SceneState = 1;
 		}
@@ -45,7 +45,7 @@ void CMain::Update() {
 			CTaskManager::GetInstance()->Add(ip_SceneGame);
 			SceneState = 1;
 		}
-		if (CKey::Once(VK_ESCAPE) && SceneState == 1){
+		if (CKey::Once(VK_RETURN) && SceneState == 1){
 			CTaskManager::GetInstance()->KillAll();
 			SceneState = 0;
 		}

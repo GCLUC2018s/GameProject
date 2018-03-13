@@ -7,9 +7,9 @@ CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
 	m_pos3D = CVector3D(0, 0, 0);
 	m_vec3D = CVector3D(0, 0, 0);
 	m_flipH = false;
-	m_color = 0;
 	m_type = 0;
 	m_move = false;
+	m_color = CColorRGBA(1.0, 1.0, 1.0, 1.0);
 }
 void CObjectBase::Draw()
 {
