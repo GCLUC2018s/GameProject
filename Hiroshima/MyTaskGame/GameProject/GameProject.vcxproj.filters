@@ -125,8 +125,7 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h">
       <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
-    </ClInclude>
-  </ItemGroup>
+    </ClInclude>  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
@@ -187,6 +186,5 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp">
       <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
-    </ClCompile>
-  </ItemGroup>
+    </ClCompile>  </ItemGroup>
 </Project>

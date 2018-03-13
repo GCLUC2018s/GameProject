@@ -109,3 +109,19 @@ TexAnim _GI_fire[] = {
 TexAnimData fire_Animdata[] = {
 	ANIMDATA(_GI_fire),
 };
+
+
+TexAnim _KAMAITACHI_anim[] = {
+	{ 0,30 },
+
+};
+TexAnim _KAMAITACHI2_anim[] = {
+	{ 1,30 },
+
+};
+TexAnimData kamaitachi_AnimData[] = {
+	ANIMDATA(_KAMAITACHI_anim),
+	ANIMDATA(_KAMAITACHI2_anim),
+};
+
+
