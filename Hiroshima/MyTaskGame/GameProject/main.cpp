@@ -84,9 +84,8 @@ void Init(void)
 	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav",100);
 	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 100);
 	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 100);
-	NEW_SCENE(eMain)}
+	NEW_SCENE(eMain)
 
-	NEW_SCENE(eTitle)
 }
 
 
