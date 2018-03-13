@@ -39,6 +39,7 @@ void CEnemy4::Update() {
 		break;
 	}
 
+	//Ÿˆ‚Å‘Ò‹@ŠÔ‚ğ’²®‰Â”\
 	if (m_cnt > 130) {
 		m_state = eMove;
 		m_cnt = 0;
@@ -72,7 +73,7 @@ void CEnemy4::Move() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 1280 - 213) {
+	if (m_pos3D.x > 4000 - 213) {
 		m_flipH = false;
 	}
 
