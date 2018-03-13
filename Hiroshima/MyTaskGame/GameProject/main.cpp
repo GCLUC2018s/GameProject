@@ -20,7 +20,7 @@ void MainLoop(void) {
 }
 void Init(void)
 {
-	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glClearColor(0.0, 0.0, 0.0, 0.0);
 
 	glEnable(GL_DEPTH_TEST);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -84,7 +84,7 @@ void Init(void)
 	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav",100);
 	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 100);
 	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 100);
-	NEW_SCENE(eMain)
+	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 
 }
 

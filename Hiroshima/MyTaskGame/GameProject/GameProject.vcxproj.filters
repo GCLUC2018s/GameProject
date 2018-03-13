@@ -135,6 +135,9 @@
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
       <Filter>Game\ObjectBase\Gimmick</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CEnemyAI.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -202,6 +205,9 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
       <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CEnemyAI.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
