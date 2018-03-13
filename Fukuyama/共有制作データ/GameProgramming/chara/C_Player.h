@@ -2,18 +2,13 @@
 #define CPLAYER_H
 
 #include "../draw/CRectangle.h"
+#include "../draw/scroll.h"
 
-class C_Player :public C_Rectangle{
+#define PLAYER_LR_SPEED SCROLL_SPEED     //プレイヤーの左右移動速度
+#define PLAYER_UD_SPEED 5     //プレイヤーの上下移動速度
+
+class C_Player :public C_Rectangle{}
 public:
-	C_Player(){
-		//キャラクターアニメーション画像の読み込み
-		i_Chara_Motion_1.Load("../image/chara_motion_1.tga");
-		i_Chara_Motion_2.Load("../image/chara_motion_2.tga");
-		//IDとプライオリティを設定します
-		C_Player::CTask(E_SCROLL, eUDP_Player, eDWP_Player);
-		//プレイヤーの初期向き
-		m_Turn = E_RIGHT;
-	}
 
 	//プレイヤーの向きフラグ
 	enum TURN_TAG{
@@ -29,9 +24,9 @@ public:
 	int m_Anime_Taiki;      //アニメーション管理変数
 	int m_Anime_Taiki_s;    //アニメーション秒数管理(待機)
 	int m_Turn;             //右を向いているか左を向いているか
-	void Init();
-	void Update();
-	void Draw();
+	virtual void Init();
+	virtual void Update();
+	virtual void Draw();
 };
 
 #endif
