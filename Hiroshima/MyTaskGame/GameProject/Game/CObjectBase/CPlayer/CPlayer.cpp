@@ -179,13 +179,13 @@ void CPlayer::Nutral() {
 		m_dash = Utility::Rand(0, 2);
 		switch (m_dash) {
 		case 0:
-			SOUND("SE_DASH1")->Play(true);
+			//SOUND("SE_DASH1")->Play(true);
 			break;
 		case 1:
-			SOUND("SE_DASH2")->Play(true);
+			//SOUND("SE_DASH2")->Play(true);
 			break;
 		case 2:
-			SOUND("SE_DASH3")->Play(true);
+			//SOUND("SE_DASH3")->Play(true);
 			break;
 		}
 	}
