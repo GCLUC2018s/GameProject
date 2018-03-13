@@ -21,6 +21,9 @@ public:
 	CEnemy4(CVector3D *pos);
 	~CEnemy4();
 	void Update();
+	void Neutral();
+	void Move();
+	void Attack();
 };
 
 
