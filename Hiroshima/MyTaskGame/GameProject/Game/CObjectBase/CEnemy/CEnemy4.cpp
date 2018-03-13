@@ -28,6 +28,7 @@ void CEnemy4::Update() {
 
 	switch (m_state)
 	{
+		//‘Ò‹@
 	case eIdol:
 		//ã‰º•‚—V
 		m_vec3D.x = 0;
@@ -38,6 +39,7 @@ void CEnemy4::Update() {
 		m_cnt++;
 		m_img.ChangeAnimation(0);
 		break;
+		//ˆÚ“®
 	case eMove:	
 
 		m_vec3D.y = 0;
@@ -62,10 +64,10 @@ void CEnemy4::Update() {
 		if (!m_stop) {
 			m_pos3D += m_vec3D;
 			m_move_cnt++;
-			//m_stop = true;
 		}
 		else {
-			m_state = eIdol;
+			m_state = eAttack;
+			//m_state = eIdol;
 		}
 
 		if (m_move_cnt > 20) {
@@ -73,6 +75,13 @@ void CEnemy4::Update() {
 			m_move_cnt = 0;
 		}
 		m_img.ChangeAnimation(1);
+		break;
+		//UŒ‚
+	case eAttack:
+		m_img.ChangeAnimation(2);
+		if (m_img.GetIndex()==2) {
+			m_state = eIdol;
+		}
 		break;
 	}
 
