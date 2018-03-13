@@ -82,7 +82,7 @@ void Init(void)
 	SOUND("BGM_Main")->Volume(0.90f);
 	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav",10);
 
-	NEW_SCENE(eTitle)
+	NEW_SCENE(eMain)
 }
 
 
