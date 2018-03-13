@@ -7,9 +7,8 @@
 #define PLAYER_LR_SPEED SCROLL_SPEED     //プレイヤーの左右移動速度
 #define PLAYER_UD_SPEED 5     //プレイヤーの上下移動速度
 
-class C_Player :public C_Rectangle{}
+class C_Player :public C_Rectangle{
 public:
-
 	//プレイヤーの向きフラグ
 	enum TURN_TAG{
 		E_RIGHT,

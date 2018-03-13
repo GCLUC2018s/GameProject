@@ -25,6 +25,7 @@ public:
 	void Render();
 	void SetVertex(float left, float right, float bottom, float top);
 	bool m_Enabled;
+	
 };
 
 #endif
