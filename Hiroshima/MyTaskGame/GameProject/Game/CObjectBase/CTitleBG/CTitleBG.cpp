@@ -18,9 +18,10 @@ void CTitleBG::Update()
 	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 	if (PUSH_ENTER) {
 		m_end_flag = true;
+		m_color.a = 3.0;
 	}
 	if (m_end_flag) {
-		m_color.a -= 0.05;
+		m_color.a -= 0.01;
 	}
 	if (m_color.a < 0) {
 		SetKill();

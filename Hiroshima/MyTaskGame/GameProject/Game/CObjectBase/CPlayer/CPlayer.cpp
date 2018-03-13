@@ -175,13 +175,9 @@ void CPlayer::Attack(){
 		m_punch1 = false;
 		m_pos3D.x++;
 	}
-<<<<<<< HEAD
 	if (PUSH_ENTER) {
 		SetKill();
 	}
-=======
-
->>>>>>> 19dc2f82af14400837f9681caf61be5fe530b65b
 }
 
 void CPlayer::Draw(){

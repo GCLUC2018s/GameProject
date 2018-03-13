@@ -53,16 +53,11 @@ void CSceneManager::MainScene(){
 	new CGimmick(&(CVector3D(500, 250, 0)));
 //	new CFieldBG();
 	new CFieldSky();
-<<<<<<< HEAD
-=======
 	new CFieldCloud();
 	new CFieldBamboo();
 	new CFieldGround();
 
 
-
-
->>>>>>> 19dc2f82af14400837f9681caf61be5fe530b65b
 }
 
 void CSceneManager::BossScene(){
