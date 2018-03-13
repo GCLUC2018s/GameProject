@@ -1,7 +1,7 @@
 #ifndef CPLAYER_H
 #define CPLAYER_H
 
-#include "scroll.h"
+#include "../draw/CRectangle.h"
 
 class C_Player :public C_Rectangle{
 public:
