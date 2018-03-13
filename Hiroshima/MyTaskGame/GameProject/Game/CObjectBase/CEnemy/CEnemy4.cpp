@@ -69,6 +69,7 @@ void CEnemy4::Attack() {
 void CEnemy4::Move() {
 	m_vec3D.y = 0;
 
+	//ˆê’è‚ÌêŠ‚Ü‚Å—ˆ‚½‚ç”½“]
 	if (m_pos3D.x < 0) {
 		m_flipH = true;
 	}
@@ -76,7 +77,7 @@ void CEnemy4::Move() {
 	if (m_pos3D.x > 4000 - 213) {
 		m_flipH = false;
 	}
-
+	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Ş
 	if (m_flipH) {
 		m_vec3D.x = KAMAITACHI_SPEED;
 	}
@@ -91,10 +92,9 @@ void CEnemy4::Move() {
 	}
 	else {
 		m_state = eAttack;
-		//m_state = eIdol;
 	}
 
-	if (m_move_cnt > 20) {
+	if (m_move_cnt > 30) {
 		m_stop = true;
 		m_move_cnt = 0;
 	}
