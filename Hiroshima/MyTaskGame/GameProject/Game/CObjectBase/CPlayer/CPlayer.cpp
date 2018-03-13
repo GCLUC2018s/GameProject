@@ -87,6 +87,12 @@ void CPlayer::Update() {
 		m_img.UpdateAnimation();
 
 	}
+	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < 4000 - SCREEN_WIDTH / 2) {
+		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
+	}
+	if (m_pos3D.y + m_pos3D.z / 2 < 120 && m_pos3D.y + m_pos3D.z / 2 > -100) {
+		m_scroll.y = m_pos3D.y + m_pos3D.z / 2 - 120;
+	}
 }
 
 void CPlayer::Nutral() {
