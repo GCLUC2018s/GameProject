@@ -5,14 +5,14 @@ void C_Player::Update(){
 	//‰EˆÚ“®
 	if (CKey::Push(VK_RIGHT)){
 		m_Turn = E_RIGHT;
-		C_Scroll::m_Scroll += PLAYER_LR_SPEED;
+		//C_Scroll::m_Scroll += PLAYER_LR_SPEED;
 		m_Right += PLAYER_LR_SPEED;
 		m_Left += PLAYER_LR_SPEED;
 	}
 	//¶ˆÚ“®
 	if (CKey::Push(VK_LEFT)&&m_Left>=(-W_H)/2){
 		m_Turn = E_LEFT;
-		C_Scroll::m_Scroll += PLAYER_LR_SPEED;
+		//C_Scroll::m_Scroll += PLAYER_LR_SPEED;
 		m_Right -= PLAYER_LR_SPEED;
 		m_Left -= PLAYER_LR_SPEED;
 	}
