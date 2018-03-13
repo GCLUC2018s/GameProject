@@ -10,7 +10,7 @@
 
 CPlayer::CPlayer() :CObjectBase(0, eUDP_Player, eDWP_Player) {
 	m_vec3D = CVector3D(0, 0, 0);
-	m_pos3D = CVector3D(0, 450, 0);
+	m_pos3D = CVector3D(0, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	m_img.SetSize(256, 256);
 	m_img.SetFlipH(m_flipH);
@@ -48,8 +48,7 @@ void CPlayer::Update() {
 				m_vec3D.x = Price_Up(m_vec3D.x, 0, 1.0f);
 			else
 				m_vec3D.x = Price_Down(m_vec3D.x, 0, 1.0f);
-		}
-		else {
+		}else {
 			//ジャンプ中の減速
 			if (m_flipH)
 				m_vec3D.x = Price_Up(m_vec3D.x, 0, 0.1f);
@@ -87,6 +86,12 @@ void CPlayer::Update() {
 	}else {
 		m_img.UpdateAnimation();
 
+	}
+	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < 4000 - SCREEN_WIDTH / 2) {
+		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
+	}
+	if (m_pos3D.y + m_pos3D.z / 2 < 120 && m_pos3D.y + m_pos3D.z / 2 > -100) {
+		m_scroll.y = m_pos3D.y + m_pos3D.z / 2 - 120;
 	}
 }
 
@@ -134,6 +139,7 @@ void CPlayer::Nutral() {
 	}
 	//ジャンプ
 	if (PUSH_Z && !m_jump && !m_squat) {
+		m_vec3D.z = 0;
 		m_jump = true;
 		m_anim = 2;
 		m_vec3D.y = -32;
@@ -171,7 +177,7 @@ void CPlayer::Attack(){
 
 void CPlayer::Draw(){
 	m_img.SetFlipH(!m_flipH);
-	m_img.SetPos(m_pos3D.x + m_variation - m_scroll.x, m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
+	m_img.SetPos(m_pos3D.x + m_variation - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img.Draw();
 }
 
