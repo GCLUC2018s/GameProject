@@ -98,6 +98,7 @@ void CImage::Draw() {
 
 
 	//•`‰æ
+	glColor4fv(m_color.v);
 	glInterleavedArrays(GL_T2F_V3F, 0, vertices);
 	glDrawArrays(GL_TRIANGLE_STRIP,0,4);
 

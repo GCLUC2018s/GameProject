@@ -5,37 +5,49 @@
 êªçÏé“Å@ê¬ñÿ
 
 */
-CBoss::CBoss(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
+CBoss::CBoss(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
-	m_img.SetSize(213, 256);
+	m_img.SetSize(256 * 3, 256 * 3);
 	m_pos3D = *pos;
 	m_hp = BOSS_HP;
 	m_at = BOSS_AT;
-
+	m_test = 0;
 }
 
 CBoss::~CBoss() {
 }
 
 void CBoss::Update() {
-	m_pos3D += m_vec3D;
-
-	if (m_pos3D.x < 0) {
-		m_flipH = true;
+	
+	switch (m_test)
+	{
+	case 0:
+		m_img.ChangeAnimation(0);
+		break;
+	case 1:
+		m_img.ChangeAnimation(1);
+		break;
+	case 2:
+		m_img.ChangeAnimation(2);
+		break;
+	case 3:
+		m_img.ChangeAnimation(3);
+		break;
+	case 4:
+		m_img.ChangeAnimation(4);
+		break;
+	case 5:
+		m_img.ChangeAnimation(5);
+		break;
 	}
 
-	if (m_pos3D.x > 1280 - 213) {
-		m_flipH = false;
-	}
 
-	if (m_flipH) {
-		m_vec3D.x = BOSS_SPEED;
-	}
-	else {
-		m_vec3D.x = -BOSS_SPEED;
-	}
+	if (m_test > 5)
+		m_test = 0;
 
 
-	m_img.ChangeAnimation(0);
+	if(PUSH_ENTER) {
+		m_test++;
+	}
 	m_img.UpdateAnimation();
 }

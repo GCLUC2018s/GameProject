@@ -42,10 +42,10 @@ void CMain::Update() {
 			//ゲームタイトルへ
 			ip_SceneGame = new CSceneGame();
 			ip_SceneGame->Init();
-			CTaskManager::GetInstance()->Add((CTask*)ip_SceneGame);
+			CTaskManager::GetInstance()->Add(ip_SceneGame);
 			SceneState = 1;
 		}
-		if (CKey::Once(VK_ESCAPE) && SceneState == 1){
+		if (CKey::Once(VK_RETURN) && SceneState == 1){
 			CTaskManager::GetInstance()->KillAll();
 			SceneState = 0;
 		}
