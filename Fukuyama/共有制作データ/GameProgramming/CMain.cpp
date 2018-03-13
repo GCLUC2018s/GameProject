@@ -27,7 +27,7 @@ void CMain::Update() {
 		if (CKey::Once('3') && SceneState == 0){
 			//萩しゃんテストエリアへ
 			ip_Hagi = new Hagi();
-			//ip_Nagao->Init();
+			ip_Hagi->Init();
 			CTaskManager::GetInstance()->Add((CTask*)ip_Hagi);
 			SceneState = 1;
 		}
