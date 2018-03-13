@@ -18,13 +18,6 @@ void C_Player::Init(){
 
 void C_Player::Update(){
 
-	//アニメーションカウンタ初期化待機
-	if (!(CKey::Once(VK_RIGHT) || CKey::Once(VK_LEFT)
-		|| CKey::Once(VK_UP) || CKey::Once(VK_DOWN))){
-		if (m_Anime != 0)m_Anime = 0;
-		if (m_Anime_s != 0)m_Anime_s = 0;
-	}
-
 	//アニメーションカウンタを1秒分回す
 	if (m_Anime_Taiki < 60)++m_Anime_Taiki;
 	//アニメーションカウンタをリセットし、経過時間(秒)を追加する
