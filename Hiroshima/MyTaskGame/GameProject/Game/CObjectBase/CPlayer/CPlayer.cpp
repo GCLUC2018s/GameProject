@@ -1,4 +1,5 @@
 #include "CPlayer.h"
+#include "../GameProject/Game/CScene/CSceneManager.h"
 
 /*
 
@@ -8,7 +9,7 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(0, eUDP_Player, eDWP_Player) {
+CPlayer::CPlayer() :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(0, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
@@ -22,6 +23,7 @@ CPlayer::CPlayer() :CObjectBase(0, eUDP_Player, eDWP_Player) {
 }
 
 CPlayer::~CPlayer() {
+	NEW_SCENE(eTitle)
 }
 
 void CPlayer::Update() {
@@ -173,7 +175,9 @@ void CPlayer::Attack(){
 		m_punch1 = false;
 		m_pos3D.x++;
 	}
-
+	if (PUSH_ENTER) {
+		SetKill();
+	}
 }
 
 void CPlayer::Draw(){

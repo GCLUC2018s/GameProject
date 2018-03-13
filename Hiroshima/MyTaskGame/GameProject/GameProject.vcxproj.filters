@@ -132,6 +132,9 @@
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h">
       <Filter>Game\ObjectBase\FieldBG\FieldCloud</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
+      <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -196,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp">
       <Filter>Game\ObjectBase\FieldBG\FieldCloud</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
+      <Filter>Game\ObjectBase\Gimmick</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

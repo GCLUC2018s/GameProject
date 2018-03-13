@@ -1,29 +1,19 @@
-/**
-* @file		CTaskManager.h
-* @brief	タスクシステム管理クラス
-* @author	ryoji anzai,yuki yamaji 
-*/
+#ifndef TASK_MANAGER_GUARD
+#define TASK_MANAGER_GUARD
 
-#ifndef TASKMANAGER_GUARD
-#define TASKMANAGER_GUARD
-
-//#include "CTask.h"
-
-class CTaskLinker;
 class CTask;
-
+class CTaskLinker;
 
 class CTaskManager
 {
 private:
-	static CTaskManager* mp_instance;	//シングルトン化のためのポインタ
+	static CTaskManager *mp_instance;	//一個しかいらないから
 protected:
-	CTaskLinker *mp_updHead;		// Update用 先頭要素を指すポインタ
-	CTaskLinker *mp_updTail;		// Update用 末尾要素を指すポインタ
+	CTaskLinker *mp_U_Top;	//Update用の先頭ポインタ
+	CTaskLinker *mp_U_End;	//Update用の末尾ポインタ
 
-	CTaskLinker *mp_drwHead;		// Draw用 先頭要素を指すポインタ
-	CTaskLinker *mp_drwTail;		// Draw用 末尾要素を指すポインタ
-
+	CTaskLinker *mp_D_Top;	//Draw用の先頭ポインタ
+	CTaskLinker *mp_D_End;	//Draw用の末尾ポインタ
 public:
 	CTaskManager();
 	~CTaskManager();
@@ -33,13 +23,14 @@ public:
 	CTask* Kill(CTask *p);
 	//リスト内指定削除関数
 	void KillAppoint();
-	//リスト内全削除関数
+	//タスクを全削除
 	void KillAll();
+	//全タスクの削除フラグをtrueにする
+	void SetKillAll();
 	//リスト更新関数
 	void UpdateAll();
 	//リスト描画関数
 	void DrawAll();
-
 	// 更新優先度を変更 
 	void ChangeUpdatePrio(CTask *p, int prio);
 	// 描画優先度を変更 
@@ -57,11 +48,13 @@ public:
 
 private:
 	// リスト追加内部処理 
-	void AddTaskInner( CTaskLinker *p, CTaskLinker **pHead, CTaskLinker **pTail );
+	void AddTask(CTaskLinker *p, CTaskLinker **pTop, CTaskLinker **pEnd);
 
 	// リストから外す 
-	void RemoveTaskLinker( CTaskLinker *p, CTaskLinker **pHead, CTaskLinker **pTail );
+	void RemoveTask(CTaskLinker *p, CTaskLinker **pTop, CTaskLinker **pEnd);
+
+
 
 };
+#endif // !TASK_MANAGER_GUARD
 
-#endif
