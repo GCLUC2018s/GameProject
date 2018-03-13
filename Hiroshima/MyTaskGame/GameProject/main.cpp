@@ -81,8 +81,12 @@ void Init(void)
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
 	SOUND("BGM_Main")->Volume(0.90f);
 	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav",10);
+	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav",100);
+	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 100);
+	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 100);
+	NEW_SCENE(eMain)}
 
-	NEW_SCENE(eTitle)
+	NEW_SCENE(eMain)
 }
 
 

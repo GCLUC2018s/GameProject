@@ -28,6 +28,8 @@ private:
 	bool	m_move_side;
 	int		m_anim;
 	int		m_y;
+	int		m_cnt;
+	int		m_dash;
 	bool	m_squat;
 	float	m_variation;
 };

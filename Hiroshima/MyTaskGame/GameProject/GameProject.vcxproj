@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Gamesource.h" />
+    <ClInclude Include="Game\CEnemyAI.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Task\CTaskManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\CEnemyAI.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp" />
