@@ -71,7 +71,7 @@ void Init(void)
 	ADD_RESOURCE("Boss", CAnimImage::LoadImage("boss_motion.png", boss_AnimData, 768, 768));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
-	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
+//	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
@@ -80,13 +80,14 @@ void Init(void)
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
 	SOUND("BGM_Main")->Volume(0.90f);
-	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav",10);
-	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav",100);
-	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 100);
-	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 100);
+	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav", 10);
+	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav", 50);
+	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 50);
+	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 50);
+	SOUND("SE_JUMP")->Load("Sound/SE/nyu2.wav", 50);
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 
-NEW_SCENE(eTitle);
+	NEW_SCENE(eTitle);
 }
 
 void release()

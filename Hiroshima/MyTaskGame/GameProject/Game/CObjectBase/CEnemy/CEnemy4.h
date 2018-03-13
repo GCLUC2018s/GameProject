@@ -5,6 +5,11 @@
 #define KAMAITACHI_HP 10
 #define KAMAITACHI_AT 10
 #define KAMAITACHI_SPEED 20
+
+#define KAMAITACHI_FLOAT 0.1f
+
+#define KAMAITACHI_MOVE_TIME 130
+#define KAMAITACHI_STOP_TIME 30
 /*
 
 êªçÏé“Å@ê¬ñÿ

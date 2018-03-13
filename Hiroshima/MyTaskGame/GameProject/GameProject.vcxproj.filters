@@ -58,6 +58,27 @@
     <Filter Include="Game\ObjectBase\FieldBG\FieldCloud">
       <UniqueIdentifier>{1de45bbf-7eeb-449c-a43c-644d228792a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\Enemy\Boss">
+      <UniqueIdentifier>{a6ce175f-9b9b-4a82-9c6d-5aa476bd6757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Enemy\Daruma">
+      <UniqueIdentifier>{4a31237a-8400-4a0c-b975-8eb32aa405b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Enemy\Chochin">
+      <UniqueIdentifier>{851fbbf7-da83-4f3c-a951-831f1f418537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Enemy\Hi">
+      <UniqueIdentifier>{6167ed35-a879-46fb-b58c-c2b308d89d9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Enemy\Kamaitachi">
+      <UniqueIdentifier>{196cd8ee-46b1-4ddc-a049-e351fc681e3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Enemy\Niku">
+      <UniqueIdentifier>{02189c81-5611-42b4-a767-f2ed040d9b19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\EnemyAI">
+      <UniqueIdentifier>{644f4011-c27e-438a-b457-b0dee3d44247}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -81,9 +102,6 @@
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h">
       <Filter>Game\ObjectBase\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
       <Filter>Game\ObjectBase\Gimmick</Filter>
     </ClInclude>
@@ -101,21 +119,6 @@
     </ClInclude>
     <ClInclude Include="Game\CScene\CSceneManager.h">
       <Filter>Game\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h">
-      <Filter>Game\ObjectBase\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBG.h">
       <Filter>Game\ObjectBase\FieldBG</Filter>
@@ -135,8 +138,26 @@
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
       <Filter>Game\ObjectBase\Gimmick</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h">
+      <Filter>Game\ObjectBase\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h">
+      <Filter>Game\ObjectBase\Enemy\Daruma</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h">
+      <Filter>Game\ObjectBase\Enemy\Chochin</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h">
+      <Filter>Game\ObjectBase\Enemy\Hi</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h">
+      <Filter>Game\ObjectBase\Enemy\Kamaitachi</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h">
+      <Filter>Game\ObjectBase\Enemy\Niku</Filter>
+    </ClInclude>
     <ClInclude Include="Game\CEnemyAI.h">
-      <Filter>Game</Filter>
+      <Filter>Game\EnemyAI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +172,6 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp">
       <Filter>Game\ObjectBase\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp">
-      <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
       <Filter>Game\ObjectBase\Gimmick</Filter>
@@ -173,21 +191,6 @@
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp">
       <Filter>Game\ObjectBase\TitleBG</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp">
-      <Filter>Game\ObjectBase\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBG.cpp">
       <Filter>Game\ObjectBase\FieldBG</Filter>
     </ClCompile>
@@ -206,8 +209,26 @@
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
       <Filter>Game\ObjectBase\Gimmick</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp">
+      <Filter>Game\ObjectBase\Enemy\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp">
+      <Filter>Game\ObjectBase\Enemy\Daruma</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp">
+      <Filter>Game\ObjectBase\Enemy\Chochin</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp">
+      <Filter>Game\ObjectBase\Enemy\Hi</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp">
+      <Filter>Game\ObjectBase\Enemy\Kamaitachi</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp">
+      <Filter>Game\ObjectBase\Enemy\Niku</Filter>
+    </ClCompile>
     <ClCompile Include="Game\CEnemyAI.cpp">
-      <Filter>Game</Filter>
+      <Filter>Game\EnemyAI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
