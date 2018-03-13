@@ -9,6 +9,7 @@
 
 class C_Player :public C_Rectangle{
 public:
+	C_Player():C_Rectangle(E_PLAYER, eUDP_Player, eDWP_Player){}
 	//プレイヤーの向きフラグ
 	enum TURN_TAG{
 		E_RIGHT,
