@@ -2,7 +2,6 @@
 #define CPLAYER_H
 
 #include "../draw/CRectangle.h"
-<<<<<<< HEAD
 #include "../draw/scroll.h"
 #include <stdio.h>
 
@@ -25,21 +24,6 @@ public:
 		printf("%f\n%f\n%f\n%f\n", m_Left, m_Right, m_Bottom, m_Top);
 		m_Turn = E_RIGHT;
 	}
-=======
-
-class C_Player :public C_Rectangle{
-public:
-	C_Player(){
-		//キャラクターアニメーション画像の読み込み
-		i_Chara_Motion_1.Load("../image/chara_motion_1.tga");
-		i_Chara_Motion_2.Load("../image/chara_motion_2.tga");
-		//IDとプライオリティを設定します
-		C_Player::CTask(E_SCROLL, eUDP_Player, eDWP_Player);
-		//プレイヤーの初期向き
-		m_Turn = E_RIGHT;
-	}
-
->>>>>>> 9e6ac9599803c436e33464c8b2ecadeed50fff5f
 	//プレイヤーの向きフラグ
 	enum TURN_TAG{
 		E_RIGHT,
@@ -54,14 +38,8 @@ public:
 	int m_Anime_Taiki;      //アニメーション管理変数
 	int m_Anime_Taiki_s;    //アニメーション秒数管理(待機)
 	int m_Turn;             //右を向いているか左を向いているか
-<<<<<<< HEAD
 	virtual void Update();
 	virtual void Draw();
-=======
-	void Init();
-	void Update();
-	void Draw();
->>>>>>> 9e6ac9599803c436e33464c8b2ecadeed50fff5f
 };
 
 #endif

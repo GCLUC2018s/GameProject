@@ -2,8 +2,9 @@
 #define HAGI_H
 #include"task/CTask.h"
 #include "chara/C_Player.h"
+#include "task/CTaskManager.h"
 
-class Hagi :public CTask{
+class Hagi :public C_Player{
 public:
 	Hagi(){
 		//プレイヤーのインスタンスを作成
@@ -11,11 +12,7 @@ public:
 	}
 	//プレイヤーのインスタンスを宣言します
 	C_Player *Player;
-<<<<<<< HEAD
 	void Update();
 	void Draw();
-=======
-	void Init();
->>>>>>> 9e6ac9599803c436e33464c8b2ecadeed50fff5f
 };
 #endif
