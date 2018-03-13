@@ -23,7 +23,7 @@ public:
 	void Update();
 
 	//•`‰æˆ—
-	void Draw();
+	virtual void Draw();
 };
 
 #endif

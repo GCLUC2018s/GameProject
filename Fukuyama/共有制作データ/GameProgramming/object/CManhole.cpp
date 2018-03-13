@@ -20,15 +20,13 @@ C_Manhole::C_Manhole()
 {
 	//Texture設定
 	//CTextureクラスをインスタンス化
-	CTexture mTexture;
+	CTexture mTexturet;
 	//Textureロード
-	mTexture.Load("Manhole.tga");
+	mTexturet.Load("Manhole.tga");
 	//座標を決定
-	mTexture.DrawImage(-64, 64, -64, 64, 0, 128, 128, 0);
-
+	mTexturet.DrawImage(-64, 64, -64, 64, 0, 128, 128, 0);
 	//シードで乱数を初期化
 	srand((unsigned)time(NULL));
-
 	//x,yの初期位置を決める
 	m_PotisionX(FirstPotision);
 	if (m_UorD_rand==0){
