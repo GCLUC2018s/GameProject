@@ -1,9 +1,9 @@
+<<<<<<< HEAD
 #include"CSceneGame.h"
 #include"CKey.h"
-#include"windows.h"
+
 //ポーズ画面の判定用
 int PawsCount = 0;
-
 void CSceneGame::Init(){
 	//テクスチャ読み込み
 	mTexture.Load("Image(kari).tga");
@@ -11,7 +11,6 @@ void CSceneGame::Init(){
 	m_PawsCount = 0;
 	GameScene = 0;
 }
-
 void CSceneGame::Update(){
 	switch (GameScene)
 	{
@@ -45,5 +44,8 @@ void CSceneGame::Update(){
 			}
 		}
 		break;
+
 	}
 }
+=======
+>>>>>>> 189d1420510f60b31020b8a715577dba1d0dd30f

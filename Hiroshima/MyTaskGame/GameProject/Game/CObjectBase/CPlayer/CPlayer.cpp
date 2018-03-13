@@ -10,6 +10,7 @@
 
 CPlayer::CPlayer() :CObjectBase(0, eUDP_Player, eDWP_Player) {
 	m_vec3D = CVector3D(0, 0, 0);
+	m_pos3D = CVector3D(0, 450, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	m_img.SetSize(256, 256);
 	m_img.SetFlipH(m_flipH);
