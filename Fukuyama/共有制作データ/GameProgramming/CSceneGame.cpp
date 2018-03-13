@@ -46,12 +46,4 @@ void CSceneGame::Update(){
 		}
 		break;
 	}
-<<<<<<< HEAD
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 7100b3b70f3e929a34669491262110dbc26a1e45
->>>>>>> 79e2328c01657efaabb33d3af508ce0e9da2eb90
