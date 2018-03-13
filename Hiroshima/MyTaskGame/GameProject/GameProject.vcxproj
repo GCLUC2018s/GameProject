@@ -134,6 +134,7 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBG.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBG.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />

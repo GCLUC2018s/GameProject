@@ -21,6 +21,14 @@ protected:
 	int m_hp;  //体力
 	int m_at;  //攻撃力
 	int m_state; //状態
+	//状態
+	enum {
+		eIdol,			//待機
+		eAttack,		//攻撃
+		eKnockBack,    //ノックバック
+		eFall,			//倒れる
+		eMove,         //移動
+	};
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
 	//~CCharaBase();
