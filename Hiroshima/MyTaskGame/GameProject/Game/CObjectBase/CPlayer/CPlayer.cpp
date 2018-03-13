@@ -19,6 +19,7 @@ CPlayer::CPlayer() :CObjectBase(0, eUDP_Player, eDWP_Player) {
 	m_jump = false;
 	m_anim = 0;
 	m_state = eNutral;
+	m_cnt = 0;
 }
 
 CPlayer::~CPlayer() {
@@ -27,6 +28,16 @@ CPlayer::~CPlayer() {
 void CPlayer::Update() {
 
 	m_pos3D += m_vec3D;
+
+	if (m_pos3D.z > 0) {
+		m_pos3D.z = 0;
+	}
+	if (m_pos3D.z < -430) {
+		m_pos3D.z = -430;
+	}
+	if (m_pos3D.x < 0) {
+		m_pos3D.x = 0;
+	}
 
 	m_move_length = false;
 	m_move_side = false;
@@ -55,6 +66,7 @@ void CPlayer::Update() {
 			else
 				m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.1f);
 		}
+		m_cnt = 0;
 	}
 	//’âŽ~(ã‰º)
 	if (!m_move_length && !m_jump) {
@@ -103,19 +115,26 @@ void CPlayer::Nutral() {
 		m_anim = 0;
 	}
 
+	//‚µ‚á‚ª‚Ý
+	if (HOLD_X && !m_jump) {
+		m_squat = true;
+		m_anim = 3;
+	}
 	//ˆÚ“®
 	if (!m_squat) {
 		if (!m_jump && HOLD_UP) {
 			m_vec3D.z = -10;
-			m_variation += (640 - m_pos3D.x) / 500;
+			m_variation += (640 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
 			m_move_length = true;
 			m_anim = 1;
+			m_cnt++;
 		}
 		if (!m_jump && HOLD_DOWN) {
 			m_vec3D.z = 10;
-			m_variation += (m_pos3D.x - 640) / 500;
+			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - 640) / 500;
 			m_move_length = true;
 			m_anim = 1;
+			m_cnt++;
 		}
 		if (HOLD_RIGHT) {
 			//‰Á‘¬
@@ -123,6 +142,7 @@ void CPlayer::Nutral() {
 			m_move_side = true;
 			m_flipH = false;
 			m_anim = 1;
+			m_cnt++;
 		}
 		if (HOLD_LEFT) {
 			//‰Á‘¬
@@ -130,12 +150,8 @@ void CPlayer::Nutral() {
 			m_move_side = true;
 			m_flipH = true;
 			m_anim = 1;
+			m_cnt++;
 		}
-	}
-	//‚µ‚á‚ª‚Ý
-	if (HOLD_X && !m_jump) {
-		m_squat = true;
-		m_anim = 3;
 	}
 	//ƒWƒƒƒ“ƒv
 	if (PUSH_Z && !m_jump && !m_squat) {
@@ -154,6 +170,21 @@ void CPlayer::Nutral() {
 			//”÷’²®
 			m_pos3D.y = 0;
 			m_jump = false;
+		}
+	}
+	//‘«‰¹
+	if (m_cnt % 30 == 0 && m_cnt) {
+		m_dash = Utility::Rand(0, 2);
+		switch (m_dash) {
+		case 0:
+			SOUND("SE_DASH1")->Play(true);
+			break;
+		case 1:
+			SOUND("SE_DASH2")->Play(true);
+			break;
+		case 2:
+			SOUND("SE_DASH3")->Play(true);
+			break;
 		}
 	}
 
