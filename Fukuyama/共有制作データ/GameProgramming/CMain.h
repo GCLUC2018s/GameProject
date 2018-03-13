@@ -5,8 +5,6 @@
 #include"Hagi.h"
 #include"Hako.h"
 #include"CSceneGame.h"
-class Hako :public CTask{};
-class CSceneGame{};
 
 class CMain {
 public:
