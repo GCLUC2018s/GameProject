@@ -15,7 +15,7 @@ public:
 	~CTitleBG();
 	void Update();
 private:
-
+	bool m_end_flag;	//エンター押されたので終わりますよフラグ
 };
 
 #endif // !TITLE_BG_GUARD

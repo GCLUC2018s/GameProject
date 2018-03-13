@@ -49,6 +49,15 @@
     <Filter Include="Game\ObjectBase\FieldBG\FieldSky">
       <UniqueIdentifier>{ebafcdab-3f78-4647-b713-67bf1841856b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldBamboo">
+      <UniqueIdentifier>{1b1b60db-289a-4c61-9a9d-573e3a042711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldGround">
+      <UniqueIdentifier>{a04c3158-3ddb-4634-a879-560808b6847d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldCloud">
+      <UniqueIdentifier>{1de45bbf-7eeb-449c-a43c-644d228792a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -114,6 +123,21 @@
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldBamboo</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
+      <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CEnemyAI.h">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -169,6 +193,21 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldBamboo</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldCloud</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
+      <Filter>Game\ObjectBase\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CEnemyAI.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,6 +8,9 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
+#define GROUND_WIDTH 4000
+#define GROUND_HEIGHT 1400
+
 #define HOLD_UP		CInput::GetState(0, CInput::eHold, CInput::eUp)
 #define HOLD_DOWN	CInput::GetState(0, CInput::eHold, CInput::eDown)
 #define HOLD_LEFT	CInput::GetState(0, CInput::eHold, CInput::eLeft)

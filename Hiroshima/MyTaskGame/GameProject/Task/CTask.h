@@ -1,57 +1,53 @@
-/**
-* @file		CTask.h
-* @brief	タスクシステム元クラス
-* @author	ryoji anzai,yuki yamaji
-*/
-
 #ifndef TASK_GUARD
 #define TASK_GUARD
 
-#include "CTaskLinker.h"
 #include "../Global.h"
-
+#include "CTaskLinker.h"
 
 //更新順序
-enum E_UpdatePrio
-{
-	eUDP_Scene,
-	eUDP_Tutorial,
-	eUDP_Player,
-	eUDP_Camera,
-	eUDP_Enemy,
-	eUDP_Gimmick,
-	eUDP_Map,
-	eUDP_Null,
+enum {
+	eU_Chara,
+	eU_Gimmick,
+	eU_Item,
+	eU_UI,
+	eU_Effect,
+	eU_Map,
+	eU_Back,
+	eU_Scene,
+	eU_Null,
 };
 //描画順序
-enum E_DrawPrio
-{
-	eDWP_Map,
-	eDWP_MapObject01,
-	eDWP_Gimmick,
-	eDWP_Player,
-	eDWP_Enemy,
-	eDWP_Tutorial,
-	eDWP_MapObject02,
-	eDWP_Null,
+enum {
+	eD_Back,
+	eD_Map,
+	eD_Gimmick,
+	eD_Chara,
+	eD_Item,
+	eD_UI,
+	eD_Effect,
+	eD_Null,
 };
 
 class CTask
 {
 protected:
-	bool m_destroyFlg;				//削除フラグ
-	bool m_pauseFlg;				//更新停止フラグ
-	int m_id;
+	bool m_destroy;	//trueなら、このタスクは削除される
+	bool m_pause;	//trueなら更新停止
+	int m_id;		//基本0
 
-	CTaskLinker		m_updLinker;		// Update用のCTaskLinker 
-	CTaskLinker		m_drwLinker;		// Draw用のCTaskLinker 
-
+	CTaskLinker m_UPD_link;		// Update用のCTaskLinker 
+	CTaskLinker m_DRW_link;		// Draw用のCTaskLinker 
 public:
-	CTask();						//CTaskクラスのコンストラクタ
-	CTask(int id, int updateprio, int drawPrio);
-	virtual ~CTask();				//CTaskクラスのデストラクタ
-	virtual void Update();			//派生先クラスでの更新を行う関数
-	virtual void Draw();			//派生先クラスでの描写を行う関数
+	CTask();	//デフォルトコンストラクタ。使わないけどいるらしい
+	/*
+	１番目の引数「id」は、基本0
+	２番目の引数「UPD_prio」は、更新順位。enumで作ってる
+	３番目の引数「DRW_prio」は、描画順位。enumで作ってる
+	*/
+	CTask(int id,int UPD_prio,int DRW_prio);
+	virtual ~CTask();
+	virtual void Update();
+	virtual void Draw();
 
 	//更新順位取得関数
 	int GetUpdatePrio() const;
@@ -64,11 +60,13 @@ public:
 	void ChangeDrawPriority(int drawPrio);
 
 	// 削除フラグを立てる 
-	void SetKill() 
+	void SetKill()
 	{
-		m_destroyFlg = true;
+		m_destroy = true;
 	}
 	friend class CTaskManager;
+
+
 };
 
-#endif
+#endif // !TASK_GUARD

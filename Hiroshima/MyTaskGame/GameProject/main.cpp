@@ -20,7 +20,7 @@ void MainLoop(void) {
 }
 void Init(void)
 {
-	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glClearColor(0.0, 0.0, 0.0, 0.0);
 
 	glEnable(GL_DEPTH_TEST);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -62,27 +62,32 @@ void Init(void)
 
 	CSound::GetInstance();
 	//‰Šú‰»
-	ADD_RESOURCE("Player", CAnimImage::LoadImage("player_motion.png", player_AnimData, 512, 512));
+	ADD_RESOURCE("Player", CAnimImage::LoadImage("motion_player.png", player_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy2", CAnimImage::LoadImage("zako_chochin_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy3", CAnimImage::LoadImage("zako_hi_motion.png", enemy_AnimData, 512, 512));
-	ADD_RESOURCE("Enemy4", CAnimImage::LoadImage("zako_kamaitachi_motion.png", enemy_AnimData, 512, 512));
+	ADD_RESOURCE("Enemy4", CAnimImage::LoadImage("zako_kamaitachi_motion.png", kamaitachi_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy5", CAnimImage::LoadImage("zako_niku_motion.png", enemy_AnimData, 512, 512));
-	ADD_RESOURCE("Boss", CAnimImage::LoadImage("boss_b_image.png", enemy_AnimData, 4093, 2894));
+	ADD_RESOURCE("Boss", CAnimImage::LoadImage("boss_motion.png", boss_AnimData, 768, 768));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
-//	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
-//	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground"));
+	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
+	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
 	SOUND("BGM_Main")->Volume(0.90f);
 	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav",10);
-	NEW_SCENE(eTitle)}
+	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav",100);
+	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 100);
+	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 100);
+	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 
+NEW_SCENE(eTitle);
+}
 
 void release()
 {

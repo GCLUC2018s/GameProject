@@ -15,12 +15,20 @@ protected:
 	CRect	m_rect;			//当たり判定用短形
 	bool	m_flipH;		//反転フラグ
 	bool	m_move;
-	int		m_type;
-	float	m_color;		//色
+	int		m_type;	
 	static CVector2D m_scroll;
 	int m_hp;  //体力
 	int m_at;  //攻撃力
 	int m_state; //状態
+	CColorRGBA m_color;	//色
+	//状態
+	enum {
+		eIdol,			//待機
+		eAttack,		//攻撃
+		eKnockBack,    //ノックバック
+		eFall,			//倒れる
+		eMove,         //移動
+	};
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
 	//~CCharaBase();
