@@ -3,7 +3,7 @@
 void Hagi::Init(){
 	//プレイヤーのインスタンスを作成
 	Player = new C_Player();
-	//CTask(E_PLAYER, eUDP_Player, eDWP_Player);
+	//Player->CTask::CTask(E_PLAYER, eUDP_Player, eDWP_Player);
 	Player->Init();
 	CTaskManager::GetInstance()->Add((CTask*)Player);
 }
