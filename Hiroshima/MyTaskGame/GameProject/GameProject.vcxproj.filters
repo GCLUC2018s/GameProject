@@ -114,6 +114,9 @@
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -169,6 +172,9 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
