@@ -5,6 +5,8 @@
 #define CHOCHIN_HP 5
 #define CHOCHIN_AT 3
 #define CHOCHIN_SPEED 4
+
+#define CHOCHIN_FLOAT 0.3f
 /*
 
 »ìÒ@Â–Ø
@@ -13,7 +15,7 @@
 //’ñ“”
 class CEnemy2 :public CObjectBase {
 private:
-	float m_a;
+	float m_a;	//•‚—V—p
 public:
 	CEnemy2(CVector3D *pos);
 	~CEnemy2();
