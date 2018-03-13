@@ -90,8 +90,8 @@ void CPlayer::Update() {
 	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < 4000 - SCREEN_WIDTH / 2) {
 		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
 	}
-	if (m_pos3D.y + m_pos3D.z / 2 < 120 && m_pos3D.y + m_pos3D.z / 2 > -100) {
-		m_scroll.y = m_pos3D.y + m_pos3D.z / 2 - 120;
+	if (450 + m_pos3D.y + m_pos3D.z / 2 < 120 && 450 + m_pos3D.y + m_pos3D.z / 2 > -100) {
+		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 120;
 	}
 }
 
@@ -146,6 +146,7 @@ void CPlayer::Nutral() {
 	}
 	if (m_jump) {
 		//d—Í
+		m_anim = 2;
 		m_vec3D.y += 1.2;
 		//Œ³‚ÌˆÊ’u‚É–ß‚Á‚½‚ç
 		if (m_pos3D.y > 0) {
