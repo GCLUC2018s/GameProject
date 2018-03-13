@@ -18,7 +18,6 @@
 
 class C_Rectangle :public CTask{
 public:
-	void Scroll(float left, float right);
 	float m_Left, m_Right, m_Bottom, m_Top;
 	float m_Adjust;
 	void Init(){};

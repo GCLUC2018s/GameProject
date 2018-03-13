@@ -49,7 +49,7 @@ void C_Player::Update(){
 		m_Top -= PLAYER_UD_SPEED;
 	}
 
-	C_Rectangle::Scroll(m_Left, m_Right);              //スクロール処理
+	C_Scroll::Scroll(m_Left, m_Right);              //スクロール処理
 }
 
 
