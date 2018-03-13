@@ -55,6 +55,9 @@
     <Filter Include="Game\ObjectBase\FieldBG\FieldGround">
       <UniqueIdentifier>{a04c3158-3ddb-4634-a879-560808b6847d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldCloud">
+      <UniqueIdentifier>{1de45bbf-7eeb-449c-a43c-644d228792a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -125,7 +128,11 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h">
       <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
-    </ClInclude>  </ItemGroup>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldCloud</Filter>
+    </ClInclude>
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
@@ -186,5 +193,9 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp">
       <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
-    </ClCompile>  </ItemGroup>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldCloud</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
