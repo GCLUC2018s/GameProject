@@ -20,7 +20,18 @@ protected:
 	int m_hp;  //‘Ì—Í
 	int m_at;  //UŒ‚—Í
 	int m_state; //ó‘Ô
+<<<<<<< HEAD
 	CColorRGBA m_color;	//F
+=======
+	//ó‘Ô
+	enum {
+		eIdol,			//‘Ò‹@
+		eAttack,		//UŒ‚
+		eKnockBack,    //ƒmƒbƒNƒoƒbƒN
+		eFall,			//“|‚ê‚é
+		eMove,         //ˆÚ“®
+	};
+>>>>>>> 19dc2f82af14400837f9681caf61be5fe530b65b
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
 	//~CCharaBase();

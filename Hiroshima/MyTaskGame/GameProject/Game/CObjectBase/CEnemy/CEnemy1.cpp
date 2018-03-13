@@ -26,7 +26,7 @@ void CEnemy1::Update() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 1280 - 213) {
+	if (m_pos3D.x > 4000 - 213) {
 		m_flipH = false;
 	}
 
