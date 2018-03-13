@@ -78,6 +78,9 @@
     <ClCompile Include="object\CManhole.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
+    <ClCompile Include="CDrum.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CKey.h">
@@ -123,6 +126,9 @@
       <Filter>ソース ファイル\draw</Filter>
     </ClInclude>
     <ClInclude Include="object\CManhole.h">
+      <Filter>ソース ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="CDrum.h">
       <Filter>ソース ファイル\object</Filter>
     </ClInclude>
   </ItemGroup>
