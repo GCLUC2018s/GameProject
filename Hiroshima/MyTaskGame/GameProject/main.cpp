@@ -74,8 +74,8 @@ void Init(void)
 	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
-//	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
-//	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground"));
+	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
+	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");

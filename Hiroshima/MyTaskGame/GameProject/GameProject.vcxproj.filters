@@ -49,6 +49,12 @@
     <Filter Include="Game\ObjectBase\FieldBG\FieldSky">
       <UniqueIdentifier>{ebafcdab-3f78-4647-b713-67bf1841856b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldBamboo">
+      <UniqueIdentifier>{1b1b60db-289a-4c61-9a9d-573e3a042711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\FieldBG\FieldGround">
+      <UniqueIdentifier>{a04c3158-3ddb-4634-a879-560808b6847d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -114,6 +120,12 @@
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldBamboo</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h">
+      <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -169,6 +181,12 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldBamboo</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp">
+      <Filter>Game\ObjectBase\FieldBG\FieldGround</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
