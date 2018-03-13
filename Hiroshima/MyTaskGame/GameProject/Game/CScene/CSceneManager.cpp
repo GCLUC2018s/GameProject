@@ -53,6 +53,8 @@ void CSceneManager::MainScene(){
 	new CGimmick(&(CVector3D(500, 250, 0)));
 //	new CFieldBG();
 	new CFieldSky();
+	new CFieldBamboo();
+	new CFieldGround();
 
 
 

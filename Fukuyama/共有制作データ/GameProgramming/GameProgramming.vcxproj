@@ -85,7 +85,6 @@
     <ClCompile Include="CSceneGame.cpp" />
     <ClCompile Include="draw\CRectangle.cpp" />
     <ClCompile Include="draw\CTexture.cpp" />
-    <ClCompile Include="draw\scroll.cpp" />
     <ClCompile Include="Hagi.cpp" />
     <ClCompile Include="Hako.cpp" />
     <ClCompile Include="main.cpp" />
@@ -102,7 +101,6 @@
     <ClInclude Include="CSceneGame.h" />
     <ClInclude Include="draw\CRectangle.h" />
     <ClInclude Include="draw\CTexture.h" />
-    <ClInclude Include="draw\scroll.h" />
     <ClInclude Include="Hagi.h" />
     <ClInclude Include="Hako.h" />
     <ClInclude Include="Nagao.h" />
