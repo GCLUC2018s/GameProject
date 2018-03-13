@@ -1,8 +1,9 @@
 #include"Hagi.h"
 
-void Hagi::Init(){
-	//プレイヤーのインスタンスを作成
-	Player = new C_Player();
-	//初期化
-	Player->Init();
+void Hagi::Update(){
+	C_Player::Update();
+}
+
+void Hagi::Draw(){
+	C_Player::Draw();
 }
