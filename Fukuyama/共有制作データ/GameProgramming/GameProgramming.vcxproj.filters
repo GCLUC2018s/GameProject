@@ -72,9 +72,6 @@
     <ClCompile Include="CSceneGame.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="draw\scroll.cpp">
-      <Filter>ソース ファイル\draw</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CKey.h">
@@ -115,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="CSceneGame.h">
       <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="draw\scroll.h">
-      <Filter>ソース ファイル\draw</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

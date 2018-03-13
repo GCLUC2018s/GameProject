@@ -5,7 +5,7 @@
 êªçÏé“Å@ê¬ñÿ
 
 */
-CBoss::CBoss(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
+CBoss::CBoss(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
 	m_img.SetSize(256 * 3, 256 * 3);
 	m_pos3D = *pos;
