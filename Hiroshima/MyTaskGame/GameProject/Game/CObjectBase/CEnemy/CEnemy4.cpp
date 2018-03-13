@@ -6,29 +6,78 @@
 
 */
 //‚©‚Ü‚¢‚½‚¿
-CEnemy4::CEnemy4(CVector3D *pos) :CObjectBase(0, eUDP_Enemy, eDWP_Enemy) {
+CEnemy4::CEnemy4(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy4"));
 	m_img.SetSize(213, 256);
 	m_pos3D = *pos;
 	m_hp = KAMAITACHI_HP;
 	m_at = KAMAITACHI_AT;
-
+	m_state = eIdol;
+	m_cnt = 0;
+	m_move_cnt = 0;
+	m_stop = false;
 }
 
 CEnemy4::~CEnemy4() {
 }
 
 void CEnemy4::Update() {
-	m_pos3D += m_vec3D;
 
+	switch (m_state)
+	{
+		//‘Ò‹@
+	case eIdol:
+		Neutral();
+		break;
+		//ˆÚ“®
+	case eMove:	
+		Move();
+		break;
+		//UŒ‚
+	case eAttack:
+		Attack();
+		break;
+	}
+
+	//Ÿˆ‚Å‘Ò‹@ŠÔ‚ğ’²®‰Â”\
+	if (m_cnt > 130) {
+		m_state = eMove;
+		m_cnt = 0;
+	}
+
+	m_img.UpdateAnimation();
+}
+
+void CEnemy4::Neutral() {
+	//ã‰º•‚—V
+	m_vec3D.x = 0;
+	m_stop = false;
+	m_pos3D += m_vec3D;
+	m_a += 0.1f;
+	m_vec3D.y = sin(m_a) * 5;
+	m_cnt++;
+	m_img.ChangeAnimation(0);
+}
+
+void CEnemy4::Attack() {
+	m_img.ChangeAnimation(2);
+	if (m_img.GetIndex() == 2) {
+		m_state = eIdol;
+	}
+}
+
+void CEnemy4::Move() {
+	m_vec3D.y = 0;
+
+	//ˆê’è‚ÌêŠ‚Ü‚Å—ˆ‚½‚ç”½“]
 	if (m_pos3D.x < 0) {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 1280 - 213) {
+	if (m_pos3D.x > 4000 - 213) {
 		m_flipH = false;
 	}
-
+	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Ş
 	if (m_flipH) {
 		m_vec3D.x = KAMAITACHI_SPEED;
 	}
@@ -36,10 +85,18 @@ void CEnemy4::Update() {
 		m_vec3D.x = -KAMAITACHI_SPEED;
 	}
 
-	//ã‰º•‚—V
-	m_a += 0.1f;
-	m_vec3D.y = sin(m_a) * 5;
 
-	m_img.ChangeAnimation(0);
-	m_img.UpdateAnimation();
+	if (!m_stop) {
+		m_pos3D += m_vec3D;
+		m_move_cnt++;
+	}
+	else {
+		m_state = eAttack;
+	}
+
+	if (m_move_cnt > 30) {
+		m_stop = true;
+		m_move_cnt = 0;
+	}
+	m_img.ChangeAnimation(1);
 }

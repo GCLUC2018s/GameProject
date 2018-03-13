@@ -1,18 +1,22 @@
 #pragma once
 
 #include "glut.h"
-#include"draw/CTexture.h"
-#define W_H		1200 //Windowïù
-#define W_V		900 //WindowçÇÇ≥
+#include"Nagao.h"
+#include"Hagi.h"
+#include"Hako.h"
+#include"CSceneGame.h"
+class Hako :public CTask{};
+class CSceneGame{};
 
 class CMain {
-	int		mState;
-	int GameScene;
-	int m_Mode;
-	int m_PawsCount;
 public:
-	CTexture mTexture;
-	CTexture mTexture2;
+	int mState;
+	int m_Mode;
+	int SceneState;
+	Nagao *ip_Nagao;
+	Hagi *ip_Hagi;
+	Hako *ip_Hako;
+	CSceneGame *ip_SceneGame;
 	CMain() : mState(0) {}
 
 	void MainLoop() {

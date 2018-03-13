@@ -17,5 +17,9 @@ extern TexAnimData player_AnimData[];
 extern TexAnimData enemy_AnimData[];
 //fire.pngのアニメーションデータ
 extern TexAnimData fire_Animdata[];
+//zako_kamaitachi_motion.pngのアニメーションデータ
+extern TexAnimData kamaitachi_AnimData[];
+//zako_kamaitachi_motion.pngのアニメーションデータ
+extern TexAnimData boss_AnimData[];
 
 #endif // !IMAGE_RESOURCE_GUARD

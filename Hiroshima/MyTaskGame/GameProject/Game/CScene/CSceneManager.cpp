@@ -1,10 +1,8 @@
 #include "CSceneManager.h"
 
-CSceneManager::CSceneManager(int scene) : CTask(0, eUDP_Scene, eDWP_Null)
+CSceneManager::CSceneManager(int scene) : CTask(0, eU_Scene, eD_Null)
 {
-	//CTaskManager::GetInstance()->KillAll();
 	SetSceneObject(scene);
-	m_destroyFlg = true;
 }
 
 CSceneManager::~CSceneManager()
@@ -13,6 +11,7 @@ CSceneManager::~CSceneManager()
 
 void CSceneManager::SetSceneObject(int scene_num)
 {
+	CTaskManager::GetInstance()->SetKillAll();
 	//対応したシーンクラスを生成
 	switch (scene_num)
 	{
@@ -34,6 +33,7 @@ void CSceneManager::SetSceneObject(int scene_num)
 }
 
 void CSceneManager::TitleScene(){
+	SOUND("BGM_Main")->Stop();
 	SOUND("BGM_Title")->Play(true);
 	new CTitleBG();
 }
@@ -46,20 +46,22 @@ void CSceneManager::MainScene(){
 	new CEnemy2(&(CVector3D(200, 100, 0)));
 	new CEnemy3(&(CVector3D(100, 300, 0)));
 	new CEnemy4(&(CVector3D(300, 400, 0)));
-	new CEnemy5(&(CVector3D(400, 500, 0)));
-	//new CBoss(&(CVector3D(200, 200, 0)));
+	new CEnemy5(&(CVector3D(400, 450, 0)));
+	//new CBoss(&(CVector3D(3000, 50, 0)));
 	new CGimmick(&(CVector3D(500, 500, 0)));
 	new CGimmick(&(CVector3D(250, 500, 0)));
 	new CGimmick(&(CVector3D(500, 250, 0)));
 //	new CFieldBG();
 	new CFieldSky();
-
-
+	new CFieldCloud();
+	new CFieldBamboo();
+	new CFieldGround();
 
 
 }
 
 void CSceneManager::BossScene(){
+	new CTitleBG();
 }
 
 void CSceneManager::EndScene(){
