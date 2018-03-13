@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 #include"CSceneGame.h"
 #include"CKey.h"
-
+#include"windows.h"
 //ポーズ画面の判定用
 int PawsCount = 0;
 void CSceneGame::Init(){
@@ -47,5 +46,3 @@ void CSceneGame::Update(){
 
 	}
 }
-=======
->>>>>>> 189d1420510f60b31020b8a715577dba1d0dd30f
