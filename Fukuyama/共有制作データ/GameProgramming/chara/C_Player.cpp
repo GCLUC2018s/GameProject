@@ -5,12 +5,14 @@ void C_Player::Update(){
 	//右移動
 	if (CKey::Push(VK_RIGHT)){
 		m_Turn = E_RIGHT;
+		m_Scroll += PLAYER_LR_SPEED;
 		m_Right += PLAYER_LR_SPEED;
 		m_Left += PLAYER_LR_SPEED;
 	}
 	//左移動
 	if (CKey::Push(VK_LEFT)&&m_Left>=(-W_H)/2){
 		m_Turn = E_LEFT;
+		m_Scroll -= PLAYER_LR_SPEED;
 		m_Right -= PLAYER_LR_SPEED;
 		m_Left -= PLAYER_LR_SPEED;
 	}
@@ -25,7 +27,7 @@ void C_Player::Update(){
 		m_Top -= PLAYER_UD_SPEED;
 	}
 
-		C_Scroll::Scroll(this);              //スクロール処理
+		C_Rectangle::Scroll(this);              //スクロール処理
 }
 
 

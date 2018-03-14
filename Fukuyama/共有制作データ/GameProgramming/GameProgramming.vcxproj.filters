@@ -75,6 +75,12 @@
     <ClCompile Include="draw\scroll.cpp">
       <Filter>ソース ファイル\draw</Filter>
     </ClCompile>
+    <ClCompile Include="object\CManhole.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="object\CDrum.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CKey.h">
@@ -118,6 +124,12 @@
     </ClInclude>
     <ClInclude Include="draw\scroll.h">
       <Filter>ソース ファイル\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="object\CManhole.h">
+      <Filter>ソース ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="object\CDrum.h">
+      <Filter>ソース ファイル\object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

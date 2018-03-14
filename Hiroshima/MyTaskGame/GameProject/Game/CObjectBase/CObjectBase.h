@@ -1,8 +1,11 @@
 #ifndef CHARABASE_GUARD
 #define CHARABASE_GUARD
 
+
+
 #include "../GameProject/Task/CTask.h"
 #include "../GameProject/stdafx.h"
+#include "../GameProject/ImageResource.h"
 
 class CObjectBase : public CTask
 {

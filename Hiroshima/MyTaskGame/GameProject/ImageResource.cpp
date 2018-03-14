@@ -127,10 +127,23 @@ TexAnim _KAMAITACHI_attack_anim[] = {
 	{ 5, 1},
 
 };
+TexAnim _KAMAITACHI_knockback_anim[] = {
+	{ 2,30 },
+	{ 2,1 },
+	
+
+};
+TexAnim _KAMAITACHI_fall_anim[] = {
+	{ 3,30 },
+	
+
+};
 TexAnimData kamaitachi_AnimData[] = {
 	ANIMDATA(_KAMAITACHI_anim),
 	ANIMDATA(_KAMAITACHI2_anim),
 	ANIMDATA(_KAMAITACHI_attack_anim),
+	ANIMDATA(_KAMAITACHI_knockback_anim),
+	ANIMDATA(_KAMAITACHI_fall_anim),
 };
 
 
