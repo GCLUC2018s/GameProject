@@ -12,6 +12,8 @@ CEnemy3::CEnemy3(CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = HI_HP;
 	m_at = HI_AT;
+	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y*1.5);
 
 }
 

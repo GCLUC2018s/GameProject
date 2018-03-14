@@ -13,6 +13,7 @@ CEnemy1::CEnemy1(const CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = DARUMA_HP;
 	m_at = DARUMA_AT;
+	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
 
 }
 
