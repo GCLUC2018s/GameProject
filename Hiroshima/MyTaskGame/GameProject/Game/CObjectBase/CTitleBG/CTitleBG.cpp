@@ -66,4 +66,5 @@ void CTitleBG::Draw()
 	m_img.Draw();
 	m_img_pika.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
 	m_img_pika.Draw();
+//	Utility::DrawQuad(CVector2D(m_pos3D.x, m_pos3D.y), CVector2D(m_rect.m_right, m_rect.m_bottom), CVector4D(1, 0, 0, 0.5));
 }
