@@ -6,6 +6,7 @@
 
 //XV‡˜
 enum {
+	eU_System,
 	eU_Chara,
 	eU_Gimmick,
 	eU_Item,

@@ -25,6 +25,8 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Chara, eD_Chara) {
 	m_cnt = 0;
 	m_die = false;
 	damage_vec = CVector2D(5, -10);
+	m_img.ChangeAnimation(m_anim);
+	m_img.UpdateAnimation();
 }
 
 CPlayer::~CPlayer() {
@@ -129,8 +131,11 @@ void CPlayer::Update() {
 	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < 4000 - SCREEN_WIDTH / 2) {
 		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
 	}
-	if (450 + m_pos3D.y + m_pos3D.z / 2 < 120 && 450 + m_pos3D.y + m_pos3D.z / 2 > -100) {
-		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 120;
+	if (450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -100) {
+		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 80;
+	}
+	if (m_pos3D.y == 715 + 512) {
+		m_scroll.y = SCREEN_HEIGHT/2;
 	}
 }
 
