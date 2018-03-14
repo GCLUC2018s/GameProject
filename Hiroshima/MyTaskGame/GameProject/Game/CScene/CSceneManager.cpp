@@ -51,9 +51,9 @@ void CSceneManager::TitleScene(){
 void CSceneManager::MainScene(){
 	//ƒƒCƒ“í“¬‰æ–Ê‚Ì—v‘f‚Ô‚¿ž‚Þ
 	SOUND("BGM_Title")->Stop();
-	new CBB(130);
+	new CBB(60 * 3,true);
 	new CPlayer();
-	new CEnemy1(&(CVector3D(200, 200, 0)));
+	new CEnemy1(&(CVector3D(200, 250, 0)));
 	new CEnemy2(&(CVector3D(200, 100, 0)));
 	new CEnemy3(&(CVector3D(100, 300, 0)));
 	new CEnemy4(&(CVector3D(300, 400, 0)));

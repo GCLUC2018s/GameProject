@@ -12,6 +12,8 @@ CBoss::CBoss(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_hp = BOSS_HP;
 	m_at = BOSS_AT;
 	m_test = 0;
+	m_rect = CRect(0, 0, 256 * 3, 256 * 3);
+	//m_rect_F = CRect(0, 0, 256 * 3, 256 * 3);
 }
 
 CBoss::~CBoss() {

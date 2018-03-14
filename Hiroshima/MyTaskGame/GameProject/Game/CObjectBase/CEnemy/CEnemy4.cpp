@@ -12,6 +12,8 @@ CEnemy4::CEnemy4(const CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = KAMAITACHI_HP;
 	m_at = KAMAITACHI_AT;
+	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_state = eIdol;
 	m_cnt = 0;
 	m_move_cnt = 0;
@@ -92,7 +94,7 @@ void CEnemy4::Move() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
+	if (m_pos3D.x > GROUND_WIDTH - ENEMY_SIZ_X) {
 		m_flipH = false;
 	}
 	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Þ

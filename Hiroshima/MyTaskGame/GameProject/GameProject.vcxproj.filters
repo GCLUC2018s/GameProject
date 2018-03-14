@@ -79,11 +79,14 @@
     <Filter Include="Game\ObjectBase\GameStart">
       <UniqueIdentifier>{2cc60501-1c2c-4a84-8855-6a7f386cbe62}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\CBB">
-      <UniqueIdentifier>{646ab683-5ffd-43e1-86c1-418215220311}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Source">
       <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\BB">
+      <UniqueIdentifier>{646ab683-5ffd-43e1-86c1-418215220311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\MainText">
+      <UniqueIdentifier>{a6e2aaec-8663-43b1-bc36-2dc5984711bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +172,7 @@
       <Filter>Game\ObjectBase\GameStart</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CBB\CBB.h">
-      <Filter>Game\ObjectBase\CBB</Filter>
+      <Filter>Game\ObjectBase\BB</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h">
       <Filter>Game\ObjectBase\Enemy</Filter>
@@ -179,6 +182,9 @@
     </ClInclude>
     <ClInclude Include="Enemysource.h">
       <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h">
+      <Filter>Game\ObjectBase\MainText</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -255,13 +261,16 @@
       <Filter>Game\ObjectBase\GameStart</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp">
-      <Filter>Game\ObjectBase\CBB</Filter>
+      <Filter>Game\ObjectBase\BB</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp">
       <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyManager.cpp">
       <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp">
+      <Filter>Game\ObjectBase\MainText</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
