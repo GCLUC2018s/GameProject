@@ -52,7 +52,7 @@ void CTitleBG::Update()
 	else {
 		//フェードアウト
 		m_color.a -= 0.01;
-		m_color.w -= 0.01;
+		m_color.r -= 0.01;
 	}
 	if (m_color.a < -1.0) {
 		SetKill();
