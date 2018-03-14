@@ -23,16 +23,20 @@ void C_Rectangle::SetVertex(float left, float right, float bottom, float top)
 	m_Top = top;
 }
 
-//スクロールの基準点が一定値を超えていたらスクロールする。
-void C_Rectangle::Scroll(C_Rectangle*p){
 
-	//idがUIでないならスクロールします
-	if (m_Scroll >= SCROLL_POINT){
-		//スクロールの基準点が一定値より大きくなるとスクロールする
-		if (CKey::Push(VK_RIGHT)){
-			p->m_Right -= SCROLL_SPEED;
-			p->m_Left -= SCROLL_SPEED;
-		}
-	}
-	return;
+
+//上下ポジション設定
+float C_Rectangle::m_PotisionY(float m_V){
+	float mv = m_V;
+	m_Top += mv;
+	m_Bottom += mv;
+	return mv;
+}
+
+//左右ポジション設定
+float C_Rectangle::m_PotisionX(float m_H){
+	float mh = m_H;
+	m_Left += mh;
+	m_Right += mh;
+	return mh;
 }

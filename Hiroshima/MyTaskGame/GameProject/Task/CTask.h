@@ -6,6 +6,7 @@
 
 //XV‡˜
 enum {
+	eU_System,
 	eU_Chara,
 	eU_Gimmick,
 	eU_Item,
@@ -27,6 +28,15 @@ enum {
 	eD_Effect,
 	eD_Null,
 };
+//ID
+enum {
+	eID_UI,
+	eID_Player,
+	eID_Enemy,
+	eID_Item,
+	eID_Null,
+};
+
 
 class CTask
 {

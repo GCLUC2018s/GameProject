@@ -19,9 +19,9 @@ void CMain::Update() {
 		//モード選択
 		if (CKey::Once('1') && SceneState == 0){
 			//長尾テストエリアへ
-			ip_Nagao = new Nagao();
+			//ip_Nagao = new Nagao();
 			//ip_Nagao->Init();
-			CTaskManager::GetInstance()->Add((CTask*)ip_Nagao);
+			//CTaskManager::GetInstance()->Add((CTask*)ip_Nagao);
 			SceneState = 1;
 		}
 		if (CKey::Once('3') && SceneState == 0){

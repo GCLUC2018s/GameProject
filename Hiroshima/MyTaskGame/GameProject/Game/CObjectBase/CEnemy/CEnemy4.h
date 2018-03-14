@@ -1,10 +1,13 @@
 #ifndef ENEMY4GUARD
 #define ENEMY4GUARD
 #include"../CObjectBase.h"
+#include  "CEnemyBase.h"
 
-#define KAMAITACHI_HP 10
+#define KAMAITACHI_HP 7
 #define KAMAITACHI_AT 10
 #define KAMAITACHI_SPEED 20
+
+#define KAMAITACHI_KNOCKBACK_SPEED 8
 
 #define KAMAITACHI_FLOAT 0.1f
 
@@ -16,19 +19,22 @@
 
 */
 //‚©‚Ü‚¢‚½‚¿
-class CEnemy4 :public CObjectBase {
+class CEnemy4 :public CEnemyBase {
 private:
 	float m_a;
 	int m_cnt;
 	int m_move_cnt;
 	bool m_stop;
 public:
-	CEnemy4(CVector3D *pos);
+	CEnemy4(const CVector3D *pos);
 	~CEnemy4();
 	void Update();
-	void Neutral();
-	void Move();
-	void Attack();
+	void Nutral(); //’Êíó‘Ô
+	void Move();    //ˆÚ“®ó‘Ô
+	void Attack();  //UŒ‚ó‘Ô
+	void KnockBack(); //‚Ì‚¯‚¼‚èó‘Ô
+	void Fall();       //“|‚³‚ê‚½ó‘Ô
+	void Damage();    //ƒ_ƒ[ƒWˆ—
 };
 
 

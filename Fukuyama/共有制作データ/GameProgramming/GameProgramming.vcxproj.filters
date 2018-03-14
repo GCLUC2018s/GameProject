@@ -81,6 +81,12 @@
     <ClCompile Include="object\CDrum.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
+    <ClCompile Include="object\C_Object.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="CVector3.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CKey.h">
@@ -129,6 +135,12 @@
       <Filter>ソース ファイル\object</Filter>
     </ClInclude>
     <ClInclude Include="object\CDrum.h">
+      <Filter>ソース ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="object\C_Object.h">
+      <Filter>ソース ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="object\CVector3.h">
       <Filter>ソース ファイル\object</Filter>
     </ClInclude>
   </ItemGroup>

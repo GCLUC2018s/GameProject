@@ -9,6 +9,7 @@
 */
 
 enum {
+	eGameStart,
 	eTitle,
 	eMain,
 	eBoss,
@@ -25,6 +26,8 @@ private:
 	//変更禁止。要望は宮﨑へ
 	void SetSceneObject(int scene_num);
 
+	//スタート画面に必要なものをこの中で生成
+	void GameStartScene();
 	//タイトル画面に必要なものをこの中で生成
 	void TitleScene();
 	//メイン画面に必要なものをこの中で生成
