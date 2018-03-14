@@ -27,15 +27,11 @@ void CMain::Update() {
 		if (CKey::Once('3') && SceneState == 0){
 			//萩しゃんテストエリアへ
 			ip_Hagi = new Hagi();
-			//ip_Nagao->Init();
-			CTaskManager::GetInstance()->Add((CTask*)ip_Hagi);
 			SceneState = 1;
 		}
 		if (CKey::Once('5') && SceneState == 0){
 			//はこテストエリアへ
 			ip_Hako = new Hako();
-			//ip_Hako->Init();
-			CTaskManager::GetInstance()->Add((CTask*)ip_Hako);
 			SceneState = 1;
 		}
 		if (CKey::Once('7') && SceneState == 0){
