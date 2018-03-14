@@ -11,6 +11,7 @@
 class CTitleBG : public CObjectBase
 {
 public:
+	//ƒ^ƒCƒgƒ‹‰æ‘œ
 	CTitleBG();
 	~CTitleBG();
 	void Update();

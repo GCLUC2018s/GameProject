@@ -77,7 +77,8 @@ void Init(void)
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
-	ADD_RESOURCE("GameStart", CAnimImage::LoadImage("presen.png"));
+	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
+	ADD_RESOURCE("MainText", CAnimImage::LoadImage("text01.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
@@ -90,6 +91,7 @@ void Init(void)
 	SOUND("SE_LANDING")->Load("Sound/SE/landing.wav", 50);
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
+	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
 
 	NEW_SCENE(eGameStart);
 }

@@ -4,7 +4,7 @@
 CGameStart::CGameStart() :CObjectBase(0, eU_Back, eD_Null)
 {
 	SOUND("SE_GameStart")->Play(false);
-	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("GameStart"));
+	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("GameStartText"));
 	m_img.SetSize(GAME_START_X, GAME_START_Y);
 	m_img.SetCenter(GAME_START_X/2, GAME_START_Y/2);
 	m_img.SetRect(0, GAME_START_Y * 2, GAME_START_X * 2, GAME_START_Y * 2);
@@ -25,6 +25,7 @@ void CGameStart::Update()
 {
 		m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 	if (m_end_flag) {
+		//フェードアウト
 		m_color.a -= 0.03;
 		if (m_color.a < -3.0) {
 			SetKill();
@@ -32,6 +33,7 @@ void CGameStart::Update()
 
 	}
 	else {
+		//フェードインと、にゅわーと文字が出てくる
 		m_color.a += 0.01;
 		m_img.SetSize(GAME_START_X, m_siz);
 		m_img.SetRect(0, (GAME_START_Y - m_siz) * 2, GAME_START_X * 2 ,GAME_START_Y * 2);

@@ -16,6 +16,7 @@
 class CGameStart : public CObjectBase
 {
 public:
+	//ƒvƒŒƒ[ƒ“ƒc
 	CGameStart();
 	~CGameStart();
 	void Update();
