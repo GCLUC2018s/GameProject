@@ -1,8 +1,10 @@
 #ifndef CDRUM_H
 #define CDRUM_H
-#include "CManhole.h"
+#include "../draw/CRectangle.h"
 
-class C_Drum : public C_Manhole{
+class C_Drum : public  C_Rectangle{
+private:
+	int m_DrumPos_Random = rand() % 3;
 public:
 	//XVˆ—
 	void Update();
