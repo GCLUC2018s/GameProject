@@ -25,6 +25,8 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Chara, eD_Chara) {
 	m_cnt = 0;
 	m_die = false;
 	damage_vec = CVector2D(5, -10);
+	m_img.ChangeAnimation(m_anim);
+	m_img.UpdateAnimation();
 }
 
 CPlayer::~CPlayer() {

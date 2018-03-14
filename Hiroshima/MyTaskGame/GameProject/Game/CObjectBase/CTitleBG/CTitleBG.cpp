@@ -22,12 +22,13 @@ void CTitleBG::Update()
 	if (m_end_flag == false) {
 		m_color.a += 0.05;
 		if (PUSH_ENTER) {
+			//フェードアウトフラグ立てる
 			SOUND("SE_Title_Enter")->Play(false);
 			m_end_flag = true;
 			m_color.a = 2.0;
 		}
-	}
-	if (m_end_flag) {
+	}else {
+		//フェードアウト
 		m_color.a -= 0.01;
 	}
 	if (m_color.a < -1.0) {
