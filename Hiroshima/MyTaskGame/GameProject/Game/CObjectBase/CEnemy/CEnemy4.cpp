@@ -94,7 +94,7 @@ void CEnemy4::Move() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
+	if (m_pos3D.x > GROUND_WIDTH - ENEMY_SIZ_X) {
 		m_flipH = false;
 	}
 	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Þ
