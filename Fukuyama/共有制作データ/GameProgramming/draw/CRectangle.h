@@ -14,9 +14,13 @@
 #define DISPLAY_RIGHT W_H/2        //ディスプレイの右端
 #define SCROLL_PERCENTAGE 60   //スクロールの基準点（左基準でパーセント換算）
 #define SCROLL_POINT W_H/100*SCROLL_PERCENTAGE-(W_H/2)   //スクロールの基準点の横座標
+#define SCROLL_SPEED 8
 
 
 class C_Rectangle :public CTask{
+	C_Rectangle(){
+		m_Scroll = 210;
+	}
 public:
 	C_Rectangle(int id, int updatePrio, int drawPrio) :CTask(id, updatePrio, drawPrio){}
 	float m_Left, m_Right, m_Bottom, m_Top;
@@ -26,7 +30,8 @@ public:
 	void Render();
 	void SetVertex(float left, float right, float bottom, float top);
 	bool m_Enabled;
-	
+	float m_Scroll;
+	void Scroll(C_Rectangle*p);
 };
 
 #endif
