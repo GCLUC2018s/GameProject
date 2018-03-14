@@ -91,6 +91,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nagao.cpp" />
     <ClCompile Include="object\CColorBall.cpp" />
+    <ClCompile Include="object\CDrum.cpp" />
+    <ClCompile Include="object\CManhole.cpp" />
     <ClCompile Include="task\CTask.cpp" />
     <ClCompile Include="task\CTaskLinker.cpp" />
     <ClCompile Include="task\CTaskManager.cpp" />
@@ -107,6 +109,8 @@
     <ClInclude Include="Hako.h" />
     <ClInclude Include="Nagao.h" />
     <ClInclude Include="object\CColorBall.h" />
+    <ClInclude Include="object\CDrum.h" />
+    <ClInclude Include="object\CManhole.h" />
     <ClInclude Include="task\CTask.h" />
     <ClInclude Include="task\CTaskLinker.h" />
     <ClInclude Include="task\CTaskManager.h" />
