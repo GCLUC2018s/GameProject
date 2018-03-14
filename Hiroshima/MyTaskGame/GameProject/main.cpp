@@ -72,6 +72,7 @@ void Init(void)
 	ADD_RESOURCE("Boss", CAnimImage::LoadImage("moton_jaryu.png", boss_AnimData, 768, 768));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
+	ADD_RESOURCE("Title_pika", CAnimImage::LoadImage("title_pika.png"));
 //	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
