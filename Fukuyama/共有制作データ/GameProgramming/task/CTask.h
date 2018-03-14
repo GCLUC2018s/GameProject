@@ -25,6 +25,7 @@ enum E_UpdatePrio
 {
 	eUDP_Tutorial,
 	eUDP_Player,
+	eUDP_Object,
 	eUDP_Camera,
 	eUDP_Enemy,
 	eUDP_Map,
@@ -34,6 +35,7 @@ enum E_UpdatePrio
 enum E_DrawPrio
 {
 	eDWP_Map,
+	eDWP_Object,
 	eDWP_Player,
 	eDWP_Enemy,
 	eDWP_Tutorial,
