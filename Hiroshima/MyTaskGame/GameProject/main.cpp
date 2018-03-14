@@ -85,6 +85,7 @@ void Init(void)
 	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 50);
 	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 50);
 	SOUND("SE_JUMP")->Load("Sound/SE/nyu2.wav", 50);
+	SOUND("SE_LANDING")->Load("Sound/SE/landing.wav", 50);
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 
 	NEW_SCENE(eTitle);

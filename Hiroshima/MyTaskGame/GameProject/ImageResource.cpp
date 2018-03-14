@@ -38,6 +38,11 @@ TexAnim _PL_kick[] = {
 	{ 31,20 },
 	{ 30,5 },
 };
+TexAnim _PL_fall[] = {
+	{ 40,5 },
+	{ 41,10 },
+	{ 42,10 },
+};
 
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
@@ -46,6 +51,7 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_squat),
 	ANIMDATA(_PL_punch),
 	ANIMDATA(_PL_kick),
+	ANIMDATA(_PL_fall),
 };
 
 TexAnim _ENE_anim[] = {
