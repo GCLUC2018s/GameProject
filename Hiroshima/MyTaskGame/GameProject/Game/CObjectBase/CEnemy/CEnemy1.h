@@ -5,6 +5,8 @@
 #define DARUMA_AT 5
 #define DARUMA_SPEED 3
 
+#define DARUMA_KNOCKBACK_SPEED 8
+
 #include"../CObjectBase.h"
 #include"CEnemyBase.h"
 /*
@@ -18,6 +20,12 @@ public:
 	CEnemy1(const CVector3D *pos);
 	~CEnemy1();
 	void Update();
+	void Nutral(); //’Êíó‘Ô
+	void Move();    //ˆÚ“®ó‘Ô
+	void Attack();  //UŒ‚ó‘Ô
+	void KnockBack(); //‚Ì‚¯‚¼‚èó‘Ô
+	void Fall();       //“|‚³‚ê‚½ó‘Ô
+	void Damage();    //ƒ_ƒ[ƒWˆ—
 };
 
 

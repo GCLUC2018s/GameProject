@@ -15,6 +15,10 @@ enum  {
 	eAnimKamaAttack,
 	eAnimKamaKnockBack,
 	eAnimKamaFall,
+	eAnimEnemyMove = 1,
+	eAnimEnemyAttack,
+	eAnimEnemyKnockBack,
+	eAnimEnemyFall,
 };
 //player.pngのアニメーションデータ
 extern TexAnimData player_AnimData[];
