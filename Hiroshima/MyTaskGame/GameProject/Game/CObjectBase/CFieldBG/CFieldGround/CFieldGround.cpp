@@ -18,5 +18,5 @@ CFieldGround::~CFieldGround(){
 }
 
 void CFieldGround::Update(){
-
+	
 }

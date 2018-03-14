@@ -9,22 +9,22 @@ void CEnemyBase::DropItem() {
 
 }
 
-void CEnemyBase::Nutral() {
+void CEnemyBase::Nutral(const int *enemy_id) {
 
 }
-void CEnemyBase::Move() {
+void CEnemyBase::Move(const int *enemy_id) {
 
 }
-void CEnemyBase::Attack() {
+void CEnemyBase::Attack(const int *enemy_id) {
 
 }
-void CEnemyBase::KnockBack() {
+void CEnemyBase::KnockBack(const int *enemy_id) {
 
 }
-void CEnemyBase::Fall() {
+void CEnemyBase::Fall(const int *enemy_id) {
 
 }
-void CEnemyBase::Damage() {
+void CEnemyBase::Damage(const int *enemy_id) {
 
 }
 
