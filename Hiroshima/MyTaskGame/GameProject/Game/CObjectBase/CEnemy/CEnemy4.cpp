@@ -31,7 +31,7 @@ void CEnemy4::Update() {
 	{
 		//ë“ã@
 	case eIdol:
-		Neutral();
+		Nutral();
 		break;
 		//à⁄ìÆ
 	case eMove:	
@@ -41,9 +41,11 @@ void CEnemy4::Update() {
 	case eAttack:
 		Attack();
 		break;
+		//ÇÃÇØÇºÇË
 	case eKnockBack:
 		KnockBack();
 		break;
+		//ì|Ç≥ÇÍÇΩÇ∆Ç´
 	case eFall:
 		Fall();
 		break;
@@ -54,6 +56,7 @@ void CEnemy4::Update() {
 		m_state = eMove;
 		m_cnt = 0;
 	}
+
 
 	if (PUSH_R) {
 		if (m_hp >= 0) {
@@ -68,7 +71,7 @@ void CEnemy4::Update() {
 	m_img.UpdateAnimation();
 }
 
-void CEnemy4::Neutral() {
+void CEnemy4::Nutral() {
 	//è„â∫ïÇóV
 	m_vec3D.x = 0;
 	m_stop = false;
@@ -133,6 +136,7 @@ void CEnemy4::KnockBack() {
 void CEnemy4::Fall() {
 	m_img.ChangeAnimation(eAnimKamaFall);
 	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
+	DropItem();
 	if (m_end_flag == false) {
 		m_end_flag = true;
 		m_color.a = 2.0;

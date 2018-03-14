@@ -15,12 +15,61 @@ CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 	m_at = CHOCHIN_AT;
 	m_rect = CRect(190, 140, 400, 340);
 	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+<<<<<<< HEAD
+=======
+	m_damage = false;
+	m_end_flag = false;
+	m_state = eMove;
+>>>>>>> 7eded4456690c0b723adcb87e2aabebafd115dc8
 }
 
 CEnemy2::~CEnemy2() {
 }
 
 void CEnemy2::Update() {
+	switch (m_state)
+	{
+		//‘Ò‹@
+	case eIdol:
+		Nutral();
+		break;
+		//ˆÚ“®
+	case eMove:
+		Move();
+		break;
+		//UŒ‚
+	case eAttack:
+		Attack();
+		break;
+		//‚Ì‚¯‚¼‚è
+	case eKnockBack:
+		KnockBack();
+		break;
+		//“|‚³‚ê‚½‚Æ‚«
+	case eFall:
+		Fall();
+		break;
+	}
+
+	if (PUSH_R) {
+		if (m_hp >= 0) {
+			m_damage = true;
+			m_state = eKnockBack;
+		}
+		else {
+			m_state = eFall;
+		}
+	}
+
+	m_img.UpdateAnimation();
+}
+
+
+void CEnemy2::Nutral() {
+
+}
+
+void CEnemy2::Move() {
 	m_pos3D += m_vec3D;
 
 	if (m_pos3D.x < 0) {
@@ -43,6 +92,48 @@ void CEnemy2::Update() {
 	m_vec3D.y = sin(m_a) * 2;
 
 
-	m_img.ChangeAnimation(eAnimIdol);
-	m_img.UpdateAnimation();
+	m_img.ChangeAnimation(eAnimEnemyMove);
+}
+
+void CEnemy2::Attack() {
+
+}
+
+void CEnemy2::KnockBack() {
+	m_img.ChangeAnimation(eAnimEnemyKnockBack);
+	Damage();
+	if (m_img.GetIndex() == 1) {
+		m_state = eMove;
+	}
+}
+
+void CEnemy2::Fall() {
+	m_img.ChangeAnimation(eAnimEnemyFall);
+	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
+	DropItem();
+	if (m_end_flag == false) {
+		m_end_flag = true;
+		m_color.a = 2.0;
+	}
+	if (m_end_flag) {
+		m_color.a -= 0.01;
+	}
+	if (m_color.a < -1.0) {
+		SetKill();
+	}
+}
+
+void CEnemy2::Damage() {
+	m_vec3D.y = 0;
+	m_pos3D += m_vec3D;
+	if (m_damage) {
+		m_hp--;
+		m_damage = false;
+		if (m_flipH) {
+			m_vec3D.x = -CHOCHIN_KNOCKBACK_SPEED;
+		}
+		else {
+			m_vec3D.x = CHOCHIN_KNOCKBACK_SPEED;
+		}
+	}
 }
