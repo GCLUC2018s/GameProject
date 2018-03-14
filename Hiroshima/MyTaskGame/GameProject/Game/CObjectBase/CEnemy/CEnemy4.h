@@ -3,7 +3,7 @@
 #include"../CObjectBase.h"
 #include  "CEnemyBase.h"
 
-#define KAMAITACHI_HP 3
+#define KAMAITACHI_HP 7
 #define KAMAITACHI_AT 10
 #define KAMAITACHI_SPEED 20
 
@@ -25,18 +25,16 @@ private:
 	int m_cnt;
 	int m_move_cnt;
 	bool m_stop;
-	bool m_damage;
-	bool m_end_flag;
 public:
 	CEnemy4(const CVector3D *pos);
 	~CEnemy4();
 	void Update();
-	void Neutral();
-	void Move();
-	void Attack();
-	void KnockBack();
-	void Fall();
-	void Damage();
+	void Nutral(); //’Êíó‘Ô
+	void Move();    //ˆÚ“®ó‘Ô
+	void Attack();  //UŒ‚ó‘Ô
+	void KnockBack(); //‚Ì‚¯‚¼‚èó‘Ô
+	void Fall();       //“|‚³‚ê‚½ó‘Ô
+	void Damage();    //ƒ_ƒ[ƒWˆ—
 };
 
 

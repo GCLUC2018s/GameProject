@@ -7,6 +7,8 @@
 #define CHOCHIN_AT 3
 #define CHOCHIN_SPEED 4
 
+#define CHOCHIN_KNOCKBACK_SPEED 8
+
 #define CHOCHIN_FLOAT 0.3f
 /*
 
@@ -21,6 +23,12 @@ public:
 	CEnemy2(const CVector3D *pos);
 	~CEnemy2();
 	void Update();
+	void Nutral(); //’Êíó‘Ô
+	void Move();    //ˆÚ“®ó‘Ô
+	void Attack();  //UŒ‚ó‘Ô
+	void KnockBack(); //‚Ì‚¯‚¼‚èó‘Ô
+	void Fall();       //“|‚³‚ê‚½ó‘Ô
+	void Damage();    //ƒ_ƒ[ƒWˆ—
 };
 
 
