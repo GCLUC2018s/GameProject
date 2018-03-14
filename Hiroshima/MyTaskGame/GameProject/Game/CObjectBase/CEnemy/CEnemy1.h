@@ -6,13 +6,14 @@
 #define DARUMA_SPEED 3
 
 #include"../CObjectBase.h"
+#include"CEnemyBase.h"
 /*
 
 »ìÒ@Â–Ø
 
 */
 //‚¾‚é‚Ü
-class CEnemy1 :public CObjectBase {
+class CEnemy1 :public CEnemyBase {
 public:
 	CEnemy1(CVector3D *pos);
 	~CEnemy1();

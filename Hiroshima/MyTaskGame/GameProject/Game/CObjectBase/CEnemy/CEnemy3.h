@@ -1,6 +1,7 @@
 #ifndef ENEMY3GUARD
 #define ENEMY3GUARD
 #include"../CObjectBase.h"
+#include"CEnemyBase.h"
 
 #define HI_HP 3
 #define HI_AT 7
@@ -13,7 +14,7 @@
 
 */
 //‰Î‚Ì‹Ê
-class CEnemy3 :public CObjectBase {
+class CEnemy3 :public CEnemyBase {
 private:
 	float m_a;	//•‚—V—p
 public:
