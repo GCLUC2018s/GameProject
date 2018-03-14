@@ -59,6 +59,9 @@ void CPlayer::Update() {
 	case eAttack:
 		Attack();
 		break;
+	case eDamage:
+		Damage();
+		break;
 	case eFall:
 		Fall();
 		break;
@@ -87,10 +90,8 @@ void CPlayer::Update() {
 
 	if (m_hp == 0 && !m_die) {
 		m_state = eFall;
-		m_vec3D.x = damage_vec.x;
-		m_vec3D.y = damage_vec.y;
-		m_die = true;
-		m_anim = 6;
+		m_die = 1 ;
+		m_cnt = 0;
 	}
 	
 	//アニメーション
@@ -121,7 +122,12 @@ void CPlayer::Update() {
 			m_img.UpdateAnimation();
 		}
 	}else if (m_jump && m_img.GetIndex() == 2) {
-	//ここまで
+	//ここからダメージモーション
+	}else if(m_anim == 7 && m_img.GetIndex() == 3) {
+		m_die = 0;
+	}else if (m_anim == 7 && m_img.GetIndex() == 1) {
+		if(m_die >= 2)
+			m_img.UpdateAnimation();
 	}else {
 		m_img.UpdateAnimation();
 
@@ -200,8 +206,8 @@ void CPlayer::Nutral() {
 			SOUND("SE_LANDING")->Play(false);
 		}
 	}
-	//足音-
-	if (m_cnt % 15 == 0 && m_cnt && m_jump == false) {
+	//足音
+	if (m_cnt % 15 == 0 && !m_cnt && m_cnt && m_jump == false) {
 		m_dash = Utility::Rand(0, 2);
 		switch (m_dash) {
 		case 0:
@@ -224,7 +230,16 @@ void CPlayer::Nutral() {
 		m_state = eAttack;
 	}
 	if (PUSH_V) {
-		m_hp = 0;
+		if (m_jump) {
+			m_state = eFall;
+			m_die = 1;
+			m_jump = false;
+		}else {
+			m_state = eDamage;
+		}
+		m_vec3D.y = 0;
+		m_hp -= 2;
+		m_cnt = 0;
 	}
 }
 
@@ -239,17 +254,60 @@ void CPlayer::Attack(){
 	}
 }
 
-void CPlayer::Fall() {
-	m_vec3D = Die(m_vec3D); 
-	m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.1f);
+void CPlayer::Damage() {
+	m_anim = 6;
+	m_cnt++;
+	if (m_cnt == 39) {
+		m_anim = 0;
+		m_state = eNutral;
+	}
 }
 
+void CPlayer::Fall() {
+	m_cnt++;
+	if (m_cnt == 20) {
+		if(m_flipH)
+			m_vec3D.x = damage_vec.x;
+		else
+			m_vec3D.x = -damage_vec.x;
+		m_vec3D.y = damage_vec.y;
+	}
+	if(m_cnt >= 20)
+		if(m_die != 4)
+			m_vec3D = Die(m_vec3D); 
+	m_anim = 7;
+	//x減速
+	if(m_flipH)
+		m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.05f);
+	else
+		m_vec3D.x = Price_Up(m_vec3D.x, 0, 0.05f);
+	//起き上がり
+	if (!m_die) {
+		//フラグ初期化
+		m_die = 0;
+		m_state = eNutral;
+		//その他諸々
+		damage_vec.y = -10;
+		m_cnt = 0;
+		m_anim = 0;
+		if(!m_hp)
+		m_hp = 10;
+	}
+}
+//吹っ飛び
 CVector3D CPlayer::Die(CVector3D vec) {
 	m_vec3D.z = 0;
 	m_vec3D.y += GRAVITY_DIE;
 	if (m_pos3D.y > 0) {
-		damage_vec.y *= REPULSION;
-		m_vec3D.y = damage_vec.y;
+		if (m_die == 3) {
+			m_vec3D.y = 0;
+			m_pos3D.y = 0;
+		}else {
+			m_pos3D.y = 0;
+			damage_vec.y *= REPULSION;
+			m_vec3D.y = damage_vec.y;
+		}
+			m_die++;
 	}
 	return m_vec3D;
 }
