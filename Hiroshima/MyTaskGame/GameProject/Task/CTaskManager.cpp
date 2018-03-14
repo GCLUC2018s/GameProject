@@ -137,6 +137,19 @@ void CTaskManager::SetKillAll()
 	}
 }
 
+void CTaskManager::SetPause(int ID, bool flag)
+{
+	//先頭から順に確認していく
+	CTaskLinker *p = mp_U_Top;
+	while (p)
+	{
+		if (p->mp_task->m_id == ID) {
+			p->mp_task->m_pause = flag;
+		}
+		p = p->mp_next;
+	}
+}
+
 void CTaskManager::UpdateAll()
 {
 	//先頭から順にタスクを更新していく

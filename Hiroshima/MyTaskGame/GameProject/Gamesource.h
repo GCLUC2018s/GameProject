@@ -13,6 +13,8 @@
 #include "../GameProject/Game/CObjectBase/CFieldBG/CFieldCloud/CFieldCloud.h"
 #include "../GameProject/Game/CObjectBase/CFieldBG/CFieldBamboo/CFieldBamboo.h"
 #include "../GameProject/Game/CObjectBase/CFieldBG/CFieldGround/CFieldGround.h"
+#include "../GameProject/Game/CObjectBase/CGameStart/CGameStart.h"
+#include "../GameProject/Game/CObjectBase/CBB/CBB.h"
 //#include "../GameProject/Game/CEnemy.h"
 //#include "../GameProject/Game/CGimmick.h"
 //#include "../GameProject/Game/CTitle.h"
