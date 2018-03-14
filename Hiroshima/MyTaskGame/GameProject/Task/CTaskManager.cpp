@@ -156,8 +156,9 @@ void CTaskManager::UpdateAll()
 	CTaskLinker *p = mp_U_Top;
 	while (p)
 	{
-		if (p->mp_task->m_pause == false)
+		if (p->mp_task->m_pause != true) {
 			p->mp_task->Update();
+		}
 		p = p->mp_next;
 	}
 }

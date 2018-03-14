@@ -147,8 +147,10 @@
     <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h" />
+    <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
+    <ClInclude Include="Game\CObjectBase\CPushStart\CPushStart.h" />
     <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h" />
     <ClInclude Include="Game\CScene\CSceneManager.h" />
     <ClInclude Include="GID.h" />
@@ -178,8 +180,10 @@
     <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp" />
+    <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />
+    <ClCompile Include="Game\CObjectBase\CPushStart\CPushStart.cpp" />
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp" />
     <ClCompile Include="Game\CScene\CSceneManager.cpp" />
     <ClCompile Include="ImageResource.cpp" />

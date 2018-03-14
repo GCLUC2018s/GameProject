@@ -21,7 +21,7 @@ class CBoss :public CObjectBase {
 protected:
 	int m_test;
 public:
-	CBoss(CVector3D *pos);
+	CBoss(const CVector3D *pos);
 	~CBoss();
 	void Update();
 };

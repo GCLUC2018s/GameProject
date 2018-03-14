@@ -59,14 +59,14 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_fall),
 };
 
-TexAnim _ENE_anim[] = {
-	{ 0,30 },
-	{ 1,30 },
-
-};
-TexAnimData enemy_AnimData[] = {
-	ANIMDATA(_ENE_anim),
-};
+//TexAnim _ENE_anim[] = {
+//	{ 0,30 },
+//	{ 1,30 },
+//
+//};
+//TexAnimData enemy_AnimData[] = {
+//	ANIMDATA(_ENE_anim),
+//};
 
 TexAnim _GI_fire[] = {
 	{ 0,1 },
@@ -155,6 +155,40 @@ TexAnimData kamaitachi_AnimData[] = {
 	ANIMDATA(_KAMAITACHI_attack_anim),
 	ANIMDATA(_KAMAITACHI_knockback_anim),
 	ANIMDATA(_KAMAITACHI_fall_anim),
+};
+
+TexAnim _ENEMY_anim[] = {
+	{ 0,30 },
+
+};
+TexAnim _ENEMY_move_anim[] = {
+	{ 0,30 },
+	{ 1,30 },
+
+};
+TexAnim _ENEMY_attack_anim[] = {
+	{ 4,30 },
+	{ 5,30 },
+	{ 5, 1 },
+
+};
+TexAnim _ENEMY_knockback_anim[] = {
+	{ 2,30 },
+	{ 2,1 },
+
+
+};
+TexAnim _ENEMY_fall_anim[] = {
+	{ 3,30 },
+
+
+};
+TexAnimData enemy_AnimData[] = {
+	ANIMDATA(_ENEMY_anim),
+	ANIMDATA(_ENEMY_move_anim),
+	ANIMDATA(_ENEMY_attack_anim),
+	ANIMDATA(_ENEMY_knockback_anim),
+	ANIMDATA(_ENEMY_fall_anim),
 };
 
 

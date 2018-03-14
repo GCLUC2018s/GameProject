@@ -13,7 +13,7 @@ CEnemy4::CEnemy4(const CVector3D *pos) :CEnemyBase() {
 	m_hp = KAMAITACHI_HP;
 	m_at = KAMAITACHI_AT;
 	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
-	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y*1.5);
+	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_state = eIdol;
 	m_cnt = 0;
 	m_move_cnt = 0;
@@ -31,7 +31,7 @@ void CEnemy4::Update() {
 	{
 		//‘Ò‹@
 	case eIdol:
-		Neutral();
+		Nutral();
 		break;
 		//ˆÚ“®
 	case eMove:	
@@ -41,9 +41,11 @@ void CEnemy4::Update() {
 	case eAttack:
 		Attack();
 		break;
+		//‚Ì‚¯‚¼‚è
 	case eKnockBack:
 		KnockBack();
 		break;
+		//“|‚³‚ê‚½‚Æ‚«
 	case eFall:
 		Fall();
 		break;
@@ -54,6 +56,7 @@ void CEnemy4::Update() {
 		m_state = eMove;
 		m_cnt = 0;
 	}
+
 
 	if (PUSH_R) {
 		if (m_hp >= 0) {
@@ -68,7 +71,7 @@ void CEnemy4::Update() {
 	m_img.UpdateAnimation();
 }
 
-void CEnemy4::Neutral() {
+void CEnemy4::Nutral() {
 	//ã‰º•‚—V
 	m_vec3D.x = 0;
 	m_stop = false;
@@ -94,7 +97,7 @@ void CEnemy4::Move() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
+	if (m_pos3D.x > GROUND_WIDTH - ENEMY_SIZ_X) {
 		m_flipH = false;
 	}
 	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Ş
@@ -133,6 +136,7 @@ void CEnemy4::KnockBack() {
 void CEnemy4::Fall() {
 	m_img.ChangeAnimation(eAnimKamaFall);
 	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
+	DropItem();
 	if (m_end_flag == false) {
 		m_end_flag = true;
 		m_color.a = 2.0;
