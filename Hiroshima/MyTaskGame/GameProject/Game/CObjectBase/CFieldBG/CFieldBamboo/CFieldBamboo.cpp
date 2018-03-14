@@ -18,7 +18,7 @@ CFieldBamboo::~CFieldBamboo(){
 }
 
 void CFieldBamboo::Update(){
-	m_pos3D = CVector3D(m_scroll.x/2,0,0);
+	m_pos3D = CVector3D(m_scroll.x/1.3,0,0);
 	if (m_pos3D.x == GROUND_WIDTH) {
 		SetKill();
 	}
