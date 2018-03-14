@@ -15,6 +15,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	m_img.SetSize(256, 256);
 	m_img.SetFlipH(m_flipH);
+	m_rect = CRect(129, 58, 353, 489);
 	m_punch1 = false;
 	m_punch2 = false;
 	m_jump = false;
