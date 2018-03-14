@@ -1,11 +1,11 @@
 #include "CBB.h"
 #include "../GameProject/Task/CTaskManager.h"
 
-CBB::CBB(const int time) :CObjectBase(0, eU_Back, eD_UI)
+CBB::CBB(const int time) :CObjectBase(0, eU_Null, eD_UI)
 {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Tip"));
 	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-	//CTaskManager::GetInstance()->SetPause(eID_Player, true);
+	CTaskManager::GetInstance()->SetPause(eID_Player, true);
 	m_color = CColorRGBA(0, 0, 0, 1);
 	m_cnt = 0;
 	m_time = time;
