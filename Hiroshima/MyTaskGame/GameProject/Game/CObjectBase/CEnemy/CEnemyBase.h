@@ -15,6 +15,7 @@ protected:
 	
 public:
 	CEnemyBase();
+	void DropItem();
 };
 
 #endif // !ENEMYBASEGUARD

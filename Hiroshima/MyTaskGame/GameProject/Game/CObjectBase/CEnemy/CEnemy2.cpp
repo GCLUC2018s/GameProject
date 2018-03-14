@@ -7,7 +7,7 @@
 
 */
 //’ñ“”
-CEnemy2::CEnemy2(CVector3D *pos) :CEnemyBase() {
+CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy2"));
 	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_pos3D = *pos;
