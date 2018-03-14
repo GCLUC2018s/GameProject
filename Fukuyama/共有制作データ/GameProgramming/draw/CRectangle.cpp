@@ -22,3 +22,21 @@ void C_Rectangle::SetVertex(float left, float right, float bottom, float top)
 	m_Bottom = bottom;
 	m_Top = top;
 }
+
+
+
+//上下ポジション設定
+float C_Rectangle::m_PotisionY(float m_V){
+	float mv = m_V;
+	m_Top += mv;
+	m_Bottom += mv;
+	return mv;
+}
+
+//左右ポジション設定
+float C_Rectangle::m_PotisionX(float m_H){
+	float mh = m_H;
+	m_Left += mh;
+	m_Right += mh;
+	return mh;
+}

@@ -27,6 +27,8 @@ public:
 	void KillAll();
 	//全タスクの削除フラグをtrueにする
 	void SetKillAll();
+	//指定のIDのポーズフラグをそれにセットする
+	void SetPause(int ID, bool flag);
 	//リスト更新関数
 	void UpdateAll();
 	//リスト描画関数

@@ -14,7 +14,7 @@ public:
 	~CGimmick();
 	void Update();
 private:
-	int m_cnt;
+	int m_cnt;	//‚í‚©‚ç‚ñ
 };
 
 #endif // !GIMMICK_GUARD

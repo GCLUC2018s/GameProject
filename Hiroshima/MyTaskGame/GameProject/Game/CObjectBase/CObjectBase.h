@@ -1,8 +1,11 @@
 #ifndef CHARABASE_GUARD
 #define CHARABASE_GUARD
 
+
+
 #include "../GameProject/Task/CTask.h"
 #include "../GameProject/stdafx.h"
+#include "../GameProject/ImageResource.h"
 
 class CObjectBase : public CTask
 {
@@ -12,6 +15,7 @@ protected:
 	CVector2D	m_vec2D;		//移動量
 	CVector3D	m_pos3D;		//座標
 	CVector3D	m_vec3D;		//移動量
+	CRect	m_rect_F;		//入れ替え判定用短形
 	CRect	m_rect;			//当たり判定用短形
 	bool	m_flipH;		//反転フラグ
 	bool	m_move;
