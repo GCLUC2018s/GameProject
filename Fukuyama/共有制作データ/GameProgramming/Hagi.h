@@ -9,8 +9,10 @@ public:
 	Hagi(){
 		//プレイヤーのインスタンスを作成
 		Player = new C_Player();
+		Test = new C_Test();
 	}
 	//プレイヤーのインスタンスを宣言します
+	C_Test *Test;
 	C_Player *Player;
 	void Update();
 	void Draw();

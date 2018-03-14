@@ -15,12 +15,11 @@ CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 	m_at = CHOCHIN_AT;
 	m_rect = CRect(190, 140, 400, 340);
 	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
-<<<<<<< HEAD
-=======
+
 	m_damage = false;
 	m_end_flag = false;
 	m_state = eMove;
->>>>>>> 7eded4456690c0b723adcb87e2aabebafd115dc8
+
 }
 
 CEnemy2::~CEnemy2() {
