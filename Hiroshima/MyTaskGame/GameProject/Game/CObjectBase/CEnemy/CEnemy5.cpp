@@ -8,7 +8,7 @@
 //“÷‰ò
 CEnemy5::CEnemy5(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy5"));
-	m_img.SetSize(213, 256);
+	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_pos3D = *pos;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
@@ -25,7 +25,7 @@ void CEnemy5::Update() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 4000 - 213) {
+	if (m_pos3D.x > GROUND_WIDTH - ENEMY_SIZ_X) {
 		m_flipH = false;
 	}
 
@@ -37,6 +37,6 @@ void CEnemy5::Update() {
 	}
 
 
-	m_img.ChangeAnimation(0);
+	m_img.ChangeAnimation(eAnimIdol);
 	m_img.UpdateAnimation();
 }

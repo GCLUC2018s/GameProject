@@ -10,6 +10,8 @@ enum  {
 	eAnimSquat,
 	eAnimPunch,
 	eAnimKick,
+	eAnimKamaMove = 1,
+	eAnimKamaAttack,
 };
 //player.pngのアニメーションデータ
 extern TexAnimData player_AnimData[];

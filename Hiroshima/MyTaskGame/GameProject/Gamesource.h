@@ -3,7 +3,7 @@
 
 #include "Task\CTask.h"
 #include "Task\CTaskManager.h"
-#include "ImageResource.h"
+//#include "ImageResource.h"
 #include "../GameProject/Game/CObjectBase/CPlayer/CPlayer.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy1.h"
 #include "../GameProject/Game/CObjectBase/CGimmick/CGimmick.h"

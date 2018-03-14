@@ -1,14 +1,14 @@
-
 #include "CEnemy4.h"
 /*
 
 製作者　青木
 
 */
+
 //かまいたち
 CEnemy4::CEnemy4(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy4"));
-	m_img.SetSize(213, 256);
+	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_pos3D = *pos;
 	m_hp = KAMAITACHI_HP;
 	m_at = KAMAITACHI_AT;
@@ -40,7 +40,7 @@ void CEnemy4::Update() {
 	}
 
 	//此処で待機時間を調整可能
-	if (m_cnt > 130) {
+	if (m_cnt > KAMAITACHI_MOVE_TIME) {
 		m_state = eMove;
 		m_cnt = 0;
 	}
@@ -53,14 +53,14 @@ void CEnemy4::Neutral() {
 	m_vec3D.x = 0;
 	m_stop = false;
 	m_pos3D += m_vec3D;
-	m_a += 0.1f;
+	m_a += KAMAITACHI_FLOAT;
 	m_vec3D.y = sin(m_a) * 5;
 	m_cnt++;
-	m_img.ChangeAnimation(0);
+	m_img.ChangeAnimation(eAnimIdol);
 }
 
 void CEnemy4::Attack() {
-	m_img.ChangeAnimation(2);
+	m_img.ChangeAnimation(eAnimKamaAttack);
 	if (m_img.GetIndex() == 2) {
 		m_state = eIdol;
 	}
@@ -74,7 +74,7 @@ void CEnemy4::Move() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 4000 - 213) {
+	if (m_pos3D.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
 		m_flipH = false;
 	}
 	//向いている方向に進む
@@ -94,9 +94,9 @@ void CEnemy4::Move() {
 		m_state = eAttack;
 	}
 
-	if (m_move_cnt > 30) {
+	if (m_move_cnt > KAMAITACHI_STOP_TIME) {
 		m_stop = true;
 		m_move_cnt = 0;
 	}
-	m_img.ChangeAnimation(1);
+	m_img.ChangeAnimation(eAnimKamaMove);
 }

@@ -73,7 +73,7 @@ int main(void)
 		return -1;
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(800, 600, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(1200, 900, "Hello World", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -103,7 +103,7 @@ int main(void)
 
 	// ウィンドウのサイズ変更時に呼び出す処理の登録
 	glfwSetWindowSizeCallback(window, reshape);
-	reshape(window, 800, 600);
+	reshape(window, 1200, 900);
 
 	//ライトの設定（3D必要 2D不要）
 	//固定シェーダー用

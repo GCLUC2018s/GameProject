@@ -1,8 +1,13 @@
 #ifndef CHARABASE_GUARD
 #define CHARABASE_GUARD
 
+//エネミーBaseに、このマクロ移動して
+#define ENEMY_SIZ_X 213
+#define ENEMY_SIZ_Y 256
+
 #include "../GameProject/Task/CTask.h"
 #include "../GameProject/stdafx.h"
+#include "../GameProject/ImageResource.h"
 
 class CObjectBase : public CTask
 {

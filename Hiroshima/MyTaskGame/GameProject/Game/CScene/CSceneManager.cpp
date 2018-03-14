@@ -32,13 +32,16 @@ void CSceneManager::SetSceneObject(int scene_num)
 	}
 }
 
+//みんながいじっていいのは以下の部分
 void CSceneManager::TitleScene(){
+	//タイトル画面の要素ぶち込む
 	SOUND("BGM_Main")->Stop();
 	SOUND("BGM_Title")->Play(true);
 	new CTitleBG();
 }
 
 void CSceneManager::MainScene(){
+	//メイン戦闘画面の要素ぶち込む
 	SOUND("BGM_Title")->Stop();
 	SOUND("BGM_Main")->Play(true);
 	new CPlayer();
@@ -61,8 +64,9 @@ void CSceneManager::MainScene(){
 }
 
 void CSceneManager::BossScene(){
-	new CTitleBG();
+	//ボス戦闘画面の要素ぶち込む
 }
 
 void CSceneManager::EndScene(){
+	//エンディング画面の要素ぶち込む
 }

@@ -12,14 +12,19 @@
 #define Ypos_SetPos_Down (Under_Ypos_SetPotision+Y_FirstPotision1)/2
 //移動
 #define MoveSpeed 3
-
 //サイズ設定と初期化コンストラクタ
 //Init()と同じ意味
 C_Manhole::C_Manhole()
-:C_Rectangle(-64, 64, -64, 64)
+:C_Rectangle(E_OBJ, eUDP_Object, eDWP_Object)
 , m_UorD_rand(rand() % 2)
 {
-	//C_Manhole *mp_Manhole = new C_Manhole();
+	//Texture設定
+	//CTextureクラスをインスタンス化
+	CTexture mTexturet;
+	//Textureロード
+	mTexturet.Load("Manhole.tga");
+	//座標を決定
+	mTexturet.DrawImage(-64, 64, -64, 64, 0, 128, 128, 0);
 	//シードで乱数を初期化
 	srand((unsigned)time(NULL));
 	//x,yの初期位置を決める
@@ -50,22 +55,11 @@ float C_Manhole::m_PotisionX(float m_H){
 
 //更新処理
 void C_Manhole::Update(){
-	if (GetKeyState(VK_LEFT) & 0x8000){
-		m_PotisionX(-MoveSpeed);
-	}
-	if (GetKeyState(VK_RIGHT) & 0x8000){
-		m_PotisionX(MoveSpeed);
-	}
-	if (GetKeyState(VK_UP) & 0x8000){
-		m_PotisionY(MoveSpeed);
-	}
-	if (GetKeyState(VK_DOWN) & 0x8000){
-		m_PotisionY(-MoveSpeed);
-	}
+
 }
 
 //描画処理
 void C_Manhole::Draw(){
-	mEnabled = true;
-	RectRender();
+	m_Enabled = true;
+	Render();
 }

@@ -1,9 +1,7 @@
 #ifndef CMANHOLE_H
 #define CMANHOLE_H
-#include "CRectangle.h"
+#include "../draw/CRectangle.h"
 #include "random"
-#include "CMain.h"
-#include "CKey.h"
 #include "stdio.h"
 #include "time.h"
 
@@ -18,14 +16,14 @@ protected:
 	float m_PotisionY(float m_V);
 
 public:
-	//空コンストラクタを設定
+	//コンストラクタを設定
 	C_Manhole();
 
 	//更新処理
 	void Update();
 
 	//描画処理
-	void Draw();
+	virtual void Draw();
 };
 
 #endif

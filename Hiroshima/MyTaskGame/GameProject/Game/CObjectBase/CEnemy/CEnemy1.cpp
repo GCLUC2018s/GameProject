@@ -1,5 +1,5 @@
-
 #include "CEnemy1.h"
+
 /*
 
 êªçÏé“Å@ê¬ñÿ
@@ -8,7 +8,7 @@
 //ÇæÇÈÇ‹
 CEnemy1::CEnemy1(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy"));
-	m_img.SetSize(213, 256);
+	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_img.SetRect(0, 0, 512, 512);
 	m_pos3D = *pos;
 	m_hp = DARUMA_HP;
@@ -26,7 +26,7 @@ void CEnemy1::Update() {
 		m_flipH = true;
 	}
 
-	if (m_pos3D.x > 4000 - 213) {
+	if (m_pos3D.x > GROUND_WIDTH - ENEMY_SIZ_X) {
 		m_flipH = false;
 	}
 
@@ -38,6 +38,6 @@ void CEnemy1::Update() {
 	}
 
 
-	m_img.ChangeAnimation(0);
+	m_img.ChangeAnimation(eAnimIdol);
 	m_img.UpdateAnimation();
 }

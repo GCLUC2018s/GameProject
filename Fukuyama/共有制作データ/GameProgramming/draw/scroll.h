@@ -8,10 +8,10 @@
 
 class C_Scroll{
 	C_Scroll(){
-		m_Scroll = 210;
+		//m_Scroll = 210;
 	}
 public:
-	static float m_Scroll;
+	//static float m_Scroll;
 	static void Scroll(C_Rectangle*p);
 };
 
