@@ -39,10 +39,16 @@ void CBoss::Update() {
 	case 5:
 		m_img.ChangeAnimation(5);
 		break;
+	case 6:
+		m_img.ChangeAnimation(6);
+		break;
+	case 7:
+		m_img.ChangeAnimation(7);
+		break;
 	}
 
 
-	if (m_test > 5)
+	if (m_test > 7)
 		m_test = 0;
 
 
