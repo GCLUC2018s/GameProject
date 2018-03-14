@@ -40,9 +40,6 @@
     <Filter Include="Game\ObjectBase\TitleBG">
       <UniqueIdentifier>{bf551686-a7a2-4e31-b0e4-f554977eee3a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Source">
-      <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\ObjectBase\FieldBG">
       <UniqueIdentifier>{e7a59b18-d4f7-4c67-a2e6-5cd11d272634}</UniqueIdentifier>
     </Filter>
@@ -78,6 +75,21 @@
     </Filter>
     <Filter Include="Game\EnemyAI">
       <UniqueIdentifier>{644f4011-c27e-438a-b457-b0dee3d44247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\GameStart">
+      <UniqueIdentifier>{2cc60501-1c2c-4a84-8855-6a7f386cbe62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Source">
+      <UniqueIdentifier>{a76e6143-8563-49df-b359-d854976b079b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\BB">
+      <UniqueIdentifier>{646ab683-5ffd-43e1-86c1-418215220311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\MainText">
+      <UniqueIdentifier>{a6e2aaec-8663-43b1-bc36-2dc5984711bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\PushStart">
+      <UniqueIdentifier>{3a9a4385-f735-43e2-bdd8-2d7bf4824942}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +171,27 @@
     <ClInclude Include="Game\CEnemyAI.h">
       <Filter>Game\EnemyAI</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h">
+      <Filter>Game\ObjectBase\GameStart</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CBB\CBB.h">
+      <Filter>Game\ObjectBase\BB</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyManager.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemysource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h">
+      <Filter>Game\ObjectBase\MainText</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CPushStart\CPushStart.h">
+      <Filter>Game\ObjectBase\PushStart</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -229,6 +262,24 @@
     </ClCompile>
     <ClCompile Include="Game\CEnemyAI.cpp">
       <Filter>Game\EnemyAI</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp">
+      <Filter>Game\ObjectBase\GameStart</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp">
+      <Filter>Game\ObjectBase\BB</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyManager.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp">
+      <Filter>Game\ObjectBase\MainText</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CPushStart\CPushStart.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

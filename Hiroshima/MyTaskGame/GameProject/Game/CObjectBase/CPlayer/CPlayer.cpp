@@ -9,18 +9,24 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(0, eU_Chara, eD_Chara) {
+CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Chara, eD_Chara) {
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(0, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
 	m_img.SetSize(256, 256);
 	m_img.SetFlipH(m_flipH);
+	m_rect = CRect(129, 58, 353, 489);
 	m_punch1 = false;
 	m_punch2 = false;
 	m_jump = false;
+	m_hp = 10;
 	m_anim = eAnimIdol;
 	m_state = eNutral;
 	m_cnt = 0;
+	m_die = false;
+	damage_vec = CVector2D(5, -10);
+	m_img.ChangeAnimation(m_anim);
+	m_img.UpdateAnimation();
 }
 
 CPlayer::~CPlayer() {
@@ -55,10 +61,13 @@ void CPlayer::Update() {
 	case eAttack:
 		Attack();
 		break;
+	case eFall:
+		Fall();
+		break;
 	}
 
 	//左右移動終了後の減速処理
-	if (!m_move_side) {
+	if (!m_move_side && !m_die) {
 		if (!m_jump) {
 			if (m_flipH)
 				m_vec3D.x = Price_Up(m_vec3D.x, 0, 1.0f);
@@ -71,12 +80,19 @@ void CPlayer::Update() {
 			else
 				m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.1f);
 		}
-		m_cnt = 0;
 	}
 	//上下移動終了後の停止処理
-	if (!m_move_length && !m_jump) {
+	if (!m_move_length && !m_jump && !m_die) {
 		m_vec3D.y = 0;
 		m_vec3D.z = 0;
+	}
+
+	if (m_hp == 0 && !m_die) {
+		m_state = eFall;
+		m_vec3D.x = damage_vec.x;
+		m_vec3D.y = damage_vec.y;
+		m_die = true;
+		m_anim = 6;
 	}
 	
 	//アニメーション
@@ -107,16 +123,19 @@ void CPlayer::Update() {
 			m_img.UpdateAnimation();
 		}
 	}else if (m_jump && m_img.GetIndex() == 2) {
-	}//ここまで
-	else {
+	//ここまで
+	}else {
 		m_img.UpdateAnimation();
 
 	}
 	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < 4000 - SCREEN_WIDTH / 2) {
 		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
 	}
-	if (450 + m_pos3D.y + m_pos3D.z / 2 < 120 && 450 + m_pos3D.y + m_pos3D.z / 2 > -100) {
-		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 120;
+	if (450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -100) {
+		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 80;
+		if (m_pos3D.y == 715 + 512) {
+			m_scroll.y = SCREEN_HEIGHT;
+		}
 	}
 }
 
@@ -137,14 +156,14 @@ void CPlayer::Nutral() {
 	if (!m_squat) {
 		if (!m_jump && HOLD_UP) {
 			m_vec3D.z = -10;
-			m_variation += (640 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
+			m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
 			m_cnt++;
 		}
 		if (!m_jump && HOLD_DOWN) {
 			m_vec3D.z = 10;
-			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - 640) / 500;
+			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
 			m_cnt++;
@@ -172,23 +191,23 @@ void CPlayer::Nutral() {
 		m_vec3D.z = 0;
 		m_jump = true;
 		m_anim = eAnimJamp;
-		m_vec3D.y = -32;
+		m_vec3D.y = -35;
 	}
 	if (m_jump) {
 		//重力
 		m_anim = eAnimJamp;
-		m_vec3D.y += 1.2;
+		m_vec3D.y += GRAVITY;
 		//元の位置に戻ったら
 		if (m_pos3D.y > 0) {
-			m_vec3D.y = 10;
 			//微調整
 			m_pos3D.y = 0;
 			m_jump = false;
+			SOUND("SE_LANDING")->Play(false);
 		}
 	}
 	//足音-
 	if (m_cnt % 15 == 0 && m_cnt && m_jump == false) {
-		m_dash = Utility::Rand(0, 0);
+		m_dash = Utility::Rand(0, 2);
 		switch (m_dash) {
 		case 0:
 			SOUND("SE_DASH1")->Play(false);
@@ -209,6 +228,9 @@ void CPlayer::Nutral() {
 		m_anim = eAnimPunch;
 		m_state = eAttack;
 	}
+	if (PUSH_V) {
+		m_hp = 0;
+	}
 }
 
 void CPlayer::Attack(){
@@ -220,6 +242,21 @@ void CPlayer::Attack(){
 	if (PUSH_ENTER) {
 		SetKill();
 	}
+}
+
+void CPlayer::Fall() {
+	m_vec3D = Die(m_vec3D); 
+	m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.1f);
+}
+
+CVector3D CPlayer::Die(CVector3D vec) {
+	m_vec3D.z = 0;
+	m_vec3D.y += GRAVITY_DIE;
+	if (m_pos3D.y > 0) {
+		damage_vec.y *= REPULSION;
+		m_vec3D.y = damage_vec.y;
+	}
+	return m_vec3D;
 }
 
 void CPlayer::Draw(){

@@ -6,12 +6,19 @@
 
 */
 //“÷‰ò
-CEnemy5::CEnemy5(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
+CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy5"));
 	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_pos3D = *pos;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
+	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+<<<<<<< HEAD
+=======
+	m_damage = false;
+	m_end_flag = false;
+	m_state = eMove;
+>>>>>>> 7eded4456690c0b723adcb87e2aabebafd115dc8
 
 }
 
@@ -19,6 +26,50 @@ CEnemy5::~CEnemy5() {
 }
 
 void CEnemy5::Update() {
+	switch (m_state)
+	{
+		//‘Ò‹@
+	case eIdol:
+		Nutral();
+		break;
+		//ˆÚ“®
+	case eMove:
+		Move();
+		break;
+		//UŒ‚
+	case eAttack:
+		Attack();
+		break;
+		//‚Ì‚¯‚¼‚è
+	case eKnockBack:
+		KnockBack();
+		break;
+		//“|‚³‚ê‚½‚Æ‚«
+	case eFall:
+		Fall();
+		break;
+	}
+
+	if (PUSH_R) {
+		if (m_hp >= 0) {
+			m_damage = true;
+			m_state = eKnockBack;
+		}
+		else {
+			m_state = eFall;
+		}
+	}
+	
+	m_img.UpdateAnimation();
+}
+
+
+
+void CEnemy5::Nutral() {
+
+}
+
+void CEnemy5::Move() {
 	m_pos3D += m_vec3D;
 
 	if (m_pos3D.x < 0) {
@@ -35,8 +86,48 @@ void CEnemy5::Update() {
 	else {
 		m_vec3D.x = -NIKU_SPEED;
 	}
+	m_img.ChangeAnimation(eAnimEnemyMove);
+}
 
+void CEnemy5::Attack() {
 
-	m_img.ChangeAnimation(eAnimIdol);
-	m_img.UpdateAnimation();
+}
+
+void CEnemy5::KnockBack() {
+	m_img.ChangeAnimation(eAnimEnemyKnockBack);
+	Damage();
+	if (m_img.GetIndex() == 1) {
+		m_state = eMove;
+	}
+}
+
+void CEnemy5::Fall() {
+	m_img.ChangeAnimation(eAnimEnemyFall);
+	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
+	DropItem();
+	if (m_end_flag == false) {
+		m_end_flag = true;
+		m_color.a = 2.0;
+	}
+	if (m_end_flag) {
+		m_color.a -= 0.01;
+	}
+	if (m_color.a < -1.0) {
+		SetKill();
+	}
+}
+
+void CEnemy5::Damage() {
+	m_vec3D.y = 0;
+	m_pos3D += m_vec3D;
+	if (m_damage) {
+		m_hp--;
+		m_damage = false;
+		if (m_flipH) {
+			m_vec3D.x = -NIKU_KNOCKBACK_SPEED;
+		}
+		else {
+			m_vec3D.x = NIKU_KNOCKBACK_SPEED;
+		}
+	}
 }
