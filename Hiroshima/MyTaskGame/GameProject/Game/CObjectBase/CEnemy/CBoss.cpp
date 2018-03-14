@@ -5,13 +5,15 @@
 »ìÒ@Â–Ø
 
 */
-CBoss::CBoss(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
+CBoss::CBoss(const CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
 	m_img.SetSize(256 * 3, 256 * 3);
 	m_pos3D = *pos;
 	m_hp = BOSS_HP;
 	m_at = BOSS_AT;
 	m_test = 0;
+	m_rect = CRect(0, 0, 256 * 3, 256 * 3);
+	//m_rect_F = CRect(0, 0, 256 * 3, 256 * 3);
 }
 
 CBoss::~CBoss() {
@@ -39,10 +41,16 @@ void CBoss::Update() {
 	case 5:
 		m_img.ChangeAnimation(5);
 		break;
+	case 6:
+		m_img.ChangeAnimation(6);
+		break;
+	case 7:
+		m_img.ChangeAnimation(7);
+		break;
 	}
 
 
-	if (m_test > 5)
+	if (m_test > 7)
 		m_test = 0;
 
 

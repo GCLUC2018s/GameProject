@@ -5,29 +5,38 @@ void C_Player::Update(){
 	//右移動
 	if (CKey::Push(VK_RIGHT)){
 		m_Turn = E_RIGHT;
-		C_Scroll::m_Scroll += PLAYER_LR_SPEED;
-		m_Right += PLAYER_LR_SPEED;
-		m_Left += PLAYER_LR_SPEED;
+		m_Scroll += PLAYER_LR_SPEED;
+		m_Position.x += PLAYER_LR_SPEED;
 	}
 	//左移動
-	if (CKey::Push(VK_LEFT)&&m_Left>=(-W_H)/2){
+	if (CKey::Push(VK_LEFT) && m_Position.x >= (-W_H) / 2){
 		m_Turn = E_LEFT;
-		C_Scroll::m_Scroll += PLAYER_LR_SPEED;
-		m_Right -= PLAYER_LR_SPEED;
-		m_Left -= PLAYER_LR_SPEED;
+		m_Scroll -= PLAYER_LR_SPEED;
+		m_Position.x -= PLAYER_LR_SPEED;
 	}
 	//上移動
-	if (CKey::Push(VK_UP) &&m_Bottom <= DISPLAY_TOP - 390){
-		m_Bottom += PLAYER_UD_SPEED;
-		m_Top += PLAYER_UD_SPEED;
+	if (CKey::Push(VK_UP) && m_Position.z <= DISPLAY_TOP - 390){
+		m_Position.z += PLAYER_UD_SPEED;
 	}
 	//下移動
-	if (CKey::Push(VK_DOWN) && m_Bottom >= DISPLAY_BOTTOM){
-		m_Bottom -= PLAYER_UD_SPEED;
-		m_Top -= PLAYER_UD_SPEED;
+	if (CKey::Push(VK_DOWN) && m_Position.z >= DISPLAY_BOTTOM){
+		m_Position.z -= PLAYER_UD_SPEED;
 	}
+	C_Object::Rect(&m_image,&m_Position);
+	C_Object::Scroll(&m_Position);
+}
 
-		C_Scroll::Scroll(this);              //スクロール処理
+void C_Test::Update(){
+	//右移動
+	if (CKey::Push(VK_RIGHT)){
+		m_Scroll += PLAYER_LR_SPEED;
+	}
+	//左移動
+	if (CKey::Push(VK_LEFT) && m_Position.x >= (-W_H) / 2){
+		m_Scroll -= PLAYER_LR_SPEED;
+	}
+	C_Object::Rect(&m_image, &m_Position);
+	C_Object::Scroll(&m_Position);
 }
 
 
@@ -44,13 +53,13 @@ void C_Player::Draw(){
 		++m_Anime_Taiki_s;
 	}
 
-	i_Chara_Motion_2.DrawImage(m_Left, m_Right, m_Bottom, m_Top, 0, 90, 140, 5);
+	i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
 	//待機モーションの描画
 	if (m_Anime_Taiki >= 0 && m_Anime_Taiki <= 60){
 		if (m_Turn == E_RIGHT)
-			i_Chara_Motion_2.DrawImage(m_Left, m_Right, m_Bottom, m_Top, 0, 90, 140, 5);
+			i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
 		if (m_Turn == E_LEFT)
-			i_Chara_Motion_2.DrawImage(m_Left, m_Right, m_Bottom, m_Top, 90, 0, 140, 5);
+			i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 140, 5);
 	}
 
 	//移動モーションの描画(左向き)
@@ -71,4 +80,15 @@ void C_Player::Draw(){
 			m_Anime = 0;
 			m_Anime_s = 0;
 		}
+}
+
+void C_Test::Draw(){
+	glBegin(GL_TRIANGLES);
+	glVertex2d(m_image.m_Left, m_image.m_Top);
+	glVertex2d(m_image.m_Left, m_image.m_Bottom);
+	glVertex2d(m_image.m_Right, m_image.m_Bottom);
+	glVertex2d(m_image.m_Left, m_image.m_Top);
+	glVertex2d(m_image.m_Right, m_image.m_Bottom);
+	glVertex2d(m_image.m_Right, m_image.m_Top);
+	glEnd();
 }

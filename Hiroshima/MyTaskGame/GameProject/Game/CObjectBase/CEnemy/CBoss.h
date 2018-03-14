@@ -11,11 +11,17 @@
 製作者　青木
 
 */
+
+/*
+宮﨑：
+テスト作成しただけのクラスです
+このコメントは、実際作り出したら消してね
+*/
 class CBoss :public CObjectBase {
 protected:
 	int m_test;
 public:
-	CBoss(CVector3D *pos);
+	CBoss(const CVector3D *pos);
 	~CBoss();
 	void Update();
 };
