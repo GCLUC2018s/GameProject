@@ -62,13 +62,14 @@ void Init(void)
 
 	CSound::GetInstance();
 	//‰Šú‰»
+	ADD_RESOURCE("Tip", CAnimImage::LoadImage("tip.png"));
 	ADD_RESOURCE("Player", CAnimImage::LoadImage("motion_player.png", player_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy", CAnimImage::LoadImage("zako_daruma_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy2", CAnimImage::LoadImage("zako_chochin_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy3", CAnimImage::LoadImage("zako_hi_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy4", CAnimImage::LoadImage("zako_kamaitachi_motion.png", kamaitachi_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy5", CAnimImage::LoadImage("zako_niku_motion.png", enemy_AnimData, 512, 512));
-	ADD_RESOURCE("Boss", CAnimImage::LoadImage("boss_motion.png", boss_AnimData, 768, 768));
+	ADD_RESOURCE("Boss", CAnimImage::LoadImage("moton_jaryu.png", boss_AnimData, 768, 768));
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 //	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
@@ -76,6 +77,7 @@ void Init(void)
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
+	ADD_RESOURCE("GameStart", CAnimImage::LoadImage("presen.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
@@ -84,11 +86,12 @@ void Init(void)
 	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav", 50);
 	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 50);
 	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 50);
-	SOUND("SE_JUMP")->Load("Sound/SE/nyu2.wav", 50);
+	SOUND("SE_JUMP")->Load("Sound/SE/highspeed-movement1.wav", 50);
 	SOUND("SE_LANDING")->Load("Sound/SE/landing.wav", 50);
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
+	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 
-	NEW_SCENE(eTitle);
+	NEW_SCENE(eGameStart);
 }
 
 void release()

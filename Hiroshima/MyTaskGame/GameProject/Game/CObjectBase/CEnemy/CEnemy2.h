@@ -1,6 +1,7 @@
 #ifndef ENEMY2GUARD
 #define ENEMY2GUARD
-#include"../CObjectBase.h"
+//#include"../CObjectBase.h"
+#include "CEnemyBase.h"
 
 #define CHOCHIN_HP 5
 #define CHOCHIN_AT 3
@@ -13,11 +14,11 @@
 
 */
 //’ñ“”
-class CEnemy2 :public CObjectBase {
+class CEnemy2 :public CEnemyBase {
 private:
 	float m_a;	//•‚—V—p
 public:
-	CEnemy2(CVector3D *pos);
+	CEnemy2(const CVector3D *pos);
 	~CEnemy2();
 	void Update();
 };

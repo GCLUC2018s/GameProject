@@ -9,7 +9,7 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(0, eU_Chara, eD_Chara) {
+CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Chara, eD_Chara) {
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(0, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
