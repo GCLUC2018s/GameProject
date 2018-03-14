@@ -6,12 +6,14 @@
 
 */
 //‰Î‚Ì‹Ê
-CEnemy3::CEnemy3(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
+CEnemy3::CEnemy3(CVector3D *pos) :CEnemyBase() {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy3"));
 	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_pos3D = *pos;
 	m_hp = HI_HP;
 	m_at = HI_AT;
+	m_rect = CRect(150, 150, 350, 350);
+	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
 
 }
 

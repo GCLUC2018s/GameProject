@@ -7,13 +7,14 @@
 
 */
 //’ñ“”
-CEnemy2::CEnemy2(CVector3D *pos) :CObjectBase(0, eU_Chara, eD_Chara) {
+CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy2"));
 	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_pos3D = *pos;
 	m_hp = CHOCHIN_HP;
 	m_at = CHOCHIN_AT;
-
+	m_rect = CRect(190, 140, 400, 340);
+	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
 }
 
 CEnemy2::~CEnemy2() {

@@ -1,9 +1,7 @@
 #ifndef CHARABASE_GUARD
 #define CHARABASE_GUARD
 
-//エネミーBaseに、このマクロ移動して
-#define ENEMY_SIZ_X 213
-#define ENEMY_SIZ_Y 256
+
 
 #include "../GameProject/Task/CTask.h"
 #include "../GameProject/stdafx.h"
@@ -17,6 +15,7 @@ protected:
 	CVector2D	m_vec2D;		//移動量
 	CVector3D	m_pos3D;		//座標
 	CVector3D	m_vec3D;		//移動量
+	CRect	m_rect_F;		//入れ替え判定用短形
 	CRect	m_rect;			//当たり判定用短形
 	bool	m_flipH;		//反転フラグ
 	bool	m_move;

@@ -1,9 +1,6 @@
 #ifndef CMANHOLE_H
 #define CMANHOLE_H
 #include "../draw/CRectangle.h"
-#include "random"
-#include "stdio.h"
-#include "time.h"
 
 class C_Manhole : public C_Rectangle{
 protected:

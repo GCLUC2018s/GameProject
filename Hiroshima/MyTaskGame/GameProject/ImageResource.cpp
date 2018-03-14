@@ -38,6 +38,11 @@ TexAnim _PL_kick[] = {
 	{ 31,20 },
 	{ 30,5 },
 };
+TexAnim _PL_fall[] = {
+	{ 40,5 },
+	{ 41,10 },
+	{ 42,10 },
+};
 
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
@@ -46,6 +51,7 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_squat),
 	ANIMDATA(_PL_punch),
 	ANIMDATA(_PL_kick),
+	ANIMDATA(_PL_fall),
 };
 
 TexAnim _ENE_anim[] = {
@@ -127,10 +133,23 @@ TexAnim _KAMAITACHI_attack_anim[] = {
 	{ 5, 1},
 
 };
+TexAnim _KAMAITACHI_knockback_anim[] = {
+	{ 2,30 },
+	{ 2,1 },
+	
+
+};
+TexAnim _KAMAITACHI_fall_anim[] = {
+	{ 3,30 },
+	
+
+};
 TexAnimData kamaitachi_AnimData[] = {
 	ANIMDATA(_KAMAITACHI_anim),
 	ANIMDATA(_KAMAITACHI2_anim),
 	ANIMDATA(_KAMAITACHI_attack_anim),
+	ANIMDATA(_KAMAITACHI_knockback_anim),
+	ANIMDATA(_KAMAITACHI_fall_anim),
 };
 
 
@@ -162,6 +181,13 @@ TexAnim _Boss3_anim[] = {
 };
 
 TexAnim _Boss4_anim[] = {
+	{ 17,10 },
+	
+
+
+};
+
+TexAnim _Boss5_anim[] = {
 	{ 24,10 },
 	{ 25,10 },
 	{ 26,10 },
@@ -170,13 +196,19 @@ TexAnim _Boss4_anim[] = {
 
 };
 
-TexAnim _Boss5_anim[] = {
+TexAnim _Boss6_anim[] = {
 	{ 32,30 },
 	{ 33,30 },
 
 };
-TexAnim _Boss6_anim[] = {
+TexAnim _Boss7_anim[] = {
 	{ 40,10 },
+
+
+};
+
+TexAnim _Boss8_anim[] = {
+	{ 48,10 },
 
 
 };
@@ -187,6 +219,8 @@ TexAnimData boss_AnimData[] = {
 	ANIMDATA(_Boss4_anim),
 	ANIMDATA(_Boss5_anim),
 	ANIMDATA(_Boss6_anim),
+	ANIMDATA(_Boss7_anim),
+	ANIMDATA(_Boss8_anim),
 };
 
 

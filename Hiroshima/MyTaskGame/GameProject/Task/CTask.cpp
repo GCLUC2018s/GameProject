@@ -49,6 +49,7 @@ int CTask::GetDrawPrio() const
 	return m_DRW_link.GetPriority();
 }
 
+
 //XV‡ˆÊ•ÏX
 void CTask::ChangeUpdatePrio(int updatePrio)
 {
