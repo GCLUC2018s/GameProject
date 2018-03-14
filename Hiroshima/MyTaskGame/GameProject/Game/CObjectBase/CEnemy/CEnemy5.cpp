@@ -12,6 +12,7 @@ CEnemy5::CEnemy5(CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
+	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
 
 }
 
