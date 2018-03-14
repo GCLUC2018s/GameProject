@@ -79,7 +79,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CDrum.cpp" />
     <ClCompile Include="chara\C_Player.cpp" />
     <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CMain.cpp" />
@@ -92,13 +91,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nagao.cpp" />
     <ClCompile Include="object\CColorBall.cpp" />
+    <ClCompile Include="object\CDrum.cpp" />
     <ClCompile Include="object\CManhole.cpp" />
     <ClCompile Include="task\CTask.cpp" />
     <ClCompile Include="task\CTaskLinker.cpp" />
     <ClCompile Include="task\CTaskManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CDrum.h" />
     <ClInclude Include="chara\C_Player.h" />
     <ClInclude Include="CKey.h" />
     <ClInclude Include="CMain.h" />
@@ -110,6 +109,7 @@
     <ClInclude Include="Hako.h" />
     <ClInclude Include="Nagao.h" />
     <ClInclude Include="object\CColorBall.h" />
+    <ClInclude Include="object\CDrum.h" />
     <ClInclude Include="object\CManhole.h" />
     <ClInclude Include="task\CTask.h" />
     <ClInclude Include="task\CTaskLinker.h" />

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Enemysource.h" />
     <ClInclude Include="Gamesource.h" />
     <ClInclude Include="Game\CEnemyAI.h" />
     <ClInclude Include="Game\CObjectBase\CBB\CBB.h" />
@@ -136,6 +137,8 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyManager.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBG.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h" />
@@ -165,6 +168,8 @@
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyManager.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBG.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp" />

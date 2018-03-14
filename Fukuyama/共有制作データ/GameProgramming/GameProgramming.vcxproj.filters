@@ -78,7 +78,7 @@
     <ClCompile Include="object\CManhole.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
-    <ClCompile Include="CDrum.cpp">
+    <ClCompile Include="object\CDrum.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
   </ItemGroup>
@@ -128,7 +128,7 @@
     <ClInclude Include="object\CManhole.h">
       <Filter>ソース ファイル\object</Filter>
     </ClInclude>
-    <ClInclude Include="CDrum.h">
+    <ClInclude Include="object\CDrum.h">
       <Filter>ソース ファイル\object</Filter>
     </ClInclude>
   </ItemGroup>

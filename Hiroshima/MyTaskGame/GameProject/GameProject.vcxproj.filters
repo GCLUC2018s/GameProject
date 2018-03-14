@@ -171,6 +171,15 @@
     <ClInclude Include="Game\CObjectBase\CBB\CBB.h">
       <Filter>Game\ObjectBase\CBB</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyManager.h">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemysource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -247,6 +256,12 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp">
       <Filter>Game\ObjectBase\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyManager.cpp">
+      <Filter>Game\ObjectBase\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
