@@ -5,14 +5,14 @@
 //!アニメーションの種類
 enum  {
 	eAnimIdol,
-	eAnimDash,
-	eAnimJamp,
-	eAnimSquat,
+	eAnimBill,
 	eAnimPunch,
 	eAnimKick,
 	eAnimDamage,
 	eAnimFall,
-	eAnimBill,
+	eAnimJamp,
+	eAnimDash,
+	eAnimSquat,
 	eAnimKamaMove = 1,
 	eAnimKamaAttack,
 	eAnimKamaKnockBack,

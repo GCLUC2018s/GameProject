@@ -311,7 +311,7 @@ void CPlayer::Fall() {
 	if(m_cnt >= 20)
 		if(m_die != 4)
 			m_vec3D = Die(m_vec3D); 
-	m_anim = 7;
+	m_anim = eAnimFall;
 	//xå∏ë¨
 	if(m_flipH)
 		m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.05f);

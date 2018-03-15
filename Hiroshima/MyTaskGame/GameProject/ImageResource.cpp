@@ -10,22 +10,10 @@ TexAnim _PL_idol[] = {
 	{ 6,5 },
 	{ 7,5 },
 };
-TexAnim _PL_dash[] = {
-	{ 80,5 },
-	{ 81,5 },
-	{ 82,5 },
-	{ 83,5 },
-	{ 84,5 },
-	{ 85,5 },
-};
-TexAnim _PL_jamp[] = {
-	{ 60,5 },
-	{ 61,5 },
-	{ 62,5 },
-};
-TexAnim _PL_squat[] = {
-	{ 90,5 },
-	{ 91,5 },
+TexAnim _PL_bill[] = {
+	{ 10,10 },
+	{ 11,15 },
+	{ 11,5 },
 };
 TexAnim _PL_punch[] = {
 	{ 20,5 },
@@ -52,22 +40,34 @@ TexAnim _PL_fall[] = {
 	{ 52,80 },
 	{ 52,10 },
 };
-TexAnim _PL_bill[] = {
-	{ 10,10 },
-	{ 11,15 },
-	{ 11,5 },
+TexAnim _PL_jamp[] = {
+	{ 60,5 },
+	{ 61,5 },
+	{ 62,5 },
+};
+TexAnim _PL_dash[] = {
+	{ 80,5 },
+	{ 81,5 },
+	{ 82,5 },
+	{ 83,5 },
+	{ 84,5 },
+	{ 85,5 },
+};
+TexAnim _PL_squat[] = {
+	{ 90,5 },
+	{ 91,5 },
 };
 
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
-	ANIMDATA(_PL_dash),
-	ANIMDATA(_PL_jamp),
-	ANIMDATA(_PL_squat),
+	ANIMDATA(_PL_bill),
 	ANIMDATA(_PL_punch),
 	ANIMDATA(_PL_kick),
 	ANIMDATA(_PL_damage),
 	ANIMDATA(_PL_fall),
-	ANIMDATA(_PL_bill),
+	ANIMDATA(_PL_jamp),
+	ANIMDATA(_PL_dash),
+	ANIMDATA(_PL_squat),
 };
 
 //TexAnim _ENE_anim[] = {
