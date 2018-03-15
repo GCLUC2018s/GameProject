@@ -91,6 +91,9 @@
     <Filter Include="Game\ObjectBase\PushStart">
       <UniqueIdentifier>{3a9a4385-f735-43e2-bdd8-2d7bf4824942}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\Item">
+      <UniqueIdentifier>{655ae566-fbfc-4209-b93d-4eccb331dc39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h">
@@ -131,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="Game\CScene\CSceneManager.h">
       <Filter>Game\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBG.h">
-      <Filter>Game\ObjectBase\FieldBG</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
@@ -189,8 +189,8 @@
     <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h">
       <Filter>Game\ObjectBase\MainText</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CPushStart\CPushStart.h">
-      <Filter>Game\ObjectBase\PushStart</Filter>
+    <ClInclude Include="Game\CObjectBase\CItem\CItem.h">
+      <Filter>Game\ObjectBase\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -223,9 +223,6 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp">
       <Filter>Game\ObjectBase\TitleBG</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBG.cpp">
-      <Filter>Game\ObjectBase\FieldBG</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
       <Filter>Game\ObjectBase\FieldBG\FieldSky</Filter>
@@ -279,7 +276,7 @@
       <Filter>Game\ObjectBase\MainText</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CPushStart\CPushStart.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
+      <Filter>Game\ObjectBase\PushStart</Filter>    <ClCompile Include="Game\CObjectBase\CItem\CItem.cpp">
+      <Filter>Game\ObjectBase\Item</Filter>    </ClCompile>
   </ItemGroup>
 </Project>

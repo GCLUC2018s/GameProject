@@ -24,4 +24,5 @@ void CGimmick2::Update() {
 		if (m_cnt == 129)
 			m_cnt = 0;
 	}
+	CheckOverlap();
 }
