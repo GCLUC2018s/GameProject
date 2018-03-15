@@ -1,6 +1,7 @@
 #ifndef CENEMY_H
 #define CENEMY_H
 #include "../object/C_Object.h"
+#include"chara\C_Player.h"
 #include"object\CVector3.h"
 #define ENEMY_UD_SPEED 5
 #define ENEMY_LR_SPEED 9
