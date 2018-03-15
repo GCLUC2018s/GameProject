@@ -10,6 +10,7 @@
 
 #include "../GameProject/GAME/CObjectBase/CObjectBase.h"
 #include "../GameProject/stdafx.h"
+#include"../GameProject/Source/Gamesource.h"
 
 //此処ではエネミー全体（ボスを除く）に共通するものを書く
 
