@@ -145,6 +145,7 @@
     <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h" />
+    <ClInclude Include="Game\CObjectBase\CGo\CGo.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h" />
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp" />
+    <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp" />
