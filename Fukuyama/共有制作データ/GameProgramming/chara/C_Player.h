@@ -7,6 +7,7 @@
 
 #define PLAYER_LR_SPEED SCROLL_SPEED     //プレイヤーの左右移動速度
 #define PLAYER_UD_SPEED 5     //プレイヤーの上下移動速度
+#define RUN_ANIME 90    //アニメーション用変数を回す上限
 
 class C_Player :public C_Object{
 public:
@@ -19,7 +20,7 @@ public:
 		//プレイヤーのサイズ
 		m_image.SetVertex(0, 90, 0, 135);
 		//キャラクターアニメーション画像の読み込み
-		i_Chara_Motion_1.Load("image/chara/chara_motion_1.tga");
+		i_Chara_Motion_1.Load("image/chara/chara_motion_1_16bit.tga");
 		i_Chara_Motion_2.Load("image/chara/chara_motion_2_16bit.tga");
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 	}
