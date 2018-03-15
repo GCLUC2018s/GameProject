@@ -54,27 +54,24 @@ void CSceneManager::MainScene(){
 	new CBB(60 * 3,true);
 	new CPlayer();
 
-	new CEnemy1(&(CVector3D(400, 0, -300)));
+	/*new CEnemy1(&(CVector3D(400, 0, -300)));
 	new CEnemy2(&(CVector3D(500, 100, -100)));
 	new CEnemy3(&(CVector3D(600, 100, -250)));
 	new CEnemy4(&(CVector3D(800, 50, -200)));
-	new CEnemy5(&(CVector3D(200, 0, -130)));
+	new CEnemy5(&(CVector3D(200, 0, -130)));*/
 	//new CBoss(&(CVector3D(3000, 50, 0)));
-	new CGimmick(&(CVector3D(500, 0, -250)));
-	new CGimmick(&(CVector3D(250, 0, -150)));
-	new CGimmick(&(CVector3D(500, 0, -350)));
+	new CGimmick(&(CVector3D(500, 0, -20)));
+	new CGimmick(&(CVector3D(500, 0, -100)));
 //	new CFieldBG();
 	new CFieldSky();
 	new CFieldCloud();
 	new CFieldBamboo();
 	new CFieldGround();
 
-	new COhuda(&(CVector3D(500,500,0)));
 	new CKoban(&(CVector3D(500,500, 0)));
 	new COage(&(CVector3D(500, 450, 0)));
 	new CSake(&(CVector3D(450, 500, 0)));
-	new CMagatama();
-
+	new CMagatama();	new CEnemyManager();
 }
 
 void CSceneManager::BossScene(){

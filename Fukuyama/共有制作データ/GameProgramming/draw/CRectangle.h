@@ -16,7 +16,7 @@
 #define DISPLAY_RIGHT W_H/2        //ディスプレイの右端
 #define SCROLL_PERCENTAGE 60   //スクロールの基準点（左基準でパーセント換算）
 #define SCROLL_POINT 480   //キャラとスクロールの距離
-#define SCROLL_SPEED 8
+#define SCROLL_SPEED 6
 
 #define Z_FirstPotision1 DISPLAY_BOTTOM+120 //ギミック初期出現位置設定1
 #define Z_FirstPotision2 DISPLAY_TOP-390 //ギミック初期出現位置設定2
