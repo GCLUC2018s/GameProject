@@ -80,6 +80,7 @@ void Init(void)
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
 	ADD_RESOURCE("MainText", CAnimImage::LoadImage("text01.png"));
+	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_huda_1.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");

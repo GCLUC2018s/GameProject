@@ -68,8 +68,7 @@ void CSceneManager::MainScene(){
 	new CFieldCloud();
 	new CFieldBamboo();
 	new CFieldGround();
-
-
+	new CItem(&(CVector3D(500,500,0)));
 }
 
 void CSceneManager::BossScene(){
