@@ -25,7 +25,7 @@ CBB::~CBB()
 
 void CBB::Update()
 {
-	CTaskManager::GetInstance()->SetPause(eID_Player, true);
+//	CTaskManager::GetInstance()->SetPause(eID_Player, true);
 	m_img.SetColor(0, 0, 0, m_color.w);
 	if (m_color.w > BB_COL_PA) {
 		//フェードアウト処理

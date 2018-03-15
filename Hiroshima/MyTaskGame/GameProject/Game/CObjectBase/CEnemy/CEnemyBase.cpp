@@ -1,7 +1,7 @@
 #include "CEnemyBase.h"
 
 
-CEnemyBase::CEnemyBase() :CObjectBase(0, eU_Chara, eD_Chara) {
+CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Chara) {
 	
 }
 
