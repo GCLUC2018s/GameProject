@@ -1,0 +1,18 @@
+﻿2018/03/07 17:00:45 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "F:\授業用\C言語\C言語\ソース\C++\c++_重力計算 - コピー\Win32ProjectQ.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         F:\VS\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt taskmanager.cpp win_main.cpp
+         win_main.cpp
+         taskmanager.cpp
+         コードを生成中...
+       Link:
+         F:\VS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\授業用\C言語\C言語\ソース\C++\c++_重力計算 - コピー\Debug\Win32ProjectQ.exe" /INCREMENTAL /NOLOGO /LIBPATH:"F:\授業用\C言語\C言語\DxLib_VC\プロジェクトに追加すべきファイル_VC用" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\授業用\C言語\C言語\ソース\C++\c++_重力計算 - コピー\Debug\Win32ProjectQ.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\授業用\C言語\C言語\ソース\C++\c++_重力計算 - コピー\Debug\Win32ProjectQ.lib" /MACHINE:X86 Debug\player.obj
+         Debug\task.obj
+         Debug\taskmanager.obj
+         Debug\win_main.obj
+         Win32ProjectQ.vcxproj -> F:\授業用\C言語\C言語\ソース\C++\c++_重力計算 - コピー\Debug\Win32ProjectQ.exe
+     1>プロジェクト "F:\授業用\C言語\C言語\ソース\C++\c++_重力計算 - コピー\Win32ProjectQ.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:01.94
