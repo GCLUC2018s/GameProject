@@ -32,46 +32,49 @@ void C_Test::Update(){
 	C_Object::Scroll(&m_Position,m_Scroll);
 }
 
-
 //プレイヤーの描画
 void C_Player::Draw(){
-
-	//アニメーションカウンタを1秒分回す
-	if (m_Anime_Taiki < 60)
-		++m_Anime_Taiki;
-
-	//アニメーションカウンタをリセットし、経過時間(秒)を追加する
-	else if (m_Anime_Taiki == 60){
-		m_Anime_Taiki = 0;
-		++m_Anime_Taiki_s;
+	if (CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN)){
+		//アニメーションカウンタを1秒分回す
+		if (m_Anime < 60){
+			m_Anime++;
+		}
+		//アニメーションカウンタをリセットし、経過時間(秒)を追加する
+		if (m_Anime >= 60){
+			m_Anime = 0;
+		}
+	}
+	else{
+		m_Anime = 0;
 	}
 
-	i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
+	//アニメーションカウンタを1秒分回す
+	if (m_Anime_Taiki <= 60)
+		m_Anime_Taiki++;
+
+	//アニメーションカウンタをリセットし
+	else if (m_Anime_Taiki > 60){
+		m_Anime_Taiki = 0;
+	}
+
+	//i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
 	//待機モーションの描画
-	if (m_Anime_Taiki >= 0 && m_Anime_Taiki <= 60){
-		if (m_Turn == E_RIGHT)
-			i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
-		if (m_Turn == E_LEFT)
-			i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 140, 5);
+	if (!(CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN))){
+		if (m_Anime_Taiki <= 60){
+			if (m_Turn == E_RIGHT)
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
+			else if (m_Turn == E_LEFT)
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 140, 5);
+		}
 	}
 
 	//移動モーションの描画(左向き)
 		if (CKey::Push(VK_LEFT)||CKey::Push(VK_UP)||CKey::Push(VK_DOWN)){
-			//アニメーションカウンタを1秒分回す
-			if (m_Anime < 60)++m_Anime;
-			//アニメーションカウンタをリセットし、経過時間(秒)を追加する
-			if (m_Anime == 60){
-				m_Anime = 0;
-				++m_Anime_s;
-			}
 			if (m_Turn == E_LEFT){
-			
 			}
-
 		}
 		else{
 			m_Anime = 0;
-			m_Anime_s = 0;
 		}
 }
 
