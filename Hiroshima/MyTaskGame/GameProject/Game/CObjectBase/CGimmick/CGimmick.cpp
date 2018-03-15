@@ -16,7 +16,12 @@ CGimmick::~CGimmick(){
 }
 
 void CGimmick::Update(){
-		m_img.ChangeAnimation(0);
-		m_img.UpdateAnimation();
+	m_img.ChangeAnimation(0);
+	m_img.UpdateAnimation();
 	CheckOverlap();
+}
+
+void CGimmick::Draw(){
+	m_img.SetPos(m_pos3D.x - m_scroll.x, 550 + m_pos3D.y + m_pos3D.z - m_scroll.y);
+	m_img.Draw();
 }

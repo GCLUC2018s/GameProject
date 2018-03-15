@@ -59,9 +59,6 @@
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
       <Filter>Game\ObjectBase\Gimmick\Jinari</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\CItem.cpp">
-      <Filter>Game\ObjectBase\Item</Filter>
-    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp">
       <Filter>Game\ObjectBase\Chara\Player</Filter>
     </ClCompile>
@@ -82,6 +79,15 @@
     </ClCompile>
     <ClCompile Include="ImageResource.cpp">
       <Filter>ImageResource</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\COhuda\COhuda.cpp">
+      <Filter>Game\ObjectBase\Item\Ohuda</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp">
+      <Filter>Game\ObjectBase\Item\Kobann</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
+      <Filter>Game\ObjectBase\Item\Oage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,9 +151,6 @@
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
       <Filter>Game\ObjectBase\Gimmick\Jinari</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\CItem.h">
-      <Filter>Game\ObjectBase\Item</Filter>
-    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h">
       <Filter>Game\ObjectBase\Chara\Player</Filter>
     </ClInclude>
@@ -174,6 +177,15 @@
     </ClInclude>
     <ClInclude Include="ImageResource.h">
       <Filter>ImageResource</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h">
+      <Filter>Game\ObjectBase\Item\Ohuda</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h">
+      <Filter>Game\ObjectBase\Item\Kobann</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
+      <Filter>Game\ObjectBase\Item\Oage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +293,21 @@
     </Filter>
     <Filter Include="ImageResource">
       <UniqueIdentifier>{6121c616-eb43-40ba-ac97-bc5159c6d6a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Item\Magatama">
+      <UniqueIdentifier>{69fbd1b3-b848-4f7a-8f34-d174652fbcc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Item\Ohuda">
+      <UniqueIdentifier>{55365ec8-e141-4e3f-ad6d-5b98e5620f85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Item\Kobann">
+      <UniqueIdentifier>{ca43b405-e8f4-48ae-a38d-2cd870549e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Item\Osake">
+      <UniqueIdentifier>{ad70e51c-d51a-4be7-9473-3b01eea888a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Item\Oage">
+      <UniqueIdentifier>{28218732-3edf-457c-ace2-3491cc802f91}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

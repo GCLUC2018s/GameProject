@@ -13,6 +13,7 @@ public:
 	CGimmick(CVector3D *pos);
 	~CGimmick();
 	void Update();
+	void Draw();
 
 private:
 	int m_cnt;	//‚í‚©‚ç‚ñ
