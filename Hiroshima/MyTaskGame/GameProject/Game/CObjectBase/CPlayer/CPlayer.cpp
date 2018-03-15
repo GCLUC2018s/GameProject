@@ -156,7 +156,7 @@ void CPlayer::Update() {
 	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x - SCREEN_WIDTH / 2) {
 		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
 	}
-	if (450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -100) {
+	if (m_pos3D.z < -400 && 450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -200) {
 		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 80;
 		if (m_pos3D.y == 715 + 512) {
 			m_scroll.y = SCREEN_HEIGHT;
