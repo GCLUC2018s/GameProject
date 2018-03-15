@@ -1,25 +1,22 @@
 #include "CDrum.h"
 
 C_Drum::C_Drum()
-:m_DrumPos_Random(rand() % 3)
-, C_Object(E_OBJ, eUDP_Object, eDWP_Object,0,0,0)
+:C_Object(E_OBJ, eUDP_Object, eDWP_Object, DISPLAY_LEFT, 0, 0)
+, m_DrumPos_Random(rand() % 3)
 {
-	//ドラム缶のXポジション設定
-	m_Position.x+=DISPLAY_RIGHT;
-	//シードで乱数初期化
+	//シードで乱数を初期化
 	srand((unsigned)time(NULL));
-	//
-	switch (m_DrumPos_Random){
-		//case 0の時
-		//ドラム缶の位置を真ん中へ
-	case 0:
-		m_Position.y+=Ypos_SetPos_Center;
-		break;
-		//case 1の時
-		//ドラム缶の位置を上へ
-	case 1:
-		m_Position.y+=Ypos_SetPos_Up;
-		break;
+	//0の場合、真ん中に配置
+	if (m_DrumPos_Random == 0){
+		m_Position.z += Zpos_SetPos_Center;
+	}
+	//1の場合、上に配置
+	else if (m_DrumPos_Random == 1){
+		m_Position.z += Zpos_SetPos_Up;
+	}
+	//2の場合、下に配置
+	else if (m_DrumPos_Random == 2){
+		m_Position.z += Zpos_SetPos_Down;
 	}
 }
 

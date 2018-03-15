@@ -14,9 +14,9 @@
 »ìÒ@Â–Ø
 
 */
-//‚¾‚é‚Ü
 class CEnemy1 :public CEnemyBase {
 public:
+	//‚¾‚é‚Ü
 	CEnemy1(const CVector3D *pos);
 	~CEnemy1();
 	void Update();

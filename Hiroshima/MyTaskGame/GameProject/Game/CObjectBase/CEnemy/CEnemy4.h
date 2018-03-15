@@ -18,7 +18,6 @@
 »ìÒ@Â–Ø
 
 */
-//‚©‚Ü‚¢‚½‚¿
 class CEnemy4 :public CEnemyBase {
 private:
 	float m_a;
@@ -26,6 +25,7 @@ private:
 	int m_move_cnt;
 	bool m_stop;
 public:
+	//‚©‚Ü‚¢‚½‚¿
 	CEnemy4(const CVector3D *pos);
 	~CEnemy4();
 	void Update();

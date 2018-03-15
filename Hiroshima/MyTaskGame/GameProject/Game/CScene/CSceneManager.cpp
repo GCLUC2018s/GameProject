@@ -60,15 +60,18 @@ void CSceneManager::MainScene(){
 	new CEnemy4(&(CVector3D(800, 50, -200)));
 	new CEnemy5(&(CVector3D(200, 0, -130)));
 	//new CBoss(&(CVector3D(3000, 50, 0)));
-	new CGimmick(&(CVector3D(500, 0, -250)));
-	new CGimmick(&(CVector3D(250, 0, -150)));
-	new CGimmick(&(CVector3D(500, 0, -350)));
+	new CGimmick(&(CVector3D(500, 0, -20)));
+	new CGimmick(&(CVector3D(500, 0, -100)));
 //	new CFieldBG();
 	new CFieldSky();
 	new CFieldCloud();
 	new CFieldBamboo();
 	new CFieldGround();
-	new CItem(&(CVector3D(500,500,0)));
+
+	new COhuda(&(CVector3D(500,500,0)));
+	new CKoban(&(CVector3D(500,500, 0)));
+	new COage(&(CVector3D(500, 450, 0)));
+
 }
 
 void CSceneManager::BossScene(){
