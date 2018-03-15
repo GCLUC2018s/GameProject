@@ -9,9 +9,8 @@
 #include "stdafx.h"
 #include "Global.h"
 #include "GID.h"
-#include "Gamesource.h"
+#include "../GameProject/Source/Gamesource.h"
 #include "../GameProject/Game/CScene/CSceneManager.h"
-
 
 void MainLoop(void) {
 	CTaskManager::GetInstance()->UpdateAll();
@@ -81,6 +80,7 @@ void Init(void)
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
 	ADD_RESOURCE("MainText", CAnimImage::LoadImage("text01.png"));
 	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_huda_1.png"));
+	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");

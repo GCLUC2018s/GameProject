@@ -1,26 +1,21 @@
 #include "CFieldBamboo.h"
-/*
-宮﨑：
-たぶんこれ考え方間違ってた;;
-端まで行ってキルしたら、真っ白になっちゃうから
-端まで行ったら、その向こう側（pos.xに1280足した位置）から新しく生成してその繰り返し。。。
-しかも戻れるから、重くならないようになんか上手いことしよう！
 
-*/
-CFieldBamboo::CFieldBamboo():CObjectBase(0,eU_Map,eD_Map){
+CFieldBamboo::CFieldBamboo(const bool flag):CObjectBase(0,eU_Map,eD_Bamboo){
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Bamboo"));
 	m_img.SetSize(GROUND_WIDTH, GROUND_HEIGHT);
 	m_img.SetCenter(0, GROUND_HEIGHT - SCREEN_HEIGHT);
+	//if (flag)
+	//	//１枚目
+	//	m_pos3D = CVector3D(0, 0, 0);
+	//else
+	//	//２枚目
+	//	m_pos3D = CVector3D(GROUND_WIDTH, 0, 0);
 }
 
 CFieldBamboo::~CFieldBamboo(){
-	new CFieldBamboo();
 }
-
-void CFieldBamboo::Update(){
-	m_pos3D = CVector3D(m_scroll.x/1.3,0,0);
-	if (m_pos3D.x == GROUND_WIDTH + SCREEN_WIDTH) {
-		new CFieldBamboo();
-	//	SetKill();
-	}
+void CFieldBamboo::Draw()
+{
+	m_img.SetPos(m_pos3D.x - m_scroll.x / 1.3, m_pos3D.y - m_scroll.y / 1.1);
+	m_img.Draw();
 }

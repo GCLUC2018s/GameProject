@@ -5,7 +5,7 @@
 
 */
 
-CGimmick::CGimmick(CVector3D *pos) :CObjectBase(0, eU_Gimmick, eD_Gimmick) {
+CGimmick::CGimmick(CVector3D *pos) :CObjectBase(0, eU_Gimmick, eD_Object) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Fire"));
 	m_pos3D = *pos;
 	m_rect = CRect(0, 0, 204, 245);

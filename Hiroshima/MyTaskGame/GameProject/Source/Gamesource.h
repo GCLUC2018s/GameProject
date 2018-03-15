@@ -1,18 +1,13 @@
 #ifndef GAME_SOURCE_GUARD
 #define GAME_SOURCE_GUARD
 
-#include "Task\CTask.h"
-#include "Task\CTaskManager.h"
+#include "../GameProject/Task/CTask.h"
+#include "../GameProject/Task/CTaskManager.h"
 #include"Enemysource.h"
+#include "Fieldsource.h"
 //#include "ImageResource.h"
 #include "../GameProject/Game/CObjectBase/CPlayer/CPlayer.h"
 #include "../GameProject/Game/CObjectBase/CGimmick/CGimmick.h"
-#include "../GameProject/Game/CObjectBase/CTitleBG/CTitleBG.h"
-#include "../GameProject/Game/CObjectBase/CFieldBG/CFieldBG.h"
-#include "../GameProject/Game/CObjectBase/CFieldBG/CFieldSky/CFieldSky.h"
-#include "../GameProject/Game/CObjectBase/CFieldBG/CFieldCloud/CFieldCloud.h"
-#include "../GameProject/Game/CObjectBase/CFieldBG/CFieldBamboo/CFieldBamboo.h"
-#include "../GameProject/Game/CObjectBase/CFieldBG/CFieldGround/CFieldGround.h"
 #include "../GameProject/Game/CObjectBase/CGameStart/CGameStart.h"
 #include "../GameProject/Game/CObjectBase/CBB/CBB.h"
 #include "../GameProject/Game/CObjectBase/CItem/CItem.h"
