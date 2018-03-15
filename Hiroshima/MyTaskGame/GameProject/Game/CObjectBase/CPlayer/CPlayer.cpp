@@ -1,5 +1,6 @@
 #include "CPlayer.h"
 #include "../GameProject/Game/CScene/CSceneManager.h"
+#include "../CGo/CGo.h"
 
 /*
 
@@ -161,6 +162,9 @@ void CPlayer::Update() {
 		if (m_pos3D.y == 715 + 512) {
 			m_scroll.y = SCREEN_HEIGHT;
 		}
+	}
+	if (PUSH_ENTER) {
+		new CGo();
 	}
 	CheckOverlap();
 }

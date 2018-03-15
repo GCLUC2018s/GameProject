@@ -3,8 +3,9 @@
 
 #include "../CObjectBase.h"
 
-#define GO_SIZ 128
-#define GO_TIME 50
+#define GO_SIZ_X 250
+#define GO_SIZ_Y 150
+#define GO_TIME 0.1f
 
 
 class CGo : public CObjectBase
@@ -13,5 +14,7 @@ public:
 	CGo();
 	~CGo();
 	void Update();
+private:
+	float m_a;
 };
 #endif // !GO_GUARD
