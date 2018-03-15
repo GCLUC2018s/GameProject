@@ -10,9 +10,10 @@
 */
 class CFieldCloud :public CObjectBase {
 public:
-	CFieldCloud();
+	CFieldCloud(const bool flag);	//‰_Btrue‚È‚ç‰æ–Ê‰EŠO‚É¶¬
 	~CFieldCloud();
-	void Update();
+	void Draw();
+private:
 };
 
 #endif // !FIELDCLOUD_GUARD

@@ -1,7 +1,7 @@
 #ifndef ENEMY2GUARD
 #define ENEMY2GUARD
 //#include"../CObjectBase.h"
-#include "CEnemyBase.h"
+#include"CEnemyBase.h"
 
 #define CHOCHIN_HP 5
 #define CHOCHIN_AT 3

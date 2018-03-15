@@ -5,7 +5,7 @@
 
 class COhuda :public CObjectBase {
 public:
-	COhuda(CVector3D *pos);
+	COhuda(CVector3D *pos, bool * flipH);
 	~COhuda();
 	void Update();
 };

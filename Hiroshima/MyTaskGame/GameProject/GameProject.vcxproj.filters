@@ -86,8 +86,20 @@
     <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp">
       <Filter>Game\ObjectBase\Item\Kobann</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CSake\CSake.cpp">
+      <Filter>Game\ObjectBase\Item\Sake</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp">
+      <Filter>Game\ObjectBase\Item\Magatama</Filter>
+    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
       <Filter>Game\ObjectBase\Item\Oage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp">
+      <Filter>Game\ObjectBase\Field\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp">
+      <Filter>Game\ObjectBase\Pic\GO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,23 +181,38 @@
     <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h">
       <Filter>Game\ObjectBase\Pic\Title</Filter>
     </ClInclude>
-    <ClInclude Include="Gamesource.h">
-      <Filter>Game\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemysource.h">
-      <Filter>Game\Source</Filter>
-    </ClInclude>
     <ClInclude Include="ImageResource.h">
       <Filter>ImageResource</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h">
       <Filter>Game\ObjectBase\Item\Ohuda</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CSake\CSake.h">
+      <Filter>Game\ObjectBase\Item\Sake</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h">
+      <Filter>Game\ObjectBase\Item\Magatama</Filter>
+    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h">
       <Filter>Game\ObjectBase\Item\Kobann</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
       <Filter>Game\ObjectBase\Item\Oage</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemysource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Fieldsource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Gamesource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h">
+      <Filter>Game\ObjectBase\Field\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGo\CGo.h">
+      <Filter>Game\ObjectBase\Pic\GO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -303,11 +330,17 @@
     <Filter Include="Game\ObjectBase\Item\Kobann">
       <UniqueIdentifier>{ca43b405-e8f4-48ae-a38d-2cd870549e4f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Item\Osake">
-      <UniqueIdentifier>{ad70e51c-d51a-4be7-9473-3b01eea888a2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\ObjectBase\Item\Oage">
       <UniqueIdentifier>{28218732-3edf-457c-ace2-3491cc802f91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Item\Sake">
+      <UniqueIdentifier>{ad70e51c-d51a-4be7-9473-3b01eea888a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Field\Manager">
+      <UniqueIdentifier>{9424f9b0-5008-47f8-a17b-4988f390ab5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Pic\GO">
+      <UniqueIdentifier>{0da08f42-3250-4442-85e3-9707382b2e6b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
