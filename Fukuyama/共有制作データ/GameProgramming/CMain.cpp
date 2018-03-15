@@ -47,4 +47,5 @@ void CMain::Update() {
 	}
 	CTaskManager::GetInstance()->UpdateAll();
 	CTaskManager::GetInstance()->DrawAll();
+	CTaskManager::GetInstance()->KillAppoint();
 }
