@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CBackGround.cpp" />
     <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="chara\C_Player.cpp" />
     <ClCompile Include="CKey.cpp" />
@@ -101,6 +102,7 @@
     <ClCompile Include="task\CTaskManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CBackGround.h" />
     <ClInclude Include="CEnemy.h" />
     <ClInclude Include="chara\C_Player.h" />
     <ClInclude Include="CKey.h" />
