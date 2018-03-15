@@ -1,5 +1,6 @@
 #ifndef OAGE_GUARD
 #define OAGE_GUARD
+
 #include "../GameProject/Game/CObjectBase/CObjectBase.h"
 
 class COage :public CObjectBase {
@@ -10,3 +11,4 @@ public:
 };
 
 #endif // !OAGE_GUARD
+

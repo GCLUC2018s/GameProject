@@ -30,6 +30,8 @@ void CMain::Update() {
 		if (CKey::Once('5') && SceneState == 0){
 			//はこテストエリアへ
 			ip_Hako = new Hako();
+			ip_Hako->Init();
+			CTaskManager::GetInstance()->Add(ip_Hako);
 			SceneState = 1;
 		}
 		if (CKey::Once('7') && SceneState == 0){
