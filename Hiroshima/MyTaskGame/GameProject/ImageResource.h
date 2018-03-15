@@ -12,6 +12,7 @@ enum  {
 	eAnimKick,
 	eAnimDamage,
 	eAnimFall,
+	eAnimBill,
 	eAnimKamaMove = 1,
 	eAnimKamaAttack,
 	eAnimKamaKnockBack,

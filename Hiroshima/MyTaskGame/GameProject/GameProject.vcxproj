@@ -183,7 +183,6 @@
     <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />
-    <ClCompile Include="Game\CObjectBase\CPushStart\CPushStart.cpp" />
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp" />
     <ClCompile Include="Game\CScene\CSceneManager.cpp" />
     <ClCompile Include="ImageResource.cpp" />
