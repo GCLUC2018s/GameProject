@@ -1,11 +1,11 @@
 #ifndef ITEM_GUARD
 #define ITEM_GUARD
 
-#include "CBase.h"
+#include "../Game/CObjectBase/CObjectBase.h"
 
-class CItem : public CBase {
+class CItem : public CObjectBase {
 public:
-	CItem(CVector2D pos);
+	CItem(CVector3D *pos);
 	~CItem();
 	void Update();
 };

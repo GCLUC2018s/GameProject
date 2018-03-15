@@ -60,6 +60,7 @@ void CEnemy5::Update() {
 	}
 	
 	m_img.UpdateAnimation();
+	CheckOverlap();
 }
 
 
