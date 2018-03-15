@@ -15,14 +15,15 @@
 #define DISPLAY_LEFT -(W_H/2)      //ディスプレイの左端
 #define DISPLAY_RIGHT W_H/2        //ディスプレイの右端
 #define SCROLL_PERCENTAGE 60   //スクロールの基準点（左基準でパーセント換算）
-#define SCROLL_POINT ((W_H/100)*SCROLL_PERCENTAGE)-(W_H/2)   //スクロールの基準点の横座標
+#define SCROLL_POINT 480   //キャラとスクロールの距離
 #define SCROLL_SPEED 8
 
-#define Y_FirstPotision1 DISPLAY_BOTTOM+120  //ギミック初期出現位置設定1
-#define Y_FirstPotision2 DISPLAY_TOP-390  //ギミック初期出現位置設定2
-#define Ypos_SetPos_Center (Y_FirstPotision1+Y_FirstPotision2)/2  //中心出現
-#define Ypos_SetPos_Up (Ypos_SetPos_Center+Y_FirstPotision2)/2　//上出現
-#define Ypos_SetPos_Down (Ypos_SetPos_Center+Y_FirstPotision1)/2　//下出現
+#define Y_FirstPotision1 DISPLAY_BOTTOM+120 //ギミック初期出現位置設定1
+#define Y_FirstPotision2 DISPLAY_TOP-390 //ギミック初期出現位置設定2
+#define Ypos_SetPos_Center (Y_FirstPotision1+Y_FirstPotision2)/2 //中心出現
+#define Ypos_SetPos_Up (Ypos_SetPos_Center+Y_FirstPotision2)/2//上出現
+#define Ypos_SetPos_Down (Ypos_SetPos_Center+Y_FirstPotision1)/2//下出現
+#define TestSpeed 3 //ギミック確認用移動マクロ
 
 class C_Rectangle{
 protected:

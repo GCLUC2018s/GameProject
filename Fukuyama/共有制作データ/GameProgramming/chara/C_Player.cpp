@@ -22,21 +22,14 @@ void C_Player::Update(){
 	if (CKey::Push(VK_DOWN) && m_Position.z >= DISPLAY_BOTTOM){
 		m_Position.z -= PLAYER_UD_SPEED;
 	}
+	m_Scroll = m_Position.x + SCROLL_POINT;
 	C_Object::Rect(&m_image,&m_Position);
-	C_Object::Scroll(&m_Position);
+	C_Object::Scroll(&m_Position,m_Scroll);
 }
 
 void C_Test::Update(){
-	//‰EˆÚ“®
-	if (CKey::Push(VK_RIGHT)){
-		m_Scroll += PLAYER_LR_SPEED;
-	}
-	//¶ˆÚ“®
-	if (CKey::Push(VK_LEFT) && m_Position.x >= (-W_H) / 2){
-		m_Scroll -= PLAYER_LR_SPEED;
-	}
 	C_Object::Rect(&m_image, &m_Position);
-	C_Object::Scroll(&m_Position);
+	C_Object::Scroll(&m_Position,m_Scroll);
 }
 
 
