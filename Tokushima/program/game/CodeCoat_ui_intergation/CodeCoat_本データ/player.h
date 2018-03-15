@@ -15,10 +15,10 @@
 //定数
 const int ANIM_COUNT = 14;			//キャラの画像枚数
 const int HEAL_ANIM_COUNT = 18;		//回復アイテム取得時のキャラ画像枚数
-const int MOVEING_RANGE_DOWN = 590;		//下の移動限界範囲
-const int MOVEING_RANGE_UP = 300;		//上の移動限界範囲
+const int MOVEING_RANGE_DOWN = 640;		//下の移動限界範囲
+const int MOVEING_RANGE_UP = 430;		//上の移動限界範囲
 const int MOVEING_RANGE_LEFT = -25;		//左の移動限界範囲
-const int MOVEING_RANGE_RIGHT = 1255;	//右の移動限界範囲
+const int MOVEING_RANGE_RIGHT = 1150;	//右の移動限界範囲
 const int PLAYER_HEIGHT_SIZE = 30;		//主人公の当たり判定：縦サイズ
 const int PLAYER_WIDE_SIZE = 50;		//主人公の当たり判定：幅サイズ
 const float START_POSX = 50;			//主人公のスタート位置：x座標
@@ -29,8 +29,8 @@ const float PLAYER_CENTER = 83.0f;
 const int PLAYER_SHADOW_HEIGHT_POS = 170;//影の位置：縦
 const int PLAYER_SHADOW_WIDTH_POS = 53;//影の位置：横
 const float P_SPEED = 270.0f;	 //主人公の基本速度
-const float BASE_SCR_SPEED = 150;//画面スクロールの基本速度
-const int ONE_GEAR_SPACE = 320;//1280を4で割った値
+const float BASE_SCR_SPEED = 75;//画面スクロールの基本速度
+const int ONE_GEAR_SPACE = 160;//1280を8で割った値
 const int EQUIPMENT_COUNT = 3; //装備欄の数
 const float KNIFE_RAD = 2500;	//ナイフによる攻撃範囲
 const float PLAYER_COLLISION = 30;//主人公の当たり判定半径

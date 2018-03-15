@@ -222,12 +222,6 @@ void CPlayerControl::Draw(){
 		DrawGraph((int)m_BodyPos.getX(), (int)m_BodyPos.getY() + m_BodyPos.getZ(), m_heroUpperimg[m_upper_playerstate + (m_upper_ac % 5)], TRUE);
 		break;
 	}
-	
-
-	
-	DrawGraph(100, 520, m_Equipment[0].m_img, TRUE);
-	DrawGraph(300, 520, m_Equipment[1].m_img, TRUE);
-	DrawGraph(500, 520, m_Equipment[2].m_img, TRUE);
 }
 
 float CPlayerControl::getMoveAmount(){
