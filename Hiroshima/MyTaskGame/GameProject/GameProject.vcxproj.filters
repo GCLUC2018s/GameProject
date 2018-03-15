@@ -86,14 +86,14 @@
     <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp">
       <Filter>Game\ObjectBase\Item\Kobann</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
-      <Filter>Game\ObjectBase\Item\Oage</Filter>
-    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\CSake\CSake.cpp">
       <Filter>Game\ObjectBase\Item\Sake</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp">
       <Filter>Game\ObjectBase\Item\Magatama</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
+      <Filter>Game\ObjectBase\Item\Oage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -187,17 +187,17 @@
     <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h">
       <Filter>Game\ObjectBase\Item\Ohuda</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h">
-      <Filter>Game\ObjectBase\Item\Kobann</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
-      <Filter>Game\ObjectBase\Item\Oage</Filter>
-    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CSake\CSake.h">
       <Filter>Game\ObjectBase\Item\Sake</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h">
       <Filter>Game\ObjectBase\Item\Magatama</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h">
+      <Filter>Game\ObjectBase\Item\Kobann</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
+      <Filter>Game\ObjectBase\Item\Oage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

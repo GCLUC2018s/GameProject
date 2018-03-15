@@ -19,7 +19,7 @@ void COhuda::Update(){
 	else
 		m_vec3D.x = 10;
 
-	m_img.ChangeAnimation(eAnimItemBill);
+//	m_img.ChangeAnimation(eAnimItemBill);
 	m_img.UpdateAnimation();
 
 }
