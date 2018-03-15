@@ -13,7 +13,6 @@ public:
 	C_Player() 
 		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,0)
 		,m_Anime(0)           //アニメーションカウンタの初期化
-		, m_Anime_s(0)
 		, m_Turn(E_RIGHT)
 	{
 		m_image.m_Enabled = true;
@@ -34,9 +33,7 @@ public:
 	CTexture i_Chara_Motion_1;
 	CTexture i_Chara_Motion_2;
 	int m_Anime;            //アニメーション管理変数
-	int m_Anime_s;          //アニメーション秒数管理
 	int m_Anime_Taiki;      //アニメーション管理変数
-	int m_Anime_Taiki_s;    //アニメーション秒数管理(待機)
 	int m_Turn;             //右を向いているか左を向いているか
 	virtual void Update();
 	virtual void Draw();
@@ -47,17 +44,13 @@ public:
 	C_Test()
 		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,-450)
 		, m_Anime(0)           //アニメーションカウンタの初期化
-		, m_Anime_s(0)
 	{
 		m_image.m_Enabled = true;
 		//プレイヤーのサイズ
 		m_image.SetVertex(-600, 600, -450, -330);
-
 	}
 	int m_Anime;            //アニメーション管理変数
-	int m_Anime_s;          //アニメーション秒数管理
 	int m_Anime_Taiki;      //アニメーション管理変数
-	int m_Anime_Taiki_s;    //アニメーション秒数管理(待機)
 	int m_Turn;             //右を向いているか左を向いているか
 	virtual void Update();
 	virtual void Draw();
