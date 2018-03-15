@@ -38,7 +38,6 @@ enum {
 	eID_Null,
 };
 
-
 class CTask
 {
 protected:

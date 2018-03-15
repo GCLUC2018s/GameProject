@@ -94,7 +94,7 @@ void Init(void)
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
 
-	NEW_SCENE(eGameStart);
+	NEW_SCENE(eMain);
 }
 
 void release()

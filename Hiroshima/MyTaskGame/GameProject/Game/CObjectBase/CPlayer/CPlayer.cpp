@@ -143,6 +143,7 @@ void CPlayer::Update() {
 			m_scroll.y = SCREEN_HEIGHT;
 		}
 	}
+	CheckOverlap();
 }
 
 void CPlayer::Nutral() {
