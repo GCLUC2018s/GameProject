@@ -2,7 +2,7 @@
 #define ENEMYMANAGER
 
 #include"CEnemyBase.h"
-#include"../GameProject/Source/Gamesource.h"
+#include"../GameProject/Gamesource.h"
 
 
 class CEnemyManager :public CEnemyBase {
