@@ -138,16 +138,13 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyManager.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h" />
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h" />
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h" />
     <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h" />
-    <ClInclude Include="Game\CObjectBase\CItem\CItem.h" />
-    <ClInclude Include="Game\CObjectBase\CGo\CGo.h" />
-    <ClInclude Include="Game\CObjectBase\CItem\CItem.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h" />
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h" />
@@ -188,9 +185,6 @@
     <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp" />
-    <ClCompile Include="Game\CObjectBase\CItem\CItem.cpp" />
-    <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp" />
-    <ClCompile Include="Game\CObjectBase\CItem\CItem.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp" />
