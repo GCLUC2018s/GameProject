@@ -62,16 +62,13 @@ void CSceneManager::MainScene(){
 	//new CBoss(&(CVector3D(3000, 50, 0)));
 	new CGimmick(&(CVector3D(500, 0, -20)));
 	new CGimmick(&(CVector3D(500, 0, -100)));
-//	new CFieldBG();
-	new CFieldSky();
-	new CFieldCloud();
-	new CFieldBamboo();
-	new CFieldGround();
+	new CFieldManager();
 
-	new CKoban(&(CVector3D(500,500, 0)));
-	new COage(&(CVector3D(500, 450, 0)));
-	new CSake(&(CVector3D(450, 500, 0)));
-	new CMagatama();	new CEnemyManager();
+	//new CKoban(&(CVector3D(500,500, 0)));
+	//new COage(&(CVector3D(500, 450, 0)));
+	//new CSake(&(CVector3D(450, 500, 0)));
+	//new CMagatama();	
+	new CEnemyManager();
 }
 
 void CSceneManager::BossScene(){

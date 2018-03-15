@@ -1,6 +1,6 @@
 #include "COhuda.h"
 
-COhuda::COhuda(CVector3D * pos, bool * flipH):CObjectBase(0,eU_Item,eD_Item){
+COhuda::COhuda(CVector3D * pos, bool * flipH):CObjectBase(0,eU_Item, eD_Object){
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Ohuda"));
 	m_img.SetSize(64, 64);
 	m_flipH = *flipH;

@@ -1,5 +1,6 @@
 #include "CPlayer.h"
 #include "../GameProject/Game/CScene/CSceneManager.h"
+#include "../CGo/CGo.h"
 
 /*
 
@@ -162,6 +163,9 @@ void CPlayer::Update() {
 			m_scroll.y = SCREEN_HEIGHT;
 		}
 	}
+	if (PUSH_ENTER) {
+		new CGo();
+	}
 	CheckOverlap();
 }
 
@@ -272,7 +276,7 @@ void CPlayer::Nutral() {
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
 		m_state = eBill;
-		new COhuda(&m_pos3D, &m_flipH);
+//		new COhuda(&m_pos3D, &m_flipH);
 	}
 }
 
