@@ -1,14 +1,13 @@
 #ifndef NAGAO_H
 #define NAGAO_H
 #include "object\CManhole.h"
-class Nagao : public C_Manhole{
+class Nagao{
 public:
-	//描画処理
-	void Draw();
-	void Update();
-	C_Manhole* Manhole;
 	//テスト用コンストラクタを作成
-	Nagao();
+	Nagao(){
+		Manhole = new C_Manhole();
+	}
+	C_Manhole* Manhole;
 private:
 };
 #endif
