@@ -3,7 +3,8 @@
 
 #include "../CObjectBase.h"
 
-#define GO_SIZ 128
+#define GO_SIZ_X 250
+#define GO_SIZ_Y 150
 #define GO_TIME 0.1f
 
 
