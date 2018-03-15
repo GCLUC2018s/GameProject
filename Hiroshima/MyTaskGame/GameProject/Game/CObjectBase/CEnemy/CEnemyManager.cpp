@@ -15,13 +15,16 @@ struct Enemy_Push
 };
 
 Enemy_Push  push_enemy[10]{
-	{ 100,1 },
-	{ 120,2 },
-	{ 150,3 },
-	{ 160,1 },
-	{ 200,4 },
-	{ 300,3 },
+	{ 100,0 },
+	{ 200,0 },
+	{ 300,0 },
+	{ 400,0 },
 	{ 500,0 },
+	{ 600,0 },
+	{ 700,0 },
+	{ 800,0 },
+	{ 900,0 },
+	{ 1000,0 },
 };
 
 
@@ -46,7 +49,15 @@ void CEnemyManager::Update() {
 
 
 void CEnemyManager::PushEnemy(const int *id) {
-	switch (*id)
+
+	m_id = Utility::Rand(1, 100);
+	if(m_id < 50)
+		m_id = Utility::Rand(0, 3);
+	else if (51 < m_id && m_id < 80)
+		m_id = 4;
+	else if (81 < m_id)
+		m_id = 3;
+	switch (m_id)
 	{
 	case eDaruma:
 		new CEnemy1(&(CVector3D(400, 0, -300)));

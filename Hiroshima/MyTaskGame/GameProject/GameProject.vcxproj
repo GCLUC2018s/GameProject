@@ -28,13 +28,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -127,8 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Enemysource.h" />
-    <ClInclude Include="Gamesource.h" />
     <ClInclude Include="Game\CEnemyAI.h" />
     <ClInclude Include="Game\CObjectBase\CBB\CBB.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h" />
@@ -142,6 +140,7 @@
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h" />
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h" />
     <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
@@ -159,6 +158,9 @@
     <ClInclude Include="GID.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="ImageResource.h" />
+    <ClInclude Include="Source\Enemysource.h" />
+    <ClInclude Include="Source\Fieldsource.h" />
+    <ClInclude Include="Source\Gamesource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Task\CTask.h" />
     <ClInclude Include="Task\CTaskLinker.h" />
@@ -178,6 +180,7 @@
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp" />
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp" />
     <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />

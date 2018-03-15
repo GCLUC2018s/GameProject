@@ -95,6 +95,9 @@
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
       <Filter>Game\ObjectBase\Item\Oage</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp">
+      <Filter>Game\ObjectBase\Field\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -175,12 +178,6 @@
     <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h">
       <Filter>Game\ObjectBase\Pic\Title</Filter>
     </ClInclude>
-    <ClInclude Include="Gamesource.h">
-      <Filter>Game\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemysource.h">
-      <Filter>Game\Source</Filter>
-    </ClInclude>
     <ClInclude Include="ImageResource.h">
       <Filter>ImageResource</Filter>
     </ClInclude>
@@ -198,6 +195,18 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
       <Filter>Game\ObjectBase\Item\Oage</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemysource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Fieldsource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Gamesource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h">
+      <Filter>Game\ObjectBase\Field\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -320,6 +329,9 @@
     </Filter>
     <Filter Include="Game\ObjectBase\Item\Sake">
       <UniqueIdentifier>{ad70e51c-d51a-4be7-9473-3b01eea888a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Field\Manager">
+      <UniqueIdentifier>{9424f9b0-5008-47f8-a17b-4988f390ab5f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
