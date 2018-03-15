@@ -272,7 +272,7 @@ void CPlayer::Nutral() {
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
 		m_state = eBill;
-		new COhuda(&m_pos3D, &m_flipH);
+//		new COhuda(&m_pos3D, &m_flipH);
 	}
 }
 

@@ -80,10 +80,6 @@
     <ClCompile Include="ImageResource.cpp">
       <Filter>ImageResource</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp" />
-    <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp">
-      <Filter>Game\ObjectBase\Pic\Go</Filter>
-    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\COhuda\COhuda.cpp">
       <Filter>Game\ObjectBase\Item\Ohuda</Filter>
     </ClCompile>
@@ -98,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
       <Filter>Game\ObjectBase\Item\Oage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp">
+      <Filter>Game\ObjectBase\Field\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -182,21 +181,6 @@
     <ClInclude Include="ImageResource.h">
       <Filter>ImageResource</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h">
-      <Filter>Game\ObjectBase\Field\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemysource.h">
-      <Filter>Game\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Gamesource.h">
-      <Filter>Game\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Fieldsource.h">
-      <Filter>Game\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CGo\CGo.h">
-      <Filter>Game\ObjectBase\Pic\Go</Filter>
-    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h">
       <Filter>Game\ObjectBase\Item\Ohuda</Filter>
     </ClInclude>
@@ -211,6 +195,18 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
       <Filter>Game\ObjectBase\Item\Oage</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemysource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Fieldsource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Gamesource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h">
+      <Filter>Game\ObjectBase\Field\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -319,12 +315,6 @@
     <Filter Include="ImageResource">
       <UniqueIdentifier>{6121c616-eb43-40ba-ac97-bc5159c6d6a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Field\Manager">
-      <UniqueIdentifier>{9bb7edbf-1909-4161-83b5-9898af80edda}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Pic\Go">
-      <UniqueIdentifier>{39d31f9a-f2d4-4f2c-83b4-9e97b4b6f35d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\ObjectBase\Item\Magatama">
       <UniqueIdentifier>{69fbd1b3-b848-4f7a-8f34-d174652fbcc3}</UniqueIdentifier>
     </Filter>
@@ -339,6 +329,9 @@
     </Filter>
     <Filter Include="Game\ObjectBase\Item\Sake">
       <UniqueIdentifier>{ad70e51c-d51a-4be7-9473-3b01eea888a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Field\Manager">
+      <UniqueIdentifier>{9424f9b0-5008-47f8-a17b-4988f390ab5f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
