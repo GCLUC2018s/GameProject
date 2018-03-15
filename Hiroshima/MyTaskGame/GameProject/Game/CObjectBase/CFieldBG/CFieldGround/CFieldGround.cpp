@@ -1,6 +1,6 @@
 #include "CFieldGround.h"
 
-CFieldGround::CFieldGround():CObjectBase(0,eU_Map,eD_Map){
+CFieldGround::CFieldGround(const bool flag):CObjectBase(0,eU_Map, eD_Ground){
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Ground"));
 	m_img.SetSize(GROUND_WIDTH, GROUND_HEIGHT);
 	m_img.SetCenter(0, GROUND_HEIGHT - SCREEN_HEIGHT);
@@ -9,15 +9,13 @@ CFieldGround::CFieldGround():CObjectBase(0,eU_Map,eD_Map){
 	m_rect_tourou2 = CRect(1492, 882, 1625, 1138);
 	m_rect_tourou3 = CRect(2878, 882, 3011, 1138);
 	m_rect_tourou4 = CRect(3755, 882, 3888, 1138);
-
-
+	//if (flag == false)
+	//	//‚P–‡–Ú
+	//	m_pos3D = CVector3D(0, 0, 0);
+	//else
+	//	//‚Q–‡–Ú
+	//	m_pos3D = CVector3D(GROUND_WIDTH, 0, 0);
 }
 
-CFieldGround::~CFieldGround(){
-}
-
-void CFieldGround::Update(){
-	if (m_pos3D.x > GROUND_WIDTH - SCREEN_WIDTH) {
-		new CFieldGround();
-	}
+CFieldGround::~CFieldGround() {
 }

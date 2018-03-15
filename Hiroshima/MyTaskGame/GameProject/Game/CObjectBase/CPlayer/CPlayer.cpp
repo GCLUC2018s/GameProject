@@ -9,7 +9,7 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Chara) {
+CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(0, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
@@ -153,7 +153,7 @@ void CPlayer::Update() {
 		m_img.UpdateAnimation();
 
 	}
-	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x - SCREEN_WIDTH / 2) {
+	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < GROUND_WIDTH - SCREEN_WIDTH / 2) {
 		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
 	}
 	if (m_pos3D.z < -400 && 450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -200) {
@@ -271,7 +271,8 @@ void CPlayer::Nutral() {
 	}
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
-		m_state = eAttack;
+		m_state = eBill;
+//		new COhuda(&m_pos3D, &m_flipH);
 	}
 }
 

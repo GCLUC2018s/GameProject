@@ -13,5 +13,6 @@ public:
 	CFieldSky();
 	~CFieldSky();
 	void Update();
+	void Draw();
 };
 #endif // !FIELDSKY_GUARD

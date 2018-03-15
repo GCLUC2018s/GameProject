@@ -21,10 +21,10 @@ enum {
 //ï`âÊèáèò
 enum {
 	eD_Back,
-	eD_Map,
-	eD_Gimmick,
-	eD_Chara,
-	eD_Item,
+	eD_Cloud,
+	eD_Bamboo,
+	eD_Ground,
+	eD_Object,
 	eD_UI,
 	eD_Effect,
 	eD_Null,
@@ -35,6 +35,7 @@ enum {
 	eID_Player,
 	eID_Enemy,
 	eID_Item,
+	eID_Flag,
 	eID_Null,
 };
 

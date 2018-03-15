@@ -1,8 +1,6 @@
 #ifndef ENEMY_SOURCE_GUARD
 #define ENEMY_SOURCE_GUARD
 
-
-
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy1.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy2.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/CEnemy3.h"
