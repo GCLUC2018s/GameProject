@@ -70,7 +70,7 @@ void Init(void)
 	ADD_RESOURCE("Enemy4", CAnimImage::LoadImage("zako_kamaitachi_motion.png", kamaitachi_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy5", CAnimImage::LoadImage("zako_niku_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Boss", CAnimImage::LoadImage("moton_jaryu.png", boss_AnimData, 768, 768));
-	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire.png", fire_Animdata, 30, 200));
+	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_blue.png", fire_Animdata, 204, 245));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 	ADD_RESOURCE("Title_pika", CAnimImage::LoadImage("title_pika.png"));
 //	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
@@ -80,6 +80,7 @@ void Init(void)
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
 	ADD_RESOURCE("MainText", CAnimImage::LoadImage("text01.png"));
+	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_huda_1.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
@@ -94,7 +95,7 @@ void Init(void)
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
 
-	NEW_SCENE(eGameStart);
+	NEW_SCENE(eMain);
 }
 
 void release()

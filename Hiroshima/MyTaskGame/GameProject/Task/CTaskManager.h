@@ -37,6 +37,8 @@ public:
 	void ChangeUpdatePrio(CTask *p, int prio);
 	// 描画優先度を変更 
 	void ChangeDrawPrio(CTask *p, int prio);
+	////描画順位入れ替え
+	//void SwapDrawPrio(CTask *p1, CTask *p2);
 
 	//タスク取得関数
 	CTask* GetTask(int id);

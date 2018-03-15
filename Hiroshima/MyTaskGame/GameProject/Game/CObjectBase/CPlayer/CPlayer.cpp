@@ -9,7 +9,7 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Chara, eD_Chara) {
+CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Chara) {
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(0, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
@@ -18,6 +18,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Chara, eD_Chara) {
 	m_rect = CRect(129, 58, 353, 489);
 	m_punch1 = false;
 	m_punch2 = false;
+	m_kick = false;
 	m_jump = false;
 	m_hp = 10;
 	m_anim = eAnimIdol;
@@ -98,20 +99,38 @@ void CPlayer::Update() {
 	
 	//アニメーション
 	m_img.ChangeAnimation(m_anim);
-	if (m_anim == eAnimPunch && m_img.GetIndex() == 3) {
+	//パンチ左判定
+	if (m_anim == eAnimPunch && m_img.GetIndex() == 4) {
 		if (m_punch2) {
 			//パンチしてたら
-			m_anim = eAnimKick;
+			m_img.UpdateAnimation();
+			m_punch1 = false;
 			SOUND("SE_PUNCH_KARA")->Play();
 		}else {
 			//してない
 			m_state = eNutral;
 		}
 	}
-	if (m_anim == eAnimKick && m_img.GetIndex() == 2) {
+	//キック判定
+	if (m_anim == eAnimPunch && m_img.GetIndex() == 7) {
+		if (m_kick) {
+			//パンチしてたら
+			m_anim = eAnimKick;
+			m_punch2 = false;
+			SOUND("SE_PUNCH_KARA")->Play();
+		}
+		else {
+			//してない
+			m_state = eNutral;
+		}
+	}
+	if (m_anim == eAnimKick && m_img.GetIndex() == 3) {
 		m_state = eNutral;
 	}
 
+	if (m_anim == eAnimBill && m_img.GetIndex() == 2) {
+		m_state = eNutral;
+	}
 
 	if (m_squat&&m_img.GetIndex() == 1) {
 	}//ここからジャンプモーション
@@ -125,16 +144,16 @@ void CPlayer::Update() {
 		}
 	}else if (m_jump && m_img.GetIndex() == 2) {
 	//ここからダメージモーション
-	}else if(m_anim == 7 && m_img.GetIndex() == 3) {
+	}else if(m_anim == eAnimFall && m_img.GetIndex() == 3) {
 		m_die = 0;
-	}else if (m_anim == 7 && m_img.GetIndex() == 1) {
+	}else if (m_anim == eAnimFall && m_img.GetIndex() == 1) {
 		if(m_die >= 2)
 			m_img.UpdateAnimation();
 	}else {
 		m_img.UpdateAnimation();
 
 	}
-	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < 4000 - SCREEN_WIDTH / 2) {
+	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x - SCREEN_WIDTH / 2) {
 		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
 	}
 	if (450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -100) {
@@ -143,12 +162,14 @@ void CPlayer::Update() {
 			m_scroll.y = SCREEN_HEIGHT;
 		}
 	}
+	CheckOverlap();
 }
 
 void CPlayer::Nutral() {
 
 	m_punch1 = false;
 	m_punch2 = false;
+	m_kick = false;
 	if (!m_jump) {
 		m_anim = eAnimIdol;
 	}
@@ -161,7 +182,8 @@ void CPlayer::Nutral() {
 	//移動
 	if (!m_squat) {
 		if (!m_jump && HOLD_UP) {
-			m_vec3D.z = -10;
+			m_vec3D.z = -10; 
+			if (m_pos3D.z != 0 && m_pos3D.z != -430)
 			m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
@@ -169,6 +191,7 @@ void CPlayer::Nutral() {
 		}
 		if (!m_jump && HOLD_DOWN) {
 			m_vec3D.z = 10;
+			if (m_pos3D.z != 0 && m_pos3D.z != -430)
 			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
@@ -246,13 +269,22 @@ void CPlayer::Nutral() {
 		m_hp -= 2;
 		m_cnt = 0;
 	}
+	if (!m_jump && PUSH_E) {
+		m_anim = eAnimBill;
+		m_state = eAttack;
+	}
+}
+
+void CPlayer::Bill() {
 }
 
 void CPlayer::Attack(){
 	//キック
-	if (PUSH_R) {
+	if (m_punch1 && PUSH_R) {
 		m_punch2 = true;
-		m_punch1 = false;
+	}
+	if (!m_punch1 && PUSH_R) {
+		m_kick = true;
 	}
 	if (PUSH_ENTER) {
 		SetKill();
@@ -260,7 +292,7 @@ void CPlayer::Attack(){
 }
 
 void CPlayer::Damage() {
-	m_anim = 6;
+	m_anim = eAnimDamage;
 	m_cnt++;
 	if (m_cnt == 39) {
 		m_anim = 0;
@@ -280,7 +312,7 @@ void CPlayer::Fall() {
 	if(m_cnt >= 20)
 		if(m_die != 4)
 			m_vec3D = Die(m_vec3D); 
-	m_anim = 7;
+	m_anim = eAnimFall;
 	//x減速
 	if(m_flipH)
 		m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.05f);
@@ -294,7 +326,7 @@ void CPlayer::Fall() {
 		//その他諸々
 		damage_vec.y = -10;
 		m_cnt = 0;
-		m_anim = 0;
+		m_anim = eAnimIdol;
 		if(!m_hp)
 		m_hp = 10;
 	}

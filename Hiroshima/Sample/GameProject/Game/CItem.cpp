@@ -7,9 +7,9 @@
 */
 
 
-CItem::CItem(CVector2D pos):CBase(eTagUI){
+CItem::CItem(CVector3D *pos):CObjectBase(0,eU_Item,eD_Item){
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Item"));
-	m_pos = pos;
+	m_pos = *pos;
 	m_img.SetSize(40, 40);
 	m_img.SetRect(0, 384, 64, 448);
 }

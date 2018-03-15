@@ -7,7 +7,8 @@
 //XV‡˜
 enum {
 	eU_System,
-	eU_Chara,
+	eU_Player,
+	eU_Enemy,
 	eU_Gimmick,
 	eU_Item,
 	eU_UI,
@@ -36,7 +37,6 @@ enum {
 	eID_Item,
 	eID_Null,
 };
-
 
 class CTask
 {

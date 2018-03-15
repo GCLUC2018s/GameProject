@@ -174,6 +174,7 @@ void CTaskManager::DrawAll()
 	}
 }
 
+
 void CTaskManager::ChangeUpdatePrio(CTask * p, int prio)
 {
 	// リンクから除外する 
@@ -195,9 +196,19 @@ void CTaskManager::ChangeDrawPrio(CTask * p, int prio)
 	// プライオリティーを設定 
 	p->m_DRW_link.SetPriority(prio);
 
-	// Update用リストに追加 
+	// Draw用リストに追加 
 	AddTask(&(p->m_DRW_link), &mp_D_Top, &mp_D_End);
 }
+
+////描画順位入れ替え
+//void CTaskManager::SwapDrawPrio(CTask * p1, CTask * p2)
+//{
+//	CTask *p_cp = p1;
+//	p1->m_DRW_link.mp_prev = p2->m_DRW_link.mp_prev;
+//	p1->m_DRW_link.mp_next = p2->m_DRW_link.mp_next;
+//	p2->m_DRW_link.mp_prev = p_cp->m_DRW_link.mp_prev;
+//	p2->m_DRW_link.mp_next = p_cp->m_DRW_link.mp_next;
+//}
 
 CTask * CTaskManager::GetTask(int id)
 {
