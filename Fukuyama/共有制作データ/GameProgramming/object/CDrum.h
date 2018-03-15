@@ -1,8 +1,9 @@
 #ifndef CDRUM_H
 #define CDRUM_H
 #include "../draw/CRectangle.h"
+#include "C_Object.h"
 
-class C_Drum : public  C_Rectangle{
+class C_Drum : public  C_Object{
 private:
 	int m_DrumPos_Random = rand() % 3;
 public:

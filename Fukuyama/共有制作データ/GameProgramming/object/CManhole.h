@@ -1,17 +1,12 @@
 #ifndef CMANHOLE_H
 #define CMANHOLE_H
 #include "../draw/CRectangle.h"
+#include "C_Object.h"
 
-class C_Manhole : public C_Rectangle{
-protected:
+class C_Manhole : public C_Object{
+private:
 	//ランダム発生確率
-	int m_UorD_rand=rand()%2;
-	//マンホール左右ポジション
-	float m_PotisionX(float m_H);
-
-	//マンホール上下ポジション
-	float m_PotisionY(float m_V);
-
+	int m_UorD_rand=rand()%3;
 public:
 	//コンストラクタを設定
 	C_Manhole();

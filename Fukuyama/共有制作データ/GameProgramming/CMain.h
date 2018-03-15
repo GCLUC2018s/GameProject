@@ -11,7 +11,7 @@ public:
 	int mState;
 	int m_Mode;
 	int SceneState;
-	//Nagao *ip_Nagao;
+	Nagao *ip_Nagao;
 	Hagi *ip_Hagi;
 	Hako *ip_Hako;
 	CSceneGame *ip_SceneGame;
