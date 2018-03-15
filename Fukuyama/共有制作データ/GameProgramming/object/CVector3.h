@@ -1,6 +1,8 @@
 #ifndef CVECTOR3_H
 #define CVECTOR3_H
 
+#define FPS 60   //1•b“–‚½‚è‚ÌƒtƒŒ[ƒ€”
+
 class C_Vector3{
 public:
 
@@ -20,7 +22,6 @@ public:
 	const C_Vector3 C_Vector3::operator + (const C_Vector3 &v);
 	const C_Vector3 C_Vector3::operator - (const C_Vector3 &v);
 	const C_Vector3 C_Vector3::operator * (const C_Vector3 &v);
-
 
 };
 
