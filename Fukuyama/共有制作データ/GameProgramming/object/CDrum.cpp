@@ -2,7 +2,7 @@
 
 C_Drum::C_Drum()
 :m_DrumPos_Random(rand() % 3)
-, C_Object(E_OBJ, eUDP_Object, eDWP_Object)
+, C_Object(E_OBJ, eUDP_Object, eDWP_Object,0,0,0)
 {
 	//ドラム缶のXポジション設定
 	m_Position.x+=DISPLAY_RIGHT;

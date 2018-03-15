@@ -11,7 +11,7 @@
 class C_Player :public C_Object{
 public:
 	C_Player() 
-		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player)
+		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,0)
 		,m_Anime(0)           //アニメーションカウンタの初期化
 		, m_Anime_s(0)
 		, m_Turn(E_RIGHT)
@@ -45,11 +45,10 @@ public:
 class C_Test :public C_Object{
 public:
 	C_Test()
-		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player)
+		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,-450)
 		, m_Anime(0)           //アニメーションカウンタの初期化
 		, m_Anime_s(0)
 	{
-		m_Position.z = -450;
 		m_image.m_Enabled = true;
 		//プレイヤーのサイズ
 		m_image.SetVertex(-600, 600, -450, -330);
