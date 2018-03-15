@@ -10,9 +10,10 @@
 */
 class CFieldBamboo :public CObjectBase {
 public:
-	CFieldBamboo();
+	CFieldBamboo(const bool flag); //í|ÅBtrueÇ»ÇÁâÊñ âEäOÇ…ê∂ê¨
 	~CFieldBamboo();
-	void Update();
+	void Draw();
+private:
 };
 
 #endif // !FIELDBAMBOO_GUARD
