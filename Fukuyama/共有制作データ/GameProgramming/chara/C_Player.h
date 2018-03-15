@@ -6,8 +6,10 @@
 #include "../object/C_Object.h"
 
 #define PLAYER_LR_SPEED SCROLL_SPEED     //プレイヤーの左右移動速度
-#define PLAYER_UD_SPEED 5     //プレイヤーの上下移動速度
-#define RUN_ANIME 90    //アニメーション用変数を回す上限
+#define PLAYER_UD_SPEED 4     //プレイヤーの上下移動速度
+#define RUN_ANIME_INTERVAL 8   //アニメーション1枚当たりのフレーム数
+#define RUN_ANIME_FRAME 6    //走りアニメの絵の数
+#define RUN_ANIME RUN_ANIME_INTERVAL*RUN_ANIME_FRAME    //アニメーション用変数を回す上限
 
 class C_Player :public C_Object{
 public:
