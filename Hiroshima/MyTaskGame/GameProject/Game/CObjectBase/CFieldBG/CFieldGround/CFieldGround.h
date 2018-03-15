@@ -13,6 +13,7 @@ class CFieldGround : public CObjectBase {
 public:
 	CFieldGround(const bool flag);	//地面。trueなら画面右外に生成
 	~CFieldGround();
+	void Draw();
 private:
 	CRect m_rect_tourou1;
 	CRect m_rect_tourou2;
