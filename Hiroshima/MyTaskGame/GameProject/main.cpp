@@ -82,6 +82,8 @@ void Init(void)
 	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("Koban", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("Oage", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("Sake", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("Magatama", CAnimImage::LoadImage("item_matome_1.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");

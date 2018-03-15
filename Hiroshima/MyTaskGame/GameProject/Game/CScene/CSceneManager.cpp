@@ -72,6 +72,8 @@ void CSceneManager::MainScene(){
 	new COhuda(&(CVector3D(500,500,0)));
 	new CKoban(&(CVector3D(500,500, 0)));
 	new COage(&(CVector3D(500, 450, 0)));
+	new CSake(&(CVector3D(450, 500, 0)));
+	new CMagatama();
 
 }
 
