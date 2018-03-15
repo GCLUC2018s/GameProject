@@ -34,19 +34,6 @@ void C_Test::Update(){
 
 //プレイヤーの描画
 void C_Player::Draw(){
-	if (CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN)){
-		//アニメーションカウンタを1秒分回す
-		if (m_Anime < 60){
-			m_Anime++;
-		}
-		//アニメーションカウンタをリセットし、経過時間(秒)を追加する
-		if (m_Anime >= 60){
-			m_Anime = 0;
-		}
-	}
-	else{
-		m_Anime = 0;
-	}
 
 	//アニメーションカウンタを1秒分回す
 	if (m_Anime_Taiki <= 60)
@@ -57,24 +44,138 @@ void C_Player::Draw(){
 		m_Anime_Taiki = 0;
 	}
 
-	//i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
-	//待機モーションの描画
 	if (!(CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN))){
 		if (m_Anime_Taiki <= 60){
 			if (m_Turn == E_RIGHT)
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 630, 140, 5);
 			else if (m_Turn == E_LEFT)
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 140, 5);
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 540, 140, 5);
 		}
 	}
 
-	//移動モーションの描画(左向き)
-		if (CKey::Push(VK_LEFT)||CKey::Push(VK_UP)||CKey::Push(VK_DOWN)){
-			if (m_Turn == E_LEFT){
+	//ランニングアニメのアニメーションカウンタを回す
+	if (CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN)){
+		//アニメーションカウンタを1秒分回す
+		if (m_Anime < RUN_ANIME){
+			m_Anime++;
+		}
+		//アニメーションカウンタをリセットし、経過時間(秒)を追加する
+		if (m_Anime >= RUN_ANIME){
+			m_Anime = 0;
+		}
+	}
+	else{
+		m_Anime = -1;       //アニメーションを0～の範囲で行うので、使用しない時はー１とします。
+	}
+
+	//移動モーション左
+	if (CKey::Push(VK_LEFT)){
+		if (!CKey::Push(VK_RIGHT)){
+			if (m_Anime >= 0 && m_Anime < RUN_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 140, 5);
+			}
+			else if (m_Anime < RUN_ANIME_INTERVAL * 2){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 90, 140, 5);
+			}
+			else if (m_Anime < RUN_ANIME_INTERVAL * 3){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 180, 140, 5);
+			}
+			else if (m_Anime < RUN_ANIME_INTERVAL * 4){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 270, 140, 5);
+			}
+			else if (m_Anime < RUN_ANIME_INTERVAL * 5){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 360, 140, 5);
+			}
+			else if (m_Anime < RUN_ANIME_INTERVAL * 6){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 450, 140, 5);
+			}
+			else if (m_Anime == RUN_ANIME - 1){
+				m_Anime = 0;
 			}
 		}
-		else{
-			m_Anime = 0;
+	}
+
+	//移動モーション右
+	if (CKey::Push(VK_RIGHT)){
+		if (!CKey::Push(VK_LEFT)){
+			if (m_Anime >= 0 && m_Anime < RUN_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
+			}
+			else if (m_Anime < RUN_ANIME_INTERVAL * 2){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 180, 140, 5);
+			}
+			else if (m_Anime < RUN_ANIME_INTERVAL * 3){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 270, 140, 5);
+			}
+			else if (m_Anime <RUN_ANIME_INTERVAL * 4){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 360, 140, 5);
+			}
+			else if (m_Anime <RUN_ANIME_INTERVAL * 5){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 450, 140, 5);
+			}
+			else if (m_Anime <RUN_ANIME_INTERVAL * 6){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 540, 140, 5);
+			}
+			else if (m_Anime == RUN_ANIME - 1){
+				m_Anime = 0;
+			}
+		}
+	}
+	    //移動モーションの描画(右向き)
+		if (CKey::Push(VK_UP)||CKey::Push(VK_DOWN)){
+			if (m_Turn == E_RIGHT){
+				if (m_Anime >= 0 && m_Anime < RUN_ANIME_INTERVAL){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
+				}
+				else if (m_Anime < RUN_ANIME_INTERVAL * 2){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 180, 140, 5);
+				}
+				else if (m_Anime < RUN_ANIME_INTERVAL * 3){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 270, 140, 5);
+				}
+				else if (m_Anime <RUN_ANIME_INTERVAL * 4){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 360, 140, 5);
+				}
+				else if (m_Anime <RUN_ANIME_INTERVAL * 5){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 450, 140, 5);
+				}
+				else if (m_Anime <RUN_ANIME_INTERVAL * 6){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 540, 140, 5);
+				}
+				else if (m_Anime == RUN_ANIME-1){
+					m_Anime = 0;
+				}
+			}
+			if (m_Turn == E_LEFT){
+				if (m_Anime >= 0 && m_Anime < RUN_ANIME_INTERVAL){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 140, 5);
+				}
+				else if (m_Anime < RUN_ANIME_INTERVAL * 2){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 90, 140, 5);
+				}
+				else if (m_Anime < RUN_ANIME_INTERVAL * 3){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 180, 140, 5);
+				}
+				else if (m_Anime < RUN_ANIME_INTERVAL * 4){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 270, 140, 5);
+				}
+				else if (m_Anime < RUN_ANIME_INTERVAL * 5){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 360, 140, 5);
+				}
+				else if (m_Anime < RUN_ANIME_INTERVAL * 6){
+					i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 450, 140, 5);
+				}
+				else if (m_Anime == RUN_ANIME - 1){
+					m_Anime = 0;
+				}
+			}
+		}
+
+		if (CKey::Push(VK_RIGHT) && CKey::Push(VK_LEFT)){
+			if (m_Turn == E_RIGHT)
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 630, 140, 5);
+			else if (m_Turn == E_LEFT)
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 540, 140, 5);
 		}
 }
 

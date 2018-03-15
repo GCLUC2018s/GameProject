@@ -72,14 +72,17 @@ void Init(void)
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_blue.png", fire_Animdata, 204, 245));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 	ADD_RESOURCE("Title_pika", CAnimImage::LoadImage("title_pika.png"));
-//	ADD_RESOURCE("Title_StartText", CAnimImage::LoadImage("item_huda_1.png"));
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
 	ADD_RESOURCE("MainText", CAnimImage::LoadImage("text01.png"));
-	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_huda_1.png"));
+	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("Koban", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("Oage", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("Sake", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("Magatama", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
