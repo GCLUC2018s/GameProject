@@ -11,11 +11,13 @@ CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
 	m_move = false;
 	m_color = CColorRGBA(1.0, 1.0, 1.0, 1.0);
 }
+
 void CObjectBase::Draw()
 {
 	m_img.SetFlipH(m_flipH);
 	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
 	m_img.Draw();
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left, m_pos3D.y - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right, m_rect.m_bottom), CVector4D(1, 0, 0, 0.3));
 }
 
 ////描画順序チェック関数

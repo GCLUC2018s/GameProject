@@ -19,3 +19,17 @@ CFieldGround::CFieldGround(const bool flag):CObjectBase(0,eU_Map, eD_Ground){
 
 CFieldGround::~CFieldGround() {
 }
+
+void CFieldGround::Draw()
+{
+	m_img.SetFlipH(m_flipH);
+	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
+	m_img.Draw();
+//	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left, m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left,m_pos3D.y - m_scroll.y), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou1.m_left, m_pos3D.y - m_scroll.y + 200), CVector2D(m_rect_tourou1.m_right - m_rect_tourou1.m_left, m_rect_tourou1.m_bottom - m_rect_tourou1.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou2.m_left, m_pos3D.y - m_scroll.y + 200), CVector2D(m_rect_tourou2.m_right - m_rect_tourou2.m_left, m_rect_tourou2.m_bottom - m_rect_tourou2.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou3.m_left, m_pos3D.y - m_scroll.y + 200), CVector2D(m_rect_tourou3.m_right - m_rect_tourou3.m_left, m_rect_tourou3.m_bottom - m_rect_tourou3.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou4.m_left, m_pos3D.y - m_scroll.y + 200), CVector2D(m_rect_tourou4.m_right - m_rect_tourou4.m_left, m_rect_tourou4.m_bottom - m_rect_tourou4.m_top), CVector4D(1, 0, 0, 0.3));
+
+}

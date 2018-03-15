@@ -3,6 +3,7 @@
 
 class CTask;
 class CTaskLinker;
+class CObjectBase;
 
 class CTaskManager
 {
