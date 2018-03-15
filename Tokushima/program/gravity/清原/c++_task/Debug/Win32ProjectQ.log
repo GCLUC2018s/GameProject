@@ -1,0 +1,26 @@
+﻿2018/03/06 16:39:53 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\清原一真\Documents\GitHub\GameProject\Tokushima\program\gravity\清原\c++_重力\Win32ProjectQ.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         F:\VS\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt game.cpp gameclear_screen.cpp game_screen.cpp main.cpp gameover_screen.cpp gametitle_screen.cpp win_main.cpp
+         win_main.cpp
+         gametitle_screen.cpp
+         gameover_screen.cpp
+         main.cpp
+         game_screen.cpp
+         gameclear_screen.cpp
+         game.cpp
+         コードを生成中...
+       Link:
+         F:\VS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\清原一真\Documents\GitHub\GameProject\Tokushima\program\gravity\清原\c++_重力\Debug\Win32ProjectQ.exe" /INCREMENTAL /NOLOGO /LIBPATH:"F:\授業用\C言語\C言語\DxLib_VC\プロジェクトに追加すべきファイル_VC用" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\清原一真\Documents\GitHub\GameProject\Tokushima\program\gravity\清原\c++_重力\Debug\Win32ProjectQ.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\清原一真\Documents\GitHub\GameProject\Tokushima\program\gravity\清原\c++_重力\Debug\Win32ProjectQ.lib" /MACHINE:X86 Debug\game.obj
+         Debug\gameclear_screen.obj
+         Debug\game_screen.obj
+         Debug\main.obj
+         Debug\gameover_screen.obj
+         Debug\gametitle_screen.obj
+         Debug\win_main.obj
+         Win32ProjectQ.vcxproj -> C:\Users\清原一真\Documents\GitHub\GameProject\Tokushima\program\gravity\清原\c++_重力\Debug\Win32ProjectQ.exe
+     1>プロジェクト "C:\Users\清原一真\Documents\GitHub\GameProject\Tokushima\program\gravity\清原\c++_重力\Win32ProjectQ.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:10.47
