@@ -1,9 +1,8 @@
 #ifndef CHARABASE_GUARD
 #define CHARABASE_GUARD
 
-
-
 #include "../GameProject/Task/CTask.h"
+#include "../GameProject/Task/CTaskManager.h"
 #include "../GameProject/stdafx.h"
 #include "../GameProject/ImageResource.h"
 
@@ -35,6 +34,30 @@ protected:
 	};
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
+	//座標取得
+	CVector3D GetPos() {
+		return m_pos3D;
+	};
+	//矩形取得
+	virtual CRect GetRect() {
+		return m_rect;
+	};
+	//入れ替え用矩形取得
+	CRect GetRect_F() {
+		return m_rect_F;
+	};
+
+	//重なり確認
+	void CheckOverlap() {
+		if(m_pos3D.z<= 0){
+			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_pos3D.z);
+		}
+	};
+	////描画順位入れ替え
+	//void SwapDrawPriority(CObjectBase *t);
+
+	////描画順序チェック関数
+	//void CheckOverlapAll();
 	//~CCharaBase();
 
 	/*!
@@ -67,10 +90,10 @@ public:
 
 		return v_Price_DF;
 	}
-
-private:
 	//描画命令
 	virtual void Draw();
+	////重なり確認
+	//void CheckOverlap(CObjectBase *t1, CObjectBase *t2);
 };
 
 

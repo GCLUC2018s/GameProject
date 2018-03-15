@@ -275,8 +275,8 @@
     <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp">
       <Filter>Game\ObjectBase\MainText</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\CItem.cpp">
-      <Filter>Game\ObjectBase\Item</Filter>
-    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CPushStart\CPushStart.cpp">
+      <Filter>Game\ObjectBase\PushStart</Filter>    <ClCompile Include="Game\CObjectBase\CItem\CItem.cpp">
+      <Filter>Game\ObjectBase\Item</Filter>    </ClCompile>
   </ItemGroup>
 </Project>
