@@ -8,10 +8,10 @@
 class C_Object :public CTask{
 public:
 	//コンストラクタでidとプライオリティの設定とメンバーの初期化
-	C_Object(int id, int updatePrio, int drawPrio)
+	C_Object(int id, int updatePrio, int drawPrio,float posx,float posy,float posz)
 		:CTask(id, updatePrio, drawPrio)
 		, init(false)
-		, m_Position(0.0f, 0.0f, 0.0f)
+		, m_Position(posx,posy,posz)
 		, m_Speed(0.0f, 0.0f, 0.0f)
 	{}
 	bool init;  //Initを通ったかどうか
