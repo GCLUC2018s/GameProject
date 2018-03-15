@@ -21,6 +21,7 @@ private:
 	enum {
 		eNutral,
 		eAttack,
+		eBill,
 		eDamage,
 		eFall,
 	};
@@ -29,6 +30,7 @@ private:
 	CVector3D Die(CVector3D vec);			//やられた時の動き
 	void Nutral();		//通常時の行動関数
 	void Attack();		//攻撃時の行動関数
+	void Bill();		//お札攻撃時の行動関数
 	void Damage();		//攻撃を受けた時の行動関数
 	void Fall();		//やられた時の行動関数
 	bool	m_punch1;	//パンチ一回目

@@ -112,6 +112,9 @@ void CPlayer::Update() {
 		m_state = eNutral;
 	}
 
+	if (m_anim == 8 && m_img.GetIndex() == 2) {
+		m_state = eNutral;
+	}
 
 	if (m_squat&&m_img.GetIndex() == 1) {
 	}//ここからジャンプモーション
@@ -161,7 +164,8 @@ void CPlayer::Nutral() {
 	//移動
 	if (!m_squat) {
 		if (!m_jump && HOLD_UP) {
-			m_vec3D.z = -10;
+			m_vec3D.z = -10; 
+			if (m_pos3D.z != 0 && m_pos3D.z != -430)
 			m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
@@ -169,6 +173,7 @@ void CPlayer::Nutral() {
 		}
 		if (!m_jump && HOLD_DOWN) {
 			m_vec3D.z = 10;
+			if (m_pos3D.z != 0 && m_pos3D.z != -430)
 			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
@@ -246,6 +251,13 @@ void CPlayer::Nutral() {
 		m_hp -= 2;
 		m_cnt = 0;
 	}
+	if (!m_jump && PUSH_E) {
+		m_anim = 8;
+		m_state = eAttack;
+	}
+}
+
+void CPlayer::Bill() {
 }
 
 void CPlayer::Attack(){

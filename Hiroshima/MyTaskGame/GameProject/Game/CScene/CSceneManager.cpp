@@ -60,9 +60,8 @@ void CSceneManager::MainScene(){
 	new CEnemy4(&(CVector3D(300, 400, 0)));
 	new CEnemy5(&(CVector3D(400, 450, 0)));
 	//new CBoss(&(CVector3D(3000, 50, 0)));
-	new CGimmick(&(CVector3D(500, 500, 0)));
-	new CGimmick(&(CVector3D(250, 500, 0)));
-	new CGimmick(&(CVector3D(500, 250, 0)));
+	new CGimmick(&(CVector3D(500, 470, 0)));
+	new CGimmick(&(CVector3D(500, 520, 0)));
 //	new CFieldBG();
 	new CFieldSky();
 	new CFieldCloud();
