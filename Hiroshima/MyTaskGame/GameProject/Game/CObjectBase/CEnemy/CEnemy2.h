@@ -15,11 +15,11 @@
 »ìÒ@Â–Ø
 
 */
-//’ñ“”
 class CEnemy2 :public CEnemyBase {
 private:
 	float m_a;	//•‚—V—p
 public:
+	//’ñ“”
 	CEnemy2(const CVector3D *pos);
 	~CEnemy2();
 	void Update();

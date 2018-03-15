@@ -14,9 +14,10 @@ CFieldGround::CFieldGround():CObjectBase(0,eU_Map,eD_Map){
 }
 
 CFieldGround::~CFieldGround(){
-
 }
 
 void CFieldGround::Update(){
-	
+	if (m_pos3D.x > GROUND_WIDTH - SCREEN_WIDTH) {
+		new CFieldGround();
+	}
 }
