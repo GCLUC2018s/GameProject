@@ -369,5 +369,8 @@
     <Filter Include="Game\ObjectBase\Chara\Enemy\BossBase">
       <UniqueIdentifier>{f0f16911-09f6-4687-8af7-9aa78c20b316}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\Chara\Enemy\BossBase">
+      <UniqueIdentifier>{5087e820-5f7f-449b-ad5f-a857598d55bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
