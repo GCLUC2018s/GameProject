@@ -62,6 +62,7 @@ void CEnemy1::Update() {
 	
 	m_img.UpdateAnimation();
 	CheckOverlap();
+	m_rect_F = CRect(64, 135, 166, 237 - m_pos3D.y);
 }
 
 
