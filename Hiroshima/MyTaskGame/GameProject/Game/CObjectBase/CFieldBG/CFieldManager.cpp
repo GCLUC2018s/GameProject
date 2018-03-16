@@ -6,6 +6,7 @@ CFieldManager::CFieldManager() :CObjectBase(0, eU_System, eD_Null)
 	new CFieldCloud(0);
 	new CFieldBamboo(0);
 	new CFieldGround(0);
+	new CFieldGround(1);
 }
 
 CFieldManager::~CFieldManager()
