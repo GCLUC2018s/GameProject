@@ -133,8 +133,9 @@ void CNpc::Draw(){
 	DrawGraph(m_pos.getX(), m_pos.getY(), m_shadowimg, TRUE);
 	if (m_shop_flag){
 		for (int i = 1; i < 4; i++){
-			DrawGraph(i * 300, 200, m_flame[m_sell_item[i - 1].m_type], TRUE);
-			DrawGraph(i * 300, 200, m_sell_item[i - 1].m_img, TRUE);
+			DrawGraph(i * FLAME_INTERVAL, 200, m_flame[m_sell_item[i - 1].m_type], TRUE);
+			DrawGraph(i * FLAME_INTERVAL, 200, m_sell_item[i - 1].m_img, TRUE);
+			DrawGraph(m_cursor * FLAME_INTERVAL + FLAME_INTERVAL, 200, m_flame[3], TRUE);
 		}
 	}
 	
