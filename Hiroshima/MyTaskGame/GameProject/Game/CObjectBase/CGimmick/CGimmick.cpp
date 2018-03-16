@@ -5,7 +5,7 @@
 
 */
 
-CGimmick::CGimmick(CVector3D *pos) :CObjectBase(eID_Gimmick, eU_Gimmick, eD_Object) {
+CFire::CFire(CVector3D *pos) :CObjectBase(eID_Gimmick, eU_Gimmick, eD_Object) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Fire"));
 	m_img.SetSize(100, 200);
 	m_pos3D = *pos;
@@ -13,16 +13,16 @@ CGimmick::CGimmick(CVector3D *pos) :CObjectBase(eID_Gimmick, eU_Gimmick, eD_Obje
 	m_rect_F = m_rect;
 }
 
-CGimmick::~CGimmick(){
+CFire::~CFire(){
 }
 
-void CGimmick::Update(){
+void CFire::Update(){
 	m_img.ChangeAnimation(0);
 	m_img.UpdateAnimation();
 	CheckOverlap();
 }
 
-void CGimmick::Draw(){
+void CFire::Draw(){
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x, 550 + m_pos3D.y + m_pos3D.z - m_scroll.y);
 	m_img.Draw();
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));

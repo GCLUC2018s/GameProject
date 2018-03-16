@@ -8,10 +8,10 @@
 
 */
 
-class CGimmick :public CObjectBase {
+class CFire :public CObjectBase {
 public:
-	CGimmick(CVector3D *pos);
-	~CGimmick();
+	CFire(CVector3D *pos);
+	~CFire();
 	void Update();
 	void Draw();
 

@@ -65,8 +65,8 @@ void CSceneManager::MainScene(){
 	new CEnemy5(&(CVector3D(200, 0, -130)));*/
 	new CBoss(&(CVector3D(3000, 0, -500)), &(CVector3D(2500, 0, -500)),
 		&(CVector3D(3500, 0, -500)), &(CVector3D(3000, 100, -500)));
-	new CGimmick(&(CVector3D(500, 0, -20)));
-	new CGimmick(&(CVector3D(500, 0, -100)));
+	new CFire(&(CVector3D(500, 0, -20)));
+	new CFire(&(CVector3D(500, 0, -100)));
 	new CItemBox(&(CVector3D(1000, 0, -200)), 0);
 	new CItemBox(&(CVector3D(1250, 0, -200)), 1);
 	new CFieldManager();
