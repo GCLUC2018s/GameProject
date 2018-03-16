@@ -11,62 +11,62 @@ void CEnemy::Init(){
 	{
 	case 0:
 		C_Vector3(700,0,35);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 1:
 		C_Vector3(700, 0, -105);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 2:
 		C_Vector3(700, 0, -235);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 3:
 		C_Vector3(700, 0, -365);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 4:
 		C_Vector3(-700, 0, 35);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 5:
 		C_Vector3(-700, 0, -105);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 6:
 		C_Vector3(-700, 0,-235);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 7:
 		C_Vector3(-700, 0, -365);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 8:
 		C_Vector3(700, 0, 35);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 	case 9:
 		C_Vector3(700, 0, -105);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 	case 10:
 		C_Vector3(700, 0, -235);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 	case 11:
 		C_Vector3(700, 0, -365);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 		m_EnemyCount += 1;
 	}
 }
 void CEnemy::Update(){
 	//‹ß‹——£í“¬Œ^‚Ì“G‚Ìˆ—
-	if (m_EnemyKind == 0){
+	if (m_EnemyKind == E_KIN){
 
 	}
 	//“¦‘–Œ^‚Ì“G‚Ìˆ—
-	else{
+	if (m_EnemyKind==E_ESCAPE){
 		if (m_Position.x<=700){
 			
 		}
