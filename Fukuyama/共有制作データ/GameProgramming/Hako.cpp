@@ -2,9 +2,11 @@
 #include"CKey.h"
 #include"windows.h"
 #include"task\CTaskManager.h"
+int m_EnemyCount = 0;
 //ポーズ画面の判定用
 int Paws = 0;
 void Hako::Init(){
+	m_EnemyCount = 0;
 	//テクスチャ読み込み
 	mTexture.Load("Image(kari).tga");
 	mTexture2.Load("spray-icon.tga");
@@ -33,10 +35,11 @@ void Hako::Update(){
 				if (m_EnemyInterval < 60){
 					m_EnemyInterval += 1;
 				}
-				if (m_EnemyInterval == 60){
+				if (m_EnemyInterval == 60 && m_EnemyCount < 10){
 					Enemy = new CEnemy();
 					Enemy -> Init();
 					m_EnemyInterval = 0;
+					m_EnemyCount += 1;
 				}
 			if (CKey::Once('P')){
 				//ポーズへ
