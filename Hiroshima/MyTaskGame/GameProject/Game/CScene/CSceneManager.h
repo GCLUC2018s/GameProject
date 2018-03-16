@@ -9,6 +9,7 @@
 */
 
 enum {
+	eDebug,
 	eGameStart,
 	eTitle,
 	eMain,

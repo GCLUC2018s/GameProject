@@ -54,10 +54,10 @@
       <Filter>Game\ObjectBase</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
-      <Filter>Game\ObjectBase\Gimmick\Hono</Filter>
+      <Filter>Game\ObjectBase\Gimmick\Fire</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
-      <Filter>Game\ObjectBase\Gimmick\Jinari</Filter>
+      <Filter>Game\ObjectBase\Gimmick\Shake</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp">
       <Filter>Game\ObjectBase\Chara\Player</Filter>
@@ -101,8 +101,14 @@
     <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp">
       <Filter>Game\ObjectBase\Pic\GO</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CScene\DebugScene\DebugScene.cpp">
+      <Filter>Game\System\DebugScene</Filter>
+    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp">
       <Filter>Game\ObjectBase\Item\Kakera</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CItemBox.cpp">
+      <Filter>Game\ObjectBase\Gimmick\ItemBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,10 +167,10 @@
       <Filter>Game\ObjectBase</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
-      <Filter>Game\ObjectBase\Gimmick\Hono</Filter>
+      <Filter>Game\ObjectBase\Gimmick\Fire</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
-      <Filter>Game\ObjectBase\Gimmick\Jinari</Filter>
+      <Filter>Game\ObjectBase\Gimmick\Shake</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h">
       <Filter>Game\ObjectBase\Chara\Player</Filter>
@@ -217,8 +223,14 @@
     <ClInclude Include="Game\CObjectBase\CGo\CGo.h">
       <Filter>Game\ObjectBase\Pic\GO</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CScene\DebugScene\DebugScene.h">
+      <Filter>Game\System\DebugScene</Filter>
+    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h">
       <Filter>Game\ObjectBase\Item\Kakera</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CItemBox.h">
+      <Filter>Game\ObjectBase\Gimmick\ItemBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -294,12 +306,6 @@
     <Filter Include="Game\ObjectBase\Gimmick">
       <UniqueIdentifier>{b768fc6b-7dd8-45a0-b27d-513ea6d79149}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Gimmick\Hono">
-      <UniqueIdentifier>{0e4c55c8-ccfe-4637-ae2f-dce69d40d1c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Gimmick\Jinari">
-      <UniqueIdentifier>{6a61a75f-7a7f-4d5e-bf3c-a9424e0f334f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\ObjectBase\Item">
       <UniqueIdentifier>{503140e1-cca9-40f1-8d00-030e31dbf03a}</UniqueIdentifier>
     </Filter>
@@ -348,8 +354,25 @@
     <Filter Include="Game\ObjectBase\Pic\Magatama">
       <UniqueIdentifier>{69fbd1b3-b848-4f7a-8f34-d174652fbcc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\System\DebugScene">
+      <UniqueIdentifier>{93e96658-bc97-4a53-85c9-ee23ddae5807}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Game\ObjectBase\Item\Kakera">
       <UniqueIdentifier>{4f390836-a638-4867-b0fe-b40ba76f843f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Chara\Enemy\BossBase">
+      <UniqueIdentifier>{f0f16911-09f6-4687-8af7-9aa78c20b316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Chara\Enemy\BossBase">
+      <UniqueIdentifier>{5087e820-5f7f-449b-ad5f-a857598d55bc}</UniqueIdentifier>
+    <Filter Include="Game\ObjectBase\Gimmick\Fire">
+      <UniqueIdentifier>{0e4c55c8-ccfe-4637-ae2f-dce69d40d1c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Gimmick\Shake">
+      <UniqueIdentifier>{6a61a75f-7a7f-4d5e-bf3c-a9424e0f334f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Gimmick\ItemBox">
+      <UniqueIdentifier>{b4089cf4-7bea-4e83-95e6-c4bf293e62b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

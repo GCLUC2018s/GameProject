@@ -91,6 +91,14 @@ TexAnimData fire_Animdata[] = {
 	ANIMDATA(_GI_fire),
 };
 
+TexAnim _GI_ItemBox[] = {
+	{ 0,10 },
+	{ 1,10 },
+};
+TexAnimData itembox_Animdata[] = {
+	ANIMDATA(_GI_ItemBox),
+};
+
 
 TexAnim _KAMAITACHI_anim[] = {
 	{ 0,30 },
