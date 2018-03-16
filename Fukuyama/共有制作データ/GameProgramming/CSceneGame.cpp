@@ -1,6 +1,7 @@
 #include"CSceneGame.h"
 #include"CKey.h"
 #include"windows.h"
+#include "CCollider.h"
 //ポーズ画面の判定用
 int PawsCount = 0;
 
@@ -17,7 +18,7 @@ void CSceneGame::Update(){
 	{
 	case 0:
 		//タイトル画面
-		mTexture2.DrawImage(-600, 600, -440, 450, 0, 90, 90, 0);
+		//mTexture2.DrawImage(-600, 600, -440, 450, 0, 90, 90, 0);
 		if (GetKeyState(VK_RETURN) & 0x8000){
 			//プレイ画面に移動
 			GameScene = 1;

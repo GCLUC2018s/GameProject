@@ -75,12 +75,6 @@
     <ClCompile Include="draw\scroll.cpp">
       <Filter>ソース ファイル\draw</Filter>
     </ClCompile>
-    <ClCompile Include="object\CManhole.cpp">
-      <Filter>ソース ファイル\object</Filter>
-    </ClCompile>
-    <ClCompile Include="object\CDrum.cpp">
-      <Filter>ソース ファイル\object</Filter>
-    </ClCompile>
     <ClCompile Include="object\C_Object.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
@@ -89,6 +83,15 @@
     </ClCompile>
     <ClCompile Include="CEnemy.cpp">
       <Filter>ソース ファイル\chara</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="object\CDrum.cpp">
+      <Filter>ソース ファイル\object</Filter>
+    </ClCompile>
+    <ClCompile Include="object\CManhole.cpp">
+      <Filter>ソース ファイル\object</Filter>
     </ClCompile>
     <ClCompile Include="CBackGround.cpp">
       <Filter>ソース ファイル\Scene</Filter>
@@ -137,12 +140,6 @@
     <ClInclude Include="draw\scroll.h">
       <Filter>ソース ファイル\draw</Filter>
     </ClInclude>
-    <ClInclude Include="object\CManhole.h">
-      <Filter>ソース ファイル\object</Filter>
-    </ClInclude>
-    <ClInclude Include="object\CDrum.h">
-      <Filter>ソース ファイル\object</Filter>
-    </ClInclude>
     <ClInclude Include="object\C_Object.h">
       <Filter>ソース ファイル\object</Filter>
     </ClInclude>
@@ -154,6 +151,15 @@
     </ClInclude>
     <ClInclude Include="CBackGround.h">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="object\CDrum.h">
+      <Filter>ソース ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="object\CManhole.h">
+      <Filter>ソース ファイル\object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

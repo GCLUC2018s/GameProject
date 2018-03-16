@@ -2,10 +2,9 @@
 //テクスチャクラスをインスタンス化
 CTexture mTexture;
 
-int C_Drum::Dmain(){
+void C_Drum::Dmain(){
 	//シードで乱数を初期化
 	srand((unsigned)time(NULL));
-	return 0;
 }
 
 //アニメーションカウント
@@ -29,11 +28,11 @@ C_Drum::C_Drum()
 	else if (m_DrumPos_Random == 2){
 		m_Position.z += Zpos_SetPos_Down;
 	}
-	mTexture.Load("object/Drum.tga");
 }
 
 //更新処理
 void C_Drum::Update(){
+	mTexture.Load("object/Drum.tga");
 	//画面左端に行った時
 	if (m_Position.x < DISPLAY_LEFT){
 		SetKill();
