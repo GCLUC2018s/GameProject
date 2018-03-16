@@ -14,6 +14,7 @@
 
 void MainLoop(void) {
 	CTaskManager::GetInstance()->UpdateAll();
+	CTaskManager::GetInstance()->HitChackAll();
 	CTaskManager::GetInstance()->DrawAll();
 	CTaskManager::GetInstance()->KillAppoint();
 }
@@ -49,6 +50,12 @@ void Init(void)
 	CInput::SetButton(0, CInput::eMouseL, VK_LBUTTON);
 	CInput::SetButton(0, CInput::eMouseR, VK_RBUTTON);
 	CInput::SetButton(0, CInput::eMouseC, VK_MBUTTON);
+	//Debug—p
+	CInput::SetButton(0, CInput::eNum0, '0');
+	CInput::SetButton(0, CInput::eNum1, '1');
+	CInput::SetButton(0, CInput::eNum2, '2');
+	CInput::SetButton(0, CInput::eNum3, '3');
+	CInput::SetButton(0, CInput::eNum4, '4');
 
 
 	//CInput::SetMouseInside(true); 
@@ -84,6 +91,8 @@ void Init(void)
 	ADD_RESOURCE("Sake", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("Magatama", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
+	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));
+	ADD_RESOURCE("ItemBox", CAnimImage::LoadImage("itembox_motion_object.png", itembox_Animdata, 512, 512));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
@@ -103,7 +112,7 @@ void Init(void)
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
 
-	NEW_SCENE(eMain);
+	NEW_SCENE(eDebug);
 }
 
 void release()

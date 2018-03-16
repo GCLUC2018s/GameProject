@@ -5,14 +5,18 @@
 êªçÏé“Å@ê¬ñÿ
 
 */
-CBoss::CBoss(const CVector3D *pos) :CObjectBase(0, eU_Enemy, eD_Object) {
-	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
-	m_img.SetSize(256 * 3, 256 * 3);
+CBoss::CBoss(const CVector3D *pos) :CBossBase() {
+	//m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
+	m_head = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
+	m_arm = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
+	m_arm = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
+	m_tail = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
+	//m_img.SetSize(BOSS_SIZ_X , BOSS_SIZ_Y );
 	m_pos3D = *pos;
 	m_hp = BOSS_HP;
 	m_at = BOSS_AT;
 	m_test = 0;
-	m_rect = CRect(0, 0, 256 * 3, 256 * 3);
+	m_rect = CRect(0, 0, BOSS_SIZ_X, BOSS_SIZ_Y);
 	//m_rect_F = CRect(0, 0, 256 * 3, 256 * 3);
 }
 
@@ -58,4 +62,16 @@ void CBoss::Update() {
 		m_test++;
 	}
 	m_img.UpdateAnimation();
+}
+
+void CBoss::Draw() {
+	m_head.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
+	m_arm.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
+	m_arm.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
+	m_tail.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
+
+	m_head.SetPos(m_headpos3D);
+	m_arm.SetSize(m_armpos3D);
+	m_arm.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
+	m_tail.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
 }

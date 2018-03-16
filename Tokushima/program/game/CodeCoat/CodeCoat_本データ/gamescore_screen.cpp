@@ -4,6 +4,12 @@
 CGameScoreScreen::CGameScoreScreen()
 {
 	m_state = GAMESCORE_SCREEN;
+	//初期化
+	m_lasttime = GetNowCount() & INT_MAX;
+	PlaySoundMem(m_GoverSound, DX_PLAYTYPE_BACK);
+	//ロード
+	m_BGclearImage = LoadGraph("media\\img\\GAMECLEAR2.png");
+	m_GoverSound = LoadSoundMem("media\\mp3\\gameover\\sousou3.mp3");
 }
 
 //デストラクタ
@@ -11,18 +17,6 @@ CGameScoreScreen::~CGameScoreScreen(){}
 
 void CGameScoreScreen::Dest(){
 	StopSoundMem(m_GoverSound);
-}
-
-//ロード
-void CGameScoreScreen::Load(){
-	m_BGclearImage = LoadGraph("media\\img\\GAMECLEAR2.png");
-	m_GoverSound = LoadSoundMem("media\\mp3\\gameover\\sousou3.mp3");
-}
-
-//初期化
-void CGameScoreScreen::Init(){
-	m_lasttime = GetNowCount() & INT_MAX;
-	PlaySoundMem(m_GoverSound, DX_PLAYTYPE_BACK);
 }
 
 //実行処理

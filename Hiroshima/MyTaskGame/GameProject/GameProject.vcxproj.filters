@@ -1,66 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="ImageResource.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp">
-      <Filter>Game\ObjectBase\Pic\BackBlack</Filter>
+    <ClCompile Include="Game\CObjectBase\CEnemy\BossBase.cpp">
+      <Filter>Game\Object\Chara\Enemy\BossBase</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\Boss</Filter>
+      <Filter>Game\Object\Chara\Enemy\Boss</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\Daruma</Filter>
+      <Filter>Game\Object\Chara\Enemy\Daruma</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\Chochin</Filter>
+      <Filter>Game\Object\Chara\Enemy\Chochin</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy3.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\Hi</Filter>
+      <Filter>Game\Object\Chara\Enemy\Hi</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy4.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\Kamaitachi</Filter>
+      <Filter>Game\Object\Chara\Enemy\Kamaitachi</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\Niku</Filter>
+      <Filter>Game\Object\Chara\Enemy\Niku</Filter>
     </ClCompile>
     <ClCompile Include="Game\CEnemyAI.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\EnemyAI</Filter>
+      <Filter>Game\Object\Chara\Enemy\AI</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\EnemyBase</Filter>
+      <Filter>Game\Object\Chara\Enemy\Base</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyManager.cpp">
-      <Filter>Game\ObjectBase\Chara\Enemy\EnemyManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp">
-      <Filter>Game\ObjectBase\Field\Bamboo</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp">
-      <Filter>Game\ObjectBase\Field\Cloud</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp">
-      <Filter>Game\ObjectBase\Field\Ground</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
-      <Filter>Game\ObjectBase\Field\Sky</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp">
-      <Filter>Game\ObjectBase\Pic\GameStart</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp">
-      <Filter>Game\ObjectBase\Pic\MainText</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CObjectBase.cpp">
-      <Filter>Game\ObjectBase</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
-      <Filter>Game\ObjectBase\Gimmick\Hono</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
-      <Filter>Game\ObjectBase\Gimmick\Jinari</Filter>
+      <Filter>Game\Object\Chara\Enemy\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp">
-      <Filter>Game\ObjectBase\Chara\Player</Filter>
+      <Filter>Game\Object\Chara\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp">
+      <Filter>Game\Object\Pic\BB</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp">
+      <Filter>Game\Object\Field\Bamboo</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp">
+      <Filter>Game\Object\Field\Cloud</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp">
+      <Filter>Game\Object\Field\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp">
+      <Filter>Game\Object\Field\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp">
+      <Filter>Game\Object\Field\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp">
+      <Filter>Game\Object\Pic\GameStart</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
+      <Filter>Game\Object\Gimmick\Gimmick1</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
+      <Filter>Game\Object\Gimmick\Gimmick2</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp">
+      <Filter>Game\Object\Pic\Go</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CItemBox.cpp">
+      <Filter>Game\Object\Item\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp">
+      <Filter>Game\Object\Item\Kakera</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp">
+      <Filter>Game\Object\Item\Koban</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
+      <Filter>Game\Object\Item\Oage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp">
+      <Filter>Game\Object\UI\Magatama</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp">
+      <Filter>Game\Object\Pic\MainText</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CObjectBase.cpp">
+      <Filter>Game\Object\ObjectBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\COhuda\COhuda.cpp">
+      <Filter>Game\Object\Item\Ohuda</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CSake\CSake.cpp">
+      <Filter>Game\Object\Item\Sake</Filter>
     </ClCompile>
     <ClCompile Include="Game\CScene\CSceneManager.cpp">
       <Filter>Game\System\SceneManager</Filter>
@@ -68,103 +99,113 @@
     <ClCompile Include="Task\CTask.cpp">
       <Filter>Game\System\Task</Filter>
     </ClCompile>
-    <ClCompile Include="Task\CTaskManager.cpp">
-      <Filter>Game\System\TaskManager</Filter>
-    </ClCompile>
     <ClCompile Include="Task\CTaskLinker.cpp">
       <Filter>Game\System\TaskLinker</Filter>
     </ClCompile>
+    <ClCompile Include="Task\CTaskManager.cpp">
+      <Filter>Game\System\TaskManager</Filter>
+    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp">
-      <Filter>Game\ObjectBase\Pic\Title</Filter>
+      <Filter>Game\Object\Pic\Title</Filter>
     </ClCompile>
-    <ClCompile Include="ImageResource.cpp">
-      <Filter>ImageResource</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\COhuda\COhuda.cpp">
-      <Filter>Game\ObjectBase\Item\Ohuda</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp">
-      <Filter>Game\ObjectBase\Item\Kobann</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\CSake\CSake.cpp">
-      <Filter>Game\ObjectBase\Item\Sake</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp">
-      <Filter>Game\ObjectBase\Pic\Magatama</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
-      <Filter>Game\ObjectBase\Item\Oage</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp">
-      <Filter>Game\ObjectBase\Field\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp">
-      <Filter>Game\ObjectBase\Pic\GO</Filter>
+    <ClCompile Include="Game\CScene\DebugScene\DebugScene.cpp">
+      <Filter>Game\System\DebugScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
     <ClInclude Include="Global.h" />
+    <ClInclude Include="ImageResource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Game\CObjectBase\CBB\CBB.h">
-      <Filter>Game\ObjectBase\Pic\BackBlack</Filter>
+    <ClInclude Include="Game\CObjectBase\CEnemy\BossBase.h">
+      <Filter>Game\Object\Chara\Enemy\BossBase</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\Boss</Filter>
+      <Filter>Game\Object\Chara\Enemy\Boss</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\Daruma</Filter>
+      <Filter>Game\Object\Chara\Enemy\Daruma</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\Chochin</Filter>
+      <Filter>Game\Object\Chara\Enemy\Chochin</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy3.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\Hi</Filter>
+      <Filter>Game\Object\Chara\Enemy\Hi</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy4.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\Kamaitachi</Filter>
+      <Filter>Game\Object\Chara\Enemy\Kamaitachi</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\Niku</Filter>
+      <Filter>Game\Object\Chara\Enemy\Niku</Filter>
     </ClInclude>
     <ClInclude Include="Game\CEnemyAI.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\EnemyAI</Filter>
+      <Filter>Game\Object\Chara\Enemy\AI</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\EnemyBase</Filter>
+      <Filter>Game\Object\Chara\Enemy\Base</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyManager.h">
-      <Filter>Game\ObjectBase\Chara\Enemy\EnemyManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h">
-      <Filter>Game\ObjectBase\Field\Bamboo</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h">
-      <Filter>Game\ObjectBase\Field\Cloud</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h">
-      <Filter>Game\ObjectBase\Field\Ground</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
-      <Filter>Game\ObjectBase\Field\Sky</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h">
-      <Filter>Game\ObjectBase\Pic\GameStart</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h">
-      <Filter>Game\ObjectBase\Pic\MainText</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CObjectBase.h">
-      <Filter>Game\ObjectBase</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
-      <Filter>Game\ObjectBase\Gimmick\Hono</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
-      <Filter>Game\ObjectBase\Gimmick\Jinari</Filter>
+      <Filter>Game\Object\Chara\Enemy\Manager</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h">
-      <Filter>Game\ObjectBase\Chara\Player</Filter>
+      <Filter>Game\Object\Chara\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CBB\CBB.h">
+      <Filter>Game\Object\Pic\BB</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h">
+      <Filter>Game\Object\Field\Bamboo</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h">
+      <Filter>Game\Object\Field\Cloud</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h">
+      <Filter>Game\Object\Field\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h">
+      <Filter>Game\Object\Field\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h">
+      <Filter>Game\Object\Field\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h">
+      <Filter>Game\Object\Pic\GameStart</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
+      <Filter>Game\Object\Gimmick\Gimmick1</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
+      <Filter>Game\Object\Gimmick\Gimmick2</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGo\CGo.h">
+      <Filter>Game\Object\Pic\Go</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CItemBox.h">
+      <Filter>Game\Object\Item\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h">
+      <Filter>Game\Object\Item\Kakera</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h">
+      <Filter>Game\Object\Item\Koban</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
+      <Filter>Game\Object\Item\Oage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h">
+      <Filter>Game\Object\UI\Magatama</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h">
+      <Filter>Game\Object\Pic\MainText</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CObjectBase.h">
+      <Filter>Game\Object\ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h">
+      <Filter>Game\Object\Item\Ohuda</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CSake\CSake.h">
+      <Filter>Game\Object\Item\Sake</Filter>
     </ClInclude>
     <ClInclude Include="Game\CScene\CSceneManager.h">
       <Filter>Game\System\SceneManager</Filter>
@@ -172,32 +213,17 @@
     <ClInclude Include="Task\CTask.h">
       <Filter>Game\System\Task</Filter>
     </ClInclude>
-    <ClInclude Include="Task\CTaskManager.h">
-      <Filter>Game\System\TaskManager</Filter>
-    </ClInclude>
     <ClInclude Include="Task\CTaskLinker.h">
       <Filter>Game\System\TaskLinker</Filter>
     </ClInclude>
+    <ClInclude Include="Task\CTaskManager.h">
+      <Filter>Game\System\TaskManager</Filter>
+    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h">
-      <Filter>Game\ObjectBase\Pic\Title</Filter>
+      <Filter>Game\Object\Pic\Title</Filter>
     </ClInclude>
-    <ClInclude Include="ImageResource.h">
-      <Filter>ImageResource</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h">
-      <Filter>Game\ObjectBase\Item\Ohuda</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\CSake\CSake.h">
-      <Filter>Game\ObjectBase\Item\Sake</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h">
-      <Filter>Game\ObjectBase\Pic\Magatama</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h">
-      <Filter>Game\ObjectBase\Item\Kobann</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h">
-      <Filter>Game\ObjectBase\Item\Oage</Filter>
+    <ClInclude Include="Game\CScene\DebugScene\DebugScene.h">
+      <Filter>Game\System\DebugScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemysource.h">
       <Filter>Game\Source</Filter>
@@ -208,139 +234,148 @@
     <ClInclude Include="Source\Gamesource.h">
       <Filter>Game\Source</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h">
-      <Filter>Game\ObjectBase\Field\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CGo\CGo.h">
-      <Filter>Game\ObjectBase\Pic\GO</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
-      <UniqueIdentifier>{fe9edd46-fd4b-4155-9e51-718ada1d736a}</UniqueIdentifier>
+      <UniqueIdentifier>{52f51a3d-db5a-41a4-8144-0ac564fdacf0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase">
-      <UniqueIdentifier>{4aff3f3a-3589-4f9d-9eb8-395a88796845}</UniqueIdentifier>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{f402c071-26a7-4d72-b4af-1a54f1f60590}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Field">
-      <UniqueIdentifier>{9f561bf7-0b1e-461b-9f9b-af25fc87a90f}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara">
+      <UniqueIdentifier>{81e02f8d-5bc9-4f93-a3dc-7dcdb66780c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Field\Bamboo">
-      <UniqueIdentifier>{26c5b787-1683-4747-ae54-d642071d312b}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy">
+      <UniqueIdentifier>{01f756d6-689d-4056-98c3-f819dac632a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Field\Cloud">
-      <UniqueIdentifier>{021e27ef-bdc9-4992-928d-e713c34c09b2}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\BossBase">
+      <UniqueIdentifier>{5d29fe93-e456-40e4-ae19-8eb208448b05}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Field\Ground">
-      <UniqueIdentifier>{fd945887-c547-472e-af00-5af2ed8deaeb}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Boss">
+      <UniqueIdentifier>{58bcc58f-3afb-4194-b25e-6e597da6bc6c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Field\Sky">
-      <UniqueIdentifier>{46c05fed-e7f5-403d-8392-050617759b26}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Daruma">
+      <UniqueIdentifier>{5b822c56-e902-4efa-9fde-65b587d4e9e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara">
-      <UniqueIdentifier>{6e9a6749-545b-49fb-8b05-e743cec934f0}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Chochin">
+      <UniqueIdentifier>{262ebb19-456e-41a3-9504-d1daba6c7917}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Player">
-      <UniqueIdentifier>{5fa5c44f-5cd7-4775-9f23-4c35b7069bba}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Hi">
+      <UniqueIdentifier>{db20f4e0-1227-4a54-b8f9-68f5db94c052}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy">
-      <UniqueIdentifier>{6e9107de-a018-4c37-b5c3-a89325ff08eb}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Kamaitachi">
+      <UniqueIdentifier>{9575b24c-a2fb-4ae7-bdfe-98f705de37b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\Boss">
-      <UniqueIdentifier>{53aa4f95-ee26-4535-8604-b3f696e8bc50}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Niku">
+      <UniqueIdentifier>{2c5dd2fb-4893-4955-84b1-b9dc02629841}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\Daruma">
-      <UniqueIdentifier>{63300ddd-202f-409b-b5a6-6244eee1b52a}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\AI">
+      <UniqueIdentifier>{b8ea31d6-f991-48e5-89e5-da4c577c5202}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\Chochin">
-      <UniqueIdentifier>{df1233e4-db8f-49bb-92da-a34c3efc057d}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Base">
+      <UniqueIdentifier>{aa17f0fc-5a77-441d-8888-055c177f5172}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\Hi">
-      <UniqueIdentifier>{65d6d4b9-5968-4ce4-b63d-57b0e5a7c103}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Enemy\Manager">
+      <UniqueIdentifier>{0282f4a7-fe53-4aa6-a078-e9db55d522e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\Kamaitachi">
-      <UniqueIdentifier>{e138205b-c520-49ae-9267-9b43d50ef0ba}</UniqueIdentifier>
+    <Filter Include="Game\Object\Chara\Player">
+      <UniqueIdentifier>{7eedd530-e54f-452f-acce-254004e0ac37}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\Niku">
-      <UniqueIdentifier>{4f239cac-65d3-4f02-ae4b-c2058589e5ec}</UniqueIdentifier>
+    <Filter Include="Game\Object\Field">
+      <UniqueIdentifier>{3c3a4aed-57d9-4da6-9814-e1883ad54454}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\EnemyAI">
-      <UniqueIdentifier>{ff343bdc-df6e-4889-93e5-0de879b1b6b7}</UniqueIdentifier>
+    <Filter Include="Game\Object\Field\Bamboo">
+      <UniqueIdentifier>{05116017-6a34-45ac-b810-1c3afda0d59e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\EnemyBase">
-      <UniqueIdentifier>{2fa1e7b1-d2b3-475c-8771-0d048652d6bc}</UniqueIdentifier>
+    <Filter Include="Game\Object\Field\Cloud">
+      <UniqueIdentifier>{d8df0f7e-b0b3-43a1-b1de-7c36ecaab536}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Chara\Enemy\EnemyManager">
-      <UniqueIdentifier>{de55e818-7b18-4ce0-8acc-69118986961a}</UniqueIdentifier>
+    <Filter Include="Game\Object\Field\Ground">
+      <UniqueIdentifier>{4c558c4c-813d-41bd-9ef4-1cc698a0b7c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Pic">
-      <UniqueIdentifier>{5e9c46ff-6b5d-450e-9505-c5e143f00d8a}</UniqueIdentifier>
+    <Filter Include="Game\Object\Field\Manager">
+      <UniqueIdentifier>{d43a7592-ce44-45a3-abe0-54a558f6d489}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Pic\BackBlack">
-      <UniqueIdentifier>{2a3f922a-b5f5-4dd3-a4eb-a3ce49f0e292}</UniqueIdentifier>
+    <Filter Include="Game\Object\Pic">
+      <UniqueIdentifier>{f326e4cb-b1cd-48f8-964c-67afc8e986a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Pic\GameStart">
-      <UniqueIdentifier>{9fc9d143-57f3-4f4a-9ec5-7e901ffe3534}</UniqueIdentifier>
+    <Filter Include="Game\Object\Pic\BB">
+      <UniqueIdentifier>{963b43b7-e4af-4be9-a193-be96e0fcedf2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Pic\MainText">
-      <UniqueIdentifier>{7fb0551c-9fa8-4388-82e6-5f4f37f8b707}</UniqueIdentifier>
+    <Filter Include="Game\Object\UI">
+      <UniqueIdentifier>{eb9d83a4-4cb0-4562-a18a-33fcd26137d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Gimmick">
-      <UniqueIdentifier>{b768fc6b-7dd8-45a0-b27d-513ea6d79149}</UniqueIdentifier>
+    <Filter Include="Game\Object\Field\Sky">
+      <UniqueIdentifier>{8a991416-932b-4252-87e8-614eb392ca16}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Gimmick\Hono">
-      <UniqueIdentifier>{0e4c55c8-ccfe-4637-ae2f-dce69d40d1c7}</UniqueIdentifier>
+    <Filter Include="Game\Object\Pic\GameStart">
+      <UniqueIdentifier>{ec8d3583-f107-4ac8-8073-ed713d760e49}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Gimmick\Jinari">
-      <UniqueIdentifier>{6a61a75f-7a7f-4d5e-bf3c-a9424e0f334f}</UniqueIdentifier>
+    <Filter Include="Game\Object\Gimmick">
+      <UniqueIdentifier>{c49f0e5d-0b81-44a0-a122-b2646f8a1ce7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Item">
-      <UniqueIdentifier>{503140e1-cca9-40f1-8d00-030e31dbf03a}</UniqueIdentifier>
+    <Filter Include="Game\Object\Gimmick\Gimmick1">
+      <UniqueIdentifier>{3d695782-75f1-4e64-b2c2-a481b5f1c5c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Gimmick\Gimmick2">
+      <UniqueIdentifier>{5c0e0a79-7101-46e8-9978-a630818d6e82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Pic\Go">
+      <UniqueIdentifier>{36eee604-8764-40bd-ade2-bdd429da8508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item">
+      <UniqueIdentifier>{702b9f38-8484-4adb-8655-017e9faac890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Box">
+      <UniqueIdentifier>{0f9ad360-fffb-4739-b1ea-5fc0d77459c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Kakera">
+      <UniqueIdentifier>{a0299258-6725-44a2-8bee-7babe92569b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Koban">
+      <UniqueIdentifier>{4586a8f5-d9fe-400e-b71d-1ebfd05b3a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Oage">
+      <UniqueIdentifier>{b52a445e-b919-4744-a118-587abc320c88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Magatama">
+      <UniqueIdentifier>{02aab97c-2dbf-4ab8-835b-e7ae76507a94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Pic\MainText">
+      <UniqueIdentifier>{735f70f0-39f2-4c60-b579-e86914510cd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\ObjectBase">
+      <UniqueIdentifier>{71344bea-5483-4809-a458-469720133673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Ohuda">
+      <UniqueIdentifier>{f2f80e49-4859-46e1-923e-b44ce917083a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Sake">
+      <UniqueIdentifier>{79895c9f-4d9d-4ba7-9013-c229a65ba40e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\System">
-      <UniqueIdentifier>{d2b33842-a7e5-4c40-8243-29d1698fd963}</UniqueIdentifier>
+      <UniqueIdentifier>{c7323b12-599d-40e4-ae3d-79c441855a98}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\System\SceneManager">
-      <UniqueIdentifier>{3381c9d3-e7bc-4f58-b1fc-33c65d21fddf}</UniqueIdentifier>
+      <UniqueIdentifier>{d8c93b6c-ef2f-4670-8a3c-b26f78b7700e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\System\Task">
-      <UniqueIdentifier>{77126ef3-301b-4cd6-b497-1bc2e090167c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\System\TaskManager">
-      <UniqueIdentifier>{b5293831-af05-4903-8f62-266718c03472}</UniqueIdentifier>
+      <UniqueIdentifier>{938375e2-490a-4f90-92cf-ace8469b9d4e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\System\TaskLinker">
-      <UniqueIdentifier>{3c2de571-8b2b-4d96-a703-b1328746e012}</UniqueIdentifier>
+      <UniqueIdentifier>{241361c9-a32e-4c7d-8c46-f8f8b8ba07db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Pic\Title">
-      <UniqueIdentifier>{28c6ae94-3848-4046-b287-6e03f6d06d31}</UniqueIdentifier>
+    <Filter Include="Game\System\TaskManager">
+      <UniqueIdentifier>{96611066-6c76-49d0-b899-67e63e1a463d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Pic\Title">
+      <UniqueIdentifier>{90c213ed-2e70-4c7c-840f-bad7f5ea794c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\System\DebugScene">
+      <UniqueIdentifier>{fa47968d-1c60-4b2b-9b04-286bff1281ee}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\Source">
-      <UniqueIdentifier>{efd39b64-fa46-4798-93e9-62466253dfa7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ImageResource">
-      <UniqueIdentifier>{6121c616-eb43-40ba-ac97-bc5159c6d6a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Item\Ohuda">
-      <UniqueIdentifier>{55365ec8-e141-4e3f-ad6d-5b98e5620f85}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Item\Kobann">
-      <UniqueIdentifier>{ca43b405-e8f4-48ae-a38d-2cd870549e4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Item\Oage">
-      <UniqueIdentifier>{28218732-3edf-457c-ace2-3491cc802f91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Item\Sake">
-      <UniqueIdentifier>{ad70e51c-d51a-4be7-9473-3b01eea888a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Field\Manager">
-      <UniqueIdentifier>{9424f9b0-5008-47f8-a17b-4988f390ab5f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Pic\GO">
-      <UniqueIdentifier>{0da08f42-3250-4442-85e3-9707382b2e6b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\ObjectBase\Pic\Magatama">
-      <UniqueIdentifier>{69fbd1b3-b848-4f7a-8f34-d174652fbcc3}</UniqueIdentifier>
+      <UniqueIdentifier>{59826815-d3e4-462c-8692-c9e1441a3f37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

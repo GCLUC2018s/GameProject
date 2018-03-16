@@ -159,6 +159,14 @@ void Ui::Draw(){
 			m_arrow_pos.getY()-SCORE_MAGNIFICATION_Y, m_scorenum_img[(buf[i] - '0')], TRUE);		//'0'
 		}
 	}
+	
+	//ƒAƒCƒeƒ€UI‚Ì•`‰æ
+	for (int i = 0; i < 3; i++){
+		CItemData* itemdata = CPlayerManager::GetInstance()->GetPlayerAdress()->getEquipment(i);
+		if (itemdata->m_img != 0){
+			DrawRotaGraph(ITEM_INIT_X + i*ITEM_SPACE_X, ITEM_INIT_Y, 0.5, 0, itemdata->m_img, TRUE, FALSE);
+		}
+	}
 }
 
 void Ui::scoreMagnification(CVector3D *pos){

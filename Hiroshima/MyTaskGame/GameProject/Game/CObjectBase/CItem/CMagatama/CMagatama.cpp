@@ -12,5 +12,5 @@ CMagatama::~CMagatama() {
 }
 
 void CMagatama::Update() {
-	m_pos3D.x == m_scroll.x;
+	m_pos3D.x = MAGATAMA_POS_X + m_scroll.x;
 }

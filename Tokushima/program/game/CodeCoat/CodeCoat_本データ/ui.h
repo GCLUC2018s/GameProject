@@ -16,6 +16,9 @@ const float MAP_P_INIT_X = 812;				//ミニマップのプレイヤーX
 const float MAP_P_INIT_Y = 665;				//ミニマップのプレイヤーY
 const float SCORE_INIT_MAG_X = 0;			//スコア倍率のX
 const float SCORE_INIT_MAG_Y = 575;			//スコア倍率のY
+const float ITEM_INIT_X = 540;				//アイテムのX
+const float ITEM_INIT_Y = 670;				//アイテムのY
+const float ITEM_SPACE_X = 100;				//アイテムのX
 
 const float P_CENTER_X = 83;				//プレイヤーの真ん中の座標X
 const float ITEM_FRAME_X = 490;				//アイテムのフレームX

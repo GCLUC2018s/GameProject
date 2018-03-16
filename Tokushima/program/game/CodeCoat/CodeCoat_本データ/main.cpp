@@ -11,11 +11,6 @@ CMain::~CMain()
 	m_pGame = 0;
 }
 
-void CMain::Init()
-{
-	m_pGame->Init();
-}
-
 void CMain::Dest()
 {
 	m_pGame->Dest();

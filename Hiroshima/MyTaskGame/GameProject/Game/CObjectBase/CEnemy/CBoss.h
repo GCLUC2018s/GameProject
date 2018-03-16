@@ -5,7 +5,8 @@
 #define BOSS_AT 20
 #define BOSS_SPEED 5
 
-#include"../CObjectBase.h"
+//#include"../CObjectBase.h"
+#include"BossBase.h"
 /*
 
 製作者　青木
@@ -17,16 +18,17 @@
 テスト作成しただけのクラスです
 このコメントは、実際作り出したら消してね
 */
-class CBoss :public CObjectBase {
+class CBoss :public CBossBase {
 protected:
 	int m_test;
 public:
 	CBoss(const CVector3D *pos);
 	~CBoss();
 	void Update();
+	void Draw();
 };
 
 
 
 
-#endif // !EBEMY1GUARD
+#endif // !BOSSGUARD

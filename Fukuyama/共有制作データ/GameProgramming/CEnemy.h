@@ -17,6 +17,10 @@ public:
 		m_image.SetVertex(0, 90, 0, 135);
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 	}
+	enum ENEMY_TAG{
+		E_ESCAPE,
+		E_KIN
+	};
 	CTexture mTexture;
 	int m_EnemyCount; //フィールド上の敵の数
 	int m_EnemySet;//敵の配置
