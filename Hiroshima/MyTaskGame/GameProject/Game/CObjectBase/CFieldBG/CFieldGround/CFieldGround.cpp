@@ -9,15 +9,32 @@ CFieldGround::CFieldGround(const bool flag):CObjectBase(0,eU_Map, eD_Ground){
 	m_rect_tourou2 = CRect(1492, 882, 1625, 1138);
 	m_rect_tourou3 = CRect(2878, 882, 3011, 1138);
 	m_rect_tourou4 = CRect(3755, 882, 3888, 1138);
-	//if (flag == false)
-	//	//‚P–‡–Ú
-	//	m_pos3D = CVector3D(0, 0, 0);
-	//else
-	//	//‚Q–‡–Ú
-	//	m_pos3D = CVector3D(GROUND_WIDTH, 0, 0);
+	m_flag = flag;
+	if (m_flag == false)
+		//‚P–‡–Ú
+		m_pos3D = CVector3D(0, 0, 0);
+	else
+		//‚Q–‡–Ú
+		m_pos3D = CVector3D(GROUND_WIDTH, 0, 0);
 }
 
 CFieldGround::~CFieldGround() {
+}
+
+void CFieldGround::Update()
+{
+	if (m_flag == false) {
+		//‚P–‡–Ú
+		if (m_pos3D.x - m_scroll.x > GROUND_WIDTH + SCREEN_WIDTH) {
+			m_pos3D.x += m_scroll.x;
+		}
+	}
+	else {
+		//‚Q–‡–Ú
+		if (m_pos3D.x - m_scroll.x > GROUND_WIDTH * 2 + SCREEN_WIDTH) {
+			m_pos3D.x += m_scroll.x;
+		}
+	}
 }
 
 void CFieldGround::Draw()

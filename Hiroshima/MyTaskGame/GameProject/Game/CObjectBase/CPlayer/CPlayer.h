@@ -17,6 +17,7 @@ public:
 	~CPlayer();
 	 void Update();
 	 void Draw();
+	 void Hit(CTask *t);
 private:
 	enum {
 		eNutral,
