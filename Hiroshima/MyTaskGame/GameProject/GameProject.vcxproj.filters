@@ -107,6 +107,9 @@
     <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp">
       <Filter>Game\ObjectBase\Item\Kakera</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEnemy\BossBase.cpp">
+      <Filter>Game\ObjectBase\Chara\Enemy\BossBase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -225,6 +228,9 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h">
       <Filter>Game\ObjectBase\Item\Kakera</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEnemy\BossBase.h">
+      <Filter>Game\ObjectBase\Chara\Enemy\BossBase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -359,6 +365,9 @@
     </Filter>
     <Filter Include="Game\ObjectBase\Item\Kakera">
       <UniqueIdentifier>{4f390836-a638-4867-b0fe-b40ba76f843f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Chara\Enemy\BossBase">
+      <UniqueIdentifier>{f0f16911-09f6-4687-8af7-9aa78c20b316}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
