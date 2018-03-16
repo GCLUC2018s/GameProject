@@ -160,11 +160,11 @@ void Ui::Draw(){
 		}
 	}
 	
-	//アイテムUIの描画
+	//アイテムUIの描画	30度角度をつけてます
 	for (int i = 0; i < 3; i++){
 		CItemData* itemdata = CPlayerManager::GetInstance()->GetPlayerAdress()->getEquipment(i);
 		if (itemdata->m_img != 0){
-			DrawRotaGraph(ITEM_INIT_X + i*ITEM_SPACE_X, ITEM_INIT_Y, 0.5, 0, itemdata->m_img, TRUE, FALSE);
+			DrawRotaGraph(ITEM_INIT_X + i*ITEM_SPACE_X, ITEM_INIT_Y, 0.5, 3.141592/180*-30, itemdata->m_img, TRUE, FALSE);
 		}
 	}
 }

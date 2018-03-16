@@ -35,6 +35,8 @@ void CEnemy::Update(){
 	float l_t_move = CMapManager::GetInstance()->GetPlayerAdress()->getTotalmovement();
 	float Amount = CPlayerManager::GetInstance()->GetPlayerAdress()->getMoveAmount();
 	float _yscr = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos().getY();
+	//プレイヤーのZ座標
+	float _p_pos_z = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos().getZ()+PLAYER_LOWER_SIZE;
 
 	if (_yscr > 250.0f)
 		_yscr = 250.0f;
@@ -47,9 +49,9 @@ void CEnemy::Update(){
 	switch (m_type)
 	{
 	case 0:
-		if (m_attackrate > 150){
+		if (m_attackrate > 90){
 			m_attackrate = 0;
-			CBulletManager::GetInstance()->Create(&m_pos, &CVector3D(-8, 0, 0), 3000, ENEMY);
+			CBulletManager::GetInstance()->Create(&CVector3D(m_pos.getX(),m_pos.getY(),m_pos.getZ()+29), &CVector3D(-8, 0, 0), 3000, ENEMY);
 		}
 		break;
 	default:
@@ -71,6 +73,13 @@ void CEnemy::Update(){
 			//タスクキル
 			SetKill();
 		}
+	}
+
+	if (_p_pos_z < m_pos.getZ()){
+		CEnemy::ChangeDrawPriority(eDWP_FEnemy);
+	}
+	else{
+		CEnemy::ChangeDrawPriority(eDWP_Enemy);
 	}
 }
 
