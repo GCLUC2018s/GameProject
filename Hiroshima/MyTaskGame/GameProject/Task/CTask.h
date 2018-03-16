@@ -62,6 +62,8 @@ public:
 	virtual ~CTask();
 	virtual void Update();
 	virtual void Draw();
+	virtual void HitCheck(CTask *t1, CTask *t2);
+	virtual void Hit(CTask *t);
 
 
 	//XV‡ˆÊæ“¾ŠÖ”
