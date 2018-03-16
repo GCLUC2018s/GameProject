@@ -18,6 +18,7 @@
 #include "../GameProject/Game/CObjectBase/CItem/CSake/CSake.h"
 #include "../GameProject/Game/CObjectBase/CItem/CMagatama/CMagatama.h"
 #include "../GameProject/Game/CObjectBase/CItem/CKakera/CKakera.h"
+#include "../GameProject/Game/CObjectBase/CEndeing/CEndeing.h"
 //#include "../GameProject/Game/CEnemy.h"
 //#include "../GameProject/Game/CGimmick.h"
 //#include "../GameProject/Game/CTitle.h"
