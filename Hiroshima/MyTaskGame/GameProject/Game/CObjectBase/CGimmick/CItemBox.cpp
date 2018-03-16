@@ -7,7 +7,7 @@
 
 CItemBox::CItemBox(CVector3D *pos, int state) :CObjectBase(eID_Gimmick, eU_Gimmick, eD_Object) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("ItemBox"));
-	m_img.SetSize(128, 128);
+	m_img.SetSize(256, 256);
 	m_pos3D = *pos;
 	m_rect = CRect(31, 45, 98, 103);
 	m_rect_F = m_rect;

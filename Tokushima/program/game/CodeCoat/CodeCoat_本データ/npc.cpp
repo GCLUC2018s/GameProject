@@ -11,6 +11,7 @@ CNpc::CNpc()
 :CTask(0, eUDP_Npc, eDWP_Npc)
 , m_shop_flag(false)
 , m_dash_flag(false)
+, m_cursor(0)
 {
 	m_shadowimg = LoadGraph("media\\img\\Pshadow.png", TRUE);
 	//CNpc ManagerにCNpcのアドレスを渡すための関数
@@ -39,7 +40,16 @@ void CNpc::Update(){
 			if (_gear == 0){
 				//アイテム作成
 				m_shop_flag = true;
-
+				for (int i = 0; i < 3; i++){
+					srand((unsigned int)time(NULL));
+					int _num = rand();
+					CItemData* item = CItemManager::GetInstance()->makeItem(_num);
+					m_sell_item[i].m_img = item->m_img;
+					m_sell_item[i].m_name = item->m_name;
+					m_sell_item[i].m_type = item->m_type;
+					m_sell_item[i].m_useful = item->m_useful;
+					m_sell_item[i].m_attack_rate = item->m_attack_rate;
+				}
 			}
 		}
 		m_pos.setX(_x);
@@ -58,6 +68,14 @@ void CNpc::Update(){
 
 	//ショップフラグが建つとアイテムとイグジットを表示する 操作できるようにする
 	if (m_shop_flag){
+		int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+		if (IsLeftKeyTrigger(key)){
+			
+		}
+		if (IsRightKeyTrigger(key)){
+		}
+		if (IsZKeyTrigger(key)){
+		}
 
 	}
 
@@ -65,4 +83,48 @@ void CNpc::Update(){
 
 void CNpc::Draw(){
 	DrawGraph(m_pos.getX(), m_pos.getY(), m_shadowimg, TRUE);
+}
+
+
+
+bool IsLeftKeyTrigger(int key){
+	static int g_akey_prev;
+	if (key & PAD_INPUT_LEFT){
+		if (g_akey_prev == false){
+			g_akey_prev = true;
+			return true;
+		}
+	}
+	else{
+		g_akey_prev = false;
+	}
+	return false;
+}
+
+bool IsRightKeyTrigger(int key){
+	static int g_akey_prev;
+	if (key & PAD_INPUT_RIGHT){
+		if (g_akey_prev == false){
+			g_akey_prev = true;
+			return true;
+		}
+	}
+	else{
+		g_akey_prev = false;
+	}
+	return false;
+}
+
+bool IsZKeyTrigger(int key){
+	static int g_akey_prev;
+	if (key & PAD_INPUT_1){
+		if (g_akey_prev == false){
+			g_akey_prev = true;
+			return true;
+		}
+	}
+	else{
+		g_akey_prev = false;
+	}
+	return false;
 }
