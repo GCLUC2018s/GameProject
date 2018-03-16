@@ -48,9 +48,18 @@ CIdata::~CIdata(){
 void CIdata::Update(){
 	//PlayerControl‚ÌƒAƒhƒŒƒX‚ðŽè‚É“ü‚ê‚é
 	auto l_player = CPlayerManager::GetInstance()->GetPlayerAdress();
-	
+	float _p_pos_z = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos().getZ()+PLAYER_LOWER_SIZE;
+
 		//ˆÚ“®
 		m_pos.setX(m_pos.getX() - l_player->getMoveAmount());
+
+		if (_p_pos_z < m_pos.getZ()){
+			CIdata::ChangeDrawPriority(eDWP_Item);
+		}
+		else{
+			CIdata::ChangeDrawPriority(eDWP_BItem);
+		}
+
 }
 
 void CIdata::Draw(){

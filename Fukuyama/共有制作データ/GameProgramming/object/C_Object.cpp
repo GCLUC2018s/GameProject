@@ -15,7 +15,9 @@ void C_Object::Rect(C_Rectangle *m_image,const C_Vector3* pos){
 void C_Object::Scroll(C_Vector3 *m_pos,float m_Scroll){
 	if (CKey::Push(VK_RIGHT) && m_Scroll >= DISPLAY_RIGHT){
 		m_Position.x -= SCROLL_SPEED;
-		m_Scroll -= SCROLL_SPEED;
+		if (m_id == E_PLAYER){
+			m_Scroll -= SCROLL_SPEED;
+		}
 	}
 	return;
 }
