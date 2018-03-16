@@ -23,21 +23,38 @@ void CObjectBase::Draw()
 
 void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 {
-	if ((t1->GetUpdatePrio() == eU_Player && t2->GetUpdatePrio() == eU_Enemy)||
-		(t2->GetUpdatePrio() == eU_Player && t1->GetUpdatePrio() == eU_Enemy)) {
+
+	if ((t1->GetID() == eID_Player && t2->GetID() == eID_Enemy) ||
+		(t2->GetID() == eID_Player && t1->GetID() == eID_Enemy)) {
 		//PL‚ÆENE‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
 		if (t1 != nullptr && t2 != nullptr) {
 			//CObjectBase‚Ö‚Ì•ÏŠ·‚ª¬Œ÷‚µ‚Ä‚¢‚½‚ç
 			if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 50) {
-				if (o1->m_pos3D.x + o1->m_rect.m_right  >	o2->m_pos3D.x + o2->m_rect.m_left &&
+				if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
 					o1->m_pos3D.x + o1->m_rect.m_left   <	o2->m_pos3D.x + o2->m_rect.m_right &&
 					o1->m_pos3D.y + o1->m_rect.m_bottom >	o2->m_pos3D.y + o2->m_rect.m_top &&
-					o1->m_pos3D.y + o1->m_rect.m_top    <	o2->m_pos3D.y + o2->m_rect.m_bottom) {
+					o1->m_pos3D.y + o1->m_rect.m_top < o2->m_pos3D.y + o2->m_rect.m_bottom) {
 					o1->Hit(t2);
 					o2->Hit(t1);
 				}
+			}
+		}
+	}
+	if ((t1->GetID() == eID_Player && t2->GetID() == eID_Item) ||
+		(t2->GetID() == eID_Player && t1->GetID() == eID_Item)) {
+		//PL‚ÆItem‚Ì”»’è
+		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
+		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
+		if (t1 != nullptr && t2 != nullptr) {
+			//CObjectBase‚Ö‚Ì•ÏŠ·‚ª¬Œ÷‚µ‚Ä‚¢‚½‚ç
+			if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
+				o1->m_pos3D.x + o1->m_rect.m_left   <	o2->m_pos3D.x + o2->m_rect.m_right &&
+				o1->m_pos3D.y + o1->m_rect.m_bottom >	o2->m_pos3D.y + o2->m_rect.m_top &&
+				o1->m_pos3D.y + o1->m_rect.m_top < o2->m_pos3D.y + o2->m_rect.m_bottom) {
+				o1->Hit(t2);
+				o2->Hit(t1);
 			}
 		}
 	}
