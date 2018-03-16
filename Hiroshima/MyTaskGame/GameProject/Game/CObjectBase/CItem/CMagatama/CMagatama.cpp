@@ -12,7 +12,5 @@ CMagatama::~CMagatama() {
 }
 
 void CMagatama::Update() {
-	if (m_pos3D.x < SCREEN_WIDTH  && m_pos3D.x - SCREEN_WIDTH) {
-		m_scroll.x = m_pos3D.x - SCREEN_WIDTH;
-	}
+	m_pos3D.x == m_scroll.x;
 }
