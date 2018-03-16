@@ -1,10 +1,10 @@
 /*!
-@brief	敵管理クラス hpp
+@brief	武器商人管理クラス hpp
 @author	s.namizashi
 **/
 
-#ifndef __PLAYER_MANAGER_HPP__
-#define __PLAYER_MANAGER_HPP__
+#ifndef __NPC_MANAGER_HPP__
+#define __NPC_MANAGER_HPP__
 
 #include "Include.h"
 

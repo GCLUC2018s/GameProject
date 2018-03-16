@@ -30,11 +30,11 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
 		if (t1 != nullptr && t2 != nullptr) {
 			//CObjectBaseへの変換が成功していたら
-			if ((o1->m_pos3D.z + o2->m_pos3D.z) < 50) {
-				if (o1->m_pos3D.x + o1->m_rect.m_right >	o2->m_pos3D.x + o2->m_rect.m_left &&
-					o1->m_pos3D.x + o1->m_rect.m_left <		o2->m_pos3D.x + o2->m_rect.m_right &&
+			if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 50) {
+				if (o1->m_pos3D.x + o1->m_rect.m_right  >	o2->m_pos3D.x + o2->m_rect.m_left &&
+					o1->m_pos3D.x + o1->m_rect.m_left   <	o2->m_pos3D.x + o2->m_rect.m_right &&
 					o1->m_pos3D.y + o1->m_rect.m_bottom >	o2->m_pos3D.y + o2->m_rect.m_top &&
-					o1->m_pos3D.y + o1->m_rect.m_top <		o2->m_pos3D.y + o2->m_rect.m_bottom) {
+					o1->m_pos3D.y + o1->m_rect.m_top    <	o2->m_pos3D.y + o2->m_rect.m_bottom) {
 					o1->Hit(t2);
 					o2->Hit(t1);
 				}
@@ -44,6 +44,7 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 }
 void CObjectBase::Hit(CTask * t)
 {
+	printf("hit");
 }
 ////描画順序チェック関数
 //void CObjectBase::CheckOverlapAll()
