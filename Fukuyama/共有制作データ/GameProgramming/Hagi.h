@@ -14,5 +14,6 @@ public:
 	//プレイヤーのインスタンスを宣言します
 	C_Test *Test;
 	C_Player *Player;
+	void Update();
 };
 #endif
