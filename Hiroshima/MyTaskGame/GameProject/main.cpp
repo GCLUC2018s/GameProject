@@ -78,7 +78,7 @@ void Init(void)
 	ADD_RESOURCE("Boss", CAnimImage::LoadImage("moton_jaryu.png", boss_AnimData, 768, 768));
 
 	//ギミック関係
-	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_blue.png", fire_Animdata, 204, 245));
+	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_effect.png", fire_Animdata, 204, 245));
 
 	//タイトル関係
 	ADD_RESOURCE("Title_mihon", CAnimImage::LoadImage("タイトルイメージ.png"));
