@@ -168,6 +168,7 @@ void CPlayer::Update() {
 		new CGo();
 	}
 	CheckOverlap();
+	m_rect_F = CRect(128 / 2, 64 / 2, 383 / 2, (487 / 2) - m_pos3D.y);
 }
 
 void CPlayer::Nutral() {
