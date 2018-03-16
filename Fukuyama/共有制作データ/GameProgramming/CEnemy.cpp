@@ -95,9 +95,9 @@ void CEnemy::Update(){
 		m_Position.z += diaPlayer.z / ENEMY_UD_SPEED;
 	}
 	C_Object::Rect(&m_image, &m_Position);
+	CTaskManager::GetInstance()->ChangeDrawPrio(this, m_Position.z);
 }
 void CEnemy::Draw(){
-	CTaskManager::GetInstance()->ChangeDrawPrio(this, m_Position.z);
 	//
 	glBegin(GL_TRIANGLES);
 	glVertex2d(m_image.m_Left, m_image.m_Top);
