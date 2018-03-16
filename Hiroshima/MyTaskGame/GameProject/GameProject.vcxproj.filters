@@ -57,9 +57,6 @@
     <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp">
       <Filter>Game\Object\Pic\GameStart</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp">
-      <Filter>Game\Object\Gimmick\Gimmick1</Filter>
-    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp">
       <Filter>Game\Object\Gimmick\Gimmick2</Filter>
     </ClCompile>
@@ -110,6 +107,12 @@
     </ClCompile>
     <ClCompile Include="Game\CScene\DebugScene\DebugScene.cpp">
       <Filter>Game\System\DebugScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEndeing\CEndeing.cpp">
+      <Filter>Game\Object\Pic\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CGimmick\CFire.cpp">
+      <Filter>Game\Object\Gimmick\Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,9 +174,6 @@
     <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h">
       <Filter>Game\Object\Pic\GameStart</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h">
-      <Filter>Game\Object\Gimmick\Gimmick1</Filter>
-    </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h">
       <Filter>Game\Object\Gimmick\Gimmick2</Filter>
     </ClInclude>
@@ -233,6 +233,12 @@
     </ClInclude>
     <ClInclude Include="Source\Gamesource.h">
       <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEndeing\CEndeing.h">
+      <Filter>Game\Object\Pic\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CGimmick\CFire.h">
+      <Filter>Game\Object\Gimmick\Fire</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -314,9 +320,6 @@
     <Filter Include="Game\Object\Gimmick">
       <UniqueIdentifier>{c49f0e5d-0b81-44a0-a122-b2646f8a1ce7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\Gimmick\Gimmick1">
-      <UniqueIdentifier>{3d695782-75f1-4e64-b2c2-a481b5f1c5c1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Gimmick\Gimmick2">
       <UniqueIdentifier>{5c0e0a79-7101-46e8-9978-a630818d6e82}</UniqueIdentifier>
     </Filter>
@@ -376,6 +379,12 @@
     </Filter>
     <Filter Include="Game\Source">
       <UniqueIdentifier>{59826815-d3e4-462c-8692-c9e1441a3f37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Pic\Ending">
+      <UniqueIdentifier>{a1876d1b-e5a0-45e4-9e26-f2cd10e04917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Gimmick\Fire">
+      <UniqueIdentifier>{3d695782-75f1-4e64-b2c2-a481b5f1c5c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

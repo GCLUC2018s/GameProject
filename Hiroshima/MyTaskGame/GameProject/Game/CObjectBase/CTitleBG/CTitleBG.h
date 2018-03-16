@@ -17,9 +17,15 @@ public:
 	void Update();
 	void Draw();
 private:
-	bool m_end_flag;	//エンター押されたので終わりますよフラグ
-	CAnimImage m_img_pika;
-	bool m_pika_flag;	//falseならぴかが消える。trueならぴかが出る
+	CAnimImage m_img_rogo;		//ロゴ画像
+	CAnimImage m_img_rogo_s;	//ロゴ画像差分
+	CAnimImage m_img_start;	//ロゴ画像差分
+	bool m_end_flag;			//エンター押されたので終わりますよフラグ
+	bool m_pika_flag;			//falseならぴかが消える。trueならぴかが出る
+	void BGUpdate();			//タイトル画像本体のアップデート
+	void RogoUpdate();			//ロゴ画像本体のアップデート
+	void PushStartUpdate();		//PushStart画像本体のアップデート
+
 };
 
 #endif // !TITLE_BG_GUARD
