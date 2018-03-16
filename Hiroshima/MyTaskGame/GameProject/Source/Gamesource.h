@@ -8,6 +8,8 @@
 //#include "ImageResource.h"
 #include "../GameProject/Game/CObjectBase/CPlayer/CPlayer.h"
 #include "../GameProject/Game/CObjectBase/CGimmick/CGimmick.h"
+#include "../GameProject/Game/CObjectBase/CGimmick/CGimmick2.h"
+#include "../GameProject/Game/CObjectBase/CGimmick/CItemBox.h"
 #include "../GameProject/Game/CObjectBase/CGameStart/CGameStart.h"
 #include "../GameProject/Game/CObjectBase/CBB/CBB.h"
 #include "../GameProject/Game/CObjectBase/CItem/CKoban/CKoban.h"

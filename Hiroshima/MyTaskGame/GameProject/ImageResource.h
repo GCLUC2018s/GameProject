@@ -28,6 +28,8 @@ extern TexAnimData player_AnimData[];
 extern TexAnimData enemy_AnimData[];
 //fire.pngのアニメーションデータ
 extern TexAnimData fire_Animdata[];
+//fire.pngのアニメーションデータ
+extern TexAnimData itembox_Animdata[];
 //zako_kamaitachi_motion.pngのアニメーションデータ
 extern TexAnimData kamaitachi_AnimData[];
 //zako_kamaitachi_motion.pngのアニメーションデータ

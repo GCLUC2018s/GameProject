@@ -62,6 +62,7 @@ void CSceneManager::MainScene(){
 	//new CBoss(&(CVector3D(3000, 50, 0)));
 	new CGimmick(&(CVector3D(500, 0, -20)));
 	new CGimmick(&(CVector3D(500, 0, -100)));
+	new CItemBox(&(CVector3D(1000, 0, -200)));
 	new CFieldManager();
 
 	new CKoban(&(CVector3D(500,500, 0)));

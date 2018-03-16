@@ -86,6 +86,7 @@ void Init(void)
 	ADD_RESOURCE("Magatama", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));
+	ADD_RESOURCE("ItemBox", CAnimImage::LoadImage("itembox_motion_object.png", itembox_Animdata, 512, 512));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
