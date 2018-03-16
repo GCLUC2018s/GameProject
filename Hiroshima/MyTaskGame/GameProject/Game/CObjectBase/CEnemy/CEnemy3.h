@@ -1,6 +1,6 @@
 #ifndef ENEMY3GUARD
 #define ENEMY3GUARD
-#include"../CObjectBase.h"
+//#include"../CObjectBase.h"
 #include"CEnemyBase.h"
 
 #define HI_HP 3
