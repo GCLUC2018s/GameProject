@@ -67,8 +67,8 @@ void CSceneManager::MainScene(){
 		&(CVector3D(3500, 0, -500)), &(CVector3D(3000, 100, -500)));
 	new CFire(&(CVector3D(500, 0, -20)));
 	new CFire(&(CVector3D(500, 0, -100)));
-	new CItemBox(&(CVector3D(1000, 0, -200)), 0);
-	new CItemBox(&(CVector3D(1250, 0, -200)), 1);
+	new CItemBox(&(CVector3D(1000, 0, -430)), 0);
+	new CItemBox(&(CVector3D(1250, 0, -430)), 1);
 	new CFieldManager();
 
 	new CKoban(&(CVector3D(500,500, 0)));
