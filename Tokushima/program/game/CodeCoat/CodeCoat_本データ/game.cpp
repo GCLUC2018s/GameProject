@@ -1,45 +1,38 @@
-//#include "screen.h"
 #include "Scene\SceneBase.h"
-//#include "gametitle_screen.h"
-//#include "gameclear_screen.h"
+#include "gametitle_screen.h"
+#include "staffroll_screen.h"
 #include "game_screen.h"
-//#include "screen_gameover.h"
+#include "gameover_screen.h"
 #include "game.h"
-//#include "gamescore_screen.h"
+#include "gamescore_screen.h"
 
-CGame::CGame(){}
+CGame::CGame():
+m_pScreen(NULL),
+m_now_screen(TITLE_SCREEN)
+{}
 CGame::~CGame(){}
-
-void CGame::Init()
-{
-	m_now_screen = GAME_SCREEN;
-	m_pScreen = NULL;
-}
-
 
 void CGame::Update(){
 	if (m_pScreen == NULL){
 		switch (m_now_screen){
 		case TITLE_SCREEN:
-			//m_pScreen = new CTitleScreen();
+			m_pScreen = new CTitleScreen();
 			break;
 		case GAME_SCREEN:
 			m_pScreen = new CGameScreen();
 			break;
-		case GAMECLEAR_SCREEN:
-			//m_pScreen = new CGameClearScreen();
-			break;
 		case GAMEOVER_SCREEN:
-			//m_pScreen = new CGameOverScreen();
+			m_pScreen = new CGameOverScreen();
 			break;
 		case GAMESCORE_SCREEN:
-			//m_pScreen = new CGameScoreScreen();
+			m_pScreen = new CGameScoreScreen();
+			break;
+		case STAFFROLL_SCREEN:
+			m_pScreen = new CStaffRollScreen();
 			break;
 		default:
 			assert(false);
 		}
-		/*m_pScreen->Load();
-		m_pScreen->Init();*/
 	}
 	else{
 		m_pScreen->Update();

@@ -3,19 +3,17 @@
 
 //ヘッダファイル
 #include "myLib.h"
-#include "screen.h"
+#include "Scene\SceneBase.h"
 
 const int GAMEOVER_TIME = (5 * 1000);
 
 //ゲームオーバースクリーンクラス
-class CGameOverScreen : public CScreen
+class CGameOverScreen : public CSceneBase
 {
 public:
 	CGameOverScreen();
 	~CGameOverScreen();
 	SCREEN GetNextScreen();
-	void Load();
-	void Init();
 	void Update();
 	void Draw();
 	void Dest();
