@@ -4,6 +4,7 @@
 #include "player_manager.h"
 #include "enemy_manager.h"
 #include "bullet_manager.h"
+#include "ui_manager.h"
 
 CEnemy::CEnemy() :
 m_hp(0),
@@ -41,11 +42,13 @@ void CEnemy::Update(){
 	if (_yscr > 250.0f)
 		_yscr = 250.0f;
 
+	//移動処理
 	if (m_distance < l_t_move){
 		m_pos.setX(m_pos.getX() - Amount);
 		m_pos.setY(-1 * _yscr);
 	}
 
+	//攻撃手段処理
 	switch (m_type)
 	{
 	case 0:
@@ -72,6 +75,7 @@ void CEnemy::Update(){
 			CEnemyManager::getInstance()->Remove(this);
 			//タスクキル
 			SetKill();
+			CUiManager::GetInstance()->GetPlayerAdress()->scoreAddition();
 		}
 	}
 
