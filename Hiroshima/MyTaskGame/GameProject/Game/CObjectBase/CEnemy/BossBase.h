@@ -18,10 +18,10 @@ class CBossBase : public CObjectBase
 protected:
 	bool m_damage;
 	bool m_end_flag;
-	CImage m_head;
-	CImage m_arm;
-	CImage m_arm2;
-	CImage m_tail;
+	CAnimImage m_head;
+	CAnimImage m_arm;
+	CAnimImage m_arm2;
+	CAnimImage m_tail;
 	CVector3D m_headpos3D;
 	CVector3D m_armpos3D;
 	CVector3D m_arm2pos3D;

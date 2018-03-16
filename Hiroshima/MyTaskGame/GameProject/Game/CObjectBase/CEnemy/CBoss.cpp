@@ -28,28 +28,28 @@ void CBoss::Update() {
 	switch (m_test)
 	{
 	case 0:
-		m_img.ChangeAnimation(0);
+		m_head.ChangeAnimation(0);
 		break;
 	case 1:
-		m_img.ChangeAnimation(1);
+		m_tail.ChangeAnimation(1);
 		break;
 	case 2:
-		m_img.ChangeAnimation(2);
+		m_arm.ChangeAnimation(2);
 		break;
 	case 3:
-		m_img.ChangeAnimation(3);
+		m_arm2.ChangeAnimation(3);
 		break;
 	case 4:
-		m_img.ChangeAnimation(4);
+		m_tail.ChangeAnimation(4);
 		break;
 	case 5:
-		m_img.ChangeAnimation(5);
+		m_head.ChangeAnimation(5);
 		break;
 	case 6:
 		m_img.ChangeAnimation(6);
 		break;
 	case 7:
-		m_img.ChangeAnimation(7);
+		m_head.ChangeAnimation(7);
 		break;
 	}
 
@@ -61,7 +61,10 @@ void CBoss::Update() {
 	if(PUSH_ENTER) {
 		m_test++;
 	}
-	m_img.UpdateAnimation();
+	m_head.UpdateAnimation();
+	m_arm.UpdateAnimation();
+	m_arm.UpdateAnimation();
+	m_tail.UpdateAnimation();
 }
 
 void CBoss::Draw() {
@@ -70,8 +73,8 @@ void CBoss::Draw() {
 	m_arm.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
 	m_tail.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
 
-	m_head.SetPos(m_headpos3D);
-	m_arm.SetSize(m_armpos3D);
-	m_arm.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
-	m_tail.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
+	m_head.SetPos(m_headpos3D.x - m_headpos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_headpos3D.y + m_headpos3D.z / 2 - m_scroll.y);
+	m_arm.SetSize(m_armpos3D.x - m_armpos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_armpos3D.y + m_armpos3D.z / 2 - m_scroll.y);
+	m_arm.SetSize(m_arm2pos3D.x - m_arm2pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_arm2pos3D.y + m_arm2pos3D.z / 2 - m_scroll.y);
+	m_tail.SetSize(m_tailpos3D.x - m_tailpos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_tailpos3D.y + m_tailpos3D.z / 2 - m_scroll.y);
 }
