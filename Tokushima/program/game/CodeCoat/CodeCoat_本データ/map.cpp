@@ -16,7 +16,7 @@ CMapControl::CMapControl()
 , m_goalscrollstartpos(0)
 {
 	m_totalmovement = 0;
-	char *item[] = { "bg_front.png", "kari_oku_bg2.png", "goal.png" };
+	char *item[] = { "bg_front.png", "bg_back.png", "goal.png" };
 	char buf[256];
 	for (int i = 0; i < IMAGECOUNT; i++){
 		sprintf_s(buf, "media\\img\\%s", item[i]);
