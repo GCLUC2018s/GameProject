@@ -1,6 +1,6 @@
 #include "BossBase.h"
 
-CBossBase::CBossBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object) {
+CBossBase::CBossBase() :CObjectBase(eID_Null, eU_Enemy, eD_Object) {
 
 }
 

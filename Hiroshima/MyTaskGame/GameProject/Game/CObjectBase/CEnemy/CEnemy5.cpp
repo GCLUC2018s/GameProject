@@ -8,11 +8,11 @@
 //“÷‰ò
 CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy5"));
-	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_img.SetSize(NIKU_SIZ_X, NIKU_SIZ_Y);
 	m_pos3D = *pos;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
-	m_rect = CRect(50, 88, 170, 238);
+	m_rect = CRect(80, 100, 300, 400);
 	m_rect_F = m_rect;
 
 	m_damage = false;
@@ -62,7 +62,7 @@ void CEnemy5::Update() {
 	
 	m_img.UpdateAnimation();
 	CheckOverlap();
-	m_rect_F = CRect(50, 88, 170, 238 - m_pos3D.y);
+	m_rect_F = CRect(80, 100, 300, 400- m_pos3D.y);
 }
 
 
