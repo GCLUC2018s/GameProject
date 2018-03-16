@@ -27,15 +27,15 @@ void C_Player::Update(){
 		C_ColorBall* ColorBall = new C_ColorBall();
 	}
 
-	//Sキーでジャンプします
-	if (CKey::Once('S')&&m_Jump==E_NJUMP){
-		//ジャンプしているかどうかタグをつけます
-		m_Jump = E_JUMP;
-		//ジャンプ処理を行う時間を計算します。
-		m_JumpTime = -2 * (JUMP_FIRST_SPEED / m_Gravity.y);
-	}
-
+	//もし着地モーション中なら操作ができない
 	if (m_Anime_Jump > JUMP_ANIME){
+		//Sキーでジャンプします
+		if (CKey::Once('S') && m_Jump == E_NJUMP){
+			//ジャンプしているかどうかタグをつけます
+			m_Jump = E_JUMP;
+			//ジャンプ処理を行う時間を計算します。
+			m_JumpTime = -2 * (JUMP_FIRST_SPEED / m_Gravity.y);
+		}
 		//右移動
 		if (CKey::Push(VK_RIGHT)){
 			m_Turn = E_RIGHT;
@@ -56,7 +56,7 @@ void C_Player::Update(){
 			i_JumpPoint.z += PLAYER_UD_SPEED;
 		}
 		//下移動
-		if (CKey::Push(VK_DOWN) && i_JumpPoint.z >= DISPLAY_BOTTOM){
+		if (CKey::Push(VK_DOWN) && i_JumpPoint.z >= DISPLAY_BOTTOM + 120 ){
 			m_Position.z -= PLAYER_UD_SPEED;
 			i_JumpPoint.z -= PLAYER_UD_SPEED;
 		}
@@ -82,23 +82,30 @@ void C_Player::Update(){
 			i_JumpPoint=m_Position;
 			//着地時のアニメ用変数の初期化
 			m_Anime_Jump = 0;
+			//着地時誤差調整
+			m_Position.z += 18;
+			i_JumpPoint.z += 18;
 		}
 	}
 
 	//スクロール基準点
 	m_Scroll = m_Position.x + SCROLL_POINT;
-	C_Object::Rect(&m_image,&m_Position);
-	C_Object::Rect(&i_Shadow, &i_JumpPoint);
-	C_Object::Scroll(&m_Position,m_Scroll);
+
+	//スクロール処理（キャラと影）
+	C_Object::Scroll(&m_Position, m_Scroll);
 	C_Object::Scroll(&i_JumpPoint, m_Scroll);
 
+	//キャラの描画位置をポジションと同期
+	C_Object::Rect(&m_image,&m_Position);
+	//影の描画位置をポジションと同期
+	C_Object::Rect(&i_Shadow, &i_JumpPoint);
 }
 
 //プレイヤーの描画
 void C_Player::Draw(){
 
 	//影の描画
-	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom, i_Shadow.m_Top, 630, 720, 275, 140);
+	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom-3, i_Shadow.m_Top-3, 630, 720, 275, 140);
 
 	//ジャンプしていない。かつ、投げモーション中でない。かつ、着地モーション中でない
 	if (m_Jump == E_NJUMP&&m_Throw == E_NTHROW){
@@ -261,6 +268,7 @@ void C_Player::Draw(){
 
 	//ジャンプ中のアニメーション
 	if (m_Jump == E_JUMP){
+		//右向き
 		if (m_Turn == E_RIGHT){
 			if (m_Speed.y > 0){
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 450, 275, 140);
@@ -269,6 +277,7 @@ void C_Player::Draw(){
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 540, 275, 140);
 			}
 		}
+		//左向き
 		else if (m_Turn == E_LEFT){
 			if (m_Speed.y > 0){
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 360, 275, 140);

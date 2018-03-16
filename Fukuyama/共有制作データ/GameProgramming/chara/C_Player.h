@@ -26,7 +26,7 @@ public:
 		//プレイヤーのサイズ
 		m_image.SetVertex(0, 90, 0, 135);
 		//影のサイズ
-		i_Shadow.SetVertex(0, 60, 0, 20);
+		i_Shadow.SetVertex(0, 60, 0, 135);
 		//キャラクターアニメーション画像の読み込み
 		i_Chara_Motion_1.Load("image/chara/chara_motion_1_16bit.tga");
 		i_Chara_Motion_2.Load("image/chara/chara_motion_2_16bit.tga");
