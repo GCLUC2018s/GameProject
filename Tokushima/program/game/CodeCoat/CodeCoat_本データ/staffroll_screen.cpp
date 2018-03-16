@@ -1,24 +1,14 @@
-#include "gameclear_screen.h"
+#include "staffroll_screen.h"
 
 //コンストラクタ
-CGameClearScreen::CGameClearScreen()
+CStaffRollScreen::CStaffRollScreen()
 {
-	m_state = GAMECLEAR_SCREEN;
+	m_state = STAFFROLL_SCREEN;
 }
 
 //デストラクタ
-CGameClearScreen::~CGameClearScreen(){}
-
-void CGameClearScreen::Dest(){}
-
-//ロード
-void CGameClearScreen::Load(){
-	m_largefont = CreateFontToHandle("メイリオ", 50, -1, DX_FONTTYPE_ANTIALIASING);
-	clear_BGM = LoadSoundMem("media\\mp3\\staffroll\\free_bgm12.mp3");
-}
-
-//初期化
-void CGameClearScreen::Init(){
+CStaffRollScreen::~CStaffRollScreen(){
+	//初期化
 	m_lasttime = GetNowCount() &INT_MAX;
 	for (int a = 0; a < 19; a++)
 		scroll[a] = 730;
@@ -26,10 +16,15 @@ void CGameClearScreen::Init(){
 	m_count = 0;
 	m_alpha = 255;
 	m_alphatime = -170;
+	//ロード
+	m_largefont = CreateFontToHandle("メイリオ", 50, -1, DX_FONTTYPE_ANTIALIASING);
+	clear_BGM = LoadSoundMem("media\\mp3\\staffroll\\free_bgm12.mp3");
 }
 
+void CStaffRollScreen::Dest(){}
+
 //実行処理
-void CGameClearScreen::Update()
+void CStaffRollScreen::Update()
 {
 	if (m_count == 0){
 		PlaySoundMem(clear_BGM, DX_PLAYTYPE_LOOP);
@@ -87,7 +82,7 @@ void CGameClearScreen::Update()
 }
 
 //描画
-void CGameClearScreen::Draw()
+void CStaffRollScreen::Draw()
 {
 	ClearDrawScreen();
 	DrawStringToHandle(100, scroll[0], "学校法人穴吹学園", GetColor(255, 255, 255), m_largefont, TRUE);
@@ -114,7 +109,7 @@ void CGameClearScreen::Draw()
 }
 
 //次にステージ
-SCREEN CGameClearScreen::GetNextScreen()
+SCREEN CStaffRollScreen::GetNextScreen()
 {
 	return (m_state);
 }

@@ -10,15 +10,6 @@ CTitleScreen::CTitleScreen()
 CTitleScreen::~CTitleScreen() {}
 
 void CTitleScreen::Dest(){}
-//ƒ[ƒh
-void CTitleScreen::Load() {
-	
-}
-
-//‰Šú‰»
-void CTitleScreen::Init(){
-	
-}
 
 //Àsˆ—
 void CTitleScreen::Update()

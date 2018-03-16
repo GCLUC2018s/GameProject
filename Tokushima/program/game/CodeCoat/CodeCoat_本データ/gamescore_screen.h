@@ -3,19 +3,17 @@
 
 //ヘッダファイル
 #include "myLib.h"
-#include "screen.h"
+#include "Scene\SceneBase.h"
 
 const int BADGAMECLEAR_TIME = (7 * 1000);
 
 //ゲームオーバースクリーンクラス
-class CGameScoreScreen : public CScreen
+class CGameScoreScreen : public CSceneBase
 {
 public:
 	CGameScoreScreen();
 	~CGameScoreScreen();
 	SCREEN GetNextScreen();
-	void Load();
-	void Init();
 	void Update();
 	void Draw();
 	void Dest();

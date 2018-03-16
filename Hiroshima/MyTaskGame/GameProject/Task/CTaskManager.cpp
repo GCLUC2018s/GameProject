@@ -174,6 +174,24 @@ void CTaskManager::DrawAll()
 	}
 }
 
+void CTaskManager::HitChackAll()
+{
+	//æ“ª‚©‚ç‡‚É“–‚½‚è”»’è‚ð‚µ‚Ä‚¢‚­
+	CTaskLinker *p1 = mp_U_Top;
+	while (p1)
+	{
+		CTaskLinker *p2 = mp_U_Top;
+		while (p2)
+		{
+			if (p2->mp_task->m_pause != true) {
+				p2->mp_task->HitCheck(p1->mp_task, p2->mp_task);
+			}
+			p2 = p2->mp_next;
+		}
+		p1 = p1->mp_next;
+	}
+}
+
 
 void CTaskManager::ChangeUpdatePrio(CTask * p, int prio)
 {

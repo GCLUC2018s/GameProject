@@ -3,19 +3,17 @@
 
 //ヘッダファイル
 #include "myLib.h"
-#include "screen.h"
+#include "Scene\SceneBase.h"
 
 const int GAMECLEAR_TIME = (46 * 1000);
 
 //セレクトスクリーンクラス
-class CGameClearScreen : public CScreen
+class CStaffRollScreen : public CSceneBase
 {
 public:
-	CGameClearScreen();
-	~CGameClearScreen();
+	CStaffRollScreen();
+	~CStaffRollScreen();
 	SCREEN GetNextScreen();
-	void Load();
-	void Init();
 	void Update();
 	void Draw();
 	void Dest();

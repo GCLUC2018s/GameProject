@@ -1,9 +1,15 @@
-#include "screen_gameover.h"
+#include "gameover_screen.h"
 
 //コンストラクタ
 CGameOverScreen::CGameOverScreen()
 {
 	m_state = GAMEOVER_SCREEN;
+	//初期化
+	m_lasttime = GetNowCount() & INT_MAX;
+	PlaySoundMem(m_GoverSound, DX_PLAYTYPE_BACK);
+	//ロード
+	m_GoverImage = LoadGraph("media\\img\\GO_02.png");
+	m_GoverSound = LoadSoundMem("media\\mp3\\gameover\\sousou3.mp3");
 }
 
 //デストラクタ
@@ -13,17 +19,6 @@ void CGameOverScreen::Dest(){
 	StopSoundMem(m_GoverSound);
 }
 
-//ロード
-void CGameOverScreen::Load(){
-	m_GoverImage = LoadGraph("media\\img\\GO_02.png");
-	m_GoverSound = LoadSoundMem("media\\mp3\\gameover\\sousou3.mp3");
-}
-
-//初期化
-void CGameOverScreen::Init(){
-	m_lasttime = GetNowCount() & INT_MAX;
-	PlaySoundMem(m_GoverSound, DX_PLAYTYPE_BACK);
-}
 
 //実行処理
 void CGameOverScreen::Update()

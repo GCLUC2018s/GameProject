@@ -14,7 +14,6 @@ public:
 	CMain();
 	~CMain();
 	
-	void Init();	//‰Šú‰»
 	void Dest();	//“Ç‚İ‚İ
 	void Update();  //XV
 	void Draw();	//•`‰æ

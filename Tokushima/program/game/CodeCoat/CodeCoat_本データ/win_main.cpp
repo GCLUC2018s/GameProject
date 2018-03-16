@@ -46,7 +46,6 @@ void win_main_init()
 	SetDrawScreen(DX_SCREEN_BACK);
 	//GAMEŠÖŒW
 	g_pMain = new CGame();
-	g_pMain->Init();
 }
 
 

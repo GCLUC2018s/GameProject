@@ -18,15 +18,12 @@ public:
 	CGameScreen();
 	~CGameScreen();
 	SCREEN GetNextScreen();
-	void Load();
-	void Init();
 	void Update();
 	void Draw();
 	void Dest();
 private:
 	SCREEN m_state;
 	CMapControl m_Mcnt;
-	//CIdata m_Icnt;
 	int m_bgm;
 };
 #endif __SCREEN_GAME_H__

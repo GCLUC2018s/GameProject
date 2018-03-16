@@ -9,7 +9,6 @@
 #define NIKU_SPEED 2
 
 #define NIKU_KNOCKBACK_SPEED 8
-
 /*
 
 »ìÒ@Â–Ø
