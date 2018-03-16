@@ -8,7 +8,9 @@
 //ノックバックする速度
 #define KNOCKBACK_SPEED 8
 
-#define KAMAITACHI_FLOAT 0.1f
+#define BOSS_FLOAT_HEAD 0.1f
+#define BOSS_FLOAT_ARM 0.02f
+#define BOSS_FLOAT_TAIL 0.01f
 
 #include "../GameProject/GAME/CObjectBase/CObjectBase.h"
 
@@ -28,7 +30,13 @@ protected:
 	CVector3D m_armpos3D;
 	CVector3D m_arm2pos3D;
 	CVector3D m_tailpos3D;
-	float m_a;
+	CVector3D m_headvec3D;
+	CVector3D m_armvec3D;
+	CVector3D m_arm2vec3D;
+	CVector3D m_tailvec3D;
+	float m_shaking_head;
+	float m_shaking_arm;
+	float m_shaking_tail;
 	enum {
 		eHead,
 		eArm,
