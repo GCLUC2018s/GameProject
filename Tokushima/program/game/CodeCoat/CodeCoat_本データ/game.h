@@ -14,7 +14,6 @@ class CGame
 public:
 	CGame();
 	~CGame();
-	void Init();
 	void Dest();
 	void Update();
 	void Draw();

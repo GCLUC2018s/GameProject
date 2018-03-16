@@ -3,17 +3,15 @@
 
 //ヘッダーファイル
 #include "myLib.h"
-#include "screen.h"
+#include "Scene\SceneBase.h"
 
 //タイトルスクリーンクラス
-class CTitleScreen : public CScreen
+class CTitleScreen : public CSceneBase
 {
 public:
 	CTitleScreen();
 	~CTitleScreen();
 	SCREEN GetNextScreen();
-	void Load();
-	void Init();
 	void Update();
 	void Draw();
 	void Dest();

@@ -14,6 +14,7 @@
 
 void MainLoop(void) {
 	CTaskManager::GetInstance()->UpdateAll();
+	CTaskManager::GetInstance()->HitChackAll();
 	CTaskManager::GetInstance()->DrawAll();
 	CTaskManager::GetInstance()->KillAppoint();
 }
