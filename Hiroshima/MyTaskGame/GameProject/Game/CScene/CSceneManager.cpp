@@ -47,7 +47,6 @@ void CSceneManager::GameStartScene()
 
 void CSceneManager::TitleScene(){
 	//タイトル画面の要素ぶち込む
-	SOUND("BGM_Main")->Stop();
 	SOUND("BGM_Title")->Play(true);
 	new CTitleBG();
 }
@@ -55,7 +54,7 @@ void CSceneManager::TitleScene(){
 void CSceneManager::MainScene(){
 	//メイン戦闘画面の要素ぶち込む
 	SOUND("BGM_Title")->Stop();
-	new CBB(60 * 3,true);
+	new CBB(60 * 3,1, false);
 	new CPlayer();
 
 	/*new CEnemy1(&(CVector3D(400, 0, -300)));
@@ -85,5 +84,6 @@ void CSceneManager::BossScene(){
 
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
+	SOUND("BGM_Main")->Stop();
 	new CEnding();
 }

@@ -19,6 +19,7 @@ public:
 	 void Draw();
 	 void Hit(CTask *t);
 private:
+	float m_sc_plus;
 	enum {
 		eNutral,
 		eAttack,

@@ -26,7 +26,9 @@ protected:
 	bool	m_flipH;		//反転フラグ
 	bool	m_move;
 	int		m_type;	
-	static CVector2D m_scroll;
+	static CVector2D m_scroll;	//スクロール値
+	static bool m_wave_flag;	//今wave中ならtrue。敵全滅させたらfalseにして、スクロール開始
+	static 	bool m_sc_flag_x;	//プレイヤーが動いたことによるスクロールフラグ。trueならプレイヤーの動きは止まる
 	int m_hp;  //体力
 	int m_at;  //攻撃力
 	int m_state; //状態
