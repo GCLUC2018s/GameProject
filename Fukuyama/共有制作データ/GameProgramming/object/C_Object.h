@@ -40,7 +40,7 @@ protected:
 	C_Rectangle m_image;  //メンバー変数にする
 	C_Vector3 m_Speed;  //速度を管理
 	C_Vector3 m_Gravity;  //重力
-	void Rect(C_Rectangle* m_image,const C_Vector3* pos);  //ポジションの場所にC_Rectangle表示
+	void Rect(C_Rectangle* image,const C_Vector3* pos);  //ポジションの場所にC_Rectangle表示
 	void Scroll(C_Vector3 *m_pos,float m_Scroll);     //スクロール処理をします
 };
 #endif
