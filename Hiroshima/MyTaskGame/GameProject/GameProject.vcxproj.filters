@@ -111,6 +111,9 @@
     <ClCompile Include="Game\CScene\DebugScene\DebugScene.cpp">
       <Filter>Game\System\DebugScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEndeing\CEndeing.cpp">
+      <Filter>Game\Object\Pic\Ending</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -233,6 +236,9 @@
     </ClInclude>
     <ClInclude Include="Source\Gamesource.h">
       <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEndeing\CEndeing.h">
+      <Filter>Game\Object\Pic\Ending</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -376,6 +382,9 @@
     </Filter>
     <Filter Include="Game\Source">
       <UniqueIdentifier>{59826815-d3e4-462c-8692-c9e1441a3f37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Pic\Ending">
+      <UniqueIdentifier>{a1876d1b-e5a0-45e4-9e26-f2cd10e04917}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

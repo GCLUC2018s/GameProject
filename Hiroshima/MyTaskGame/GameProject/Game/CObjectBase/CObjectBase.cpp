@@ -15,6 +15,7 @@ CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
 void CObjectBase::Draw()
 {
 	m_img.SetFlipH(m_flipH);
+	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
 	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
 	m_img.Draw();
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left, m_pos3D.y - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right, m_rect.m_bottom), CVector4D(1, 0, 0, 0.3));
