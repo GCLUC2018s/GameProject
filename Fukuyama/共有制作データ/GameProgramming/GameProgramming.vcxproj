@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CBackGround.cpp" />
+    <ClCompile Include="CCollider.cpp" />
     <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="chara\C_Player.cpp" />
     <ClCompile Include="CKey.cpp" />
@@ -103,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CBackGround.h" />
+    <ClInclude Include="CCollider.h" />
     <ClInclude Include="CEnemy.h" />
     <ClInclude Include="chara\C_Player.h" />
     <ClInclude Include="CKey.h" />
