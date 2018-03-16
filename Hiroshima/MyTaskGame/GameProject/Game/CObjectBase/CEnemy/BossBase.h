@@ -28,6 +28,7 @@ protected:
 	CVector3D m_armpos3D;
 	CVector3D m_arm2pos3D;
 	CVector3D m_tailpos3D;
+	float m_a;
 	enum {
 		eHead,
 		eArm,

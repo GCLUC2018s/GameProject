@@ -29,9 +29,19 @@ CBoss::~CBoss() {
 void CBoss::Update() {
 	
 
-	m_pos3D += m_vec3D;
-	m_a += KAMAITACHI_FLOAT;
-	m_vec3D.y = sin(m_a) * 5;
+	m_headpos3D += m_vec3D;
+	m_armpos3D += m_vec3D;
+	m_arm2pos3D += m_vec3D;
+	m_tailpos3D += m_vec3D;
+
+	head();
+	arm();
+	arm2();
+	tail();
+
+	//m_a += KAMAITACHI_FLOAT;
+	//m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;	
+	//m_vec3D.y = -sin(m_a) * 3;
 
 m_head.ChangeAnimation(0);
 m_tail.ChangeAnimation(1);
@@ -71,4 +81,29 @@ void CBoss::Draw() {
 	m_arm.Draw();
 	m_arm2.Draw();
 	m_tail.Draw();
+}
+
+
+void CBoss::head() {
+	m_a += KAMAITACHI_FLOAT;
+	m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;
+	m_vec3D.y = -sin(m_a) * 3;
+}
+
+void CBoss::arm() {
+	m_a += KAMAITACHI_FLOAT;
+	m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;
+	m_vec3D.y = -sin(m_a) * 3;
+}
+
+void CBoss::arm2() {
+	m_a += KAMAITACHI_FLOAT;
+	m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;
+	m_vec3D.y = -sin(m_a) * 3;
+}
+
+void CBoss::tail() {
+	m_a += KAMAITACHI_FLOAT;
+	m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;
+	m_vec3D.y = -sin(m_a) * 3;
 }
