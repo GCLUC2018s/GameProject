@@ -109,10 +109,14 @@ void CPlayerManager::Update()
 	
 
 	//ŽålŒö‚Ì‘«Œ³
-	_p_pos = m_player->getBodyPos() + CVector3D(PLAYER_CENTER, 0, PLAYER_SHADOW_HEIGHT_POS);
+
+
+	_p_pos = m_player->getBodyPos();
+	_p_pos += CVector3D(PLAYER_CENTER, 0, PLAYER_SHADOW_HEIGHT_POS);
 	auto _item_list = CItemManager::GetInstance()->GetItemList();
 	for (auto it3 = _item_list.begin(); it3 != _item_list.end(); ){
 		if (IsHitCircle(PLAYER_COLLISION, ITEM_COLLISION, &_p_pos, &CVector3D((*it3)->GetPos().getX() + ITEM_CENTER, (*it3)->GetPos().getY(), (*it3)->GetPos().getZ() + ITEM_CENTER))){
+			
 			(*it3)->SetKill();
 			CItemData *item;
 			item = CItemManager::GetInstance()->makeItem((int)(*it3)->GetName());

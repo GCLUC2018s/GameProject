@@ -31,13 +31,29 @@ CNpc::~CNpc(){
 }
 
 void CNpc::Update(){
-	clsDx();
-	printfDx("%f", m_pos.getX());
+	//clsDx();
+//	CVector3D pos = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos();
+	//printfDx("%f,%f,%f\n", pos.getX() + PLAYER_CENTER, pos.getY(), pos.getZ() + PLAYER_SHADOW_HEIGHT_POS);
+	//auto item = CItemManager::GetInstance()->GetItemList();
+
+	
+		
+	/*float _xdist, _ydist, _zdist;
+	for (auto it = item.begin(); it < item.end(); it++){
+		_xdist = pow(pos.getX() - (*it)->GetPos().getX(), 2);
+		_ydist = pow(pos.getY() - (*it)->GetPos().getY(), 2);
+		_zdist = pow(pos.getZ() - (*it)->GetPos().getZ(), 2);
+		printfDx("%f,%f,%f\n", _xdist, _ydist, _zdist);
+	}*/
+	
+
+
+
 	float _total_mv = CMapManager::GetInstance()->GetPlayerAdress()->getTotalmovement();
 	float _gear = CPlayerManager::GetInstance()->GetPlayerAdress()->getMoveAmount();
 	_total_mv /= 40;
 	int mv_ratio = (int)_total_mv % 100;//この100はuiの_move最大範囲を4で割ったもの
-	if (mv_ratio > 95){
+	if (mv_ratio > 95){			//一定地点に行ったら通るように変更する
 		m_dash_flag = true;
 		m_pos = CVector3D(-200, 500, 0);
 	}
@@ -46,7 +62,7 @@ void CNpc::Update(){
 		_x += N_MOVEING_SPEED * FRAMETIME;
 		if (_x > 200.0f){
 			_x = 200.0f;
-			if (_gear == 0){
+			if (_gear == 0 && m_shop_flag == false){
 				//アイテム作成
 				m_shop_flag = true; 
 				srand((unsigned int)time(NULL));
@@ -82,26 +98,47 @@ void CNpc::Update(){
 	if (m_shop_flag){
 		int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 		if (IsLeftKeyTrigger(key)){
-			
+			m_cursor--;
+			if (m_cursor < 0)
+				m_cursor = 0;
 		}
 		if (IsRightKeyTrigger(key)){
+			m_cursor++;
+			if (m_cursor > 3)
+				m_cursor = 3;
 		}
-		if (IsZKeyTrigger(key)){
-		}
+		if (IsHitKeyTrigger(key,PAD_INPUT_4)){
+			if (m_cursor != 3){
+				if (m_sell_item[m_cursor].m_name != NONE){
+					CPlayerManager::GetInstance()->GetPlayerAdress()->setEquipment(&m_sell_item[m_cursor]);
+					m_sell_item[m_cursor].m_img = 0;
+					m_sell_item[m_cursor].m_name = NONE;
+					m_sell_item[m_cursor].m_type = (ItemType)0;
+					m_sell_item[m_cursor].m_useful = 0;
+					m_sell_item[m_cursor].m_attack_rate = 0;
 
+				}
+			}
+			else{
+				m_shop_flag = false;
+				m_dash_flag = false;
+			}
+		}
+		
 	}
 
 }
 
 void CNpc::Draw(){
-	clsDx();
 	DrawGraph(m_pos.getX(), m_pos.getY(), m_shadowimg, TRUE);
 	if (m_shop_flag){
-		for (int i = 0; i < 3; i++){
-			printfDx("%d", (int)m_sell_item);
-			DrawGraph(i * 300, 300, m_sell_item[i].m_img, TRUE);
+		for (int i = 1; i < 4; i++){
+			DrawGraph(i * FLAME_INTERVAL, 200, m_flame[m_sell_item[i - 1].m_type], TRUE);
+			DrawGraph(i * FLAME_INTERVAL, 200, m_sell_item[i - 1].m_img, TRUE);
+			DrawGraph(m_cursor * FLAME_INTERVAL + FLAME_INTERVAL, 200, m_flame[3], TRUE);
 		}
 	}
+	
 }
 
 
@@ -137,6 +174,20 @@ bool IsRightKeyTrigger(int key){
 bool IsZKeyTrigger(int key){
 	static int g_akey_prev;
 	if (key & PAD_INPUT_1){
+		if (g_akey_prev == false){
+			g_akey_prev = true;
+			return true;
+		}
+	}
+	else{
+		g_akey_prev = false;
+	}
+	return false;
+}
+
+bool IsHitKeyTrigger(int key, int chk){
+	static int g_akey_prev;
+	if (key & chk){
 		if (g_akey_prev == false){
 			g_akey_prev = true;
 			return true;
