@@ -12,8 +12,4 @@ CKakera::~CKakera() {
 }
 
 void CKakera::Update() {
-
-}
-void CKakera::Draw() {
-
 }

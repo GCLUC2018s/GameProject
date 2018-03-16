@@ -22,9 +22,10 @@ class CBoss :public CBossBase {
 protected:
 	int m_test;
 public:
-	CBoss(const CVector3D *pos);
+	CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D *arm2pos, const CVector3D *tailpos);
 	~CBoss();
 	void Update();
+	void Draw();
 };
 
 

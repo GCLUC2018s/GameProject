@@ -5,6 +5,7 @@
 #include <DxLib.h>
 #include <stdio.h>
 #include "map_manager.h"
+#include "npc_manager.h"
 
 CPlayerControl::CPlayerControl()
 :CTask(0, eUDP_Player, eDWP_Player)
@@ -37,170 +38,173 @@ CPlayerControl::~CPlayerControl(){
 }
 
 void CPlayerControl::Update(){
-	m_upper_animcounter++;
-	m_upper_animcounter %= MAXINT;
-	m_upper_ac = m_upper_animcounter / ANIM_RATE;
-	m_lower_animcounter++;
-	m_lower_animcounter %= MAXINT;
-	m_lower_ac = m_lower_animcounter / ANIM_RATE;
-	
-	//if (Map->getGoalFlag() != true){
-	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
-	float hx = m_BodyPos.getX();
-	float hy = m_BodyPos.getY();
-	float hz = m_BodyPos.getZ();
+	CNpc *_npc = CNpcManager::GetInstance()->GetNpcAdress();
 
-	if (!m_gear){
-		m_lower_playerstate = Stand;
-		if (m_upper_playerstate == Move)
-			m_upper_playerstate = Stand;
+	if (!_npc->getShopFlag()){
+		m_upper_animcounter++;
+		m_upper_animcounter %= MAXINT;
+		m_upper_ac = m_upper_animcounter / ANIM_RATE;
+		m_lower_animcounter++;
+		m_lower_animcounter %= MAXINT;
+		m_lower_ac = m_lower_animcounter / ANIM_RATE;
 
-	}
-	if (m_jumping){
-		m_jumppower -= GRAVITY;
-		hy -= (m_jumppower * FRAMETIME);
-		m_upper_playerstate = Jump;
-		m_lower_playerstate = Jump;
-	}
+		//if (Map->getGoalFlag() != true){
+		int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+		float hx = m_BodyPos.getX();
+		float hy = m_BodyPos.getY();
+		float hz = m_BodyPos.getZ();
 
-	float mv = P_SPEED * FRAMETIME;		//270pixel/s
-	if (key & PAD_INPUT_LEFT){
-		hx -= mv;
-		m_gear = (m_BodyPos.getX() / (ONE_GEAR_SPACE));
-		if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
-			m_upper_playerstate = Move;
-			m_lower_playerstate = Move;
-		}
-	}
-	else if (key & PAD_INPUT_RIGHT){
-		hx += mv;
-		m_gear = (m_BodyPos.getX() / (ONE_GEAR_SPACE));
-		if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
-			m_upper_playerstate = Move;
-			m_lower_playerstate = Move;
-		}
-	}
-	if (key & PAD_INPUT_UP){
-		hz -= mv;
-		if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
-			m_upper_playerstate = Move;
-			m_lower_playerstate = Move;
-		}
-	}
-	else if (key & PAD_INPUT_DOWN){
-		hz += mv;
-		if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
-			m_upper_playerstate = Move;
-			m_lower_playerstate = Move;
-		}
-	}
-
-	if ((int)m_gear == 5){
-		m_gear = m_gear + m_BodyPos.getX() / (ONE_GEAR_SPACE) / 3;
-	}
-	if ((int)m_gear == 0){
-		m_gear = 0.0f;
-	}
-
-
-	//移動範囲外だと座標の移動を無効化
-	if (hx < MOVEING_RANGE_LEFT)hx = m_BodyPos.getX();
-	if (hx > MOVEING_RANGE_RIGHT) hx = m_BodyPos.getX();
-	if (hz + PLAYER_LOWER_SIZE + PLAYER_SHADOW_HEIGHT_POS > MOVEING_RANGE_DOWN) hz = m_BodyPos.getZ();
-	if (hz + PLAYER_LOWER_SIZE + PLAYER_SHADOW_HEIGHT_POS < MOVEING_RANGE_UP)hz = m_BodyPos.getZ();
-
-	if (m_jumping == false){
-		if (key & PAD_INPUT_1 && hy == 0){
-			m_jumping = true;
-			m_jumppower = JUMP_POWER;
-		}
-	}
-	else {
-		if (hy > 0){
-			m_jumppower = 0;
-			m_jumping = false;
-			hy = 0;
-			if (m_gear == 0)		//後々モーションが増えると追加
+		if (!m_gear){
+			m_lower_playerstate = Stand;
+			if (m_upper_playerstate == Move)
 				m_upper_playerstate = Stand;
-			else
-				m_upper_playerstate = Move;
+
 		}
-	}
+		if (m_jumping){
+			m_jumppower -= GRAVITY;
+			hy -= (m_jumppower * FRAMETIME);
+			m_upper_playerstate = Jump;
+			m_lower_playerstate = Jump;
+		}
+
+		float mv = P_SPEED * FRAMETIME;		//270pixel/s
+		if (key & PAD_INPUT_LEFT){
+			hx -= mv;
+			m_gear = (m_BodyPos.getX() / (ONE_GEAR_SPACE));
+			if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
+				m_upper_playerstate = Move;
+				m_lower_playerstate = Move;
+			}
+		}
+		else if (key & PAD_INPUT_RIGHT){
+			hx += mv;
+			m_gear = (m_BodyPos.getX() / (ONE_GEAR_SPACE));
+			if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
+				m_upper_playerstate = Move;
+				m_lower_playerstate = Move;
+			}
+		}
+		if (key & PAD_INPUT_UP){
+			hz -= mv;
+			if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
+				m_upper_playerstate = Move;
+				m_lower_playerstate = Move;
+			}
+		}
+		else if (key & PAD_INPUT_DOWN){
+			hz += mv;
+			if (m_upper_playerstate != Jump && m_lower_playerstate != Jump){
+				m_upper_playerstate = Move;
+				m_lower_playerstate = Move;
+			}
+		}
+
+		if ((int)m_gear == 5){
+			m_gear = m_gear + m_BodyPos.getX() / (ONE_GEAR_SPACE) / 3;
+		}
+		if ((int)m_gear == 0){
+			m_gear = 0.0f;
+		}
+
+
+		//移動範囲外だと座標の移動を無効化
+		if (hx < MOVEING_RANGE_LEFT)hx = m_BodyPos.getX();
+		if (hx > MOVEING_RANGE_RIGHT) hx = m_BodyPos.getX();
+		if (hz + PLAYER_LOWER_SIZE + PLAYER_SHADOW_HEIGHT_POS > MOVEING_RANGE_DOWN) hz = m_BodyPos.getZ();
+		if (hz + PLAYER_LOWER_SIZE + PLAYER_SHADOW_HEIGHT_POS < MOVEING_RANGE_UP)hz = m_BodyPos.getZ();
+
+		if (m_jumping == false){
+			if (key & PAD_INPUT_1 && hy == 0){
+				m_jumping = true;
+				m_jumppower = JUMP_POWER;
+			}
+		}
+		else {
+			if (hy > 0){
+				m_jumppower = 0;
+				m_jumping = false;
+				hy = 0;
+				if (m_gear == 0)		//後々モーションが増えると追加
+					m_upper_playerstate = Stand;
+				else
+					m_upper_playerstate = Move;
+			}
+		}
 
 		//攻撃
-	if (m_Equipment[WEAPON].m_name != NONE){
-		if (m_upper_playerstate != Jump){
-			switch (m_Equipment[WEAPON].m_name){
-			case KNIFE:
-				m_attack_time++;
-				m_Equipment[WEAPON].m_useful--;
-				if (IsXKeyTrigger(key) && m_attack_time > m_Equipment[WEAPON].m_attack_rate){
-					m_Equipment[WEAPON].m_useful = 5;					//攻撃ON
-					m_attack_time = 0;
-				}
-				break;
-			case PISTOL:
-				if (IsXKeyTrigger(key)){
-					if (m_Equipment[WEAPON].m_useful > 0){
-						CVector3D _pos = m_BodyPos + CVector3D(50.0f, 0.0f, 30.0f);
-						CVector3D _vec(36.0f, 0.0f, 0.0f);
-						CBulletManager::GetInstance()->Create(&_pos, &_vec, 1200.0f, PLAYER);
-						m_Equipment[WEAPON].m_useful--;
+		if (m_Equipment[WEAPON].m_name != NONE){
+			if (m_upper_playerstate != Jump){
+				switch (m_Equipment[WEAPON].m_name){
+				case KNIFE:
+					m_attack_time++;
+					m_Equipment[WEAPON].m_useful--;
+					if (IsXKeyTrigger(key) && m_attack_time > m_Equipment[WEAPON].m_attack_rate){
+						m_Equipment[WEAPON].m_useful = 5;					//攻撃ON
+						m_attack_time = 0;
 					}
-				}
-				break;
-			case SHOTTOGAN:
-				m_attack_time++;
-				if (IsXKeyTrigger(key)){
-					if (m_Equipment[WEAPON].m_useful > 0){
-
-						if (m_attack_time > m_Equipment[WEAPON].m_attack_rate){
-							CVector3D _pos = m_BodyPos + CVector3D(50.0f, 0.0f, 30.0f);
-							CVector3D _vec(0.0f, 0.0f, 0.0f);
-							for (int i = -3; i < 3; i++){
-								_vec = CVector3D(cos(i * 10 * PI / 180.0) * 15, sin(i * 10 * PI / 180.0) * 15, 0.0f);
-								CBulletManager::GetInstance()->Create(&_pos, &_vec, 300.0f, PLAYER);
-							}
-							m_attack_time = 0;
-							m_Equipment[WEAPON].m_useful--;
-						}
-					}
-				}
-				break;
-			case RIFLE:
-				m_attack_time++;
-				if (key & PAD_INPUT_2){
-					if (m_Equipment[WEAPON].m_useful > 0){
-
-						if (m_attack_time > m_Equipment[WEAPON].m_attack_rate){
+					break;
+				case PISTOL:
+					if (IsXKeyTrigger(key)){
+						if (m_Equipment[WEAPON].m_useful > 0){
 							CVector3D _pos = m_BodyPos + CVector3D(50.0f, 0.0f, 30.0f);
 							CVector3D _vec(36.0f, 0.0f, 0.0f);
 							CBulletManager::GetInstance()->Create(&_pos, &_vec, 1200.0f, PLAYER);
 							m_Equipment[WEAPON].m_useful--;
-							m_attack_time = 0;
 						}
 					}
+					break;
+				case SHOTTOGAN:
+					m_attack_time++;
+					if (IsXKeyTrigger(key)){
+						if (m_Equipment[WEAPON].m_useful > 0){
+
+							if (m_attack_time > m_Equipment[WEAPON].m_attack_rate){
+								CVector3D _pos = m_BodyPos + CVector3D(50.0f, 0.0f, 30.0f);
+								CVector3D _vec(0.0f, 0.0f, 0.0f);
+								for (int i = -3; i < 3; i++){
+									_vec = CVector3D(cos(i * 10 * PI / 180.0) * 15, sin(i * 10 * PI / 180.0) * 15, 0.0f);
+									CBulletManager::GetInstance()->Create(&_pos, &_vec, 300.0f, PLAYER);
+								}
+								m_attack_time = 0;
+								m_Equipment[WEAPON].m_useful--;
+							}
+						}
+					}
+					break;
+				case RIFLE:
+					m_attack_time++;
+					if (key & PAD_INPUT_2){
+						if (m_Equipment[WEAPON].m_useful > 0){
+
+							if (m_attack_time > m_Equipment[WEAPON].m_attack_rate){
+								CVector3D _pos = m_BodyPos + CVector3D(50.0f, 0.0f, 30.0f);
+								CVector3D _vec(36.0f, 0.0f, 0.0f);
+								CBulletManager::GetInstance()->Create(&_pos, &_vec, 1200.0f, PLAYER);
+								m_Equipment[WEAPON].m_useful--;
+								m_attack_time = 0;
+							}
+						}
+					}
+					break;
+				default:
+					break;
 				}
-				break;
-			default:
-				break;
 			}
 		}
-	}
 
 		//影と体の場所を更新
-		m_BodyPos = CVector3D(hx,hy,hz);
-		m_ShadowPos = CVector3D(hx + PLAYER_SHADOW_WIDTH_POS, 0,hz + PLAYER_SHADOW_HEIGHT_POS);
+		m_BodyPos = CVector3D(hx, hy, hz);
+		m_ShadowPos = CVector3D(hx + PLAYER_SHADOW_WIDTH_POS, 0, hz + PLAYER_SHADOW_HEIGHT_POS);
 
 
-	//}
-	//else{
+		//}
+		//else{
 		//goalposが0になるまでに定位置についておく
 		//goalposが0になるとアニメーション開始　animconterで動きを管理する
 		//主人公が車と重なると姿を消し、クリア
 		//もしくはkeyに特定の情報を入力し、動きをつける
-	//}
-
+		//}
+	}
 
 }
 
