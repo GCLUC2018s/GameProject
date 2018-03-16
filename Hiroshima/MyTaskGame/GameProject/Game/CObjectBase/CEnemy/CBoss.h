@@ -25,6 +25,7 @@ public:
 	CBoss(const CVector3D *pos);
 	~CBoss();
 	void Update();
+	void Draw();
 };
 
 

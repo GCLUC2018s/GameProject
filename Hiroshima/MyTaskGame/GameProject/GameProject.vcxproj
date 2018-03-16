@@ -28,13 +28,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="Game\CEnemyAI.h" />
     <ClInclude Include="Game\CObjectBase\CBB\CBB.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\BossBase.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h" />
@@ -171,6 +172,7 @@
   <ItemGroup>
     <ClCompile Include="Game\CEnemyAI.cpp" />
     <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\BossBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp" />
