@@ -5,19 +5,49 @@
 
 */
 
-CItemBox::CItemBox(CVector3D *pos) :CObjectBase(eID_Gimmick, eU_Gimmick, eD_Object) {
+CItemBox::CItemBox(CVector3D *pos, int state) :CObjectBase(eID_Gimmick, eU_Gimmick, eD_Object) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("ItemBox"));
-	m_img.SetSize(512, 512);
+	m_img.SetSize(128, 128);
 	m_pos3D = *pos;
-	m_rect = CRect(124, 182, 392, 414);
+	m_rect = CRect(31, 45, 98, 103);
 	m_rect_F = m_rect;
+	m_state = state;
+	m_break = false;
+	m_cnt = 0;
 }
 
 CItemBox::~CItemBox() {
 }
 
 void CItemBox::Update() {
-	m_img.ChangeAnimation(0);
+	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
+
+	if (!m_break && PUSH_E) {
+		m_break = true;
+	}
+	if (m_cnt > 60) {
+		m_color.a = Price_Down(m_color.a, 0, 0.05f);
+	}
+	if (m_color.a == 0)
+		SetKill();
+
+	if (m_state) {
+		if (m_break) {
+			m_img.ChangeAnimation(3, false);
+			m_cnt++;
+		}else {
+			m_img.ChangeAnimation(2);
+		}
+	}else {
+		if (m_break) {
+			m_img.ChangeAnimation(1, false);
+			m_cnt++;
+		}
+		else {
+			m_img.ChangeAnimation(0);
+		}
+	}
+		
 	m_img.UpdateAnimation();
 	CheckOverlap();
 }

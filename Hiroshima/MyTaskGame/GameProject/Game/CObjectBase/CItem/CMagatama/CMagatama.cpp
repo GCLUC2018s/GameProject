@@ -13,4 +13,16 @@ CMagatama::~CMagatama() {
 
 void CMagatama::Update() {
 	m_pos3D.x = MAGATAMA_POS_X + m_scroll.x;
+
+
+	//if (PUSH_V) {
+	//	for (m_kakera == 0; m_kakera < 10; m_kakera++) {
+
+	//	}
+	//}
+}
+
+void CMagatama::Draw() {
+	
+
 }

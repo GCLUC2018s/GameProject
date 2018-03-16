@@ -1,5 +1,5 @@
 /*!
-@brief	敵管理クラス cpp
+@brief	武器商人管理クラス cpp
 @author	s.namizashi
 **/
 

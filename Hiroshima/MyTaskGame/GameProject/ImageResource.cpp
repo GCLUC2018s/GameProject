@@ -95,8 +95,23 @@ TexAnim _GI_ItemBox[] = {
 	{ 0,10 },
 	{ 1,10 },
 };
+TexAnim _GI_ItemBox2[] = {
+	{ 2,10 },
+};
+TexAnim _GI_EnemyBox[] = {
+	{ 5,10 },
+	{ 6,10 },
+};
+TexAnim _GI_EnemyBox2[] = {
+	{ 7,10 },
+	{ 8,10 },
+	{ 9,10 },
+};
 TexAnimData itembox_Animdata[] = {
 	ANIMDATA(_GI_ItemBox),
+	ANIMDATA(_GI_ItemBox2),
+	ANIMDATA(_GI_EnemyBox),
+	ANIMDATA(_GI_EnemyBox2),
 };
 
 
