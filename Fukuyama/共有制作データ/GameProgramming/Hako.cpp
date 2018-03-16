@@ -35,6 +35,7 @@ void Hako::Update(){
 				}
 				if (m_EnemyInterval == 60){
 					Enemy = new CEnemy();
+					Enemy -> Init();
 					m_EnemyInterval = 0;
 				}
 			if (CKey::Once('P')){

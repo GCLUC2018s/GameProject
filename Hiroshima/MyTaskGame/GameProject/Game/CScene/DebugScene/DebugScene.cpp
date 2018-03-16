@@ -31,7 +31,7 @@ void CDebugScene::Update()
 	}
 	if (CInput::GetState(0, CInput::ePush, CInput::eNum4)) {
 		//エンディングから
-		m_scene_num = 0;
+		m_scene_num = 4;
 	}
 	if (m_scene_num > -1) {
 		SetKill();

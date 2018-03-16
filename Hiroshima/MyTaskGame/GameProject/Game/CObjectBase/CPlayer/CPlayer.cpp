@@ -242,7 +242,7 @@ void CPlayer::Nutral() {
 	}
 	//‘«‰¹
 	if (m_cnt % 15 == 0 && m_cnt && m_jump == false) {
-		m_dash = Utility::Rand(0, 2);
+		m_dash = Utility::Rand(0, 3);
 		switch (m_dash) {
 		case 0:
 			SOUND("SE_DASH1")->Play(false);
@@ -359,6 +359,7 @@ CVector3D CPlayer::Die(CVector3D vec) {
 
 void CPlayer::Draw(){
 	m_img.SetFlipH(!m_flipH);
+	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img.Draw();
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));

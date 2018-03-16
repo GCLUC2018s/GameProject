@@ -110,16 +110,15 @@ void CEnemy2::KnockBack() {
 
 void CEnemy2::Fall() {
 	m_img.ChangeAnimation(eAnimEnemyFall);
-	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 	DropItem();
 	if (m_end_flag == false) {
 		m_end_flag = true;
-		m_color.a = 2.0;
+		m_color.w = 2.0;
 	}
 	if (m_end_flag) {
-		m_color.a -= 0.02;
+		m_color.w -= 0.02;
 	}
-	if (m_color.a < -1.0) {
+	if (m_color.w < -1.0) {
 		SetKill();
 	}
 }
