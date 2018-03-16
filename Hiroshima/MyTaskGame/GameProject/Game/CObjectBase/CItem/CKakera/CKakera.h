@@ -9,6 +9,9 @@ public:
 	CKakera(CVector3D * pos);
 	~CKakera();
 	void Update();
+	void Draw();
+	//“–‚½‚Á‚½‚Ìˆ—
+	void Hit(CTask *t);
 };
 
 #endif // !KAKERA_GUARD

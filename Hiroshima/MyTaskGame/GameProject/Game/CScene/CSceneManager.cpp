@@ -71,12 +71,12 @@ void CSceneManager::MainScene(){
 	new CItemBox(&(CVector3D(1250, 0, -430)), 1);
 	new CFieldManager();
 
-	new CKoban(&(CVector3D(500,500, 0)));
-	new COage(&(CVector3D(500, 450, 0)));
-	new CSake(&(CVector3D(450, 500, 0)));
+	new CKoban(&(CVector3D(300, 0, -300)));
+	new COage(&(CVector3D(500, 0, -30)));
+	new CSake(&(CVector3D(450, 0, -30)));
 	new CMagatama();	
 	new CEnemyManager();
-	new CKakera(&(CVector3D(450, 450, 0)));
+	new CKakera(&(CVector3D(450, 0, -30)));
 }
 
 void CSceneManager::BossScene(){
