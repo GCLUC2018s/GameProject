@@ -21,6 +21,7 @@ CBB::~CBB()
 	//終わったらエネミー生成
 	CTaskManager::GetInstance()->SetPause(eID_Player, false);
 	CTaskManager::GetInstance()->SetPause(eID_Enemy, false);
+	CTaskManager::GetInstance()->SetPause(eID_Gimmick, false);
 	SOUND("BGM_Main")->Play(true);
 }
 
@@ -28,6 +29,7 @@ void CBB::Update()
 {
 	CTaskManager::GetInstance()->SetPause(eID_Player, true);
 	CTaskManager::GetInstance()->SetPause(eID_Enemy, true);
+	CTaskManager::GetInstance()->SetPause(eID_Gimmick, true);
 	m_img.SetColor(0, 0, 0, m_color.w);
 	if (m_color.w > BB_COL_PA) {
 		//フェードアウト処理
