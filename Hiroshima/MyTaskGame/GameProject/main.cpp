@@ -81,9 +81,10 @@ void Init(void)
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_blue.png", fire_Animdata, 204, 245));
 
 	//タイトル関係
-	ADD_RESOURCE("Title_mihon", CAnimImage::LoadImage("タイトルイメージ.png"));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
-	ADD_RESOURCE("Title_pika", CAnimImage::LoadImage("title_pika.png"));
+	ADD_RESOURCE("Title_rogo", CAnimImage::LoadImage("rogo.png"));
+	ADD_RESOURCE("Title_rogo_s", CAnimImage::LoadImage("rogo_sabun.png"));
+	ADD_RESOURCE("Title_start", CAnimImage::LoadImage("push start.png"));
 
 	//フィールド関係
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));

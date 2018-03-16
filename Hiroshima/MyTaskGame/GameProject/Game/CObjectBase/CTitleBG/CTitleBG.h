@@ -1,6 +1,12 @@
 #ifndef TITLE_BG_GUARD
 #define TITLE_BG_GUARD
 
+#define ROGO_SIZ_X 600
+#define ROGO_SIZ_Y 800
+
+#define START_SIZ_X 350
+#define START_SIZ_Y 100
+
 #include "../CObjectBase.h"
 
 /*
@@ -19,12 +25,25 @@ public:
 private:
 	CAnimImage m_img_rogo;		//ロゴ画像
 	CAnimImage m_img_rogo_s;	//ロゴ画像差分
-	CAnimImage m_img_start;	//ロゴ画像差分
-	bool m_end_flag;			//エンター押されたので終わりますよフラグ
-	bool m_pika_flag;			//falseならぴかが消える。trueならぴかが出る
-	void BGUpdate();			//タイトル画像本体のアップデート
+	CAnimImage m_img_start;		//スタート画像
+	CAnimImage m_img_start_2;		//スタート画像
+
+	CColorRGBA m_col_rogo;			//ロゴ画像カラー
+	CColorRGBA m_col_rogo_s;		//ロゴ画像差分カラー
+	CColorRGBA m_col_start;			//スタート画像カラー
+	CColorRGBA m_col_start_2;			//スタート画像カラー
+
+	CVector2D m_st_siz;
+
+	bool m_end_flag;			//本当に終わりますよフラグ
+	bool m_sabun_flag;			//falseなら差分が消える。trueなら差分が出る
+	float m_f_time;					//(フェードアウト量参考)
+	int   m_time;					//エンターキーを押してからの時間(フェードアウト量参考)
+
 	void RogoUpdate();			//ロゴ画像本体のアップデート
 	void PushStartUpdate();		//PushStart画像本体のアップデート
+	void FadeIn(float *a);				//フェードイン
+	void FadeOut(float *a);				//フェードアウト
 
 };
 

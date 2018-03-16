@@ -30,7 +30,7 @@ void CMainText::Update()
 	}
 	else {
 		//ÉAÉEÉg
-		m_color.w -= MAIN_TEXT_UP;
+		m_color.w -= 0.04;
 		if (m_color.w < 0) {
 			SetKill();
 		}

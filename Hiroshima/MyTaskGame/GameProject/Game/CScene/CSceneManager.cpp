@@ -1,5 +1,7 @@
 #include "CSceneManager.h"
 #include "DebugScene\DebugScene.h"
+#include "../GameProject/Source/Gamesource.h"
+#include "../GameProject/Task/CTaskManager.h"
 
 CSceneManager::CSceneManager(int scene) : CTask(0, eU_Scene, eD_Null)
 {
@@ -49,13 +51,14 @@ void CSceneManager::TitleScene(){
 	//タイトル画面の要素ぶち込む
 	SOUND("BGM_Main")->Stop();
 	SOUND("BGM_Title")->Play(true);
+	new CBB(0, 0, 1);
 	new CTitleBG();
 }
 
 void CSceneManager::MainScene(){
 	//メイン戦闘画面の要素ぶち込む
 	SOUND("BGM_Title")->Stop();
-	new CBB(60 * 3,true);
+	new CBB(60 * 3, 1, 1);
 	new CPlayer();
 
 	/*new CEnemy1(&(CVector3D(400, 0, -300)));

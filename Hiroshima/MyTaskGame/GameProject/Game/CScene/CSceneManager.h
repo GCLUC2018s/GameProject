@@ -1,7 +1,8 @@
 #ifndef SCENE_MANAGER_GUARD
 #define SCENE_MANAGER_GUARD
 
-#include "../GameProject/Source/Gamesource.h"
+#include "../GameProject/Task/CTask.h"
+
 /*
 
 êßçÏé“Å@ã{˙±
