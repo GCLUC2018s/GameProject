@@ -360,6 +360,11 @@
     <Filter Include="Game\ObjectBase\Item\Kakera">
       <UniqueIdentifier>{4f390836-a638-4867-b0fe-b40ba76f843f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\ObjectBase\Chara\Enemy\BossBase">
+      <UniqueIdentifier>{f0f16911-09f6-4687-8af7-9aa78c20b316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Chara\Enemy\BossBase">
+      <UniqueIdentifier>{5087e820-5f7f-449b-ad5f-a857598d55bc}</UniqueIdentifier>
     <Filter Include="Game\ObjectBase\Gimmick\Fire">
       <UniqueIdentifier>{0e4c55c8-ccfe-4637-ae2f-dce69d40d1c7}</UniqueIdentifier>
     </Filter>
