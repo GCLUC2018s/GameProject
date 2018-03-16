@@ -12,7 +12,8 @@ CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
-	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_rect = CRect(50, 88, 170, 238);
+	m_rect_F = m_rect;
 
 	m_damage = false;
 	m_end_flag = false;
@@ -110,7 +111,7 @@ void CEnemy5::Fall() {
 		m_color.a = 2.0;
 	}
 	if (m_end_flag) {
-		m_color.a -= 0.01;
+		m_color.a -= 0.02;
 	}
 	if (m_color.a < -1.0) {
 		SetKill();

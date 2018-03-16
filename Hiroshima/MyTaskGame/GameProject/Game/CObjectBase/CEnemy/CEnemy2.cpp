@@ -13,8 +13,8 @@ CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = CHOCHIN_HP;
 	m_at = CHOCHIN_AT;
-	m_rect = CRect(190, 140, 400, 340);
-	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_rect = CRect(77, 68, 170, 161);
+	m_rect_F = CRect(77, 68, 170, ENEMY_SIZ_Y);
 
 	m_damage = false;
 	m_end_flag = false;
@@ -116,7 +116,7 @@ void CEnemy2::Fall() {
 		m_color.a = 2.0;
 	}
 	if (m_end_flag) {
-		m_color.a -= 0.01;
+		m_color.a -= 0.02;
 	}
 	if (m_color.a < -1.0) {
 		SetKill();
