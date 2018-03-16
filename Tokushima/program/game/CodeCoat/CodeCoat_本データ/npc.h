@@ -24,7 +24,7 @@ const int SELL_COUNT = 4; //ショップUIの数
 const int N_ANIM_RATE = 6;//アニメーションの再生速度
 const int N_MOVEING_SPEED = 380.0f;//npcの移動速度
 const int N_WAIT_TIME = 10000;
-
+const int FLAME_INTERVAL = 200;
 class CNpc : public CTask{
 private:
 	int m_shadowimg;								//npcの影画像

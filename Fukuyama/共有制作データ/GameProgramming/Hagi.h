@@ -4,7 +4,7 @@
 #include "chara/C_Player.h"
 #include "task/CTaskManager.h"
 
-class Hagi{
+class Hagi:public CTask{
 public:
 	Hagi(){
 		//プレイヤーのインスタンスを作成
