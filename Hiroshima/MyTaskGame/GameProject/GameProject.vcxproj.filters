@@ -101,6 +101,9 @@
     <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp">
       <Filter>Game\ObjectBase\Pic\GO</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CScene\DebugScene\DebugScene.cpp">
+      <Filter>Game\System\DebugScene</Filter>
+    </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp">
       <Filter>Game\ObjectBase\Item\Kakera</Filter>
     </ClCompile>
@@ -219,6 +222,9 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGo\CGo.h">
       <Filter>Game\ObjectBase\Pic\GO</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CScene\DebugScene\DebugScene.h">
+      <Filter>Game\System\DebugScene</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h">
       <Filter>Game\ObjectBase\Item\Kakera</Filter>
@@ -353,6 +359,9 @@
     </Filter>
     <Filter Include="Game\ObjectBase\Pic\Magatama">
       <UniqueIdentifier>{69fbd1b3-b848-4f7a-8f34-d174652fbcc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\System\DebugScene">
+      <UniqueIdentifier>{93e96658-bc97-4a53-85c9-ee23ddae5807}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\ObjectBase\Item\Kakera">
       <UniqueIdentifier>{4f390836-a638-4867-b0fe-b40ba76f843f}</UniqueIdentifier>

@@ -2,7 +2,6 @@
 #include"task\CTaskManager.h"
 #include"chara\C_Player.h"
 #include"random"
-C_Player *ip_Player;
 int EnemyCount = 0;
 void CEnemy::Init(){
 	srand((unsigned)time(NULL));
@@ -71,11 +70,11 @@ void CEnemy::Update(){
 			
 		}
 	}
-	m_Target = ip_Player;
+	m_Target = C_Player::m_Playerpoint;
 	C_Vector3 diaPlayer =
 		m_Target->m_Position - m_Position;
 	//¶‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
-	if (m_Position.x < ip_Player->m_Position.x){
+	if (m_Position.x < m_Target->m_Position.x){
 		m_Position.x = m_Position.x + (diaPlayer.x + 90 / ENEMY_LR_SPEED);
 	}
 	//‰E‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—

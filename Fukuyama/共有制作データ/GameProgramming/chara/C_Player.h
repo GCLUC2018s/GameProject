@@ -30,6 +30,7 @@ public:
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 
 		m_Speed.y = JUMP_FIRST_SPEED; //ジャンプの初速を設定します。
+		m_Playerpoint = this;
 	}
 	//プレイヤーの向きフラグ
 	enum TURN_TAG{
@@ -47,6 +48,7 @@ public:
 	CTexture i_Chara_Motion_1;
 	CTexture i_Chara_Motion_2;
 	C_Vector3 i_JumpPoint;
+	static C_Player *m_Playerpoint;
 	int m_Anime;            //アニメーション管理変数
 	int m_Anime_Taiki;      //アニメーション管理変数
 	int m_Turn;             //右を向いているか左を向いているか

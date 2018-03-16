@@ -50,6 +50,12 @@ void Init(void)
 	CInput::SetButton(0, CInput::eMouseL, VK_LBUTTON);
 	CInput::SetButton(0, CInput::eMouseR, VK_RBUTTON);
 	CInput::SetButton(0, CInput::eMouseC, VK_MBUTTON);
+	//Debug—p
+	CInput::SetButton(0, CInput::eNum0, '0');
+	CInput::SetButton(0, CInput::eNum1, '1');
+	CInput::SetButton(0, CInput::eNum2, '2');
+	CInput::SetButton(0, CInput::eNum3, '3');
+	CInput::SetButton(0, CInput::eNum4, '4');
 
 
 	//CInput::SetMouseInside(true); 
@@ -105,7 +111,7 @@ void Init(void)
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
 
-	NEW_SCENE(eMain);
+	NEW_SCENE(eDebug);
 }
 
 void release()
