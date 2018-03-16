@@ -60,7 +60,7 @@ void CEnemy::Update(){
 	if (m_pos.getX() < -200){
 		m_living = false;
 	}
-	else if (m_pos.getX() < 1280){
+	else if (m_pos.getX() < SCREEN_SIZE_X){
 		m_attackrate++;
 	}
 
