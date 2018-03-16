@@ -7,7 +7,7 @@
 
 #define DARUMA_KNOCKBACK_SPEED 8
 
-#include"../CObjectBase.h"
+//#include"../CObjectBase.h"
 #include"CEnemyBase.h"
 /*
 
