@@ -34,13 +34,18 @@ void CBoss::Update() {
 
 	if (m_test >= 50) {
 		m_flipH = true;
-	}
-	else if(m_test <= 50){
+	}else if(m_test < 50){
 		m_flipH = false;
 	}
+	if (m_test == 50) {
+		m_tailpos3D.x += 113;
+	}
+	if (m_test == 100) {
+		m_tailpos3D.x -= 113;
+	}
 	
 	
-	if (m_test > 100) {
+	if (m_test == 100) {
 		m_test = 0;
 	}
 
@@ -60,10 +65,10 @@ void CBoss::Update() {
 	//m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;	
 	//m_vec3D.y = -sin(m_a) * 3;
 
-m_head.ChangeAnimation(0);
-m_tail.ChangeAnimation(1);
-m_arm2.ChangeAnimation(2);
-m_arm.ChangeAnimation(3);
+	m_head.ChangeAnimation(0);
+	m_tail.ChangeAnimation(1);
+	m_arm2.ChangeAnimation(2);
+	m_arm.ChangeAnimation(3);
 
 //m_tail.ChangeAnimation(4);
 //m_head.ChangeAnimation(5);
