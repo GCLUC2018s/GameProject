@@ -21,7 +21,6 @@ public:
 	// —Dæ“xæ“¾ 
 	int		GetPriority() const;
 
-
 };
 #endif // !TASK_LINKER_GUARD
 

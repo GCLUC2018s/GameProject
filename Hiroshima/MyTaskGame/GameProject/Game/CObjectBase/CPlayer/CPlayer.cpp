@@ -14,9 +14,10 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(0, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
+	m_rect = CRect(128 / 2, 64 / 2, 383 / 2, 487 / 2);
+	m_rect_F = CRect(128 / 2, 64 / 2, 383 / 2, 487 / 2);
 	m_img.SetSize(256, 256);
 	m_img.SetFlipH(m_flipH);
-	m_rect = CRect(129, 58, 353, 489);
 	m_punch1 = false;
 	m_punch2 = false;
 	m_kick = false;
@@ -32,7 +33,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 }
 
 CPlayer::~CPlayer() {
-	NEW_SCENE(eTitle)
+	//NEW_SCENE(eTitle)
 }
 
 void CPlayer::Update() {
@@ -154,8 +155,8 @@ void CPlayer::Update() {
 		m_img.UpdateAnimation();
 
 	}
-	if (m_pos3D.x > SCREEN_WIDTH / 2 && m_pos3D.x < GROUND_WIDTH - SCREEN_WIDTH / 2) {
-		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 2;
+	if (m_pos3D.x > SCREEN_WIDTH / 4 && m_pos3D.x < GROUND_WIDTH - (SCREEN_WIDTH / 4) * 3) {
+		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 4;
 	}
 	if (m_pos3D.z < -400 && 450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -200) {
 		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 80;
@@ -167,6 +168,7 @@ void CPlayer::Update() {
 		new CGo();
 	}
 	CheckOverlap();
+	m_rect_F = CRect(128 / 2, 64 / 2, 383 / 2, (487 / 2) - m_pos3D.y);
 }
 
 void CPlayer::Nutral() {
@@ -239,7 +241,7 @@ void CPlayer::Nutral() {
 		}
 	}
 	//足音
-	if (m_cnt % 15 == 0 && !m_cnt && m_cnt && m_jump == false) {
+	if (m_cnt % 15 == 0 && m_cnt && m_jump == false) {
 		m_dash = Utility::Rand(0, 2);
 		switch (m_dash) {
 		case 0:
@@ -252,6 +254,7 @@ void CPlayer::Nutral() {
 			SOUND("SE_DASH3")->Play(false);
 			break;
 		}
+		m_cnt++;
 	}
 
 	//ジャンプしてなくて、パンチしたら
@@ -356,7 +359,10 @@ CVector3D CPlayer::Die(CVector3D vec) {
 
 void CPlayer::Draw(){
 	m_img.SetFlipH(!m_flipH);
-	m_img.SetPos(m_pos3D.x + m_variation - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
+	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img.Draw();
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
+
 }
 

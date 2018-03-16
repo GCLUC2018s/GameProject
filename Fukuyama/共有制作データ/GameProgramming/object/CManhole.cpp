@@ -24,16 +24,13 @@ C_Manhole::C_Manhole()
 
 //更新処理
 void C_Manhole::Update(){
+	//スクロールする
+	Scroll(&m_Position, m_Scroll);
 	//右辺が画面左端よりも小さくなった場合
 	if (m_image.m_Right<DISPLAY_LEFT){
 		//削除して、新しく追加
 		SetKill();
 		new C_Manhole();
-	}
-	//右辺が画面左端よりも大きい場合
-	else{
-		//スクロールする
-		Scroll(&m_Position, m_Scroll);
 	}
 	if (CKey::Push('A')){
 		m_Position.x -= TestSpeed;

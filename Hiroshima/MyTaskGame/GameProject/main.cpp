@@ -92,8 +92,13 @@ void Init(void)
 	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav", 50);
 	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 50);
 	SOUND("SE_DASH3")->Load("Sound/SE/dash3.wav", 50);
+	SOUND("SE_DASH1")->Volume(0.90f);
+	SOUND("SE_DASH2")->Volume(0.90f);
+	SOUND("SE_DASH3")->Volume(0.90f);
 	SOUND("SE_JUMP")->Load("Sound/SE/highspeed-movement1.wav", 50);
 	SOUND("SE_LANDING")->Load("Sound/SE/landing.wav", 50);
+	SOUND("SE_JUMP")->Volume(0.90f);
+	SOUND("SE_LANDING")->Volume(0.90f);
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
