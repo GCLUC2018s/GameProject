@@ -5,12 +5,8 @@ CTitleBG::CTitleBG() :CObjectBase(0, eU_Back, eD_Null)
 {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
 	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-//	m_img_pika = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title_pika"));
-//	m_img_pika.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-	m_pika_flag = false;
 	m_end_flag = false;
 	m_color.w = 0.0;
-	m_color.a = 0.0;
 }
 
 CTitleBG::~CTitleBG()
@@ -22,33 +18,28 @@ CTitleBG::~CTitleBG()
 
 void CTitleBG::Update()
 {
-//	m_img_pika.SetColor(1, 1, 1, m_color.a);
-	if (m_end_flag == false) {
-		m_color.w += 0.05;
-		if (m_color.w > 2.0) {
-			if (m_pika_flag) {
-				m_color.a += 0.05;
-				if (m_color.a > 2.0) {
-					m_pika_flag = false;
-				}
-			}
-			else {
-				m_color.a -= 0.05;
-				if (m_color.a < -2.0) {
-					m_pika_flag = true;
-				}
-			}
-			if (PUSH_ENTER) {
-				//フェードアウトフラグ立てる
-				SOUND("SE_Title_Enter")->Play(false);
-				m_end_flag = true;
-				m_color.w = 2.0;
+	BGUpdate();
+	RogoUpdate();
+	PushStartUpdate();
+	
+}
 
-			}
-		}
-		
+void CTitleBG::Draw()
+{
+	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
+	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
+	m_img.Draw();
+}
+
+void CTitleBG::BGUpdate()
+{
+
+	if (PUSH_ENTER) {
+		//フェードアウトフラグ立てる
+		SOUND("SE_Title_Enter")->Play(false);
+		m_end_flag = true;
 	}
-	else {
+	if (m_end_flag) {
 		//フェードアウト
 		m_color.a -= 0.01;
 		m_color.w -= 0.01;
@@ -58,13 +49,10 @@ void CTitleBG::Update()
 	}
 }
 
-void CTitleBG::Draw()
+void CTitleBG::RogoUpdate()
 {
-	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
-	m_img.SetFlipH(m_flipH);
-	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
-	m_img.Draw();
-	//m_img_pika.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
-	//m_img_pika.Draw();
-//	Utility::DrawQuad(CVector2D(m_pos3D.x, m_pos3D.y), CVector2D(m_rect.m_right, m_rect.m_bottom), CVector4D(1, 0, 0, 0.5));
+}
+
+void CTitleBG::PushStartUpdate()
+{
 }
