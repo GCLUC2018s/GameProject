@@ -20,7 +20,7 @@ CMainText::~CMainText()
 
 void CMainText::Update()
 {
-		m_img.SetColor(1, 1, 1, m_color.w);
+	m_img.SetColor(1, 1, 1, m_color.w);
 	if (m_end_flag == false) {
 		//フェードイン
 		m_color.w += MAIN_TEXT_UP;
@@ -36,4 +36,3 @@ void CMainText::Update()
 		}
 	}
 }
-

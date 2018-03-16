@@ -90,7 +90,7 @@
       <Filter>Game\ObjectBase\Item\Sake</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp">
-      <Filter>Game\ObjectBase\Item\Magatama</Filter>
+      <Filter>Game\ObjectBase\Pic\Magatama</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp">
       <Filter>Game\ObjectBase\Item\Oage</Filter>
@@ -191,7 +191,7 @@
       <Filter>Game\ObjectBase\Item\Sake</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h">
-      <Filter>Game\ObjectBase\Item\Magatama</Filter>
+      <Filter>Game\ObjectBase\Pic\Magatama</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h">
       <Filter>Game\ObjectBase\Item\Kobann</Filter>
@@ -321,9 +321,6 @@
     <Filter Include="ImageResource">
       <UniqueIdentifier>{6121c616-eb43-40ba-ac97-bc5159c6d6a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\ObjectBase\Item\Magatama">
-      <UniqueIdentifier>{69fbd1b3-b848-4f7a-8f34-d174652fbcc3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\ObjectBase\Item\Ohuda">
       <UniqueIdentifier>{55365ec8-e141-4e3f-ad6d-5b98e5620f85}</UniqueIdentifier>
     </Filter>
@@ -341,6 +338,9 @@
     </Filter>
     <Filter Include="Game\ObjectBase\Pic\GO">
       <UniqueIdentifier>{0da08f42-3250-4442-85e3-9707382b2e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ObjectBase\Pic\Magatama">
+      <UniqueIdentifier>{69fbd1b3-b848-4f7a-8f34-d174652fbcc3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
