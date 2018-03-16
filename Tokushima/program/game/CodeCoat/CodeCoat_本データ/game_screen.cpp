@@ -6,6 +6,7 @@
 #include <DxLib.h>
 #include "enemy_manager.h"
 #include "ui_manager.h"
+#include "npc_manager.h"
 
 int g_stage = 1;
 
@@ -18,6 +19,7 @@ CGameScreen::CGameScreen(){
 	CItemManager::GetInstance()->Create(&CVector3D(900, 0, 300));
 	CItemManager::GetInstance()->Create(&CVector3D(1100, 0, 300));
 	new CPlayerControl;
+	new CNpc;
 	CEnemyManager *em = CEnemyManager::getInstance();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
 }
