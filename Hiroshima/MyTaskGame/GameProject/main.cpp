@@ -93,10 +93,12 @@ void Init(void)
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));
 	ADD_RESOURCE("ItemBox", CAnimImage::LoadImage("itembox_motion_object.png", itembox_Animdata, 512, 512));
+	ADD_RESOURCE("EndStaff", CAnimImage::LoadImage("ending.png"));
 
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
 	SOUND("BGM_Main")->Volume(0.90f);
+	SOUND("BGM_Ending")->Load("Sound/BGM/n32.wav");
 	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav", 10);
 	SOUND("SE_DASH1")->Load("Sound/SE/dash1.wav", 50);
 	SOUND("SE_DASH2")->Load("Sound/SE/dash2.wav", 50);

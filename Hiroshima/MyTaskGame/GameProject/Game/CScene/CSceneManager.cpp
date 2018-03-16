@@ -85,4 +85,5 @@ void CSceneManager::BossScene(){
 
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
+	new CEnding();
 }

@@ -40,7 +40,7 @@ public:
 	void Draw();
 	void setDeath(){ m_live = false; }
 	bool getlive(){ return m_live; }
-	bool getGoalFlag(){ return m_shop_flag; }
+	bool getShopFlag(){ return m_shop_flag; }
 };
 
 #endif __NPC_H__

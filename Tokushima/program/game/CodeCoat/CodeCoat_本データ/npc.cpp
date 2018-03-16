@@ -48,7 +48,12 @@ void CNpc::Update(){
 
 	}
 	else{
-		m_pos.setX(m_pos.getX() - N_MOVEING_SPEED * FRAMETIME);
+		float _x = m_pos.getX();
+		_x -= N_MOVEING_SPEED * FRAMETIME;
+		if (_x > -200.0f){
+			_x = -200.0f;
+		}
+		m_pos.setX(_x);
 	}
 
 	//ショップフラグが建つとアイテムとイグジットを表示する 操作できるようにする
