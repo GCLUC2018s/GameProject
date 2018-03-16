@@ -16,10 +16,14 @@ void C_Player::Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, 
 
 void C_Player::Update(){
 
+	//Sキーでジャンプします
 	if (CKey::Once('S')&&m_Jump==E_NJUMP){
+		//ジャンプしているかどうかタグをつけます
 		m_Jump = E_JUMP;
+		//ジャンプ処理を行う時間を計算します。
 		m_JumpTime = -2 * (JUMP_FIRST_SPEED / m_Gravity.y);
-		i_JumpPoint = m_Position;
+
+
 	}
 
 		//右移動
@@ -43,6 +47,7 @@ void C_Player::Update(){
 			i_JumpPoint.z -= PLAYER_UD_SPEED;
 		}
 
+		//ジャンプ中処理
 	if (m_Jump==E_JUMP){
 		Jump(m_Position, m_Speed, m_Gravity, 2.0f / FPS);
 			m_Position.z += m_Speed.y;
