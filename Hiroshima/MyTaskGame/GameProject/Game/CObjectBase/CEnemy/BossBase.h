@@ -8,6 +8,8 @@
 //ノックバックする速度
 #define KNOCKBACK_SPEED 8
 
+#define KAMAITACHI_FLOAT 0.1f
+
 #include "../GameProject/GAME/CObjectBase/CObjectBase.h"
 
 

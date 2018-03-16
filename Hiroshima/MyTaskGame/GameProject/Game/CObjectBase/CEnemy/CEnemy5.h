@@ -9,6 +9,10 @@
 #define NIKU_SPEED 2
 
 #define NIKU_KNOCKBACK_SPEED 8
+
+#define NIKU_SIZ_X 384
+#define NIKU_SIZ_Y 384
+
 /*
 
 êªçÏé“Å@ê¬ñÿ
