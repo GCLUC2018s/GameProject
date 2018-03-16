@@ -40,7 +40,7 @@ void CEnemyManager::Update() {
 		PushEnemy(&push_enemy[x].id);
 		x++;
 		if (x > 6) {
-			i = 0;
+		//	i = 0;
 			x = 0;
 		}
 	}

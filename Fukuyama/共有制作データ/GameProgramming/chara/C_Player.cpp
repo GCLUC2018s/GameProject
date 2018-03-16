@@ -1,5 +1,7 @@
 #include "C_Player.h"
 
+C_Player *C_Player::m_Playerpoint = 0;
+
 void C_Player::Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, float deltatime)
 {
 	speed.x += gravity.x*deltatime;
@@ -64,6 +66,7 @@ void C_Player::Update(){
 	m_Scroll = m_Position.x + SCROLL_POINT;
 	C_Object::Rect(&m_image,&m_Position);
 	C_Object::Scroll(&m_Position,m_Scroll);
+
 }
 
 //ÉvÉåÉCÉÑÅ[ÇÃï`âÊ

@@ -2,7 +2,6 @@
 #include"task\CTaskManager.h"
 #include"chara\C_Player.h"
 #include"random"
-C_Player *ip_Player;
 int EnemyCount = 0;
 void CEnemy::Init(){
 	srand((unsigned)time(NULL));
@@ -11,71 +10,71 @@ void CEnemy::Init(){
 	{
 	case 0:
 		C_Vector3(700,0,35);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 1:
 		C_Vector3(700, 0, -105);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 2:
 		C_Vector3(700, 0, -235);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 3:
 		C_Vector3(700, 0, -365);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 4:
 		C_Vector3(-700, 0, 35);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 5:
 		C_Vector3(-700, 0, -105);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 6:
 		C_Vector3(-700, 0,-235);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 7:
 		C_Vector3(-700, 0, -365);
-		m_EnemyKind = 0;
+		m_EnemyKind = E_KIN;
 		break;
 	case 8:
 		C_Vector3(700, 0, 35);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 	case 9:
 		C_Vector3(700, 0, -105);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 	case 10:
 		C_Vector3(700, 0, -235);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 	case 11:
 		C_Vector3(700, 0, -365);
-		m_EnemyKind = 1;
+		m_EnemyKind = E_ESCAPE;
 		break;
 		m_EnemyCount += 1;
 	}
 }
 void CEnemy::Update(){
 	//‹ß‹——£í“¬Œ^‚Ì“G‚Ìˆ—
-	if (m_EnemyKind == 0){
+	if (m_EnemyKind == E_KIN){
 
 	}
 	//“¦‘–Œ^‚Ì“G‚Ìˆ—
-	else{
+	if (m_EnemyKind==E_ESCAPE){
 		if (m_Position.x<=700){
 			
 		}
 	}
-	m_Target = ip_Player;
+	m_Target = C_Player::m_Playerpoint;
 	C_Vector3 diaPlayer =
 		m_Target->m_Position - m_Position;
 	//¶‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
-	if (m_Position.x < ip_Player->m_Position.x){
+	if (m_Position.x < m_Target->m_Position.x){
 		m_Position.x = m_Position.x + (diaPlayer.x + 90 / ENEMY_LR_SPEED);
 	}
 	//‰E‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—

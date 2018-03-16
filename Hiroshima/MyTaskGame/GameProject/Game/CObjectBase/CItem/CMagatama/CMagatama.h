@@ -3,6 +3,8 @@
 
 #include "../GameProject/Game/CObjectBase/CObjectBase.h"
 
+#define MAGATAMA_POS_X 0
+
 class CMagatama :public CObjectBase {
 public:
 	CMagatama();

@@ -64,11 +64,12 @@ void CSceneManager::MainScene(){
 	new CGimmick(&(CVector3D(500, 0, -100)));
 	new CFieldManager();
 
-	//new CKoban(&(CVector3D(500,500, 0)));
-	//new COage(&(CVector3D(500, 450, 0)));
-	//new CSake(&(CVector3D(450, 500, 0)));
-	//new CMagatama();	
+	new CKoban(&(CVector3D(500,500, 0)));
+	new COage(&(CVector3D(500, 450, 0)));
+	new CSake(&(CVector3D(450, 500, 0)));
+	new CMagatama();	
 	new CEnemyManager();
+	new CKakera(&(CVector3D(450, 450, 0)));
 }
 
 void CSceneManager::BossScene(){
