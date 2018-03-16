@@ -75,15 +75,16 @@ void CEnemy::Update(){
 		m_Target->m_Position - m_Position;
 	//ç∂ë§Ç…Ç¢ÇÈÇ∆Ç´ÇÃí«ê’èàóù
 	if (m_Position.x < m_Target->m_Position.x){
-		m_Position.x = m_Position.x + (diaPlayer.x + 90 / ENEMY_LR_SPEED);
+		m_Position.x += diaPlayer.x  / ENEMY_LR_SPEED;
+
 	}
 	//âEë§Ç…Ç¢ÇÈÇ∆Ç´ÇÃí«ê’èàóù
 	else{
-		m_Position.x = m_Position.x + (diaPlayer.x - 90 / ENEMY_LR_SPEED);
+		m_Position.x = m_Position.x + (diaPlayer.x / ENEMY_LR_SPEED);
 	}
 
-	m_Position.z = m_Position.z + (diaPlayer.z / ENEMY_UD_SPEED);
-
+	m_Position.z +=diaPlayer.z / ENEMY_UD_SPEED;
+	C_Object::Rect(&m_image, &m_Position);
 }
 void CEnemy::Draw(){
 	//

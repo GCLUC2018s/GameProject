@@ -13,6 +13,7 @@ const int ENEMY_LOWER_SIZE = 60;//当たり判定(腹部)計算用
 const int ENEMY_SHADOW_POS = 150;//影の位置
 const int ENEMY_CENTER = 80;	//体の中心割り出し用
 const float ENEMY_COLLISION = 45;//敵の当たり判定半径
+const int ENEMY_POINT = 100;
 
 
 class CEnemy :public CTask{

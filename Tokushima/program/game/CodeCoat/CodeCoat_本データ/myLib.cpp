@@ -30,6 +30,7 @@ CVector3D& CVector3D::operator+(const CVector3D&ope){
 	pos_y += ope.pos_y;
 	pos_z += ope.pos_z;
 	return *this;
+	//return CVector3D(pos_x + ope.pos_x, pos_y + ope.pos_y, pos_z + ope.pos_z);
 }
 int CVector3D::operator==(const CVector3D&ope){
 	if (pos_x == ope.pos_x &&

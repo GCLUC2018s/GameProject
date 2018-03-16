@@ -9,14 +9,14 @@
 CMapControl::CMapControl()
 :CTask(0, eUDP_Map, eDWP_Map)
 , m_posAsrc(0.0f, -250.0f,0.0f)
-, m_posBsrc(0.0f, 0.0f,0.0f)
+, m_posBsrc(0.0f, -250.0f,0.0f)
 , m_clearpos(4000)
 , m_goalpos(1280.0f,0.0f,0.0f)
 , m_goalflag(false)
 , m_goalscrollstartpos(0)
 {
 	m_totalmovement = 0;
-	char *item[] = { "bg_front.png", "kari_oku_bg2.png", "goal.png" };
+	char *item[] = { "bg_front.png", "bg_back.png", "goal.png" };
 	char buf[256];
 	for (int i = 0; i < IMAGECOUNT; i++){
 		sprintf_s(buf, "media\\img\\%s", item[i]);
@@ -38,7 +38,7 @@ void CMapControl::Update(){
 	m_posAsrc.setX(m_posAsrc.getX() - _Amount);
 		if (m_posAsrc.getX() <= -3840)
 			m_posAsrc.setX(0);
-		m_posBsrc.setX(m_posBsrc.getX() - (_Amount / 5));
+		m_posBsrc.setX(m_posBsrc.getX() - (_Amount / 3));
 		if (m_posBsrc.getX() <= -1280)
 			m_posBsrc.setX(0);
 		if (m_goalflag){
@@ -52,8 +52,11 @@ void CMapControl::Draw(){
 	float _yscr = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos().getY();
 	if (_yscr > 250.0f)
 		_yscr > 250.0f;
-	DrawGraph((int)m_posBsrc.getX(), (int)m_posBsrc.getY()  , m_img[1], TRUE);
-	DrawGraph((int)m_posBsrc.getX() + 1280, (int)m_posBsrc.getY(), m_img[1], TRUE);
+	float _yscr2 = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos().getY();
+	if (_yscr2 > 50.0f)
+		_yscr2 > 50.0f;
+	DrawGraph((int)m_posBsrc.getX(), (int)m_posBsrc.getY() - (_yscr2/2), m_img[1], TRUE);
+	DrawGraph((int)m_posBsrc.getX() + 1280, (int)m_posBsrc.getY() - (_yscr2/2), m_img[1], TRUE);
 	DrawGraph((int)m_posAsrc.getX(), (int)m_posAsrc.getY() - _yscr, m_img[0], TRUE);
 	DrawGraph((int)m_posAsrc.getX() + 3840, (int)m_posAsrc.getY() - _yscr, m_img[0], TRUE);
 	DrawGraph((int)m_goalpos.getX(), (int)m_goalpos.getY(), m_img[2], TRUE);

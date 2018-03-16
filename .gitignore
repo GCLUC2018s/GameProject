@@ -7,3 +7,5 @@ Release
 *.sdf
 /Hiroshima/Program/Task/Task.VC.VC.opendb
 *.vcxproj
+/Tokushima/program/game/CodeCoat/CodeCoat_本データ/*.suo
+/Tokushima/program/game/CodeCoat/CodeCoat_本データ/Log.txt

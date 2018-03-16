@@ -22,6 +22,8 @@ void CBullet::Update(){
 	// 移動
 	m_pos += m_vec;
 	m_pos.setX(m_pos.getX() - CPlayerManager::GetInstance()->GetPlayerAdress()->getMoveAmount());
+	//プレイヤーのZ座標
+	float _p_pos_z = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos().getZ()+PLAYER_LOWER_SIZE;
 	//ジャンプに合わせないようにする
 	float _yscr = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos().getY();
 	if (_yscr > 250.0f)
@@ -48,7 +50,12 @@ void CBullet::Update(){
 			Kill();
 		}
 	}
-
+	if (_p_pos_z < m_pos.getZ()){
+		CBullet::ChangeDrawPriority(eDWP_Bullet);
+	}
+	else{
+		CBullet::ChangeDrawPriority(eDWP_BBullet);
+	}
 }
 
 void CBullet::Draw(){

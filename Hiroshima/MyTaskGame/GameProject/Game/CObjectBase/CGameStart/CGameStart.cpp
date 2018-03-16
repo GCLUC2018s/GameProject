@@ -12,7 +12,7 @@ CGameStart::CGameStart() :CObjectBase(0, eU_Back, eD_Null)
 	m_siz = 0.0;
 	m_up_siz = 0.001;
 	m_end_flag = false;
-	m_color.a = -0.1;
+	m_color.w = -0.1;
 	m_cnt = 0;
 }
 
@@ -23,18 +23,17 @@ CGameStart::~CGameStart()
 
 void CGameStart::Update()
 {
-		m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 	if (m_end_flag) {
 		//フェードアウト
-		m_color.a -= 0.03;
-		if (m_color.a < -3.0) {
+		m_color.w -= 0.03;
+		if (m_color.w < -3.0) {
 			SetKill();
 		}
 
 	}
 	else {
 		//フェードインと、にゅわーと文字が出てくる
-		m_color.a += 0.01;
+		m_color.w += 0.01;
 		m_img.SetSize(GAME_START_X, m_siz);
 		m_img.SetRect(0, (GAME_START_Y - m_siz) * 2, GAME_START_X * 2 ,GAME_START_Y * 2);
 		m_img.SetCenter(GAME_START_X / 2, m_siz - GAME_START_Y);

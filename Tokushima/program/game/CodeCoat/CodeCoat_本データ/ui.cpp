@@ -19,7 +19,7 @@ m_scorearrow_img(LoadGraph("media\\img\\power-arrow1.png", TRUE)),
 m_timer_pos(p_pos),
 m_arrow_pos(p_pos),
 m_maparrow_pos(MAP_P_INIT_X,MAP_P_INIT_Y,0),
-m_totalscore(100),
+m_totalscore(0),
 m_timelimit(99.9f),
 m_score_magnification(1)
 {
@@ -159,10 +159,21 @@ void Ui::Draw(){
 			m_arrow_pos.getY()-SCORE_MAGNIFICATION_Y, m_scorenum_img[(buf[i] - '0')], TRUE);		//'0'
 		}
 	}
+	
+	//アイテムUIの描画	30度角度をつけてます
+	for (int i = 0; i < 3; i++){
+		CItemData* itemdata = CPlayerManager::GetInstance()->GetPlayerAdress()->getEquipment(i);
+		if (itemdata->m_img != 0){
+			DrawRotaGraph(ITEM_INIT_X + i*ITEM_SPACE_X, ITEM_INIT_Y, 0.5, 3.141592/180*-30, itemdata->m_img, TRUE, FALSE);
+		}
+	}
 }
 
 void Ui::scoreMagnification(CVector3D *pos){
 	m_score_magnification = (pos->getX() / 320) + 1;
+	if (m_score_magnification < 1){
+		m_score_magnification = 1;
+	}
 }
 
 void Ui::scoreAddition(int points){

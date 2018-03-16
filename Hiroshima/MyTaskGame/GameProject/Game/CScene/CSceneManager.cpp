@@ -1,4 +1,5 @@
 #include "CSceneManager.h"
+#include "DebugScene\DebugScene.h"
 
 CSceneManager::CSceneManager(int scene) : CTask(0, eU_Scene, eD_Null)
 {
@@ -15,6 +16,9 @@ void CSceneManager::SetSceneObject(int scene_num)
 	//対応したシーンクラスを生成
 	switch (scene_num)
 	{
+	case eDebug:
+		new CDebugScene();
+		break;
 	case eGameStart:
 		GameStartScene();
 		break;
@@ -59,9 +63,12 @@ void CSceneManager::MainScene(){
 	new CEnemy3(&(CVector3D(600, 100, -250)));
 	new CEnemy4(&(CVector3D(800, 50, -200)));
 	new CEnemy5(&(CVector3D(200, 0, -130)));*/
-	//new CBoss(&(CVector3D(3000, 50, 0)));
-	new CGimmick(&(CVector3D(500, 0, -20)));
-	new CGimmick(&(CVector3D(500, 0, -100)));
+	new CBoss(&(CVector3D(3000, -200, -500)), &(CVector3D(2850, 0, -500)),
+		&(CVector3D(3150, 0, -500)), &(CVector3D(3000, 200, -500)));
+	new CFire(&(CVector3D(500, 0, -20)));
+	new CFire(&(CVector3D(500, 0, -100)));
+	new CItemBox(&(CVector3D(1000, 0, -430)), 0);
+	new CItemBox(&(CVector3D(1250, 0, -430)), 1);
 	new CFieldManager();
 
 	new CKoban(&(CVector3D(500,500, 0)));
@@ -78,4 +85,5 @@ void CSceneManager::BossScene(){
 
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
+	new CEnding();
 }
