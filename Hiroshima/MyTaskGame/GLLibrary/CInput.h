@@ -53,6 +53,11 @@ public:
 		eDown,
 		eLeft,
 		eRight,
+		eNum0,
+		eNum1,
+		eNum2,
+		eNum3,
+		eNum4,
 		eMax = 31
 	};
 	static char	m_key_code[PAD_MAX][eMax];

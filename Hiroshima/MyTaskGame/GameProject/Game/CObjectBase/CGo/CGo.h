@@ -5,6 +5,7 @@
 
 #define GO_SIZ_X 250
 #define GO_SIZ_Y 150
+#define GO_POS_X SCREEN_WIDTH-GO_SIZ_Y-150
 #define GO_TIME 0.1f
 
 

@@ -36,11 +36,11 @@ CEnemyManager::CEnemyManager() :CEnemyBase() {
 void CEnemyManager::Update() {
 
 	if (push_enemy[x].time == i) {
-		printf("%d   %d\n", push_enemy[x].time, push_enemy[x].id);
+		//printf("%d   %d\n", push_enemy[x].time, push_enemy[x].id);
 		PushEnemy(&push_enemy[x].id);
 		x++;
 		if (x > 6) {
-			i = 0;
+		//	i = 0;
 			x = 0;
 		}
 	}
@@ -63,16 +63,16 @@ void CEnemyManager::PushEnemy(const int *id) {
 		new CEnemy1(&(CVector3D(400, 0, -300)));
 		break;
 	case eChouchin:
-		new CEnemy2(&(CVector3D(500, 100, -100)));
+		new CEnemy2(&(CVector3D(500, -100, -200)));
 		break;
 	case eHi:
-		new CEnemy3(&(CVector3D(600, 100, -250)));
+		new CEnemy3(&(CVector3D(600, -150, -250)));
 		break;
 	case eKamaitachi:
-		new CEnemy4(&(CVector3D(800, 50, -200)));
+		new CEnemy4(&(CVector3D(800, -50, -200)));
 		break;
 	case eNiku:
-		new CEnemy5(&(CVector3D(200, 0, -130)));
+		new CEnemy5(&(CVector3D(200, 0, -230)));
 		break;
 	default:
 		break;

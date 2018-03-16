@@ -1,10 +1,10 @@
 #include "ImageResource.h"
 
 TexAnim _PL_idol[] = {
-	{ 0,5 },
+	{ 0,15 },
 	{ 1,5 },
 	{ 2,5 },
-	{ 3,5 },
+	{ 3,15 },
 	{ 4,5 },
 	{ 5,5 },
 	{ 6,5 },
@@ -13,7 +13,7 @@ TexAnim _PL_idol[] = {
 TexAnim _PL_bill[] = {
 	{ 10,10 },
 	{ 11,15 },
-	{ 11,5 },
+	{ 10,5 },
 };
 TexAnim _PL_punch[] = {
 	{ 20,5 },
@@ -38,7 +38,7 @@ TexAnim _PL_fall[] = {
 	{ 50,20 },
 	{ 51,5 },
 	{ 52,80 },
-	{ 52,10 },
+	{ 51,10 },
 };
 TexAnim _PL_jamp[] = {
 	{ 60,5 },
@@ -89,6 +89,29 @@ TexAnim _GI_fire[] = {
 };
 TexAnimData fire_Animdata[] = {
 	ANIMDATA(_GI_fire),
+};
+
+TexAnim _GI_ItemBox[] = {
+	{ 0,10 },
+	{ 1,10 },
+};
+TexAnim _GI_ItemBox2[] = {
+	{ 2,10 },
+};
+TexAnim _GI_EnemyBox[] = {
+	{ 5,10 },
+	{ 6,10 },
+};
+TexAnim _GI_EnemyBox2[] = {
+	{ 7,10 },
+	{ 8,10 },
+	{ 9,10 },
+};
+TexAnimData itembox_Animdata[] = {
+	ANIMDATA(_GI_ItemBox),
+	ANIMDATA(_GI_ItemBox2),
+	ANIMDATA(_GI_EnemyBox),
+	ANIMDATA(_GI_EnemyBox2),
 };
 
 

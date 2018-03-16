@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClInclude Include="Game\CEnemyAI.h" />
     <ClInclude Include="Game\CObjectBase\CBB\CBB.h" />
+    <ClInclude Include="Game\CObjectBase\CEndeing\CEndeing.h" />
+    <ClInclude Include="Game\CObjectBase\CEnemy\BossBase.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CBoss.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy1.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy2.h" />
@@ -143,9 +145,11 @@
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldManager.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.h" />
     <ClInclude Include="Game\CObjectBase\CGameStart\CGameStart.h" />
-    <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick.h" />
+    <ClInclude Include="Game\CObjectBase\CGimmick\CFire.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h" />
+    <ClInclude Include="Game\CObjectBase\CGimmick\CItemBox.h" />
     <ClInclude Include="Game\CObjectBase\CGo\CGo.h" />
+    <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h" />
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h" />
@@ -156,6 +160,7 @@
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
     <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h" />
     <ClInclude Include="Game\CScene\CSceneManager.h" />
+    <ClInclude Include="Game\CScene\DebugScene\DebugScene.h" />
     <ClInclude Include="GID.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="ImageResource.h" />
@@ -170,6 +175,8 @@
   <ItemGroup>
     <ClCompile Include="Game\CEnemyAI.cpp" />
     <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEndeing\CEndeing.cpp" />
+    <ClCompile Include="Game\CObjectBase\CEnemy\BossBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CBoss.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy1.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy2.cpp" />
@@ -184,9 +191,11 @@
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldManager.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldSky\CFieldSky.cpp" />
     <ClCompile Include="Game\CObjectBase\CGameStart\CGameStart.cpp" />
-    <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick.cpp" />
+    <ClCompile Include="Game\CObjectBase\CGimmick\CFire.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp" />
+    <ClCompile Include="Game\CObjectBase\CGimmick\CItemBox.cpp" />
     <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp" />
+    <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp" />
@@ -197,6 +206,7 @@
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp" />
     <ClCompile Include="Game\CScene\CSceneManager.cpp" />
+    <ClCompile Include="Game\CScene\DebugScene\DebugScene.cpp" />
     <ClCompile Include="ImageResource.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Task\CTask.cpp" />

@@ -8,11 +8,12 @@
 //“÷‰ò
 CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy5"));
-	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_img.SetSize(NIKU_SIZ_X, NIKU_SIZ_Y);
 	m_pos3D = *pos;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
-	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_rect = CRect(80, 100, 300, 400);
+	m_rect_F = m_rect;
 
 	m_damage = false;
 	m_end_flag = false;
@@ -61,6 +62,7 @@ void CEnemy5::Update() {
 	
 	m_img.UpdateAnimation();
 	CheckOverlap();
+	m_rect_F = CRect(80, 100, 300, 400- m_pos3D.y);
 }
 
 
@@ -103,16 +105,15 @@ void CEnemy5::KnockBack() {
 
 void CEnemy5::Fall() {
 	m_img.ChangeAnimation(eAnimEnemyFall);
-	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 	DropItem();
 	if (m_end_flag == false) {
 		m_end_flag = true;
-		m_color.a = 2.0;
+		m_color.w = 2.0;
 	}
 	if (m_end_flag) {
-		m_color.a -= 0.01;
+		m_color.w -= 0.02;
 	}
-	if (m_color.a < -1.0) {
+	if (m_color.w < -1.0) {
 		SetKill();
 	}
 }

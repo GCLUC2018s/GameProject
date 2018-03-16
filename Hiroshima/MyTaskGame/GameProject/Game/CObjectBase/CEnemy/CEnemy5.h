@@ -10,6 +10,9 @@
 
 #define NIKU_KNOCKBACK_SPEED 8
 
+#define NIKU_SIZ_X 384
+#define NIKU_SIZ_Y 384
+
 /*
 
 »ìÒ@Â–Ø

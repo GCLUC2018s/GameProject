@@ -4,6 +4,8 @@
 #include "../Global.h"
 #include "CTaskLinker.h"
 
+class CObjectBase;
+
 //更新順序
 enum {
 	eU_System,
@@ -25,8 +27,8 @@ enum {
 	eD_Bamboo,
 	eD_Ground,
 	eD_Object,
-	eD_UI,
 	eD_Effect,
+	eD_UI,
 	eD_Null,
 };
 //ID
@@ -35,6 +37,7 @@ enum {
 	eID_Player,
 	eID_Enemy,
 	eID_Item,
+	eID_Gimmick,
 	eID_Flag,
 	eID_Null,
 };
@@ -59,11 +62,18 @@ public:
 	virtual ~CTask();
 	virtual void Update();
 	virtual void Draw();
+	virtual void HitCheck(CTask *t1, CTask *t2);
+	virtual void Hit(CTask *t);
+
 
 	//更新順位取得関数
 	int GetUpdatePrio() const;
 	//描画順位取得関数
 	int GetDrawPrio() const;
+	//ID取得関数
+	int GetID() const {
+		return m_id;
+	};
 
 	//更新順位変更
 	void ChangeUpdatePrio(int updatePrio);

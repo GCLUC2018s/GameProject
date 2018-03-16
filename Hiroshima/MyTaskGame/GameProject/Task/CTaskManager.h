@@ -3,6 +3,7 @@
 
 class CTask;
 class CTaskLinker;
+class CObjectBase;
 
 class CTaskManager
 {
@@ -33,6 +34,8 @@ public:
 	void UpdateAll();
 	//リスト描画関数
 	void DrawAll();
+	//当たり判定関数
+	void HitChackAll();
 	// 更新優先度を変更 
 	void ChangeUpdatePrio(CTask *p, int prio);
 	// 描画優先度を変更 

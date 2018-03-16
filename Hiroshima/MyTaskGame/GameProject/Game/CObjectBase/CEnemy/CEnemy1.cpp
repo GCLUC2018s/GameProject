@@ -13,8 +13,8 @@ CEnemy1::CEnemy1(const CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = DARUMA_HP;
 	m_at = DARUMA_AT;
-	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
-
+	m_rect = CRect(64, 135, 166, 237);
+	m_rect_F = m_rect;
 	m_damage = false;
 	m_end_flag = false;
 	m_state = eMove;
@@ -61,6 +61,7 @@ void CEnemy1::Update() {
 	
 	m_img.UpdateAnimation();
 	CheckOverlap();
+	m_rect_F = CRect(64, 135, 166, 237 - m_pos3D.y);
 }
 
 
@@ -102,16 +103,15 @@ void CEnemy1::KnockBack() {
 
 void CEnemy1::Fall(){
 	m_img.ChangeAnimation(eAnimEnemyFall);
-	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 	DropItem();
 	if (m_end_flag == false) {
 		m_end_flag = true;
-		m_color.a = 2.0;
+		m_color.w = 2.0;
 	}
 	if (m_end_flag) {
-		m_color.a -= 0.01;
+		m_color.w -= 0.02;
 	}
-	if (m_color.a < -1.0) {
+	if (m_color.w < -1.0) {
 		SetKill();
 	}
 }

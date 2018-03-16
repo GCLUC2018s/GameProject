@@ -6,6 +6,13 @@
 #include "../GameProject/stdafx.h"
 #include "../GameProject/ImageResource.h"
 
+/*
+
+製作　宮﨑
+
+*/
+
+
 class CObjectBase : public CTask
 {
 protected:
@@ -34,25 +41,28 @@ protected:
 	};
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
-	//座標取得
-	CVector3D GetPos() {
-		return m_pos3D;
-	};
-	//矩形取得
-	virtual CRect GetRect() {
-		return m_rect;
-	};
-	//入れ替え用矩形取得
-	CRect GetRect_F() {
-		return m_rect_F;
-	};
+	////座標取得
+	//CVector3D *GetPos() {
+	//	return &m_pos3D;
+	//};
+	////矩形取得
+	//virtual CRect *GetRect() {
+	//	return &m_rect;
+	//};
+	////入れ替え用矩形取得
+	//CRect *GetRect_F() {
+	//	return &m_rect_F;
+	//};
 
 	//重なり確認
 	void CheckOverlap() {
-		if(m_pos3D.z<= 0){
+		if(m_pos3D.z <= 0){
 			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_pos3D.z);
 		}
 	};
+
+	//スクロール値を取得
+
 	////描画順位入れ替え
 	//void SwapDrawPriority(CObjectBase *t);
 
@@ -92,6 +102,10 @@ public:
 	}
 	//描画命令
 	virtual void Draw();
+	//当たり判定
+	void HitCheck(CTask * t1, CTask * t2);
+	//当たった時の処理
+	virtual void Hit(CTask *t);
 	////重なり確認
 	//void CheckOverlap(CObjectBase *t1, CObjectBase *t2);
 };

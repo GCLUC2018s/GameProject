@@ -8,6 +8,9 @@ public:
 	CKoban(CVector3D *pos);
 	~CKoban();
 	void Update();
+	void Draw();
+	//“–‚½‚Á‚½‚Ìˆ—
+	void Hit(CTask *t);
 };
 
 #endif // !KOBAN_GUARD

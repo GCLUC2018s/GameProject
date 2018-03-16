@@ -90,6 +90,9 @@
     <ClCompile Include="CEnemy.cpp">
       <Filter>ソース ファイル\chara</Filter>
     </ClCompile>
+    <ClCompile Include="CBackGround.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CKey.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="CEnemy.h">
       <Filter>ソース ファイル\chara</Filter>
+    </ClInclude>
+    <ClInclude Include="CBackGround.h">
+      <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

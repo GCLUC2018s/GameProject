@@ -1,6 +1,6 @@
 #ifndef ENEMY4GUARD
 #define ENEMY4GUARD
-#include"../CObjectBase.h"
+//#include"../CObjectBase.h"
 #include  "CEnemyBase.h"
 
 #define KAMAITACHI_HP 7

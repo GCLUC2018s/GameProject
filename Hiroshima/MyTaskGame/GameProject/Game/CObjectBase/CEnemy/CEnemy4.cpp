@@ -12,8 +12,8 @@ CEnemy4::CEnemy4(const CVector3D *pos) :CEnemyBase() {
 	m_pos3D = *pos;
 	m_hp = KAMAITACHI_HP;
 	m_at = KAMAITACHI_AT;
-	m_rect = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
-	m_rect_F = CRect(0, 0, ENEMY_SIZ_X, ENEMY_SIZ_Y);
+	m_rect = CRect(57, 40, 201, 210);
+	m_rect_F = CRect(57, 40, 201, ENEMY_SIZ_Y);
 	m_state = eIdol;
 	m_cnt = 0;
 	m_move_cnt = 0;
@@ -70,6 +70,7 @@ void CEnemy4::Update() {
 
 	m_img.UpdateAnimation();
 	CheckOverlap();
+	m_rect_F = CRect(57, 40, 201, ENEMY_SIZ_Y - m_pos3D.y);
 }
 
 void CEnemy4::Nutral() {
@@ -136,16 +137,15 @@ void CEnemy4::KnockBack() {
 
 void CEnemy4::Fall() {
 	m_img.ChangeAnimation(eAnimKamaFall);
-	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 	DropItem();
 	if (m_end_flag == false) {
 		m_end_flag = true;
-		m_color.a = 2.0;
+		m_color.w = 2.0;
 	}
 	if (m_end_flag) {
-		m_color.a -= 0.01;
+		m_color.w -= 0.02;
 	}
-	if (m_color.a < -1.0) {
+	if (m_color.w < -1.0) {
 		SetKill();
 	}
 }

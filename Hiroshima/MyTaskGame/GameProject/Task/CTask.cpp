@@ -37,6 +37,15 @@ void CTask::Draw()
 	//派生先で定義
 }
 
+void CTask::HitCheck(CTask * t1, CTask * t2)
+{
+	//派生先で定義
+}
+
+void CTask::Hit(CTask * t)
+{
+}
+
 //更新順位取得関数
 int CTask::GetUpdatePrio() const
 {
