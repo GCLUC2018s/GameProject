@@ -242,7 +242,7 @@ void CPlayer::Nutral() {
 	}
 	//‘«‰¹
 	if (m_cnt % 15 == 0 && m_cnt && m_jump == false) {
-		m_dash = Utility::Rand(0, 2);
+		m_dash = Utility::Rand(0, 3);
 		switch (m_dash) {
 		case 0:
 			SOUND("SE_DASH1")->Play(false);
