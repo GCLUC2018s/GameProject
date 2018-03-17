@@ -1,13 +1,15 @@
 #ifndef OHUDA_GUARD
 #define OHUDA_GUARD
 
-#include "../GameProject/Game/CObjectBase/CObjectBase.h"
+#include "../CItemBase/CItemBase.h"
 
-class COhuda :public CObjectBase {
+class COhuda :public CItemBase {
 public:
 	COhuda(CVector3D *pos, bool * flipH);
 	~COhuda();
 	void Update();
+	//“–‚½‚Á‚½‚Ìˆ—
+	void Hit(CObjectBase * t);
 };
 
 #endif // !OHUDA_GUARD

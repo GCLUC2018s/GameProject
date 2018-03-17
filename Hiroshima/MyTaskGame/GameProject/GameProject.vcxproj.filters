@@ -61,7 +61,7 @@
       <Filter>Game\Object\Gimmick\Gimmick2</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp">
-      <Filter>Game\Object\Pic\Go</Filter>
+      <Filter>Game\Object\UI\Go</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CItemBox.cpp">
       <Filter>Game\Object\Item\Box</Filter>
@@ -113,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CFire.cpp">
       <Filter>Game\Object\Gimmick\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CItem\CItemBase\CItemBase.cpp">
+      <Filter>Game\Object\Item\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +181,7 @@
       <Filter>Game\Object\Gimmick\Gimmick2</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGo\CGo.h">
-      <Filter>Game\Object\Pic\Go</Filter>
+      <Filter>Game\Object\UI\Go</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CItemBox.h">
       <Filter>Game\Object\Item\Box</Filter>
@@ -239,6 +242,9 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CFire.h">
       <Filter>Game\Object\Gimmick\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CItem\CItemBase\CItemBase.h">
+      <Filter>Game\Object\Item\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -323,9 +329,6 @@
     <Filter Include="Game\Object\Gimmick\Gimmick2">
       <UniqueIdentifier>{5c0e0a79-7101-46e8-9978-a630818d6e82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\Pic\Go">
-      <UniqueIdentifier>{36eee604-8764-40bd-ade2-bdd429da8508}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Item">
       <UniqueIdentifier>{702b9f38-8484-4adb-8655-017e9faac890}</UniqueIdentifier>
     </Filter>
@@ -385,6 +388,12 @@
     </Filter>
     <Filter Include="Game\Object\Gimmick\Fire">
       <UniqueIdentifier>{3d695782-75f1-4e64-b2c2-a481b5f1c5c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Base">
+      <UniqueIdentifier>{083a0143-0488-48cf-8183-3c884fe29ff1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Go">
+      <UniqueIdentifier>{36eee604-8764-40bd-ade2-bdd429da8508}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

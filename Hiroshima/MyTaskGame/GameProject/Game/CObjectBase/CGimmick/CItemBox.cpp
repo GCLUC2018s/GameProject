@@ -1,15 +1,17 @@
 #include "CItemBox.h"
+#define ITEM_BOX_HOSEI 47
 /*
 
 êªçÏé“Å@âÕñÏ
 
 */
 
-CItemBox::CItemBox(CVector3D *pos, int state) :CObjectBase(eID_Gimmick, eU_Gimmick, eD_Object) {
+CItemBox::CItemBox(CVector3D *pos, int state) :CItemBase(pos) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("ItemBox"));
 	m_img.SetSize(256, 256);
 	m_pos3D = *pos;
-	m_rect = CRect(60, 90 + 48, 200, 200 + 48);
+	m_pos3D.z -= ITEM_BOX_HOSEI; //ê⁄ínì_ÇçáÇÌÇπÇÈÇΩÇﬂ
+	m_rect = CRect(60, 90, 200, 200);
 	m_rect_F = m_rect;
 	m_state = state;
 	m_break = false;
@@ -20,15 +22,14 @@ CItemBox::~CItemBox() {
 }
 
 void CItemBox::Update() {
-	m_img.SetColor(m_color.r, m_color.g, m_color.b, m_color.a);
 
 	if (!m_break && PUSH_E) {
 		m_break = true;
 	}
 	if (m_cnt > 60) {
-		m_color.a = Price_Down(m_color.a, 0, 0.05f);
+		m_color.w = Price_Down(m_color.w, 0, 0.05f);
 	}
-	if (m_color.a == 0)
+	if (m_color.w == 0)
 		SetKill();
 
 	if (m_state) {
@@ -51,10 +52,12 @@ void CItemBox::Update() {
 	m_img.UpdateAnimation();
 	CheckOverlap();
 }
-
-void CItemBox::Draw() {
-	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x, 502 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
+void CItemBox::Draw()
+{
+	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
+	m_img.SetFlipH(m_flipH);
+	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x, 450 + ITEM_BOX_HOSEI + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img.Draw();
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + ITEM_BOX_HOSEI + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + ITEM_BOX_HOSEI + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }

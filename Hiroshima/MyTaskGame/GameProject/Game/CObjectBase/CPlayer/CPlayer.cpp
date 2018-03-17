@@ -28,6 +28,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_cnt = 0;
 	m_die = false;
 	damage_vec = CVector2D(5, -10);
+	m_sc_plus = 0.0;
 	m_img.ChangeAnimation(m_anim);
 	m_img.UpdateAnimation();
 }
@@ -47,9 +48,12 @@ void CPlayer::Update() {
 	if (m_pos3D.z < -430) {
 		m_pos3D.z = -430;
 	}
-	if (m_pos3D.x < 0) {
-		m_pos3D.x = 0;
-	}
+	//if (m_pos3D.x - m_scroll.x < 0) {
+	//	m_pos3D.x = m_pos3D.x - m_scroll.x;
+	//}
+	//if (m_pos3D.x + m_rect.m_right + m_scroll.x < SCREEN_WIDTH * 6) {
+	//	m_pos3D.x = m_pos3D.x;
+	//}
 
 	//移動系の変数初期化
 	m_move_length = false;
@@ -155,18 +159,41 @@ void CPlayer::Update() {
 		m_img.UpdateAnimation();
 
 	}
-	if (m_pos3D.x > SCREEN_WIDTH / 4 && m_pos3D.x < GROUND_WIDTH - (SCREEN_WIDTH / 4) * 3) {
-		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 4;
-	}
+
+	//スクロール処理
+
+	//	if (m_pos3D.x > SCREEN_WIDTH / 4 && m_pos3D.x < GROUND_WIDTH * 2 - (SCREEN_WIDTH / 4) * 3) {
+	////		m_scroll.x = m_pos3D.x - SCREEN_WIDTH / 4;
+	//		m_sc_flag_x = true;
+	//	}else{
+	//		m_sc_flag_x = false;
+	//	}
+
+	//Y軸処理
 	if (m_pos3D.z < -400 && 450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -200) {
 		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 80;
 		if (m_pos3D.y == 715 + 512) {
 			m_scroll.y = SCREEN_HEIGHT;
 		}
 	}
-	if (PUSH_ENTER) {
-		new CGo();
+	//X軸処理
+	if (PUSH_ENTER/*m_pos3D.x > SCREEN_WIDTH + m_scroll.x && m_scroll.x < SCREEN_WIDTH * 5*/) {
+		if (m_pos3D.x > SCREEN_WIDTH * 5) {
+			new CBB(0, 2, true);
+		}
+		else { new CGo(); }
 	}
+
+	if (m_pos3D.x - m_scroll.x < 0) {
+		m_pos3D.x = m_scroll.x;
+	}
+	if (m_wave_flag && m_pos3D.x + 256 - m_scroll.x > SCREEN_WIDTH) {
+		m_pos3D.x = SCREEN_WIDTH + m_scroll.x - 256;
+	}
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH) {
+		m_sc_flag_x = true;
+	}
+
 	CheckOverlap();
 	m_rect_F = CRect(128 / 2, 64 / 2, 383 / 2, (487 / 2) - m_pos3D.y);
 }
@@ -281,6 +308,7 @@ void CPlayer::Nutral() {
 		m_state = eBill;
 //		new COhuda(&m_pos3D, &m_flipH);
 	}
+
 }
 
 void CPlayer::Bill() {
@@ -294,9 +322,9 @@ void CPlayer::Attack(){
 	if (!m_punch1 && PUSH_R) {
 		m_kick = true;
 	}
-	if (PUSH_ENTER) {
-		SetKill();
-	}
+	//if (PUSH_ENTER) {
+	//	SetKill();
+	//}
 }
 
 void CPlayer::Damage() {
@@ -358,6 +386,16 @@ CVector3D CPlayer::Die(CVector3D vec) {
 }
 
 void CPlayer::Draw(){
+	//スクロール処理(ポーズ機能が使いたいから、ここでするしかない)
+	if (m_wave_flag == false && m_sc_flag_x) {
+		m_pause = true;
+		m_scroll.x = Price_Up(m_scroll.x, (m_pos3D.x), m_sc_plus);
+		m_sc_plus = Price_Up(m_sc_plus, 30, 0.5);
+	}
+	else {
+		m_sc_plus = 0.0;
+		m_pause = false;
+	}
 	m_img.SetFlipH(!m_flipH);
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
@@ -365,5 +403,14 @@ void CPlayer::Draw(){
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 
+}
+
+void CPlayer::Hit(CObjectBase * t)
+{
+	if (t->GetID() == eID_Enemy) {
+		if (t->GetState() == eAttack && m_state != eFall) {
+			m_state = eFall;
+		}
+	}
 }
 

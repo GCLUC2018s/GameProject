@@ -1,16 +1,12 @@
 #ifndef OAGE_GUARD
 #define OAGE_GUARD
 
-#include "../GameProject/Game/CObjectBase/CObjectBase.h"
+#include "../CItemBase/CItemBase.h"
 
-class COage :public CObjectBase {
+class COage :public CItemBase {
 public:
 	COage(CVector3D *pos);
 	~COage();
-	void Update();
-	void Draw();
-	//“–‚½‚Á‚½‚Ìˆ—
-	void Hit(CTask *t);
 };
 
 #endif // !OAGE_GUARD

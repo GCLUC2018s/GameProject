@@ -26,7 +26,9 @@ protected:
 	bool	m_flipH;		//反転フラグ
 	bool	m_move;
 	int		m_type;	
-	static CVector2D m_scroll;
+	static CVector2D m_scroll;	//スクロール値
+	static bool m_wave_flag;	//今wave中ならtrue。敵全滅させたらfalseにして、スクロール開始
+	static 	bool m_sc_flag_x;	//プレイヤーが動いたことによるスクロールフラグ。trueならプレイヤーの動きは止まる
 	int m_hp;  //体力
 	int m_at;  //攻撃力
 	int m_state; //状態
@@ -60,7 +62,10 @@ public:
 			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_pos3D.z);
 		}
 	};
-
+	//状態確認
+	int GetState() {
+		return m_state;
+	};
 	//スクロール値を取得
 
 	////描画順位入れ替え
@@ -105,7 +110,7 @@ public:
 	//当たり判定
 	void HitCheck(CTask * t1, CTask * t2);
 	//当たった時の処理
-	virtual void Hit(CTask *t);
+	virtual void Hit(CObjectBase *t);
 	////重なり確認
 	//void CheckOverlap(CObjectBase *t1, CObjectBase *t2);
 };

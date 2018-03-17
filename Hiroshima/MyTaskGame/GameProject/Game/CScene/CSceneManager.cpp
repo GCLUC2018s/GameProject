@@ -47,7 +47,6 @@ void CSceneManager::GameStartScene()
 
 void CSceneManager::TitleScene(){
 	//タイトル画面の要素ぶち込む
-	SOUND("BGM_Main")->Stop();
 	SOUND("BGM_Title")->Play(true);
 	new CTitleBG();
 }
@@ -55,7 +54,7 @@ void CSceneManager::TitleScene(){
 void CSceneManager::MainScene(){
 	//メイン戦闘画面の要素ぶち込む
 	SOUND("BGM_Title")->Stop();
-	new CBB(60 * 3,true);
+	new CBB(60 * 3,1, false);
 	new CPlayer();
 
 	/*new CEnemy1(&(CVector3D(400, 0, -300)));
@@ -67,13 +66,13 @@ void CSceneManager::MainScene(){
 		&(CVector3D(3150, 0, -500)), &(CVector3D(3000, 200, -500)));
 	new CFire(&(CVector3D(500, 0, -20)));
 	new CFire(&(CVector3D(500, 0, -100)));
-	new CItemBox(&(CVector3D(1000, 0, -430)), 0);
-	new CItemBox(&(CVector3D(1250, 0, -430)), 1);
+	//new CItemBox(&(CVector3D(1000, 0, -430)), 0);
+	//new CItemBox(&(CVector3D(1250, 0, -430)), 1);
 	new CFieldManager();
 
-	new CKoban(&(CVector3D(300, 0, -300)));
-	new COage(&(CVector3D(500, 0, -30)));
-	new CSake(&(CVector3D(450, 0, -30)));
+	//new CKoban(&(CVector3D(300, 0, -300)));
+	//new COage(&(CVector3D(500, 0, -30)));
+	//new CSake(&(CVector3D(450, 0, -30)));
 	new CMagatama();	
 	new CEnemyManager();
 	new CKakera(&(CVector3D(450, 0, -30)));
@@ -85,5 +84,6 @@ void CSceneManager::BossScene(){
 
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
+	SOUND("BGM_Main")->Stop();
 	new CEnding();
 }
