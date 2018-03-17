@@ -28,6 +28,7 @@ protected:
 	};
 public:
 	CEnemyBase();
+	~CEnemyBase();
 	void DropItem();
 	void Nutral(const int *enemy_id);
 	void Move(const int *enemy_id);

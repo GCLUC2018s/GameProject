@@ -7,6 +7,7 @@ class CKoban :public CItemBase {
 public:
 	CKoban(CVector3D *pos);
 	~CKoban();
+	void Draw();
 };
 
 #endif // !KOBAN_GUARD

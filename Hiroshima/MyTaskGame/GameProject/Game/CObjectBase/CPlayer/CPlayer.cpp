@@ -2,22 +2,26 @@
 #include "../GameProject/Game/CScene/CSceneManager.h"
 #include "../CGo/CGo.h"
 
+#define PL_CENTER_X 64
+#define PL_CENTER_Y 24
+
 /*
 
 制作者　六車　
 
-編集　　河野
+編集　　河野 宮﨑
 
 */
 
 CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_vec3D = CVector3D(0, 0, 0);
-	m_pos3D = CVector3D(0, 0, 0);
+	m_pos3D = CVector3D(PL_CENTER_X, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
-	m_rect = CRect(128 / 2, 64 / 2, 383 / 2, 487 / 2);
-	m_rect_F = CRect(128 / 2, 64 / 2, 383 / 2, 487 / 2);
 	m_img.SetSize(256, 256);
 	m_img.SetFlipH(m_flipH);
+	m_img.SetCenter(PL_CENTER_X, PL_CENTER_Y);
+	m_rect = CRect(0, 0, 127, 215);
+	m_rect_F = m_rect;
 	m_punch1 = false;
 	m_punch2 = false;
 	m_kick = false;
@@ -45,8 +49,8 @@ void CPlayer::Update() {
 	if (m_pos3D.z > 0) {
 		m_pos3D.z = 0;
 	}
-	if (m_pos3D.z < -430) {
-		m_pos3D.z = -430;
+	if (m_pos3D.z < -400) {
+		m_pos3D.z = -400;
 	}
 	//if (m_pos3D.x - m_scroll.x < 0) {
 	//	m_pos3D.x = m_pos3D.x - m_scroll.x;
@@ -184,18 +188,18 @@ void CPlayer::Update() {
 		else { new CGo(); }
 	}
 
-	if (m_pos3D.x - m_scroll.x < 0) {
-		m_pos3D.x = m_scroll.x;
+	if (m_pos3D.x - m_scroll.x < PL_CENTER_X) {
+		m_pos3D.x = m_scroll.x + PL_CENTER_X;
 	}
-	if (m_wave_flag && m_pos3D.x + 256 - m_scroll.x > SCREEN_WIDTH) {
-		m_pos3D.x = SCREEN_WIDTH + m_scroll.x - 256;
+	if (m_wave_flag && m_pos3D.x + PL_CENTER_X - m_scroll.x > SCREEN_WIDTH) {
+		m_pos3D.x = SCREEN_WIDTH + m_scroll.x - PL_CENTER_X;
 	}
 	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH) {
 		m_sc_flag_x = true;
 	}
 
 	CheckOverlap();
-	m_rect_F = CRect(128 / 2, 64 / 2, 383 / 2, (487 / 2) - m_pos3D.y);
+	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
 }
 
 void CPlayer::Nutral() {
@@ -389,7 +393,7 @@ void CPlayer::Draw(){
 	//スクロール処理(ポーズ機能が使いたいから、ここでするしかない)
 	if (m_wave_flag == false && m_sc_flag_x) {
 		m_pause = true;
-		m_scroll.x = Price_Up(m_scroll.x, (m_pos3D.x), m_sc_plus);
+		m_scroll.x = Price_Up(m_scroll.x, (m_pos3D.x + PL_CENTER_X), m_sc_plus);
 		m_sc_plus = Price_Up(m_sc_plus, 30, 0.5);
 	}
 	else {

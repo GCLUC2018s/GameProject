@@ -246,6 +246,9 @@
     <ClInclude Include="Game\CObjectBase\CItem\CItemBase\CItemBase.h">
       <Filter>Game\Object\Item\Base</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Itemsource.h">
+      <Filter>Game\Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">

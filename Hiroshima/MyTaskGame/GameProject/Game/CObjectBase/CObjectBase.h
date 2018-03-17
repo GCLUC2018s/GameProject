@@ -1,6 +1,8 @@
 #ifndef CHARABASE_GUARD
 #define CHARABASE_GUARD
 
+#define GRAVITY 1.2f
+
 #include "../GameProject/Task/CTask.h"
 #include "../GameProject/Task/CTaskManager.h"
 #include "../GameProject/stdafx.h"

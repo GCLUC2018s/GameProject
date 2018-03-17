@@ -1,7 +1,6 @@
 #ifndef PLAYER_GUARD
 #define PLAYER_GUARD
 #define REPULSION 0.8f
-#define GRAVITY 1.2f
 #define GRAVITY_DIE 1.001f
 
 #include"../CObjectBase.h"

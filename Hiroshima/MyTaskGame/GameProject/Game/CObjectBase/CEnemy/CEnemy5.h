@@ -22,7 +22,6 @@
 class CEnemy5 :public CEnemyBase {
 public:
 	CEnemy5(const CVector3D *pos);
-	~CEnemy5();
 	void Update();
 	void Draw();
 	void Nutral(); //’Êíó‘Ô

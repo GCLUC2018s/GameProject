@@ -168,6 +168,7 @@
     <ClInclude Include="Source\Enemysource.h" />
     <ClInclude Include="Source\Fieldsource.h" />
     <ClInclude Include="Source\Gamesource.h" />
+    <ClInclude Include="Source\Itemsource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Task\CTask.h" />
     <ClInclude Include="Task\CTaskLinker.h" />
