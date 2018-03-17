@@ -13,6 +13,15 @@ CKoban::~CKoban(){
 
 }
 
+void CKoban::Hit(CObjectBase * t)
+{
+	if (t->GetID() == eID_Player&& m_get == false) {
+		SOUND("SE_COIN")->Play(false);
+		m_time = 0;
+		m_get = true;
+	}
+}
+
 void CKoban::Draw()
 {
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);

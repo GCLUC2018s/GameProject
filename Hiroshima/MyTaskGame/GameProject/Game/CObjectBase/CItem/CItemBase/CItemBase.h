@@ -10,7 +10,7 @@ public:
 	void Update();
 	void Draw();
 	//“–‚½‚Á‚½‚Ìˆ—
-	void Hit(CObjectBase * t);
+	virtual void Hit(CObjectBase * t);
 protected:
 	int m_time;		//‚­‚é‚­‚é‰ñ‚éŠÔ
 	bool m_get;		//true‚È‚çƒQƒbƒg‚³‚ê‚½

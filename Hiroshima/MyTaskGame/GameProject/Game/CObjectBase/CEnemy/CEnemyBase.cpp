@@ -7,13 +7,14 @@ CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object) {
 
 CEnemyBase::~CEnemyBase()
 {
-	new CKoban(&(CVector3D(m_pos3D.x + 20, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(CVector3D(m_pos3D.x - 20, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(CVector3D(m_pos3D.x + 10, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(CVector3D(m_pos3D.x - 10, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(CVector3D(m_pos3D.x + 30, m_pos3D.y, m_pos3D.z)));
-	new COage(&( CVector3D(m_pos3D.x - 30, m_pos3D.y, m_pos3D.z)));
-	new CSake(&( CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
+	new CKoban(&(  CVector3D(m_pos3D.x + 20, m_pos3D.y, m_pos3D.z)));
+	new CKoban(&(  CVector3D(m_pos3D.x - 20, m_pos3D.y, m_pos3D.z)));
+	new CKoban(&(  CVector3D(m_pos3D.x + 10, m_pos3D.y, m_pos3D.z)));
+	new CKoban(&(  CVector3D(m_pos3D.x - 10, m_pos3D.y, m_pos3D.z)));
+	new CKoban(&(  CVector3D(m_pos3D.x + 30, m_pos3D.y, m_pos3D.z)));
+	new COage(&(   CVector3D(m_pos3D.x - 30, m_pos3D.y, m_pos3D.z)));
+	new CSake(&(   CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
+	new CKakera(&( CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
 }
 
 void CEnemyBase::DropItem() {

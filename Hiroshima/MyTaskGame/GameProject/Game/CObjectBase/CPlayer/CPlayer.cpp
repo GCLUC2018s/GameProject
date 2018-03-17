@@ -191,8 +191,8 @@ void CPlayer::Update() {
 	if (m_pos3D.x - m_scroll.x < PL_CENTER_X) {
 		m_pos3D.x = m_scroll.x + PL_CENTER_X;
 	}
-	if (m_wave_flag && m_pos3D.x + PL_CENTER_X - m_scroll.x > SCREEN_WIDTH) {
-		m_pos3D.x = SCREEN_WIDTH + m_scroll.x - PL_CENTER_X;
+	if (m_wave_flag && m_pos3D.x + PL_CENTER_X * 3 - m_scroll.x > SCREEN_WIDTH) {
+		m_pos3D.x = SCREEN_WIDTH + m_scroll.x - PL_CENTER_X * 3;
 	}
 	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH) {
 		m_sc_flag_x = true;

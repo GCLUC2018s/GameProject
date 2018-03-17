@@ -127,6 +127,9 @@ void Init(void)
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
+	SOUND("SE_COIN")->Load("Sound/SE/cursor3.wav",50);
+	SOUND("SE_ITEM")->Load("Sound/SE/magic-status-cure1.wav",20);
+	SOUND("SE_KAKERA")->Load("Sound/SE/decision18.wav",3);
 
 	NEW_SCENE(eDebug);
 }

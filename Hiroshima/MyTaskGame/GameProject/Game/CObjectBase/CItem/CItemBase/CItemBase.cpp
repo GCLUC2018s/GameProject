@@ -37,6 +37,7 @@ void CItemBase::Draw()
 void CItemBase::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Player&& m_get == false) {
+		SOUND("SE_ITEM")->Play(false);
 		m_time = 0;
 		m_get = true;
 	}
