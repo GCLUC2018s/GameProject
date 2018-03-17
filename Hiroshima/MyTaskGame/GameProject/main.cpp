@@ -98,16 +98,12 @@ void Init(void)
 	ADD_RESOURCE("EndStaff", CAnimImage::LoadImage("ending.png"));
 
 	//ƒAƒCƒeƒ€ŠÖŒW
-	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_matome_1.png"));
-	ADD_RESOURCE("Koban", CAnimImage::LoadImage("item_matome_1.png"));
-	ADD_RESOURCE("Oage", CAnimImage::LoadImage("item_matome_1.png"));
-	ADD_RESOURCE("Sake", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));
 	ADD_RESOURCE("ItemBox", CAnimImage::LoadImage("itembox_motion_object.png", itembox_Animdata, 512, 512));
 
 	//UIŠÖŒW
 	ADD_RESOURCE("Tip", CAnimImage::LoadImage("tip.png"));
-	ADD_RESOURCE("Magatama", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("UI", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 
 	//BGM

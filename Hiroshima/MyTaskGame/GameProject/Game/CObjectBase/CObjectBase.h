@@ -62,7 +62,10 @@ public:
 			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_pos3D.z);
 		}
 	};
-
+	//状態確認
+	int GetState() {
+		return m_state;
+	};
 	//スクロール値を取得
 
 	////描画順位入れ替え
@@ -107,7 +110,7 @@ public:
 	//当たり判定
 	void HitCheck(CTask * t1, CTask * t2);
 	//当たった時の処理
-	virtual void Hit(CTask *t);
+	virtual void Hit(CObjectBase *t);
 	////重なり確認
 	//void CheckOverlap(CObjectBase *t1, CObjectBase *t2);
 };

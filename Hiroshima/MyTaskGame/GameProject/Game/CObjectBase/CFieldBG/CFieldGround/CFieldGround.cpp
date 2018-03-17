@@ -1,6 +1,6 @@
 #include "CFieldGround.h"
 
-CFieldGround::CFieldGround(const bool flag):CObjectBase(0,eU_Map, eD_Ground){
+CFieldGround::CFieldGround(const bool flag):CObjectBase(eID_Null,eU_Map, eD_Ground){
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Ground"));
 	m_img.SetSize(GROUND_WIDTH, GROUND_HEIGHT);
 	m_img.SetCenter(0, GROUND_HEIGHT - SCREEN_HEIGHT);

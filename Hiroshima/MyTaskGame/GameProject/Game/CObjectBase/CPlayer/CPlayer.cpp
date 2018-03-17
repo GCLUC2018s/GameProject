@@ -405,8 +405,12 @@ void CPlayer::Draw(){
 
 }
 
-void CPlayer::Hit(CTask * t)
+void CPlayer::Hit(CObjectBase * t)
 {
-
+	if (t->GetID() == eID_Enemy) {
+		if (t->GetState() == eAttack && m_state != eFall) {
+			m_state = eFall;
+		}
+	}
 }
 

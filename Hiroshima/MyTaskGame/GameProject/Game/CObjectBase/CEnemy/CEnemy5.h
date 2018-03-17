@@ -24,6 +24,7 @@ public:
 	CEnemy5(const CVector3D *pos);
 	~CEnemy5();
 	void Update();
+	void Draw();
 	void Nutral(); //’Êíó‘Ô
 	void Move();    //ˆÚ“®ó‘Ô
 	void Attack();  //UŒ‚ó‘Ô

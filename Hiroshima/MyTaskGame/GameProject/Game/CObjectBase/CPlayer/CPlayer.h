@@ -17,7 +17,7 @@ public:
 	~CPlayer();
 	 void Update();
 	 void Draw();
-	 void Hit(CTask *t);
+	 void Hit(CObjectBase *t);
 private:
 	float m_sc_plus;
 	enum {

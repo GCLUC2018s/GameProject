@@ -66,13 +66,13 @@ void CSceneManager::MainScene(){
 		&(CVector3D(3150, 0, -500)), &(CVector3D(3000, 200, -500)));
 	new CFire(&(CVector3D(500, 0, -20)));
 	new CFire(&(CVector3D(500, 0, -100)));
-	new CItemBox(&(CVector3D(1000, 0, -430)), 0);
-	new CItemBox(&(CVector3D(1250, 0, -430)), 1);
+	//new CItemBox(&(CVector3D(1000, 0, -430)), 0);
+	//new CItemBox(&(CVector3D(1250, 0, -430)), 1);
 	new CFieldManager();
 
-	new CKoban(&(CVector3D(300, 0, -300)));
-	new COage(&(CVector3D(500, 0, -30)));
-	new CSake(&(CVector3D(450, 0, -30)));
+	//new CKoban(&(CVector3D(300, 0, -300)));
+	//new COage(&(CVector3D(500, 0, -30)));
+	//new CSake(&(CVector3D(450, 0, -30)));
 	new CMagatama();	
 	new CEnemyManager();
 	new CKakera(&(CVector3D(450, 0, -30)));

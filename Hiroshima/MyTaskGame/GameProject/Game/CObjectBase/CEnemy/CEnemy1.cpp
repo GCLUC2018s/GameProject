@@ -49,19 +49,9 @@ void CEnemy1::Update() {
 		break;
 	}
 
-	if (PUSH_R) {
-		if (m_hp >= 0) {
-			m_damage = true;
-			m_state = eKnockBack;
-		}
-		else {
-			m_state = eFall;
-		}
-	}
-	
 	m_img.UpdateAnimation();
 	CheckOverlap();
-	m_rect_F = CRect(64, 135, 166, 237 - m_pos3D.y);
+	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
 }
 
 

@@ -36,7 +36,7 @@ public:
 	void Fall(const int *enemy_id);
 	void Damage(const int *enemy_id);
 	void Draw();
-	void Hit(CTask * t);
+	void Hit(CObjectBase * t);
 };
 
 #endif // !ENEMYBASEGUARD

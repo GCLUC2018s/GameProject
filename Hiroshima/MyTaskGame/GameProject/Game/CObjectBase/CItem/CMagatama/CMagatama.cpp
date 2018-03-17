@@ -1,7 +1,7 @@
 #include "CMagatama.h"
 
-CMagatama::CMagatama() :CObjectBase(0, eU_Item, eD_Object) {
-	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Magatama"));
+CMagatama::CMagatama() :CObjectBase(eID_Null, eU_Item, eD_Object) {
+	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("UI"));
 	m_img.SetRect(0, 0, 128, 128);
 	m_img.SetSize(128, 128);
 }
