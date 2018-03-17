@@ -1,17 +1,14 @@
 #ifndef KAKERA_GUARD
 #define KAKERA_GUARD
 
-#include "../GameProject/Game/CObjectBase/CObjectBase.h"
+#include "../CItemBase/CItemBase.h"
 
-class CKakera :public CObjectBase {
+class CKakera :public CItemBase {
 
 public:
 	CKakera(CVector3D * pos);
 	~CKakera();
-	void Update();
-	void Draw();
-	//“–‚½‚Á‚½‚Ìˆ—
-	void Hit(CTask *t);
+	void Hit(CObjectBase * t);
 };
 
 #endif // !KAKERA_GUARD

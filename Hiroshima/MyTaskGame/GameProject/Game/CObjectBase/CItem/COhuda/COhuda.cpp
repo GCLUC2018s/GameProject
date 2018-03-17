@@ -1,13 +1,11 @@
 #include "COhuda.h"
 
-COhuda::COhuda(CVector3D * pos, bool * flipH):CObjectBase(0,eU_Item, eD_Object){
+COhuda::COhuda(CVector3D * pos, bool * flipH) :CItemBase(pos) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Ohuda"));
-	m_img.SetRect(0,128,128,256);
+	m_img.SetRect(0, 128, 128, 256);
 	m_img.SetSize(64, 64);
-	m_rect = CRect(0,0,64,64);
+	m_rect = CRect(0, 0, 64, 64);
 	m_flipH = *flipH;
-	m_pos3D = *pos;
-	
 }
 
 COhuda::~COhuda(){
@@ -24,4 +22,8 @@ void COhuda::Update(){
 //	m_img.ChangeAnimation(eAnimItemBill);
 	m_img.UpdateAnimation();
 
+}
+
+void COhuda::Hit(CObjectBase * t)
+{
 }

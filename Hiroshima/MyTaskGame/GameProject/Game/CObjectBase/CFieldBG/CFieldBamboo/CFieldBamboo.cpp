@@ -16,6 +16,6 @@ CFieldBamboo::~CFieldBamboo(){
 }
 void CFieldBamboo::Draw()
 {
-	m_img.SetPos(m_pos3D.x - m_scroll.x / 1.3, m_pos3D.y - m_scroll.y / 1.1);
+	m_img.SetPos(m_pos3D.x - m_scroll.x / 3, m_pos3D.y - m_scroll.y / 3);
 	m_img.Draw();
 }

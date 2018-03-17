@@ -6,7 +6,7 @@
 class C_Drum : public  C_Object{
 private:
 	int m_DrumPos_Random = rand() % 3;
-	int Dmain();
+	void Dmain();
 public:
 	//XVˆ—
 	void Update();

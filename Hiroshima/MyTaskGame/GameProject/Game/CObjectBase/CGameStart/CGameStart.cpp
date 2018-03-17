@@ -1,7 +1,7 @@
 #include "CGameStart.h"
 #include "../GameProject/Game/CScene/CSceneManager.h"
 
-CGameStart::CGameStart() :CObjectBase(0, eU_Back, eD_Null)
+CGameStart::CGameStart() :CObjectBase(eID_Null, eU_Back, eD_Null)
 {
 	SOUND("SE_GameStart")->Play(false);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("GameStartText"));

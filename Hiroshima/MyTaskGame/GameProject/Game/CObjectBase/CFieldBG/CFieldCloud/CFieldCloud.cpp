@@ -16,7 +16,7 @@ CFieldCloud::~CFieldCloud(){
 }
 void CFieldCloud::Draw()
 {
-	m_img.SetPos(m_pos3D.x - m_scroll.x / 1.1, m_pos3D.y - m_scroll.y / 1.1);
+	m_img.SetPos(m_pos3D.x - m_scroll.x / 8, m_pos3D.y - m_scroll.y / 8);
 	m_img.Draw();
 }
 

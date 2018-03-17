@@ -1,16 +1,14 @@
 #ifndef KOBAN_GUARD
 #define KOBAN_GUARD
 
-#include "../GameProject/Game/CObjectBase/CObjectBase.h"
+#include "../CItemBase/CItemBase.h"
 
-class CKoban :public CObjectBase {
+class CKoban :public CItemBase {
 public:
 	CKoban(CVector3D *pos);
 	~CKoban();
-	void Update();
+	void Hit(CObjectBase * t);
 	void Draw();
-	//ìñÇΩÇ¡ÇΩéûÇÃèàóù
-	void Hit(CTask *t);
 };
 
 #endif // !KOBAN_GUARD

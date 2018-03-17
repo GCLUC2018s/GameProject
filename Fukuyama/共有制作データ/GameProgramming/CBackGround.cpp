@@ -12,7 +12,7 @@ C_BackGround::C_BackGround()
 void C_BackGround::Update(){
 	Scroll(&m_Position, m_Scroll);
 	mTexturet.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 1200, 900, 0);
-	mTexturet2.DrawImage(m_image.m_Left+600, m_image.m_Right+600, m_image.m_Bottom, m_image.m_Top, 0, 1200, 900, 0);
+	mTexturet2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 1200, 900, 0);
 }
 void C_BackGround::Draw(){
 	Rect(&m_image, &m_Position);
