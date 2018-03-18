@@ -5,6 +5,7 @@
 #include "map.h"
 #include "map_manager.h"
 #include "player_manager.h"
+#include "npc_manager.h"
 
 CMapControl::CMapControl()
 :CTask(0, eUDP_Map, eDWP_Map)
@@ -30,6 +31,7 @@ CMapControl::~CMapControl(){
 
 void CMapControl::Update(){
 	float _Amount = CPlayerManager::GetInstance()->GetPlayerAdress()->getMoveAmount();
+	if (!CNpcManager::GetInstance()->GetNpcAdress()->getDashFlag())
 	m_totalmovement += _Amount;
 	
 	if ((m_totalmovement > m_clearpos) && m_goalflag == false){

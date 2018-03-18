@@ -75,7 +75,7 @@ void CEnemy::Update(){
 			CEnemyManager::getInstance()->Remove(this);
 			//タスクキル
 			SetKill();
-			CUiManager::GetInstance()->GetPlayerAdress()->scoreAddition();
+			//CUiManager::GetInstance()->GetPlayerAdress()->scoreAddition();
 		}
 	}
 

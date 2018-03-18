@@ -27,6 +27,8 @@ CPlayerControl::CPlayerControl()
 		m_Equipment[i].m_type = (ItemType)0;
 		m_Equipment[i].m_useful = 0;
 	}
+	m_buff.m_speedup = 0;
+	m_buff.m_score_ratio = 0;
 	LoadDivGraph("media\\img\\top.png", ANIM_COUNT, 4, 4, 167, 190, m_heroUpperimg);
 	LoadDivGraph("media\\img\\under.png", ANIM_COUNT, 4, 4, 167, 190, m_heroLowerimg);
 	m_shadowimg = LoadGraph("media\\img\\Pshadow.png", TRUE);
@@ -67,7 +69,7 @@ void CPlayerControl::Update(){
 			m_lower_playerstate = Jump;
 		}
 
-		float mv = P_SPEED * FRAMETIME;		//270pixel/s
+		float mv = P_SPEED * FRAMETIME + m_buff.m_speedup;		//270pixel/s
 		if (key & PAD_INPUT_LEFT){
 			hx -= mv;
 			m_gear = (m_BodyPos.getX() / (ONE_GEAR_SPACE));
