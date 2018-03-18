@@ -5,7 +5,6 @@
 #include"object\CVector3.h"
 #define ENEMY_UD_SPEED 100
 #define ENEMY_LR_SPEED 200
-#define RUN_ANIME 90    //アニメーション用変数を回す上限
 #define ACTION_INTERVAL 120;
 class CEnemy :public C_Object{
 public:

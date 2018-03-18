@@ -25,6 +25,8 @@ public:
 		:CTask(id, updatePrio, drawPrio)
 		, init(false)
 		, m_Position(posx, posy, posz)
+		, m_Anime(0)        //アニメーションカウンタの初期化
+		, m_Anime_Jump(50)      //ジャンプ用アニメーションカウンタの初期化
 		, m_Speed(0.0f, 0.0f, 0.0f)
 		, m_Gravity(0.0f,-9.8f,0.0f)
 	{}
@@ -35,6 +37,13 @@ public:
 	int m_Turn;             //右を向いているか左を向いているか
 	int m_Jump;             //ジャンプしているかしていないのか
 	int m_Throw;            //ボールを投げているか
+	int m_Anime;            //アニメーション管理変数
+	int m_Anime_Taiki;      //アニメーション管理変数
+	int m_Anime_Jump;       //アニメーション管理変数
+	int m_Anime_Throw;       //アニメーション管理変数
+
+	void RunAnime(CTexture *image, int id);      //走りアニメ
+	void TaikiAnime(CTexture *image, int id);    //待機アニメ
 protected:
 	C_Rectangle i_Shadow;   //影用インスタンス
 	C_Rectangle m_image;  //メンバー変数にする

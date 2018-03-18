@@ -18,8 +18,6 @@ class C_Player :public C_Object{
 public:
 	C_Player() 
 		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,0)
-		, m_Anime(0)        //アニメーションカウンタの初期化
-		, m_Anime_Jump(50)
 		, i_JumpPoint(0,0,0)
 	{
 		m_image.m_Enabled = true;
@@ -44,10 +42,6 @@ public:
 	CTexture i_Chara_Motion_2;
 	C_Vector3 i_JumpPoint;
 	static C_Player *m_Playerpoint;
-	int m_Anime;            //アニメーション管理変数
-	int m_Anime_Taiki;      //アニメーション管理変数
-	int m_Anime_Jump;       //アニメーション管理変数
-	int m_Anime_Throw;       //アニメーション管理変数
 	float m_JumpTime;       //ジャンプしてから着地までの時間
 	void Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, float deltatime);
 	virtual void Update();

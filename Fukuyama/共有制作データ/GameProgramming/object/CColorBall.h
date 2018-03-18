@@ -5,6 +5,11 @@
 #include "C_Object.h"
 #include "../chara/C_Player.h"
 
+enum COLORBALL_STATE{
+	E_NAGE,
+	E_SET,
+};
+
 class C_ColorBall:public C_Object{
 public:
 	C_ColorBall()
