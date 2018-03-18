@@ -28,6 +28,7 @@ protected:
 	};
 public:
 	CEnemyBase();
+	~CEnemyBase();
 	void DropItem();
 	void Nutral(const int *enemy_id);
 	void Move(const int *enemy_id);
@@ -36,7 +37,7 @@ public:
 	void Fall(const int *enemy_id);
 	void Damage(const int *enemy_id);
 	void Draw();
-	void Hit(CTask * t);
+	void Hit(CObjectBase * t);
 };
 
 #endif // !ENEMYBASEGUARD

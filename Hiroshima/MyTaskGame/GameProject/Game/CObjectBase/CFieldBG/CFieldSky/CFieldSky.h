@@ -14,5 +14,7 @@ public:
 	~CFieldSky();
 	void Update();
 	void Draw();
+private:
+	CAnimImage m_img_2;
 };
 #endif // !FIELDSKY_GUARD

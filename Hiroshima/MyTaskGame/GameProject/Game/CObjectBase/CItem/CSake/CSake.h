@@ -1,12 +1,11 @@
 #ifndef SAKE_GUARD
 #define SAKE_GUARD
-#include "../GameProject/Game/CObjectBase/CObjectBase.h"
+#include "../CItemBase/CItemBase.h"
 
-class CSake :public CObjectBase {
+class CSake :public CItemBase {
 public:
 	CSake(CVector3D *pos);
 	~CSake();
-	void Update();
 };
 
 #endif // !SAKE_GUARD

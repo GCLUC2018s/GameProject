@@ -6,6 +6,7 @@ class C_Manhole : public C_Object{
 private:
 	//ランダム発生確率
 	int m_UorD_rand = rand() % 3;
+	int main();
 public:
 	//コンストラクタを設定
 	C_Manhole();

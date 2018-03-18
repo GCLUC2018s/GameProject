@@ -18,9 +18,9 @@ public:
 	CEnding();
 	~CEnding();
 	void Update();
+	void Draw();
 private:
 	bool m_end_flag;	//I‚í‚è‚Ü‚·‚æƒtƒ‰ƒO
-	float m_vol;
 
 };
 

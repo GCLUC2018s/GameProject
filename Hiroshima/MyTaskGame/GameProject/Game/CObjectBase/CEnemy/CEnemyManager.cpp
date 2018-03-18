@@ -72,7 +72,7 @@ void CEnemyManager::PushEnemy(const int *id) {
 		new CEnemy4(&(CVector3D(800, -50, -200)));
 		break;
 	case eNiku:
-		new CEnemy5(&(CVector3D(200, 0, -230)));
+		new CEnemy5(&(CVector3D(200, 0, -50)));
 		break;
 	default:
 		break;

@@ -149,6 +149,7 @@
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CItemBox.h" />
     <ClInclude Include="Game\CObjectBase\CGo\CGo.h" />
+    <ClInclude Include="Game\CObjectBase\CItem\CItemBase\CItemBase.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CMagatama\CMagatama.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Source\Enemysource.h" />
     <ClInclude Include="Source\Fieldsource.h" />
     <ClInclude Include="Source\Gamesource.h" />
+    <ClInclude Include="Source\Itemsource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Task\CTask.h" />
     <ClInclude Include="Task\CTaskLinker.h" />
@@ -195,6 +197,7 @@
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CItemBox.cpp" />
     <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp" />
+    <ClCompile Include="Game\CObjectBase\CItem\CItemBase\CItemBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CMagatama\CMagatama.cpp" />

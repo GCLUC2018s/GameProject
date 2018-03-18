@@ -1,10 +1,12 @@
 #ifndef PLAYER_GUARD
 #define PLAYER_GUARD
 #define REPULSION 0.8f
-#define GRAVITY 1.2f
 #define GRAVITY_DIE 1.001f
 
 #include"../CObjectBase.h"
+
+class CMagatama;
+
 /*
 
 êßçÏé“Å@òZé‘Å@
@@ -17,7 +19,9 @@ public:
 	~CPlayer();
 	 void Update();
 	 void Draw();
+	 void Hit(CObjectBase *t);
 private:
+	float m_sc_plus;
 	enum {
 		eNutral,
 		eAttack,
