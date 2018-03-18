@@ -3,9 +3,12 @@
 
 #include"../GameProject/Game/CObjectBase/CObjectBase.h"
 
+class CPlayer;
+
 /*
 
 製作者　六車
+編集　　宮﨑
 
 */
 
@@ -15,12 +18,10 @@ public:
 	~CFieldGround();
 	void Update();
 	void Draw();
+	void GroundHitCheck(CPlayer * pl);
 private:
+//	CRect m_rect_tourou[4];
 	bool m_flag;
-	CRect m_rect_tourou1;
-	CRect m_rect_tourou2;
-	CRect m_rect_tourou3;
-	CRect m_rect_tourou4;
 };
 
 #endif // !FIELDGROUND_GUARD

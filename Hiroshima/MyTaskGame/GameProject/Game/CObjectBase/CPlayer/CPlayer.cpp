@@ -49,7 +49,7 @@ void CPlayer::Update() {
 	if (m_pos3D.z > 0) {
 		m_pos3D.z = 0;
 	}
-	if (m_pos3D.z < -400) {
+	if (m_pos3D.z <= -400) {
 		m_pos3D.z = -400;
 	}
 	//if (m_pos3D.x - m_scroll.x < 0) {
@@ -174,14 +174,12 @@ void CPlayer::Update() {
 	//	}
 
 	//YŽ²ˆ—
-	if (m_pos3D.z < -400 && 450 + m_pos3D.y + m_pos3D.z / 2 < 80 && 450 + m_pos3D.y + m_pos3D.z / 2 > -200) {
-		m_scroll.y = 450 + m_pos3D.y + m_pos3D.z / 2 - 80;
-		if (m_pos3D.y == 715 + 512) {
-			m_scroll.y = SCREEN_HEIGHT;
-		}
-	}
+	if (m_pos3D.z <= -400 && m_pos3D.y < 0)
+		m_scroll.y = m_pos3D.y;
+	else
+		m_scroll.y = 0;
 	//XŽ²ˆ—
-	if (PUSH_ENTER/*m_pos3D.x > SCREEN_WIDTH + m_scroll.x && m_scroll.x < SCREEN_WIDTH * 5*/) {
+	if (PUSH_ENTER) {
 		if (m_pos3D.x > SCREEN_WIDTH * 5) {
 			new CBB(0, 2, true);
 		}
