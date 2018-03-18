@@ -84,7 +84,10 @@ void CEnemy2::Move() {
 }
 
 void CEnemy2::Attack() {
-
+	m_img.ChangeAnimation(eAnimEnemyAttack);
+	if (m_img.GetIndex() == 2) {
+		m_state = eMove;
+	}
 }
 
 void CEnemy2::KnockBack() {

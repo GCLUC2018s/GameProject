@@ -18,6 +18,7 @@
 #define CHECK(a,b)					((a)&(1<<(b)))
 const int IMG_CHIPSIZE = 60;
 const int SCREEN_SIZE_X = 1280;
+const int ITEM_RAND = 5;		//アイテムのドロップ確率
 
 //列挙体
 enum AtariInfo{ UL, UR, DL, DR, GL, GR ,HL,HR,ML,MR}; //主人公の各辺と一マス上下の左右の点

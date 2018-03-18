@@ -61,5 +61,8 @@ void CEnemyBase::Hit(CObjectBase * t)
 				m_state = eFall;
 			}
 		}
+		 /*if(t->GetState() != eAttack && m_state != eAttack){
+			m_state = eAttack;
+		}*/
 	}
 }

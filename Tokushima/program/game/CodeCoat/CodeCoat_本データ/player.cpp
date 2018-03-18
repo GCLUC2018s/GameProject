@@ -27,6 +27,8 @@ CPlayerControl::CPlayerControl()
 		m_Equipment[i].m_type = (ItemType)0;
 		m_Equipment[i].m_useful = 0;
 	}
+	m_buff.m_speedup = 0;
+	m_buff.m_score_ratio = 0;
 	LoadDivGraph("media\\img\\top.png", ANIM_COUNT, 4, 4, 167, 190, m_heroUpperimg);
 	LoadDivGraph("media\\img\\under.png", ANIM_COUNT, 4, 4, 167, 190, m_heroLowerimg);
 	m_shadowimg = LoadGraph("media\\img\\Pshadow.png", TRUE);
@@ -67,7 +69,7 @@ void CPlayerControl::Update(){
 			m_lower_playerstate = Jump;
 		}
 
-		float mv = P_SPEED * FRAMETIME;		//270pixel/s
+		float mv = P_SPEED * FRAMETIME + m_buff.m_speedup;		//270pixel/s
 		if (key & PAD_INPUT_LEFT){
 			hx -= mv;
 			m_gear = (m_BodyPos.getX() / (ONE_GEAR_SPACE));
@@ -141,6 +143,7 @@ void CPlayerControl::Update(){
 					if (IsXKeyTrigger(key) && m_attack_time > m_Equipment[WEAPON].m_attack_rate){
 						m_Equipment[WEAPON].m_useful = 5;					//UŒ‚ON
 						m_attack_time = 0;
+						CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 					}
 					break;
 				case PISTOL:
@@ -150,6 +153,7 @@ void CPlayerControl::Update(){
 							CVector3D _vec(36.0f, 0.0f, 0.0f);
 							CBulletManager::GetInstance()->Create(&_pos, &_vec, 1200.0f, PLAYER);
 							m_Equipment[WEAPON].m_useful--;
+							CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 						}
 					}
 					break;
@@ -168,6 +172,7 @@ void CPlayerControl::Update(){
 								m_attack_time = 0;
 								m_Equipment[WEAPON].m_useful--;
 							}
+							CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 						}
 					}
 					break;
@@ -183,6 +188,7 @@ void CPlayerControl::Update(){
 								m_Equipment[WEAPON].m_useful--;
 								m_attack_time = 0;
 							}
+							CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 						}
 					}
 					break;
