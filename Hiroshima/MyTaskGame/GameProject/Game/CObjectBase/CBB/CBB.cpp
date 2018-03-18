@@ -29,6 +29,7 @@ CBB::~CBB()
 		CTaskManager::GetInstance()->SetPause(eID_Player, false);
 		CTaskManager::GetInstance()->SetPause(eID_Enemy, false);
 		CTaskManager::GetInstance()->SetPause(eID_Gimmick, false);
+		CTaskManager::GetInstance()->SetPause(eID_Magatama, false);
 		SOUND("BGM_Main")->Play(true);
 		break;
 	case 2:
@@ -45,6 +46,7 @@ void CBB::Update()
 		CTaskManager::GetInstance()->SetPause(eID_Player, true);
 		CTaskManager::GetInstance()->SetPause(eID_Enemy, true);
 		CTaskManager::GetInstance()->SetPause(eID_Gimmick, true);
+		CTaskManager::GetInstance()->SetPause(eID_Magatama, true);
 	}
 	
 	if (m_flag_In) {

@@ -15,7 +15,7 @@ void CMagatama::Update()
 {
 	if (PUSH_Q) {
 		if (m_cnt >= 10) SetAttack();
-		else //ブブー効果音
+		else SOUND("SE_BB")->Play(false);
 	}
 }
 
@@ -42,6 +42,7 @@ void CMagatama::SetAttack()
 
 	*/
 	m_cnt = 0;
+	SOUND("SE_KKN")->Play(false);
 	//カットイン発動
 	//必殺技発動
 }
