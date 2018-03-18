@@ -1,6 +1,7 @@
 #include "ui.h"
 #include "player_manager.h"
 #include "map_manager.h"
+#include "enemy_manager.h"
 
 Ui::Ui() :
 m_timer_pos(0, 0, 0),
@@ -16,18 +17,25 @@ Ui::Ui(CVector3D p_pos) :CTask(0,eUDP_Ui,eDWP_Ui),
 m_score_img(LoadGraph("media\\img\\score.png" ,TRUE)),
 m_map_img(LoadGraph("media\\img\\map.png", TRUE)),
 m_scorearrow_img(LoadGraph("media\\img\\power-arrow1.png", TRUE)),
+m_combotxt_img(LoadGraph("media\\img\\combo.png",TRUE)),
 m_timer_pos(p_pos),
 m_arrow_pos(p_pos),
 m_maparrow_pos(MAP_P_INIT_X,MAP_P_INIT_Y,0),
 m_totalscore(0),
 m_timelimit(99.9f),
-m_score_magnification(1)
+m_score_magnification(1),
+m_comb_flag(false),
+m_c_angle(COMB_MOVE_X),
+m_past_comb(0)
 {
 	LoadDivGraph("media\\img\\time-number.png",12,6,2,70,70,m_timer_img);
-	LoadDivGraph("media\\img\\score_number.png",12,10,2,40,40,m_scorenum_img);
+	LoadDivGraph("media\\img\\score_number2.png",12,10,2,40,40,m_scorenum_img);
 	LoadDivGraph("media\\img\\item-frame.png", 4, 2, 2, 100, 100, m_item_img);
 	m_scoregage_img[0] = LoadGraph("media\\img\\power-gage0.png");
 	m_scoregage_img[1] = LoadGraph("media\\img\\power-gage1.png");
+	m_totalrun_txt_img[0] = LoadGraph("media\\img\\bonus.png");
+	m_totalrun_txt_img[1] = LoadGraph("media\\img\\fold.png");
+
 }
 
 Ui::~Ui()
@@ -48,7 +56,7 @@ void Ui::Update(){
 		m_timer_pos = CVector3D(p_pos.getX() + offset, p_pos.getY(), p_pos.getZ());
 	}
 
-	m_timelimit -= 0.0166666;
+	m_timelimit -= 0.0166666f;
 	
 	//カウントダウン処理
 	if (m_timelimit < 0){	//0以下なら
@@ -65,6 +73,8 @@ void Ui::Update(){
 	_move = _totalmove / 40;
 	if (_move < 405)
 	m_maparrow_pos = CVector3D(_move + MAP_P_INIT_X, MAP_P_INIT_Y,0);
+
+	scoreAddition();
 }
 
 void Ui::Draw(){
@@ -167,15 +177,99 @@ void Ui::Draw(){
 			DrawRotaGraph(ITEM_INIT_X + i*ITEM_SPACE_X, ITEM_INIT_Y, 0.5, 3.141592/180*-30, itemdata->m_img, TRUE, FALSE);
 		}
 	}
+
+	//コンボ数		追加
+	if (m_comb_flag == true){
+		float temp = 0;
+		//移動量
+		if (m_c_angle < 90){
+			m_c_angle++;
+		}
+		temp = sin(m_c_angle * PI/180);
+	//コンボの文字描画	追加
+		DrawRotaGraph(COMB_X * temp, COMB_Y - 20, 0.5, 0,
+			 m_combotxt_img, TRUE, FALSE);
+		//コンボ数描画
+		num = sprintf_s(buf, 100, "%d", CEnemyManager::getInstance()->GetComb());
+		for (int i = 0; i < num; i++){
+			DrawGraph((COMB_X * temp) + i * 25,
+				COMB_Y, m_scorenum_img[(buf[i] - '0')], TRUE);		//'0'
+		}
+	}
+
+	//走行距離の倍率文字描画
+	if (CPlayerManager::GetInstance()->getNoDamageMovement()>2500){
+		float temp = 0;
+		if (m_c_angle < 90){
+			m_c_angle++;
+		}
+		temp = sin(m_c_angle * PI / 180);
+		for (int i = 0; i < 2; i++){
+			DrawRotaGraph(COMB_X * temp, BONUS_Y - 20 + (35 * i), 0.4, 0,
+				m_totalrun_txt_img[i], TRUE, FALSE);
+		}
+		//走行距離の倍率描画
+		num = sprintf_s(buf, 100, "%0.1f", m_ndm_magnification);
+		for (int i = 0; i < num; i++){
+			if (i == 0){
+				DrawGraph((BONUS_X * temp) + 30,
+					COMB_Y, m_scorenum_img[10], TRUE);
+			}
+			if (i == 1){
+				DrawGraph((BONUS_X * temp) + SCORE_MAGNIFICATION_X + (i * 32),
+					COMB_Y, m_scorenum_img[11], TRUE);
+			}
+			else{
+				DrawGraph((BONUS_X * temp) + SCORE_MAGNIFICATION_X + (i * 20),
+					COMB_Y, m_scorenum_img[(buf[i] - '0')], TRUE);
+			}
+		}
+	}
 }
 
-void Ui::scoreMagnification(CVector3D *pos){
+void Ui::scoreMagnification(CVector3D *pos){	
 	m_score_magnification = (pos->getX() / 320) + 1;
 	if (m_score_magnification < 1){
 		m_score_magnification = 1;
 	}
 }
 
-void Ui::scoreAddition(int points){
-	m_totalscore += points;
+void Ui::scoreAddition(){		//追加
+	int _s = 0;		//スコア計算結果
+	float _comb = (float)CEnemyManager::getInstance()->GetComb();	//コンボ倍率
+	float _nodamagemove = CPlayerManager::GetInstance()->getNoDamageMovement();		//走行距離に応じたスコア倍率
+
+	//最初にコンボ数を代入
+	if (m_past_comb == 0){
+		m_past_comb = _comb;
+	}
+	else if(m_past_comb != _comb){
+		m_c_angle = COMB_MOVE_X;
+		m_past_comb = _comb;
+	}
+
+	//出現判定
+	if (_comb < 1)
+		m_comb_flag = false;
+	else
+		m_comb_flag = true;
+
+	//倍率の初期値が1.0
+	//_comb = (_comb / 10) + 1;
+
+	//エネミーを倒したら
+	if (CEnemyManager::getInstance()->GetDel() == true){
+		_s = (m_score_magnification+_comb) * 100;		//画面内の倍率＋コンボ
+		m_totalscore += _s;
+		CEnemyManager::getInstance()->SetDel(false);
+	}
+
+	//攻撃せず一定距離まで走れば
+	if (_nodamagemove > 2500){
+		m_ndm_magnification = _nodamagemove / 2500;
+		if (CPlayerManager::GetInstance()->getNdmFalg() == true){
+			m_totalscore += (m_score_magnification + m_ndm_magnification) * 50;	//画面内の倍率＋走行距離倍率
+			CPlayerManager::GetInstance()->setNdmFalg(false);
+		}
+	}
 }

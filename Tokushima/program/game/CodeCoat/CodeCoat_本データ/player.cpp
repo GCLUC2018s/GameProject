@@ -143,6 +143,7 @@ void CPlayerControl::Update(){
 					if (IsXKeyTrigger(key) && m_attack_time > m_Equipment[WEAPON].m_attack_rate){
 						m_Equipment[WEAPON].m_useful = 5;					//UŒ‚ON
 						m_attack_time = 0;
+						CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 					}
 					break;
 				case PISTOL:
@@ -152,6 +153,7 @@ void CPlayerControl::Update(){
 							CVector3D _vec(36.0f, 0.0f, 0.0f);
 							CBulletManager::GetInstance()->Create(&_pos, &_vec, 1200.0f, PLAYER);
 							m_Equipment[WEAPON].m_useful--;
+							CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 						}
 					}
 					break;
@@ -170,6 +172,7 @@ void CPlayerControl::Update(){
 								m_attack_time = 0;
 								m_Equipment[WEAPON].m_useful--;
 							}
+							CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 						}
 					}
 					break;
@@ -185,6 +188,7 @@ void CPlayerControl::Update(){
 								m_Equipment[WEAPON].m_useful--;
 								m_attack_time = 0;
 							}
+							CPlayerManager::GetInstance()->setNoDamageMovement(0);		//’Ç‰Á
 						}
 					}
 					break;
