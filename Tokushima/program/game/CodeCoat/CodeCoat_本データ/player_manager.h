@@ -13,6 +13,11 @@
 class CPlayerManager
 {
 private:
+	int m_evasion;				//追加	回避した回数
+	bool m_evasion_flag;		//追加	回避フラグ
+	int m_nodamage_movement;	//追加	ダメージを受けずに走った距離
+	bool m_ndm_flag;			//追加	ダメージを受けずにある一定まで進むとtrue
+	bool m_passflag;			//追加	一度通ったか
 	static CPlayerManager* mp_Instance;
 	CPlayerControl *m_player;	//主人公のアドレス
 	/// コンストラクタ
@@ -43,6 +48,13 @@ public:
 	@brief	更新処理
 	**/
 	void Update();
+
+	void countEvasion(){ m_evasion++; };								//追加	
+	float getNoDamageMovement(){ return m_nodamage_movement; };			//追加
+	bool getNdmFalg(){ return m_ndm_flag; };							//追加
+	void setNoDamageMovement(float ndm){ m_nodamage_movement = ndm; };	//追加
+	void setNdmFalg(bool f){ m_ndm_flag = f; };							//追加
+	void noDamageDistance();											//追加
 };
 
 #endif	// #ifndef __ENEMY_MANAGER_HPP__
