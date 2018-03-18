@@ -20,6 +20,12 @@ public:
 	 void Update();
 	 void Draw();
 	 void Hit(CObjectBase *t);
+	 void SetJump(bool flag) {
+		 m_jump = flag;
+	 };
+	 bool GetJump() {
+		 return m_jump;
+	 };
 private:
 	float m_sc_plus;
 	enum {
