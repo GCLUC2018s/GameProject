@@ -70,7 +70,7 @@ void Ui::Update(){
 	scoreMagnification(&p_pos);
 
 	//ミニマップの走行距離の処理
-	_move = _totalmove / 40;
+	_move = _totalmove / MAP_DISTANCE;			//変更
 	if (_move < 405)
 	m_maparrow_pos = CVector3D(_move + MAP_P_INIT_X, MAP_P_INIT_Y,0);
 

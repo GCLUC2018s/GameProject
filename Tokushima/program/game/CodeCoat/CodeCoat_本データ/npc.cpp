@@ -24,7 +24,7 @@ CNpc::CNpc()
 	}
 
 	m_shadowimg = LoadGraph("media\\img\\Pshadow.png", TRUE);
-	LoadDivGraph("media\\img\\item-frame.png", 4, 2, 2, 100, 100, m_flame, TRUE);
+	LoadDivGraph("media\\img\\item-frame.png", 5, 2, 3, 100, 100, m_flame, TRUE);
 	//CNpc Manager‚ÉCNpc‚ÌƒAƒhƒŒƒX‚ð“n‚·‚½‚ß‚ÌŠÖ”
 	CNpcManager::GetInstance()->Init(this);
 }
@@ -119,7 +119,7 @@ void CNpc::Draw(){
 		for (int i = 1; i < 4; i++){
 			DrawGraph(i * FLAME_INTERVAL, 200, m_flame[m_sell_item[i - 1].m_type], TRUE);
 			DrawRotaGraph(i * FLAME_INTERVAL + 50, FLAME_YPOS + 50, 0.4, 3.141592 / 180 * -30, m_sell_item[i - 1].m_img, TRUE, FALSE);
-			DrawGraph(m_cursor * FLAME_INTERVAL + FLAME_INTERVAL, 200, m_flame[3], TRUE);
+			DrawGraph(m_cursor * FLAME_INTERVAL + FLAME_INTERVAL, 200, m_flame[4], TRUE);
 		}
 	}
 	
