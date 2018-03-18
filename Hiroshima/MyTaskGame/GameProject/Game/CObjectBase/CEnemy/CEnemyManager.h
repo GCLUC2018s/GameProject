@@ -3,15 +3,19 @@
 
 #include"CEnemyBase.h"
 #include"../GameProject/Source/Gamesource.h"
+/*
 
+§ìÒ@Â–Ø
+
+*/
 
 class CEnemyManager :public CEnemyBase {
 protected:
-	int x, i;
+	int m_wave, m_timing, m_push;
 public:
 	CEnemyManager();
 	void Update();
-	void PushEnemy(const int *id);
+	void PushEnemy(const int *id,const CVector3D *pos);
 };
 
 
