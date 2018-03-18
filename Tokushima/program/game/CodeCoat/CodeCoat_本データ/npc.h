@@ -38,7 +38,7 @@ private:
 	CItemData m_sell_item[SELL_COUNT];
 	bool m_shop_flag;
 	bool m_dash_flag;
-	int m_flame[SELL_COUNT];
+	int m_flame[5];
 	int m_cursor;
 	int m_leave_time;
 	float m_chk_pt;

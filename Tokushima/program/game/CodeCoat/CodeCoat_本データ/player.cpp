@@ -20,6 +20,7 @@ CPlayerControl::CPlayerControl()
 , m_lower_animcounter(0)
 , m_upper_playerstate(Stand)
 , m_lower_playerstate(Stand)
+, m_live(true)
 {
 	for (int i = 0; i < 3; i++){
 		m_Equipment[i].m_img = 0;

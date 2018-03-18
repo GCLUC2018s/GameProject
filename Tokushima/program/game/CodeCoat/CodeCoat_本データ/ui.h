@@ -9,7 +9,7 @@ const float SCORE_INIT_X = 0;				//スコアX
 const float SCORE_INIT_Y = 650;				//スコアY
 const float SCOREGAGE_INIT_X = 0;			//スコアゲージX
 const float SCOREGAGE_INIT_Y = 600;			//スコアゲージY
-const float SCORENUM_INIT_X = 380;			//スコアナンバーX
+const float SCORENUM_INIT_X = 230;			//スコアナンバーX
 const float SCORENUM_INIT_Y = 650;			//スコアナンバーY
 const float MAP_INIT_X = 810;				//ミニマップX
 const float MAP_INIT_Y = 620;				//ミニマップY
@@ -37,7 +37,7 @@ const float TIMER_SKIP_X = 170.0f;			//コロンを飛ばしたときのX座標
 const int TIMER_SPACE = 35;					//タイマーの文字幅
 const int TIMER_COLON_CONT_X = 40;			//タイマーのコロンのX座標
 const int COMB_MOVE_X = 65;					//コンボの初期座標の65
-
+const int MAP_DISTANCE = 40;				//追加
 
 class Ui :public CTask{
 private:

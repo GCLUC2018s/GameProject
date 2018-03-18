@@ -87,6 +87,7 @@ void CEnemyManager::LoadFile(){
 	}
 
 out:
+	delete temp;
 	fclose(fp);
 }
 
@@ -153,5 +154,3 @@ void CEnemyManager::CombUpdate(){
 		m_comb = 0;
 	}
 }
-
-//void 

@@ -11,7 +11,7 @@ CMapControl::CMapControl()
 :CTask(0, eUDP_Map, eDWP_Map)
 , m_posAsrc(0.0f, -250.0f,0.0f)
 , m_posBsrc(0.0f, -250.0f,0.0f)
-, m_clearpos(4000)
+, m_clearpos(GOAL_POINT)
 , m_goalpos(1280.0f,0.0f,0.0f)
 , m_goalflag(false)
 , m_goalscrollstartpos(0)
@@ -32,21 +32,24 @@ CMapControl::~CMapControl(){
 void CMapControl::Update(){
 	float _Amount = CPlayerManager::GetInstance()->GetPlayerAdress()->getMoveAmount();
 	if (!CNpcManager::GetInstance()->GetNpcAdress()->getDashFlag())
-	m_totalmovement += _Amount;
-	
+		m_totalmovement += _Amount;
+
 	if ((m_totalmovement > m_clearpos) && m_goalflag == false){
 		m_goalflag = true;
 	}
+	if (m_goalflag  == false){
 	m_posAsrc.setX(m_posAsrc.getX() - _Amount);
-		if (m_posAsrc.getX() <= -3840)
-			m_posAsrc.setX(0);
-		m_posBsrc.setX(m_posBsrc.getX() - (_Amount / 3));
-		if (m_posBsrc.getX() <= -1280)
-			m_posBsrc.setX(0);
-		if (m_goalflag){
-		}
-	
+	if (m_posAsrc.getX() <= -3840)
+		m_posAsrc.setX(0);
+	m_posBsrc.setX(m_posBsrc.getX() - (_Amount / 3));
+	if (m_posBsrc.getX() <= -1280)
+		m_posBsrc.setX(0);
+	}
+	else
+	{
+	}
 }
+
 //ゴールはポジションを超えたら残りの2560のところまで走り切り、その続きにゴールの座標を置くようにする
 //ゴールのポジションを超えて尚且つ残りの2560のところに
 void CMapControl::Draw(){

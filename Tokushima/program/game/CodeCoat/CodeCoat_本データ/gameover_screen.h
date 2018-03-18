@@ -19,8 +19,10 @@ public:
 	void Dest();
 private:
 	SCREEN m_state;
-	int m_GoverSound;
-	int m_GoverImage;
+	int m_goversound;
+	int m_gover_bg_img;
+	int m_gover_light_img;
+	int m_gover_txt_img;
 	int m_lasttime;
 };
 #endif __SCREEN_OVER_H__

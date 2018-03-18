@@ -105,6 +105,7 @@ void CPlayerManager::Update()
 	
 	auto _enemy_list = CEnemyManager::getInstance()->getEnemyList();//ココから下変更、追加
 	for (auto it2 = _enemy_list.begin(); it2 != _enemy_list.end(); it2++){
+		//ナイフのみの判定が欲しかったので追加
 		if (IsHitCircle(PLAYER_COLLISION + _knife_coli, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
 			if (_knife_flag){
 				(*it2)->SetLive(false);
@@ -116,13 +117,14 @@ void CPlayerManager::Update()
 			CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
 		}
 	
-		else if (IsHitCircle(PLAYER_COLLISION, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
+		if (IsHitCircle(PLAYER_COLLISION, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
 			if (_Armor->m_useful > 0)
 				_Armor->m_useful--;
-			else
+			else{
 				m_player->setDeath();
-			CEnemyManager::getInstance()->SetComb(0);	//追加
-			CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
+				CEnemyManager::getInstance()->SetComb(0);	//追加
+				CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
+			}
 		}
 	}																//ここまで
 	

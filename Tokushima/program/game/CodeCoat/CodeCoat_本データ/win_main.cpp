@@ -62,6 +62,7 @@ void win_main_loop(){
 //ƒƒCƒ“I—¹ˆ—
 void win_main_dest()
 {
+	DxLib_End();
 	g_pMain->Dest();
 	delete g_pMain;
 	g_pMain = NULL;
