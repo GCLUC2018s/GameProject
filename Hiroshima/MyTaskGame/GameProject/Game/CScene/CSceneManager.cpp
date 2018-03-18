@@ -51,10 +51,10 @@ void CSceneManager::TitleScene(){
 	new CTitleBG();
 }
 
-void CSceneManager::MainScene(){
+void CSceneManager::MainScene() {
 	//ƒƒCƒ“í“¬‰æ–Ê‚Ì—v‘f‚Ô‚¿ž‚Þ
 	SOUND("BGM_Title")->Stop();
-	new CBB(60 * 3,1, false);
+	new CBB(60 * 3, 1, false);
 	new CPlayer();
 
 	/*new CEnemy1(&(CVector3D(400, 0, -300)));
@@ -78,9 +78,11 @@ void CSceneManager::MainScene(){
 	//new CKoban(&(CVector3D(700, 0, -220)));
 	//new COage(&(CVector3D(500, 0, -30)));
 	//new CSake(&(CVector3D(450, 0, -30)));
-	//new CMagatama();	
+	new CMagatama();
 	new CEnemyManager();
-	//new CKakera(&(CVector3D(450, 0, -30)));
+	for (int i = 0; i < 10; i++) {
+		new CKakera(&(CVector3D(450 + i * 40, 0, -30)));
+	}
 }
 
 void CSceneManager::BossScene(){

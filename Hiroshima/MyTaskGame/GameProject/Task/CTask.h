@@ -39,6 +39,7 @@ enum {
 	eID_Item,
 	eID_Gimmick,
 	eID_Flag,
+	eID_Magatama,
 	eID_Null,
 };
 

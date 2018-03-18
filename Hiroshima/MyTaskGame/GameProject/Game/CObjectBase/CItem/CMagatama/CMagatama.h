@@ -8,15 +8,17 @@
 
 class CMagatama :public CObjectBase {
 private:
-	float m_kakera;
-	int i;
+	int m_cnt;
 
 public:
 	CMagatama();
 	~CMagatama();
 	void Update();
+	void Draw();
 	//“–‚½‚Á‚½‚Ìˆ—
-	void Hit(CTask *t);
+	void Hit(CObjectBase *t);
+	//•KE‹Z”­“®
+	void SetAttack();
 };
 
 #endif // !MAGATAMA_GUARD

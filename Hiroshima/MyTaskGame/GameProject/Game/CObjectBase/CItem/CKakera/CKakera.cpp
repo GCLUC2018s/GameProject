@@ -17,5 +17,6 @@ void CKakera::Hit(CObjectBase * t)
 		SOUND("SE_KAKERA")->Play(false);
 		m_time = 0;
 		m_get = true;
+		CTaskManager::GetInstance()->GetTask(eID_Magatama)->Hit(this);
 	}
 }

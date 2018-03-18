@@ -4,6 +4,9 @@
 #define GRAVITY_DIE 1.001f
 
 #include"../CObjectBase.h"
+
+class CMagatama;
+
 /*
 
 §ìÒ@˜ZÔ@
