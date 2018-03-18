@@ -18,52 +18,93 @@ void C_Player::Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, 
 
 void C_Player::Update(){
 
+	//ジャンプ用変数を回します
 	if (m_Anime_Jump < 60){
 		m_Anime_Jump++;
 	}
 
-	//Cキーでカラーボールを投げます
-	if (CKey::Once('C')){
-		C_ColorBall* ColorBall = new C_ColorBall();
+	//投げアニメーション用変数を回します
+	if (m_Anime_Throw < THROW_ANIME + 1){
+		m_Anime_Throw++;
 	}
 
-	//Xキーでカラーボールを設置します
-	if (CKey::Once('X')){
-		C_ColorBall* ColorBall = new C_ColorBall();
+	//設置アニメーション用変数を回します
+	if (m_Anime_Set < SET_ANIME + 1){
+		m_Anime_Set++;
 	}
 
 	//もし着地モーション中なら操作ができない
 	if (m_Anime_Jump > JUMP_ANIME){
-		//Sキーでジャンプします
-		if (CKey::Once('S') && m_Jump == E_NJUMP){
-			//ジャンプしているかどうかタグをつけます
-			m_Jump = E_JUMP;
-			//ジャンプ処理を行う時間を計算します。
-			m_JumpTime = -2 * (JUMP_FIRST_SPEED / m_Gravity.y);
+
+		//設置モーション中でなければCキーでカラーボールを投げます
+		if (CKey::Once('C')&&m_Set==E_NSET){
+			//投げアニメが終了していたら次の弾を生成します
+			if (m_Anime_Throw >= THROW_ANIME){
+				//投げ中のタグをつけます
+				m_Throw = E_THROW;
+				//アニメーション変数をアニメーションの初期値へ変更します
+				m_Anime_Throw = 0;
+			}
 		}
-		//右移動
-		if (CKey::Push(VK_RIGHT)){
-			m_Turn = E_RIGHT;
-			m_Scroll += PLAYER_LR_SPEED;
-			m_Position.x += PLAYER_LR_SPEED;
-			i_JumpPoint.x += PLAYER_LR_SPEED;
+		//アニメーションのラストで球を生成します
+		if (m_Anime_Throw == THROW_ANIME){
+			//カラーボールを作成します
+			C_ColorBall* ColorBall = new C_ColorBall();
+			//プレイヤーのステータスを投げていないに変更します
+			m_Throw = E_NTHROW;
 		}
-		//左移動
-		if (CKey::Push(VK_LEFT) && m_Position.x >= (-W_H) / 2){
-			m_Turn = E_LEFT;
-			m_Scroll -= PLAYER_LR_SPEED;
-			m_Position.x -= PLAYER_LR_SPEED;
-			i_JumpPoint.x -= PLAYER_LR_SPEED;
+
+
+		//投げモーション中でなければXキーでカラーボールを設置します
+		if (CKey::Once('X') && m_Throw == E_NTHROW){
+			//設置アニメが終了していたら次の弾を生成します
+			if (m_Anime_Set >= SET_ANIME){
+				//設置中のタグをつけます
+				m_Set = E_SET;
+				//アニメーション変数をアニメーションの初期値へ変更します
+				m_Anime_Set = 0;
+			}
 		}
-		//上移動
-		if (CKey::Push(VK_UP) && i_JumpPoint.z <= DISPLAY_TOP - 390){
-			m_Position.z += PLAYER_UD_SPEED;
-			i_JumpPoint.z += PLAYER_UD_SPEED;
+		if (m_Anime_Set == SET_ANIME){
+			//カラーボールの作成
+			C_ColorBall* ColorBall = new C_ColorBall();
+			//プレイヤーのステータスを設置していないに変更します
+			m_Set = E_NSET;
 		}
-		//下移動
-		if (CKey::Push(VK_DOWN) && i_JumpPoint.z >= DISPLAY_BOTTOM + 120 ){
-			m_Position.z -= PLAYER_UD_SPEED;
-			i_JumpPoint.z -= PLAYER_UD_SPEED;
+
+		//投げモーションや設置モーション中は操作ができない
+		if (m_Throw == E_NTHROW&&m_Set == E_NSET){
+			//Sキーでジャンプします
+			if (CKey::Once('S') && m_Jump == E_NJUMP){
+				//ジャンプしているかどうかタグをつけます
+				m_Jump = E_JUMP;
+				//ジャンプ処理を行う時間を計算します。
+				m_JumpTime = -2 * (JUMP_FIRST_SPEED / m_Gravity.y);
+			}
+			//右移動
+			if (CKey::Push(VK_RIGHT)){
+				m_Turn = E_RIGHT;
+				m_Scroll += PLAYER_LR_SPEED;
+				m_Position.x += PLAYER_LR_SPEED;
+				i_JumpPoint.x += PLAYER_LR_SPEED;
+			}
+			//左移動
+			if (CKey::Push(VK_LEFT) && m_Position.x >= (-W_H) / 2){
+				m_Turn = E_LEFT;
+				m_Scroll -= PLAYER_LR_SPEED;
+				m_Position.x -= PLAYER_LR_SPEED;
+				i_JumpPoint.x -= PLAYER_LR_SPEED;
+			}
+			//上移動
+			if (CKey::Push(VK_UP) && i_JumpPoint.z <= DISPLAY_TOP - 390){
+				m_Position.z += PLAYER_UD_SPEED;
+				i_JumpPoint.z += PLAYER_UD_SPEED;
+			}
+			//下移動
+			if (CKey::Push(VK_DOWN) && i_JumpPoint.z >= DISPLAY_BOTTOM + 120){
+				m_Position.z -= PLAYER_UD_SPEED;
+				i_JumpPoint.z -= PLAYER_UD_SPEED;
+			}
 		}
 	}
 
@@ -112,9 +153,10 @@ void C_Player::Draw(){
 	//影の描画
 	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom-3, i_Shadow.m_Top-3, 630, 720, 275, 140);
 
-	//ジャンプしていない。かつ、投げモーション中でない。かつ、着地モーション中でない
-	if (m_Jump == E_NJUMP&&m_Throw == E_NTHROW){
-		m_Anime_Throw = 0;
+	//ジャンプしていない。かつ、投げモーション中でない。
+	if (m_Jump == E_NJUMP
+		&&m_Throw == E_NTHROW
+		&&m_Set==E_NSET){
 
 		//着地アニメーション
 		if (m_Anime_Jump <= JUMP_ANIME){
@@ -160,6 +202,52 @@ void C_Player::Draw(){
 			}
 			else if (m_Speed.y < 0){
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 450, 275, 140);
+			}
+		}
+	}
+
+
+	//投げアニメーション
+	if (m_Throw == E_THROW){
+		//右向き
+		if (m_Turn == E_RIGHT){
+			if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 720, 140, 5);
+			}
+			else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 810, 140, 5);
+			}
+		}
+		//右向き
+		else if (m_Turn == E_LEFT){
+			if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 630, 140, 5);
+			}
+			else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 810, 720, 140, 5);
+			}
+		}
+	}
+
+
+	//設置アニメーション
+	if (m_Set == E_SET){
+		//右向き
+		if (m_Turn == E_RIGHT){
+			if (m_Anime_Set <= SET_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 270, 275, 140);
+			}
+			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 360, 275, 140);
+			}
+		}
+		//右向き
+		else if (m_Turn == E_LEFT){
+			if (m_Anime_Set <= SET_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 180, 275, 140);
+			}
+			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 270, 275, 140);
 			}
 		}
 	}

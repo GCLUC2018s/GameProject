@@ -10,9 +10,6 @@
 #define PLAYER_UD_SPEED 4     //プレイヤーの上下移動速度
 #define JUMP_FIRST_SPEED 10    //ジャンプの初速
 #define JUMP_ANIME 15    //着地モーションの時間
-#define THROW_ANIME_INTERVAL 7  //アニメーション1枚当たりのフレーム数
-#define THROW_ANIME_FRAME 2    //走りアニメの絵の数
-#define THROW_ANIME THROW_ANIME_INTERVAL*THROW_ANIME_FRAME    //アニメーション用変数を回す上限
 
 class C_Player :public C_Object{
 public:
@@ -33,6 +30,7 @@ public:
 		m_Turn = E_RIGHT;
 		m_Jump = E_NJUMP;
 		m_Throw = E_NTHROW;
+		m_Set = E_NSET;
 
 		m_Speed.y = JUMP_FIRST_SPEED; //ジャンプの初速を設定します。
 		m_Playerpoint = this;

@@ -1,12 +1,20 @@
 #include "CColorBall.h"
+
+
 void C_ColorBall::Init(){
+	if (C_Player::m_Playerpoint->m_Anime_Throw <= THROW_ANIME + 1){
+		m_Anime_Throw = E_THROW;
+	}
+	else{
+		m_Anime_Throw = E_NTHROW;
+	}
 	//カラーボールの影の初期位置の奥行を調整します
 	i_Throwpos = C_Player::m_Playerpoint->m_Position;
 	//カラーボールの影とボールを同期
 	m_Position = i_Throwpos;
 
 	//投げたカラーボールの場合
-	if (state == E_NAGE){
+	if (m_State == E_NAGE){
 		//カラーボールの初期位置の調整
 		//右向き
 		if (C_Player::m_Playerpoint->m_Turn == E_RIGHT){
@@ -46,7 +54,7 @@ void C_ColorBall::Update()
 	}
 
 	//投げたカラーボールの場合
-	if (state == E_NAGE){
+	if (m_State == E_NAGE){
 		//重力加速度を速度へ反映
 		m_Speed.x += m_Gravity.x*m_Deltatime;
 		m_Speed.y += m_Gravity.y*m_Deltatime;
