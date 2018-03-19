@@ -17,7 +17,7 @@ CMahouzin::~CMahouzin()
 
 void CMahouzin::Update(){
 	m_time++;
-	if (m_time > 1000) {
+	if (m_time > 300) {
 		SetKill();
 	}
 }
