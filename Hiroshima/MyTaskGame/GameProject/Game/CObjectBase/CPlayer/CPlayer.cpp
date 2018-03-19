@@ -180,8 +180,8 @@ void CPlayer::Update() {
 		m_scroll.y = 0;
 	//XŽ²ˆ—
 	if (PUSH_ENTER) {
-			new CBB(0, 2, false);
 		if (m_pos3D.x > SCREEN_WIDTH * 5) {
+			new CBB(0, 2, false);
 		}
 		else { new CGo(); }
 	}
@@ -196,7 +196,6 @@ void CPlayer::Update() {
 		m_sc_flag_x = true;
 	}
 
-	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
 }
 

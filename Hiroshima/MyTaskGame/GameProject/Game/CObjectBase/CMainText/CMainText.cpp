@@ -8,7 +8,7 @@ CMainText::CMainText() :CObjectBase(0, eU_UI, eD_UI)
 	m_img.SetRect(0, 0, MAIN_TEXT_X, MAIN_TEXT_Y);
 	m_img.SetSize(MAIN_TEXT_X / 2, MAIN_TEXT_Y / 2);
 	m_img.SetCenter(MAIN_TEXT_X / 4, MAIN_TEXT_Y / 4);
-	m_pos3D = CVector3D(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_HEIGHT);
+	m_pos3D = CVector3D(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0);
 	m_color = CColorRGBA(1, 1, 1, -1.0);
 	m_end_flag = false;
 	SOUND("SE_DDN")->Play(false);

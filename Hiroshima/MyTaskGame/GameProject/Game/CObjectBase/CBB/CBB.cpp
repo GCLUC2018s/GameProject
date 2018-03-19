@@ -4,8 +4,12 @@
 #include "../GameProject/Game/CScene/CSceneManager.h"
 
 
-CBB::CBB(const int time, const int flag, const bool in_flag) :CObjectBase(0, eU_System, eD_Back)
+CBB::CBB(const int time, const int flag, const bool in_flag) :CObjectBase(0, eU_System, eD_UI)
 {
+	CTaskManager::GetInstance()->SetPause(eID_Player, true);
+	CTaskManager::GetInstance()->SetPause(eID_Enemy, true);
+	CTaskManager::GetInstance()->SetPause(eID_Gimmick, true);
+	CTaskManager::GetInstance()->SetPause(eID_Magatama, true);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Tip"));
 	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	m_color = CColorRGBA(0, 0, 0, 1);
@@ -48,23 +52,6 @@ void CBB::Update()
 		if (m_color.w > BB_COL_PA) {
 
 			//フェードアウト処理
-			m_color.w -= (BB_COL_DOWN - 0.03);
-		}
-		else {
-			m_cnt++;
-			if (m_cnt > m_time) {
-				//指定秒間表示したら、フェードアウトし始める
-				m_color.w -= (BB_COL_DOWN - 0.03);
-			}
-		}
-		if (m_color.w < -0.3) {
-			SetKill();
-		}
-	}
-	else {
-		if (m_color.w > BB_COL_PA) {
-
-			//フェードアウト処理
 			m_color.w -= BB_COL_DOWN;
 		}
 		else {
@@ -74,11 +61,24 @@ void CBB::Update()
 				m_color.w -= BB_COL_DOWN;
 			}
 		}
-		if (m_color.w < -4.0) {
-			SetKill();
+	}
+	else {
+		if (m_color.w > BB_COL_PA) {
+
+			//フェードアウト処理
+			m_color.w -= BB_COL_DOWN_2;
+		}
+		else {
+			m_cnt++;
+			if (m_cnt > m_time) {
+				//指定秒間表示したら、フェードアウトし始める
+				m_color.w -= BB_COL_DOWN_2;
+			}
 		}
 	}
-	CheckOverlap();
+	if (m_color.w < -0.5) {
+		SetKill();
+	}
 }
 
 
@@ -89,7 +89,7 @@ void CBB::Draw()
 	if (m_in_flag)
 		m_img.SetColor(0, 0, 0, m_color.w);
 	else
-		m_img.SetColor(0, 0, 0, 1.0 - (m_color.w - 0.01));
+		m_img.SetColor(0, 0, 0, 1.0 - m_color.w);
 	m_img.SetPos(0,0);
 	m_img.Draw();
 }
