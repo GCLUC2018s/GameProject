@@ -6,6 +6,7 @@
 
 CBB::CBB(const int &time, const int &flag, const bool &in_flag) :CObjectBase(0, eU_System, eD_Null)
 {
+	m_scroll = CVector2D(0, 0);
 	CTaskManager::GetInstance()->SetPause(eID_Player, true);
 	CTaskManager::GetInstance()->SetPause(eID_Enemy, true);
 	CTaskManager::GetInstance()->SetPause(eID_Gimmick, true);

@@ -1,6 +1,7 @@
 #include "CPlayer.h"
 #include "../GameProject/Game/CScene/CSceneManager.h"
 #include "../CGo/CGo.h"
+#include "../CBB/CBB.h"
 
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
