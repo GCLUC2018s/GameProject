@@ -15,9 +15,6 @@ CEnemy1::CEnemy1(const CVector3D *pos) :CEnemyBase() {
 	m_at = DARUMA_AT;
 	m_rect = CRect(64, 135, 166, 237);
 	m_rect_F = m_rect;
-	m_damage = false;
-	m_end_flag = false;
-	m_state = eMove;
 
 }
 

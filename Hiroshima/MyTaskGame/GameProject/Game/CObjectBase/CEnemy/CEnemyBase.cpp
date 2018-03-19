@@ -3,8 +3,12 @@
 
 int CEnemyBase::m_enemy_cnt = 0;
 
-CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object) {
-	
+CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object),
+m_damage(false),
+m_end_flag(false)
+{
+	m_state = eMove;
+
 }
 
 CEnemyBase::~CEnemyBase()

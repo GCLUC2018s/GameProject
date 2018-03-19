@@ -12,10 +12,12 @@
 class CGo : public CObjectBase
 {
 public:
-	CGo();
+	//true‚È‚çAboss‚ÉˆÚ“®
+	CGo(bool end_flag);
 	~CGo();
 	void Update();
 private:
 	float m_a;
+	bool m_end_flag;
 };
 #endif // !GO_GUARD

@@ -18,8 +18,6 @@ CEnemy4::CEnemy4(const CVector3D *pos) :CEnemyBase() {
 	m_cnt = 0;
 	m_move_cnt = 0;
 	m_stop = false;
-	m_damage = false;
-	m_end_flag = false;
 }
 
 void CEnemy4::Update() {

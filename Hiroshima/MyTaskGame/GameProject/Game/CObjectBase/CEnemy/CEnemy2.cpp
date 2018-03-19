@@ -16,10 +16,6 @@ CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 	m_rect = CRect(77, 68, 170, 161);
 	m_rect_F = CRect(77, 68, 170, ENEMY_SIZ_Y);
 
-	m_damage = false;
-	m_end_flag = false;
-	m_state = eMove;
-
 }
 
 void CEnemy2::Update() {
