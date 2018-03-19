@@ -16,7 +16,7 @@ class CBB : public CObjectBase
 public:
 	//呼び出したらフェードアウトインする
 	//表示秒数（その間、プレイヤーは操作不能）,	trueなら「敵を倒せ！」表示,trueなら、だんだん黒くなる
-	CBB(const int time, const int flag, const bool flagin);
+	CBB(const int &time, const int &flag, const bool &flagin);
 	~CBB();
 	void Update();
 	void Draw();
