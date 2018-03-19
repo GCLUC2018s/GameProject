@@ -108,6 +108,7 @@ void Init(void)
 	ADD_RESOURCE("UI", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 	ADD_RESOURCE("Mahouzin", CAnimImage::LoadImage("mahoujin_image.png"));
+	ADD_RESOURCE("CutIn", CAnimImage::LoadImage("cutin.png"));
 
 	//HPÉoÅ[ä÷åW
 	ADD_RESOURCE("HP_Icon_PL", CAnimImage::LoadImage("gauge/chara_gauge_face.png"));
