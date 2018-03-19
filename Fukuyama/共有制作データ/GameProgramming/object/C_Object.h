@@ -8,12 +8,12 @@
 #define RUN_ANIME_INTERVAL 8   //アニメーション1枚当たりのフレーム数
 #define RUN_ANIME_FRAME 6    //走りアニメの絵の数
 #define RUN_ANIME RUN_ANIME_INTERVAL*RUN_ANIME_FRAME    //アニメーション用変数を回す上限
-#define THROW_ANIME_INTERVAL 7  //アニメーション1枚当たりのフレーム数
-#define THROW_ANIME_FRAME 2    //走りアニメの絵の数
-#define THROW_ANIME THROW_ANIME_INTERVAL*THROW_ANIME_FRAME    //アニメーション用変数を回す上限
-#define SET_ANIME_INTERVAL 7  //アニメーション1枚当たりのフレーム数
-#define SET_ANIME_FRAME 2    //走りアニメの絵の数
-#define SET_ANIME THROW_ANIME_INTERVAL*THROW_ANIME_FRAME    //アニメーション用変数を回す上限
+#define THROW_ANIME_INTERVAL 9  //投げアニメーション1枚当たりのフレーム数
+#define THROW_ANIME_FRAME 2    //投げアニメの絵の数
+#define THROW_ANIME THROW_ANIME_INTERVAL*THROW_ANIME_FRAME    //投げアニメーション用変数を回す上限
+#define SET_ANIME_INTERVAL 9  //設置アニメーション1枚当たりのフレーム数
+#define SET_ANIME_FRAME 2    //設置アニメの絵の数
+#define SET_ANIME THROW_ANIME_INTERVAL*THROW_ANIME_FRAME    //設置アニメーション用変数を回す上限
 
 enum PLAYER_STATE{
 	E_RIGHT,    //右向き
