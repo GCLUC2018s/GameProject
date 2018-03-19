@@ -180,8 +180,8 @@ void CPlayer::Update() {
 		m_scroll.y = 0;
 	//XŽ²ˆ—
 	if (PUSH_ENTER) {
+			new CBB(0, 2, false);
 		if (m_pos3D.x > SCREEN_WIDTH * 5) {
-			new CBB(0, 2, true);
 		}
 		else { new CGo(); }
 	}

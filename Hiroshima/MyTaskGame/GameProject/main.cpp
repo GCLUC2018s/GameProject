@@ -84,6 +84,7 @@ void Init(void)
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 	ADD_RESOURCE("Title_rogo", CAnimImage::LoadImage("rogo.png"));
 	ADD_RESOURCE("Title_rogo_s", CAnimImage::LoadImage("rogo_sabun.png"));
+	ADD_RESOURCE("Title_start", CAnimImage::LoadImage("push start.png"));
 
 	//フィールド関係
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_02.png"));

@@ -1,7 +1,10 @@
 #ifndef SCENE_MANAGER_GUARD
 #define SCENE_MANAGER_GUARD
 
-#include "../GameProject/Task/CTask.h"
+#include "../GameProject/Source/Fieldsource.h"
+#include "../GameProject/Source/Enemysource.h"
+#include "../GameProject/Source/Gamesource.h"
+#include "../GameProject/Source/Itemsource.h"
 
 /*
 
