@@ -175,10 +175,9 @@ void CPlayer::Update() {
 	//	}
 
 	//Yé≤èàóù
-	if (m_pos3D.z <= -400 && m_pos3D.y < 0)
-		m_scroll.y = m_pos3D.y;
-	else
-		m_scroll.y = 0;
+	if (m_pos3D.z <= -400 && m_pos3D.y < 0 && m_pos3D.y > - 1200 + 720) {
+			m_scroll.y = m_pos3D.y;
+	}
 	//Xé≤èàóù
 	if (PUSH_ENTER) {
 		if (m_pos3D.x > SCREEN_WIDTH * 5) {

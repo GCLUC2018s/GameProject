@@ -100,11 +100,17 @@ void CSceneManager::MainScene() {
 
 void CSceneManager::BossScene() {
 	//ボス戦闘画面の要素ぶち込む
-	new CHPBar(true);
-	new CHPBar(false);	SOUND("BGM_Main")->Stop();
+	SOUND("BGM_Main")->Stop();
+	SOUND("BGM_Boss")->Play(true);
+	new CBB(0, 0, true);
+	new CPlayer();
 	new CBossStage();
+	new CMagatama();
+	new CHPBar(true);
+	new CHPBar(false);
 	//new CBoss(&(CVector3D(500, -200, -500)), &(CVector3D(350, 0, -500)),
-	//	&(CVector3D(650, 0, -500)), &(CVector3D(500, 200, -500)));}
+	//	&(CVector3D(650, 0, -500)), &(CVector3D(500, 200, -500)));
+}
 }
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
