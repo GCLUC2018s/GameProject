@@ -2,61 +2,56 @@
 #include"task\CTaskManager.h"
 #include"chara\C_Player.h"
 #include"random"
+struct EnemyTable{
+	float x, y, z;
+	int m_EnemyKind;
+};
+EnemyTable m_enemy_table[] = {
+	{//0
+		700, 0, 35,
+		E_KIN, },
+	{//1
+		700, 0, -105,
+			E_KIN, },
+	{//2
+		700, 0, -235,
+			E_KIN, },
+	{//3
+		700, 0, -365,
+			E_KIN, },
+	{//4
+		-700, 0, 35,
+			E_KIN, },
+	{//5
+		-700, 0, -105,
+			E_KIN, },
+	{//6
+		-700, 0, -235,
+			E_KIN, },
+	{//7
+		-700, 0, -365,
+			E_KIN, },
+	{//8
+		700, 0, 35,
+		E_ESCAPE, },
+	{//9
+		700, 0, -105,
+		E_ESCAPE, },
+	{//10
+		700, 0, -235,
+		E_ESCAPE, },
+	{//11
+		700, 0, -365,
+			E_ESCAPE, },
+
+};
 void CEnemy::Init(){
 	m_ActionInterval = ACTION_INTERVAL;
 	srand((unsigned)time(NULL));
 	m_EnemySet = rand() % 12;
-	switch (m_EnemySet)
-	{
-	case 0:
-		m_Position=C_Vector3(700,0,35);
-		m_EnemyKind = E_KIN;
-		break;
-	case 1:
-		m_Position = C_Vector3(700, 0, -105);
-		m_EnemyKind = E_KIN;
-		break;
-	case 2:
-		m_Position = C_Vector3(700, 0, -235);
-		m_EnemyKind = E_KIN;
-		break;
-	case 3:
-		m_Position = C_Vector3(700, 0, -365);
-		m_EnemyKind = E_KIN;
-		break;
-	case 4:
-		m_Position = C_Vector3(-700, 0, 35);
-		m_EnemyKind = E_KIN;
-		break;
-	case 5:
-		m_Position = C_Vector3(-700, 0, -105);
-		m_EnemyKind = E_KIN;
-		break;
-	case 6:
-		m_Position = C_Vector3(-700, 0, -235);
-		m_EnemyKind = E_KIN;
-		break;
-	case 7:
-		m_Position = C_Vector3(-700, 0, -365);
-		m_EnemyKind = E_KIN;
-		break;
-	case 8:
-		m_Position = C_Vector3(700, 0, 35);
-		m_EnemyKind = E_ESCAPE;
-		break;
-	case 9:
-		m_Position = C_Vector3(700, 0, -105);
-		m_EnemyKind = E_ESCAPE;
-		break;
-	case 10:
-		m_Position = C_Vector3(700, 0, -235);
-		m_EnemyKind = E_ESCAPE;
-		break;
-	case 11:
-		m_Position = C_Vector3(700, 0, -365);
-		m_EnemyKind = E_ESCAPE;
-		break;
-	}
+	EnemyTable *data = &m_enemy_table[m_EnemySet];
+	m_Position=C_Vector3(data->x, data->y, data->z);
+	m_EnemyKind = data->m_EnemyKind;
 	m_EnemyMode = E_NORMAL;
 }
 void CEnemy::Update(){

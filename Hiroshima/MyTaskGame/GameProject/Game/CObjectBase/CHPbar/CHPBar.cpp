@@ -1,6 +1,7 @@
 #include "CHPBar.h"
 #include "../CPlayer/CPlayer.h"
 #include "../CEnemy/CBoss.h"
+#include "../GameProject/Task/CTaskManager.h"
 
 CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
 {
@@ -22,14 +23,22 @@ CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
 	m_img_PLbar.SetPos(118, 96);
 	m_img_Bossbase.SetPos(156, 650);
 	m_img_Bossbar.SetPos(156, 650);
-	//HP‚ðŽæ“¾
-	CPlayer *pl = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
-	CBoss *boss = dynamic_cast<CBoss*>(CTaskManager::GetInstance()->GetTask(eID_Boss));
-
 }
 
 void CHPBar::Update()
 {
+	CPlayer * pl = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
+	CBoss * boss = dynamic_cast<CBoss*>(CTaskManager::GetInstance()->GetTask(eID_Boss));
+	if (pl) {
+		m_pl_hp = pl->GetHP();
+		m_img_PLbar.SetSize(180 * (m_pl_hp / 10), 20);
+		m_img_PLbar.SetRect(0, 0, 180 * (m_pl_hp / 10), 20);
+	}
+	if (boss) {
+		m_boss_hp = boss->GetHP();
+		m_img_Bossbar.SetRect(0, 0, 950 * (m_boss_hp / 100), 50);
+		m_img_Bossbar.SetSize(950 * (m_boss_hp / 100), 50);
+	}
 }
 
 void CHPBar::Draw()

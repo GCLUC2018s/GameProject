@@ -16,5 +16,6 @@ CBossStage::~CBossStage() {
 }
 
 void CBossStage::Draw() {
+	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
 	m_img.Draw();
 }
