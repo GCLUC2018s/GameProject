@@ -49,9 +49,11 @@ void CBossBase::Attack(const int *boss_id) {
 	switch (*boss_id)
 	{
 	case eHead:
+		m_head.ChangeAnimation(5);
 		break;
 
 	case eTail:
+		m_tail.ChangeAnimation(4);
 		break;
 	}
 }
@@ -59,9 +61,11 @@ void CBossBase::Attack(const int *boss_id) {
 void CBossBase::Fall(const int *boss_id) {
 
 }
+
 void CBossBase::Damage(const int *boss_id) {
 
 }
+
 
 void CBossBase::Draw() {
 	//	Utility::DrawCircle(CVector2D((m_pos3D.x  - m_scroll.x) + m_rect_F.m_right / 2,  (450 + m_pos3D.z / 2 - m_scroll.y) + m_rect_F.m_bottom), ENEMY_SIZ_X / 5, CVector4D(0.5, 0, 0, 0.2));
