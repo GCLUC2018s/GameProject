@@ -1,5 +1,5 @@
 #include"CEnemyManager.h"
-//#include"../CGo/CGo.h"
+#include"../CGo/CGo.h"
 
 /*
 
@@ -29,14 +29,14 @@ struct Enemy_Push
 Enemy_Push  push_enemy[10][10]{
 	//‘æˆêƒEƒFƒCƒ”
 	{{ 100,eDaruma,CVector3D(400, 0, -300) },
-	{ 200,eDaruma ,CVector3D(500, -100, -200) },
-	{ 300,eDaruma ,CVector3D(600, -150, -250) },
-	{ 400,eDaruma ,CVector3D(800, -50, -200) },
-	{ 500,eDaruma ,CVector3D(800, -50, -200) },
+	{ 200,eDaruma ,CVector3D(500, 0, -200) },
+	{ 300,eDaruma ,CVector3D(600, 0, -250) },
+	{ 400,eDaruma ,CVector3D(800, 0, -200) },
+	{ 500,eDaruma ,CVector3D(800, 0, -200) },
 	{ 600,eDaruma ,CVector3D(200, 0, -50) },
 	{ 700,eDaruma ,CVector3D(400, 0, -300) },
-	{ 800,eDaruma ,CVector3D(600, -150, -250) },
-	{ 900,eDaruma ,CVector3D(800, -50, -200) },
+	{ 800,eDaruma ,CVector3D(600, 0, -250) },
+	{ 900,eDaruma ,CVector3D(800, 0, -200) },
 	{ 1000,eDaruma ,CVector3D(200, 0, -50) },
 	},{
 
@@ -73,29 +73,37 @@ Enemy_Push  push_enemy[10][10]{
 CEnemyManager::CEnemyManager() :CEnemyBase() {
 	//m_id = -1;
 	m_timing = 0, m_wave = 0, m_push = 0;
-	//
+	
+	
 }
 
 void CEnemyManager::Update() {
+	m_old = m_wave_flag;
 	if(m_wave_flag){
 		if (push_enemy[m_wave][m_push].time == m_timing) {
 			printf("%d   %d\n", push_enemy[m_wave][m_push].time, push_enemy[m_wave][m_push].id);
 			PushEnemy(&push_enemy[m_wave][m_push].id, &push_enemy[m_wave][m_push].push_pos);
 			m_push++;
-			//m_enemy_cnt++;
-			if (m_push > 6) {
-				m_timing = 0;
-				m_push = 0;
-				m_wave++;
-			}
+			m_enemy_cnt++;
+		
+		
 		}
-		//if(m_push<=6)
+		
+		if(m_push <= 6)
 		m_timing++;
+
+		if (m_enemy_cnt <= 0&&m_push >=1) {
+			new CGo();
+		}
 	}
 
-	//if (m_enemy_cnt<0) {
-	//	//new CGo();
-	//}
+	if (m_old == false && m_wave_flag) {
+		m_timing = 0;
+		m_push = 0;
+		m_wave++;
+	}
+
+	
 }
 
 

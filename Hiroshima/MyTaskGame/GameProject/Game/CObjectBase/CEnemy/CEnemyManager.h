@@ -12,7 +12,7 @@
 class CEnemyManager :public CEnemyBase {
 protected:
 	int m_wave, m_timing, m_push;
-
+	bool m_old;
 public:
 	CEnemyManager();
 	void Update();

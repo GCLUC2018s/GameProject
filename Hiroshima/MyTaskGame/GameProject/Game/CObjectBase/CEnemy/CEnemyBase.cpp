@@ -1,8 +1,10 @@
 #include "CEnemyBase.h"
 #include "../GameProject/Source/Itemsource.h"
 
+int CEnemyBase::m_enemy_cnt = 0;
+
 CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object) {
-	 	//int m_enemy_cnt = 0;
+	
 }
 
 CEnemyBase::~CEnemyBase()
@@ -16,7 +18,7 @@ CEnemyBase::~CEnemyBase()
 	new CSake(&(   CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
 	new CKakera(&( CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
 
-	//m_enemy_cnt--;
+	m_enemy_cnt--;
 }
 
 void CEnemyBase::DropItem() {
