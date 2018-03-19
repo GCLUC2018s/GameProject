@@ -78,7 +78,7 @@ void Init(void)
 	ADD_RESOURCE("Boss", CAnimImage::LoadImage("moton_jaryu.png", boss_AnimData, 768, 768));
 
 	//ƒMƒ~ƒbƒNŠÖŒW
-	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_blue.png", fire_Animdata, 204, 245));
+	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_effect.png", fire_Animdata, 204, 245));
 
 	//ƒ^ƒCƒgƒ‹ŠÖŒW
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
@@ -107,6 +107,14 @@ void Init(void)
 	ADD_RESOURCE("Tip", CAnimImage::LoadImage("tip.png"));
 	ADD_RESOURCE("UI", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
+	ADD_RESOURCE("Mahouzin", CAnimImage::LoadImage("mahoujin_image.png"));
+
+	//HPƒo[ŠÖŒW
+	ADD_RESOURCE("HP_Icon_PL", CAnimImage::LoadImage("gauge/chara_gauge_face.png"));
+	ADD_RESOURCE("HP_Bar_PL", CAnimImage::LoadImage("gauge/chara_gauge.png"));
+	ADD_RESOURCE("HP_Bar_PL_Base", CAnimImage::LoadImage("gauge/chara_gauge_base.png"));
+	ADD_RESOURCE("HP_Bar_Boss", CAnimImage::LoadImage("gauge/boss_gauge.png"));
+	ADD_RESOURCE("HP_Bar_Boss_Base", CAnimImage::LoadImage("gauge/boss_gauge_base.png"));
 
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");

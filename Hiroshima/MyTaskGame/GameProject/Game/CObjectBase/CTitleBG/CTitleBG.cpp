@@ -62,9 +62,9 @@ void CTitleBG::Update()
 		if (m_f_time == 0.0) {
 			new CBB(0, 0, false);
 		}
-		m_f_time -= BB_COL_DOWN; 
+		m_f_time -= BB_COL_DOWN_2;
 	}
-	if (m_f_time < -4.0) {
+	if (m_f_time < -3.0) {
 		SetKill();
 	}
 }
