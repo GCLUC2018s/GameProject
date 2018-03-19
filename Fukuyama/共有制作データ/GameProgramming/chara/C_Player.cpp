@@ -24,52 +24,66 @@ void C_Player::Update(){
 	}
 
 	//投げアニメーション用変数を回します
-	if (m_Anime_Throw < THROW_ANIME + 1){
+	if (m_Anime_Throw < THROW_ANIME + 2){
 		m_Anime_Throw++;
+	}
+	//投げ間隔用変数を回します
+	if (m_ThrowInterval <= THROW_INTERVAL){
+		m_ThrowInterval++;
 	}
 
 	//設置アニメーション用変数を回します
-	if (m_Anime_Set < SET_ANIME + 1){
+	if (m_Anime_Set < SET_ANIME + 2){
 		m_Anime_Set++;
+	}
+	//カラーボール設置間隔用変数を回します
+	if (m_SetInterval<=SET_INTERVAL){
+		m_SetInterval++;
 	}
 
 	//もし着地モーション中なら操作ができない
 	if (m_Anime_Jump > JUMP_ANIME){
 
 		//設置モーション中でなければCキーでカラーボールを投げます
-		if (CKey::Once('C')&&m_Set==E_NSET){
+		if (CKey::Once('C')
+			&&m_Set==E_NSET
+			&&m_Jump==E_NJUMP
+			&&m_ThrowInterval>=THROW_INTERVAL){
 			//投げアニメが終了していたら次の弾を生成します
 			if (m_Anime_Throw >= THROW_ANIME){
 				//投げ中のタグをつけます
 				m_Throw = E_THROW;
 				//アニメーション変数をアニメーションの初期値へ変更します
 				m_Anime_Throw = 0;
+				//インターバル用変数の初期化
+				m_ThrowInterval = 0;
 			}
 		}
 		//アニメーションのラストで球を生成します
 		if (m_Anime_Throw == THROW_ANIME){
 			//カラーボールを作成します
 			C_ColorBall* ColorBall = new C_ColorBall();
-			//プレイヤーのステータスを投げていないに変更します
-			m_Throw = E_NTHROW;
 		}
 
 
 		//投げモーション中でなければXキーでカラーボールを設置します
-		if (CKey::Once('X') && m_Throw == E_NTHROW){
+		if (CKey::Once('X') 
+			&& m_Throw == E_NTHROW
+			&& m_Jump == E_NJUMP
+			&& m_SetInterval>=SET_INTERVAL){
 			//設置アニメが終了していたら次の弾を生成します
 			if (m_Anime_Set >= SET_ANIME){
 				//設置中のタグをつけます
 				m_Set = E_SET;
 				//アニメーション変数をアニメーションの初期値へ変更します
 				m_Anime_Set = 0;
+				//インターバル用変数の初期化
+				m_SetInterval = 0;
 			}
 		}
 		if (m_Anime_Set == SET_ANIME){
 			//カラーボールの作成
 			C_ColorBall* ColorBall = new C_ColorBall();
-			//プレイヤーのステータスを設置していないに変更します
-			m_Set = E_NSET;
 		}
 
 		//投げモーションや設置モーション中は操作ができない
