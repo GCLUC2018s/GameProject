@@ -102,6 +102,7 @@ void Init(void)
 	//ƒAƒCƒeƒ€ŠÖŒW
 	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));
 	ADD_RESOURCE("ItemBox", CAnimImage::LoadImage("itembox_motion_object.png", itembox_Animdata, 512, 512));
+	ADD_RESOURCE("Bill", CAnimImage::LoadImage("item_matome_1.png", bill_Animdata, 128, 128));
 
 	//UIŠÖŒW
 	ADD_RESOURCE("Tip", CAnimImage::LoadImage("tip.png"));

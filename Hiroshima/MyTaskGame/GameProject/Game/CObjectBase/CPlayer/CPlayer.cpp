@@ -2,6 +2,7 @@
 #include "../GameProject/Game/CScene/CSceneManager.h"
 #include "../CGo/CGo.h"
 #include "../CBB/CBB.h"
+#include "../CItem/COhuda/COhuda.h"
 
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
@@ -325,7 +326,7 @@ void CPlayer::Nutral() {
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
 		m_state = eBill;
-//		new COhuda(&m_pos3D, &m_flipH);
+		new COhuda(&m_pos3D, &m_flipH);
 	}
 
 }

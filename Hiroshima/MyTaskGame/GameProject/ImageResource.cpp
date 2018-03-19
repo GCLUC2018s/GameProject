@@ -114,6 +114,13 @@ TexAnimData itembox_Animdata[] = {
 	ANIMDATA(_GI_EnemyBox2),
 };
 
+TexAnim _GI_bill[] = {
+	{ 11,5 },
+	{ 12,5 },
+};
+TexAnimData bill_Animdata[] = {
+	ANIMDATA(_GI_bill),
+};
 
 TexAnim _KAMAITACHI_anim[] = {
 	{ 0,30 },
