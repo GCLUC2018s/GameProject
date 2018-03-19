@@ -120,6 +120,12 @@
     <ClCompile Include="Game\CObjectBase\CMahouzin\CMahouzin.cpp">
       <Filter>Game\Object\UI\Mahouzin</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CBossStage\CBossStage.cpp">
+      <Filter>Game\Object\Field\BpssStage</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CHPbar\CHPBar.cpp">
+      <Filter>Game\Object\UI\CHPBar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -254,6 +260,12 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CMahouzin\CMahouzin.h">
       <Filter>Game\Object\UI\Mahouzin</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CBossStage\CBossStage.h">
+      <Filter>Game\Object\Field\BpssStage</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CHPbar\CHPBar.h">
+      <Filter>Game\Object\UI\CHPBar</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -406,6 +418,12 @@
     </Filter>
     <Filter Include="Game\Object\UI\Mahouzin">
       <UniqueIdentifier>{35f4f50e-3c1b-4025-ad55-7cea5e0f6e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Field\BpssStage">
+      <UniqueIdentifier>{efdc9702-edb6-41f8-874d-16dcd71797ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\CHPBar">
+      <UniqueIdentifier>{3b0f8943-7e83-48ad-98f2-1d00543ecda2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
