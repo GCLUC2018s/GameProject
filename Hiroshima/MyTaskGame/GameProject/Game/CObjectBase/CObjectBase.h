@@ -61,6 +61,10 @@ public:
 	CRect GetRect() {
 		return m_rect;
 	};
+	//HPŽæ“¾
+	int GetHP() {
+		return m_hp;
+	};
 	////“ü‚ê‘Ö‚¦—p‹éŒ`Žæ“¾
 	//CRect *GetRect_F() {
 	//	return &m_rect_F;
