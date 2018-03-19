@@ -17,7 +17,7 @@
 class CEnemyBase : public CObjectBase
 {
 protected:
-//	static 	int m_enemy_cnt;
+	static 	int m_enemy_cnt;
 	bool m_damage;
 	bool m_end_flag;
 	enum {
@@ -35,8 +35,8 @@ public:
 	void Move(const int *enemy_id);
 	void Attack(const int *enemy_id);
 	void KnockBack(const int *enemy_id);
-	void Fall(const int *enemy_id);
-	void Damage(const int *enemy_id);
+	void Fall();
+	void Damage();
 	void Draw();
 	void Hit(CObjectBase * t);
 };

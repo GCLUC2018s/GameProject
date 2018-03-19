@@ -1,7 +1,7 @@
 #ifndef ENEMY1GUARD
 #define ENEMY1GUARD
 
-#define DARUMA_HP 10
+#define DARUMA_HP 3
 #define DARUMA_AT 5
 #define DARUMA_SPEED 3
 
@@ -23,8 +23,6 @@ public:
 	void Move();    //ˆÚ“®ó‘Ô
 	void Attack();  //UŒ‚ó‘Ô
 	void KnockBack(); //‚Ì‚¯‚¼‚èó‘Ô
-	void Fall();       //“|‚³‚ê‚½ó‘Ô
-	void Damage();    //ƒ_ƒ[ƒWˆ—
 };
 
 
