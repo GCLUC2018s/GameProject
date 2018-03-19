@@ -37,6 +37,10 @@ protected:
 	float m_shaking_head;
 	float m_shaking_arm;
 	float m_shaking_tail;
+	int m_parts_head;
+	int m_parts_arm;
+	int m_parts_arm2;
+	int m_parts_tail;
 	enum {
 		eHead,
 		eArm,
@@ -48,7 +52,6 @@ public:
 	void Nutral(const int *boss_id);
 	void Move(const int *boss_id);
 	void Attack(const int *boss_id);
-	void KnockBack(const int *boss_id);
 	void Fall(const int *boss_id);
 	void Damage(const int *boss_id);
 	void Draw();

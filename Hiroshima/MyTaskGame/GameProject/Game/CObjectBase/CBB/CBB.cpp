@@ -4,7 +4,7 @@
 #include "../GameProject/Game/CScene/CSceneManager.h"
 
 
-CBB::CBB(const int time, const int flag, const bool in_flag) :CObjectBase(0, eU_System, eD_UI)
+CBB::CBB(const int &time, const int &flag, const bool &in_flag) :CObjectBase(0, eU_System, eD_Null)
 {
 	CTaskManager::GetInstance()->SetPause(eID_Player, true);
 	CTaskManager::GetInstance()->SetPause(eID_Enemy, true);
@@ -34,7 +34,7 @@ CBB::~CBB()
 		SOUND("BGM_Main")->Play(true);
 		break;
 	case 2:
-		NEW_SCENE(eEnd)
+		NEW_SCENE(eBoss)
 		break;
 	default:
 		break;
@@ -61,6 +61,9 @@ void CBB::Update()
 				m_color.w -= BB_COL_DOWN;
 			}
 		}
+		if (m_color.w < -0.5) {
+			SetKill();
+		}
 	}
 	else {
 		if (m_color.w > BB_COL_PA) {
@@ -75,9 +78,9 @@ void CBB::Update()
 				m_color.w -= BB_COL_DOWN_2;
 			}
 		}
-	}
-	if (m_color.w < -0.5) {
-		SetKill();
+		if (m_color.w < -3.0) {
+			SetKill();
+		}
 	}
 }
 

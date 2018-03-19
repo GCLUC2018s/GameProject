@@ -50,6 +50,7 @@ private:
 	bool	m_move_length;	//trueなら上下に移動中（宮﨑：lenghtって長さの事だけどどゆこと？）
 	bool	m_move_side;	//trueなら左右に移動中
 	bool	m_squat;		//trueならしゃがみ中
+	bool	m_roof;			//屋根の上に乗ったか乗ってないか
 	int		m_die;			//やられた時に使う
 	int		m_anim;			//アニメーションナンバー。ChangeAnimationで呼ばれる
 	int		m_y;			//使われてない

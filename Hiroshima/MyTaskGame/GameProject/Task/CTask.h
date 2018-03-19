@@ -36,6 +36,7 @@ enum {
 	eID_UI,
 	eID_Player,
 	eID_Enemy,
+	eID_Boss,
 	eID_Item,
 	eID_Gimmick,
 	eID_Flag,

@@ -27,7 +27,7 @@ void CDebugScene::Update()
 	}
 	if (CInput::GetState(0, CInput::ePush, CInput::eNum3)) {
 		//ボスから
-		m_scene_num = 0;
+		m_scene_num = 3;
 	}
 	if (CInput::GetState(0, CInput::ePush, CInput::eNum4)) {
 		//エンディングから

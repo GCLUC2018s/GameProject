@@ -22,10 +22,10 @@ public:
 	~CBoss();
 	void Update();
 	void Draw();
-	void head();
-	void arm();
-	void arm2();
-	void tail();
+	void Head();
+	void Arm();
+	void Arm2();
+	void Tail();
 
 };
 

@@ -16,8 +16,5 @@
 #include "../GameProject/Game/CObjectBase/CItem/CMagatama/CMagatama.h"
 #include "../GameProject/Game/CObjectBase/CEndeing/CEndeing.h"
 #include "../GameProject/Game/CObjectBase/CMahouzin/CMahouzin.h"
-//#include "../GameProject/Game/CEnemy.h"
-//#include "../GameProject/Game/CGimmick.h"
-//#include "../GameProject/Game/CTitle.h"
-
+#include "../GameProject/Game/CObjectBase/CHPbar/CHPBar.h"
 #endif // !GAME_SOURCE_GUARD
