@@ -7,7 +7,9 @@ class CMahouzin :public CObjectBase {
 public:
 	CMahouzin();
 	~CMahouzin();
-	void UPdate();
+	void Update();
+private:
+	int m_time;
 
 };
 

@@ -1,10 +1,6 @@
 #ifndef SCENE_MANAGER_GUARD
 #define SCENE_MANAGER_GUARD
 
-#include "../GameProject/Source/Fieldsource.h"
-#include "../GameProject/Source/Enemysource.h"
-#include "../GameProject/Source/Gamesource.h"
-#include "../GameProject/Source/Itemsource.h"
 
 /*
 
@@ -12,6 +8,7 @@
 
 */
 
+#include "../GameProject/Task/CTask.h"
 enum {
 	eDebug,
 	eGameStart,

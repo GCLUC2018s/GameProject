@@ -17,6 +17,7 @@
 class CEnemyBase : public CObjectBase
 {
 protected:
+//	static 	int m_enemy_cnt;
 	bool m_damage;
 	bool m_end_flag;
 	enum {

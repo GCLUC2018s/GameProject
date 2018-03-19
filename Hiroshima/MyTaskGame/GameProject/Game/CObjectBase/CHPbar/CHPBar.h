@@ -23,10 +23,12 @@ private:
 	CAnimImage m_img_Bossbar;
 	CAnimImage m_img_PLbase;
 	CAnimImage m_img_PLbar;
-	//CPlayer *pl;
-	//CBoss *boss;
+	CPlayer *pl;
+	CBoss *boss;
 	float m_pl_hp;				//PL用のHP
 	float m_boss_hp;				//Boss用のHP
+	float m_pl_hp_base;				//PL用のHP
+	float m_boss_hp_base;				//Boss用のHP
 	bool m_boss_flag;			//trueなら、ボス用HPバー
 	void PL_Hp_Update();		//PLのUpdate
 	void Boss_Hp_Update();		//BossのUpdate

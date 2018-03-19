@@ -12,6 +12,7 @@
 class CEnemyManager :public CEnemyBase {
 protected:
 	int m_wave, m_timing, m_push;
+
 public:
 	CEnemyManager();
 	void Update();

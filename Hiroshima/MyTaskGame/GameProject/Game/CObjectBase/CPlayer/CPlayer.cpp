@@ -1,6 +1,7 @@
 #include "CPlayer.h"
 #include "../GameProject/Game/CScene/CSceneManager.h"
 #include "../CGo/CGo.h"
+#include "../CBB/CBB.h"
 
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
@@ -175,17 +176,16 @@ void CPlayer::Update() {
 	//	}
 
 	//Yé≤èàóù
-	if (m_pos3D.z <= -400 && m_pos3D.y < 0)
-		m_scroll.y = m_pos3D.y;
-	else
-		m_scroll.y = 0;
-	//Xé≤èàóù
-	if (PUSH_ENTER) {
-		if (m_pos3D.x > SCREEN_WIDTH * 5) {
-			new CBB(0, 2, false);
-		}
-		else { new CGo(); }
+	if (m_pos3D.z <= -400 && m_pos3D.y < 0 && m_pos3D.y > - 1200 + 720) {
+			m_scroll.y = m_pos3D.y;
 	}
+	//Xé≤èàóù
+	//if (PUSH_ENTER) {
+	//	if (m_pos3D.x > SCREEN_WIDTH * 5) {
+	//		new CBB(0, 2, false);
+	//	}
+	//	else { new CGo(); }
+	//}
 
 	if (m_pos3D.x - m_scroll.x < PL_CENTER_X) {
 		m_pos3D.x = m_scroll.x + PL_CENTER_X;
