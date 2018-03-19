@@ -2,7 +2,7 @@
 #include "CMainText.h"
 
 
-CMainText::CMainText() :CObjectBase(0, eU_UI, eD_UI)
+CMainText::CMainText() :CObjectBase(0, eU_UI, eD_Null)
 {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("MainText"));
 	m_img.SetRect(0, 0, MAIN_TEXT_X, MAIN_TEXT_Y);
@@ -20,7 +20,6 @@ CMainText::~CMainText()
 
 void CMainText::Update()
 {
-	m_img.SetColor(1, 1, 1, m_color.w);
 	if (m_end_flag == false) {
 		//フェードイン
 		m_color.w += MAIN_TEXT_UP;
@@ -35,5 +34,4 @@ void CMainText::Update()
 			SetKill();
 		}
 	}
-	CheckOverlap();
 }

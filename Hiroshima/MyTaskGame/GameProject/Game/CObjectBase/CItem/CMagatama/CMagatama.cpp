@@ -1,9 +1,11 @@
 #include "CMagatama.h"
+#include "../GameProject/Game/CObjectBase/CMahouzin/CMahouzin.h"
 
 CMagatama::CMagatama() :CObjectBase(eID_Magatama, eU_Item, eD_Object) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("UI"));
 	m_img.SetRect(0, 0, 128, 128);
-	m_img.SetSize(128, 128);
+	m_img.SetSize(100, 100);
+	m_pos3D = CVector3D(20, 20, 0);
 	m_cnt = 0;
 }
 
@@ -41,7 +43,9 @@ void CMagatama::SetAttack()
 	‚»‚ÌŒã•KŽE‹Z‚ðŒÄ‚Ô
 
 	*/
+
 	m_cnt = 0;
+	new CMahouzin();
 	SOUND("SE_KKN")->Play(false);
 	//ƒJƒbƒgƒCƒ“”­“®
 	//•KŽE‹Z”­“®

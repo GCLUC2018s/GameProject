@@ -80,12 +80,12 @@ TexAnimData player_AnimData[] = {
 //};
 
 TexAnim _GI_fire[] = {
-	{ 0,10 },
-	{ 1,10 },
-	{ 2,10 },
-	{ 3,10 },
-	{ 4,10 },
-	{ 5,10 },
+	{ 0,5 },
+	{ 1,5 },
+	{ 2,5 },
+	{ 3,5 },
+	{ 4,5 },
+	{ 5,5 },
 };
 TexAnimData fire_Animdata[] = {
 	ANIMDATA(_GI_fire),

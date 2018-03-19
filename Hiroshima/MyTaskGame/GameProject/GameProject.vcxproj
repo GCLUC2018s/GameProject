@@ -139,6 +139,7 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyManager.h" />
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CBossStage\CBossStage.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CItemBox.h" />
     <ClInclude Include="Game\CObjectBase\CGo\CGo.h" />
+    <ClInclude Include="Game\CObjectBase\CHPbar\CHPBar.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CItemBase\CItemBase.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKoban\CKoban.h" />
@@ -156,6 +158,7 @@
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h" />
     <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CSake\CSake.h" />
+    <ClInclude Include="Game\CObjectBase\CMahouzin\CMahouzin.h" />
     <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
@@ -187,6 +190,7 @@
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyManager.cpp" />
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CBossStage\CBossStage.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp" />
@@ -197,6 +201,7 @@
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CItemBox.cpp" />
     <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp" />
+    <ClCompile Include="Game\CObjectBase\CHPbar\CHPBar.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CItemBase\CItemBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKoban\CKoban.cpp" />
@@ -204,6 +209,7 @@
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\COhuda\COhuda.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CSake\CSake.cpp" />
+    <ClCompile Include="Game\CObjectBase\CMahouzin\CMahouzin.cpp" />
     <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />

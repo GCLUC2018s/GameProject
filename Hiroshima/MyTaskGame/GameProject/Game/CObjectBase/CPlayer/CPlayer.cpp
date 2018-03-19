@@ -26,6 +26,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_punch2 = false;
 	m_kick = false;
 	m_jump = false;
+	m_roof = false;
 	m_hp = 10;
 	m_anim = eAnimIdol;
 	m_state = eNutral;
@@ -181,7 +182,7 @@ void CPlayer::Update() {
 	//XŽ²ˆ—
 	if (PUSH_ENTER) {
 		if (m_pos3D.x > SCREEN_WIDTH * 5) {
-			new CBB(0, 2, true);
+			new CBB(0, 2, false);
 		}
 		else { new CGo(); }
 	}
@@ -196,7 +197,6 @@ void CPlayer::Update() {
 		m_sc_flag_x = true;
 	}
 
-	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
 }
 
@@ -214,9 +214,26 @@ void CPlayer::Nutral() {
 		m_squat = true;
 		m_anim = eAnimSquat;
 	}
+
+		//—Ž‰º’†‚È‚ç
+	if (m_vec3D.y > 0 &&
+		//ˆÊ’u”»’è
+		1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 && 
+		//ˆê”Ô‰œ‚É‚¢‚½‚ç
+		m_pos3D.z == -400) {
+			m_pos3D.y = -448;
+			m_vec3D.y = 0;
+			m_jump = false;
+			SOUND("SE_LANDING")->Play(false);
+			m_roof = true;
+	}else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+		m_jump = true;
+		m_roof = false;
+	}
+
 	//ˆÚ“®
 	if (!m_squat) {
-		if (!m_jump && HOLD_UP) {
+		if (!m_roof && !m_jump && HOLD_UP) {
 			m_vec3D.z = -10; 
 			if (m_pos3D.z != 0 && m_pos3D.z != -430)
 			m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
@@ -224,7 +241,7 @@ void CPlayer::Nutral() {
 			m_anim = eAnimDash;
 			m_cnt++;
 		}
-		if (!m_jump && HOLD_DOWN) {
+		if (!m_roof && !m_jump && HOLD_DOWN) {
 			m_vec3D.z = 10;
 			if (m_pos3D.z != 0 && m_pos3D.z != -430)
 			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
