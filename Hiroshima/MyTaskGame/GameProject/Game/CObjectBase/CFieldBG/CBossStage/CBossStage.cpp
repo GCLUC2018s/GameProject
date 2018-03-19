@@ -2,7 +2,6 @@
 #include"../GameProject/Game/CObjectBase/CEnemy/CBoss.h"
 
 CBossStage::CBossStage() :CObjectBase(eID_Ground, eU_Map, eD_Ground){
-	m_scroll = CVector2D(0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("BossStage"));
 	m_img.SetSize(SCREEN_WIDTH, 1200);
 	m_img.SetCenter(0, 1200 - SCREEN_HEIGHT );
