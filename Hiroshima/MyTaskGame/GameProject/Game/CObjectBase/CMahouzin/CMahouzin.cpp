@@ -17,7 +17,10 @@ CMahouzin::~CMahouzin()
 
 void CMahouzin::Update(){
 	m_time++;
-	if (m_time > 300) {
+	if (m_time < 300) {
+		m_color.w -= 0.01;
+	}
+	if (m_color.w < 0) {
 		SetKill();
 	}
 }
