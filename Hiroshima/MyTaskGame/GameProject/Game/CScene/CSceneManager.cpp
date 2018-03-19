@@ -90,7 +90,6 @@ void CSceneManager::MainScene() {
 	//new COage(&(CVector3D(500, 0, -30)));
 	//new CSake(&(CVector3D(450, 0, -30)));
 	new CMagatama();
-	new CHPBar(true);
 	new CHPBar(false);
 	new CEnemyManager();
 	new CKakera(&(CVector3D(450, 450, 0)));
@@ -101,6 +100,8 @@ void CSceneManager::MainScene() {
 
 void CSceneManager::BossScene(){
 	//ƒ{ƒXí“¬‰æ–Ê‚Ì—v‘f‚Ô‚¿‚Ş
+	new CHPBar(true);
+	new CHPBar(false);
 }
 
 void CSceneManager::EndScene(){
