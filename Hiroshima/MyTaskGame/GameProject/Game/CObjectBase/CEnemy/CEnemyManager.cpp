@@ -93,9 +93,9 @@ void CEnemyManager::Update() {
 		m_timing++;
 	}
 
-	if (m_enemy_cnt<0) {
-		//new CGo();
-	}
+	//if (m_enemy_cnt<0) {
+	//	//new CGo();
+	//}
 }
 
 
