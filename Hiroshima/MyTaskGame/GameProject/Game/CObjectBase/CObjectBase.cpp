@@ -22,7 +22,7 @@ void CObjectBase::Draw()
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
 	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
 	m_img.Draw();
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left, m_pos3D.y - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right, m_rect.m_bottom), CVector4D(1, 0, 0, 0.3));
+//	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left, m_pos3D.y - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right, m_rect.m_bottom), CVector4D(1, 0, 0, 0.3));
 }
 
 void CObjectBase::HitCheck(CTask * t1, CTask * t2)
@@ -35,7 +35,7 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 		//PL‚ÆENE‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
-		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 100) {
+		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 150) {
 			if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
 				o1->m_pos3D.x + o1->m_rect.m_left  <o2->m_pos3D.x + o2->m_rect.m_right &&
 				o1->m_pos3D.y + o1->m_rect.m_bottom>o2->m_pos3D.y + o2->m_rect.m_top &&

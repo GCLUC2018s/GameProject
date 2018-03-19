@@ -80,11 +80,13 @@ void CEnemy::Update(){
 		//ç∂ë§Ç…Ç¢ÇÈÇ∆Ç´ÇÃí«ê’èàóù
 		if (m_Position.x < m_Target->m_Position.x){
 			m_Position.x += diaPlayer.x / ENEMY_LR_SPEED;
+			m_Turn = E_RIGHT;
 
 		}
 		//âEë§Ç…Ç¢ÇÈÇ∆Ç´ÇÃí«ê’èàóù
 		else{
 			m_Position.x = m_Position.x + (diaPlayer.x / ENEMY_LR_SPEED);
+			m_Turn = E_LEFT;
 		}
 
 		m_Position.z += diaPlayer.z / ENEMY_UD_SPEED;
@@ -94,14 +96,7 @@ void CEnemy::Update(){
 }
 void CEnemy::Draw(){
 	//
-	glBegin(GL_TRIANGLES);
-	glVertex2d(m_image.m_Left, m_image.m_Top);
-	glVertex2d(m_image.m_Left, m_image.m_Bottom);
-	glVertex2d(m_image.m_Right, m_image.m_Bottom);
-	glVertex2d(m_image.m_Left, m_image.m_Top);
-	glVertex2d(m_image.m_Right, m_image.m_Bottom);
-	glVertex2d(m_image.m_Right, m_image.m_Top);
-	glEnd();
+	RunAnime(&i_Enemy_Run, E_ENEMY);
 	//
 }
 

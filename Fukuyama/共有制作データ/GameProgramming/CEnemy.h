@@ -16,12 +16,14 @@ public:
 		//プレイヤーのサイズ
 		m_image.SetVertex(0, 90, 0, 135);
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
+		i_Enemy_Run.Load("image/chara/chara_enemy_16bit.tga");
 	}
 	enum ENEMY_MODE{
 		E_NORMAL,
 	    E_ACTION
 	};
 	CTexture mTexture;
+	CTexture i_Enemy_Run;
 	int m_EnemySet;//敵の配置
 	int m_EnemyKind;//敵の種類
 	int m_EnemyMode;

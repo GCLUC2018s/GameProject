@@ -2,6 +2,7 @@
 #include "../GameProject/Game/CScene/CSceneManager.h"
 #include "../CGo/CGo.h"
 #include "../CBB/CBB.h"
+#include "../CItem/COhuda/COhuda.h"
 
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
@@ -180,12 +181,12 @@ void CPlayer::Update() {
 			m_scroll.y = m_pos3D.y;
 	}
 	//XŽ²ˆ—
-	if (PUSH_ENTER) {
-		if (m_pos3D.x > SCREEN_WIDTH * 5) {
-			new CBB(0, 2, false);
-		}
-		else { new CGo(); }
-	}
+	//if (PUSH_ENTER) {
+	//	if (m_pos3D.x > SCREEN_WIDTH * 5) {
+	//		new CBB(0, 2, false);
+	//	}
+	//	else { new CGo(); }
+	//}
 
 	if (m_pos3D.x - m_scroll.x < PL_CENTER_X) {
 		m_pos3D.x = m_scroll.x + PL_CENTER_X;
@@ -325,7 +326,7 @@ void CPlayer::Nutral() {
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
 		m_state = eBill;
-//		new COhuda(&m_pos3D, &m_flipH);
+		new COhuda(&m_pos3D, &m_flipH);
 	}
 
 }

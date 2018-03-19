@@ -102,12 +102,14 @@ void Init(void)
 	//ÉAÉCÉeÉÄä÷åW
 	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));
 	ADD_RESOURCE("ItemBox", CAnimImage::LoadImage("itembox_motion_object.png", itembox_Animdata, 512, 512));
+	ADD_RESOURCE("Bill", CAnimImage::LoadImage("item_matome_1.png", bill_Animdata, 128, 128));
 
 	//UIä÷åW
 	ADD_RESOURCE("Tip", CAnimImage::LoadImage("tip.png"));
 	ADD_RESOURCE("UI", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 	ADD_RESOURCE("Mahouzin", CAnimImage::LoadImage("mahoujin_image.png"));
+	ADD_RESOURCE("CutIn", CAnimImage::LoadImage("cutin.png"));
 
 	//HPÉoÅ[ä÷åW
 	ADD_RESOURCE("HP_Icon_PL", CAnimImage::LoadImage("gauge/chara_gauge_face.png"));

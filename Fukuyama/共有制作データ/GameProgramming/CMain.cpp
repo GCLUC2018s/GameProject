@@ -6,7 +6,6 @@
 #include"task\CTaskManager.h"
 //初めに1回だけ実行する処理の定義
 void CMain::Init() {
-	//タイトル画面の表示
 	m_Mode = 0;
 	SceneState = 0;
 }

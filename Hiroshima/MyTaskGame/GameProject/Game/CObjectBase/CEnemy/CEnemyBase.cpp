@@ -1,8 +1,14 @@
 #include "CEnemyBase.h"
 #include "../GameProject/Source/Itemsource.h"
 
-CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object) {
-	 	//int m_enemy_cnt = 0;
+int CEnemyBase::m_enemy_cnt = 0;
+
+CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object),
+m_damage(false),
+m_end_flag(false)
+{
+	m_state = eMove;
+
 }
 
 CEnemyBase::~CEnemyBase()
@@ -16,7 +22,7 @@ CEnemyBase::~CEnemyBase()
 	new CSake(&(   CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
 	new CKakera(&( CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
 
-	//m_enemy_cnt--;
+	m_enemy_cnt--;
 }
 
 void CEnemyBase::DropItem() {
@@ -35,10 +41,34 @@ void CEnemyBase::Attack(const int *enemy_id) {
 void CEnemyBase::KnockBack(const int *enemy_id) {
 
 }
-void CEnemyBase::Fall(const int *enemy_id) {
-
+void CEnemyBase::Fall() {
+	m_img.ChangeAnimation(eAnimEnemyFall);
+	DropItem();
+	if (m_end_flag == false) {
+		m_end_flag = true;
+		m_color.w = 2.0;
+	}
+	if (m_end_flag) {
+		m_color.w -= 0.02;
+	}
+	if (m_color.w < -1.0) {
+		SetKill();
+	}
 }
-void CEnemyBase::Damage(const int *enemy_id) {
+void CEnemyBase::Damage() {
+	m_vec3D.y = 0;
+	m_pos3D += m_vec3D;
+	if (m_damage) {
+		m_hp--;
+		m_damage = false;
+		m_vec3D.x = 0;
+		//if (m_flipH) {
+		//	m_vec3D.x = -CHOCHIN_KNOCKBACK_SPEED;
+		//}
+		//else {
+		//	m_vec3D.x = CHOCHIN_KNOCKBACK_SPEED;
+		//}
+	}
 
 }
 void CEnemyBase::Draw() {

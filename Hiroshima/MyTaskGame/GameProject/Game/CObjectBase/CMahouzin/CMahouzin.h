@@ -8,8 +8,10 @@ public:
 	CMahouzin();
 	~CMahouzin();
 	void Update();
+	void Draw();
 private:
 	int m_time;
+	int m_size;
 
 };
 
