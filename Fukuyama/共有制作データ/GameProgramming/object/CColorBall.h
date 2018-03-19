@@ -19,7 +19,7 @@ public:
 	{
 		//カラーボールのサイズ
 		m_image.SetVertex(0, 20, 0, 20);
-		i_ColorBall.Load("image/bg/color/tga/colorball03.tga");
+		i_ColorBall.Load("image/bg/color/tga/colorball04.tga");
 	}
 
 	CTexture i_ColorBall;
