@@ -88,6 +88,6 @@ void C_ColorBall::Update()
 void C_ColorBall::Draw(){
 
 	//カラーボールの描画
-	i_ColorBall.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 140, 5);
+	i_ColorBall.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 128, 128, 0);
 
 }

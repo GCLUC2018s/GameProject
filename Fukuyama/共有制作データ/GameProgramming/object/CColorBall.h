@@ -19,7 +19,7 @@ public:
 	{
 		//カラーボールのサイズ
 		m_image.SetVertex(0, 50, 0, 50);
-		i_ColorBall.Load("../image/chara/chara_motion_2_16bit.tga");
+		i_ColorBall.Load("image/bg/color/tga/colorball.tga");
 	}
 
 	CTexture i_ColorBall;
