@@ -5,6 +5,7 @@ CItemBase::CItemBase(CVector3D * pos) :CObjectBase(eID_Item, eU_Item, eD_Object)
 {
 	m_pos3D = *pos;
 	m_vec3D.y = -20;
+	m_vec3D.x = Utility::Rand(-50, 50) / 10;
 	m_get = false;
 	m_time = 0;
 }
@@ -16,10 +17,13 @@ CItemBase::~CItemBase()
 void CItemBase::Update()
 {
 	m_pos3D += m_vec3D;
-	if (m_pos3D.y < 0)
+	if (m_pos3D.y < 0) {
 		m_vec3D.y += GRAVITY;
-	else
+	}else {
 		m_vec3D.y = 0;
+		m_vec3D.x = 0;
+	}
+
 	if (m_get)
 		Vanush();
 }
