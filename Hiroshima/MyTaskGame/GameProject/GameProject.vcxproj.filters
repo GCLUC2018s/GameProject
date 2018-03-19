@@ -117,6 +117,9 @@
     <ClCompile Include="Game\CObjectBase\CItem\CItemBase\CItemBase.cpp">
       <Filter>Game\Object\Item\Base</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CMahouzin\CMahouzin.cpp">
+      <Filter>Game\Object\UI\Mahouzin</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -248,6 +251,9 @@
     </ClInclude>
     <ClInclude Include="Source\Itemsource.h">
       <Filter>Game\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CMahouzin\CMahouzin.h">
+      <Filter>Game\Object\UI\Mahouzin</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -397,6 +403,9 @@
     </Filter>
     <Filter Include="Game\Object\UI\Go">
       <UniqueIdentifier>{36eee604-8764-40bd-ade2-bdd429da8508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Mahouzin">
+      <UniqueIdentifier>{35f4f50e-3c1b-4025-ad55-7cea5e0f6e05}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
