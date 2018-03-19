@@ -4,6 +4,7 @@
 #include "../draw/CRectangle.h"
 #include "C_Object.h"
 #include "../chara/C_Player.h"
+#include "../task/CTaskManager.h"
 
 enum COLORBALL_STATE{
 	E_NAGE,
@@ -18,8 +19,8 @@ public:
 		, init(false)
 	{
 		//カラーボールのサイズ
-		m_image.SetVertex(0, 20, 0, 20);
-		i_ColorBall.Load("image/bg/color/tga/colorball04.tga");
+		m_image.SetVertex(0, 30, 0, 30);
+		i_ColorBall.Load("image/bg/color/tga/colorball03.tga");
 	}
 
 	CTexture i_ColorBall;

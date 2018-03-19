@@ -32,10 +32,9 @@ void CTexture::Load(const char*filename){
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 	if (header.depth == 32)
-		gluBuild2DMipmaps(GL_TEXTURE_2D, 4,
-		header.width,
-		header.height, GL_BGRA_EXT,
-		GL_UNSIGNED_BYTE, data);
+		//アルファ有りのテクスチャ作成
+		gluBuild2DMipmaps(GL_TEXTURE_2D, 4,header.width,
+		header.height, GL_BGRA_EXT,GL_UNSIGNED_BYTE, data);
 	else
 		gluBuild2DMipmaps(GL_TEXTURE_2D, 3,
 		header.width,

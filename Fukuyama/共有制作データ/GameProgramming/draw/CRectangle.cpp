@@ -2,7 +2,15 @@
 #include"glut.h"
 
 //四角形の描画
-void C_Rectangle::Render(){
+void C_Rectangle::Render(float a, float b, float c, float d){
+
+	//アルファブレンドを有効にする
+	glEnable(GL_BLEND);
+	//ブレンド方法を指定
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	glColor4f(a, b, c, d);
+
 	if (!m_Enabled) return;
 	glBegin(GL_TRIANGLES);
 	glVertex2d(m_Left, m_Top);
@@ -12,6 +20,11 @@ void C_Rectangle::Render(){
 	glVertex2d(m_Right, m_Bottom);
 	glVertex2d(m_Right, m_Top);
 	glEnd();
+
+	//アルファブレンドを無効
+	glDisable(GL_BLEND);
+	//テクスチャを無効
+	glDisable(GL_TEXTURE_2D);
 }
 
 //表示する四角形の座標を指定します

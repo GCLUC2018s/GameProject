@@ -12,6 +12,7 @@
 #define JUMP_ANIME 15    //着地モーションの時間
 #define SET_INTERVAL 180       //カラーボール設置間隔
 #define THROW_INTERVAL 60      //カラーボール投擲間隔
+#define SPRAY_INTERVAL 600     //スプレーのクールタイム
 
 class C_Player :public C_Object{
 public:
@@ -20,6 +21,7 @@ public:
 		, i_JumpPoint(0,0,0)
 		, m_SetInterval(SET_INTERVAL)
 		, m_ThrowInterval(THROW_INTERVAL)
+		, m_SprayInterval(SPRAY_INTERVAL)
 	{
 		m_image.m_Enabled = true;
 		//プレイヤーのサイズ
@@ -31,6 +33,7 @@ public:
 		i_Chara_Motion_2.Load("image/chara/chara_motion_2_16bit.tga");
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 
+		//状態に応じたステータスを取得
 		m_Turn = E_RIGHT;
 		m_Jump = E_NJUMP;
 		m_Throw = E_NTHROW;
@@ -48,6 +51,7 @@ public:
 	float m_JumpTime;       //ジャンプしてから着地までの時間
 	int m_SetInterval;        //設置間隔
 	int m_ThrowInterval;          //投擲間隔
+	int m_SprayInterval;          //スプレー使用間隔
 	void Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, float deltatime);
 	virtual void Update();
 	virtual void Draw();
