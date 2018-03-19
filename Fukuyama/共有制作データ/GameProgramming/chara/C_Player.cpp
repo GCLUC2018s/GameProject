@@ -41,6 +41,14 @@ void C_Player::Update(){
 		m_SetInterval++;
 	}
 
+	//スプレーアニメーション用変数を回します
+	if (m_Anime_Spray <= SPRAY_ANIME){
+		m_Anime_Spray++;
+	}
+	if (m_Anime_Spray >= SPRAY_ANIME){
+		m_Spray = E_NSPRAY;
+	}
+
 	//もし着地モーション中なら操作ができない
 	if (m_Anime_Jump > JUMP_ANIME){
 
@@ -48,6 +56,7 @@ void C_Player::Update(){
 		if (CKey::Once('C')
 			&&m_Set==E_NSET
 			&&m_Jump==E_NJUMP
+			&&m_Spray==E_NSPRAY
 			&&m_ThrowInterval>=THROW_INTERVAL){
 			//投げアニメが終了していたら次の弾を生成します
 			if (m_Anime_Throw >= THROW_ANIME){
@@ -70,6 +79,7 @@ void C_Player::Update(){
 		if (CKey::Once('X') 
 			&& m_Throw == E_NTHROW
 			&& m_Jump == E_NJUMP
+			&& m_Spray==E_NSPRAY
 			&& m_SetInterval>=SET_INTERVAL){
 			//設置アニメが終了していたら次の弾を生成します
 			if (m_Anime_Set >= SET_ANIME){
@@ -81,13 +91,29 @@ void C_Player::Update(){
 				m_SetInterval = 0;
 			}
 		}
+		//アニメーションのラストで球を生成します
 		if (m_Anime_Set == SET_ANIME){
 			//カラーボールの作成
 			C_ColorBall* ColorBall = new C_ColorBall();
 		}
 
+
+		//スプレーを使用します
+		if (CKey::Once('Z')
+			&& m_Throw == E_NTHROW
+			&& m_Jump == E_NJUMP
+			&& m_Set == E_NSET
+			&& m_Anime_Spray>=SPRAY_ANIME)
+		{
+			//スプレー使用中のタグをつけます
+			m_Spray = E_SPRAY;
+			//アニメーション用変数をアニメーションの初期値にします
+			m_Anime_Spray = 0;
+		}
+
+
 		//投げモーションや設置モーション中は操作ができない
-		if (m_Throw == E_NTHROW&&m_Set == E_NSET){
+		if (m_Throw == E_NTHROW&&m_Set == E_NSET && m_Spray==E_NSPRAY){
 			//Sキーでジャンプします
 			if (CKey::Once('S') && m_Jump == E_NJUMP){
 				//ジャンプしているかどうかタグをつけます
@@ -161,26 +187,28 @@ void C_Player::Update(){
 	C_Object::Rect(&i_Shadow, &i_JumpPoint);
 }
 
+
 //プレイヤーの描画
 void C_Player::Draw(){
 
 	//影の描画
-	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom-3, i_Shadow.m_Top-3, 630, 720, 275, 140);
+	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom - 3, i_Shadow.m_Top - 3, 630, 720, 275, 140);
 
 	//ジャンプしていない。かつ、投げモーション中でない。
 	if (m_Jump == E_NJUMP
 		&&m_Throw == E_NTHROW
-		&&m_Set==E_NSET){
+		&&m_Set == E_NSET
+		&&m_Spray==E_NSPRAY){
 
 		//着地アニメーション
 		if (m_Anime_Jump <= JUMP_ANIME){
-			if (m_Turn==E_RIGHT)
+			if (m_Turn == E_RIGHT)
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 630, 275, 140);
-			else if (m_Turn==E_LEFT)
+			else if (m_Turn == E_LEFT)
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 540, 275, 140);
 		}
 		//着地硬直中でないなら
-		else if(m_Anime_Jump>JUMP_ANIME){
+		else if (m_Anime_Jump > JUMP_ANIME){
 
 			//移動用のキー入力があるなら
 			if (CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN)){
@@ -191,7 +219,7 @@ void C_Player::Draw(){
 			}
 			else{
 				m_Anime = -1;       //アニメーションを0～の範囲で行うので、使用しない時はー１とします。
-					
+
 				//待機絵の描画
 				TaikiAnime(&i_Chara_Motion_2, E_PLAYER);
 			}
@@ -255,13 +283,36 @@ void C_Player::Draw(){
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 360, 275, 140);
 			}
 		}
-		//右向き
+		//左向き
 		else if (m_Turn == E_LEFT){
 			if (m_Anime_Set <= SET_ANIME_INTERVAL){
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 180, 275, 140);
 			}
 			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
 				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 270, 275, 140);
+			}
+		}
+	}
+
+
+	//スプレーアニメーション
+	if (m_Spray == E_SPRAY){
+		//右向き
+		if (m_Turn == E_RIGHT){
+			if (m_Anime_Set <= SET_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 275, 140);
+			}
+			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 180, 275, 140);
+			}
+		}
+		//左向き
+		else if (m_Turn == E_LEFT){
+			if (m_Anime_Set <= SET_ANIME_INTERVAL){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 275, 140);
+			}
+			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 90, 275, 140);
 			}
 		}
 	}
