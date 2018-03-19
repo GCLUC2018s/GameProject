@@ -43,6 +43,7 @@ void CMagatama::SetAttack()
 	‚»‚ÌŒã•KŽE‹Z‚ðŒÄ‚Ô
 
 	*/
+
 	m_cnt = 0;
 	new CMahouzin();
 	SOUND("SE_KKN")->Play(false);

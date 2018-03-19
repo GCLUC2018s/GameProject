@@ -95,7 +95,6 @@ void CSceneManager::MainScene() {
 	for (int i = 0; i < 10; i++) {
 		new CKakera(&(CVector3D(450 + i * 40, 0, -30)));
 	}
-	new CMahouzin();
 }
 
 void CSceneManager::BossScene(){
