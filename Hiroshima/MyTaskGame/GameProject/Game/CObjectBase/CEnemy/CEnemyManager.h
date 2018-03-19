@@ -10,9 +10,10 @@
 */
 
 class CEnemyManager :public CEnemyBase {
-protected:
+private:
 	int m_wave, m_timing, m_push;
 	bool m_old;
+	bool m_go_flag;	//trueなら、そのウェーブでgoはもう出てる
 public:
 	CEnemyManager();
 	void Update();

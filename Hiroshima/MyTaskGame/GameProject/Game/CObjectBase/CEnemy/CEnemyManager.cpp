@@ -41,31 +41,31 @@ Enemy_Push  push_enemy[10][10]{
 	},{
 
 		//第二ウェイブ
-	{ 100,eChouchin,CVector3D(400, 0, -300) },
-	{ 200,eChouchin ,CVector3D(500, -100, -200) },
-	{ 300,eChouchin ,CVector3D(600, -150, -250) },
-	{ 400,eChouchin ,CVector3D(800, -50, -200) },
-	{ 500,eChouchin ,CVector3D(800, -50, -200) },
-	{ 600,eChouchin ,CVector3D(200, 0, -50) },
-	{ 700,eChouchin ,CVector3D(400, 0, -300) },
-	{ 800,eChouchin ,CVector3D(600, -150, -250) },
-	{ 900,eChouchin ,CVector3D(800, -50, -200) },
-	{ 1000,eChouchin ,CVector3D(200, 0, -50) },
+	{ 100,eChouchin,CVector3D(  400 + SCREEN_WIDTH, 0, -300) },
+	{ 200,eChouchin ,CVector3D( 500 + SCREEN_WIDTH, -100, -200) },
+	{ 300,eChouchin ,CVector3D( 600 + SCREEN_WIDTH, -150, -250) },
+	{ 400,eChouchin ,CVector3D( 800 + SCREEN_WIDTH, -50, -200) },
+	{ 500,eChouchin ,CVector3D( 800 + SCREEN_WIDTH, -50, -200) },
+	{ 600,eChouchin ,CVector3D( 200 + SCREEN_WIDTH, 0, -50) },
+	{ 700,eChouchin ,CVector3D( 400 + SCREEN_WIDTH, 0, -300) },
+	{ 800,eChouchin ,CVector3D( 600 + SCREEN_WIDTH, -150, -250) },
+	{ 900,eChouchin ,CVector3D( 800 + SCREEN_WIDTH, -50, -200) },
+	{ 1000,eChouchin ,CVector3D(200 + SCREEN_WIDTH, 0, -50) },
 }
 
 ,{
 
 	//第三ウェイブ
-	{ 100 , eKamaitachi  ,CVector3D(400, 0, -300) },
-	{ 200,eKamaitachi ,CVector3D(500, -100, -200) },
-	{ 300,eKamaitachi ,CVector3D(600, -150, -250) },
-	{ 400,eKamaitachi ,CVector3D(800, -50, -200) },
-	{ 500,eKamaitachi ,CVector3D(800, -50, -200) },
-	{ 600,eKamaitachi ,CVector3D(200, 0, -50) },
-	{ 700,eKamaitachi ,CVector3D(400, 0, -300) },
-	{ 800,eKamaitachi ,CVector3D(600, -150, -250) },
-	{ 900,eKamaitachi ,CVector3D(800, -50, -200) },
-	{ 1000,eKamaitachi ,CVector3D(200, 0, -50) },
+	{ 100 , eKamaitachi  ,CVector3D(400 + SCREEN_WIDTH * 2, 0, -300) },
+	{ 200,eKamaitachi ,CVector3D(   500 + SCREEN_WIDTH * 2, -100, -200) },
+	{ 300,eKamaitachi ,CVector3D(   600 + SCREEN_WIDTH * 2, -150, -250) },
+	{ 400,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
+	{ 500,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
+	{ 600,eKamaitachi ,CVector3D(   200 + SCREEN_WIDTH * 2, 0, -50) },
+	{ 700,eKamaitachi ,CVector3D(   400 + SCREEN_WIDTH * 2, 0, -300) },
+	{ 800,eKamaitachi ,CVector3D(   600 + SCREEN_WIDTH * 2, -150, -250) },
+	{ 900,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
+	{ 1000,eKamaitachi ,CVector3D(  200 + SCREEN_WIDTH * 2, 0, -50) },
 	}
 };
 
@@ -73,11 +73,19 @@ Enemy_Push  push_enemy[10][10]{
 CEnemyManager::CEnemyManager() :CEnemyBase() {
 	//m_id = -1;
 	m_timing = 0, m_wave = 0, m_push = 0;
+	m_old = m_wave_flag;
 	
 	
 }
 
 void CEnemyManager::Update() {
+
+	if (m_old == false && m_wave_flag) {
+		m_timing = 0;
+		m_push = 0;
+		m_wave++;
+		m_go_flag = false;
+	}
 	m_old = m_wave_flag;
 	if(m_wave_flag){
 		if (push_enemy[m_wave][m_push].time == m_timing) {
@@ -92,15 +100,10 @@ void CEnemyManager::Update() {
 		if(m_push <= 6)
 		m_timing++;
 
-		if (m_enemy_cnt <= 0&&m_push >=1) {
+		if (m_enemy_cnt <= 0&&m_push >=1 && m_go_flag == false) {
 			new CGo();
+			m_go_flag = true;
 		}
-	}
-
-	if (m_old == false && m_wave_flag) {
-		m_timing = 0;
-		m_push = 0;
-		m_wave++;
 	}
 
 	

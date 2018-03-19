@@ -35,8 +35,8 @@ public:
 	void Move(const int *enemy_id);
 	void Attack(const int *enemy_id);
 	void KnockBack(const int *enemy_id);
-	void Fall(const int *enemy_id);
-	void Damage(const int *enemy_id);
+	void Fall();
+	void Damage();
 	void Draw();
 	void Hit(CObjectBase * t);
 };

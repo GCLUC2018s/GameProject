@@ -60,14 +60,9 @@ void CEnemy3::Nutral() {
 void CEnemy3::Move() {
 	m_pos3D += m_vec3D;
 
-	if (m_pos3D.x < 0) {
-		m_flipH = true;
+	if (m_pos3D.x - m_scroll.x < 0 || m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
+		m_flipH = !m_flipH;
 	}
-
-	if (m_pos3D.x > GROUND_WIDTH - ENEMY_SIZ_X) {
-		m_flipH = false;
-	}
-
 	if (m_flipH) {
 		m_vec3D.x = HI_SPEED;
 	}
@@ -96,35 +91,5 @@ void CEnemy3::KnockBack() {
 	Damage();
 	if (m_img.GetIndex() == 1) {
 		m_state = eMove;
-	}
-}
-
-void CEnemy3::Fall() {
-	m_img.ChangeAnimation(eAnimEnemyFall);
-	DropItem();
-	if (m_end_flag == false) {
-		m_end_flag = true;
-		m_color.w = 2.0;
-	}
-	if (m_end_flag) {
-		m_color.w -= 0.02;
-	}
-	if (m_color.w < -1.0) {
-		SetKill();
-	}
-}
-
-void CEnemy3::Damage() {
-	m_vec3D.y = 0;
-	m_pos3D += m_vec3D;
-	if (m_damage) {
-		m_hp--;
-		m_damage = false;
-		if (m_flipH) {
-			m_vec3D.x = -HI_KNOCKBACK_SPEED;
-		}
-		else {
-			m_vec3D.x = HI_KNOCKBACK_SPEED;
-		}
 	}
 }
