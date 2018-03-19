@@ -37,10 +37,34 @@ void CEnemyBase::Attack(const int *enemy_id) {
 void CEnemyBase::KnockBack(const int *enemy_id) {
 
 }
-void CEnemyBase::Fall(const int *enemy_id) {
-
+void CEnemyBase::Fall() {
+	m_img.ChangeAnimation(eAnimEnemyFall);
+	DropItem();
+	if (m_end_flag == false) {
+		m_end_flag = true;
+		m_color.w = 2.0;
+	}
+	if (m_end_flag) {
+		m_color.w -= 0.02;
+	}
+	if (m_color.w < -1.0) {
+		SetKill();
+	}
 }
-void CEnemyBase::Damage(const int *enemy_id) {
+void CEnemyBase::Damage() {
+	m_vec3D.y = 0;
+	m_pos3D += m_vec3D;
+	if (m_damage) {
+		m_hp--;
+		m_damage = false;
+		m_vec3D.x = 0;
+		//if (m_flipH) {
+		//	m_vec3D.x = -CHOCHIN_KNOCKBACK_SPEED;
+		//}
+		//else {
+		//	m_vec3D.x = CHOCHIN_KNOCKBACK_SPEED;
+		//}
+	}
 
 }
 void CEnemyBase::Draw() {

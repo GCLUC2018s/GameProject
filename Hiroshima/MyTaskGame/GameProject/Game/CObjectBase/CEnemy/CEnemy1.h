@@ -23,8 +23,6 @@ public:
 	void Move();    //ˆÚ“®ó‘Ô
 	void Attack();  //UŒ‚ó‘Ô
 	void KnockBack(); //‚Ì‚¯‚¼‚èó‘Ô
-	void Fall();       //“|‚³‚ê‚½ó‘Ô
-	void Damage();    //ƒ_ƒ[ƒWˆ—
 };
 
 
