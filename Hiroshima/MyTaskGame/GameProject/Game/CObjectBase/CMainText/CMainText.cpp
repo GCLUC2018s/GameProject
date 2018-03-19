@@ -2,7 +2,7 @@
 #include "CMainText.h"
 
 
-CMainText::CMainText() :CObjectBase(0, eU_UI, eD_UI)
+CMainText::CMainText() :CObjectBase(0, eU_UI, eD_Null)
 {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("MainText"));
 	m_img.SetRect(0, 0, MAIN_TEXT_X, MAIN_TEXT_Y);
