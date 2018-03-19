@@ -126,6 +126,9 @@
     <ClCompile Include="Game\CObjectBase\CHPbar\CHPBar.cpp">
       <Filter>Game\Object\UI\CHPBar</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CCutIn\CCutIn.cpp">
+      <Filter>Game\Object\UI\Effect\CutIn</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -266,6 +269,9 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CHPbar\CHPBar.h">
       <Filter>Game\Object\UI\CHPBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CCutIn\CCutIn.h">
+      <Filter>Game\Object\UI\Effect\CutIn</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -424,6 +430,15 @@
     </Filter>
     <Filter Include="Game\Object\UI\CHPBar">
       <UniqueIdentifier>{3b0f8943-7e83-48ad-98f2-1d00543ecda2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect">
+      <UniqueIdentifier>{91a2b80e-2100-4349-b737-614ed2a3d56e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\Panch">
+      <UniqueIdentifier>{2bc1499e-9558-400b-a835-6b54c8dee65d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\CutIn">
+      <UniqueIdentifier>{2c987eda-87b4-4d6b-b57d-fe1d34ed3605}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -109,6 +109,7 @@ void Init(void)
 	ADD_RESOURCE("UI", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 	ADD_RESOURCE("Mahouzin", CAnimImage::LoadImage("mahoujin_image.png"));
+	ADD_RESOURCE("CutIn", CAnimImage::LoadImage("cutin.png"));
 
 	//HPƒo[ŠÖŒW
 	ADD_RESOURCE("HP_Icon_PL", CAnimImage::LoadImage("gauge/chara_gauge_face.png"));
@@ -145,7 +146,7 @@ void Init(void)
 	SOUND("SE_KKN")->Load("Sound/SE/se_033.wav");
 	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 
-	NEW_SCENE(eGameStart);
+	NEW_SCENE(eDebug);
 }
 
 void release()
