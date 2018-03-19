@@ -5,6 +5,7 @@
 
 #define BB_COL_PA 0.7 //‚Ç‚Ì”Z‚³‚ÅŽ~‚ß‚é‚©B
 #define BB_COL_DOWN 0.05 //‚Ç‚ê‚­‚ç‚¢‚¸‚ÂŒ¸‚ç‚·‚©
+#define BB_COL_DOWN_2 0.01 //‚Ç‚ê‚­‚ç‚¢‚¸‚ÂŒ¸‚ç‚·‚©2
 /*
 
 §ìŽÒ@‹{ú±
