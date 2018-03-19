@@ -104,7 +104,8 @@ void CSceneManager::BossScene(){
 	new CHPBar(false);	SOUND("BGM_Main")->Stop();
 	new CBossStage();
 	//new CBoss(&(CVector3D(500, -200, -500)), &(CVector3D(350, 0, -500)),
-	//	&(CVector3D(650, 0, -500)), &(CVector3D(500, 200, -500)));}
+	//	&(CVector3D(650, 0, -500)), &(CVector3D(500, 200, -500)));
+}
 
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
