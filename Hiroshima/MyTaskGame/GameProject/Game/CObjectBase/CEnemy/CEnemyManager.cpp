@@ -67,6 +67,21 @@ Enemy_Push  push_enemy[10][10]{
 	{ 900,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
 	{ 1000,eKamaitachi ,CVector3D(  200 + SCREEN_WIDTH * 2, 0, -50) },
 	}
+
+,{
+
+	//第四ウェイブ
+	{ 100, eNiku  ,CVector3D(400 + SCREEN_WIDTH * 3, 0, -300) },
+	{ 200, eNiku ,CVector3D( 500 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 300, eNiku ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
+	{ 400, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 500, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 600, eNiku ,CVector3D( 200 + SCREEN_WIDTH * 3, 0, -50) },
+	{ 700, eNiku ,CVector3D( 400 + SCREEN_WIDTH * 3, 0, -300) },
+	{ 800, eNiku ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
+	{ 900, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 1000,eNiku ,CVector3D( 200 + SCREEN_WIDTH * 3, 0, -50) },
+	}
 };
 
 
@@ -78,6 +93,10 @@ CEnemyManager::CEnemyManager() :CEnemyBase() {
 	
 }
 
+CEnemyManager::~CEnemyManager()
+{
+}
+
 void CEnemyManager::Update() {
 
 	if (m_old == false && m_wave_flag) {
@@ -87,26 +106,31 @@ void CEnemyManager::Update() {
 		m_go_flag = false;
 	}
 	m_old = m_wave_flag;
-	if(m_wave_flag){
-		if (push_enemy[m_wave][m_push].time == m_timing) {
-			printf("%d   %d\n", push_enemy[m_wave][m_push].time, push_enemy[m_wave][m_push].id);
-			PushEnemy(&push_enemy[m_wave][m_push].id, &push_enemy[m_wave][m_push].push_pos);
+	if (m_wave_flag) {
+		const Enemy_Push& enemy_date = push_enemy[m_wave][m_push];
+
+		if (enemy_date.time == m_timing) {
+			printf("%d   %d\n", enemy_date.time, enemy_date.id);
+			PushEnemy(&enemy_date.id, &enemy_date.push_pos);
 			m_push++;
 			m_enemy_cnt++;
-		
-		
-		}
-		
-		if(m_push <= 6)
-		m_timing++;
 
-		if (m_enemy_cnt <= 0&&m_push >=1 && m_go_flag == false) {
-			new CGo();
+
+		}
+
+		if (m_push <= 6)
+			m_timing++;
+
+		if (m_enemy_cnt <= 0 && m_push >= 1 && m_go_flag == false) {
+			if (m_wave == 3)
+				new CGo(true);
+			else
+				new CGo(false);
 			m_go_flag = true;
 		}
 	}
 
-	
+
 }
 
 

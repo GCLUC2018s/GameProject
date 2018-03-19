@@ -16,6 +16,7 @@ private:
 	bool m_go_flag;	//trueなら、そのウェーブでgoはもう出てる
 public:
 	CEnemyManager();
+	~CEnemyManager();
 	void Update();
 	void PushEnemy(const int *id,const CVector3D *pos);
 };

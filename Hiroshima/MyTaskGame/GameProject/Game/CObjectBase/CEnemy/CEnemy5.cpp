@@ -14,9 +14,6 @@ CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 	m_at = NIKU_AT;
 	m_rect = CRect(80, 100, 300, 350);
 	m_rect_F = m_rect;
-	m_damage = false;
-	m_end_flag = false;
-	m_state = eMove;
 
 
 }
