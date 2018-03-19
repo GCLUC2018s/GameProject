@@ -35,6 +35,7 @@ public:
 		m_Jump = E_NJUMP;
 		m_Throw = E_NTHROW;
 		m_Set = E_NSET;
+		m_Spray = E_NSPRAY;
 
 		m_Speed.y = JUMP_FIRST_SPEED; //ƒWƒƒƒ“ƒv‚Ì‰‘¬‚ğİ’è‚µ‚Ü‚·B
 		m_Playerpoint = this;
