@@ -1,4 +1,5 @@
 #include "CMagatama.h"
+#include "../GameProject/Game/CObjectBase/CMahouzin/CMahouzin.h"
 
 CMagatama::CMagatama() :CObjectBase(eID_Magatama, eU_Item, eD_Object) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("UI"));
@@ -42,6 +43,7 @@ void CMagatama::SetAttack()
 
 	*/
 	m_cnt = 0;
+	new CMahouzin();
 	SOUND("SE_KKN")->Play(false);
 	//カットイン発動
 	//必殺技発動
