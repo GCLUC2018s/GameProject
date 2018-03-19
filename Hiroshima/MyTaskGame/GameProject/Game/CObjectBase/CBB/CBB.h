@@ -3,6 +3,9 @@
 
 #include "../CObjectBase.h"
 
+#define BB_COL_PA 0.7 //どの濃さで止めるか。
+#define BB_COL_DOWN 0.05 //どれくらいずつ減らすか
+#define BB_COL_DOWN_2 0.01 //どれくらいずつ減らすか2
 /*
 
 制作者　宮﨑
@@ -23,6 +26,6 @@ private:
 	//1なら、「敵を倒せ！」表示
 	//2なら、Bossに移動
 	int m_flag; 
-	bool m_flag_In; //trueなら、だんだん黒くなる
+	bool m_in_flag; //trueなら、だんだん黒くなる
 };
 #endif // !BB_GUARD

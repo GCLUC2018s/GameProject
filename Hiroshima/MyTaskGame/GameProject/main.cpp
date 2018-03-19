@@ -81,9 +81,10 @@ void Init(void)
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_blue.png", fire_Animdata, 204, 245));
 
 	//タイトル関係
-	ADD_RESOURCE("Title_mihon", CAnimImage::LoadImage("タイトルイメージ.png"));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
-//	ADD_RESOURCE("Title_pika", CAnimImage::LoadImage("title_pika.png"));
+	ADD_RESOURCE("Title_rogo", CAnimImage::LoadImage("rogo.png"));
+	ADD_RESOURCE("Title_rogo_s", CAnimImage::LoadImage("rogo_sabun.png"));
+	ADD_RESOURCE("Title_start", CAnimImage::LoadImage("push start.png"));
 
 	//フィールド関係
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_02.png"));
@@ -91,6 +92,7 @@ void Init(void)
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
+	ADD_RESOURCE("BossStage", CAnimImage::LoadImage("bg_boss.png"));
 
 	//テキスト関係
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
@@ -105,6 +107,13 @@ void Init(void)
 	ADD_RESOURCE("Tip", CAnimImage::LoadImage("tip.png"));
 	ADD_RESOURCE("UI", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
+
+	//HPバー関係
+	ADD_RESOURCE("HP_Icon_PL", CAnimImage::LoadImage("gauge/chara_gauge_face.png"));
+	ADD_RESOURCE("HP_Bar_PL", CAnimImage::LoadImage("gauge/chara_gauge.png"));
+	ADD_RESOURCE("HP_Bar_PL_Base", CAnimImage::LoadImage("gauge/chara_gauge_base.png"));
+	ADD_RESOURCE("HP_Bar_Boss", CAnimImage::LoadImage("gauge/boss_gauge.png"));
+	ADD_RESOURCE("HP_Bar_Boss_Base", CAnimImage::LoadImage("gauge/boss_gauge_base.png"));
 
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");

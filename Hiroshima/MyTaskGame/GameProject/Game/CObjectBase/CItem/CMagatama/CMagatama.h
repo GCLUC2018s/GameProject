@@ -3,6 +3,13 @@
 
 #include "../GameProject/Game/CObjectBase/CObjectBase.h"
 
+/*
+
+§ì@˜ZÔ
+•ÒW@‹{ú±
+
+*/
+
 #define MAGATAMA_POS_X 0
 #define MAGATAMA_POS_Y 0
 
