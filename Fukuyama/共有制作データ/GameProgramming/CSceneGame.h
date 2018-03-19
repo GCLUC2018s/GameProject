@@ -7,6 +7,7 @@
 #include "CBackGround.h"
 #include "object\CManhole.h"
 #include "object\CDrum.h"
+#include"CEnemy.h"
 
 class CSceneGame :public CTask{
 public:
@@ -14,9 +15,12 @@ public:
 		Drum = new C_Drum();
 		Manhole = new C_Manhole();
 		Player = new C_Player();
+		Enemy = new CEnemy();
+		Enemy->Init();
 		BackGround = new C_BackGround();
 	}
 	C_Player* Player;
+	CEnemy* Enemy;
 	C_BackGround* BackGround;
 	C_Manhole* Manhole;
 	C_Drum* Drum;
