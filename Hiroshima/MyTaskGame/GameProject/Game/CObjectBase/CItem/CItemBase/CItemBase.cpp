@@ -25,8 +25,14 @@ void CItemBase::Update()
 		m_vec3D.y = 0;
 		m_vec3D.z = 0;
 	}
-	if (m_pos3D.x < 50) {
-		m_pos3D.x = 50;
+	if (m_scroll.x == 0) {
+		if (m_pos3D.x < 50) {
+			m_pos3D.x = 50;
+		}
+	}else if (m_scroll.x == 1280) {
+		if (m_pos3D.x < 50 + SCREEN_WIDTH) {
+			m_pos3D.x = 50 + SCREEN_WIDTH;
+		}
 	}
 	if (m_pos3D.z > 0) {
 		m_pos3D.z = 0;
