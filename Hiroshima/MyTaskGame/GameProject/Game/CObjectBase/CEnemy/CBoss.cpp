@@ -71,8 +71,8 @@ void CBoss::Update() {
 
 	
 
-//m_tail.ChangeAnimation(4);
-//m_head.ChangeAnimation(5);
+//
+//
 //m_img.ChangeAnimation(6);
 //m_head.ChangeAnimation(7);
 
@@ -97,10 +97,11 @@ void CBoss::Draw() {
 	
 	m_tail.SetFlipH(m_flipH);
 
+	m_tail.Draw();
 	m_head.Draw();
 	m_arm.Draw();
 	m_arm2.Draw();
-	m_tail.Draw();
+	
 }
 
 

@@ -61,15 +61,19 @@ void CSceneManager::MainScene() {
 	SOUND("BGM_Title")->Stop();
 	new CBB(60 * 3, 1, true);
 	new CPlayer();
+
 	new CFire(&(CVector3D(500, 0, -20)));
 	new CFire(&(CVector3D(500, 0, -100)));
 	new CItemBox(&(CVector3D(1000, 0, -430)), 0);
 	new CItemBox(&(CVector3D(1250, 0, -430)), 1);
+
 	new CFieldManager();
+
 
 	new CMagatama();
 	new CHPBar(false);
 	new CEnemyManager();
+
 }
 
 void CSceneManager::BossScene() {
@@ -82,6 +86,7 @@ void CSceneManager::BossScene() {
 	new CMagatama();
 	new CHPBar(true);
 	new CHPBar(false);
+
 }
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
