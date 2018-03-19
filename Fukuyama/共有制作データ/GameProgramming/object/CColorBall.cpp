@@ -39,13 +39,13 @@ void C_ColorBall::Init(){
 	else{
 		//カラーボールの初期位置の調整
 		//右向き
-		if (C_Player::m_Playerpoint->m_Turn == E_RIGHT){
+		/*if (C_Player::m_Playerpoint->m_Turn == E_RIGHT){
 			m_Position.x += 35;
 		}
 		//左向き
 		else if (C_Player::m_Playerpoint->m_Turn == E_LEFT){
 			m_Position.x -= 35;
-		}
+		}*/
 	}
 
 }
