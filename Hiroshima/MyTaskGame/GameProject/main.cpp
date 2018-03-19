@@ -92,6 +92,7 @@ void Init(void)
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
+	ADD_RESOURCE("BossStage", CAnimImage::LoadImage("bg_boss.png"));
 
 	//テキスト関係
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
