@@ -9,6 +9,7 @@ protected:
 public:
 	CBossStage();
 	~CBossStage();
+	void Draw();
 
 private:
 
