@@ -144,7 +144,7 @@ void Init(void)
 	SOUND("SE_KKN")->Load("Sound/SE/se_033.wav");
 	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 
-	NEW_SCENE(eGameStart);
+	NEW_SCENE(eDebug);
 }
 
 void release()
