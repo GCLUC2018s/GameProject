@@ -63,8 +63,8 @@ void CSceneManager::MainScene() {
 	new CEnemy3(&(CVector3D(600, 100, -250)));
 	new CEnemy4(&(CVector3D(800, 50, -200)));
 	new CEnemy5(&(CVector3D(200, 0, -130)));*/
-	new CBoss(&(CVector3D(3000, -200, -500)), &(CVector3D(2850, 0, -500)),
-		&(CVector3D(3150, 0, -500)), &(CVector3D(3000, 200, -500)));
+	//new CBoss(&(CVector3D(3000, -200, -500)), &(CVector3D(2850, 0, -500)),
+	//	&(CVector3D(3150, 0, -500)), &(CVector3D(3000, 200, -500)));
 	new CFire(&(CVector3D(500, 0, -20)));
 	new CFire(&(CVector3D(500, 0, -100)));
 	new CItemBox(&(CVector3D(1000, 0, -430)), 0);
@@ -101,8 +101,10 @@ void CSceneManager::MainScene() {
 void CSceneManager::BossScene(){
 	//ボス戦闘画面の要素ぶち込む
 	new CHPBar(true);
-	new CHPBar(false);
-}
+	new CHPBar(false);	SOUND("BGM_Main")->Stop();
+	new CBossStage();
+	//new CBoss(&(CVector3D(500, -200, -500)), &(CVector3D(350, 0, -500)),
+	//	&(CVector3D(650, 0, -500)), &(CVector3D(500, 200, -500)));}
 
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
