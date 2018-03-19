@@ -1,4 +1,6 @@
 #include "CHPBar.h"
+#include "../CPlayer/CPlayer.h"
+#include "../CEnemy/CBoss.h"
 
 CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
 {
@@ -20,6 +22,10 @@ CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
 	m_img_PLbar.SetPos(118, 96);
 	m_img_Bossbase.SetPos(156, 650);
 	m_img_Bossbar.SetPos(156, 650);
+	//HP‚ðŽæ“¾
+	CPlayer *pl = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
+	CBoss *boss = dynamic_cast<CBoss*>(CTaskManager::GetInstance()->GetTask(eID_Boss));
+
 }
 
 void CHPBar::Update()

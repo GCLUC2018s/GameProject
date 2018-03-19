@@ -3,6 +3,8 @@
 
 #include "../CObjectBase.h"
 
+class CPlayer;
+class CBoss;
 /*
 
 制作　宮﨑
@@ -21,6 +23,8 @@ private:
 	CAnimImage m_img_Bossbar;
 	CAnimImage m_img_PLbase;
 	CAnimImage m_img_PLbar;
+	CPlayer *pl;
+	CBoss *boss;
 	bool m_boss_flag;			//trueなら、ボス用HPバー
 	void PL_Hp_Update();		//PLのUpdate
 	void Boss_Hp_Update();		//BossのUpdate
