@@ -120,6 +120,7 @@ void Init(void)
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");
 	SOUND("BGM_Main")->Volume(0.90f);
+	SOUND("BGM_Boss")->Load("Sound/BGM/ikusa_japan2.wav");
 	SOUND("BGM_Ending")->Load("Sound/BGM/n32.wav");
 
 	//SE
