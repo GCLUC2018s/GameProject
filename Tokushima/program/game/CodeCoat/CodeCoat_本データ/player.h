@@ -61,6 +61,12 @@ enum Ptype{
 	Move = 0, Jump = 8, Stand = 13
 };
 
+//バフ管理の構造体
+struct SBuff{
+	float m_speedup;
+	float m_score_ratio;
+};
+
 class CPlayerControl : public CTask{
 private:
 	CItemData m_Equipment[EQUIPMENT_COUNT];			//装備保存欄
@@ -83,6 +89,7 @@ private:
 	int m_lower_animcounter;						//アニメーションが何番目か:下半身
 	int m_upper_ac;
 	int m_lower_ac;
+	SBuff m_buff;
 public:
 	CPlayerControl();
 	~CPlayerControl();
@@ -94,6 +101,7 @@ public:
 	void setDeath(){ m_live = false; }
 	bool getlive(){ return m_live; }
 	CItemData *getEquipment(int slot){ return &m_Equipment[slot]; }
+	Ptype* getPlayerState(){ return &m_lower_playerstate; }
 };
 
 

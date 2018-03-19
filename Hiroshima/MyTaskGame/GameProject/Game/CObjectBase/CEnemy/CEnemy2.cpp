@@ -22,9 +22,6 @@ CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 
 }
 
-CEnemy2::~CEnemy2() {
-}
-
 void CEnemy2::Update() {
 	switch (m_state)
 	{
@@ -50,19 +47,9 @@ void CEnemy2::Update() {
 		break;
 	}
 
-	if (PUSH_R) {
-		if (m_hp >= 0) {
-			m_damage = true;
-			m_state = eKnockBack;
-		}
-		else {
-			m_state = eFall;
-		}
-	}
-
 	m_img.UpdateAnimation();
 	CheckOverlap();
-	m_rect_F = CRect(77, 68, 170, ENEMY_SIZ_Y - m_pos3D.y);
+	m_rect_F.m_bottom = ENEMY_SIZ_Y - m_pos3D.y;
 }
 
 
@@ -97,7 +84,10 @@ void CEnemy2::Move() {
 }
 
 void CEnemy2::Attack() {
-
+	m_img.ChangeAnimation(eAnimEnemyAttack);
+	if (m_img.GetIndex() == 2) {
+		m_state = eMove;
+	}
 }
 
 void CEnemy2::KnockBack() {

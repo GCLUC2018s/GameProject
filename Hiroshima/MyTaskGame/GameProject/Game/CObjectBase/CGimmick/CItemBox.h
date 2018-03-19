@@ -1,19 +1,19 @@
 #ifndef ITEMBOX_GUARD
 #define ITEMBOX_GUARD
 
-#include "../CObjectBase.h"
+#include "../GameProject/Game/CObjectBase/CItem/CItemBase/CItemBase.h"
 /*
 
 êªçÏé“Å@âÕñÏ
 
 */
 
-class CItemBox :public CObjectBase {
+class CItemBox :public CItemBase {
 public:
 	CItemBox(CVector3D *pos, int state);
 	~CItemBox();
 	void	Update();
-	void	Draw();
+	void Draw();
 private:
 	bool	m_break;
 	int		m_cnt;

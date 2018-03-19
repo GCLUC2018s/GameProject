@@ -84,10 +84,10 @@ void Init(void)
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
 	ADD_RESOURCE("Title_rogo", CAnimImage::LoadImage("rogo.png"));
 	ADD_RESOURCE("Title_rogo_s", CAnimImage::LoadImage("rogo_sabun.png"));
-	ADD_RESOURCE("Title_start", CAnimImage::LoadImage("push start.png"));
 
 	//フィールド関係
-	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_01.png"));
+	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_02.png"));
+	ADD_RESOURCE("Sky_Y", CAnimImage::LoadImage("bg_sky_01.png"));
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
@@ -98,16 +98,12 @@ void Init(void)
 	ADD_RESOURCE("EndStaff", CAnimImage::LoadImage("ending.png"));
 
 	//アイテム関係
-	ADD_RESOURCE("Ohuda", CAnimImage::LoadImage("item_matome_1.png"));
-	ADD_RESOURCE("Koban", CAnimImage::LoadImage("item_matome_1.png"));
-	ADD_RESOURCE("Oage", CAnimImage::LoadImage("item_matome_1.png"));
-	ADD_RESOURCE("Sake", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));
 	ADD_RESOURCE("ItemBox", CAnimImage::LoadImage("itembox_motion_object.png", itembox_Animdata, 512, 512));
 
 	//UI関係
 	ADD_RESOURCE("Tip", CAnimImage::LoadImage("tip.png"));
-	ADD_RESOURCE("Magatama", CAnimImage::LoadImage("item_matome_1.png"));
+	ADD_RESOURCE("UI", CAnimImage::LoadImage("item_matome_1.png"));
 	ADD_RESOURCE("GO", CAnimImage::LoadImage("go_sign.png"));
 
 	//BGM
@@ -131,6 +127,11 @@ void Init(void)
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
+	SOUND("SE_COIN")->Load("Sound/SE/cursor3.wav",50);
+	SOUND("SE_ITEM")->Load("Sound/SE/magic-status-cure1.wav",20);
+	SOUND("SE_KAKERA")->Load("Sound/SE/decision18.wav",3);
+	SOUND("SE_KKN")->Load("Sound/SE/se_033.wav");
+	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 
 	NEW_SCENE(eDebug);
 }

@@ -1,6 +1,10 @@
 #include "CBB.h"
 #include "../GameProject/Task/CTaskManager.h"
 #include "../CMainText/CMainText.h"
+#include "../GameProject/Game/CScene/CSceneManager.h"
+
+#define BB_COL_PA 0.7 //どの濃さで止めるか。
+#define BB_COL_DOWN 0.05 //どれくらいずつ減らすか
 
 CBB::CBB(const int time, const bool flag, const bool in_flag) :CObjectBase(0, eU_System, eD_UI)
 {
@@ -9,6 +13,7 @@ CBB::CBB(const int time, const bool flag, const bool in_flag) :CObjectBase(0, eU
 	m_color = CColorRGBA(0, 0, 0, 1);
 	m_cnt = 0;
 	m_time = time;
+	if(flag)
 	m_flag = flag;
 	m_in_flag = in_flag;
 	if(m_flag)
@@ -17,12 +22,21 @@ CBB::CBB(const int time, const bool flag, const bool in_flag) :CObjectBase(0, eU
 
 CBB::~CBB()
 {
-	if (m_flag) {
+	switch (m_flag)
+	{
+	case 1:
 		//終わったらエネミー生成
 		CTaskManager::GetInstance()->SetPause(eID_Player, false);
 		CTaskManager::GetInstance()->SetPause(eID_Enemy, false);
 		CTaskManager::GetInstance()->SetPause(eID_Gimmick, false);
+		CTaskManager::GetInstance()->SetPause(eID_Magatama, false);
 		SOUND("BGM_Main")->Play(true);
+		break;
+	case 2:
+		NEW_SCENE(eEnd)
+		break;
+	default:
+		break;
 	}
 }
 
@@ -46,7 +60,6 @@ void CBB::Update()
 			m_color.w -= BB_COL_DOWN;
 		}
 	}
-
 	if (m_in_flag){
 		if (m_color.w < -0.3) {
 			SetKill();
@@ -58,6 +71,9 @@ void CBB::Update()
 		}
 	}
 }
+
+
+
 
 void CBB::Draw()
 {

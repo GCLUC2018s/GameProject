@@ -2,6 +2,7 @@
 #include "../GameProject/Game/CScene/CSceneManager.h"
 #include "../CBB/CBB.h"
 
+CTitleBG::CTitleBG() :CObjectBase(0, eU_Back, eD_Null)
 CTitleBG::CTitleBG() :CObjectBase(0, eU_Back, eD_Back)
 {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title"));
@@ -33,6 +34,7 @@ CTitleBG::CTitleBG() :CObjectBase(0, eU_Back, eD_Back)
 
 	m_sabun_flag = false;
 	m_end_flag = false;
+	m_color.w = 0.0;
 	m_f_time = 0.0;
 	m_time = 0;
 }
@@ -46,8 +48,10 @@ CTitleBG::~CTitleBG()
 
 void CTitleBG::Update()
 {
+	BGUpdate();
 	RogoUpdate();
 	PushStartUpdate();
+	
 
 
 	if (m_end_flag) {
@@ -71,6 +75,8 @@ void CTitleBG::Update()
 
 void CTitleBG::Draw()
 {
+	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
+	m_img.SetPos(m_pos3D.x - m_scroll.x, m_pos3D.y - m_scroll.y);
 	m_img_start_2.SetSize(m_st_siz * 2);
 	m_img_start_2.SetCenter(m_st_siz);
 	//色
@@ -87,8 +93,10 @@ void CTitleBG::Draw()
 	m_img_start_2.Draw();
 }
 
+void CTitleBG::BGUpdate()
 void CTitleBG::RogoUpdate()
 {
+
 	if (m_col_rogo_s.w <= 0.0) {
 		m_sabun_flag = true;
 	}
@@ -103,6 +111,8 @@ void CTitleBG::RogoUpdate()
 	}
 }
 
+	if (PUSH_ENTER) {
+		//フェードアウトフラグ立てる
 void CTitleBG::PushStartUpdate()
 {
 	if (m_end_flag == false && PUSH_ENTER) {
@@ -110,14 +120,24 @@ void CTitleBG::PushStartUpdate()
 		m_col_start_2.w = 1.0;
 		m_end_flag = true;
 	}
+	if (m_end_flag) {
+		//フェードアウト
+		m_color.a -= 0.01;
+		m_color.w -= 0.01;
+	}
+	if (m_color.w < -1.0) {
+		SetKill();
+	}
 
 }
 
+void CTitleBG::RogoUpdate()
 void CTitleBG::FadeIn(float *a)
 {
 	(*a) += 0.005;
 }
 
+void CTitleBG::PushStartUpdate()
 void CTitleBG::FadeOut(float *a)
 {
 	(*a) -= 0.005;

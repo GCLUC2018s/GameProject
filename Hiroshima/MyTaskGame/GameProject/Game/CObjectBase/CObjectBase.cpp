@@ -1,6 +1,10 @@
 #include "CObjectBase.h"
+#include "CPlayer\CPlayer.h"
+#include "CFieldBG\CFieldGround\CFieldGround.h"
 
 CVector2D CObjectBase::m_scroll(0, 0);
+bool CObjectBase::m_wave_flag = true;
+bool CObjectBase::m_sc_flag_x = false;
 
 CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
 	CTask(id, updatePrio, drawPrio) {
@@ -23,28 +27,39 @@ void CObjectBase::Draw()
 
 void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 {
-	if ((t1->GetUpdatePrio() == eU_Player && t2->GetUpdatePrio() == eU_Enemy)||
-		(t2->GetUpdatePrio() == eU_Player && t1->GetUpdatePrio() == eU_Enemy)) {
+
+	if ((t1->GetID() == eID_Player && t2->GetID() == eID_Enemy) ||
+		(t2->GetID() == eID_Player && t1->GetID() == eID_Enemy) ||
+		(t1->GetID() == eID_Player && t2->GetID() == eID_Item) ||
+		(t2->GetID() == eID_Player && t1->GetID() == eID_Item)) {
 		//PLとENEの判定
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
-		if (t1 != nullptr && t2 != nullptr) {
-			//CObjectBaseへの変換が成功していたら
-			if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 50) {
-				if (o1->m_pos3D.x + o1->m_rect.m_right  >	o2->m_pos3D.x + o2->m_rect.m_left &&
-					o1->m_pos3D.x + o1->m_rect.m_left   <	o2->m_pos3D.x + o2->m_rect.m_right &&
-					o1->m_pos3D.y + o1->m_rect.m_bottom >	o2->m_pos3D.y + o2->m_rect.m_top &&
-					o1->m_pos3D.y + o1->m_rect.m_top    <	o2->m_pos3D.y + o2->m_rect.m_bottom) {
-					o1->Hit(t2);
-					o2->Hit(t1);
-				}
+		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 100) {
+			if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
+				o1->m_pos3D.x + o1->m_rect.m_left  <o2->m_pos3D.x + o2->m_rect.m_right &&
+				o1->m_pos3D.y + o1->m_rect.m_bottom>o2->m_pos3D.y + o2->m_rect.m_top &&
+				o1->m_pos3D.y + o1->m_rect.m_top < o2->m_pos3D.y + o2->m_rect.m_bottom) {
+				o1->Hit(o2);
+				o2->Hit(o1);
 			}
 		}
 	}
+
+	if ((t1->GetID() == eID_Player && t2->GetID() == eID_Ground)) {
+		CFieldGround* o1 = dynamic_cast<CFieldGround*>(t2);
+		CPlayer* o2 = dynamic_cast<CPlayer*>(t1);
+		o1->GroundHitCheck(o2);
+	}
+	if ((t2->GetID() == eID_Player && t1->GetID() == eID_Ground)) {
+		CFieldGround* o1 = dynamic_cast<CFieldGround*>(t1);
+		CPlayer* o2 = dynamic_cast<CPlayer*>(t2);
+		o1->GroundHitCheck(o2);
+	}
 }
-void CObjectBase::Hit(CTask * t)
+void CObjectBase::Hit(CObjectBase * t)
 {
-	printf("hit");
+	printf("hit\n");
 }
 ////描画順序チェック関数
 //void CObjectBase::CheckOverlapAll()

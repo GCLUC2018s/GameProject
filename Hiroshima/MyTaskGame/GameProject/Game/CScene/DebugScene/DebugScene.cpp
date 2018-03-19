@@ -41,7 +41,7 @@ void CDebugScene::Update()
 
 void CDebugScene::Draw()
 {
-	m_font.Draw(SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 150, 1, 1, 0,	"数字入力後　エンター");
+	m_font.Draw(SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 150, 1, 1, 0,	"　　　数字入力　　　　");
 	m_font.Draw(SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 100, 1, 1, 1,	"0　:　最初から　　　　");
 	m_font.Draw(SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 50, 1, 1, 1,	"1　:　タイトルから　　");
 	m_font.Draw(SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2	, 1, 1, 1,		"2　:　メインから　　　");

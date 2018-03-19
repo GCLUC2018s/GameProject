@@ -1,5 +1,7 @@
 #include "enemy_manager.h"
 #include "bullet_manager.h"
+#include "player_manager.h"
+#include "item_manager.h"
 
 CEnemyManager* CEnemyManager::mp_instance = nullptr;
 
@@ -85,6 +87,7 @@ void CEnemyManager::LoadFile(){
 	}
 
 out:
+	delete temp;
 	fclose(fp);
 }
 
@@ -104,6 +107,8 @@ void CEnemyManager::Update(){
 		printfDx("%f,%f\n", l_e_pos.getX(), l_e_pos.getY());
 	}*/
 
+	int _num = rand() % ITEM_RAND;		//’Ç‰Á
+
 	//“–‚½‚è”»’è
 
 	auto _bullet_list = CBulletManager::GetInstance()->GetBulletList();
@@ -120,6 +125,11 @@ void CEnemyManager::Update(){
 						//“G‚Ì‘Ì—Í‚ðŒ¸‚ç‚µA‘Ì—Í‚ª0ˆÈ‰º‚É‚È‚é‚Æíœ‚·‚é
 						(*it)->SetHp((*it)->GetHp() - 1);
 						if ((*it)->GetHp() <= 0){
+							CEnemyManager::getInstance()->SetDel(true);		//’Ç‰Á
+							CEnemyManager::getInstance()->CombInc();		//’Ç‰Á
+							if (_num == 1){
+								CItemManager::GetInstance()->Create(&(*it)->GetPos());	//’Ç‰Á
+							}
 							(*it)->SetLive(false);
 						}
 					}
@@ -139,5 +149,8 @@ std::vector<CEnemy*> CEnemyManager::getEnemyList() const
 	return m_enemy_list;
 }
 
-
-//void 
+void CEnemyManager::CombUpdate(){
+	if (CPlayerManager::GetInstance()->GetPlayerAdress()->getlive() == true){
+		m_comb = 0;
+	}
+}

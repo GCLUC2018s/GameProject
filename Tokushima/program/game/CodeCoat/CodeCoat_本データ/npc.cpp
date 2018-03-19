@@ -12,6 +12,8 @@ CNpc::CNpc()
 , m_shop_flag(false)
 , m_dash_flag(false)
 , m_cursor(0)
+, m_chk_pt(DASH_START_POS)
+, m_chk_pt_num(CHECK_POINT_NUMBER)
 {
 	for (int i = 0; i < 3; i++){
 		m_sell_item[i].m_img = 0;
@@ -22,7 +24,7 @@ CNpc::CNpc()
 	}
 
 	m_shadowimg = LoadGraph("media\\img\\Pshadow.png", TRUE);
-	LoadDivGraph("media\\img\\item-frame.png", 4, 2, 2, 100, 100, m_flame, TRUE);
+	LoadDivGraph("media\\img\\item-frame.png", 5, 2, 3, 100, 100, m_flame, TRUE);
 	//CNpc ManagerにCNpcのアドレスを渡すための関数
 	CNpcManager::GetInstance()->Init(this);
 }
@@ -31,41 +33,24 @@ CNpc::~CNpc(){
 }
 
 void CNpc::Update(){
-	//clsDx();
-//	CVector3D pos = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos();
-	//printfDx("%f,%f,%f\n", pos.getX() + PLAYER_CENTER, pos.getY(), pos.getZ() + PLAYER_SHADOW_HEIGHT_POS);
-	//auto item = CItemManager::GetInstance()->GetItemList();
-
-	
-		
-	/*float _xdist, _ydist, _zdist;
-	for (auto it = item.begin(); it < item.end(); it++){
-		_xdist = pow(pos.getX() - (*it)->GetPos().getX(), 2);
-		_ydist = pow(pos.getY() - (*it)->GetPos().getY(), 2);
-		_zdist = pow(pos.getZ() - (*it)->GetPos().getZ(), 2);
-		printfDx("%f,%f,%f\n", _xdist, _ydist, _zdist);
-	}*/
-	
-
-
-
 	float _total_mv = CMapManager::GetInstance()->GetPlayerAdress()->getTotalmovement();
-	float _gear = CPlayerManager::GetInstance()->GetPlayerAdress()->getMoveAmount();
-	_total_mv /= 40;
-	int mv_ratio = (int)_total_mv % 100;//この100はuiの_move最大範囲を4で割ったもの
-	if (mv_ratio > 95){			//一定地点に行ったら通るように変更する
+	Ptype* _player_state = CPlayerManager::GetInstance()->GetPlayerAdress()->getPlayerState();
+	if (_total_mv > m_chk_pt){			//一定地点に行ったら通るように変更する
 		m_dash_flag = true;
 		m_pos = CVector3D(-200, 500, 0);
+		m_leave_time = GetNowCount();
+		m_chk_pt_num--;
+		if (m_chk_pt_num > 0)
+			m_chk_pt += DASH_START_POS;
 	}
 	if (m_dash_flag){
 		float _x = m_pos.getX();
 		_x += N_MOVEING_SPEED * FRAMETIME;
 		if (_x > 200.0f){
 			_x = 200.0f;
-			if (_gear == 0 && m_shop_flag == false){
+			if (*_player_state == Stand && m_shop_flag == false){
 				//アイテム作成
 				m_shop_flag = true; 
-				srand((unsigned int)time(NULL));
 				for (int i = 0; i < 3; i++){
 					if (m_sell_item[i].m_name == NONE){
 						
@@ -81,14 +66,14 @@ void CNpc::Update(){
 			}
 		}
 		m_pos.setX(_x);
-		if (mv_ratio > 5 && mv_ratio < 95)
+		if (GetNowCount() - m_leave_time > N_WAIT_TIME && !m_shop_flag)
 			m_dash_flag = false;
 
 	}
 	else{
 		float _x = m_pos.getX();
 		_x -= N_MOVEING_SPEED * FRAMETIME;
-		if (_x > -200.0f){
+		if (_x < -200.0f){
 			_x = -200.0f;
 		}
 		m_pos.setX(_x);
@@ -113,7 +98,6 @@ void CNpc::Update(){
 					CPlayerManager::GetInstance()->GetPlayerAdress()->setEquipment(&m_sell_item[m_cursor]);
 					m_sell_item[m_cursor].m_img = 0;
 					m_sell_item[m_cursor].m_name = NONE;
-					m_sell_item[m_cursor].m_type = (ItemType)0;
 					m_sell_item[m_cursor].m_useful = 0;
 					m_sell_item[m_cursor].m_attack_rate = 0;
 
@@ -133,8 +117,9 @@ void CNpc::Draw(){
 	DrawGraph(m_pos.getX(), m_pos.getY(), m_shadowimg, TRUE);
 	if (m_shop_flag){
 		for (int i = 1; i < 4; i++){
-			DrawGraph(i * 300, 200, m_flame[m_sell_item[i - 1].m_type], TRUE);
-			DrawGraph(i * 300, 200, m_sell_item[i - 1].m_img, TRUE);
+			DrawGraph(i * FLAME_INTERVAL, 200, m_flame[m_sell_item[i - 1].m_type], TRUE);
+			DrawRotaGraph(i * FLAME_INTERVAL + 50, FLAME_YPOS + 50, 0.4, 3.141592 / 180 * -30, m_sell_item[i - 1].m_img, TRUE, FALSE);
+			DrawGraph(m_cursor * FLAME_INTERVAL + FLAME_INTERVAL, 200, m_flame[4], TRUE);
 		}
 	}
 	

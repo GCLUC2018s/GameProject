@@ -1,5 +1,6 @@
 #include "myLib.h"
 #include "game.h"
+#include "Include.h"
 
 CGame*	g_pMain = NULL;
 const bool WINDOW_SCREEN = true;   //true:ウィンドウ
@@ -44,6 +45,7 @@ void win_main_init()
 	if (DxLib_Init() == -1) //ライブラリの初期化処理
 		return;
 	SetDrawScreen(DX_SCREEN_BACK);
+	srand((unsigned int)time(NULL));
 	//GAME関係
 	g_pMain = new CGame();
 }
@@ -60,6 +62,7 @@ void win_main_loop(){
 //メイン終了処理
 void win_main_dest()
 {
+	DxLib_End();
 	g_pMain->Dest();
 	delete g_pMain;
 	g_pMain = NULL;
