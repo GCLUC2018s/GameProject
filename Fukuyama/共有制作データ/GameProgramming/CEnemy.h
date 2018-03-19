@@ -5,7 +5,8 @@
 #include"object\CVector3.h"
 #define ENEMY_UD_SPEED 100
 #define ENEMY_LR_SPEED 200
-#define ACTION_INTERVAL 120;
+#define ACTION_INTERVAL 120
+#define TARGETINTERVAL 300
 class CEnemy :public C_Object{
 public:
 	CEnemy()
@@ -16,10 +17,6 @@ public:
 		m_image.SetVertex(0, 90, 0, 135);
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 	}
-	enum ENEMY_TYPE{
-		E_ESCAPE,
-		E_KIN
-	};
 	enum ENEMY_MODE{
 		E_NORMAL,
 	    E_ACTION
@@ -29,9 +26,14 @@ public:
 	int m_EnemyKind;//“G‚ÌŽí—Þ
 	int m_EnemyMode;
 	int m_ActionInterval;
+	int m_TargetInterval;
 	void Init();
 	void Update();
 	void Draw();
 	C_Player *m_Target;
+};
+enum ENEMY_TYPE{
+	E_ESCAPE,
+	E_KIN
 };
 #endif
