@@ -76,6 +76,7 @@ void CSceneManager::MainScene() {
 
 }
 
+
 void CSceneManager::BossScene() {
 	//ƒ{ƒXí“¬‰æ–Ê‚Ì—v‘f‚Ô‚¿ž‚Þ
 	SOUND("BGM_Main")->Stop();

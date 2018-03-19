@@ -1,4 +1,5 @@
 #include"CEnemyManager.h"
+//#include"../CGo/CGo.h"
 
 /*
 
@@ -72,21 +73,29 @@ Enemy_Push  push_enemy[10][10]{
 CEnemyManager::CEnemyManager() :CEnemyBase() {
 	//m_id = -1;
 	m_timing = 0, m_wave = 0, m_push = 0;
+	//
 }
 
 void CEnemyManager::Update() {
-
-	if (push_enemy[m_wave][m_push].time == m_timing) {
-		printf("%d   %d\n", push_enemy[m_wave][m_push].time, push_enemy[m_wave][m_push].id);
-		PushEnemy(&push_enemy[m_wave][m_push].id, &push_enemy[m_wave][m_push].push_pos);
-		m_push++;
-		if (m_push > 6) {
-			m_timing = 0;
-			m_push = 0;
-			m_wave++;
+	if(m_wave_flag){
+		if (push_enemy[m_wave][m_push].time == m_timing) {
+			printf("%d   %d\n", push_enemy[m_wave][m_push].time, push_enemy[m_wave][m_push].id);
+			PushEnemy(&push_enemy[m_wave][m_push].id, &push_enemy[m_wave][m_push].push_pos);
+			m_push++;
+			//m_enemy_cnt++;
+			if (m_push > 6) {
+				m_timing = 0;
+				m_push = 0;
+				m_wave++;
+			}
 		}
+		//if(m_push<=6)
+		m_timing++;
 	}
-	m_timing++;
+
+	if (m_enemy_cnt<0) {
+		//new CGo();
+	}
 }
 
 
