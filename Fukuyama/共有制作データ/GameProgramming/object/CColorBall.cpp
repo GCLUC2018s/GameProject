@@ -1,13 +1,18 @@
 #include "CColorBall.h"
 
-
 void C_ColorBall::Init(){
-	if (C_Player::m_Playerpoint->m_Anime_Throw <= THROW_ANIME + 1){
-		m_Anime_Throw = E_THROW;
+
+	if (C_Player::m_Playerpoint->m_Throw==E_THROW){
+		m_State = E_NAGE;
+		//プレイヤーのステータスを投げていないに変更します
+		C_Player::m_Playerpoint->m_Throw = E_NTHROW;
 	}
-	else{
-		m_Anime_Throw = E_NTHROW;
+	if(C_Player::m_Playerpoint->m_Set==E_SET){
+		m_State=E_OKI;
+		//プレイヤーのステータスを設置していないに変更します
+		C_Player::m_Playerpoint->m_Set = E_NSET;
 	}
+
 	//カラーボールの影の初期位置の奥行を調整します
 	i_Throwpos = C_Player::m_Playerpoint->m_Position;
 	//カラーボールの影とボールを同期
@@ -75,6 +80,9 @@ void C_ColorBall::Update()
 
 	Rect(&m_image, &m_Position);             //画像の位置をm_Positionと同期します
 	Scroll(&m_Position, m_Scroll);           //スクロール処理をします
+	if(m_Position.x <= -(W_H / 2)){
+		SetKill();
+	}
 }
 
 void C_ColorBall::Draw(){
