@@ -139,6 +139,7 @@
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemy5.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyBase.h" />
     <ClInclude Include="Game\CObjectBase\CEnemy\CEnemyManager.h" />
+    <ClInclude Include="Game\CObjectBase\CFieldBG\CBossStage\CBossStage.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.h" />
     <ClInclude Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Game\CObjectBase\CItem\COage\COage.h" />
     <ClInclude Include="Game\CObjectBase\CItem\COhuda\COhuda.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CSake\CSake.h" />
+    <ClInclude Include="Game\CObjectBase\CMahouzin\CMahouzin.h" />
     <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="Source\Enemysource.h" />
     <ClInclude Include="Source\Fieldsource.h" />
     <ClInclude Include="Source\Gamesource.h" />
+    <ClInclude Include="Source\Itemsource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Task\CTask.h" />
     <ClInclude Include="Task\CTaskLinker.h" />
@@ -186,6 +189,7 @@
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemy5.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CEnemy\CEnemyManager.cpp" />
+    <ClCompile Include="Game\CObjectBase\CFieldBG\CBossStage\CBossStage.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldBamboo\CFieldBamboo.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldCloud\CFieldCloud.cpp" />
     <ClCompile Include="Game\CObjectBase\CFieldBG\CFieldGround\CFieldGround.cpp" />
@@ -203,6 +207,7 @@
     <ClCompile Include="Game\CObjectBase\CItem\COage\COage.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\COhuda\COhuda.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CSake\CSake.cpp" />
+    <ClCompile Include="Game\CObjectBase\CMahouzin\CMahouzin.cpp" />
     <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />

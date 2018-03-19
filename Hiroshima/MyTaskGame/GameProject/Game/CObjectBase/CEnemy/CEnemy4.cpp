@@ -22,9 +22,6 @@ CEnemy4::CEnemy4(const CVector3D *pos) :CEnemyBase() {
 	m_end_flag = false;
 }
 
-CEnemy4::~CEnemy4() {
-}
-
 void CEnemy4::Update() {
 
 	switch (m_state)

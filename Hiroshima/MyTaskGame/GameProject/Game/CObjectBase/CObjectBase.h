@@ -1,6 +1,8 @@
 #ifndef CHARABASE_GUARD
 #define CHARABASE_GUARD
 
+#define GRAVITY 1.2f
+
 #include "../GameProject/Task/CTask.h"
 #include "../GameProject/Task/CTaskManager.h"
 #include "../GameProject/stdafx.h"
@@ -43,14 +45,22 @@ protected:
 	};
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
-	////座標取得
-	//CVector3D *GetPos() {
-	//	return &m_pos3D;
-	//};
-	////矩形取得
-	//virtual CRect *GetRect() {
-	//	return &m_rect;
-	//};
+	//座標取得
+	CVector3D GetPos() {
+		return m_pos3D;
+	};
+	//ベクトル取得
+	CVector3D GetVec() {
+		return m_vec3D;
+	};
+	//ベクトルセット
+	void SetVec(CVector3D &vec) {
+		m_vec3D = vec;
+	};
+	//矩形取得
+	CRect GetRect() {
+		return m_rect;
+	};
 	////入れ替え用矩形取得
 	//CRect *GetRect_F() {
 	//	return &m_rect_F;

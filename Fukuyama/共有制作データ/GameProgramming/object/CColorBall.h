@@ -5,6 +5,11 @@
 #include "C_Object.h"
 #include "../chara/C_Player.h"
 
+enum COLORBALL_STATE{
+	E_NAGE,
+	E_OKI,
+};
+
 class C_ColorBall:public C_Object{
 public:
 	C_ColorBall()
@@ -20,6 +25,7 @@ public:
 	CTexture i_ColorBall;
 	float m_Deltatime;     //1•bŠÔ‚Ìˆ—‰ñ”
 	C_Vector3 i_Throwpos;         //“Š‚°‚½ˆÊ’u
+	int m_State;               //“Š‚°‚½‹…‚©İ’u‚Ì‹…‚©
 	bool init;
 	void Init();
 	void Update();

@@ -7,6 +7,7 @@
 #include "bullet_manager.h"
 #include "item_manager.h"
 #include "enemy_manager.h"
+//#include "map_manager.h"
 
 CPlayerManager* CPlayerManager::mp_Instance = nullptr;
 
@@ -25,7 +26,12 @@ void CPlayerManager::ClearInstance()
 }
 
 // コンストラクタ
-CPlayerManager::CPlayerManager()
+CPlayerManager::CPlayerManager():
+m_evasion(0),
+m_evasion_flag(false),
+m_nodamage_movement(0),
+m_ndm_flag(false),
+m_passflag(false)
 {
 }
 
@@ -60,13 +66,16 @@ void CPlayerManager::Update()
 	//ナイフを振っていれば数値が増大
 	float _knife_coli = 0;
 	bool _knife_flag = false;
+	int _num = rand() % ITEM_RAND;		//追加
+
 
 	CItemData *_Idata = m_player->getEquipment(WEAPON);
 	CItemData *_Armor = m_player->getEquipment(ARMOR);
 	if (_Idata->m_name == KNIFE && _Idata->m_useful > 0)
 	{
-		_knife_coli = 30.0f;
+		_knife_coli = 40.0f;
 		_knife_flag = true;
+		CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
 	}
 
 
@@ -81,31 +90,43 @@ void CPlayerManager::Update()
 				if (_knife_flag){
 					(*it)->Kill();
 				}
-					else
-					if (_Armor->m_useful > 0)
-						_Armor->m_useful--;
-					else
-						m_player->setDeath();
+				else
+				if (_Armor->m_useful > 0)
+					_Armor->m_useful--;
+				else{
+					m_player->setDeath();
+					CEnemyManager::getInstance()->SetComb(0);	//追加
+					CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
+				}
 			}
 		}
 	}
 	
 	
-	auto _enemy_list = CEnemyManager::getInstance()->getEnemyList();
+	auto _enemy_list = CEnemyManager::getInstance()->getEnemyList();//ココから下変更、追加
 	for (auto it2 = _enemy_list.begin(); it2 != _enemy_list.end(); it2++){
-		if (IsHitCircle(PLAYER_COLLISION  + _knife_coli, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
+		//ナイフのみの判定が欲しかったので追加
+		if (IsHitCircle(PLAYER_COLLISION + _knife_coli, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
 			if (_knife_flag){
 				(*it2)->SetLive(false);
+				CEnemyManager::getInstance()->CombInc();
+				if (_num == 1){
+					CItemManager::GetInstance()->Create(&(*it2)->GetPos());	//追加
+				}
 			}
-			else
+			CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
+		}
+	
+		if (IsHitCircle(PLAYER_COLLISION, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
 			if (_Armor->m_useful > 0)
 				_Armor->m_useful--;
-			else
-				m_player->setDeath();			
+			else{
+				m_player->setDeath();
+				CEnemyManager::getInstance()->SetComb(0);	//追加
+				CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
+			}
 		}
-		
-
-	}
+	}																//ここまで
 	
 
 	//主人公の足元
@@ -128,5 +149,23 @@ void CPlayerManager::Update()
 	}
 
 
+	noDamageDistance();		//追加
+}
 
+void CPlayerManager::noDamageDistance(){	//追加
+	float ma = CPlayerManager::GetInstance()->GetPlayerAdress()->getMoveAmount();
+	m_nodamage_movement += ma;
+	if (m_nodamage_movement > 2500){
+		//450単位で切り替わる
+		if (m_nodamage_movement /450 % 2 == 0){
+			//一回入ると次の０まで入れない
+			if (m_passflag == false){
+				m_ndm_flag = true;
+				m_passflag = true;
+			}
+		}
+		else{
+			m_passflag = false;
+		}
+	}
 }

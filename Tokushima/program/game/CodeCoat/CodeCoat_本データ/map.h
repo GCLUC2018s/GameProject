@@ -12,6 +12,7 @@ using namespace std;
 
 
 const int IMAGECOUNT = 3;
+const int GOAL_POINT = 8000;		//ÉSÅ[Éãínì_
 
 
 class CMapControl : public CTask{

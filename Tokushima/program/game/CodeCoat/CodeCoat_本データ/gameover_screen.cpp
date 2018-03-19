@@ -6,17 +6,17 @@ CGameOverScreen::CGameOverScreen()
 	m_state = GAMEOVER_SCREEN;
 	//初期化
 	m_lasttime = GetNowCount() & INT_MAX;
-	PlaySoundMem(m_GoverSound, DX_PLAYTYPE_BACK);
 	//ロード
-	m_GoverImage = LoadGraph("media\\img\\GO_02.png");
-	m_GoverSound = LoadSoundMem("media\\mp3\\gameover\\sousou3.mp3");
+	m_gover_bg_img = LoadGraph("media\\img\\bg_black.png");
+	m_gover_light_img = LoadGraph("media\\img\\light.png");
+	m_gover_txt_img = LoadGraph("media\\img\\gm_over_02.png");
 }
 
 //デストラクタ
 CGameOverScreen::~CGameOverScreen(){}
 
 void CGameOverScreen::Dest(){
-	StopSoundMem(m_GoverSound);
+	//StopSoundMem(m_GoverSound);
 }
 
 
@@ -25,19 +25,21 @@ void CGameOverScreen::Update()
 {
 	if (((GetNowCount() & INT_MAX) - m_lasttime) > GAMEOVER_TIME){
 		m_state = TITLE_SCREEN;
-		StopSoundMem(m_GoverSound);
+		//StopSoundMem(m_GoverSound);
 	}
-	if (CheckHitKey(KEY_INPUT_X) == 1){
+	/*if (CheckHitKey(KEY_INPUT_X) == 1){
 		m_state = GAME_SCREEN;
-		StopSoundMem(m_GoverSound);
-	}
+		//StopSoundMem(m_GoverSound);
+	}*/
 }
 
 //描画
 void CGameOverScreen::Draw()
 {
 	ClearDrawScreen();
-	DrawGraph(0, 0, m_GoverImage, TRUE);
+	DrawGraph(0, 0, m_gover_bg_img, TRUE);
+	DrawGraph(0, 0, m_gover_light_img, TRUE);
+	DrawGraph(285, 305, m_gover_txt_img, TRUE);
 }
 
 

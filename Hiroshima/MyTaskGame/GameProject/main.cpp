@@ -81,9 +81,10 @@ void Init(void)
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_effect.png", fire_Animdata, 204, 245));
 
 	//タイトル関係
-	ADD_RESOURCE("Title_mihon", CAnimImage::LoadImage("タイトルイメージ.png"));
 	ADD_RESOURCE("Title", CAnimImage::LoadImage("title.png"));
-//	ADD_RESOURCE("Title_pika", CAnimImage::LoadImage("title_pika.png"));
+	ADD_RESOURCE("Title_rogo", CAnimImage::LoadImage("rogo.png"));
+	ADD_RESOURCE("Title_rogo_s", CAnimImage::LoadImage("rogo_sabun.png"));
+	ADD_RESOURCE("Title_start", CAnimImage::LoadImage("push start.png"));
 
 	//フィールド関係
 	ADD_RESOURCE("Sky", CAnimImage::LoadImage("bg_sky_02.png"));
@@ -91,6 +92,7 @@ void Init(void)
 	ADD_RESOURCE("Cloud", CAnimImage::LoadImage("bg_cloud.png"));
 	ADD_RESOURCE("Bamboo", CAnimImage::LoadImage("bg_bamboo.png"));
 	ADD_RESOURCE("Ground", CAnimImage::LoadImage("bg_ground.png"));
+	ADD_RESOURCE("BossStage", CAnimImage::LoadImage("bg_boss.png"));
 
 	//テキスト関係
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
@@ -127,6 +129,11 @@ void Init(void)
 	SOUND("SE_Title_Enter")->Load("Sound/SE/se_027.wav");
 	SOUND("SE_GameStart")->Load("Sound/SE/bell01.wav");
 	SOUND("SE_DDN")->Load("Sound/SE/se_011.wav");
+	SOUND("SE_COIN")->Load("Sound/SE/cursor3.wav",50);
+	SOUND("SE_ITEM")->Load("Sound/SE/magic-status-cure1.wav",20);
+	SOUND("SE_KAKERA")->Load("Sound/SE/decision18.wav",3);
+	SOUND("SE_KKN")->Load("Sound/SE/se_033.wav");
+	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 
 	NEW_SCENE(eDebug);
 }

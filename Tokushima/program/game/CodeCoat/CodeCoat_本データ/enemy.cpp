@@ -4,7 +4,6 @@
 #include "player_manager.h"
 #include "enemy_manager.h"
 #include "bullet_manager.h"
-#include "ui_manager.h"
 
 CEnemy::CEnemy() :
 m_hp(0),
@@ -75,7 +74,7 @@ void CEnemy::Update(){
 			CEnemyManager::getInstance()->Remove(this);
 			//タスクキル
 			SetKill();
-			CUiManager::GetInstance()->GetPlayerAdress()->scoreAddition();
+			//CUiManager::GetInstance()->GetPlayerAdress()->scoreAddition();
 		}
 	}
 

@@ -7,35 +7,74 @@
 #include "enemy_manager.h"
 #include "ui_manager.h"
 #include "npc_manager.h"
+#include "map_manager.h"
 
 int g_stage = 1;
 
 //コンストラクタ
 CGameScreen::CGameScreen(){
 	m_state = GAME_SCREEN;
+	m_gameclear_img[0] = LoadGraph("media\\img\\gm_clear_1.png");
+	m_gameclear_img[1] = LoadGraph("media\\img\\gm_clear_2.png");
+	m_cpos1 = CVector3D(CLEAR_TEXT_INI_X, CLEAR_TEXT1_INI_Y, 0);
+	m_cpos2 = CVector3D(CLEAR_TEXT_INI_X, CLEAR_TEXT2_INI_Y, 0);
+	m_count1 = 0;
 	CItemManager::GetInstance()->Create(&CVector3D(300,0, 300));
 	CItemManager::GetInstance()->Create(&CVector3D(500, 0, 300));
 	CItemManager::GetInstance()->Create(&CVector3D(700, 0, 300));
-	CItemManager::GetInstance()->Create(&CVector3D(900, 0, 300));
-	CItemManager::GetInstance()->Create(&CVector3D(1100, 0, 300));
+	//CItemManager::GetInstance()->Create(&CVector3D(900, 0, 300));
+	//CItemManager::GetInstance()->Create(&CVector3D(1100, 0, 300));
 	new CPlayerControl;
 	new CNpc;
-	CEnemyManager *em = CEnemyManager::getInstance();
+	new CMapControl;
+	CEnemyManager::getInstance();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
 }
 
 //デストラクタ
-CGameScreen::~CGameScreen(){}
+CGameScreen::~CGameScreen(){
+	CTaskManager::GetInstance()->KillAll();
+	CPlayerManager::ClearInstance();	//Play
+	CMapManager::ClearInstance();		//Map
+	CEnemyManager::clearInstance();		//Enemy
+	CItemManager::ClearInstance();		//Item
+	CBulletManager::ClearInstance();	//Bullet
+	CNpcManager::ClearInstance();		//Npc
+	CUiManager::ClearInstance();		//Ui
+	CTaskManager::ClearInstance();		//Task
+}
 
 void CGameScreen::Dest(){
 }
 
 //更新処理
 void CGameScreen::Update(){
-	CTaskManager::GetInstance()->UpdateAll();
-	CTaskManager::GetInstance()->KillAppoint();
-	CPlayerManager::GetInstance()->Update();
-	CEnemyManager::getInstance()->Update();
+	if (CPlayerManager::GetInstance()->GetPlayerAdress()->getlive() == false){
+		m_state = GAMEOVER_SCREEN;
+	}
+	if (CMapManager::GetInstance()->GetPlayerAdress()->getGoalFlag() == true){
+		if (m_cpos1.getX() > CLEAR_TEXT_X){
+			m_cpos1-=CVector3D(30,0,0);
+		}
+		else{
+			if (m_cpos2.getX() > CLEAR_TEXT_X)
+				m_cpos2 -= CVector3D(30, 0, 0);
+		}
+
+		if (m_cpos2.getX() < CLEAR_TEXT_X){
+			if (m_count1 > 200){
+				m_state = GAMESCORE_SCREEN;
+			}
+			m_count1++;
+		}
+
+	}
+	else{
+		CTaskManager::GetInstance()->UpdateAll();
+		CTaskManager::GetInstance()->KillAppoint();
+		CPlayerManager::GetInstance()->Update();
+		CEnemyManager::getInstance()->Update();
+	}
 }
 
 void CGameScreen::Draw()
@@ -47,6 +86,10 @@ void CGameScreen::Draw()
 	m_Tcnt.draw();
 	m_Pcnt.draw();*/
 	CTaskManager::GetInstance()->DrawAll();
+	if (CMapManager::GetInstance()->GetPlayerAdress()->getGoalFlag() == true){
+		DrawGraph(m_cpos1.getX(), m_cpos1.getY(), m_gameclear_img[0], TRUE);
+		DrawGraph(m_cpos2.getX(), m_cpos2.getY(), m_gameclear_img[1], TRUE);
+	}
 }
 
 //次のステージへ

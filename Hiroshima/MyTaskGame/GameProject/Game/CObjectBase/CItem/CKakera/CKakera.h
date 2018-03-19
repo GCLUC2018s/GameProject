@@ -8,7 +8,7 @@ class CKakera :public CItemBase {
 public:
 	CKakera(CVector3D * pos);
 	~CKakera();
-	void Draw();
+	void Hit(CObjectBase * t);
 };
 
 #endif // !KAKERA_GUARD

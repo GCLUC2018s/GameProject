@@ -24,7 +24,11 @@ const int SELL_COUNT = 4; //ショップUIの数
 const int N_ANIM_RATE = 6;//アニメーションの再生速度
 const int N_MOVEING_SPEED = 380.0f;//npcの移動速度
 const int N_WAIT_TIME = 10000;
-const int FLAME_INTERVAL = 200;
+const int FLAME_INTERVAL = 230;
+const int FLAME_YPOS = 100;
+const float DASH_START_POS = 4000.0f;
+const int CHECK_POINT_NUMBER = 3;
+
 class CNpc : public CTask{
 private:
 	int m_shadowimg;								//npcの影画像
@@ -34,9 +38,11 @@ private:
 	CItemData m_sell_item[SELL_COUNT];
 	bool m_shop_flag;
 	bool m_dash_flag;
-	int m_flame[SELL_COUNT];
+	int m_flame[5];
 	int m_cursor;
 	int m_leave_time;
+	float m_chk_pt;
+	int m_chk_pt_num;
 public:
 	CNpc();
 	~CNpc();
@@ -45,6 +51,7 @@ public:
 	void setDeath(){ m_live = false; }
 	bool getlive(){ return m_live; }
 	bool getShopFlag(){ return m_shop_flag; }
+	bool getDashFlag(){ return m_dash_flag; }
 };
 
 bool IsLeftKeyTrigger(int key);

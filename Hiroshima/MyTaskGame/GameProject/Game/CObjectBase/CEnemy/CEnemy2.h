@@ -21,7 +21,6 @@ private:
 public:
 	//’ñ“”
 	CEnemy2(const CVector3D *pos);
-	~CEnemy2();
 	void Update();
 	void Nutral(); //’Êíó‘Ô
 	void Move();    //ˆÚ“®ó‘Ô

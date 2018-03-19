@@ -21,9 +21,6 @@ CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 
 }
 
-CEnemy5::~CEnemy5() {
-}
-
 void CEnemy5::Update() {
 	switch (m_state)
 	{
@@ -89,7 +86,10 @@ void CEnemy5::Move() {
 }
 
 void CEnemy5::Attack() {
-
+	m_img.ChangeAnimation(eAnimEnemyAttack);
+	if (m_img.GetIndex() == 2) {
+		m_state = eMove;
+	}
 }
 
 void CEnemy5::KnockBack() {
