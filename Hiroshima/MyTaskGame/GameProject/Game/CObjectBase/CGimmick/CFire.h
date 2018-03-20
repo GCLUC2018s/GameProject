@@ -1,22 +1,20 @@
 #ifndef GIMMICK_GUARD
 #define GIMMICK_GUARD
 
-#include "../CObjectBase.h"
+#include "../CEffectBase/CEffectBase.h"
 /*
 
 êªçÏé“Å@âÕñÏ
 
 */
 
-class CFire :public CObjectBase {
+class CFire :public CEffectBase {
 public:
-	CFire(CVector3D *pos);
+	CFire(CObjectBase *ob);
 	~CFire();
 	void Update();
-	void Draw();
-
 private:
-	int m_cnt;	//ÇÌÇ©ÇÁÇÒ
+	CObjectBase *OB;
 };
 
 #endif // !GIMMICK_GUARD

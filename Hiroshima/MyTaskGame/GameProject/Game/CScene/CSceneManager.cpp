@@ -62,7 +62,6 @@ void CSceneManager::MainScene() {
 	new CBB(60 * 3, 1, true);
 	new CPlayer();
 
-	//new CFire(&(CVector3D(500, 0, -20)));
 	//new CFire(&(CVector3D(500, 0, -100)));
 	new CItemBox(&(CVector3D(1000, 0, -430)), 0);
 	new CItemBox(&(CVector3D(900, 0, -430)), 1);
