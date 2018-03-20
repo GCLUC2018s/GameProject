@@ -87,11 +87,28 @@ void CBossBase::Down(int boss_id) {
 	switch (boss_id)
 	{
 	case eHead:
+		
 		m_shaking_head = 0;
 		m_headvec3D = CVector3D(0, 0, 0);
+		//m_headpos3D.y = 0;
 		m_head.ChangeAnimation(eAnimBossDown);
-		if (m_head.GetIndex() == 1) {
+		for (; m_headpos3D.y < 0;)
+		{
+			m_headpos3D += m_headvec3D;
+			m_headvec3D.y += BOSS_DOWN_SPEED;
+			//break;
+		}
+
+		if (m_headpos3D.y > 0) {
+			m_headvec3D.y = 0;
+			for (; m_headpos3D.y > BOSS_POS_Y;) {
+				m_headpos3D += m_headvec3D;
+				m_headvec3D.y -= BOSS_DOWN_SPEED;
+				//break;
+			}
+			if (m_head.GetIndex() >= 1)
 			m_state = eIdol;
+			
 		}
 		
 		break;
@@ -103,7 +120,7 @@ void CBossBase::Down(int boss_id) {
 
 
 void CBossBase::Draw() {
-	//	Utility::DrawCircle(CVector2D((m_pos3D.x  - m_scroll.x) + m_rect_F.m_right / 2,  (450 + m_pos3D.z / 2 - m_scroll.y) + m_rect_F.m_bottom), ENEMY_SIZ_X / 5, CVector4D(0.5, 0, 0, 0.2));
+	//Utility::DrawCircle(CVector2D((m_pos3D.x  - m_scroll.x) + m_rect_F.m_right / 2,  (450 + m_pos3D.z / 2 - m_scroll.y) + m_rect_F.m_bottom), BOSS_SIZ_X / 5, CVector4D(0.5, 0, 0, 0.2));
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
 	m_img.SetFlipH(m_flipH);
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
