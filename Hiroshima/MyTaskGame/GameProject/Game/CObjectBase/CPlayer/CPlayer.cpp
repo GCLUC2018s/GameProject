@@ -64,7 +64,8 @@ void CPlayer::Update() {
 
 	//ˆÚ“®Œn‚Ì•Ï”‰Šú‰»
 	m_move_length = false;
-	m_move_side = false;
+	m_move_right = false;
+	m_move_left = false;
 	m_squat = false;
 
 	//ˆ—•ªŠò
@@ -84,7 +85,7 @@ void CPlayer::Update() {
 	}
 
 	//¶‰EˆÚ“®I—¹Œã‚ÌŒ¸‘¬ˆ—
-	if (!m_move_side && !m_die) {
+	if (!m_move_right && !m_move_left && !m_die) {
 		if (!m_jump) {
 			if (m_flipH)
 				m_vec3D.x = Price_Up(m_vec3D.x, 0, 1.0f);
@@ -250,18 +251,18 @@ void CPlayer::Nutral() {
 			m_anim = eAnimDash;
 			m_cnt++;
 		}
-		if (HOLD_RIGHT) {
+		if (HOLD_RIGHT && !m_move_left) {
 			//‰Á‘¬
 			m_vec3D.x = Price_Up(m_vec3D.x, 10, 1.0f);
-			m_move_side = true;
+			m_move_right = true;
 			m_flipH = false;
 			m_anim = eAnimDash;
 			m_cnt++;
 		}
-		if (HOLD_LEFT) {
+		if (HOLD_LEFT && !m_move_right) {
 			//‰Á‘¬
 			m_vec3D.x = Price_Down(m_vec3D.x, -10, 1.0f);
-			m_move_side = true;
+			m_move_left = true;
 			m_flipH = true;
 			m_anim = eAnimDash;
 			m_cnt++;

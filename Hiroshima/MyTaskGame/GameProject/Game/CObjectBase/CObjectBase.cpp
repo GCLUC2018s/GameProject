@@ -5,6 +5,7 @@
 CVector2D CObjectBase::m_scroll(0, 0);
 bool CObjectBase::m_wave_flag = true;
 bool CObjectBase::m_sc_flag_x = false;
+int CObjectBase::m_score = 0;
 
 CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
 	CTask(id, updatePrio, drawPrio) {
