@@ -98,6 +98,7 @@
     <ClCompile Include="object\CDrum.cpp" />
     <ClCompile Include="object\CManhole.cpp" />
     <ClCompile Include="object\C_Object.cpp" />
+    <ClCompile Include="object\C_Spray.cpp" />
     <ClCompile Include="task\CTask.cpp" />
     <ClCompile Include="task\CTaskLinker.cpp" />
     <ClCompile Include="task\CTaskManager.cpp" />
@@ -121,6 +122,7 @@
     <ClInclude Include="object\CManhole.h" />
     <ClInclude Include="object\CVector3.h" />
     <ClInclude Include="object\C_Object.h" />
+    <ClInclude Include="object\C_Spray.h" />
     <ClInclude Include="task\CTask.h" />
     <ClInclude Include="task\CTaskLinker.h" />
     <ClInclude Include="task\CTaskManager.h" />

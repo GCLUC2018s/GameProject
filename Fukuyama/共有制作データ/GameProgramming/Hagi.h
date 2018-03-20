@@ -14,7 +14,7 @@ public:
 		//プレイヤーのインスタンスを作成
 		Player = new C_Player();
 		Test = new C_Test();
-		i_iconShadow.SetVertex(-585, -495, -435, -345);
+		i_iconShadow.SetVertex(-585, -495, -435, -434);
 		i_Icon.SetVertex(-585, -495, -435, -345);
 		Icon.Load("image/under/under_spray_icon.tga");
 	}
