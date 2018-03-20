@@ -54,7 +54,7 @@ void CBoss::Update() {
 		m_test = 0;
 	}
 
-	//m_motiontest++;
+	m_motiontest++;
 
 	
 	if(m_motiontest==0)
@@ -85,7 +85,7 @@ void CBoss::Update() {
 	Tail();
 
 	if (PUSH_ENTER) {
-		m_state = eBlessAttack;
+		//m_state = eBlessAttack;
 		//m_state = eTailAttack;
 		//m_state = eDown;
 
@@ -116,9 +116,9 @@ void CBoss::Draw() {
 	m_tail.SetFlipH(m_flipH);
 
 	m_tail.Draw();
-	m_head.Draw();
 	m_arm.Draw();
 	m_arm2.Draw();
+	m_head.Draw();
 	
 }
 

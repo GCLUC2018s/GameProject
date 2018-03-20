@@ -44,6 +44,8 @@ void CItemBase::Update()
 
 	if (m_get)
 		Vanush();
+
+	CheckOverlap();
 }
 
 void CItemBase::Draw()
