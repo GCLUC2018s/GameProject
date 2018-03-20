@@ -48,8 +48,7 @@ private:
 	bool	m_kick;		//キック一回目
 	bool	m_jump;		//trueならジャンプ中
 	bool	m_move_length;	//trueなら上下に移動中（宮﨑：lenghtって長さの事だけどどゆこと？）
-	bool	m_move_right;	//trueなら右に移動中
-	bool	m_move_left;	//trueなら左に移動中
+	bool	m_move_side;	//trueなら左右に移動中
 	bool	m_squat;		//trueならしゃがみ中
 	bool	m_roof;			//屋根の上に乗ったか乗ってないか
 	int		m_die;			//やられた時に使う
