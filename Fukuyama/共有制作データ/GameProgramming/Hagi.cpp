@@ -7,9 +7,9 @@ void Hagi::Update(){
 		i_iconShadow.m_Top = i_iconShadow.m_Bottom;
 	}
 	//プレイヤーがスプレーを使うとアイコンに影を落とす
-	if (i_iconShadow.m_Top<=i_iconShadow.m_Bottom+1
-		&& i_iconShadow.m_Top >= i_iconShadow.m_Bottom - 1
-		&&CKey::Once('Z')){
+	if (i_iconShadow.m_Top<=i_iconShadow.m_Bottom
+		&& i_iconShadow.m_Top >= i_iconShadow.m_Bottom
+		&& CKey::Once('Z')){
 		i_iconShadow.m_Top = i_iconShadow.m_Bottom + 90;
 	}
 }

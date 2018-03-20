@@ -25,7 +25,7 @@ protected:
 	C_Rectangle i_Icon;   //スプレーのアイコン
 	CTexture Icon;      //スプレーアイコンのテクスチャー
 
-	const float m_CoolTime = ICON_SIZE/SPRAY_INTERVAL;      //スプレーのクールタイム表示（アイコン）
+	const float m_CoolTime = ICON_SIZE / SPRAY_INTERVAL;      //スプレーのクールタイム表示（アイコン）
 
 	void Update();
 	void Draw();
