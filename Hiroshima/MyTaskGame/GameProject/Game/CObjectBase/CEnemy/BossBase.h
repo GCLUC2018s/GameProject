@@ -49,11 +49,12 @@ protected:
 	};
 public:
 	CBossBase();
-	void Nutral(const int *boss_id);
-	void Move(const int *boss_id);
-	void Attack(const int *boss_id);
-	void Fall(const int *boss_id);
-	void Damage(const int *boss_id);
+	void Nutral( int boss_id);
+	void Move( int boss_id);
+	void Attack( int boss_id);
+	void Fall( int boss_id);
+	void Damage( int boss_id);
+	void Down( int boss_id);
 	void Draw();
 };
 

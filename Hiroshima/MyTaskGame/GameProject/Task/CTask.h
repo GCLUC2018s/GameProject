@@ -39,7 +39,7 @@ enum {
 	eID_Boss,
 	eID_Item,
 	eID_Gimmick,
-	eID_Flag,
+	eID_Effect,
 	eID_Magatama,
 	eID_Ground,
 	eID_Null,

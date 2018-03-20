@@ -20,6 +20,7 @@ protected:
 	static 	int m_enemy_cnt;
 	bool m_damage;
 	bool m_end_flag;
+	CVector2D damage_vec;
 	enum {
 		eDaruma,
 		eChouchin,

@@ -1,4 +1,5 @@
 #include "COage.h"
+#include "../GameProject/Game/CObjectBase/CPlayer/CPlayer.h"
 
 COage::COage(CVector3D * pos) :CItemBase(pos) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("UI"));
@@ -11,3 +12,10 @@ COage::COage(CVector3D * pos) :CItemBase(pos) {
 COage::~COage() {
 
 }
+
+void COage::Action(CObjectBase * a) {
+	CPlayer* PL = dynamic_cast<CPlayer*>(a);
+	PL->SetHP(2);
+	m_score += 10;
+}
+

@@ -25,6 +25,8 @@ void C_Rectangle::Render(float a, float b, float c, float d){
 	glDisable(GL_BLEND);
 	//テクスチャを無効
 	glDisable(GL_TEXTURE_2D);
+
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
 //表示する四角形の座標を指定します
