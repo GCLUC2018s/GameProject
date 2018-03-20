@@ -6,7 +6,7 @@ struct EnemyTable{
 	float x, y, z;
 	int m_EnemyKind;
 };
-EnemyTable m_enemy_table[] = {
+EnemyTable s_enemy_table[] = {
 	{//0
 		700, 0, 35,
 		E_KIN, },
@@ -47,9 +47,8 @@ EnemyTable m_enemy_table[] = {
 };
 void CEnemy::Init(){
 	m_ActionInterval = ACTION_INTERVAL;
-	srand((unsigned)time(NULL));
-	m_EnemySet = rand() % 12;
-	EnemyTable *data = &m_enemy_table[m_EnemySet];
+	m_EnemySet = rand()/100 % 12;
+	EnemyTable *data = &s_enemy_table[m_EnemySet];
 	m_Position=C_Vector3(data->x, data->y, data->z);
 	m_EnemyKind = data->m_EnemyKind;
 	m_EnemyMode = E_NORMAL;
@@ -92,7 +91,6 @@ void CEnemy::Update(){
 		m_Position.z += diaPlayer.z / ENEMY_UD_SPEED;
 	}
 	C_Object::Rect(&m_image, &m_Position);
-	CTaskManager::GetInstance()->ChangeDrawPrio(this, m_Position.z);
 }
 void CEnemy::Draw(){
 	//
