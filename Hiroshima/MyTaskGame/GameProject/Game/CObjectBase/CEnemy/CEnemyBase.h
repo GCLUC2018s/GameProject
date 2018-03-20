@@ -31,6 +31,7 @@ protected:
 public:
 	CEnemyBase();
 	~CEnemyBase();
+	CVector3D Blow(CVector3D vec);
 	void DropItem();
 	void Nutral(const int *enemy_id);
 	void Move(const int *enemy_id);

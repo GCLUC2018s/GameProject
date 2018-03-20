@@ -237,7 +237,8 @@ TexAnim _Boss_TailAttack_anim[] = {
 };
 TexAnim _Boss_Bless_anim[] = {
 	{ 32,30 },
-	{ 33,30 },
+	{ 33,50 },
+	{ 33,50 },
 	{ 33,1 },
 
 
@@ -250,7 +251,7 @@ TexAnim _Boss_ShowerLaser_anim[] = {
 };
 
 TexAnim _Boss_Down_anim[] = {
-	{ 48,10 },
+	{ 48,300 },
 	{ 48,1 },
 
 
