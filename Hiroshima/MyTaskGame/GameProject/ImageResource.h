@@ -29,6 +29,9 @@ enum  {
 	eAnimBossBless,
 	eAnimBossShowerLaser,
 	eAnimBOssDown,
+	eAnimEffectAttack1,
+	eAnimEffectAttack2,
+	eAnimEffectAttack3,
 };
 //player.pngのアニメーションデータ
 extern TexAnimData player_AnimData[];
@@ -44,5 +47,7 @@ extern TexAnimData bill_Animdata[];
 extern TexAnimData kamaitachi_AnimData[];
 //zako_kamaitachi_motion.pngのアニメーションデータ
 extern TexAnimData boss_AnimData[];
+//motion_effect.pngのアニメーションデータ
+extern TexAnimData attack_ef_AnimData[];
 
 #endif // !IMAGE_RESOURCE_GUARD

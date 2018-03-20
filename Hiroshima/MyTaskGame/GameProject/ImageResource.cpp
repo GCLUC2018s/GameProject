@@ -265,3 +265,23 @@ TexAnimData boss_AnimData[] = {
 };
 
 
+TexAnim _Attack1_anim[] = {
+	{ 0,5 },
+	{ 1,60 },
+};
+TexAnim _Attack2_anim[] = {
+	{ 3,5 },
+	{ 4,60 },
+};
+
+TexAnim _Attack3_anim[] = {
+	{ 6,5 },
+	{ 7,60 },
+};
+
+
+TexAnimData attack_ef_AnimData[] = {
+	ANIMDATA(_Attack1_anim),
+	ANIMDATA(_Attack2_anim),
+	ANIMDATA(_Attack3_anim),
+}

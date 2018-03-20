@@ -118,6 +118,9 @@ void Init(void)
 	ADD_RESOURCE("HP_Bar_Boss", CAnimImage::LoadImage("gauge/boss_gauge.png"));
 	ADD_RESOURCE("HP_Bar_Boss_Base", CAnimImage::LoadImage("gauge/boss_gauge_base.png"));
 
+	//エフェクト関係
+	ADD_RESOURCE("Effect_panch", CAnimImage::LoadImage("motion_effect.png"));
+
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
 	SOUND("BGM_Main")->Load("Sound/BGM/n82.wav");

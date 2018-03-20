@@ -15,6 +15,8 @@ public:
 	CCutIn();
 	~CCutIn();
 	void Update();
+private:
+	int m_time;
 
 };
 
