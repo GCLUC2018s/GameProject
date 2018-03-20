@@ -2,6 +2,7 @@
 #define C_SPRAY_H
 
 #include "C_Object.h"
+#include "../chara/C_Player.h"
 
 class C_Spray :public C_Object{
 public:
