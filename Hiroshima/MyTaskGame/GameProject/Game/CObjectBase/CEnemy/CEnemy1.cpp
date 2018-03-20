@@ -15,7 +15,7 @@ CEnemy1::CEnemy1(const CVector3D *pos) :CEnemyBase() {
 	m_at = DARUMA_AT;
 	m_rect = CRect(64, 135, 166, 237);
 	m_rect_F = m_rect;
-	a = CVector3D(0, 0, 0);
+	m_pleneVec = CVector3D(0, 0, 0);
 	m_cnt = 0;
 }
 
@@ -59,21 +59,25 @@ void CEnemy1::Move() {
 	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
 	m_cnt++;
 	m_pos3D += m_vec3D;
-	if (m_pos3D.x - m_scroll.x < 0 || m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
-		m_flipH = !m_flipH;
-	}
-	a = PL->GetPos() - m_pos3D;
+	if (m_pos3D.x - m_scroll.x < 0)
+		m_flipH = false;
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+		m_flipH = true;
+	m_pleneVec = PL->GetPos() - m_pos3D;
 	if (m_cnt == 1) {
-		if(a.Length() >= 64)
-		m_vec3D = a.GetNormalize() * DARUMA_SPEED;
-	}else if (60 <= m_cnt && m_cnt < 120) {
+		if (m_pleneVec.Length() >= 64)
+			m_vec3D.x = m_pleneVec.GetNormalize().x * DARUMA_SPEED;
+		if (m_vec3D.x < 0)
+			m_flipH = false;
+		else
+			m_flipH = true;
+	}
+	else if (60 <= m_cnt && m_cnt < 120) {
 		m_vec3D = CVector3D(0, 0, 0);
-	}else if (m_cnt == 120) {
+	}
+	else if (m_cnt == 120) {
 		m_cnt = 0;
 	}
-
-
-
 	m_img.ChangeAnimation(eAnimEnemyMove);
 }
 

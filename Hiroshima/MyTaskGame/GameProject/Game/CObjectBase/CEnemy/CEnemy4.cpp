@@ -61,9 +61,9 @@ void CEnemy4::Nutral() {
 	//è„â∫ïÇóV
 	m_vec3D.x = 0;
 	m_stop = false;
-	m_pos3D += m_vec3D;
 	m_a += KAMAITACHI_FLOAT;
 	m_vec3D.y = sin(m_a) * 5;
+	m_pos3D += m_vec3D;
 	m_cnt++;
 	m_img.ChangeAnimation(eAnimIdol);
 }
@@ -79,29 +79,43 @@ void CEnemy4::Move() {
 	m_vec3D.y = 0;
 
 	//àÍíËÇÃèÍèäÇ‹Ç≈óàÇΩÇÁîΩì]
-	if (m_pos3D.x - m_scroll.x < 0 || m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
-		m_flipH = !m_flipH;
-	}
+	if (m_pos3D.x - m_scroll.x < 0)
+		m_flipH = false;
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+		m_flipH = true;
 	//å¸Ç¢ÇƒÇ¢ÇÈï˚å¸Ç…êiÇﬁ
-	if (m_flipH) {
-		m_vec3D.x = KAMAITACHI_SPEED;
-	}
-	else {
-		m_vec3D.x = -KAMAITACHI_SPEED;
-	}
-
 
 	if (!m_stop) {
+		CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
+		CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
+		m_cnt++;
 		m_pos3D += m_vec3D;
-		m_move_cnt++;
+		if (m_pos3D.x - m_scroll.x < 0)
+			m_flipH = false;
+		if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+			m_flipH = true;
+		m_pleneVec = PL->GetPos() - m_pos3D;
+		if (m_cnt == 1) {
+				m_vec3D.x = m_pleneVec.GetNormalize().x * KAMAITACHI_SPEED;
+			if (m_vec3D.x < 0 && m_flipH)
+				m_flipH = false;
+			else
+				m_flipH = true;
+		}
+		else if (60 <= m_cnt && m_cnt < 120) {
+			m_vec3D = CVector3D(0, 0, 0);
+		}
+		else if (m_cnt == 120) {
+			m_cnt = 0;
+		}
 	}
 	else {
 		m_state = eAttack;
 	}
 
-	if (m_move_cnt > KAMAITACHI_STOP_TIME) {
+	if (m_cnt > KAMAITACHI_STOP_TIME) {
 		m_stop = true;
-		m_move_cnt = 0;
+		m_cnt = 0;
 	}
 	m_img.ChangeAnimation(eAnimKamaMove);
 }
@@ -109,7 +123,7 @@ void CEnemy4::Move() {
 void CEnemy4::KnockBack() {
 	m_img.ChangeAnimation(eAnimKamaKnockBack);
 	Damage();
-	m_move_cnt = 0;
+	m_cnt = 0;
 	if (m_img.GetIndex() == 1) {
 		m_state = eIdol;
 	}

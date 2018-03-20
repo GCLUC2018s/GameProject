@@ -42,6 +42,9 @@ void CEnemy3::Update() {
 		Fall();
 		break;
 	}
+	//ã‰º•‚—V
+	m_a += HI_FLOAT;
+	m_vec3D.y = sin(m_a) * 5;
 
 	m_img.UpdateAnimation();
 	CheckOverlap();
@@ -53,21 +56,29 @@ void CEnemy3::Nutral() {
 }
 
 void CEnemy3::Move() {
+	CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
+	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
+	m_cnt++;
 	m_pos3D += m_vec3D;
-
-	if (m_pos3D.x - m_scroll.x < 0 || m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
-		m_flipH = !m_flipH;
+	if (m_pos3D.x - m_scroll.x < 0)
+		m_flipH = false;
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+		m_flipH = true;
+	m_pleneVec = PL->GetPos() - m_pos3D;
+	if (m_cnt == 1) {
+		if (m_pleneVec.Length() >= 64)
+			m_vec3D.x = m_pleneVec.GetNormalize().x * HI_SPEED;
+		if (m_vec3D.x < 0)
+			m_flipH = false;
+		else
+			m_flipH = true;
 	}
-	if (m_flipH) {
-		m_vec3D.x = HI_SPEED;
+	else if (60 <= m_cnt && m_cnt < 100) {
+		m_vec3D = CVector3D(0, 0, 0);
 	}
-	else {
-		m_vec3D.x = -HI_SPEED;
+	else if (m_cnt == 100) {
+		m_cnt = 0;
 	}
-
-	//ã‰º•‚—V
-	m_a += HI_FLOAT;
-	m_vec3D.y = sin(m_a) * 5;
 
 
 	m_img.ChangeAnimation(eAnimEnemyMove);

@@ -78,7 +78,7 @@ void CEnemyBase::Fall() {
 	}
 }
 void CEnemyBase::Damage() {
-	m_pos3D += m_vec3D;
+//	m_pos3D += m_vec3D;
 	if (m_damage) {
 		m_hp--;
 		m_damage = false;
