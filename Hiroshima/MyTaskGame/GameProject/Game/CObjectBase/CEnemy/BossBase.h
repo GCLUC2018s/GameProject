@@ -10,7 +10,7 @@
 
 #define BOSS_FLOAT_HEAD 0.1f
 #define BOSS_FLOAT_ARM 0.02f
-#define BOSS_FLOAT_TAIL 0.01f
+#define BOSS_FLOAT_TAIL 0.1f
 
 #include "../GameProject/GAME/CObjectBase/CObjectBase.h"
 

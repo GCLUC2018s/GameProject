@@ -28,7 +28,7 @@ enum  {
 	eAnimBossTailAttack,
 	eAnimBossBless,
 	eAnimBossShowerLaser,
-	eAnimBOssDown,
+	eAnimBossDown,
 	eAnimEffectAttack1,
 	eAnimEffectAttack2,
 	eAnimEffectAttack3,

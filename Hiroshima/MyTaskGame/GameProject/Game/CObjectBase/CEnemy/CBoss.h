@@ -17,6 +17,7 @@
 class CBoss :public CBossBase {
 protected:
 	int m_test;
+	int m_motiontest;
 	enum {
 		eIdol,
 		eMove,

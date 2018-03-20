@@ -19,6 +19,7 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 	m_hp = BOSS_HP;
 	m_at = BOSS_AT;
 	m_test = 0;
+	m_motiontest = 0;
 	m_rect = CRect(0, 0, BOSS_SIZ_X, BOSS_SIZ_Y);
 	//m_rect_F = CRect(0, 0, 256 * 3, 256 * 3);
 	m_flipH = false;
@@ -33,7 +34,7 @@ CBoss::~CBoss() {
 
 void CBoss::Update() {
 	
-
+	if(m_state!=eTailAttack)
 	m_test++;
 
 	if (m_test >= 50) {
@@ -53,6 +54,24 @@ void CBoss::Update() {
 		m_test = 0;
 	}
 
+	//m_motiontest++;
+
+	
+	if(m_motiontest==0)
+		m_state = eIdol;
+
+	if(m_motiontest==200)
+		m_state = eBlessAttack;
+
+	if(m_motiontest==400)
+		m_state = eTailAttack;
+
+	if(m_motiontest==600)
+		m_state = eDown;
+
+	if (m_motiontest >= 800)
+		m_motiontest = -1;
+
 
 
 	m_headpos3D += m_headvec3D;
@@ -65,12 +84,12 @@ void CBoss::Update() {
 	Arm2();
 	Tail();
 
-	if (PUSH_ENTER)
+	if (PUSH_ENTER) {
 		m_state = eBlessAttack;
 		//m_state = eTailAttack;
 		//m_state = eDown;
 
-
+	}
 	
 //m_img.ChangeAnimation(6);
 //m_head.ChangeAnimation(7);

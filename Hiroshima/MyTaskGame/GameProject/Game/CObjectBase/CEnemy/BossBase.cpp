@@ -1,7 +1,9 @@
 #include "BossBase.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
-
+	m_shaking_head = 0;
+	m_shaking_arm = 0;
+	m_shaking_tail = 0;
 }
 
 
@@ -13,7 +15,7 @@ void CBossBase::Nutral( int boss_id) {
 	case eHead:
 		m_head.ChangeAnimation(eAnimBossHeadIdol);
 		m_shaking_head += BOSS_FLOAT_HEAD;
-		//m_headvec3D.x = -cos(m_shaking + Utility::DgreeToRadian(90)) * 5;
+		//m_headvec3D.x = -cos(m_shaking_head + Utility::DgreeToRadian(90)) * 5;
 		m_headvec3D.y = -sin(m_shaking_head) * 1;
 		break;
 	case eArm:
@@ -30,8 +32,8 @@ void CBossBase::Nutral( int boss_id) {
 		break;
 	case eTail:
 		m_tail.ChangeAnimation(eAnimBossTailIdol);
-		m_shaking_head += BOSS_FLOAT_TAIL;
-		m_tailvec3D.x = -cos(m_shaking_head + Utility::DgreeToRadian(180)) * 5;
+		m_shaking_tail += BOSS_FLOAT_TAIL;
+		m_tailvec3D.x = -cos(m_shaking_tail + Utility::DgreeToRadian(180)) * 3;
 		//m_tailvec3D.y = -sin(m_shaking) * 5;
 		break;
 	}
@@ -49,13 +51,18 @@ void CBossBase::Attack( int boss_id) {
 	switch (boss_id)
 	{
 	case eHead:
+		m_shaking_head = 0;
+		m_headvec3D = CVector3D(0,0,0);
 		m_head.ChangeAnimation(eAnimBossBless);
-		if (m_head.GetIndex() == 1) {
+		if (m_head.GetIndex()==1) {
 			m_state = eIdol;
 		}
 		break;
 
 	case eTail:
+		m_flipH = false;
+		m_shaking_tail = 0;
+		m_tailvec3D = CVector3D(0, 0, 0);
 		m_tail.ChangeAnimation(eAnimBossTailAttack);
 		if (m_tail.GetIndex() == 3) {
 			m_state = eIdol;
@@ -77,11 +84,13 @@ void CBossBase::Down(int boss_id) {
 	switch (boss_id)
 	{
 	case eHead:
-		m_head.ChangeAnimation(eAnimBOssDown);
-		m_tail.ChangeAnimation(eAnimBossTailAttack);
+		m_shaking_head = 0;
+		m_headvec3D = CVector3D(0, 0, 0);
+		m_head.ChangeAnimation(eAnimBossDown);
 		if (m_head.GetIndex() == 1) {
 			m_state = eIdol;
 		}
+		
 		break;
 	default:
 		break;
