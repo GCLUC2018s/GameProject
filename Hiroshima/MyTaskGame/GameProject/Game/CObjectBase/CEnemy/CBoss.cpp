@@ -65,14 +65,13 @@ void CBoss::Update() {
 	Arm2();
 	Tail();
 
-	//m_a += KAMAITACHI_FLOAT;
-	//m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;	
-	//m_vec3D.y = -sin(m_a) * 3;
+	if (PUSH_ENTER)
+		m_state = eBlessAttack;
+		//m_state = eTailAttack;
+		//m_state = eDown;
+
 
 	
-
-//
-//
 //m_img.ChangeAnimation(6);
 //m_head.ChangeAnimation(7);
 
@@ -106,24 +105,120 @@ void CBoss::Draw() {
 
 
 void CBoss::Head() {
-	Nutral(&m_parts_head);
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_head);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Attack(m_parts_head);
+		break;
+	case eTailAttack:
+		Nutral(m_parts_head);
+		break;
+	case eLaser:
+		Nutral(m_parts_head);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_head);
+		break;
+	case eDown:
+		Down(m_parts_head);
+		break;
+	}
+	
 
-	Attack(&m_parts_head);
+	//Attack(&m_parts_head);
 }
 
 void CBoss::Arm() {
-	Nutral(&m_parts_arm);
+
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_arm);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Nutral(m_parts_arm);
+		break;
+	case eTailAttack:
+		Nutral(m_parts_arm);
+		break;
+	case eLaser:
+		Nutral(m_parts_arm);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_arm);
+		break;
+	case eDown:
+		Nutral(m_parts_arm);
+		break;
+	}
+
 
 	//Attack(&m_parts_head);
 }
 
 void CBoss::Arm2() {
-	Nutral(&m_parts_arm2);
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_arm2);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Nutral(m_parts_arm2);
+		break;
+	case eTailAttack:
+		Nutral(m_parts_arm2);
+		break;
+	case eLaser:
+		Nutral(m_parts_arm2);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_arm2);
+		break;
+	case eDown:
+		Nutral(m_parts_arm2);
+		break;
+	}
+
+
+	
 }
 
 void CBoss::Tail() {
-	Nutral(&m_parts_tail);
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_tail);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Nutral(m_parts_tail);
+		break;
+	case eTailAttack:
+		Attack(m_parts_tail);
+		break;
+	case eLaser:
+		Nutral(m_parts_tail);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_tail);
+		break;
+	case eDown:
+		Nutral(m_parts_tail);
+		break;
+	}
 
-	Attack(&m_parts_head);
+	
+
+	//Attack(&m_parts_head);
 	
 }
