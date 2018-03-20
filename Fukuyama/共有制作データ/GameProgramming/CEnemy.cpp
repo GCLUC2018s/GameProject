@@ -2,6 +2,8 @@
 #include"task\CTaskManager.h"
 #include"chara\C_Player.h"
 #include"random"
+#include"math.h"
+#include"stdio.h"
 struct EnemyTable{
 	float x, y, z;
 	int m_EnemyKind;
@@ -54,9 +56,11 @@ void CEnemy::Init(){
 	m_EnemyMode = E_NORMAL;
 }
 void CEnemy::Update(){
-	m_Target = C_Player::m_Playerpoint;
+	m_Target = C_Player::m_Playerpoint->i_JumpPoint;
+	float m_Long = sqrtf((m_Target.x - m_Position.x)*(m_Target.x - m_Position.x)
+		+ (m_Target.z - m_Position.z)*(m_Target.z - m_Position.z));
 	C_Vector3 diaPlayer =
-		m_Target->m_Position - m_Position;
+		m_Target- m_Position;
 	//‹ß‹——£í“¬Œ^‚Ì“G‚Ìˆ—
 	if (m_EnemyKind == E_KIN){
 	}
@@ -71,25 +75,26 @@ void CEnemy::Update(){
 				m_ActionInterval--;
 			}
 			if (m_ActionInterval <= 0){
-				m_Position.x += 3;
+				m_Position.x += ENEMY_LR_SPEED;
 			}
 		}
 	}
 	if (m_EnemyMode == E_NORMAL){
 		//¶‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
-		if (m_Position.x < m_Target->m_Position.x){
-			m_Position.x += diaPlayer.x / ENEMY_LR_SPEED;
+		if (m_Position.x< m_Target.x){
+			m_Position.x += diaPlayer.x / m_Long * ENEMY_LR_SPEED;
 			m_Turn = E_RIGHT;
 
 		}
 		//‰E‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
 		else{
-			m_Position.x = m_Position.x + (diaPlayer.x / ENEMY_LR_SPEED);
+			m_Position.x += diaPlayer.x / m_Long * ENEMY_LR_SPEED;
 			m_Turn = E_LEFT;
 		}
 
-		m_Position.z += diaPlayer.z / ENEMY_UD_SPEED;
+		m_Position.z += diaPlayer.z / m_Long * ENEMY_UD_SPEED;
 	}
+	C_Object::Scroll(&m_Position, m_Scroll);
 	C_Object::Rect(&m_image, &m_Position);
 }
 void CEnemy::Draw(){
