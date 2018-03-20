@@ -21,6 +21,14 @@ enum  {
 	eAnimEnemyAttack,
 	eAnimEnemyKnockBack,
 	eAnimEnemyFall,
+	eAnimBossHeadIdol = 0,
+	eAnimBossTailIdol,
+	eAnimBossArm2Idol,
+	eAnimBossArmIdol,
+	eAnimBossTailAttack,
+	eAnimBossBless,
+	eAnimBossShowerLaser,
+	eAnimBOssDown,
 };
 //player.pngのアニメーションデータ
 extern TexAnimData player_AnimData[];

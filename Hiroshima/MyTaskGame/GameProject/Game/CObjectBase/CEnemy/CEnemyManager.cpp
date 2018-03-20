@@ -7,6 +7,7 @@
 
 */
 
+#define END_CODE 999
 
 enum {
 	eDaruma,
@@ -26,7 +27,7 @@ struct Enemy_Push
 
 };
 
-Enemy_Push  push_enemy[10][10]{
+Enemy_Push  push_enemy[32][32]{
 	//第一ウェイヴ
 	{{ 100,eDaruma,CVector3D(400, 0, -300) },
 	{ 200,eDaruma ,CVector3D(500, 0, -200) },
@@ -38,6 +39,7 @@ Enemy_Push  push_enemy[10][10]{
 	{ 800,eDaruma ,CVector3D(600, 0, -250) },
 	{ 900,eDaruma ,CVector3D(800, 0, -200) },
 	{ 1000,eDaruma ,CVector3D(200, 0, -50) },
+	{ END_CODE }
 	},{
 
 		//第二ウェイブ
@@ -51,6 +53,7 @@ Enemy_Push  push_enemy[10][10]{
 	{ 800,eChouchin ,CVector3D( 600 + SCREEN_WIDTH, -150, -250) },
 	{ 900,eChouchin ,CVector3D( 800 + SCREEN_WIDTH, -50, -200) },
 	{ 1000,eChouchin ,CVector3D(200 + SCREEN_WIDTH, 0, -50) },
+	{ END_CODE }
 }
 
 ,{
@@ -66,6 +69,7 @@ Enemy_Push  push_enemy[10][10]{
 	{ 800,eKamaitachi ,CVector3D(   600 + SCREEN_WIDTH * 2, -150, -250) },
 	{ 900,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
 	{ 1000,eKamaitachi ,CVector3D(  200 + SCREEN_WIDTH * 2, 0, -50) },
+	{ END_CODE }
 	}
 
 ,{
@@ -81,6 +85,7 @@ Enemy_Push  push_enemy[10][10]{
 	{ 800, eNiku ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
 	{ 900, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
 	{ 1000,eNiku ,CVector3D( 200 + SCREEN_WIDTH * 3, 0, -50) },
+	{ END_CODE }
 	}
 };
 
@@ -111,16 +116,15 @@ void CEnemyManager::Update() {
 
 		if (enemy_date.time == m_timing) {
 			printf("%d   %d\n", enemy_date.time, enemy_date.id);
-			PushEnemy(&enemy_date.id, &enemy_date.push_pos);
+			PushEnemy(enemy_date.id, &enemy_date.push_pos);
 			m_push++;
 			m_enemy_cnt++;
 
 
 		}
 
-		if (m_push <= 6)
+		if (m_push <=  END_CODE )
 			m_timing++;
-
 		if (m_enemy_cnt <= 0 && m_push >= 1 && m_go_flag == false) {
 			if (m_wave == 3)
 				new CGo(true);
@@ -134,7 +138,7 @@ void CEnemyManager::Update() {
 }
 
 
-void CEnemyManager::PushEnemy(const int *id,const CVector3D *pos) {
+void CEnemyManager::PushEnemy(int id,const CVector3D *pos) {
 
 //	m_id = id;
 	//m_id = Utility::Rand(1, 100);
@@ -144,7 +148,7 @@ void CEnemyManager::PushEnemy(const int *id,const CVector3D *pos) {
 	//	m_id = 4;
 	//else if (81 < m_id)
 	//	m_id = 3;
-	switch (*id)
+	switch (id)
 	{
 	case eDaruma:
 		new CEnemy1(pos);
