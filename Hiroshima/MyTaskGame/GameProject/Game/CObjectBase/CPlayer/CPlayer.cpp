@@ -3,6 +3,7 @@
 #include "../CGo/CGo.h"
 #include "../CBB/CBB.h"
 #include "../CItem/COhuda/COhuda.h"
+#include "../CPanchEF/CPanchEF.h"
 
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
@@ -117,6 +118,7 @@ void CPlayer::Update() {
 		if (m_punch2) {
 			//パンチしてたら
 			m_img.UpdateAnimation();
+			new CPanchEF(m_flipH, this, eAnimEffectAttack2);
 			m_punch1 = false;
 			SOUND("SE_PUNCH_KARA")->Play();
 		}else {
@@ -129,6 +131,7 @@ void CPlayer::Update() {
 		if (m_kick) {
 			//パンチしてたら
 			m_anim = eAnimKick;
+			new CPanchEF(m_flipH, this, eAnimEffectAttack3);
 			m_punch2 = false;
 			SOUND("SE_PUNCH_KARA")->Play();
 		}
@@ -200,6 +203,7 @@ void CPlayer::Update() {
 
 	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
+
 }
 
 void CPlayer::Nutral() {
@@ -217,18 +221,19 @@ void CPlayer::Nutral() {
 		m_anim = eAnimSquat;
 	}
 
-		//落下中なら
+	//落下中なら
 	if (m_vec3D.y > 0 &&
 		//位置判定
-		1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 && 
+		1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
 		//一番奥にいたら
 		m_pos3D.z == -400) {
-			m_pos3D.y = -448;
-			m_vec3D.y = 0;
-			m_jump = false;
-			SOUND("SE_LANDING")->Play(false);
-			m_roof = true;
-	}else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+		m_pos3D.y = -448;
+		m_vec3D.y = 0;
+		m_jump = false;
+		SOUND("SE_LANDING")->Play(false);
+		m_roof = true;
+	}
+	else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
 		m_jump = true;
 		m_roof = false;
 	}
@@ -236,9 +241,9 @@ void CPlayer::Nutral() {
 	//移動
 	if (!m_squat) {
 		if (!m_roof && !m_jump && HOLD_UP) {
-			m_vec3D.z = -10; 
+			m_vec3D.z = -10;
 			if (m_pos3D.z != 0 && m_pos3D.z != -430)
-			m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
+				m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
 			m_cnt++;
@@ -246,7 +251,7 @@ void CPlayer::Nutral() {
 		if (!m_roof && !m_jump && HOLD_DOWN) {
 			m_vec3D.z = 10;
 			if (m_pos3D.z != 0 && m_pos3D.z != -430)
-			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
+				m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
 			m_cnt++;
@@ -307,6 +312,8 @@ void CPlayer::Nutral() {
 
 	//ジャンプしてなくて、パンチしたら
 	if (!m_jump && PUSH_R) {
+		if (m_punch1 == false)
+			new CPanchEF(m_flipH, this, eAnimEffectAttack1);
 		SOUND("SE_PUNCH_KARA")->Play();
 		m_punch1 = true;
 		m_anim = eAnimPunch;
@@ -317,7 +324,8 @@ void CPlayer::Nutral() {
 			m_state = eFall;
 			m_die = 1;
 			m_jump = false;
-		}else {
+		}
+		else {
 			m_state = eDamage;
 		}
 		m_vec3D.y = 0;
@@ -335,7 +343,7 @@ void CPlayer::Nutral() {
 void CPlayer::Bill() {
 }
 
-void CPlayer::Attack(){
+void CPlayer::Attack() {
 	//キック
 	if (m_punch1 && PUSH_R) {
 		m_punch2 = true;

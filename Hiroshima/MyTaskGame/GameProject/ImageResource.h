@@ -29,7 +29,7 @@ enum  {
 	eAnimBossBless,
 	eAnimBossShowerLaser,
 	eAnimBOssDown,
-	eAnimEffectAttack1,
+	eAnimEffectAttack1 = 0,
 	eAnimEffectAttack2,
 	eAnimEffectAttack3,
 };
