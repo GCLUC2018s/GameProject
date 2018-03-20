@@ -1,4 +1,5 @@
 #include "CItemBox.h"
+#include "../GameProject/Source/Itemsource.h"
 #define ITEM_BOX_HOSEI 47
 /*
 
@@ -55,6 +56,16 @@ void CItemBox::Hit(CObjectBase * t){
 			m_break = true;
 			if (!m_state) {
 				m_score += 20;
+
+				for (int i = rand() % 5; i > 0; i--) {
+					new CSake(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+				}
+				for (int i = rand() % 5; i > 0; i--) {
+					new COage(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+				}
+				for (int i = 0; i < 100; i++) {
+					new CKoban(&(CVector3D(m_pos3D.x+128, m_pos3D.y, m_pos3D.z)));
+				}
 			}else {
 				m_score -= 20;
 						}
