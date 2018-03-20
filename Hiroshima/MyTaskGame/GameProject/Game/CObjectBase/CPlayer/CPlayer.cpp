@@ -29,7 +29,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_kick = false;
 	m_jump = false;
 	m_roof = false;
-	m_hp = 10;
+	m_hp = PLAYER_HP;
 	m_anim = eAnimIdol;
 	m_state = eNutral;
 	m_cnt = 0;
