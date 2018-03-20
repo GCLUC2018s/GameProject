@@ -47,6 +47,7 @@ void CEnemyBase::KnockBack(const int *enemy_id) {
 
 }
 void CEnemyBase::Fall() {
+	m_rect = CRect(0, 0, 0, 0);
 	m_pos3D += m_vec3D;
 	m_img.ChangeAnimation(eAnimEnemyFall);
 
@@ -100,8 +101,8 @@ void CEnemyBase::Draw() {
 	m_img.SetFlipH(m_flipH);
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img.Draw();
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
+//	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
+//	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }
 
 void CEnemyBase::Hit(CObjectBase * t)
@@ -109,13 +110,19 @@ void CEnemyBase::Hit(CObjectBase * t)
 	if (t->GetID() == eID_Effect) {
 		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
 		if (ef->GetHit() > 1.0f && m_state != eKnockBack) {
-			m_flipH = !(ef->GetFrip());
-			if (m_hp >= 0) {
-				m_damage = true;
-				m_state = eKnockBack;
-			}
+			if (ef->GetEFtype() == ePanch)
+				SOUND("SE_Panch")->Play(false);
+			if (m_deathblow)
+				m_hp = -1;
 			else {
-				m_state = eFall;
+				m_flipH = !(ef->GetFrip());
+				if (m_hp >= 0) {
+					m_damage = true;
+					m_state = eKnockBack;
+				}
+				else {
+					m_state = eFall;
+				}
 			}
 		}
 	}

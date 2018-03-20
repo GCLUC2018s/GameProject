@@ -142,7 +142,7 @@ TexAnim _KAMAITACHI_attack_anim[] = {
 
 };
 TexAnim _KAMAITACHI_knockback_anim[] = {
-	{ 2,30 },
+	{ 2,10 },
 	{ 2,1 },
 	
 
@@ -176,7 +176,7 @@ TexAnim _ENEMY_attack_anim[] = {
 
 };
 TexAnim _ENEMY_knockback_anim[] = {
-	{ 2,30 },
+	{ 2,10 },
 	{ 2,1 },
 
 

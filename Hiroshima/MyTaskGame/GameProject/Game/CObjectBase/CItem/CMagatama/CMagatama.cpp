@@ -17,7 +17,8 @@ CMagatama::~CMagatama() {
 void CMagatama::Update()
 {
 	if (PUSH_Q) {
-		if (m_cnt >= 10) SetAttack();
+		CObjectBase *PL = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Player));
+		if (m_cnt >= 10 && PL->GetPos().y == 0) SetAttack();
 		else SOUND("SE_BB")->Play(false);
 	}
 }
