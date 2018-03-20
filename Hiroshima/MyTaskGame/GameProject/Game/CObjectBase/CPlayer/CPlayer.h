@@ -2,6 +2,7 @@
 #define PLAYER_GUARD
 #define REPULSION 0.8f
 #define GRAVITY_DIE 1.001f
+#define PLAYER_HP 100
 
 #include"../CObjectBase.h"
 
@@ -26,6 +27,12 @@ public:
 	 bool GetJump() {
 		 return m_jump;
 	 };
+	 void SetHP(int hp) {
+		 m_hp += hp;
+		 if (m_hp >= PLAYER_HP)
+			 m_hp = PLAYER_HP;
+	 };
+
 private:
 	float m_sc_plus;
 	enum {
@@ -48,8 +55,7 @@ private:
 	bool	m_kick;		//キック一回目
 	bool	m_jump;		//trueならジャンプ中
 	bool	m_move_length;	//trueなら上下に移動中（宮﨑：lenghtって長さの事だけどどゆこと？）
-	bool	m_move_right;	//trueなら右に移動中
-	bool	m_move_left;	//trueなら左に移動中
+	bool	m_move_side;	//trueなら左右に移動中
 	bool	m_squat;		//trueならしゃがみ中
 	bool	m_roof;			//屋根の上に乗ったか乗ってないか
 	int		m_die;			//やられた時に使う

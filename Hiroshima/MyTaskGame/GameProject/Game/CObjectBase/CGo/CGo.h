@@ -3,6 +3,12 @@
 
 #include "../CObjectBase.h"
 
+/*
+
+§ì@‹{ú±
+
+*/
+
 #define GO_SIZ_X 250
 #define GO_SIZ_Y 150
 #define GO_POS_X SCREEN_WIDTH-GO_SIZ_Y-150

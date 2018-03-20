@@ -1,5 +1,6 @@
 #include "CEnemyBase.h"
 #include "../GameProject/Source/Itemsource.h"
+#include "../CPanchEF/CPanchEF.h"
 
 int CEnemyBase::m_enemy_cnt = 0;
 
@@ -7,6 +8,7 @@ CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object),
 m_damage(false),
 m_end_flag(false)
 {
+	damage_vec = CVector2D(10, -10);
 	m_state = eMove;
 
 }
@@ -42,8 +44,25 @@ void CEnemyBase::KnockBack(const int *enemy_id) {
 
 }
 void CEnemyBase::Fall() {
+	m_pos3D += m_vec3D;
 	m_img.ChangeAnimation(eAnimEnemyFall);
 	DropItem();
+
+	//xŒ¸‘¬
+	if (m_flipH)
+		m_vec3D.x = Price_Up(m_vec3D.x, 0, 0.5f);
+	else
+		m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.5f);
+
+	if (!m_end_flag) {
+		if (m_flipH)
+			m_vec3D.x = -damage_vec.x;
+		else
+			m_vec3D.x = damage_vec.x;
+		m_vec3D.y = damage_vec.y;
+	}
+	m_vec3D = Blow(m_vec3D);
+
 	if (m_end_flag == false) {
 		m_end_flag = true;
 		m_color.w = 2.0;
@@ -56,12 +75,13 @@ void CEnemyBase::Fall() {
 	}
 }
 void CEnemyBase::Damage() {
-	m_vec3D.y = 0;
 	m_pos3D += m_vec3D;
 	if (m_damage) {
 		m_hp--;
 		m_damage = false;
 		m_vec3D.x = 0;
+
+
 		//if (m_flipH) {
 		//	m_vec3D.x = -CHOCHIN_KNOCKBACK_SPEED;
 		//}
@@ -83,8 +103,10 @@ void CEnemyBase::Draw() {
 
 void CEnemyBase::Hit(CObjectBase * t)
 {
-	if (t->GetID() == eID_Player) {
-		if (t->GetState() == eAttack && m_state != eKnockBack) {
+	if (t->GetID() == eID_Effect) {
+		CPanchEF *ef = dynamic_cast<CPanchEF*>(t);
+		if (ef->GetHit() > 1.0f && m_state != eKnockBack) {
+			m_flipH = !(ef->GetFrip());
 			if (m_hp >= 0) {
 				m_damage = true;
 				m_state = eKnockBack;
@@ -93,8 +115,17 @@ void CEnemyBase::Hit(CObjectBase * t)
 				m_state = eFall;
 			}
 		}
-		 /*if(t->GetState() != eAttack && m_state != eAttack){
-			m_state = eAttack;
-		}*/
 	}
+}
+
+//‚Á”ò‚Ñ
+CVector3D CEnemyBase::Blow(CVector3D vec) {
+	m_vec3D.z = 0;
+	m_vec3D.y += 1.0f;
+	if (m_pos3D.y > 0) {
+		m_pos3D.y = 0;
+		damage_vec.y *= 0.8f;
+		m_vec3D.y = damage_vec.y;
+	}
+	return m_vec3D;
 }

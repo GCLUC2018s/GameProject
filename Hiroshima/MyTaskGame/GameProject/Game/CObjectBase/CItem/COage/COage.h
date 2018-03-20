@@ -7,6 +7,7 @@ class COage :public CItemBase {
 public:
 	COage(CVector3D *pos);
 	~COage();
+	void Action(CObjectBase * a);
 };
 
 #endif // !OAGE_GUARD

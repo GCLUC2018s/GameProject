@@ -7,6 +7,7 @@ CCutIn::CCutIn() :CObjectBase(0, eU_Back, eD_UI)
 	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 	m_pos3D.x = SCREEN_WIDTH;
 	m_color.w = 0.0;
+	m_time = 0;
 }
 
 CCutIn::~CCutIn()
@@ -15,11 +16,17 @@ CCutIn::~CCutIn()
 
 void CCutIn::Update()
 {
-	m_pos3D.x = Price_Down(m_pos3D.x, 0, 100);
-	if (m_pos3D.x > 0)
-		m_color.w += 0.1;
-	else
-		m_color.w -= 0.1;
+	if (m_pos3D.x > 0) {
+		m_pos3D.x -= m_color.w * 100;
+		m_color.w += 0.05;
+	}
+	else {
+		m_pos3D.x = 0;
+		m_time++;
+		if (m_time > 60 * 2)
+			m_color.w -= 0.1;
+	}
 
 	if (m_color.w < -1.0) SetKill();
+	CheckOverlap();
 }

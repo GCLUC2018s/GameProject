@@ -5,7 +5,7 @@
 
 /*
 
-§ìÒ@‹{ú±
+§ì@‹{ú±
 
 */
 class CCutIn : public CObjectBase
@@ -15,6 +15,8 @@ public:
 	CCutIn();
 	~CCutIn();
 	void Update();
+private:
+	int m_time;
 
 };
 

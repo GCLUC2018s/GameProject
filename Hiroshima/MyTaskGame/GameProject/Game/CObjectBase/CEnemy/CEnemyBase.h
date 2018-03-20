@@ -20,6 +20,7 @@ protected:
 	static 	int m_enemy_cnt;
 	bool m_damage;
 	bool m_end_flag;
+	CVector2D damage_vec;
 	enum {
 		eDaruma,
 		eChouchin,
@@ -30,6 +31,7 @@ protected:
 public:
 	CEnemyBase();
 	~CEnemyBase();
+	CVector3D Blow(CVector3D vec);
 	void DropItem();
 	void Nutral(const int *enemy_id);
 	void Move(const int *enemy_id);

@@ -46,6 +46,17 @@ void CEnemy1::Update() {
 	m_img.UpdateAnimation();
 	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
+
+	if (m_pos3D.y < 0) {
+		m_vec3D.y += 1.0f;
+	}else if(m_pos3D.y == 0){
+	}else if (m_pos3D.y > 0) {
+		if (abs(m_vec3D.y) > 2.0f)
+			m_vec3D.y *= -0.8f;
+		else
+			m_vec3D.y = 0;
+		m_pos3D.y = 0;
+	}
 }
 
 

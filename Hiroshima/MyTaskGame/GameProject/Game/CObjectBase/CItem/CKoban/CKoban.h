@@ -9,6 +9,7 @@ public:
 	~CKoban();
 	void Hit(CObjectBase * t);
 	void Draw();
+	void Action(CObjectBase * a);
 };
 
 #endif // !KOBAN_GUARD

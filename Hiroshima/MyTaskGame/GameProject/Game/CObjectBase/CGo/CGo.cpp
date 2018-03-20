@@ -1,7 +1,7 @@
 #include "CGo.h"
 #include "../CBB/CBB.h"
 
-CGo::CGo(bool end_flag) : CObjectBase(eID_Flag,eU_UI,eD_UI)
+CGo::CGo(bool end_flag) : CObjectBase(eID_UI,eU_UI,eD_UI)
 {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("GO"));
 	m_img.SetSize(GO_SIZ_X, GO_SIZ_Y);
