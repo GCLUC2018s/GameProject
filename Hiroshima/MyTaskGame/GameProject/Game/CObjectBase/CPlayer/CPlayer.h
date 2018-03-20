@@ -32,7 +32,6 @@ public:
 		 if (m_hp >= PLAYER_HP)
 			 m_hp = PLAYER_HP;
 	 };
-
 private:
 	float m_sc_plus;
 	enum {

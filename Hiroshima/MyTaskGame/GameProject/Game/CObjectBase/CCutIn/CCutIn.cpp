@@ -5,6 +5,7 @@ CCutIn::CCutIn() :CObjectBase(0, eU_Back, eD_UI)
 	SOUND("SE_KKN")->Play(false);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("CutIn"));
 	m_img.SetSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+	m_pos3D.y = -30;
 	m_pos3D.x = SCREEN_WIDTH;
 	m_color.w = 0.0;
 	m_time = 0;

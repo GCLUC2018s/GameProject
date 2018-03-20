@@ -335,7 +335,7 @@ void CPlayer::Nutral() {
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
 		m_state = eBill;
-		new COhuda(&m_pos3D, &m_flipH);
+		new COhuda(m_pos3D, m_flipH);
 	}
 
 }
@@ -424,6 +424,10 @@ void CPlayer::Draw(){
 	else {
 		m_sc_plus = 0.0;
 		m_pause = false;
+	}
+	if (m_deathblow) {
+		m_img.ChangeAnimation(eAnimDeathblow);
+		m_img.UpdateAnimation();
 	}
 	m_img.SetFlipH(!m_flipH);
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
