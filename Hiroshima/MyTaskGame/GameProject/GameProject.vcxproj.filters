@@ -129,9 +129,6 @@
     <ClCompile Include="Game\CObjectBase\CCutIn\CCutIn.cpp">
       <Filter>Game\Object\UI\Effect\CutIn</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CObjectBase\CPanch\CPanch_Effect.cpp">
-      <Filter>Game\Object\UI\Effect\Panch</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -275,9 +272,6 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CCutIn\CCutIn.h">
       <Filter>Game\Object\UI\Effect\CutIn</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\CObjectBase\CPanch\CPanch_Effect.h">
-      <Filter>Game\Object\UI\Effect\Panch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

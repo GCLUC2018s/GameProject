@@ -280,4 +280,4 @@ TexAnimData attack_ef_AnimData[] = {
 	ANIMDATA(_Attack1_anim),
 	ANIMDATA(_Attack2_anim),
 	ANIMDATA(_Attack3_anim),
-}
+};

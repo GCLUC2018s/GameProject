@@ -162,7 +162,6 @@
     <ClInclude Include="Game\CObjectBase\CMahouzin\CMahouzin.h" />
     <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
-    <ClInclude Include="Game\CObjectBase\CPanch\CPanch_Effect.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
     <ClInclude Include="Game\CObjectBase\CTitleBG\CTitleBG.h" />
     <ClInclude Include="Game\CScene\CSceneManager.h" />
@@ -215,7 +214,6 @@
     <ClCompile Include="Game\CObjectBase\CMahouzin\CMahouzin.cpp" />
     <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
-    <ClCompile Include="Game\CObjectBase\CPanch\CPanch_Effect.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />
     <ClCompile Include="Game\CObjectBase\CTitleBG\CTitleBG.cpp" />
     <ClCompile Include="Game\CScene\CSceneManager.cpp" />
