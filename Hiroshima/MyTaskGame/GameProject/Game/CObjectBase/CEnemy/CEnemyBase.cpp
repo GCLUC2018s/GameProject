@@ -44,8 +44,25 @@ void CEnemyBase::KnockBack(const int *enemy_id) {
 
 }
 void CEnemyBase::Fall() {
+	m_pos3D += m_vec3D;
 	m_img.ChangeAnimation(eAnimEnemyFall);
 	DropItem();
+
+	//xŒ¸‘¬
+	if (m_flipH)
+		m_vec3D.x = Price_Up(m_vec3D.x, 0, 0.5f);
+	else
+		m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.5f);
+
+	if (!m_end_flag) {
+		if (m_flipH)
+			m_vec3D.x = -damage_vec.x;
+		else
+			m_vec3D.x = damage_vec.x;
+		m_vec3D.y = damage_vec.y;
+	}
+	m_vec3D = Blow(m_vec3D);
+
 	if (m_end_flag == false) {
 		m_end_flag = true;
 		m_color.w = 2.0;
@@ -64,11 +81,6 @@ void CEnemyBase::Damage() {
 		m_damage = false;
 		m_vec3D.x = 0;
 
-		if (m_flipH)
-			m_vec3D.x = -damage_vec.x;
-		else
-			m_vec3D.x = damage_vec.x;
-		m_vec3D.y = damage_vec.y;
 
 		//if (m_flipH) {
 		//	m_vec3D.x = -CHOCHIN_KNOCKBACK_SPEED;
@@ -104,4 +116,16 @@ void CEnemyBase::Hit(CObjectBase * t)
 			}
 		}
 	}
+}
+
+//‚Á”ò‚Ñ
+CVector3D CEnemyBase::Blow(CVector3D vec) {
+	m_vec3D.z = 0;
+	m_vec3D.y += 1.0f;
+	if (m_pos3D.y > 0) {
+		m_pos3D.y = 0;
+		damage_vec.y *= 0.8f;
+		m_vec3D.y = damage_vec.y;
+	}
+	return m_vec3D;
 }
