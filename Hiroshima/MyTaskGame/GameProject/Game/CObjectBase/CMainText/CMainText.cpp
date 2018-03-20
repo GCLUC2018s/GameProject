@@ -34,4 +34,5 @@ void CMainText::Update()
 			SetKill();
 		}
 	}
+	CheckOverlap();
 }

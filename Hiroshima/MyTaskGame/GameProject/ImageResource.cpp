@@ -294,3 +294,21 @@ TexAnimData attack_ef_AnimData[] = {
 	ANIMDATA(_Attack2_anim),
 	ANIMDATA(_Attack3_anim),
 };
+
+TexAnim _Aura_anim[] = {
+	{ 0,5 },
+	{ 1,5 },
+	{ 2,5 },
+	{ 3,5 },
+	{ 4,5 },
+	{ 5,5 },
+	{ 6,5 },
+	{ 7,5 },
+	{ 8,5 },
+	{ 9,5 },
+};
+
+
+TexAnimData aura_ef_AnimData[] = {
+	ANIMDATA(_Aura_anim),
+};
