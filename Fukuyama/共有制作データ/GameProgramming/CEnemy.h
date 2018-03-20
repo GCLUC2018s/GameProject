@@ -3,8 +3,8 @@
 #include "../object/C_Object.h"
 #include"chara\C_Player.h"
 #include"object\CVector3.h"
-#define ENEMY_UD_SPEED 100
-#define ENEMY_LR_SPEED 200
+#define ENEMY_UD_SPEED 3
+#define ENEMY_LR_SPEED 7
 #define ACTION_INTERVAL 120
 #define TARGETINTERVAL 300
 class CEnemy :public C_Object{
@@ -15,6 +15,7 @@ public:
 		m_image.m_Enabled = true;
 		//プレイヤーのサイズ
 		m_image.SetVertex(0, 90, 0, 135);
+		i_Shadow.SetVertex(0, 60, 0, 135);
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 		i_Enemy_Run.Load("image/chara/chara_enemy_16bit.tga");
 	}
@@ -22,6 +23,7 @@ public:
 		E_NORMAL,
 	    E_ACTION
 	};
+	float m_Long;
 	CTexture mTexture;
 	CTexture i_Enemy_Run;
 	int m_EnemySet;//敵の配置
@@ -32,7 +34,7 @@ public:
 	void Init();
 	void Update();
 	void Draw();
-	C_Player *m_Target;
+	C_Vector3 m_Target;
 };
 enum ENEMY_TYPE{
 	E_ESCAPE,
