@@ -45,7 +45,8 @@ public:
 
 	float m_wide, m_high;
 	float m_Left, m_Right, m_Bottom, m_Top;
-	float m_Adjust;
+	float m_AdjustX;
+	float m_AdjustZ;
 	void Render(float a, float b, float c, float d);          //ˆø”‚ÍRGBA
 	void SetVertex(float left, float right, float bottom, float top);
 	bool m_Enabled;

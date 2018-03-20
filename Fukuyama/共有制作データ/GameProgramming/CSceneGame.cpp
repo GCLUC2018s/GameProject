@@ -25,6 +25,13 @@ void CSceneGame::Update(){
 		}
 		break;
 	case 1:
+		Player->m_Objvalue = Enemy->m_Objvalue = 10;
+		if (C_Collider::Collision(Player, Enemy, &Player->i_JumpPoint, &Enemy->m_Position)){
+			Player->m_Position.x += Player->m_Colimage.m_AdjustX;
+			Player->m_Position.z += Player->m_Colimage.m_AdjustZ;
+			Player->i_JumpPoint.x += Player->m_Colimage.m_AdjustX;
+			Player->i_JumpPoint.z += Player->m_Colimage.m_AdjustZ;
+		}
 		//プレイ画面
 		//ポーズ画面でない場合
 		if (m_PawsCount == 0){

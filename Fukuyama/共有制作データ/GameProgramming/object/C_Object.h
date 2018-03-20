@@ -66,6 +66,8 @@ public:
 
 	void RunAnime(CTexture *image, int id);      //走りアニメ
 	void TaikiAnime(CTexture *image, int id);    //待機アニメ
+	C_Rectangle m_Colimage;  //判定処理をメンバー変数にする
+	float m_Objvalue;
 
 protected:
 	C_Rectangle i_Shadow;   //影用インスタンス
