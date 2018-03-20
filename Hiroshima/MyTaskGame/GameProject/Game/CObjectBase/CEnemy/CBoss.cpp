@@ -12,7 +12,7 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 	m_arm2 = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
 	m_tail = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
 	//m_img.SetSize(BOSS_SIZ_X , BOSS_SIZ_Y );
-	m_headpos3D = *headpos;
+	m_headpos3D = m_headoldpos3D = *headpos;
 	m_armpos3D = *armpos;
 	m_arm2pos3D = *arm2pos;
 	m_tailpos3D = *tailpos;
@@ -117,8 +117,8 @@ void CBoss::Draw() {
 
 	m_tail.Draw();
 	m_arm.Draw();
-	m_arm2.Draw();
 	m_head.Draw();
+	m_arm2.Draw();
 	
 }
 
@@ -238,6 +238,5 @@ void CBoss::Tail() {
 
 	
 
-	//Attack(&m_parts_head);
 	
 }

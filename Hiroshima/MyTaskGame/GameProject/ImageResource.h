@@ -13,6 +13,7 @@ enum  {
 	eAnimJamp,
 	eAnimDash,
 	eAnimSquat,
+	eAnimDeathblow,
 	eAnimKamaMove = 1,
 	eAnimKamaAttack,
 	eAnimKamaKnockBack,
@@ -28,7 +29,6 @@ enum  {
 	eAnimBossTailAttack,
 	eAnimBossBless,
 	eAnimBossShowerLaser,
-
 	eAnimBossDown,
 	eAnimEffectAttack1 = 0,
 	eAnimEffectAttack2,

@@ -1,27 +1,38 @@
 #include "CMahouzin.h"
 #include "../CPlayer/CPlayer.h"
 #include "../GameProject/Task/CTaskManager.h"
+#include "../CBB/CBB.h"
+#include "../GameProject/Game/CObjectBase/CItem/COhuda/COhuda.h"
 
 CMahouzin::CMahouzin() : CObjectBase(eID_UI, eU_UI, eD_Ground) {
+	new CBB(60 * 5, 0, true);
+	m_deathblow = true;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Mahouzin"));
 	m_img.SetSize(256, 128);
 	m_img.SetCenter(64, -600);
-	CPlayer* PL = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
+	PL = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
 	m_pos3D = PL->GetPos();
+	SOUND("SE_Mahou_Charge")->Play(false);
 	m_time = 0;
 	m_size = 0;
 }
 
 CMahouzin::~CMahouzin()
 {
+	m_deathblow = false;
 }
 
 void CMahouzin::Update(){
 	m_time++;
-	if (m_time > 300) {
-		m_size++;
-		m_img.SetSize(256 + m_size, 128 + m_size);
-		m_img.SetCenter(64 + m_size/2, -600 + m_size/2 );
+	if (m_time > 60 * 4) {
+		if (m_size == 0) {
+			new COhuda(m_pos3D, PL->GetFlip());
+			SOUND("SE_Mahou_Charge")->Stop();
+			SOUND("SE_Mahou_Kaen")->Play(false);
+		}
+		m_size+=5;
+		m_img.SetSize(256 + m_size * 2, 128 + m_size);
+		m_img.SetCenter(64 + m_size, -600 + m_size/2 );
 		m_color.w -= 0.01;
 	}
 	if (m_color.w < 0) {

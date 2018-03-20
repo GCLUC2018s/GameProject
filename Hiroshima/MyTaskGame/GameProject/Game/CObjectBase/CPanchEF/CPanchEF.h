@@ -1,7 +1,7 @@
 #ifndef PANCH_EFFECT_GUARD
 #define PANCH_EFFECT_GUARD
 
-#include "../CObjectBase.h"
+#include "../CEffectBase/CEffectBase.h"
 
 /*
 
@@ -11,18 +11,10 @@
 
 class CPlayer;
 
-class CPanchEF :public CObjectBase {
+class CPanchEF :public CEffectBase {
 public:
 	CPanchEF(bool frip,CPlayer *pl,int anim_num);
 	void Update();
-	void Draw();
-	//1à»è„Ç»ÇÁîªíËÇ≈Ç´ÇÈ
-	float GetHit() {
-		return m_color.w;
-	};
-	bool GetFrip() {
-		return !m_flipH;
-	};
 private:
 	CPlayer *PL;
 };

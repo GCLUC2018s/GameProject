@@ -57,6 +57,10 @@ TexAnim _PL_squat[] = {
 	{ 90,5 },
 	{ 91,5 },
 };
+TexAnim _PL_Deathblow[] = {
+	{ 10,60 * 4 },
+	{ 11,60 * 4 },
+};
 
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
@@ -68,6 +72,7 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_jamp),
 	ANIMDATA(_PL_dash),
 	ANIMDATA(_PL_squat),
+	ANIMDATA(_PL_Deathblow),
 };
 
 //TexAnim _ENE_anim[] = {
@@ -251,7 +256,8 @@ TexAnim _Boss_ShowerLaser_anim[] = {
 };
 
 TexAnim _Boss_Down_anim[] = {
-	{ 48,300 },
+	{ 48,1000 },
+	{ 48,1 },
 	{ 48,1 },
 
 

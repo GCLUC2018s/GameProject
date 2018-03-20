@@ -6,6 +6,7 @@ CVector2D CObjectBase::m_scroll(0, 0);
 bool CObjectBase::m_wave_flag = true;
 bool CObjectBase::m_sc_flag_x = false;
 int CObjectBase::m_score = 0;
+bool CObjectBase::m_deathblow = false;
 
 CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
 	CTask(id, updatePrio, drawPrio) {
@@ -30,13 +31,15 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 {
 
 	if ((t1->GetID() == eID_Effect && t2->GetID() == eID_Enemy) ||
-		(t2->GetID() == eID_Effect && t1->GetID() == eID_Enemy) ||
+		(t2->GetID() == eID_Effect && t1->GetID() == eID_Enemy) || 
 		(t1->GetID() == eID_Player && t2->GetID() == eID_Item) ||
-		(t2->GetID() == eID_Player && t1->GetID() == eID_Item)) {
+		(t2->GetID() == eID_Player && t1->GetID() == eID_Item) || 
+		(t1->GetID() == eID_Enemy && t2->GetID() == eID_Bullet) ||
+		(t2->GetID() == eID_Enemy && t1->GetID() == eID_Bullet)){
 		//PL‚ÆENE‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
-		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 200) {
+		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 100) {
 			if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
 				o1->m_pos3D.x + o1->m_rect.m_left  <o2->m_pos3D.x + o2->m_rect.m_right &&
 				o1->m_pos3D.y + o1->m_rect.m_bottom>o2->m_pos3D.y + o2->m_rect.m_top &&

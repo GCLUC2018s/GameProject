@@ -1,6 +1,6 @@
 #include "CEnemyBase.h"
 #include "../GameProject/Source/Itemsource.h"
-#include "../CPanchEF/CPanchEF.h"
+#include "../CEffectBase/CEffectBase.h"
 
 int CEnemyBase::m_enemy_cnt = 0;
 
@@ -15,19 +15,22 @@ m_end_flag(false)
 
 CEnemyBase::~CEnemyBase()
 {
-	new CKoban(&(  CVector3D(m_pos3D.x + 20, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(  CVector3D(m_pos3D.x - 20, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(  CVector3D(m_pos3D.x + 10, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(  CVector3D(m_pos3D.x - 10, m_pos3D.y, m_pos3D.z)));
-	new CKoban(&(  CVector3D(m_pos3D.x + 30, m_pos3D.y, m_pos3D.z)));
-	new COage(&(   CVector3D(m_pos3D.x - 30, m_pos3D.y, m_pos3D.z)));
-	new CSake(&(   CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
-	new CKakera(&( CVector3D(m_pos3D.x + 40, m_pos3D.y, m_pos3D.z)));
-
 	m_enemy_cnt--;
 }
 
 void CEnemyBase::DropItem() {
+	for (int i = Utility::Rand(30, 50); i > 0; i--) {
+		new CKoban(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+	}
+	for (int i = Utility::Rand(-2, 2); i > 0; i--) {
+		new CKakera(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+	}
+	for (int i = Utility::Rand(-2, 2); i > 0; i--) {
+		new CSake(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+	}
+	for (int i = Utility::Rand(-2, 2); i > 0; i--) {
+		new COage(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+	}
 
 }
 
@@ -46,7 +49,6 @@ void CEnemyBase::KnockBack(const int *enemy_id) {
 void CEnemyBase::Fall() {
 	m_pos3D += m_vec3D;
 	m_img.ChangeAnimation(eAnimEnemyFall);
-	DropItem();
 
 	//xå∏ë¨
 	if (m_flipH)
@@ -71,6 +73,7 @@ void CEnemyBase::Fall() {
 		m_color.w -= 0.02;
 	}
 	if (m_color.w < -1.0) {
+		DropItem();
 		SetKill();
 	}
 }
@@ -104,7 +107,7 @@ void CEnemyBase::Draw() {
 void CEnemyBase::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Effect) {
-		CPanchEF *ef = dynamic_cast<CPanchEF*>(t);
+		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
 		if (ef->GetHit() > 1.0f && m_state != eKnockBack) {
 			m_flipH = !(ef->GetFrip());
 			if (m_hp >= 0) {

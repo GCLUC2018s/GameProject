@@ -46,7 +46,7 @@ public:
 	//テクスチャーのインスタンス宣言
 	CTexture i_Chara_Motion_1;
 	CTexture i_Chara_Motion_2;
-	C_Vector3 i_JumpPoint;
+    C_Vector3 i_JumpPoint;
 	static C_Player *m_Playerpoint;
 	float m_JumpTime;       //ジャンプしてから着地までの時間
 	int m_SetInterval;        //設置間隔

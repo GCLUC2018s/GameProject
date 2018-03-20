@@ -112,7 +112,7 @@
       <Filter>Game\Object\Pic\Ending</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CGimmick\CFire.cpp">
-      <Filter>Game\Object\Gimmick\Fire</Filter>
+      <Filter>Game\Object\UI\Effect\Fire</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CItem\CItemBase\CItemBase.cpp">
       <Filter>Game\Object\Item\Base</Filter>
@@ -131,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CPanchEF\CPanchEF.cpp">
       <Filter>Game\Object\UI\Effect\Panch</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CEffectBase\CEffectBase.cpp">
+      <Filter>Game\Object\UI\Effect\EffectBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -256,7 +259,7 @@
       <Filter>Game\Object\Pic\Ending</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CGimmick\CFire.h">
-      <Filter>Game\Object\Gimmick\Fire</Filter>
+      <Filter>Game\Object\UI\Effect\Fire</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CItem\CItemBase\CItemBase.h">
       <Filter>Game\Object\Item\Base</Filter>
@@ -278,6 +281,9 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CPanchEF\CPanchEF.h">
       <Filter>Game\Object\UI\Effect\Panch</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CEffectBase\CEffectBase.h">
+      <Filter>Game\Object\UI\Effect\EffectBase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -419,9 +425,6 @@
     <Filter Include="Game\Object\Pic\Ending">
       <UniqueIdentifier>{a1876d1b-e5a0-45e4-9e26-f2cd10e04917}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\Gimmick\Fire">
-      <UniqueIdentifier>{3d695782-75f1-4e64-b2c2-a481b5f1c5c1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Item\Base">
       <UniqueIdentifier>{083a0143-0488-48cf-8183-3c884fe29ff1}</UniqueIdentifier>
     </Filter>
@@ -445,6 +448,12 @@
     </Filter>
     <Filter Include="Game\Object\UI\Effect\CutIn">
       <UniqueIdentifier>{2c987eda-87b4-4d6b-b57d-fe1d34ed3605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\EffectBase">
+      <UniqueIdentifier>{e4d8a82a-255b-4ca2-9d2a-6cd91544b4b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\Fire">
+      <UniqueIdentifier>{3d695782-75f1-4e64-b2c2-a481b5f1c5c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -8,6 +8,9 @@
 §ì@˜ZÔ
 
 */
+
+class CPlayer;
+
 class CMahouzin :public CObjectBase {
 public:
 	CMahouzin();
@@ -17,6 +20,7 @@ public:
 private:
 	int m_time;
 	int m_size;
+	CPlayer *PL;
 
 };
 
