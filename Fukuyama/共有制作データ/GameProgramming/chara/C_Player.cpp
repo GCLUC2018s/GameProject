@@ -19,35 +19,21 @@ void C_Player::Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, 
 void C_Player::Update(){
 
 	//ジャンプ用変数を回します
-	if (m_Anime_Jump < 60){
-		m_Anime_Jump++;
-	}
-
+	if (m_Anime_Jump < 60)m_Anime_Jump++;
 	//投げアニメーション用変数を回します
-	if (m_Anime_Throw < THROW_ANIME + 2){
-		m_Anime_Throw++;
-	}
+	if (m_Anime_Throw < THROW_ANIME +2)m_Anime_Throw++;
 	//投げ間隔用変数を回します
-	if (m_ThrowInterval <= THROW_INTERVAL){
-		m_ThrowInterval++;
-	}
-
+	if (m_ThrowInterval <= THROW_INTERVAL)m_ThrowInterval++;
 	//設置アニメーション用変数を回します
-	if (m_Anime_Set < SET_ANIME + 2){
-		m_Anime_Set++;
-	}
+	if (m_Anime_Set < SET_ANIME + 2)m_Anime_Set++;
 	//カラーボール設置間隔用変数を回します
-	if (m_SetInterval<=SET_INTERVAL){
-		m_SetInterval++;
-	}
-
+	if (m_SetInterval<=SET_INTERVAL)m_SetInterval++;
 	//スプレーアニメーション用変数を回します
-	if (m_Anime_Spray <= SPRAY_ANIME){
-		m_Anime_Spray++;
-	}
-	if (m_Anime_Spray >= SPRAY_ANIME){
-		m_Spray = E_NSPRAY;
-	}
+	if (m_Anime_Spray <= SPRAY_ANIME)m_Anime_Spray++;
+	//スプレー再使用間隔用変数を回します
+	if (m_SprayInterval <= SPRAY_INTERVAL)m_SprayInterval++;
+	//スプレーを再使用可能状態に変更	
+	if (m_Anime_Spray >= SPRAY_ANIME)m_Spray = E_NSPRAY;
 
 	//もし着地モーション中なら操作ができない
 	if (m_Anime_Jump > JUMP_ANIME){
@@ -103,12 +89,14 @@ void C_Player::Update(){
 			&& m_Throw == E_NTHROW
 			&& m_Jump == E_NJUMP
 			&& m_Set == E_NSET
-			&& m_Anime_Spray>=SPRAY_ANIME)
+			&& m_Anime_Spray>=SPRAY_ANIME
+			&& m_SprayInterval >= SPRAY_INTERVAL)
 		{
 			//スプレー使用中のタグをつけます
 			m_Spray = E_SPRAY;
 			//アニメーション用変数をアニメーションの初期値にします
 			m_Anime_Spray = 0;
+			m_SprayInterval = 0;
 		}
 
 
@@ -185,6 +173,9 @@ void C_Player::Update(){
 	C_Object::Rect(&m_image,&m_Position);
 	//影の描画位置をポジションと同期
 	C_Object::Rect(&i_Shadow, &i_JumpPoint);
+
+	//描画順番の変更
+	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
 }
 
 

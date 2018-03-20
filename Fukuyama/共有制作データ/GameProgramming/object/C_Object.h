@@ -14,7 +14,7 @@
 #define SET_ANIME_INTERVAL 9  //設置アニメーション1枚当たりのフレーム数
 #define SET_ANIME_FRAME 2    //設置アニメの絵の数
 #define SET_ANIME THROW_ANIME_INTERVAL*THROW_ANIME_FRAME      //設置アニメーション用変数を回す上限
-#define SPRAY_ANIME_INTERVAL 8        //スプレーアニメーション1枚当たりのフレーム数
+#define SPRAY_ANIME_INTERVAL 12        //スプレーアニメーション1枚当たりのフレーム数
 #define SPRAY_ANIME_FRAME 3         //スプレーアニメの絵の数
 #define SPRAY_ANIME SPRAY_ANIME_INTERVAL*SPRAY_ANIME_FRAME       //スプレーアニメーション用変数を回す上限
 
@@ -66,6 +66,7 @@ public:
 
 	void RunAnime(CTexture *image, int id);      //走りアニメ
 	void TaikiAnime(CTexture *image, int id);    //待機アニメ
+
 protected:
 	C_Rectangle i_Shadow;   //影用インスタンス
 	C_Rectangle m_image;  //メンバー変数にする
