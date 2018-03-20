@@ -13,6 +13,7 @@ public:
 	CItemBox(CVector3D *pos, int state);
 	~CItemBox();
 	void	Update();
+	void Hit(CObjectBase * t);
 	void Draw();
 private:
 	bool	m_break;
