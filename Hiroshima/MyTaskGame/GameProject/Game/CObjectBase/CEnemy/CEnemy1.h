@@ -7,15 +7,20 @@
 
 #define DARUMA_KNOCKBACK_SPEED 8
 
-//#include"../CObjectBase.h"
 #include"CEnemyBase.h"
+#include"../CObjectBase.h"
 /*
 
 »ìÒ@Â–Ø
 
 */
+
+
 class CEnemy1 :public CEnemyBase {
+private:
+	int m_cnt;
 public:
+	CVector3D a;
 	//‚¾‚é‚Ü
 	CEnemy1(const CVector3D *pos);
 	void Update();

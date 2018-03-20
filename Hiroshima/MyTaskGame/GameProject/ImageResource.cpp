@@ -58,7 +58,7 @@ TexAnim _PL_squat[] = {
 	{ 91,5 },
 };
 TexAnim _PL_Deathblow[] = {
-	{ 10,60 * 5 },
+	{ 10,60 * 4 },
 	{ 11,60 * 4 },
 };
 

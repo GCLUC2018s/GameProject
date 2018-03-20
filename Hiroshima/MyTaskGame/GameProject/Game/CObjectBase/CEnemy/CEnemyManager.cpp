@@ -29,16 +29,16 @@ struct Enemy_Push
 
 Enemy_Push  push_enemy[32][32]{
 	//‘æˆêƒEƒFƒCƒ”
-	{{ 100,eDaruma,CVector3D(400, 0, -300) },
-	{ 200,eDaruma ,CVector3D(500, 0, -200) },
-	{ 300,eDaruma ,CVector3D(600, 0, -250) },
-	{ 400,eDaruma ,CVector3D(800, 0, -200) },
-	{ 500,eDaruma ,CVector3D(800, 0, -200) },
-	{ 600,eDaruma ,CVector3D(200, 0, -50) },
-	{ 700,eDaruma ,CVector3D(400, 0, -300) },
-	{ 800,eDaruma ,CVector3D(600, 0, -250) },
-	{ 900,eDaruma ,CVector3D(800, 0, -200) },
-	{ 1000,eDaruma ,CVector3D(200, 0, -50) },
+	{{ 100,eDaruma,CVector3D(   400, 0, -300) },
+	{ 200,eChouchin ,CVector3D( 500, -20, -200) },
+	{ 300,eChouchin ,CVector3D( 600, -130, -250) },
+	{ 400,eChouchin ,CVector3D( 800, -40, -200) },
+	{ 500,eDaruma ,CVector3D(   800, 0, -200) },
+	{ 600,eDaruma ,CVector3D(   200, 0, -50) },
+	{ 700,eChouchin ,CVector3D( 400, 0, -300) },
+	{ 800,eChouchin ,CVector3D( 600, -150, -250) },
+	{ 900,eChouchin ,CVector3D( 800, -50, -200) },
+	{ 1000,eChouchin ,CVector3D(200, 0, -50) },
 	{ END_CODE }
 	},{
 
@@ -49,10 +49,10 @@ Enemy_Push  push_enemy[32][32]{
 	{ 400,eChouchin ,CVector3D( 800 + SCREEN_WIDTH, -50, -200) },
 	{ 500,eChouchin ,CVector3D( 800 + SCREEN_WIDTH, -50, -200) },
 	{ 600,eChouchin ,CVector3D( 200 + SCREEN_WIDTH, 0, -50) },
-	{ 700,eChouchin ,CVector3D( 400 + SCREEN_WIDTH, 0, -300) },
-	{ 800,eChouchin ,CVector3D( 600 + SCREEN_WIDTH, -150, -250) },
-	{ 900,eChouchin ,CVector3D( 800 + SCREEN_WIDTH, -50, -200) },
-	{ 1000,eChouchin ,CVector3D(200 + SCREEN_WIDTH, 0, -50) },
+	{ 700,eDaruma ,CVector3D(   400 + SCREEN_WIDTH, 0, -300) },
+	{ 800,eDaruma ,CVector3D(   600 + SCREEN_WIDTH, 0, -250) },
+	{ 900,eDaruma ,CVector3D(   800 + SCREEN_WIDTH, 0, -200) },
+	{ 1000,eDaruma ,CVector3D(  200 + SCREEN_WIDTH, 0, -50) },
 	{ END_CODE }
 }
 
