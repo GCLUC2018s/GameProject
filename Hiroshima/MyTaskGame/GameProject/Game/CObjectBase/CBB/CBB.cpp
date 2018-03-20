@@ -24,19 +24,19 @@ CBB::CBB(const int &time, const int &flag, const bool &in_flag) :CObjectBase(0, 
 
 CBB::~CBB()
 {
+	//終わったらPause取りやめ
+	CTaskManager::GetInstance()->SetPause(eID_Player, false);
+	CTaskManager::GetInstance()->SetPause(eID_Enemy, false);
+	CTaskManager::GetInstance()->SetPause(eID_Gimmick, false);
+	CTaskManager::GetInstance()->SetPause(eID_Magatama, false);
 	switch (m_flag)
 	{
 	case 1:
-		//終わったらエネミー生成
-		CTaskManager::GetInstance()->SetPause(eID_Player, false);
-		CTaskManager::GetInstance()->SetPause(eID_Enemy, false);
-		CTaskManager::GetInstance()->SetPause(eID_Gimmick, false);
-		CTaskManager::GetInstance()->SetPause(eID_Magatama, false);
 		SOUND("BGM_Main")->Play(true);
 		break;
 	case 2:
 		NEW_SCENE(eBoss)
-		break;
+			break;
 	default:
 		break;
 	}

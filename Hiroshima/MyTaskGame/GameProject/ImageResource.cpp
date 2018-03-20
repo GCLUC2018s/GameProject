@@ -57,6 +57,10 @@ TexAnim _PL_squat[] = {
 	{ 90,5 },
 	{ 91,5 },
 };
+TexAnim _PL_Deathblow[] = {
+	{ 10,60 * 5 },
+	{ 11,60 * 4 },
+};
 
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
@@ -68,6 +72,7 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_jamp),
 	ANIMDATA(_PL_dash),
 	ANIMDATA(_PL_squat),
+	ANIMDATA(_PL_Deathblow),
 };
 
 //TexAnim _ENE_anim[] = {

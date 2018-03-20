@@ -32,6 +32,7 @@ protected:
 	static bool m_wave_flag;	//今wave中ならtrue。敵全滅させたらfalseにして、スクロール開始
 	static 	bool m_sc_flag_x;	//プレイヤーが動いたことによるスクロールフラグ。trueならプレイヤーの動きは止まる
 	static 	int m_score;	//すこあ
+	static 	bool m_deathblow;	//必殺技
 	int m_hp;  //体力
 	int m_at;  //攻撃力
 	int m_state; //状態
@@ -66,6 +67,10 @@ public:
 	int GetHP() {
 		return m_hp;
 	};
+	//フリップフラグ取得
+	bool GetFlip() {
+		return m_flipH;
+	}
 	////入れ替え用矩形取得
 	//CRect *GetRect_F() {
 	//	return &m_rect_F;
