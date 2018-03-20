@@ -15,6 +15,8 @@ protected:
 	int m_time;		//‚­‚é‚­‚é‰ñ‚éŠÔ
 	bool m_get;		//true‚È‚çƒQƒbƒg‚³‚ê‚½
 	void Vanush();	//Á‚¦‚éˆ—
+	virtual void Action(CObjectBase * a);
+	virtual void ScoreUp();
 };
 
 #endif // !ITEM_BASE_GUARD

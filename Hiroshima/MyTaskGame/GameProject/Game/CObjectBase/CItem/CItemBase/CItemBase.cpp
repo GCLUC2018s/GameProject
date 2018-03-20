@@ -1,4 +1,5 @@
 #include "CItemBase.h"
+#include"../GameProject/Game/CObjectBase/CPlayer/CPlayer.h"
 #define ITEM_HOSEI 151
 
 CItemBase::CItemBase(CVector3D * pos) :CObjectBase(eID_Item, eU_Item, eD_Object) 
@@ -9,7 +10,7 @@ CItemBase::CItemBase(CVector3D * pos) :CObjectBase(eID_Item, eU_Item, eD_Object)
 	m_vec3D.z = Utility::Rand(-50, 50) / 10;
 	m_get = false;
 	m_time = 0;
-}
+	}
 
 CItemBase::~CItemBase()
 {
@@ -59,6 +60,9 @@ void CItemBase::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Player&& m_get == false) {
 		SOUND("SE_ITEM")->Play(false);
+		Action(t);
+	/*	CPlayer* PL = dynamic_cast<CPlayer*>(t);
+		 PL->SetHP(2);*/
 		m_time = 0;
 		m_get = true;
 	}
@@ -71,4 +75,16 @@ void CItemBase::Vanush()
 	m_pos3D.y -= 0.2;
 	if (m_time % 5 == 0)m_flipH = !m_flipH;
 	if (m_color.w < 0) SetKill();
+
+}
+
+void CItemBase::Action(CObjectBase * a)
+{
+	/*
+	”h¶æ‚ÅŽw’è‚·‚é
+	*/
+}
+
+void CItemBase::ScoreUp()
+{
 }
