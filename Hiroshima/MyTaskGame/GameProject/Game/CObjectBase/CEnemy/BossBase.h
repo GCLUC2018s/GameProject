@@ -12,6 +12,10 @@
 #define BOSS_FLOAT_ARM 0.02f
 #define BOSS_FLOAT_TAIL 0.1f
 
+#define BOSS_DOWN_SPEED 0.1f
+
+#define BOSS_POS_Y -200 
+
 #include "../GameProject/GAME/CObjectBase/CObjectBase.h"
 
 
@@ -47,6 +51,7 @@ protected:
 		eArm2,
 		eTail,
 	};
+	CVector3D m_headoldpos3D;
 public:
 	CBossBase();
 	void Nutral( int boss_id);
