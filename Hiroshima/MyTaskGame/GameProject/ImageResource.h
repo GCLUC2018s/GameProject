@@ -50,5 +50,7 @@ extern TexAnimData kamaitachi_AnimData[];
 extern TexAnimData boss_AnimData[];
 //motion_effect.pngのアニメーションデータ
 extern TexAnimData attack_ef_AnimData[];
+//pipo-mapeffect013a-1.pngのアニメーションデータ
+extern TexAnimData aura_ef_AnimData[];
 
 #endif // !IMAGE_RESOURCE_GUARD

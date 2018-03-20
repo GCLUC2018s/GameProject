@@ -120,6 +120,8 @@ void Init(void)
 
 	//エフェクト関係
 	ADD_RESOURCE("Effect_panch", CAnimImage::LoadImage("motion_effect.png", attack_ef_AnimData, 512, 512));
+	ADD_RESOURCE("Effect_aura1", CAnimImage::LoadImage("pipo-mapeffect013a-1.png", aura_ef_AnimData, 400, 400));
+	ADD_RESOURCE("Effect_aura2", CAnimImage::LoadImage("pipo-mapeffect013a-2.png", aura_ef_AnimData, 400, 400));
 
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
