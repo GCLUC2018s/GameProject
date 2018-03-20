@@ -1,16 +1,15 @@
 #include"Hagi.h"
 
 void Hagi::Update(){
-	if (i_iconShadow.m_Top > i_iconShadow.m_Bottom)
-		i_iconShadow.m_Top -= m_CoolTime;
+	float m_CoolTime = ICON_SIZE;
+		m_CoolTime=m_CoolTime/ SPRAY_INTERVAL;      //スプレーのクールタイム表示（アイコン）
+
+	i_iconShadow.m_Top -= m_CoolTime;
 	if (i_iconShadow.m_Top <= i_iconShadow.m_Bottom){
 		i_iconShadow.m_Top = i_iconShadow.m_Bottom;
 	}
-	//プレイヤーがスプレーを使うとアイコンに影を落とす
-	if (i_iconShadow.m_Top<=i_iconShadow.m_Bottom
-		&& i_iconShadow.m_Top >= i_iconShadow.m_Bottom
-		&& CKey::Once('Z')){
-		i_iconShadow.m_Top = i_iconShadow.m_Bottom + 90;
+	if (C_Player::m_Playerpoint->m_Anime_Spray == 0){
+		i_iconShadow.m_Top = i_iconShadow.m_Bottom + ICON_SIZE;
 	}
 }
 

@@ -58,7 +58,7 @@ TexAnim _PL_squat[] = {
 	{ 91,5 },
 };
 TexAnim _PL_Deathblow[] = {
-	{ 10,60 * 5 },
+	{ 10,60 * 4 },
 	{ 11,60 * 4 },
 };
 
@@ -256,7 +256,8 @@ TexAnim _Boss_ShowerLaser_anim[] = {
 };
 
 TexAnim _Boss_Down_anim[] = {
-	{ 48,300 },
+	{ 48,1000 },
+	{ 48,1 },
 	{ 48,1 },
 
 
