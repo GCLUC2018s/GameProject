@@ -7,6 +7,7 @@ CEnemyBase::CEnemyBase() :CObjectBase(eID_Enemy, eU_Enemy, eD_Object),
 m_damage(false),
 m_end_flag(false)
 {
+	damage_vec = CVector2D(10, -10);
 	m_state = eMove;
 
 }
@@ -56,12 +57,18 @@ void CEnemyBase::Fall() {
 	}
 }
 void CEnemyBase::Damage() {
-	m_vec3D.y = 0;
 	m_pos3D += m_vec3D;
 	if (m_damage) {
 		m_hp--;
 		m_damage = false;
 		m_vec3D.x = 0;
+
+		if (m_flipH)
+			m_vec3D.x = -damage_vec.x;
+		else
+			m_vec3D.x = damage_vec.x;
+		m_vec3D.y = damage_vec.y;
+
 		//if (m_flipH) {
 		//	m_vec3D.x = -CHOCHIN_KNOCKBACK_SPEED;
 		//}
