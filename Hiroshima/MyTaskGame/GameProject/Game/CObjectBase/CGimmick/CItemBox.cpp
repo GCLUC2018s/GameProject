@@ -1,4 +1,5 @@
 #include "CItemBox.h"
+#include "../GameProject/Source/Itemsource.h"
 #define ITEM_BOX_HOSEI 47
 /*
 
@@ -23,13 +24,10 @@ CItemBox::~CItemBox() {
 
 void CItemBox::Update() {
 
-	if (!m_break && PUSH_E) {
-		m_break = true;
-	}
 	if (m_cnt > 60) {
-		m_color.w = Price_Down(m_color.w, 0, 0.05f);
+		m_color.w -= 0.05;
 	}
-	if (m_color.w == 0)
+	if (m_color.w < 0)
 		SetKill();
 
 	if (m_state) {
@@ -52,6 +50,28 @@ void CItemBox::Update() {
 	m_img.UpdateAnimation();
 	CheckOverlap();
 }
+void CItemBox::Hit(CObjectBase * t){
+	if (t->GetID() == eID_Player) {
+		if (!m_break && PUSH_V) {
+			m_break = true;
+			if (!m_state) {
+				m_score += 20;
+
+				for (int i = rand() % 5; i > 0; i--) {
+					new CSake(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+				}
+				for (int i = rand() % 5; i > 0; i--) {
+					new COage(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
+				}
+				for (int i = 0; i < 100; i++) {
+					new CKoban(&(CVector3D(m_pos3D.x+128, m_pos3D.y, m_pos3D.z)));
+				}
+			}else {
+				m_score -= 20;
+						}
+		}
+	}
+}
 void CItemBox::Draw()
 {
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
@@ -61,3 +81,4 @@ void CItemBox::Draw()
 //	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + ITEM_BOX_HOSEI + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 //	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + ITEM_BOX_HOSEI + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }
+

@@ -10,6 +10,7 @@ class CObjectBase;
 enum {
 	eU_System,
 	eU_Player,
+	eU_Bullet,
 	eU_Enemy,
 	eU_Gimmick,
 	eU_Item,
@@ -35,11 +36,12 @@ enum {
 enum {
 	eID_UI,
 	eID_Player,
+	eID_Bullet,
 	eID_Enemy,
 	eID_Boss,
 	eID_Item,
 	eID_Gimmick,
-	eID_Flag,
+	eID_Effect,
 	eID_Magatama,
 	eID_Ground,
 	eID_Null,

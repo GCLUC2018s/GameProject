@@ -57,6 +57,10 @@ TexAnim _PL_squat[] = {
 	{ 90,5 },
 	{ 91,5 },
 };
+TexAnim _PL_Deathblow[] = {
+	{ 10,60 * 5 },
+	{ 11,60 * 4 },
+};
 
 TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_idol),
@@ -68,6 +72,7 @@ TexAnimData player_AnimData[] = {
 	ANIMDATA(_PL_jamp),
 	ANIMDATA(_PL_dash),
 	ANIMDATA(_PL_squat),
+	ANIMDATA(_PL_Deathblow),
 };
 
 //TexAnim _ENE_anim[] = {
@@ -190,7 +195,7 @@ TexAnimData enemy_AnimData[] = {
 };
 
 
-TexAnim _Boss_anim[] = {
+TexAnim _Boss_Head_anim[] = {
 	{ 0,10 },
 	{ 1,10 },
 	{ 2,10 },
@@ -200,7 +205,7 @@ TexAnim _Boss_anim[] = {
 	{ 6,10 },
 	{ 7,10 },
 };
-TexAnim _Boss2_anim[] = {
+TexAnim _Boss_Tail_anim[] = {
 	{ 8,10 },
 	{ 9,10 },
 	{ 10,10 },
@@ -211,53 +216,80 @@ TexAnim _Boss2_anim[] = {
 	{ 15,10 },
 
 };
-TexAnim _Boss3_anim[] = {
+TexAnim _Boss_Arm_anim[] = {
 	{ 16,10 },
 	
 
 };
 
-TexAnim _Boss4_anim[] = {
+TexAnim _Boss_Arm2_anim[] = {
 	{ 17,10 },
 	
 
 
 };
 
-TexAnim _Boss5_anim[] = {
+
+
+TexAnim _Boss_TailAttack_anim[] = {
 	{ 24,10 },
 	{ 25,10 },
 	{ 26,10 },
 	{ 27,10 },
-
+	{ 27,1 },
+	
 
 };
-
-TexAnim _Boss6_anim[] = {
+TexAnim _Boss_Bless_anim[] = {
 	{ 32,30 },
-	{ 33,30 },
+	{ 33,50 },
+	{ 33,50 },
+	{ 33,1 },
+
 
 };
-TexAnim _Boss7_anim[] = {
+
+TexAnim _Boss_ShowerLaser_anim[] = {
 	{ 40,10 },
 
 
 };
 
-TexAnim _Boss8_anim[] = {
-	{ 48,10 },
+TexAnim _Boss_Down_anim[] = {
+	{ 48,300 },
+	{ 48,1 },
 
 
 };
 TexAnimData boss_AnimData[] = {
-	ANIMDATA(_Boss_anim),
-	ANIMDATA(_Boss2_anim),
-	ANIMDATA(_Boss3_anim),
-	ANIMDATA(_Boss4_anim),
-	ANIMDATA(_Boss5_anim),
-	ANIMDATA(_Boss6_anim),
-	ANIMDATA(_Boss7_anim),
-	ANIMDATA(_Boss8_anim),
+	ANIMDATA(_Boss_Head_anim),
+	ANIMDATA(_Boss_Tail_anim),
+	ANIMDATA(_Boss_Arm2_anim),
+	ANIMDATA(_Boss_Arm_anim),
+	ANIMDATA(_Boss_TailAttack_anim),
+	ANIMDATA(_Boss_Bless_anim),
+	ANIMDATA(_Boss_ShowerLaser_anim),
+	ANIMDATA(_Boss_Down_anim),
 };
 
 
+TexAnim _Attack1_anim[] = {
+	{ 0,5 },
+	{ 1,600 },
+};
+TexAnim _Attack2_anim[] = {
+	{ 3,5 },
+	{ 4,600 },
+};
+
+TexAnim _Attack3_anim[] = {
+	{ 6,5 },
+	{ 7,600 },
+};
+
+
+TexAnimData attack_ef_AnimData[] = {
+	ANIMDATA(_Attack1_anim),
+	ANIMDATA(_Attack2_anim),
+	ANIMDATA(_Attack3_anim),
+};

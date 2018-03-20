@@ -7,7 +7,7 @@ class COhuda :public CObjectBase {
 private:
 	int m_cnt;
 public:
-	COhuda(CVector3D *pos, bool * flipH);
+	COhuda(const CVector3D &pos, bool flipH);
 	~COhuda();
 	void Update();
 	void Draw();

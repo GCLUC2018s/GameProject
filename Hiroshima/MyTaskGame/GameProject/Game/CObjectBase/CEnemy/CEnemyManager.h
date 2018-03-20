@@ -18,7 +18,7 @@ public:
 	CEnemyManager();
 	~CEnemyManager();
 	void Update();
-	void PushEnemy(const int *id,const CVector3D *pos);
+	void PushEnemy(int id,const CVector3D *pos);
 };
 
 

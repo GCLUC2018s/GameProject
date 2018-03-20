@@ -47,7 +47,7 @@ void CMagatama::SetAttack()
 
 	m_cnt = 0;
 	new CMahouzin();
-//	new CCutIn();
+	new CCutIn();
 	//カットイン発動
 	//必殺技発動
 }

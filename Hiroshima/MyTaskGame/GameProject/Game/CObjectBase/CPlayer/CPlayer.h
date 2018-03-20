@@ -2,6 +2,7 @@
 #define PLAYER_GUARD
 #define REPULSION 0.8f
 #define GRAVITY_DIE 1.001f
+#define PLAYER_HP 100
 
 #include"../CObjectBase.h"
 
@@ -25,6 +26,11 @@ public:
 	 };
 	 bool GetJump() {
 		 return m_jump;
+	 };
+	 void SetHP(int hp) {
+		 m_hp += hp;
+		 if (m_hp >= PLAYER_HP)
+			 m_hp = PLAYER_HP;
 	 };
 private:
 	float m_sc_plus;

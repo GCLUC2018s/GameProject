@@ -19,6 +19,7 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 	m_hp = BOSS_HP;
 	m_at = BOSS_AT;
 	m_test = 0;
+	m_motiontest = 0;
 	m_rect = CRect(0, 0, BOSS_SIZ_X, BOSS_SIZ_Y);
 	//m_rect_F = CRect(0, 0, 256 * 3, 256 * 3);
 	m_flipH = false;
@@ -33,7 +34,7 @@ CBoss::~CBoss() {
 
 void CBoss::Update() {
 	
-
+	if(m_state!=eTailAttack)
 	m_test++;
 
 	if (m_test >= 50) {
@@ -53,6 +54,24 @@ void CBoss::Update() {
 		m_test = 0;
 	}
 
+	m_motiontest++;
+
+	
+	if(m_motiontest==0)
+		m_state = eIdol;
+
+	if(m_motiontest==200)
+		m_state = eBlessAttack;
+
+	if(m_motiontest==400)
+		m_state = eTailAttack;
+
+	if(m_motiontest==600)
+		m_state = eDown;
+
+	if (m_motiontest >= 800)
+		m_motiontest = -1;
+
 
 
 	m_headpos3D += m_headvec3D;
@@ -65,14 +84,13 @@ void CBoss::Update() {
 	Arm2();
 	Tail();
 
-	//m_a += KAMAITACHI_FLOAT;
-	//m_vec3D.x = -cos(m_a + Utility::DgreeToRadian(180)) * 3;	
-	//m_vec3D.y = -sin(m_a) * 3;
+	if (PUSH_ENTER) {
+		//m_state = eBlessAttack;
+		//m_state = eTailAttack;
+		//m_state = eDown;
 
+	}
 	
-
-//
-//
 //m_img.ChangeAnimation(6);
 //m_head.ChangeAnimation(7);
 
@@ -98,32 +116,128 @@ void CBoss::Draw() {
 	m_tail.SetFlipH(m_flipH);
 
 	m_tail.Draw();
-	m_head.Draw();
 	m_arm.Draw();
 	m_arm2.Draw();
+	m_head.Draw();
 	
 }
 
 
 void CBoss::Head() {
-	Nutral(&m_parts_head);
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_head);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Attack(m_parts_head);
+		break;
+	case eTailAttack:
+		Nutral(m_parts_head);
+		break;
+	case eLaser:
+		Nutral(m_parts_head);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_head);
+		break;
+	case eDown:
+		Down(m_parts_head);
+		break;
+	}
+	
 
-	Attack(&m_parts_head);
+	//Attack(&m_parts_head);
 }
 
 void CBoss::Arm() {
-	Nutral(&m_parts_arm);
+
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_arm);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Nutral(m_parts_arm);
+		break;
+	case eTailAttack:
+		Nutral(m_parts_arm);
+		break;
+	case eLaser:
+		Nutral(m_parts_arm);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_arm);
+		break;
+	case eDown:
+		Nutral(m_parts_arm);
+		break;
+	}
+
 
 	//Attack(&m_parts_head);
 }
 
 void CBoss::Arm2() {
-	Nutral(&m_parts_arm2);
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_arm2);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Nutral(m_parts_arm2);
+		break;
+	case eTailAttack:
+		Nutral(m_parts_arm2);
+		break;
+	case eLaser:
+		Nutral(m_parts_arm2);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_arm2);
+		break;
+	case eDown:
+		Nutral(m_parts_arm2);
+		break;
+	}
+
+
+	
 }
 
 void CBoss::Tail() {
-	Nutral(&m_parts_tail);
+	switch (m_state)
+	{
+	case eIdol:
+		Nutral(m_parts_tail);
+		break;
+	case eMove:
+		break;
+	case eBlessAttack:
+		Nutral(m_parts_tail);
+		break;
+	case eTailAttack:
+		Attack(m_parts_tail);
+		break;
+	case eLaser:
+		Nutral(m_parts_tail);
+		break;
+	case eLaserShower:
+		Nutral(m_parts_tail);
+		break;
+	case eDown:
+		Nutral(m_parts_tail);
+		break;
+	}
 
-	Attack(&m_parts_head);
+	
+
+	//Attack(&m_parts_head);
 	
 }

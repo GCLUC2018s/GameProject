@@ -1,4 +1,5 @@
 #include "CSake.h"
+#include "../GameProject/Game/CObjectBase/CPlayer/CPlayer.h"
 
 CSake::CSake(CVector3D * pos) :CItemBase(pos) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("UI"));
@@ -10,4 +11,9 @@ CSake::CSake(CVector3D * pos) :CItemBase(pos) {
 
 CSake::~CSake() {
 
+}
+void CSake::Action(CObjectBase * a) {
+	CPlayer* PL = dynamic_cast<CPlayer*>(a);
+	PL->SetHP(5);
+	m_score += 10;
 }

@@ -3,6 +3,7 @@
 #include "../CGo/CGo.h"
 #include "../CBB/CBB.h"
 #include "../CItem/COhuda/COhuda.h"
+#include "../CPanchEF/CPanchEF.h"
 
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
@@ -29,7 +30,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_kick = false;
 	m_jump = false;
 	m_roof = false;
-	m_hp = 10;
+	m_hp = PLAYER_HP;
 	m_anim = eAnimIdol;
 	m_state = eNutral;
 	m_cnt = 0;
@@ -117,6 +118,7 @@ void CPlayer::Update() {
 		if (m_punch2) {
 			//パンチしてたら
 			m_img.UpdateAnimation();
+			new CPanchEF(m_flipH, this, eAnimEffectAttack2);
 			m_punch1 = false;
 			SOUND("SE_PUNCH_KARA")->Play();
 		}else {
@@ -129,6 +131,7 @@ void CPlayer::Update() {
 		if (m_kick) {
 			//パンチしてたら
 			m_anim = eAnimKick;
+			new CPanchEF(m_flipH, this, eAnimEffectAttack3);
 			m_punch2 = false;
 			SOUND("SE_PUNCH_KARA")->Play();
 		}
@@ -198,7 +201,9 @@ void CPlayer::Update() {
 		m_sc_flag_x = true;
 	}
 
+	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
+
 }
 
 void CPlayer::Nutral() {
@@ -216,18 +221,19 @@ void CPlayer::Nutral() {
 		m_anim = eAnimSquat;
 	}
 
-		//落下中なら
+	//落下中なら
 	if (m_vec3D.y > 0 &&
 		//位置判定
-		1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 && 
+		1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
 		//一番奥にいたら
 		m_pos3D.z == -400) {
-			m_pos3D.y = -448;
-			m_vec3D.y = 0;
-			m_jump = false;
-			SOUND("SE_LANDING")->Play(false);
-			m_roof = true;
-	}else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+		m_pos3D.y = -448;
+		m_vec3D.y = 0;
+		m_jump = false;
+		SOUND("SE_LANDING")->Play(false);
+		m_roof = true;
+	}
+	else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
 		m_jump = true;
 		m_roof = false;
 	}
@@ -235,9 +241,9 @@ void CPlayer::Nutral() {
 	//移動
 	if (!m_squat) {
 		if (!m_roof && !m_jump && HOLD_UP) {
-			m_vec3D.z = -10; 
+			m_vec3D.z = -10;
 			if (m_pos3D.z != 0 && m_pos3D.z != -430)
-			m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
+				m_variation += (SCREEN_WIDTH / 2 - (m_pos3D.x + m_variation - m_scroll.x)) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
 			m_cnt++;
@@ -245,7 +251,7 @@ void CPlayer::Nutral() {
 		if (!m_roof && !m_jump && HOLD_DOWN) {
 			m_vec3D.z = 10;
 			if (m_pos3D.z != 0 && m_pos3D.z != -430)
-			m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
+				m_variation += ((m_pos3D.x + m_variation - m_scroll.x) - SCREEN_WIDTH / 2) / 500;
 			m_move_length = true;
 			m_anim = eAnimDash;
 			m_cnt++;
@@ -306,6 +312,8 @@ void CPlayer::Nutral() {
 
 	//ジャンプしてなくて、パンチしたら
 	if (!m_jump && PUSH_R) {
+		if (m_punch1 == false)
+			new CPanchEF(m_flipH, this, eAnimEffectAttack1);
 		SOUND("SE_PUNCH_KARA")->Play();
 		m_punch1 = true;
 		m_anim = eAnimPunch;
@@ -316,7 +324,8 @@ void CPlayer::Nutral() {
 			m_state = eFall;
 			m_die = 1;
 			m_jump = false;
-		}else {
+		}
+		else {
 			m_state = eDamage;
 		}
 		m_vec3D.y = 0;
@@ -326,7 +335,7 @@ void CPlayer::Nutral() {
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
 		m_state = eBill;
-		new COhuda(&m_pos3D, &m_flipH);
+		new COhuda(m_pos3D, m_flipH);
 	}
 
 }
@@ -334,7 +343,7 @@ void CPlayer::Nutral() {
 void CPlayer::Bill() {
 }
 
-void CPlayer::Attack(){
+void CPlayer::Attack() {
 	//キック
 	if (m_punch1 && PUSH_R) {
 		m_punch2 = true;
@@ -416,13 +425,17 @@ void CPlayer::Draw(){
 		m_sc_plus = 0.0;
 		m_pause = false;
 	}
+	if (m_deathblow) {
+		m_img.ChangeAnimation(eAnimDeathblow);
+		m_img.UpdateAnimation();
+	}
 	m_img.SetFlipH(!m_flipH);
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img.Draw();
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
-
+	printf("%d\n", m_score);
 }
 
 void CPlayer::Hit(CObjectBase * t)
