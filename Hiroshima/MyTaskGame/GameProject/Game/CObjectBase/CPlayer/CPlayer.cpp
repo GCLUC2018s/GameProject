@@ -29,7 +29,7 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_kick = false;
 	m_jump = false;
 	m_roof = false;
-	m_hp = 10;
+	m_hp = PLAYER_HP;
 	m_anim = eAnimIdol;
 	m_state = eNutral;
 	m_cnt = 0;
@@ -64,8 +64,7 @@ void CPlayer::Update() {
 
 	//ˆÚ“®Œn‚Ì•Ï”‰Šú‰»
 	m_move_length = false;
-	m_move_right = false;
-	m_move_left = false;
+	m_move_side = false;
 	m_squat = false;
 
 	//ˆ—•ªŠò
@@ -85,7 +84,7 @@ void CPlayer::Update() {
 	}
 
 	//¶‰EˆÚ“®I—¹Œã‚ÌŒ¸‘¬ˆ—
-	if (!m_move_right && !m_move_left && !m_die) {
+	if (!m_move_side && !m_die) {
 		if (!m_jump) {
 			if (m_flipH)
 				m_vec3D.x = Price_Up(m_vec3D.x, 0, 1.0f);
@@ -199,6 +198,7 @@ void CPlayer::Update() {
 		m_sc_flag_x = true;
 	}
 
+	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
 }
 
@@ -251,18 +251,18 @@ void CPlayer::Nutral() {
 			m_anim = eAnimDash;
 			m_cnt++;
 		}
-		if (HOLD_RIGHT && !m_move_left) {
+		if (HOLD_RIGHT) {
 			//‰Á‘¬
 			m_vec3D.x = Price_Up(m_vec3D.x, 10, 1.0f);
-			m_move_right = true;
+			m_move_side = true;
 			m_flipH = false;
 			m_anim = eAnimDash;
 			m_cnt++;
 		}
-		if (HOLD_LEFT && !m_move_right) {
+		if (HOLD_LEFT) {
 			//‰Á‘¬
 			m_vec3D.x = Price_Down(m_vec3D.x, -10, 1.0f);
-			m_move_left = true;
+			m_move_side = true;
 			m_flipH = true;
 			m_anim = eAnimDash;
 			m_cnt++;
