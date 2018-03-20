@@ -1,6 +1,6 @@
 #include "CEffectBase.h"
 
-CEffectBase::CEffectBase() : CObjectBase(eID_Effect, eU_Effect, eD_Effect)
+CEffectBase::CEffectBase() : CObjectBase(eID_Effect, eU_System, eD_Effect)
 {
 }
 

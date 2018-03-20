@@ -1,7 +1,7 @@
 #include "COhuda.h"
 #include "../GameProject/Game/CObjectBase/CGimmick/CFire.h"
 
-COhuda::COhuda(const CVector3D &pos, bool flipH) :CObjectBase(eID_Bullet, eU_Bullet, eD_Effect) {
+COhuda::COhuda(const CVector3D &pos, bool flipH) :CObjectBase(eID_Bullet, eU_Player, eD_Effect) {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Bill"));
 	m_img.SetRect(0, 128, 128, 256);
 	m_img.SetSize(64, 64);
