@@ -84,7 +84,3 @@ void CItemBase::Action(CObjectBase * a)
 	îhê∂êÊÇ≈éwíËÇ∑ÇÈ
 	*/
 }
-
-void CItemBase::ScoreUp()
-{
-}

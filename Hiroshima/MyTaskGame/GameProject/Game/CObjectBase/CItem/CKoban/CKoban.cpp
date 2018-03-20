@@ -34,5 +34,5 @@ void CKoban::Draw()
 }
 
 void CKoban::Action(CObjectBase * a){
-	
+	m_score ++;
 }
