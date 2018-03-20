@@ -54,8 +54,9 @@ void CBossBase::Attack( int boss_id) {
 		m_shaking_head = 0;
 		m_headvec3D = CVector3D(0,0,0);
 		m_head.ChangeAnimation(eAnimBossBless);
-		if (m_head.GetIndex()==1) {
+		if (m_head.GetIndex()==2) {
 			m_state = eIdol;
+			m_headpos3D.y += 10;
 		}
 		break;
 
@@ -66,7 +67,9 @@ void CBossBase::Attack( int boss_id) {
 		m_tail.ChangeAnimation(eAnimBossTailAttack);
 		if (m_tail.GetIndex() == 3) {
 			m_state = eIdol;
+			m_tailpos3D.x -= 30;
 		}
+		
 		break;
 	}
 }
