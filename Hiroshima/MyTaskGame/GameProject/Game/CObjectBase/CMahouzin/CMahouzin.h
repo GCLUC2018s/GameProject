@@ -3,6 +3,11 @@
 
 #include "../GameProject/Game/CObjectBase/CObjectBase.h"
 
+/*
+
+§ì@˜ZÔ
+
+*/
 class CMahouzin :public CObjectBase {
 public:
 	CMahouzin();

@@ -269,16 +269,16 @@ TexAnimData boss_AnimData[] = {
 
 TexAnim _Attack1_anim[] = {
 	{ 0,5 },
-	{ 1,60 },
+	{ 1,600 },
 };
 TexAnim _Attack2_anim[] = {
 	{ 3,5 },
-	{ 4,60 },
+	{ 4,600 },
 };
 
 TexAnim _Attack3_anim[] = {
 	{ 6,5 },
-	{ 7,60 },
+	{ 7,600 },
 };
 
 

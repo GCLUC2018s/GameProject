@@ -5,7 +5,7 @@
 
 /*
 
-§ìÒ@‹{ú±
+§ì@‹{ú±
 
 */
 class CCutIn : public CObjectBase

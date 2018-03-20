@@ -1,5 +1,6 @@
 #include "CEnemyBase.h"
 #include "../GameProject/Source/Itemsource.h"
+#include "../CPanchEF/CPanchEF.h"
 
 int CEnemyBase::m_enemy_cnt = 0;
 
@@ -90,8 +91,10 @@ void CEnemyBase::Draw() {
 
 void CEnemyBase::Hit(CObjectBase * t)
 {
-	if (t->GetID() == eID_Player) {
-		if (t->GetState() == eAttack && m_state != eKnockBack) {
+	if (t->GetID() == eID_Effect) {
+		CPanchEF *ef = dynamic_cast<CPanchEF*>(t);
+		if (ef->GetHit() > 1.0f && m_state != eKnockBack) {
+			m_flipH = !(ef->GetFrip());
 			if (m_hp >= 0) {
 				m_damage = true;
 				m_state = eKnockBack;
@@ -100,8 +103,5 @@ void CEnemyBase::Hit(CObjectBase * t)
 				m_state = eFall;
 			}
 		}
-		 /*if(t->GetState() != eAttack && m_state != eAttack){
-			m_state = eAttack;
-		}*/
 	}
 }

@@ -119,7 +119,7 @@ void Init(void)
 	ADD_RESOURCE("HP_Bar_Boss_Base", CAnimImage::LoadImage("gauge/boss_gauge_base.png"));
 
 	//エフェクト関係
-	ADD_RESOURCE("Effect_panch", CAnimImage::LoadImage("motion_effect.png"));
+	ADD_RESOURCE("Effect_panch", CAnimImage::LoadImage("motion_effect.png", attack_ef_AnimData, 512, 512));
 
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
