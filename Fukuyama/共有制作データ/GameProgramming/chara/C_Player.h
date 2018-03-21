@@ -43,11 +43,12 @@ public:
 		m_Speed.y = JUMP_FIRST_SPEED; //ジャンプの初速を設定します。
 		m_Playerpoint = this;
 	}
+	static C_Player *m_Playerpoint;
+	C_Vector3 i_JumpPoint;
+protected:
 	//テクスチャーのインスタンス宣言
 	CTexture i_Chara_Motion_1;
 	CTexture i_Chara_Motion_2;
-    C_Vector3 i_JumpPoint;
-	static C_Player *m_Playerpoint;
 	float m_JumpTime;       //ジャンプしてから着地までの時間
 	int m_SetInterval;        //設置間隔
 	int m_ThrowInterval;          //投擲間隔
