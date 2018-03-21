@@ -144,6 +144,18 @@ void CTaskManager::UpdateAll()
 		p->mp_task->Update();
 		p = p->mp_next;
 	}
+	p = mp_drwHead;
+	while (p)
+	{
+		CTaskLinker* q = p->mp_next;
+		while (q)
+		{
+			p->mp_task->Collision(p->mp_task, q->mp_task);
+			q->mp_task->Collision(q->mp_task, p->mp_task);
+			q = q->mp_next;
+		}
+		p = p->mp_next;
+	}
 }
 
 void CTaskManager::DrawAll()

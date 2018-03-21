@@ -41,6 +41,8 @@ public:
 		,m_Right(0)
 		,m_Bottom(0)
 		,m_Top(0)
+		, m_AdjustX(0.0f)
+		, m_AdjustZ(0.0f)
 	{}
 
 	float m_wide, m_high;

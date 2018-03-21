@@ -19,19 +19,18 @@ void CSceneGame::Update(){
 	case 0:
 		//タイトル画面
 		//mTexture2.DrawImage(-600, 600, -440, 450, 0, 90, 90, 0);
+		//if (C_Collider::Collision(Player, Enemy, &Player->i_JumpPoint, &Enemy->m_Position)){
+		//	Enemy->m_Position.x += Enemy->m_Colimage.m_AdjustX;
+		//	Enemy->m_Position.z += Enemy->m_Colimage.m_AdjustZ;
+		//	Enemy->m_Position.x += Enemy->m_Colimage.m_AdjustX;
+		//	Enemy->m_Position.z += Enemy->m_Colimage.m_AdjustZ;
+		//}
 		if (GetKeyState(VK_RETURN) & 0x8000){
 			//プレイ画面に移動
 			GameScene = 1;
 		}
 		break;
 	case 1:
-		Player->m_Objvalue = Enemy->m_Objvalue = 10;
-		if (C_Collider::Collision(Player, Enemy, &Player->i_JumpPoint, &Enemy->m_Position)){
-			Player->m_Position.x += Player->m_Colimage.m_AdjustX;
-			Player->m_Position.z += Player->m_Colimage.m_AdjustZ;
-			Player->i_JumpPoint.x += Player->m_Colimage.m_AdjustX;
-			Player->i_JumpPoint.z += Player->m_Colimage.m_AdjustZ;
-		}
 		//プレイ画面
 		//ポーズ画面でない場合
 		if (m_PawsCount == 0){
