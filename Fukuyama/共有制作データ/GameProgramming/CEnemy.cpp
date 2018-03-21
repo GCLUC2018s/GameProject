@@ -77,6 +77,12 @@ void CEnemy::Update(){
 			if (m_ActionInterval <= 0){
 				m_Position.x += ENEMY_LR_SPEED;
 			}
+			//if(m_Position.x >= 700){
+			//	CTaskManager::GetInstance()->Kill(this);
+			//	new CEnemy();
+			//	Init();
+
+			}
 		}
 	}
 	if (m_EnemyMode == E_NORMAL){

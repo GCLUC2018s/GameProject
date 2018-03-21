@@ -47,7 +47,6 @@ class CTask
 protected:
 	bool m_destroyFlg;				//削除フラグ
 	bool m_pauseFlg;				//更新停止フラグ
-	int m_id;
 
 	CTaskLinker		m_updLinker;		// Update用のCTaskLinker 
 	CTaskLinker		m_drwLinker;		// Draw用のCTaskLinker 
@@ -58,7 +57,10 @@ public:
 	virtual ~CTask();				//CTaskクラスのデストラクタ
 	virtual void Update();			//派生先クラスでの更新を行う関数
 	virtual void Draw();			//派生先クラスでの描写を行う関数
-	virtual bool Collision(CTask*, CTask*);
+	virtual bool Collision(CTask*, CTask*){
+		return false;
+	}
+	int m_id;
 
 	//更新順位取得関数
 	int GetUpdatePrio() const;
