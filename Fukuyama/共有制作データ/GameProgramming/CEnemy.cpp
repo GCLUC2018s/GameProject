@@ -94,6 +94,8 @@ void CEnemy::Update(){
 
 		m_Position.z += diaPlayer.z / m_Long * ENEMY_UD_SPEED;
 	}
+	//•`‰æ‡”Ô‚Ì•ÏX
+	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
 	C_Object::Scroll(&m_Position, m_Scroll);
 	C_Object::Rect(&m_image, &m_Position);
 }

@@ -24,6 +24,7 @@ public:
 	    E_ACTION
 	};
 	float m_Long;
+	static CEnemy *m_EnemyPoint;
 	CTexture mTexture;
 	CTexture i_Enemy_Run;
 	int m_EnemySet;//“G‚Ì”z’u
