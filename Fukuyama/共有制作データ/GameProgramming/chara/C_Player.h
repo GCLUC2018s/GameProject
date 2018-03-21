@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "../object/C_Object.h"
 #include "../object/CColorBall.h"
+#include "../CCollider.h"
 
 #define PLAYER_LR_SPEED SCROLL_SPEED     //プレイヤーの左右移動速度
 #define PLAYER_UD_SPEED 4     //プレイヤーの上下移動速度
@@ -22,6 +23,7 @@ public:
 		, m_SetInterval(SET_INTERVAL)
 		, m_ThrowInterval(THROW_INTERVAL)
 		, m_SprayInterval(SPRAY_INTERVAL)
+		, m_Player_HP(3)
 	{
 		m_image.m_Enabled = true;
 		//プレイヤーのサイズ
@@ -45,15 +47,18 @@ public:
 	}
 	static C_Player *m_Playerpoint;
 	C_Vector3 i_JumpPoint;
-	bool Collision(C_Task*, C_Task*);
+	bool Collision(CTask*, CTask*);
 protected:
 	//テクスチャーのインスタンス宣言
 	CTexture i_Chara_Motion_1;
 	CTexture i_Chara_Motion_2;
+	C_Rectangle HP_image;
+	CTexture HP_Tex;
 	float m_JumpTime;       //ジャンプしてから着地までの時間
 	int m_SetInterval;        //設置間隔
 	int m_ThrowInterval;          //投擲間隔
 	int m_SprayInterval;          //スプレー使用間隔
+	int m_Player_HP;           //プレイヤーのHP
 	void Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, float deltatime);
 	virtual void Update();
 	virtual void Draw();

@@ -309,6 +309,18 @@ void C_Player::Draw(){
 	}
 }
 
+bool C_Player::Collision(CTask* a, CTask* b){
+	C_Object* p = (C_Object*)a;
+	C_Object* q = (C_Object*)b;
+	if(C_Collider::Collision(p, q, &p->m_Position, &q->m_Position)){
+		q = this;
+		if(q->m_id == E_ENEMY){
+
+		}
+	}
+	return true;
+}
+
 
 //テストクラス
 
