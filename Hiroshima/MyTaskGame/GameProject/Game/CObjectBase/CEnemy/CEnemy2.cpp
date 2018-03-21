@@ -15,6 +15,10 @@ CEnemy2::CEnemy2(const CVector3D *pos) :CEnemyBase() {
 	m_at = CHOCHIN_AT;
 	m_rect = CRect(77, 68, 170, 161);
 	m_rect_F = CRect(77, 68, 170, ENEMY_SIZ_Y);
+	//âeê›íË
+	m_img_shadow = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Shadow"));
+	m_img_shadow.SetSize(93, 24);
+	m_img_shadow.SetCenter(-77, 24 / 2);
 
 }
 

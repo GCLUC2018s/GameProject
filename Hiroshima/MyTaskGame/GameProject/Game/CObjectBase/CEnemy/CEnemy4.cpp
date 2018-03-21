@@ -18,6 +18,10 @@ CEnemy4::CEnemy4(const CVector3D *pos) :CEnemyBase() {
 	m_cnt = 0;
 	m_move_cnt = 0;
 	m_stop = false;
+	//âeê›íË
+	m_img_shadow = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Shadow"));
+	m_img_shadow.SetSize(144, 37);
+	m_img_shadow.SetCenter(-57, 37 / 2);
 }
 
 void CEnemy4::Update() {

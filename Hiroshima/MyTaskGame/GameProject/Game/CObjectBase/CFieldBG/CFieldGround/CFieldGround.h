@@ -20,7 +20,12 @@ public:
 	void Draw();
 	void GroundHitCheck(CPlayer * pl);
 private:
-//	CRect m_rect_tourou[4];
+	//CRect m_rect_tourou1;
+	//CRect m_rect_tourou2;
+	//CRect m_rect_tourou3;
+	//CRect m_rect_tourou4;
+	
+	
 	bool m_flag;
 };
 

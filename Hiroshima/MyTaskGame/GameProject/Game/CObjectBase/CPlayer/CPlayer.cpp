@@ -37,6 +37,11 @@ CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
 	m_die = false;
 	damage_vec = CVector2D(5, -10);
 	m_sc_plus = 0.0;
+	//影設定
+	m_img_shadow = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Shadow"));
+	m_img_shadow.SetSize(127, 33);
+	m_img_shadow.SetCenter(0, 33 / 2);
+
 	m_img.ChangeAnimation(m_anim);
 	m_img.UpdateAnimation();
 }
@@ -332,6 +337,7 @@ void CPlayer::Nutral() {
 		m_hp -= 2;
 		m_cnt = 0;
 	}
+	//お札
 	if (!m_jump && PUSH_E) {
 		m_anim = eAnimBill;
 		m_state = eBill;
@@ -414,7 +420,7 @@ CVector3D CPlayer::Die(CVector3D vec) {
 	return m_vec3D;
 }
 
-void CPlayer::Draw(){
+void CPlayer::Draw() {
 	//スクロール処理(ポーズ機能が使いたいから、ここでするしかない)
 	if (m_wave_flag == false && m_sc_flag_x) {
 		m_pause = true;
@@ -432,6 +438,9 @@ void CPlayer::Draw(){
 	m_img.SetFlipH(!m_flipH);
 	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
+	m_img_shadow.SetColor(1, 1, 1, m_color.w + (m_pos3D.y * 0.001));
+	m_img_shadow.SetPos(m_pos3D.x - m_pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_rect_F.m_bottom + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
+	m_img_shadow.Draw();
 	m_img.Draw();
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));

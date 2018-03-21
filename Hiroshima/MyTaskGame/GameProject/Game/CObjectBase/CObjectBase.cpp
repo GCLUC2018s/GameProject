@@ -9,13 +9,13 @@ int CObjectBase::m_score = 0;
 bool CObjectBase::m_deathblow = false;
 
 CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
-	CTask(id, updatePrio, drawPrio) {
-	m_pos3D = CVector3D(0, 0, 0);
-	m_vec3D = CVector3D(0, 0, 0);
-	m_flipH = false;
-	m_type = 0;
-	m_move = false;
-	m_color = CColorRGBA(1.0, 1.0, 1.0, 1.0);
+	CTask(id, updatePrio, drawPrio) ,
+	m_pos3D(0, 0, 0),
+	m_vec3D(0, 0, 0),
+	m_flipH(false),
+	m_type(0),
+	m_move(false),
+	m_color(1.0, 1.0, 1.0, 1.0){
 }
 
 void CObjectBase::Draw()
@@ -39,7 +39,7 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 		//PL‚ÆENE‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
-		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 130 || m_deathblow) {
+		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 130 /*&& abs(o1->m_pos3D.y - o2->m_pos3D.y) < 80*/ || m_deathblow) {
 			if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
 				o1->m_pos3D.x + o1->m_rect.m_left  <o2->m_pos3D.x + o2->m_rect.m_right &&
 				o1->m_pos3D.y + o1->m_rect.m_bottom>o2->m_pos3D.y + o2->m_rect.m_top &&

@@ -18,6 +18,7 @@
 class CObjectBase : public CTask
 {
 protected:
+	CAnimImage	m_img_shadow;	//影
 	CAnimImage	m_img;		//画像オブジェクト
 	CVector2D	m_pos2D;		//座標
 	CVector2D	m_vec2D;		//移動量

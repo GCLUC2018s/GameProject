@@ -1,4 +1,5 @@
 #include "CCutIn.h"
+#include "../CHissatuText/CHissatuText.h"
 
 CCutIn::CCutIn() :CObjectBase(0, eU_Back, eD_UI)
 {
@@ -13,6 +14,7 @@ CCutIn::CCutIn() :CObjectBase(0, eU_Back, eD_UI)
 
 CCutIn::~CCutIn()
 {
+	new CHissatuText();
 }
 
 void CCutIn::Update()
