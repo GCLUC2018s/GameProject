@@ -84,7 +84,6 @@ void CEnemy::Update(){
 
 			}
 		}
-	}
 	if (m_EnemyMode == E_NORMAL){
 		//ç∂ë§Ç…Ç¢ÇÈÇ∆Ç´ÇÃí«ê’èàóù
 		if (m_Position.x< m_Target.x){
@@ -104,7 +103,10 @@ void CEnemy::Update(){
 	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
 	C_Object::Scroll(&m_Position, m_Scroll);
 	C_Object::Rect(&m_image, &m_Position);
+	m_Colimage = m_image;
 }
+
+
 void CEnemy::Draw(){
 	//
 	RunAnime(&i_Enemy_Run, E_ENEMY);

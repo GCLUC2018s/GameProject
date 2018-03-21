@@ -176,6 +176,7 @@ void C_Player::Update(){
 
 	//•`‰æ‡”Ô‚Ì•ÏX
 	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
+	m_Colimage = m_image;
 }
 
 
@@ -313,9 +314,11 @@ bool C_Player::Collision(CTask* a, CTask* b){
 	C_Object* p = (C_Object*)a;
 	C_Object* q = (C_Object*)b;
 	if(C_Collider::Collision(p, q, &p->m_Position, &q->m_Position)){
-		q = this;
 		if(q->m_id == E_ENEMY){
-
+			q->m_Position.x += q->m_Colimage.m_AdjustX;
+			q->m_Position.z += q->m_Colimage.m_AdjustZ;
+			q->m_Position.x += q->m_Colimage.m_AdjustX;
+			q->m_Position.z += q->m_Colimage.m_AdjustZ;
 		}
 	}
 	return true;
