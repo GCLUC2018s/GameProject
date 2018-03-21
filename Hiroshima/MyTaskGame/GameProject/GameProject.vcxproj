@@ -162,6 +162,7 @@
     <ClInclude Include="Game\CObjectBase\CItem\CSake\CSake.h" />
     <ClInclude Include="Game\CObjectBase\CMahouzin\CMahouzin.h" />
     <ClInclude Include="Game\CObjectBase\CMainText\CMainText.h" />
+    <ClInclude Include="Game\CObjectBase\CMGHit\CMGHit.h" />
     <ClInclude Include="Game\CObjectBase\CObjectBase.h" />
     <ClInclude Include="Game\CObjectBase\CPanchEF\CPanchEF.h" />
     <ClInclude Include="Game\CObjectBase\CPlayer\CPlayer.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="Game\CObjectBase\CItem\CSake\CSake.cpp" />
     <ClCompile Include="Game\CObjectBase\CMahouzin\CMahouzin.cpp" />
     <ClCompile Include="Game\CObjectBase\CMainText\CMainText.cpp" />
+    <ClCompile Include="Game\CObjectBase\CMGHit\CMGHit.cpp" />
     <ClCompile Include="Game\CObjectBase\CObjectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CPanchEF\CPanchEF.cpp" />
     <ClCompile Include="Game\CObjectBase\CPlayer\CPlayer.cpp" />

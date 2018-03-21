@@ -39,7 +39,7 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 		//PL‚ÆENE‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
-		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 130) {
+		if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 130 || m_deathblow) {
 			if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
 				o1->m_pos3D.x + o1->m_rect.m_left  <o2->m_pos3D.x + o2->m_rect.m_right &&
 				o1->m_pos3D.y + o1->m_rect.m_bottom>o2->m_pos3D.y + o2->m_rect.m_top &&

@@ -9,10 +9,11 @@
 CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Enemy5"));
 	m_img.SetSize(NIKU_SIZ_X, NIKU_SIZ_Y);
+	m_img.SetCenter(0, 128);
 	m_pos3D = *pos;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
-	m_rect = CRect(80, 100, 300, 350);
+	m_rect = CRect(80, -28, 300, 222);
 	m_rect_F = m_rect;
 
 
@@ -46,15 +47,6 @@ void CEnemy5::Update() {
 	m_img.UpdateAnimation();
 	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
-}
-
-void CEnemy5::Draw() {
-	m_img.SetColor(m_color.x, m_color.y, m_color.z, m_color.w);
-	m_img.SetFlipH(m_flipH);
-	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x, 450 - 128 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
-	m_img.Draw();
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + (256 - NIKU_SIZ_Y) + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + (256 - NIKU_SIZ_Y) + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }
 
 

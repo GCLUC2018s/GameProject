@@ -6,6 +6,7 @@
 
 CPanchEF::CPanchEF(bool frip, CPlayer *pl, int anim_num)
 {
+	m_effect_type = ePanch;
 	PL = dynamic_cast<CPlayer*>(pl);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Effect_panch"));
 	m_img.SetSize(256, 256);

@@ -67,9 +67,9 @@ void CSceneManager::MainScene() {
 	new CItemBox(&(CVector3D(900, 0, -20)), 1);*/
 
 	new CFieldManager();
-	//for (int i = 0; i < 10; i++) {
-	//	new CKakera(&(CVector3D(200 + i * 60, 0, 0)));
-	//}
+	for (int i = 0; i < 10; i++) {
+		new CKakera(&(CVector3D(200, 0, 0)));
+	}
 	new CMagatama();
 	new CHPBar(false);
 	new CEnemyManager();

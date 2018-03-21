@@ -18,6 +18,7 @@ public:
 	void Update();
 	void Draw();
 private:
+	CAnimImage m_img_ef;
 	int m_time;
 	int m_size;
 	CPlayer *PL;

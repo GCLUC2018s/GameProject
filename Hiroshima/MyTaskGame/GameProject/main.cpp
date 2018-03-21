@@ -151,7 +151,8 @@ void Init(void)
 	SOUND("SE_KKN")->Load("Sound/SE/se_033.wav");
 	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 	SOUND("SE_Mahou_Charge")->Load("Sound/SE/aura1.wav");
-	SOUND("SE_Mahou_Kaen")->Load("Sound/SE/magic-flame2.wav");
+	SOUND("SE_Mahou_Kaen")->Load("Sound/SE/magic-flame2.wav",20);
+	SOUND("SE_Panch")->Load("Sound/SE/punch-middle2.wav",20);
 
 	NEW_SCENE(eDebug);
 }
