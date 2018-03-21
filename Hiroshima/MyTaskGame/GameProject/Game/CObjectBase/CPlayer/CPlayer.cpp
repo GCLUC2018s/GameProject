@@ -17,6 +17,7 @@
 */
 
 CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
+	m_scroll = CVector2D(0, 0);
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(PL_CENTER_X, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
