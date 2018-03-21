@@ -135,6 +135,9 @@
     <ClCompile Include="Game\CObjectBase\CEffectBase\CEffectBase.cpp">
       <Filter>Game\Object\UI\Effect\EffectBase</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CMGHit\CMGHit.cpp">
+      <Filter>Game\Object\UI\Effect\MGhit</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -284,6 +287,9 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CEffectBase\CEffectBase.h">
       <Filter>Game\Object\UI\Effect\EffectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CMGHit\CMGHit.h">
+      <Filter>Game\Object\UI\Effect\MGhit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -454,6 +460,9 @@
     </Filter>
     <Filter Include="Game\Object\UI\Effect\Fire">
       <UniqueIdentifier>{3d695782-75f1-4e64-b2c2-a481b5f1c5c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\MGhit">
+      <UniqueIdentifier>{08bb91d1-ef36-4e70-a6c6-156f36d6dec2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

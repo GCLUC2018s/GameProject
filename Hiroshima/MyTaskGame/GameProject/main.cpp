@@ -120,6 +120,8 @@ void Init(void)
 
 	//エフェクト関係
 	ADD_RESOURCE("Effect_panch", CAnimImage::LoadImage("motion_effect.png", attack_ef_AnimData, 512, 512));
+	ADD_RESOURCE("Effect_aura1", CAnimImage::LoadImage("pipo-mapeffect013a-1.png", aura_ef_AnimData, 400, 400));
+	ADD_RESOURCE("Effect_aura2", CAnimImage::LoadImage("pipo-mapeffect013a-2.png", aura_ef_AnimData, 400, 400));
 
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");
@@ -149,7 +151,8 @@ void Init(void)
 	SOUND("SE_KKN")->Load("Sound/SE/se_033.wav");
 	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 	SOUND("SE_Mahou_Charge")->Load("Sound/SE/aura1.wav");
-	SOUND("SE_Mahou_Kaen")->Load("Sound/SE/magic-flame2.wav");
+	SOUND("SE_Mahou_Kaen")->Load("Sound/SE/magic-flame2.wav",20);
+	SOUND("SE_Panch")->Load("Sound/SE/punch-middle2.wav",20);
 
 	NEW_SCENE(eDebug);
 }

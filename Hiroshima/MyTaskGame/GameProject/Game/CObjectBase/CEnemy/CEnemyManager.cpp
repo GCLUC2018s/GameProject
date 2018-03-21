@@ -29,17 +29,18 @@ struct Enemy_Push
 
 Enemy_Push  push_enemy[32][32]{
 	//第一ウェイヴ
-	{{ 100,eDaruma,CVector3D(   400, 0, -300) },
-	{ 200,eChouchin ,CVector3D( 500, -20, -200) },
-	{ 300,eChouchin ,CVector3D( 600, -130, -250) },
-	{ 400,eChouchin ,CVector3D( 800, -40, -200) },
-	{ 500,eDaruma ,CVector3D(   800, 0, -200) },
-	{ 600,eDaruma ,CVector3D(   200, 0, -50) },
-	{ 700,eChouchin ,CVector3D( 400, 0, -300) },
-	{ 800,eChouchin ,CVector3D( 600, -150, -250) },
-	{ 900,eChouchin ,CVector3D( 800, -50, -200) },
-	{ 1000,eChouchin ,CVector3D(200, 0, -50) },
-	{ END_CODE }
+	{
+		{ 100	,eKamaitachi	,CVector3D(400, -50,	-300) },
+		{ 300	,eDaruma		,CVector3D(500, -20,	-200) },
+		{ 500	,eChouchin		,CVector3D(600, -130,	-250) },
+		{ 700	,eChouchin		,CVector3D(800, -40,	-200) },
+		{ 900	,eNiku			,CVector3D(800, 0,		-200) },
+		{ 1200	,eNiku			,CVector3D(200, 0,		 -50) },
+		{ 1500	,eDaruma		,CVector3D(400, 0,		-300) },
+		{ 2100	,eKamaitachi	,CVector3D(600, -150,	-250) },
+		{ 2400	,eKamaitachi	,CVector3D(800, -50,	-200) },
+		{ 3000	,eChouchin		,CVector3D(200, 0,		 -50) },
+		{ END_CODE }
 	},{
 
 		//第二ウェイブ
@@ -66,8 +67,8 @@ Enemy_Push  push_enemy[32][32]{
 	{ 500,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
 	{ 600,eKamaitachi ,CVector3D(   200 + SCREEN_WIDTH * 2, 0, -50) },
 	{ 700,eKamaitachi ,CVector3D(   400 + SCREEN_WIDTH * 2, 0, -300) },
-	{ 800,eKamaitachi ,CVector3D(   600 + SCREEN_WIDTH * 2, -150, -250) },
-	{ 900,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
+	{ 800,eChouchin ,CVector3D(		600 + SCREEN_WIDTH * 2, -150, -250) },
+	{ 900,eChouchin ,CVector3D(		800 + SCREEN_WIDTH * 2, -50, -200) },
 	{ 1000,eKamaitachi ,CVector3D(  200 + SCREEN_WIDTH * 2, 0, -50) },
 	{ END_CODE }
 	}
@@ -79,8 +80,8 @@ Enemy_Push  push_enemy[32][32]{
 	{ 200, eNiku ,CVector3D( 500 + SCREEN_WIDTH * 3, 0, -200) },
 	{ 300, eNiku ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
 	{ 400, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
-	{ 500, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
-	{ 600, eNiku ,CVector3D( 200 + SCREEN_WIDTH * 3, 0, -50) },
+	{ 500,eDaruma ,CVector3D(800 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 600,eDaruma ,CVector3D(200 + SCREEN_WIDTH * 3, 0, -50) },
 	{ 700, eNiku ,CVector3D( 400 + SCREEN_WIDTH * 3, 0, -300) },
 	{ 800, eNiku ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
 	{ 900, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },

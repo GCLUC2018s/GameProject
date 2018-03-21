@@ -83,6 +83,7 @@ void CBB::Update()
 			SetKill();
 		}
 	}
+	CheckOverlap();
 }
 
 

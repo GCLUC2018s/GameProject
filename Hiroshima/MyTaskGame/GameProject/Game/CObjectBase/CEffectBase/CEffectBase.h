@@ -9,6 +9,11 @@
 
 */
 
+enum {
+	eFire,
+	ePanch,
+};
+
 class CEffectBase :public CObjectBase {
 public:
 	CEffectBase();
@@ -21,6 +26,11 @@ public:
 	bool GetFrip() {
 		return !m_flipH;
 	};
+	int GetEFtype() {
+		return m_effect_type;
+	};
+protected:
+	int m_effect_type;	//エフェクトの種類
 };
 
 #endif // !EFFECT_GUARD

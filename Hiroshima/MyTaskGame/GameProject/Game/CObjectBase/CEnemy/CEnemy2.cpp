@@ -42,23 +42,26 @@ void CEnemy2::Update() {
 		Fall();
 		break;
 	}
+	//if (m_pos3D.y < 0) {
+	//	m_vec3D.y += 1.0f;
+	//}
+	//else if (m_pos3D.y == 0) {
+	//}
+	//else if (m_pos3D.y > 0) {
+	//	if (abs(m_vec3D.y) > 2.0f)
+	//		m_vec3D.y *= -0.8f;
+	//	else
+	//		m_vec3D.y = 0;
+	//	m_pos3D.y = 0;
+	//}
+	//è„â∫ïÇóV
+	m_a += CHOCHIN_FLOAT;
+	m_vec3D.y = sin(m_a) * 2;
 
 	m_img.UpdateAnimation();
 	CheckOverlap();
 	m_rect_F.m_bottom = ENEMY_SIZ_Y - m_pos3D.y;
 
-	if (m_pos3D.y < 0) {
-		m_vec3D.y += 1.0f;
-	}
-	else if (m_pos3D.y == 0) {
-	}
-	else if (m_pos3D.y > 0) {
-		if (abs(m_vec3D.y) > 2.0f)
-			m_vec3D.y *= -0.8f;
-		else
-			m_vec3D.y = 0;
-		m_pos3D.y = 0;
-	}
 }
 
 
@@ -67,19 +70,29 @@ void CEnemy2::Nutral() {
 }
 
 void CEnemy2::Move() {
+	CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
+	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
+	m_cnt++;
 	m_pos3D += m_vec3D;
-
-	if (m_pos3D.x - m_scroll.x < 0 || m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
-		m_flipH = !m_flipH;
+	if (m_pos3D.x - m_scroll.x < 0)
+		m_flipH = false;
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+		m_flipH = true;
+	m_pleneVec = PL->GetPos() - m_pos3D;
+	if (m_cnt == 1) {
+		if (m_pleneVec.Length() >= 64)
+			m_vec3D.x = m_pleneVec.GetNormalize().x * CHOCHIN_SPEED;
+		if (m_vec3D.x < 0)
+			m_flipH = false;
+		else
+			m_flipH = true;
 	}
-
-	if (m_flipH) {
-		m_vec3D.x = CHOCHIN_SPEED;
+	else if (60 <= m_cnt && m_cnt < 150) {
+		m_vec3D = CVector3D(0, 0, 0);
 	}
-	else {
-		m_vec3D.x = -CHOCHIN_SPEED;
+	else if (m_cnt == 150) {
+		m_cnt = 0;
 	}
-
 	//è„â∫ïÇóV
 	m_a += CHOCHIN_FLOAT;
 	m_vec3D.y = sin(m_a) * 2;

@@ -63,12 +63,12 @@ void CSceneManager::MainScene() {
 	new CPlayer();
 
 	//new CFire(&(CVector3D(500, 0, -100)));
-	new CItemBox(&(CVector3D(500, 0, -200)), 0);
-	new CItemBox(&(CVector3D(900, 0, -20)), 1);
+	/*new CItemBox(&(CVector3D(500, 0, -200)), 0);
+	new CItemBox(&(CVector3D(900, 0, -20)), 1);*/
 
 	new CFieldManager();
 	for (int i = 0; i < 10; i++) {
-		new CKakera(&(CVector3D(200 + i * 60, 0, 0)));
+		new CKakera(&(CVector3D(200, 0, 0)));
 	}
 	new CMagatama();
 	new CHPBar(false);

@@ -15,7 +15,7 @@ CFieldSky::~CFieldSky(){
 }
 
 void CFieldSky::Update(){
-	m_color.w += 0.00001;
+	m_color.w += 0.0001;
 }
 
 void CFieldSky::Draw()

@@ -28,6 +28,8 @@ protected:
 		eKamaitachi,
 		eNiku,
 	};
+	int m_cnt;		//移動タイミングカウント
+	CVector3D m_pleneVec;	//PLからENEへのベクトル用変数
 public:
 	CEnemyBase();
 	~CEnemyBase();
