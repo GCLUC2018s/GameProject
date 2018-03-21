@@ -7,6 +7,7 @@ CMGHit::CMGHit(CVector3D & pos) :CObjectBase(eID_Bullet, eU_Player, eD_Effect)
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Effect_aura1"));
 	m_img.SetSize(680, 657);
 	m_img.SetCenter(276, 248);
+	m_rect = CRect(0, 0, 0, 0);
 	m_pos3D = pos;
 	m_pos3D.x++;
 	m_time = 0;
@@ -45,8 +46,7 @@ void CMGHit::Draw()
 void CMGHit::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Enemy) {
-		CEnemyBase *Ene = dynamic_cast<CEnemyBase*>(t);
-		if (Ene->GetHP() != -1)
+		if (t->GetHP() >= 0)
 			new CFire(t);
 	}
 }
