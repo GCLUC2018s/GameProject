@@ -40,10 +40,10 @@ void C_Player::Update(){
 
 		//設置モーション中でなければCキーでカラーボールを投げます
 		if (CKey::Once('C')
-			&&m_Set==E_NSET
-			&&m_Jump==E_NJUMP
-			&&m_Spray==E_NSPRAY
-			&&m_ThrowInterval>=THROW_INTERVAL){
+			&& m_Set == E_NSET
+			&&m_Jump == E_NJUMP
+			&&m_Spray == E_NSPRAY
+			&&m_ThrowInterval >= THROW_INTERVAL){
 			//投げアニメが終了していたら次の弾を生成します
 			if (m_Anime_Throw >= THROW_ANIME){
 				//投げ中のタグをつけます
@@ -62,11 +62,11 @@ void C_Player::Update(){
 
 
 		//投げモーション中でなければXキーでカラーボールを設置します
-		if (CKey::Once('X') 
+		if (CKey::Once('X')
 			&& m_Throw == E_NTHROW
 			&& m_Jump == E_NJUMP
-			&& m_Spray==E_NSPRAY
-			&& m_SetInterval>=SET_INTERVAL){
+			&& m_Spray == E_NSPRAY
+			&& m_SetInterval >= SET_INTERVAL){
 			//設置アニメが終了していたら次の弾を生成します
 			if (m_Anime_Set >= SET_ANIME){
 				//設置中のタグをつけます
@@ -89,7 +89,7 @@ void C_Player::Update(){
 			&& m_Throw == E_NTHROW
 			&& m_Jump == E_NJUMP
 			&& m_Set == E_NSET
-			&& m_Anime_Spray>=SPRAY_ANIME
+			&& m_Anime_Spray >= SPRAY_ANIME
 			&& m_SprayInterval >= SPRAY_INTERVAL)
 		{
 			//スプレー使用中のタグをつけます
@@ -101,7 +101,7 @@ void C_Player::Update(){
 
 
 		//投げモーションや設置モーション中は操作ができない
-		if (m_Throw == E_NTHROW&&m_Set == E_NSET && m_Spray==E_NSPRAY){
+		if (m_Throw == E_NTHROW&&m_Set == E_NSET && m_Spray == E_NSPRAY){
 			//Sキーでジャンプします
 			if (CKey::Once('S') && m_Jump == E_NJUMP){
 				//ジャンプしているかどうかタグをつけます

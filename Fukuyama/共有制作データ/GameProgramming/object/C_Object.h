@@ -30,7 +30,11 @@ enum PLAYER_STATE{
 	E_SPRAY,    //スプレー使用中
 	E_NSPRAY,   //スプレー未使用
 };
-
+enum CollisionState{
+	E_COLLISION_NORMAL,
+	E_COLLISION_X,
+	E_COLLISION_Y,
+};
 class C_Object :public CTask{
 public:
 	//コンストラクタでidとプライオリティの設定とメンバーの初期化
@@ -67,8 +71,11 @@ public:
 	void RunAnime(CTexture *image, int id);      //走りアニメ
 	void TaikiAnime(CTexture *image, int id);    //待機アニメ
 	C_Rectangle m_Colimage;  //判定処理をメンバー変数にする
-	float m_Objvalue;
-
+	float m_Collision_Wide=10.0f;
+	CollisionState ColState;
+	void SetCol(){
+		m_Colimage = m_image;
+	}
 protected:
 	C_Rectangle i_Shadow;   //影用インスタンス
 	C_Rectangle m_image;  //メンバー変数にする

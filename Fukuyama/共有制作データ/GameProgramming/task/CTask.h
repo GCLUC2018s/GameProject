@@ -58,6 +58,7 @@ public:
 	virtual ~CTask();				//CTaskクラスのデストラクタ
 	virtual void Update();			//派生先クラスでの更新を行う関数
 	virtual void Draw();			//派生先クラスでの描写を行う関数
+	virtual bool Collision(CTask*, CTask*);
 
 	//更新順位取得関数
 	int GetUpdatePrio() const;
