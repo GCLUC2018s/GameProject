@@ -45,6 +45,7 @@ public:
 	}
 	static C_Player *m_Playerpoint;
 	C_Vector3 i_JumpPoint;
+	bool Collision(C_Task*, C_Task*);
 protected:
 	//テクスチャーのインスタンス宣言
 	CTexture i_Chara_Motion_1;
