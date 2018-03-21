@@ -11,6 +11,8 @@
 #define GROUND_WIDTH 4000
 #define GROUND_HEIGHT 1400
 
+#define TWO_RANDOM	Utility::Rand(0, 2)
+
 #define HOLD_UP		CInput::GetState(0, CInput::eHold, CInput::eUp)
 #define HOLD_DOWN	CInput::GetState(0, CInput::eHold, CInput::eDown)
 #define HOLD_LEFT	CInput::GetState(0, CInput::eHold, CInput::eLeft)

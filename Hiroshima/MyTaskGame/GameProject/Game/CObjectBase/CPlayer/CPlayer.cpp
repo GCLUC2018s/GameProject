@@ -268,8 +268,7 @@ void CPlayer::Nutral() {
 			m_flipH = false;
 			m_anim = eAnimDash;
 			m_cnt++;
-		}
-		if (HOLD_LEFT) {
+		}else if (HOLD_LEFT) {
 			//‰Á‘¬
 			m_vec3D.x = Price_Down(m_vec3D.x, -10, 1.0f);
 			m_move_side = true;
