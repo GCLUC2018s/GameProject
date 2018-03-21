@@ -127,7 +127,7 @@
       <Filter>Game\Object\UI\CHPBar</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CCutIn\CCutIn.cpp">
-      <Filter>Game\Object\UI\Effect\CutIn</Filter>
+      <Filter>Game\Object\UI\CutIn</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CPanchEF\CPanchEF.cpp">
       <Filter>Game\Object\UI\Effect\Panch</Filter>
@@ -138,6 +138,7 @@
     <ClCompile Include="Game\CObjectBase\CMGHit\CMGHit.cpp">
       <Filter>Game\Object\UI\Effect\MGhit</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CHissatuText\CHissatuText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -280,7 +281,7 @@
       <Filter>Game\Object\UI\CHPBar</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CCutIn\CCutIn.h">
-      <Filter>Game\Object\UI\Effect\CutIn</Filter>
+      <Filter>Game\Object\UI\CutIn</Filter>
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CPanchEF\CPanchEF.h">
       <Filter>Game\Object\UI\Effect\Panch</Filter>
@@ -290,6 +291,9 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CMGHit\CMGHit.h">
       <Filter>Game\Object\UI\Effect\MGhit</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CHissatuText\CHissatuText.h">
+      <Filter>Game\Object\Pic\HissatuText</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -392,9 +396,6 @@
     <Filter Include="Game\Object\UI\Magatama">
       <UniqueIdentifier>{02aab97c-2dbf-4ab8-835b-e7ae76507a94}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\Pic\MainText">
-      <UniqueIdentifier>{735f70f0-39f2-4c60-b579-e86914510cd3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\ObjectBase">
       <UniqueIdentifier>{71344bea-5483-4809-a458-469720133673}</UniqueIdentifier>
     </Filter>
@@ -452,9 +453,6 @@
     <Filter Include="Game\Object\UI\Effect\Panch">
       <UniqueIdentifier>{2bc1499e-9558-400b-a835-6b54c8dee65d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\UI\Effect\CutIn">
-      <UniqueIdentifier>{2c987eda-87b4-4d6b-b57d-fe1d34ed3605}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\UI\Effect\EffectBase">
       <UniqueIdentifier>{e4d8a82a-255b-4ca2-9d2a-6cd91544b4b1}</UniqueIdentifier>
     </Filter>
@@ -463,6 +461,15 @@
     </Filter>
     <Filter Include="Game\Object\UI\Effect\MGhit">
       <UniqueIdentifier>{08bb91d1-ef36-4e70-a6c6-156f36d6dec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Pic\MainText">
+      <UniqueIdentifier>{735f70f0-39f2-4c60-b579-e86914510cd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Pic\HissatuText">
+      <UniqueIdentifier>{14c0fac0-ed34-4f86-894e-a3fc9edc9f0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\CutIn">
+      <UniqueIdentifier>{2c987eda-87b4-4d6b-b57d-fe1d34ed3605}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

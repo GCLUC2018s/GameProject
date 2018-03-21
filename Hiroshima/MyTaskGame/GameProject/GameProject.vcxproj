@@ -152,6 +152,7 @@
     <ClInclude Include="Game\CObjectBase\CGimmick\CGimmick2.h" />
     <ClInclude Include="Game\CObjectBase\CGimmick\CItemBox.h" />
     <ClInclude Include="Game\CObjectBase\CGo\CGo.h" />
+    <ClInclude Include="Game\CObjectBase\CHissatuText\CHissatuText.h" />
     <ClInclude Include="Game\CObjectBase\CHPbar\CHPBar.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CItemBase\CItemBase.h" />
     <ClInclude Include="Game\CObjectBase\CItem\CKakera\CKakera.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="Game\CObjectBase\CGimmick\CGimmick2.cpp" />
     <ClCompile Include="Game\CObjectBase\CGimmick\CItemBox.cpp" />
     <ClCompile Include="Game\CObjectBase\CGo\CGo.cpp" />
+    <ClCompile Include="Game\CObjectBase\CHissatuText\CHissatuText.cpp" />
     <ClCompile Include="Game\CObjectBase\CHPbar\CHPBar.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CItemBase\CItemBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CItem\CKakera\CKakera.cpp" />

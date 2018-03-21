@@ -7,12 +7,6 @@ CFieldGround::CFieldGround(const bool flag):CObjectBase(eID_Ground,eU_Map, eD_Gr
 	m_img.SetSize(GROUND_WIDTH, GROUND_HEIGHT);
 	m_img.SetCenter(0, GROUND_HEIGHT - SCREEN_HEIGHT + 450);
 	m_rect =		 CRect(1869, -440, 2592, -427);
-	//m_rect_tourou[4] = {
-	//	(429.0f,  -250.0f, 562.0f,  -200.0f),
-	//	(429.0f,  -250.0f, 562.0f,  -200.0f),
-	//	(1492.0f, -250.0f, 1625.0f, -200.0f),
-	//	(3755.0f, -250.0f, 3888.0f, -200.0f)
-	//};
 	//m_rect_tourou1 = CRect(429,  -250, 562,  -200);
 	//m_rect_tourou2 = CRect(1492, -250, 1625, -200);
 	//m_rect_tourou3 = CRect(2878, -250, 3011, -200);
@@ -50,10 +44,11 @@ void CFieldGround::Draw()
 	m_img.SetFlipH(m_flipH);
 	m_img.SetPos(m_pos3D.x - m_scroll.x, 450 + m_pos3D.y - m_scroll.y);
 	m_img.Draw();
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
-	//for (int i = 0; i < 4; i++) {
-	//	Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou[i].m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou[i].m_top), CVector2D(m_rect_tourou[i].m_right - m_rect_tourou[i].m_left, m_rect_tourou[i].m_bottom - m_rect_tourou[i].m_top), CVector4D(1, 0, 0, 0.3));
-	//}
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou1.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou1.m_top), CVector2D(m_rect_tourou1.m_right - m_rect_tourou1.m_left, m_rect_tourou1.m_bottom - m_rect_tourou1.m_top), CVector4D(1, 0, 0, 0.3));
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou2.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou2.m_top), CVector2D(m_rect_tourou2.m_right - m_rect_tourou2.m_left, m_rect_tourou2.m_bottom - m_rect_tourou2.m_top), CVector4D(1, 0, 0, 0.3));
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou3.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou3.m_top), CVector2D(m_rect_tourou3.m_right - m_rect_tourou3.m_left, m_rect_tourou3.m_bottom - m_rect_tourou3.m_top), CVector4D(1, 0, 0, 0.3));
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou4.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou4.m_top), CVector2D(m_rect_tourou4.m_right - m_rect_tourou4.m_left, m_rect_tourou4.m_bottom - m_rect_tourou4.m_top), CVector4D(1, 0, 0, 0.3));
 }
 
 void CFieldGround::GroundHitCheck(CPlayer * pl)
@@ -69,6 +64,38 @@ void CFieldGround::GroundHitCheck(CPlayer * pl)
 				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
 			}
 		}
-		//
+		//‚Æ‚¤‚ë‚¤4‚Â
+	/*	{
+			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou1.m_left &&
+				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou1.m_right &&
+				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou1.m_top&&
+				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou1.m_bottom) {
+				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
+			}
+		}
+		{
+			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou2.m_left &&
+				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou2.m_right &&
+				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou2.m_top&&
+				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou2.m_bottom) {
+				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
+			}
+		}
+		{
+			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou3.m_left &&
+				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou3.m_right &&
+				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou3.m_top&&
+				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou3.m_bottom) {
+				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
+			}
+		}
+		{
+			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou4.m_left &&
+				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou4.m_right &&
+				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou4.m_top&&
+				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou4.m_bottom) {
+				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
+			}
+		}*/
 	}
 }

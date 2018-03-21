@@ -11,12 +11,17 @@ CEnemy1::CEnemy1(const CVector3D *pos) :CEnemyBase() {
 	m_img.SetSize(ENEMY_SIZ_X, ENEMY_SIZ_Y);
 	m_img.SetRect(0, 0, 512, 512);
 	m_pos3D = *pos;
+	m_pos3D.y = 0;
 	m_hp = DARUMA_HP;
 	m_at = DARUMA_AT;
 	m_rect = CRect(64, 135, 166, 237);
 	m_rect_F = m_rect;
 	m_pleneVec = CVector3D(0, 0, 0);
 	m_cnt = 0;
+	//âeê›íË
+	m_img_shadow = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Shadow"));
+	m_img_shadow.SetSize(102, 26);
+	m_img_shadow.SetCenter(-64, 26 / 2);
 }
 
 void CEnemy1::Update() {
@@ -46,7 +51,7 @@ void CEnemy1::Update() {
 
 	m_img.UpdateAnimation();
 	CheckOverlap();
-	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
+	m_rect_F.m_bottom = 237 - m_pos3D.y;
 
 }
 

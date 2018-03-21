@@ -11,11 +11,15 @@ CEnemy5::CEnemy5(const CVector3D *pos) :CEnemyBase() {
 	m_img.SetSize(NIKU_SIZ_X, NIKU_SIZ_Y);
 	m_img.SetCenter(0, 128);
 	m_pos3D = *pos;
+	m_pos3D.y = 0;
 	m_hp = NIKU_HP;
 	m_at = NIKU_AT;
 	m_rect = CRect(80, -28, 300, 222);
 	m_rect_F = m_rect;
-
+	//âeê›íË
+	m_img_shadow = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Shadow"));
+	m_img_shadow.SetSize(220, 57);
+	m_img_shadow.SetCenter(-80, 57 / 2);
 
 }
 
@@ -46,7 +50,7 @@ void CEnemy5::Update() {
 	
 	m_img.UpdateAnimation();
 	CheckOverlap();
-	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
+	m_rect_F.m_bottom = 237 - m_pos3D.y;
 }
 
 

@@ -76,6 +76,7 @@ void Init(void)
 	ADD_RESOURCE("Enemy4", CAnimImage::LoadImage("zako_kamaitachi_motion.png", kamaitachi_AnimData, 512, 512));
 	ADD_RESOURCE("Enemy5", CAnimImage::LoadImage("zako_niku_motion.png", enemy_AnimData, 512, 512));
 	ADD_RESOURCE("Boss", CAnimImage::LoadImage("moton_jaryu.png", boss_AnimData, 768, 768));
+	ADD_RESOURCE("Shadow", CAnimImage::LoadImage("shadow.png"));
 
 	//ギミック関係
 	ADD_RESOURCE("Fire", CAnimImage::LoadImage("fire_effect.png", fire_Animdata, 204, 245));
@@ -97,7 +98,8 @@ void Init(void)
 	//テキスト関係
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
 	ADD_RESOURCE("MainText", CAnimImage::LoadImage("text01.png"));
-	ADD_RESOURCE("EndStaff", CAnimImage::LoadImage("ending.png"));
+	ADD_RESOURCE("EndHissatuStaff", CAnimImage::LoadImage("ending.png"));
+	ADD_RESOURCE("Hissatu", CAnimImage::LoadImage("text02.png"));
 
 	//アイテム関係
 	ADD_RESOURCE("Kakera", CAnimImage::LoadImage("item_kakera.png"));

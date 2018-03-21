@@ -38,6 +38,7 @@ void CHPBar::Update()
 	}
 	if (boss) {
 		m_boss_hp = boss->GetHP();
+		CheckOverlap();
 	}
 }
 
