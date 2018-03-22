@@ -115,7 +115,7 @@ void CTitleBG::RogoUpdate()
 	}
 	if (m_sabun_flag) {
 		m_logo_siz = CVector2D(ROGO_SIZ_X / 2, ROGO_SIZ_Y / 2);
-		if (m_log_time % 360 == 0) {
+		if (m_log_time % 200 == 0) {
 			m_col_rogo_s.w = 1.0;
 			m_sabun_flag = false;
 		}
