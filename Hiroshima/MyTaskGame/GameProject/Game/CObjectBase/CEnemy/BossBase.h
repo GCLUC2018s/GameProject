@@ -14,7 +14,8 @@
 
 #define BOSS_DOWN_SPEED 0.1f
 
-#define BOSS_POS_Y -200 
+#define BOSS_POS_Y 100 
+#define BOSS_POS_DOWN_Y 300 
 
 #include "../GameProject/GAME/CObjectBase/CObjectBase.h"
 
