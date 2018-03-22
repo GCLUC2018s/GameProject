@@ -78,8 +78,10 @@ void CTaskManager::RemoveTaskLinker( CTaskLinker *p, CTaskLinker **pHead, CTaskL
 	// 前後を繋ぎ直し 
 	CTaskLinker *prev = p->mp_prev;
 	CTaskLinker *next = p->mp_next;
-	if ( prev != nullptr ) prev->mp_next = next;
-	if ( next != nullptr ) next->mp_prev = prev;
+	if ( prev != nullptr )
+		prev->mp_next = next;
+	if ( next != nullptr ) 
+		next->mp_prev = prev;
 
 	// 自身のリンクをクリア 
 	p->mp_prev = nullptr;
@@ -96,7 +98,8 @@ void CTaskManager::RemoveTaskLinker( CTaskLinker *p, CTaskLinker **pHead, CTaskL
 CTask* CTaskManager::Kill(CTask *p)
 {
 	CTask *next = nullptr;
-	if ( p->m_updLinker.mp_next != nullptr ) next = p->m_updLinker.mp_next->mp_task;
+	if ( p->m_updLinker.mp_next != nullptr )
+		next = p->m_updLinker.mp_next->mp_task;
 
 	// リストから外す 
 	RemoveTaskLinker( &(p->m_updLinker), &mp_updHead, &mp_updTail );
