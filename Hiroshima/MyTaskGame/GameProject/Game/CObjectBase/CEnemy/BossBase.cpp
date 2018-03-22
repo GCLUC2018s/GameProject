@@ -74,6 +74,12 @@ void CBossBase::Attack( int boss_id) {
 		if (m_tail.GetIndex() == 3) {
 			m_state = eIdol;
 			m_tailpos3D.x -= 30;
+
+	case eArm:
+		m_shaking_arm = 0;
+		m_armvec3D = CVector3D(0, 0, 0);
+		BossLaser();
+		break;
 		}
 		
 		break;
@@ -228,7 +234,9 @@ void CBossBase::BossBress(){
 	}
 }
 
+void CBossBase::BossLaser(){
 
+}
 
 
 
