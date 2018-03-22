@@ -30,16 +30,13 @@ struct Enemy_Push
 Enemy_Push  push_enemy[32][32]{
 	//‘æˆêƒEƒFƒCƒ”
 	{
-		{ 100	,eKamaitachi	,CVector3D(400, -50,	-300) },
-		{ 300	,eDaruma		,CVector3D(500, -20,	-200) },
-		{ 500	,eChouchin		,CVector3D(600, -130,	-250) },
-		{ 700	,eChouchin		,CVector3D(800, -40,	-200) },
-		{ 900	,eNiku			,CVector3D(800, 0,		-200) },
-		{ 1200	,eNiku			,CVector3D(200, 0,		 -50) },
-		{ 1500	,eDaruma		,CVector3D(400, 0,		-300) },
-		{ 2100	,eKamaitachi	,CVector3D(600, -150,	-250) },
-		{ 2400	,eKamaitachi	,CVector3D(800, -50,	-200) },
-		{ 3000	,eChouchin		,CVector3D(200, 0,		 -50) },
+		{ 100	,eDaruma		,CVector3D(1000, 0,-200) },
+		{ 200	,eChouchin		,CVector3D(900, -30,-250) },
+		{ 201	,eChouchin		,CVector3D(950, -40,-200) },
+		{ 400	,eDaruma		,CVector3D(800, 0,-300) },
+		{ 450	,eDaruma		,CVector3D(900, 0,-350) },
+		{ 600	,eDaruma		,CVector3D(750, 0,	-100) },
+		{ 700	,eChouchin		,CVector3D(850, 0, -50) },
 		{ END_CODE }
 	},{
 
