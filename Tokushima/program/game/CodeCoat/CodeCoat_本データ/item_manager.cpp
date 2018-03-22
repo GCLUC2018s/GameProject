@@ -1,5 +1,5 @@
 /*!
-@brief	敵管理クラス cpp
+@brief	アイテム管理クラス cpp
 @author	s.namizashi
 **/
 
