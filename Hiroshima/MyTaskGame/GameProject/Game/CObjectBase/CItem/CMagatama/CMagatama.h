@@ -16,6 +16,7 @@
 class CMagatama :public CObjectBase {
 private:
 	int m_cnt;
+	CAnimImage m_img_max;
 
 public:
 	CMagatama();

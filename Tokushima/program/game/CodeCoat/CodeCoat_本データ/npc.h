@@ -63,5 +63,4 @@ public:
 bool IsLeftKeyTrigger(int key);
 bool IsRightKeyTrigger(int key);
 bool IsZKeyTrigger(int key);
-bool IsHitKeyTrigger(int key, int chk);
 #endif __NPC_H__

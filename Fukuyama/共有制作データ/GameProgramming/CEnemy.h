@@ -3,8 +3,8 @@
 #include "../object/C_Object.h"
 #include"chara\C_Player.h"
 #include"object\CVector3.h"
-#define ENEMY_UD_SPEED 3
-#define ENEMY_LR_SPEED 7
+#define ENEMY_UD_SPEED 2
+#define ENEMY_LR_SPEED 3
 #define ACTION_INTERVAL 120
 #define TARGETINTERVAL 300
 class CEnemy :public C_Object{
@@ -21,7 +21,8 @@ public:
 	}
 	enum ENEMY_MODE{
 		E_NORMAL,
-	    E_ACTION
+		E_ACTION,
+		E_DEAD
 	};
 	float m_Long;
 	static CEnemy *m_EnemyPoint;
@@ -32,10 +33,12 @@ public:
 	int m_EnemyMode;
 	int m_ActionInterval;
 	int m_TargetInterval;
+	bool Collision(CTask*, CTask*);
 	void Init();
 	void Update();
 	void Draw();
-	C_Vector3 m_Target;
+	C_Vector3 m_TargetR;
+	C_Vector3 m_TargetL;
 };
 enum ENEMY_TYPE{
 	E_ESCAPE,

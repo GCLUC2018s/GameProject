@@ -37,6 +37,7 @@ private:
 	int m_titlePushA_img;
 	int m_count;
 	int m_drawtime;
+	bool m_start;				//ƒ{ƒ^ƒ““ü—ÍŽžˆÚ“®‚µŽn‚ß‚é
 	bool m_drawflag;
 	int serect_SE;
 };

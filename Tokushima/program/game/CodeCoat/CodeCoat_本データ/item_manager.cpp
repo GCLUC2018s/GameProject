@@ -1,5 +1,5 @@
 /*!
-@brief	敵管理クラス cpp
+@brief	アイテム管理クラス cpp
 @author	s.namizashi
 **/
 
@@ -25,7 +25,7 @@ void CItemManager::ClearInstance()
 CItemManager::CItemManager()
 : m_Elapsed(0)
 {
-	char *item[] = { "knife.png", "pistol.png", "shottogan.png","rifle.png","stabarmor.png","bulletarmor.png","speedup.png","x2score.png" };
+	char *item[] = { "knife.png", "pistol.png", "shottogan.png","rifle.png","stabarmor.png","bulletarmor.png","x2score.png","speedup.png" };
 	char buf[256];
 	for (int i = 0; i < ITEMCOUNT; i++){
 		sprintf_s(buf, "media\\img\\Item\\%s", item[i]);
@@ -118,7 +118,7 @@ CItemData* CItemManager::makeItem(int name){
 		break;
 	case SCOREBOOST:
 	case SPEEDUP:
-		item->m_useful = 10000;
+		item->m_useful = 20000;
 		item->m_type = ITEM;
 		break;
 	default:

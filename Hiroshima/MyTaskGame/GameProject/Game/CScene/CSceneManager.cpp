@@ -69,9 +69,6 @@ void CSceneManager::MainScene() {
 	new CItemBox(&(CVector3D(900, 0, -20)), 1);*/
 
 	new CFieldManager();
-	for (int i = 0; i < 10; i++) {
-		new CKakera(&(CVector3D(200, 0, 0)));
-	}
 	new CMagatama();
 	new CHPBar(false);
 	new CEnemyManager();
@@ -89,7 +86,6 @@ void CSceneManager::BossScene() {
 	else pl_hp = PLAYER_HP;
 	new CBB(0, 0, true);
 	new CPlayer(pl_hp);
-	delete pl;
 	new CBossStage();
 	new CMagatama();
 	new CHPBar(true);
