@@ -77,10 +77,12 @@ void CEnemy::Update(){
 
 			m_EnemyMode = E_ACTION;
 		}
+		//’‡ŠÔ‚ðŒÄ‚ñ‚Å“¦‚°‚éˆ—
 		if (m_EnemyMode == E_ACTION){
 			if (m_ActionInterval >= 0){
 				m_ActionInterval--;
 			}
+			//“¦‚°‚é•”•ª
 			if (m_ActionInterval <= 0){
 				m_Position.x += ENEMY_LR_SPEED;
 				m_Turn = E_RIGHT;
@@ -108,13 +110,33 @@ void CEnemy::Update(){
 				m_Turn = E_LEFT;
 			}
 		}
+		if (m_EnemyMode == E_DEAD){
+			m_Position.x += ENEMY_LR_SPEED;
+			m_Turn = E_RIGHT;
+			if (m_Position.x >= 700){
+				CTaskManager::GetInstance()->Kill(this);
+			}
+		}
 		//•`‰æ‡”Ô‚Ì•ÏX
 		CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
 		C_Object::Scroll(&m_Position, m_Scroll);
 		C_Object::Rect(&m_image, &m_Position);
 		m_Colimage = m_image;
 }
-
+bool CEnemy::Collision(CTask* a, CTask* b){
+	C_Object* p = (C_Object*)a;
+	C_Object* q = (C_Object*)b;
+	if (C_Collider::Collision(p, q, &p->m_Position, &q->m_Position)){
+		if (q->m_id ==E_ATACK ){
+			q->m_Position.x += q->m_Colimage.m_AdjustX;
+			q->m_Position.z += q->m_Colimage.m_AdjustZ;
+			q->m_Position.x += q->m_Colimage.m_AdjustX;
+			q->m_Position.z += q->m_Colimage.m_AdjustZ;
+			m_EnemyMode = E_DEAD;
+		}
+	}
+	return true;
+}
 
 void CEnemy::Draw(){
 	//

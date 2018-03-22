@@ -21,7 +21,8 @@ public:
 	}
 	enum ENEMY_MODE{
 		E_NORMAL,
-	    E_ACTION
+		E_ACTION,
+		E_DEAD
 	};
 	float m_Long;
 	static CEnemy *m_EnemyPoint;
@@ -32,6 +33,7 @@ public:
 	int m_EnemyMode;
 	int m_ActionInterval;
 	int m_TargetInterval;
+	bool Collision(CTask*, CTask*);
 	void Init();
 	void Update();
 	void Draw();
