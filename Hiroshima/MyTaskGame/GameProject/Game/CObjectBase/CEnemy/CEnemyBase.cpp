@@ -22,13 +22,13 @@ void CEnemyBase::DropItem() {
 	for (int i = Utility::Rand(30, 50); i > 0; i--) {
 		new CKoban(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
 	}
-	for (int i = Utility::Rand(-2, 2); i > 0; i--) {
+	for (int i = rand() % 3; i > 0; i--) {
 		new CKakera(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
 	}
-	for (int i = Utility::Rand(-2, 2); i > 0; i--) {
+	for (int i = Utility::Rand(-4, 2); i > 0; i--) {
 		new CSake(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
 	}
-	for (int i = Utility::Rand(-2, 2); i > 0; i--) {
+	for (int i = Utility::Rand(-4, 2); i > 0; i--) {
 		new COage(&(CVector3D(m_pos3D.x + 128, m_pos3D.y, m_pos3D.z)));
 	}
 
@@ -115,7 +115,7 @@ void CEnemyBase::Hit(CObjectBase * t)
 		if (ef->GetHit() > 1.0f && m_state != eKnockBack) {
 			if (ef->GetEFtype() == ePanch && abs(ef->GetPos().y + m_pos3D.y) < 20) {
 				SOUND("SE_Panch")->Play(false);
-				m_flipH = !(ef->GetFrip());
+				m_flipH = (ef->GetFrip());
 				if (m_hp >= 0) {
 					m_damage = true;
 					m_state = eKnockBack;
