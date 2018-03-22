@@ -49,17 +49,6 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 			}
 		}
 	}
-/*
-	if ((t1->GetID() == eID_Player && t2->GetID() == eID_Ground)) {
-		CFieldGround* o1 = dynamic_cast<CFieldGround*>(t2);
-		CPlayer* o2 = dynamic_cast<CPlayer*>(t1);
-		o1->GroundHitCheck(o2);
-	}
-	if ((t2->GetID() == eID_Player && t1->GetID() == eID_Ground)) {
-		CFieldGround* o1 = dynamic_cast<CFieldGround*>(t1);
-		CPlayer* o2 = dynamic_cast<CPlayer*>(t2);
-		o1->GroundHitCheck(o2);
-	}*/
 }
 void CObjectBase::Hit(CObjectBase * t)
 {

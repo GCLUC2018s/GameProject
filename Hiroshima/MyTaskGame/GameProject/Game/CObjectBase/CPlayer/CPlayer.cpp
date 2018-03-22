@@ -5,6 +5,7 @@
 #include "../CItem/COhuda/COhuda.h"
 #include "../CPanchEF/CPanchEF.h"
 
+
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
 
@@ -16,7 +17,7 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object), m_scoreF("HG行書体",40){
+CPlayer::CPlayer(const int HP) :CObjectBase(eID_Player, eU_Player, eD_Object), m_scoreF("HG行書体",40){
 	m_scroll = CVector2D(0, 0);
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(PL_CENTER_X, 0, 0);
@@ -226,23 +227,26 @@ void CPlayer::Nutral() {
 		m_squat = true;
 		m_anim = eAnimSquat;
 	}
+	CObjectBase *gr = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Ground));
 
-	//落下中なら
-	if (m_vec3D.y > 0 &&
-		//位置判定
-		1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
-		//一番奥にいたら
-		m_pos3D.z == -400) {
-		m_pos3D.y = -448;
-		m_vec3D.y = 0;
-		m_jump = false;
-		SOUND("SE_LANDING")->Play(false);
-		m_roof = true;
-	}
-	else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
-		m_jump = true;
-		m_roof = false;
-	}
+		//落下中なら
+		if (m_vec3D.y > 0 ) {	
+			//通常ステージで
+			if (gr->GetState() == eNomalGround &&
+				//一番奥にいたら
+				1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
+				m_pos3D.z == -400) {
+				m_pos3D.y = -448;
+				m_vec3D.y = 0;
+				m_jump = false;
+				SOUND("SE_LANDING")->Play(false);
+				m_roof = true;
+			}
+		}
+		else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+			m_jump = true;
+			m_roof = false;
+		}
 
 	//移動
 	if (!m_squat) {

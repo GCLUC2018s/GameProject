@@ -16,7 +16,7 @@ class CMagatama;
 
 class CPlayer :public CObjectBase {
 public:
-	CPlayer();
+	CPlayer(const int HP);
 	~CPlayer();
 	 void Update();
 	 void Draw();
