@@ -23,6 +23,7 @@ public:
 		, m_SetInterval(SET_INTERVAL)
 		, m_ThrowInterval(THROW_INTERVAL)
 		, m_SprayInterval(SPRAY_INTERVAL)
+		, m_DamageInterval(NODAMAGETIME)
 		, m_Player_HP(3)
 	{
 		m_image.m_Enabled = true;
@@ -31,7 +32,6 @@ public:
 		//影のサイズ
 		i_Shadow.SetVertex(0, 60, 0, 135);
 		//キャラクターアニメーション画像の読み込み
-		i_Chara_Motion_1.Load("image/chara/chara_motion_1_16bit.tga");
 		i_Chara_Motion_2.Load("image/chara/chara_motion_2_16bit.tga");
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 
@@ -41,6 +41,7 @@ public:
 		m_Throw = E_NTHROW;
 		m_Set = E_NSET;
 		m_Spray = E_NSPRAY;
+		m_Damage = E_NDAMAGE;
 
 		m_Speed.y = JUMP_FIRST_SPEED; //ジャンプの初速を設定します。
 		m_Playerpoint = this;
@@ -50,7 +51,6 @@ public:
 	bool Collision(CTask*, CTask*);
 protected:
 	//テクスチャーのインスタンス宣言
-	CTexture i_Chara_Motion_1;
 	CTexture i_Chara_Motion_2;
 	C_Rectangle HP_image;
 	CTexture HP_Tex;
@@ -58,6 +58,7 @@ protected:
 	int m_SetInterval;        //設置間隔
 	int m_ThrowInterval;          //投擲間隔
 	int m_SprayInterval;          //スプレー使用間隔
+	int m_DamageInterval;        //ダメージ後の無敵時間管理
 	int m_Player_HP;           //プレイヤーのHP
 	void Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, float deltatime);
 	virtual void Update();
