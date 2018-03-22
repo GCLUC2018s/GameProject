@@ -45,6 +45,7 @@ public:
 		m_Playerpoint = this;
 	}
 	static C_Player *m_Playerpoint;
+	int m_Player_HP;           //プレイヤーのHP
 	bool Collision(CTask*, CTask*);
 protected:
 	//テクスチャーのインスタンス宣言
@@ -55,7 +56,6 @@ protected:
 	int m_ThrowInterval;          //投擲間隔
 	int m_SprayInterval;          //スプレー使用間隔
 	int m_DamageInterval;        //ダメージ後の無敵時間管理
-	int m_Player_HP;           //プレイヤーのHP
 	void Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, float deltatime);
 	virtual void Update();
 	virtual void Draw();
