@@ -17,17 +17,23 @@ void CSceneGame::Update(){
 	switch (GameScene)
 	{
 	case 0:
+		Title.DrawImage(-600, 600, -450, 450, 0, 1200, 900, 0);
 		//タイトル画面
 		if (GetKeyState(VK_RETURN) & 0x8000){
 			//プレイ画面に移動
 			GameScene = 1;
+			Drum = new C_Drum();
+			Player = new C_Player();
+			Enemy = new CEnemy();
+			Enemy->Init();
+			BackGround = new C_BackGround();
 		}
 		break;
 	case 1:
 		//プレイ画面
 		//ポーズ画面でない場合
 		if (m_PawsCount == 0){
-			mTexture.DrawImage(-600, 600, -440, 450, 0, 1200, 900, 0);
+			//mTexture.DrawImage(-600, 600, -440, 450, 0, 1200, 900, 0);
 			//アイコンの描画と演出
 			float m_CoolTime = ICON_SIZE;
 			m_CoolTime = m_CoolTime / SPRAY_INTERVAL;      //スプレーのクールタイム表示（アイコン）
@@ -60,6 +66,8 @@ void CSceneGame::Update(){
 }
 
 void CSceneGame::Draw(){
-	Icon.DrawImage(-585, -495, -435, -345, 0, 90, 90, 0);
-	i_iconShadow.Render(0.0f, 0.0f, 0.0f, 0.5f);
+	if (GameScene == 1){
+		Icon.DrawImage(-585, -495, -435, -345, 0, 90, 90, 0);
+		i_iconShadow.Render(0.0f, 0.0f, 0.0f, 0.5f);
+	}
 }

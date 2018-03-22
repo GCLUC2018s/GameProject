@@ -7,6 +7,7 @@
 #include "map_manager.h"
 #include "player_manager.h"
 #include "ui_manager.h"
+#include "se_manager.h"
 
 CNpc::CNpc()
 :CTask(0, eUDP_Npc, eDWP_Npc)
@@ -110,11 +111,13 @@ void CNpc::Update(){
 	if (m_shop_flag){
 		int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 		if (IsLeftKeyTrigger(key)){
+			PlaySoundMem(CSeManager::GetInstance()->getsnd(ITEM_SE), DX_PLAYTYPE_BACK);
 			m_cursor--;
 			if (m_cursor < 0)
 				m_cursor = 0;
 		}
 		if (IsRightKeyTrigger(key)){
+			PlaySoundMem(CSeManager::GetInstance()->getsnd(ITEM_SE), DX_PLAYTYPE_BACK);
 			m_cursor++;
 			if (m_cursor > 3)
 				m_cursor = 3;
@@ -163,13 +166,11 @@ void CNpc::Draw(){
 	if (m_shop_flag){
 		float num;
 		char buf[100];
-		clsDx();
 		for (int i = 0; i < 3; i++){
 			DrawGraph(i * FLAME_INTERVAL + FLAME_INTERVAL, FLAME_YPOS, m_flame[m_sell_item[i].m_type], TRUE);
 			if (m_sell_item[i].m_name != NONE){
 				DrawRotaGraph(i * FLAME_INTERVAL + FLAME_INTERVAL + 50, FLAME_YPOS + 50, 0.4, 3.141592 / 180 * -30, m_sell_item[i].m_img, TRUE, FALSE);
 				num = sprintf_s(buf, 100, "%d", (int)CItemManager::GetInstance()->get_itemprice(m_sell_item[i].m_name));
-				printfDx("%f\n", CItemManager::GetInstance()->get_itemprice(m_sell_item[i].m_name));
 				for (int t = 0; t < num; t++){
 					DrawGraph(PRICENUM_INIT_X + t * 25 + i * FLAME_INTERVAL,
 						PRICENUM_INIT_Y, m_scorenum_img[(buf[t] - '0')], TRUE);		//'0'

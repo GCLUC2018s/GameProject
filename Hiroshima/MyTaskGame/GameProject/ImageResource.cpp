@@ -32,7 +32,8 @@ TexAnim _PL_kick[] = {
 	{ 40,2 },
 };
 TexAnim _PL_damage[] = {
-	{ 50,40 },
+	{ 50,60 },
+	{ 50,1 },
 };
 TexAnim _PL_fall[] = {
 	{ 50,20 },

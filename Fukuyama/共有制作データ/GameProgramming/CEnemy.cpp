@@ -114,7 +114,7 @@ void CEnemy::Update(){
 			m_Position.x += ENEMY_LR_SPEED;
 			m_Turn = E_RIGHT;
 			if (m_Position.x >= 700){
-				CTaskManager::GetInstance()->Kill(this);
+				SetKill();
 			}
 		}
 		//•`‰æ‡”Ô‚Ì•ÏX
@@ -139,8 +139,11 @@ bool CEnemy::Collision(CTask* a, CTask* b){
 }
 
 void CEnemy::Draw(){
-	//
+	if (m_Position.x == m_TargetL.x || m_Position.x == m_TargetR.x){
+		TaikiAnime(&i_Enemy_Run, E_ENEMY);    
+	}
+	else{
 	RunAnime(&i_Enemy_Run, E_ENEMY);
-	//
+	}
 }
 

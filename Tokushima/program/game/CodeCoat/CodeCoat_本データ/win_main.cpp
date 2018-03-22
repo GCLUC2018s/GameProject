@@ -10,7 +10,7 @@
 #include "npc_manager.h"
 #include "map_manager.h"
 #include "score_manager.h"
-
+#include "se_manager.h"
 
 CGame*	g_pMain = NULL;
 const bool WINDOW_SCREEN = true;   //true:ウィンドウ
@@ -85,4 +85,5 @@ void win_main_dest()
 	CUiManager::ClearInstance();		//Ui
 	CTaskManager::ClearInstance();		//Task
 	CScoreManager::ClearInstance();		//score
+	CSeManager::ClearInstance();		//se
 }

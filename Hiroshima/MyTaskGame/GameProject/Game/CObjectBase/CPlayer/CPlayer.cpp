@@ -242,8 +242,33 @@ void CPlayer::Nutral() {
 			SOUND("SE_LANDING")->Play(false);
 			m_roof = true;
 		}
+		//ボスステージで
+		//ひだり
+		if (gr->GetState() == eBossGround &&
+			//一番奥にいたら
+			122 - 127 < m_pos3D.x && m_pos3D.x < 350 && m_pos3D.y > -520 &&
+			m_pos3D.z == -400) {
+			m_pos3D.y = -520;
+			m_vec3D.y = 0;
+			m_jump = false;
+			SOUND("SE_LANDING")->Play(false);
+			m_roof = true;
+		}
+		//みぎ
+		if (gr->GetState() == eBossGround &&
+			//一番奥にいたら
+			968 - 127 < m_pos3D.x && m_pos3D.x < 1280 && m_pos3D.y > -500 &&
+			m_pos3D.z == -400) {
+			m_pos3D.y = -500;
+			m_vec3D.y = 0;
+			m_jump = false;
+			SOUND("SE_LANDING")->Play(false);
+			m_roof = true;
+		}
 	}
-	else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+	else if (m_roof &&
+		((gr->GetState() == eNomalGround && 1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592) ||
+			(gr->GetState() == eBossGround && 122 - 127 >= m_pos3D.x || m_pos3D.x >= 350 && 968 - 127 >= m_pos3D.x || m_pos3D.x >= 1280))) {
 		m_jump = true;
 		m_roof = false;
 	}
@@ -329,23 +354,6 @@ void CPlayer::Nutral() {
 		m_anim = eAnimPunch;
 		m_state = eAttack;
 	}
-	//攻撃されたときの処理
-	//if (PUSH_V) {
-	//	if (m_jump) {
-	//		m_state = eFall;
-	//		m_die = 1;
-	//		m_jump = false;
-	//	}
-	//	else {
-	//		if (m_hp <= 0)
-	//			m_state = eFall;
-	//		else
-	//			m_state = eDamage;
-	//	}
-	//	m_vec3D.y = 0;
-	//	m_hp -= 2;
-	//	m_cnt = 0;
-	//}
 	//お札
 	if (!m_jump && PUSH_V) {
 		m_anim = eAnimBill;
@@ -373,8 +381,7 @@ void CPlayer::Attack() {
 
 void CPlayer::Damage() {
 	m_anim = eAnimDamage;
-	m_cnt++;
-	if (m_cnt == 39) {
+	if (m_img.GetIndex() == 1) {
 		m_anim = 0;
 		m_state = eNutral;
 	}
@@ -461,6 +468,8 @@ void CPlayer::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Enemy) {
 		if (t->GetState() == eAttack && m_state != eFall && m_state != eDamage) {
+			SOUND("SE_Panch")->Play(false);
+			m_flipH = t->GetFrip();
 			if (m_jump) {
 				m_state = eFall;
 				m_die = 1;

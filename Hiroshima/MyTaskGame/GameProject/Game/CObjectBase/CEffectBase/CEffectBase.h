@@ -23,9 +23,6 @@ public:
 	float GetHit() {
 		return m_color.w;
 	};
-	bool GetFrip() {
-		return !m_flipH;
-	};
 	int GetEFtype() {
 		return m_effect_type;
 	};
