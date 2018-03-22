@@ -33,6 +33,7 @@ enum E_DrawPrio
 	eDWP_BBullet,
 	eDWP_BItem,
 	eDWP_Player,
+	eDWP_FNpc,
 	eDWP_FEnemy,
 	eDWP_Bullet,
 	eDWP_Item,

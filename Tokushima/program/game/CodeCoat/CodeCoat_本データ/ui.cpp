@@ -2,6 +2,8 @@
 #include "player_manager.h"
 #include "map_manager.h"
 #include "enemy_manager.h"
+#include "npc_manager.h"
+#include "ui_manager.h"
 
 Ui::Ui() :
 m_timer_pos(0, 0, 0),
@@ -36,7 +38,7 @@ m_ndm_magnification(0)
 	m_scoregage_img[1] = LoadGraph("media\\img\\power-gage1.png");
 	m_totalrun_txt_img[0] = LoadGraph("media\\img\\bonus.png");
 	m_totalrun_txt_img[1] = LoadGraph("media\\img\\fold.png");
-
+	CUiManager::GetInstance()->Init(this);
 }
 
 Ui::~Ui()
@@ -44,38 +46,41 @@ Ui::~Ui()
 }
 
 void Ui::Update(){
-	const float offset = 50;
-	CVector3D p_pos = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos();
-	float _totalmove = CMapManager::GetInstance()->GetMapAdress()->getTotalmovement();
-	float _move = 0;
+	CNpc *_npc = CNpcManager::GetInstance()->GetNpcAdress();
+	if (!_npc->getShopFlag()){
+		const float offset = 50;
+		CVector3D p_pos = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos();
+		float _totalmove = CMapManager::GetInstance()->GetMapAdress()->getTotalmovement();
+		float _move = 0;
 
-	//タイマーをプレイヤーに追従させる処理
-	if (p_pos.getX() < 100){	//タイマーが見切れるなら
-		m_timer_pos = CVector3D(TIMER_BORDER_X, p_pos.getY(),p_pos.getZ());
+		//タイマーをプレイヤーに追従させる処理
+		if (p_pos.getX() < 100){	//タイマーが見切れるなら
+			m_timer_pos = CVector3D(TIMER_BORDER_X, p_pos.getY(), p_pos.getZ());
+		}
+		else{
+			m_timer_pos = CVector3D(p_pos.getX() + offset, p_pos.getY(), p_pos.getZ());
+		}
+
+		m_timelimit -= 0.0166666f;
+
+		//カウントダウン処理
+		if (m_timelimit < 0){	//0以下なら
+			m_timelimit = 0;
+		}
+
+		//矢印をプレイヤーに追従させる処理
+		m_arrow_pos = CVector3D(p_pos.getX() + P_CENTER_X, SCORE_INIT_MAG_Y, 0);
+
+		//スコア倍率の処理
+		scoreMagnification(&p_pos);
+
+		//ミニマップの走行距離の処理
+		_move = _totalmove / MAP_DISTANCE;			//変更
+		if (_move < 405)
+			m_maparrow_pos = CVector3D(_move + MAP_P_INIT_X, MAP_P_INIT_Y, 0);
+
+		scoreAddition();
 	}
-	else{
-		m_timer_pos = CVector3D(p_pos.getX() + offset, p_pos.getY(), p_pos.getZ());
-	}
-
-	m_timelimit -= 0.0166666f;
-	
-	//カウントダウン処理
-	if (m_timelimit < 0){	//0以下なら
-		m_timelimit = 0;
-	}
-
-	//矢印をプレイヤーに追従させる処理
-	m_arrow_pos = CVector3D(p_pos.getX() + P_CENTER_X, SCORE_INIT_MAG_Y,0);
-
-	//スコア倍率の処理
-	scoreMagnification(&p_pos);
-
-	//ミニマップの走行距離の処理
-	_move = _totalmove / MAP_DISTANCE;			//変更
-	if (_move < 405)
-	m_maparrow_pos = CVector3D(_move + MAP_P_INIT_X, MAP_P_INIT_Y,0);
-
-	scoreAddition();
 }
 
 void Ui::Draw(){

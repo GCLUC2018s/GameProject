@@ -26,12 +26,7 @@ void CPlayerManager::ClearInstance()
 }
 
 // コンストラクタ
-CPlayerManager::CPlayerManager():
-m_evasion(0),
-m_evasion_flag(false),
-m_nodamage_movement(0),
-m_ndm_flag(false),
-m_passflag(false)
+CPlayerManager::CPlayerManager()
 {
 }
 
@@ -44,6 +39,11 @@ CPlayerManager::~CPlayerManager()
 // 初期化処理
 void CPlayerManager::Init(CPlayerControl* player)
 {
+	m_evasion = 0;
+	m_evasion_flag = false;
+	m_nodamage_movement = 0;
+	m_ndm_flag = false;
+	m_passflag = false;
 	m_player = player;
 	m_nodamage_movement = 0;
 }
