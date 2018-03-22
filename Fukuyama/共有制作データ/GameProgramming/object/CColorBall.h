@@ -17,14 +17,19 @@ class C_ColorBall:public C_Object{
 public:
 	C_ColorBall()
 		:C_Object(E_ATACK, eUDP_Object, eDWP_Object, 0, 0, 0)
+		, ShadowPos(0.0f,0.0f,0.0f)
 		, m_Deltatime(DELTATIME)
 		, init(false)
 	{
 		//カラーボールのサイズ
 		m_image.SetVertex(0, 30, 0, 30);
+		//影のサイズ
+		i_Shadow.SetVertex(0, 30, 0, 50);
+
 		i_ColorBall.Load("image/bg/color/tga/colorball03.tga");
 	}
 private:
+	C_Vector3 ShadowPos;
 	CTexture i_ColorBall;
 	float m_Deltatime;       //1秒間の処理回数
 	C_Vector3 i_Throwpos;         //投げた位置

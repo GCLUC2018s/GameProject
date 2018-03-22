@@ -52,7 +52,10 @@ public:
 		, m_Anime_Spray(SPRAY_ANIME+2)     //スプレーアニメーションカウンタの初期化
 		, m_Speed(0.0f, 0.0f, 0.0f)
 		, m_Gravity(0.0f,-9.8f,0.0f)
-	{}
+	{
+		//キャラクターアニメーション画像の読み込み
+		i_Chara_Motion_2.Load("image/chara/chara_motion_2_16bit.tga");
+	}
 	bool init;  //Initを通ったかどうか
 	void Init();
 	C_Vector3 m_Position;  //座標を管理
@@ -82,6 +85,7 @@ public:
 		m_Colimage = m_image;
 	}
 protected:
+	CTexture i_Chara_Motion_2;
 	C_Rectangle i_Shadow;   //影用インスタンス
 	C_Rectangle m_image;  //メンバー変数にする
 	C_Vector3 m_Speed;  //速度を管理
