@@ -28,6 +28,9 @@ public:
 	C_Drum* Drum;
 	CTexture mTexture;
 	CTexture mTexture2;
+	int m_EnemyInterval;
+	int m_EnemyCount; //フィールド上の敵の数
+
 	int m_PawsCount;
 	int GameScene;
 	void Init();

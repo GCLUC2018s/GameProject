@@ -116,7 +116,7 @@ void CEnemy::Update(){
 			}
 		}
 		if (m_EnemyMode == E_DEAD){
-			m_Position.x += ENEMY_LR_SPEED;
+			m_Position.x += ENEMY_LR_SPEED*3;
 			m_Turn = E_RIGHT;
 			if (m_Position.x >= 700){
 				SetKill();

@@ -15,8 +15,8 @@ public:
 	C_Player* Player;
 	CTexture mTexture;
 	CTexture mTexture2;
-	int m_EnemyInterval;
-	int m_EnemyCount; //フィールド上の敵の数
+	//int m_EnemyInterval;
+	//int m_EnemyCount; //フィールド上の敵の数
 	int m_Paws;
 	int GameScene;
 	void Init();
