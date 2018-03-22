@@ -178,7 +178,7 @@ void C_Player::Update(){
 	//‰e‚Ì•`‰æˆÊ’u‚ðƒ|ƒWƒVƒ‡ƒ“‚Æ“¯Šú
 	C_Object::Rect(&i_Shadow, &i_JumpPoint);
 
-
+	i_JumpPoint.x = m_Position.x;
 
 	//•`‰æ‡”Ô‚Ì•ÏX
 	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
