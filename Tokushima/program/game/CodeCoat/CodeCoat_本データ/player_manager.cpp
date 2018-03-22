@@ -45,6 +45,7 @@ CPlayerManager::~CPlayerManager()
 void CPlayerManager::Init(CPlayerControl* player)
 {
 	m_player = player;
+	m_nodamage_movement = 0;
 }
 
 // I—¹ˆ—
@@ -90,13 +91,25 @@ void CPlayerManager::Update()
 				if (_knife_flag){
 					(*it)->Kill();
 				}
-				else
-				if (_Armor->m_useful > 0)
-					_Armor->m_useful--;
-				else{
-					m_player->setDeath();
-					CEnemyManager::getInstance()->SetComb(0);	//’Ç‰Á
-					CPlayerManager::GetInstance()->setNoDamageMovement(0);	//’Ç‰Á
+				else if (!m_player->getInvinsibleFlag()){
+					if (_Armor->m_useful > 0){
+						_Armor->m_useful--;
+						m_player->SetInvincibleFlag();
+						if (_Armor->m_useful == 0){
+							CItemData* item = new CItemData;
+							item->m_attack_rate = 0;
+							item->m_img = 0;
+							item->m_name = NONE;
+							item->m_type = (ItemType)1;
+							item->m_useful = 0;
+							m_player->setEquipment(item);
+						}
+					}
+					else{
+						m_player->setDeath();
+						CEnemyManager::getInstance()->SetComb(0);	//’Ç‰Á
+						CPlayerManager::GetInstance()->setNoDamageMovement(0);	//’Ç‰Á
+					}
 				}
 			}
 		}
@@ -117,9 +130,20 @@ void CPlayerManager::Update()
 			CPlayerManager::GetInstance()->setNoDamageMovement(0);	//’Ç‰Á
 		}
 	
-		if (IsHitCircle(PLAYER_COLLISION, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
-			if (_Armor->m_useful > 0)
+		if (!m_player->getInvinsibleFlag() && IsHitCircle(PLAYER_COLLISION, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
+			if (_Armor->m_useful > 0){
 				_Armor->m_useful--;
+				m_player->SetInvincibleFlag();
+				if (_Armor->m_useful == 0){
+					CItemData* item = new CItemData;
+					item->m_attack_rate = 0;
+					item->m_img = 0;
+					item->m_name = NONE;
+					item->m_type = (ItemType)1;
+					item->m_useful = 0;
+					m_player->setEquipment(item);
+				}
+			}
 			else{
 				m_player->setDeath();
 				CEnemyManager::getInstance()->SetComb(0);	//’Ç‰Á

@@ -1,5 +1,5 @@
 /*!
-@brief	敵管理クラス hpp
+@brief	プレイヤー管理クラス hpp
 @author	s.namizashi
 **/
 
