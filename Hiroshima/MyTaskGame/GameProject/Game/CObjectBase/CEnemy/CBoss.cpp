@@ -107,6 +107,11 @@ void CBoss::Draw() {
 	m_arm2.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
 	m_tail.SetSize(BOSS_SIZ_X, BOSS_SIZ_Y);
 
+	m_head.SetCenter(BOSS_SIZ_X / 2, BOSS_SIZ_Y / 2);
+	m_arm.SetCenter(BOSS_SIZ_X / 2, BOSS_SIZ_Y / 2);
+	m_arm2.SetCenter(BOSS_SIZ_X / 2, BOSS_SIZ_Y / 2);
+	m_tail.SetCenter(BOSS_SIZ_X / 2, BOSS_SIZ_Y / 2);
+
 	m_head.SetPos(m_headpos3D.x - m_headpos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_headpos3D.y + m_headpos3D.z / 2 - m_scroll.y);
 	m_arm.SetPos(m_armpos3D.x - m_armpos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_armpos3D.y + m_armpos3D.z / 2 - m_scroll.y);
 	m_arm2.SetPos(m_arm2pos3D.x - m_arm2pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_arm2pos3D.y + m_arm2pos3D.z / 2 - m_scroll.y);

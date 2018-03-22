@@ -87,16 +87,17 @@ void CBossBase::Down(int boss_id) {
 	switch (boss_id)
 	{
 	case eHead:
-		
+		m_headvec3D.y = 0;
 		m_shaking_head = 0;
 		m_headvec3D = CVector3D(0, 0, 0);
 		//m_headpos3D.y = 0;
 		m_head.ChangeAnimation(eAnimBossDown);
-		for (; m_headpos3D.y < 0;)
+		//m_headpos3D.y += m_headvec3D.y;
+		for (; m_headpos3D.y < BOSS_POS_DOWN_Y;)
 		{
 			m_headpos3D += m_headvec3D;
 			m_headvec3D.y += BOSS_DOWN_SPEED;
-			//break;
+			break;
 		}
 
 		if (m_headpos3D.y > 0) {
@@ -104,9 +105,9 @@ void CBossBase::Down(int boss_id) {
 			for (; m_headpos3D.y > BOSS_POS_Y;) {
 				m_headpos3D += m_headvec3D;
 				m_headvec3D.y -= BOSS_DOWN_SPEED;
-				//break;
+				break;
 			}
-			if (m_head.GetIndex() >= 1)
+			if (m_head.GetIndex() == 2)
 			m_state = eIdol;
 			
 		}
