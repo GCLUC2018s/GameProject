@@ -2,6 +2,7 @@
 #include "bullet_manager.h"
 #include "player_manager.h"
 #include "item_manager.h"
+#include "se_manager.h"
 
 CEnemyManager* CEnemyManager::mp_instance = nullptr;
 
@@ -124,6 +125,7 @@ void CEnemyManager::Update(){
 					, &CVector3D((*it2)->getPos().getX() + BULLET_CENTER, (*it2)->getPos().getY(), (*it2)->getPos().getZ() + BULLET_CENTER)))
 				{
 					if ((*it)->GetLive() && (*it2)->GetLive()){
+						PlaySoundMem(CSeManager::GetInstance()->getsnd(DAMAGE_SE), DX_PLAYTYPE_BACK);
 						//ÚG‚µ‚½’eŠÛ‚ðÁ‚·
 						(*it2)->Kill();
 						//“G‚Ì‘Ì—Í‚ðŒ¸‚ç‚µA‘Ì—Í‚ª0ˆÈ‰º‚É‚È‚é‚Æíœ‚·‚é
