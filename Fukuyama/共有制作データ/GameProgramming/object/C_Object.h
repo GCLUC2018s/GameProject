@@ -17,6 +17,7 @@
 #define SPRAY_ANIME_INTERVAL 12        //スプレーアニメーション1枚当たりのフレーム数
 #define SPRAY_ANIME_FRAME 3         //スプレーアニメの絵の数
 #define SPRAY_ANIME SPRAY_ANIME_INTERVAL*SPRAY_ANIME_FRAME       //スプレーアニメーション用変数を回す上限
+#define NODAMAGETIME 60                 //ダメージ後の無敵時間
 
 enum PLAYER_STATE{
 	E_RIGHT,    //右向き
@@ -29,6 +30,8 @@ enum PLAYER_STATE{
 	E_NSET,     //カラーボール設置中ではない
 	E_SPRAY,    //スプレー使用中
 	E_NSPRAY,   //スプレー未使用
+	E_DAMAGE,   //ダメージ後無敵状態
+	E_NDAMEGE,  //ダメージを受けていない状態
 };
 enum CollisionState{
 	E_COLLISION_NORMAL,

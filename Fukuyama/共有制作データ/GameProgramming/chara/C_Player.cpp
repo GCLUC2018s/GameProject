@@ -319,6 +319,12 @@ bool C_Player::Collision(CTask* a, CTask* b){
 			q->m_Position.z += q->m_Colimage.m_AdjustZ;
 			q->m_Position.x += q->m_Colimage.m_AdjustX;
 			q->m_Position.z += q->m_Colimage.m_AdjustZ;
+
+			if (m_Player_HP > 0){
+				m_Player_HP -= 1;
+				//ゲームオーバーシーンを表示
+			}
+
 		}
 	}
 	return true;
