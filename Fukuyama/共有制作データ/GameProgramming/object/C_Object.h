@@ -78,6 +78,7 @@ public:
 
 	void RunAnime(CTexture *image, int id);      //走りアニメ
 	void TaikiAnime(CTexture *image, int id);    //待機アニメ
+	void EnemyTaiki(CTexture *image, int id);//待機アニメ
 	C_Rectangle m_Colimage;  //判定処理をメンバー変数にする
 	float m_Collision_Wide=10.0f;
 	CollisionState ColState;

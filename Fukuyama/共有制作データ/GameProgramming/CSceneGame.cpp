@@ -4,6 +4,7 @@
 #include "CCollider.h"
 //ポーズ画面の判定用
 int PawsCount = 0;
+int m_EnemyCount = 0;
 
 void CSceneGame::Init(){
 	//テクスチャ読み込み
@@ -11,6 +12,8 @@ void CSceneGame::Init(){
 	mTexture2.Load("spray-icon.tga");
 	m_PawsCount = 0;
 	GameScene = 0;
+	m_EnemyInterval = 0;
+	m_EnemyCount = 0;
 }
 
 void CSceneGame::Update(){
@@ -39,6 +42,15 @@ void CSceneGame::Update(){
 			m_CoolTime = m_CoolTime / SPRAY_INTERVAL;      //スプレーのクールタイム表示（アイコン）
 
 			i_iconShadow.m_Top -= m_CoolTime;
+			if (m_EnemyInterval < 60){
+				m_EnemyInterval += 1;
+			}
+			if (m_EnemyInterval == 60 && m_EnemyCount < 10){
+				Enemy = new CEnemy();
+				Enemy->Init();
+				m_EnemyInterval = 0;
+				m_EnemyCount += 1;
+			}
 			if (i_iconShadow.m_Top <= i_iconShadow.m_Bottom){
 				i_iconShadow.m_Top = i_iconShadow.m_Bottom;
 			}
