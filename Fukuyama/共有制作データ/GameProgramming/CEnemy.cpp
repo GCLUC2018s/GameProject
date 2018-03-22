@@ -56,17 +56,24 @@ void CEnemy::Init(){
 	m_EnemyMode = E_NORMAL;
 }
 void CEnemy::Update(){
-	m_Target = C_Player::m_Playerpoint->i_JumpPoint;
-	float m_Long = sqrtf((m_Target.x - m_Position.x)*(m_Target.x - m_Position.x)
-		+ (m_Target.z - m_Position.z)*(m_Target.z - m_Position.z));
-	C_Vector3 diaPlayer =
-		m_Target- m_Position;
+	m_TargetR = C_Player::m_Playerpoint->i_JumpPoint;
+	m_TargetL = C_Player::m_Playerpoint->i_JumpPoint;
+	m_TargetR.x += 100;
+	m_TargetL.x -= 100;
+	float m_LongR = sqrtf((m_TargetR.x - m_Position.x)*(m_TargetR.x - m_Position.x)
+		+ (m_TargetR.z - m_Position.z)*(m_TargetR.z - m_Position.z));
+	float m_LongL = sqrtf((m_TargetL.x - m_Position.x)*(m_TargetL.x - m_Position.x)
+		+ (m_TargetL.z - m_Position.z)*(m_TargetL.z - m_Position.z));
+	C_Vector3 diaPlayerR =
+		m_TargetR - m_Position;
+	C_Vector3 diaPlayerL =
+		m_TargetL - m_Position;
 	//‹ß‹——£í“¬Œ^‚Ì“G‚Ìˆ—
 	if (m_EnemyKind == E_KIN){
 	}
 	//“¦‘–Œ^‚Ì“G‚Ìˆ—
-	if (m_EnemyKind==E_ESCAPE){
-		if (m_Position.x<=150){
+	if (m_EnemyKind == E_ESCAPE){
+		if (m_Position.x <= 150){
 
 			m_EnemyMode = E_ACTION;
 		}
@@ -76,34 +83,36 @@ void CEnemy::Update(){
 			}
 			if (m_ActionInterval <= 0){
 				m_Position.x += ENEMY_LR_SPEED;
+				m_Turn = E_RIGHT;
 			}
-			//if(m_Position.x >= 700){
+			//if (m_Position.x >= 700){
 			//	CTaskManager::GetInstance()->Kill(this);
 			//	new CEnemy();
 			//	Init();
 
+			//}
+		}
+	}
+		if (m_EnemyMode == E_NORMAL){
+			//¶‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
+			if (m_Position.x <= m_TargetL.x){
+				m_Position.x += diaPlayerL.x / m_LongL * ENEMY_LR_SPEED;
+				m_Position.z += diaPlayerL.z / m_LongL * ENEMY_UD_SPEED;
+				m_Turn = E_RIGHT;
+
+			}
+			//‰E‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
+			else{
+				m_Position.x += diaPlayerR.x / m_LongR * ENEMY_LR_SPEED;
+				m_Position.z += diaPlayerR.z / m_LongR * ENEMY_UD_SPEED;
+				m_Turn = E_LEFT;
 			}
 		}
-	if (m_EnemyMode == E_NORMAL){
-		//¶‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
-		if (m_Position.x< m_Target.x){
-			m_Position.x += diaPlayer.x / m_Long * ENEMY_LR_SPEED;
-			m_Turn = E_RIGHT;
-
-		}
-		//‰E‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
-		else{
-			m_Position.x += diaPlayer.x / m_Long * ENEMY_LR_SPEED;
-			m_Turn = E_LEFT;
-		}
-
-		m_Position.z += diaPlayer.z / m_Long * ENEMY_UD_SPEED;
-	}
-	//•`‰æ‡”Ô‚Ì•ÏX
-	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
-	C_Object::Scroll(&m_Position, m_Scroll);
-	C_Object::Rect(&m_image, &m_Position);
-	m_Colimage = m_image;
+		//•`‰æ‡”Ô‚Ì•ÏX
+		CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
+		C_Object::Scroll(&m_Position, m_Scroll);
+		C_Object::Rect(&m_image, &m_Position);
+		m_Colimage = m_image;
 }
 
 
