@@ -113,11 +113,21 @@ void CEnemyBase::Hit(CObjectBase * t)
 	if (t->GetID() == eID_Effect) {
 		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
 		if (ef->GetHit() > 1.0f && m_state != eKnockBack) {
-			if (ef->GetEFtype() == ePanch)
+			if (ef->GetEFtype() == ePanch && abs(ef->GetPos().y + m_pos3D.y) < 20) {
 				SOUND("SE_Panch")->Play(false);
-			if (m_deathblow)
-				m_hp = -1;
-			else {
+				m_flipH = !(ef->GetFrip());
+				if (m_hp >= 0) {
+					m_damage = true;
+					m_state = eKnockBack;
+				}
+				else {
+					m_state = eFall;
+				}
+			}
+			if (ef->GetEFtype() == eFire) {
+				if (m_deathblow) {
+					m_hp = -1;
+				}
 				m_flipH = !(ef->GetFrip());
 				if (m_hp >= 0) {
 					m_damage = true;

@@ -20,7 +20,7 @@ CFire::CFire(CObjectBase *ob) {
 	m_rect_F = m_rect;
 	m_color.w = 1.5;
 	if (m_deathblow)
-		m_color.w += 10;
+		m_color.w += 13;
 	m_img.ChangeAnimation(0);
 	CheckOverlap();
 }

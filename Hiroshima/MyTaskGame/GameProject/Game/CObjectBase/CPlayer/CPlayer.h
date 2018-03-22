@@ -42,6 +42,7 @@ private:
 		eFall,
 	};
 
+	CFont m_scoreF;
 	CVector2D damage_vec;
 	CVector3D Die(CVector3D vec);			//‚â‚ç‚ê‚½‚Ì“®‚«
 	void Nutral();		//’Êí‚Ìs“®ŠÖ”

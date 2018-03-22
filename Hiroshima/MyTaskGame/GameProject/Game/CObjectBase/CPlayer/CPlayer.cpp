@@ -16,7 +16,8 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object) {
+CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object), m_scoreF("HG行書体",40){
+	m_scroll = CVector2D(0, 0);
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(PL_CENTER_X, 0, 0);
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Player"));
@@ -268,8 +269,7 @@ void CPlayer::Nutral() {
 			m_flipH = false;
 			m_anim = eAnimDash;
 			m_cnt++;
-		}
-		if (HOLD_LEFT) {
+		}else if (HOLD_LEFT) {
 			//加速
 			m_vec3D.x = Price_Down(m_vec3D.x, -10, 1.0f);
 			m_move_side = true;
@@ -442,6 +442,7 @@ void CPlayer::Draw() {
 	m_img_shadow.SetPos(m_pos3D.x - m_pos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_rect_F.m_bottom + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img_shadow.Draw();
 	m_img.Draw();
+	m_scoreF.Draw(SCREEN_WIDTH - 300, 50, 0, 0, 0, "得点　%5d点",m_score);
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }
