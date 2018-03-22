@@ -93,8 +93,12 @@ Enemy_Push  push_enemy[32][32]{
 
 CEnemyManager::CEnemyManager() :CEnemyBase() {
 	//m_id = -1;
-	m_timing = 0, m_wave = 0, m_push = 0;
+	m_timing = 0;
+	m_wave = 0;
+	m_push = 0;
 	m_old = m_wave_flag;
+	m_go_flag = false;
+	m_enemy_cnt = 0;
 	
 	
 }

@@ -131,6 +131,7 @@ void Init(void)
 	SOUND("BGM_Main")->Volume(0.90f);
 	SOUND("BGM_Boss")->Load("Sound/BGM/ikusa_japan2.wav");
 	SOUND("BGM_Ending")->Load("Sound/BGM/n32.wav");
+	SOUND("BGM_GameOver")->Load("Sound/BGM/Tamashiinokaihou.wav");
 
 	//SE
 	SOUND("SE_PUNCH_KARA")->Load("Sound/SE/punch-swing1.wav", 10);
@@ -154,6 +155,7 @@ void Init(void)
 	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 	SOUND("SE_Mahou_Charge")->Load("Sound/SE/aura1.wav");
 	SOUND("SE_Mahou_Kaen")->Load("Sound/SE/magic-flame2.wav");
+	SOUND("SE_Cursor")->Load("Sound/SE/se_030_.wav",30);
 	SOUND("SE_Panch")->Load("Sound/SE/punch-middle2.wav",20);
 
 	NEW_SCENE(eDebug);
