@@ -11,6 +11,7 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_down = false;
 	m_downtime = 0;
 	m_end_flag = false;
+	m_nagi = true;
 }
 
 
@@ -56,32 +57,23 @@ void CBossBase::Move( int boss_id) {
 	}
 }
 
-void CBossBase::Attack( int boss_id) {
+void CBossBase::Attack(int boss_id) {
 	switch (boss_id)
 	{
 	case eHead:
 		m_shaking_head = 0;
-		m_headvec3D = CVector3D(0,0,0);
+		m_headvec3D = CVector3D(0, 0, 0);
 		m_head.ChangeAnimation(eAnimBossBless);
 		BossBress();
 		break;
 
 	case eTail:
-		m_flipH = false;
-		m_shaking_tail = 0;
-		m_tailvec3D = CVector3D(0, 0, 0);
-		m_tail.ChangeAnimation(eAnimBossTailAttack);
-		if (m_tail.GetIndex() == 3) {
-			m_state = eIdol;
-			m_tailpos3D.x -= 30;
-
+		BossTailAttack();
+		break;
 	case eArm:
 		m_shaking_arm = 0;
 		m_armvec3D = CVector3D(0, 0, 0);
 		BossLaser();
-		break;
-		}
-		
 		break;
 	}
 }
@@ -217,8 +209,7 @@ void CBossBase::Hit(CObjectBase * t)
 //ƒuƒŒƒXUŒ‚
 void CBossBase::BossBress() {
 	m_headpos3D += m_headvec3D;
-	CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
-	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
+	CObjectBase *PL = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Player));
 
 	switch (m_head.GetIndex()) {
 	case 0:
@@ -232,7 +223,7 @@ void CBossBase::BossBress() {
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 2:
-		new CCharge(CVector2D(m_headpos3D.x - 80, m_headpos3D.y + 330));
+		new CCharge(CVector2D(m_headpos3D.x - 80, m_headpos3D.y + 330),true);
 		SOUND("SE_Mahou_Kaen")->Play(false);
 		break;
 	case 4:
@@ -277,8 +268,6 @@ void CBossBase::BossJump() {
 	m_armpos3D.y += m_armvec3D.y;
 	m_arm2pos3D.y += m_arm2vec3D.y;
 	m_tailpos3D.y += m_tailvec3D.y;
-	m_armpos3D.x  -= 2;
-	m_arm2pos3D.x += 2;
 	if (m_head.GetIndex() == 1) {
 		m_head.SetAng(0);
 		m_arm2.SetFlipH(false);
@@ -288,7 +277,7 @@ void CBossBase::BossJump() {
 	}
 
 }
-//‚¶‚á‚ñ‚Õ
+//~‰º
 void CBossBase::BossDescent() {
 	//‚×‚­‘€ì
 	m_headvec3D.y = Price_Up(m_headvec3D.y, 5, 0.2);
@@ -314,6 +303,40 @@ void CBossBase::BossLaser(){
 
 }
 
+void CBossBase::BossTailAttack() {
+
+	m_tail.ChangeAnimation(eAnimBossTailAttack);
+	switch (m_tail.GetIndex())
+	{
+	case 0:
+		CCharge(CVector2D(m_tailpos3D.x, m_tailpos3D.y), false);
+		m_tailpos3D.x = -1000;
+		m_tailpos3D.y = +200;
+		m_tailvec3D = CVector3D(0, 0, 0);
+		break;
+
+	case 8:
+		m_state = eDescent;
+		m_tailpos3D.x -= 30;
+		m_flipH = false;
+		break;
+
+	default:
+		break;
+	}
+	if (m_nagi) {
+		m_tailvec3D.x = Price_Up(m_tailvec3D.x, 10, 0.2);
+		m_tail.SetFlipH(false);
+		if (m_tailpos3D.x > SCREEN_WIDTH + 10)m_nagi = false;
+	}
+	else {
+		m_tailvec3D.x = Price_Down(m_tailvec3D.x, -10, 0.2);
+		m_tail.SetFlipH(true);
+	}
+	m_tailpos3D += m_tailvec3D;
+	m_shaking_tail = 0;
+
+}
 
 
 

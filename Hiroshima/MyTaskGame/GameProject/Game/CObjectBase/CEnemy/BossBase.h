@@ -92,6 +92,7 @@ public:
 	void BossJump();
 	void BossDescent();
 	void BossLaser();
+	void BossTailAttack();
 	//重なり確認
 	void BossCheckOverlap() {
 		if (m_headpos3D.z <= 0) {
@@ -124,6 +125,7 @@ private:
 		eJump,
 		eDescent,
 	};*/
+	bool m_nagi;	//薙ぎ払い時使用。falseなら→に動く
 };
 
 #endif // !BOSSBASEGUARD
