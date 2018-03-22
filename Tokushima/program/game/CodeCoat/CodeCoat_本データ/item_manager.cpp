@@ -118,7 +118,7 @@ CItemData* CItemManager::makeItem(int name){
 		break;
 	case SCOREBOOST:
 	case SPEEDUP:
-		item->m_useful = 10000;
+		item->m_useful = 20000;
 		item->m_type = ITEM;
 		break;
 	default:

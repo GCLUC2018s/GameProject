@@ -262,6 +262,7 @@ void Ui::scoreAddition(){		//’Ç‰Á
 	int _s = 0;		//ƒXƒRƒAŒvŽZŒ‹‰Ê
 	float _comb = (float)CEnemyManager::getInstance()->GetComb();	//ƒRƒ“ƒ{”{—¦
 	float _nodamagemove = CPlayerManager::GetInstance()->getNoDamageMovement();		//‘–s‹——£‚É‰ž‚¶‚½ƒXƒRƒA”{—¦
+	float _item_score = CPlayerManager::GetInstance()->GetPlayerAdress()->getBuff()->m_score_ratio;
 
 	//Å‰‚ÉƒRƒ“ƒ{”‚ð‘ã“ü
 	if (m_past_comb == 0){
@@ -285,7 +286,7 @@ void Ui::scoreAddition(){		//’Ç‰Á
 
 	//ƒGƒlƒ~[‚ð“|‚µ‚½‚ç
 	if (CEnemyManager::getInstance()->GetDel() == true){
-		_s = (m_score_magnification+_comb) * 100;		//‰æ–Ê“à‚Ì”{—¦{ƒRƒ“ƒ{
+		_s = (m_score_magnification+_comb + _item_score) * 100;		//‰æ–Ê“à‚Ì”{—¦{ƒRƒ“ƒ{
 		m_totalscore += _s;
 		CEnemyManager::getInstance()->SetDel(false);
 
@@ -295,7 +296,7 @@ void Ui::scoreAddition(){		//’Ç‰Á
 	if (_nodamagemove > 2500){
 		m_ndm_magnification = _nodamagemove / 2500;
 		if (CPlayerManager::GetInstance()->getNdmFalg() == true){
-			m_totalscore += (m_score_magnification + m_ndm_magnification) * 50;	//‰æ–Ê“à‚Ì”{—¦{‘–s‹——£”{—¦
+			m_totalscore += (m_score_magnification + m_ndm_magnification + _item_score) * 50;	//‰æ–Ê“à‚Ì”{—¦{‘–s‹——£”{—¦
 			CPlayerManager::GetInstance()->setNdmFalg(false);
 		}
 	}
