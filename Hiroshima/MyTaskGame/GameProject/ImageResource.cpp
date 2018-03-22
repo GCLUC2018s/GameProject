@@ -245,8 +245,8 @@ TexAnim _Boss_Bless_anim[] = {
 	{ 32,1 },
 	{ 32,60 * 2 },
 	{ 33,1 },
-	{ 33,60 * 3 },
-	{ 32,60 * 2 },
+	{ 33,60 * 2 },
+	{ 33,60 * 4 },
 	{ 32,1 },
 
 
@@ -265,6 +265,12 @@ TexAnim _Boss_Down_anim[] = {
 
 
 };
+TexAnim _Boss_Jump_anim[] = {
+	{ 32,60*2 },
+	{ 32,1 },
+
+
+};
 TexAnimData boss_AnimData[] = {
 	ANIMDATA(_Boss_Head_anim),
 	ANIMDATA(_Boss_Tail_anim),
@@ -274,6 +280,7 @@ TexAnimData boss_AnimData[] = {
 	ANIMDATA(_Boss_Bless_anim),
 	ANIMDATA(_Boss_ShowerLaser_anim),
 	ANIMDATA(_Boss_Down_anim),
+	ANIMDATA(_Boss_Jump_anim),
 };
 
 

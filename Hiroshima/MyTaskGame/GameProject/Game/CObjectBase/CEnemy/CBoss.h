@@ -23,11 +23,13 @@ protected:
 		eMove,
 		eBlessAttack,
 		eTailAttack,
-		eLaser,
+		eBress,
 		eLaserShower,
 		eDown,
 		eDamage,
 		eFall,
+		eJump,
+		eDescent,
 
 
 	};

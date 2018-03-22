@@ -56,6 +56,9 @@ protected:
 		eTail,
 	};
 	CVector3D m_headoldpos3D;
+	CVector3D m_armoldpos3D;
+	CVector3D m_arm2oldpos3D;
+	CVector3D m_tailoldpos3D;
 	bool m_down;
 	int m_downtime;
 	CRect m_headrect;
@@ -73,6 +76,8 @@ public:
 	void Draw();
 	void Hit(CObjectBase * t);
 	void BossBress();
+	void BossJump();
+	void BossDescent();
 	void BossLaser();
 	//d‚È‚èŠm”F
 	void BossCheckOverlap() {
@@ -92,8 +97,21 @@ public:
 			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_tailpos3D.z);
 		}
 	}
-
+private:
+	enum {
+		eIdol,
+		eMove,
+		eBlessAttack,
+		eTailAttack,
+		eBress,
+		eLaserShower,
+		eDown,
+		eDamage,
+		eFall,
+		eJump,
+		eDescent,
 	};
+};
 
 #endif // !BOSSBASEGUARD
 
