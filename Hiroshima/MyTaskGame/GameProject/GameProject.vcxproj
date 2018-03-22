@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="Game\CEnemyAI.h" />
     <ClInclude Include="Game\CObjectBase\CBB\CBB.h" />
+    <ClInclude Include="Game\CObjectBase\CBeam.h" />
     <ClInclude Include="Game\CObjectBase\CBress.h" />
     <ClInclude Include="Game\CObjectBase\CCharge.h" />
     <ClInclude Include="Game\CObjectBase\CCutIn\CCutIn.h" />
@@ -187,6 +188,7 @@
   <ItemGroup>
     <ClCompile Include="Game\CEnemyAI.cpp" />
     <ClCompile Include="Game\CObjectBase\CBB\CBB.cpp" />
+    <ClCompile Include="Game\CObjectBase\CBeam.cpp" />
     <ClCompile Include="Game\CObjectBase\CBress.cpp" />
     <ClCompile Include="Game\CObjectBase\CCharge.cpp" />
     <ClCompile Include="Game\CObjectBase\CCutIn\CCutIn.cpp" />

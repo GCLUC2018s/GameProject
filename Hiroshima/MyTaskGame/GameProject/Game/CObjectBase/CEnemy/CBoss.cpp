@@ -92,7 +92,7 @@ void CBoss::Update() {
 
 	if (PUSH_ENTER) {
 		//m_state = eDown;
-		m_state = eBlessAttack;
+		m_state = eLaser;
 	}
 	
 	
@@ -133,20 +133,20 @@ void CBoss::Draw() {
 	m_tail.SetPos(m_tailpos3D.x - m_tailpos3D.z / 7/*m_variation*/ - m_scroll.x, 450 + m_tailpos3D.y + m_tailpos3D.z / 2 - m_scroll.y);
 
 
-	//Utility::DrawQuad(CVector2D(m_headpos3D.x - m_headpos3D.z / 7 - m_scroll.x + m_headrect.m_left - 250, 250 + m_headpos3D.y + m_headpos3D.z / 2 - m_scroll.y + m_headrect.m_top), CVector2D(m_headrect.m_right - m_headrect.m_left, m_headrect.m_bottom - m_headrect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_headpos3D.x - m_headpos3D.z / 7 - m_scroll.x + m_headrect.m_left - 250, 250 + m_headpos3D.y + m_headpos3D.z / 2 - m_scroll.y + m_headrect.m_top), CVector2D(m_headrect.m_right - m_headrect.m_left, m_headrect.m_bottom - m_headrect.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 
 	
-	//Utility::DrawQuad(CVector2D(m_armpos3D.x - m_armpos3D.z / 7 - m_scroll.x + m_armrect.m_left - 250, 250 + m_armpos3D.y + m_armpos3D.z / 2 - m_scroll.y + m_armrect.m_top), CVector2D(m_armrect.m_right - m_armrect.m_left, m_armrect.m_bottom - m_armrect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_armpos3D.x - m_armpos3D.z / 7 - m_scroll.x + m_armrect.m_left - 250, 250 + m_armpos3D.y + m_armpos3D.z / 2 - m_scroll.y + m_armrect.m_top), CVector2D(m_armrect.m_right - m_armrect.m_left, m_armrect.m_bottom - m_armrect.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 
 
-	//Utility::DrawQuad(CVector2D(m_arm2pos3D.x - m_arm2pos3D.z / 7 - m_scroll.x + m_arm2rect.m_left - 250, 250 + m_arm2pos3D.y + m_arm2pos3D.z / 2 - m_scroll.y + m_arm2rect.m_top), CVector2D(m_arm2rect.m_right - m_arm2rect.m_left, m_arm2rect.m_bottom - m_arm2rect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_arm2pos3D.x - m_arm2pos3D.z / 7 - m_scroll.x + m_arm2rect.m_left - 250, 250 + m_arm2pos3D.y + m_arm2pos3D.z / 2 - m_scroll.y + m_arm2rect.m_top), CVector2D(m_arm2rect.m_right - m_arm2rect.m_left, m_arm2rect.m_bottom - m_arm2rect.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 
 
 
-	//Utility::DrawQuad(CVector2D(m_tailpos3D.x - m_tailpos3D.z / 7 - m_scroll.x + m_tailrect.m_left - 250, 250 + m_tailpos3D.y + m_tailpos3D.z / 2 - m_scroll.y + m_tailrect.m_top), CVector2D(m_tailrect.m_right - m_tailrect.m_left, m_tailrect.m_bottom - m_tailrect.m_top), CVector4D(1, 0, 0, 0.3));
+	Utility::DrawQuad(CVector2D(m_tailpos3D.x - m_tailpos3D.z / 7 - m_scroll.x + m_tailrect.m_left - 250, 250 + m_tailpos3D.y + m_tailpos3D.z / 2 - m_scroll.y + m_tailrect.m_top), CVector2D(m_tailrect.m_right - m_tailrect.m_left, m_tailrect.m_bottom - m_tailrect.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 
 
@@ -178,7 +178,7 @@ void CBoss::Head() {
 		Nutral(m_parts_head);
 		break;
 	case eLaser:
-		Nutral(m_parts_head);
+		Attack(m_parts_head);
 		break;
 	case eLaserShower:
 		Nutral(m_parts_head);
@@ -208,7 +208,7 @@ void CBoss::Arm() {
 		Nutral(m_parts_arm);
 		break;
 	case eLaser:
-		Nutral(m_parts_arm);
+		Attack(m_parts_arm);
 		break;
 	case eLaserShower:
 		Nutral(m_parts_arm);

@@ -56,5 +56,7 @@ extern TexAnimData aura_ef_AnimData[];
 extern TexAnimData charge_ef_AnimData[];
 //ブレスのアニメーションデータ
 extern TexAnimData bress_ef_AnimData[];
+//ビームのアニメーションデータ
+extern TexAnimData beam_ef_AnimData[];
 
 #endif // !IMAGE_RESOURCE_GUARD
