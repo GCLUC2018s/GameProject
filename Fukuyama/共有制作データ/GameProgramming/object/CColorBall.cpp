@@ -17,6 +17,7 @@ void C_ColorBall::Init(){
 	i_Throwpos = C_Player::m_Playerpoint->m_Position;
 	//カラーボールの影とボールを同期
 	m_Position = i_Throwpos;
+	ShadowPos = i_Throwpos;
 
 	//投げたカラーボールの場合
 	if (m_State == E_NAGE){
@@ -25,6 +26,7 @@ void C_ColorBall::Init(){
 		if (C_Player::m_Playerpoint->m_Turn == E_RIGHT){
 			m_Position.x += 40;
 			m_Position.z += 80;
+			ShadowPos.x = m_Position.x;
 			//カラーボールの初速
 			m_Speed = C_Vector3(500, 4, 0);
 		}
@@ -32,22 +34,24 @@ void C_ColorBall::Init(){
 		else if (C_Player::m_Playerpoint->m_Turn == E_LEFT){
 			m_Position.x -= 40;
 			m_Position.z += 80;
+			ShadowPos.x = m_Position.x;
 			//カラーボールの初速
 			m_Speed = C_Vector3(-500, 4, 0);
 		}
 	}
-	else{
-		//カラーボールの初期位置の調整
+	//ボールの設置
+	else if (m_State == E_OKI){
 		//右向き
-		/*if (C_Player::m_Playerpoint->m_Turn == E_RIGHT){
-			m_Position.x += 35;
+		if (C_Player::m_Playerpoint->m_Turn == E_RIGHT){
+			m_Position.x += 10;
+			ShadowPos.x = m_Position.x;
 		}
 		//左向き
 		else if (C_Player::m_Playerpoint->m_Turn == E_LEFT){
-			m_Position.x -= 35;
-		}*/
+			m_Position.x -= 10;
+			ShadowPos.x = m_Position.x;
+		}
 	}
-
 }
 
 void C_ColorBall::Update()
@@ -78,14 +82,23 @@ void C_ColorBall::Update()
 		}
 	}
 
+	//影の位置をカラーボールと同期します
+	ShadowPos.x = m_Position.x;
+
 	Rect(&m_image, &m_Position);             //画像の位置をm_Positionと同期します
-	Scroll(&m_Position, m_Scroll);           //スクロール処理をします
+	Scroll(&m_Position, m_Scroll);           //カラーボールのスクロール処理をします
+	Rect(&i_Shadow, &ShadowPos);             //影の位置をShadowPosと同期します
+	Scroll(&ShadowPos, m_Scroll);           //影のスクロール処理をします
+
 	if(m_Position.x <= -(W_H / 2)){
 		SetKill();
 	}
 }
 
 void C_ColorBall::Draw(){
+
+	//影の描画
+	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom - 3, i_Shadow.m_Top - 3, 630, 720, 275, 140);
 
 	//カラーボールの描画
 	i_ColorBall.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 128, 128, 0);

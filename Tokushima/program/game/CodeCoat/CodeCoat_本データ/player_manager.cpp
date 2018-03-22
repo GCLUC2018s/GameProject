@@ -86,7 +86,7 @@ void CPlayerManager::Update()
 		if ((*it)->getWhoseBullet()){
 			if (IsHitCircle(PLAYER_COLLISION + _knife_coli, BULLET_COLLISION, &_p_pos, &CVector3D((*it)->getPos().getX() + BULLET_CENTER, (*it)->getPos().getY(), (*it)->getPos().getZ() + BULLET_CENTER)))
 			{
-				PlaySoundMem(CSeManager::GetInstance()->getsnd(DAMAGE_SE), DX_PLAYTYPE_BACK);
+				PlaySoundMem(CSeManager::GetInstance()->getsnd(PURGE_SE), DX_PLAYTYPE_BACK);	//•ÏXI‚í‚Á‚½‚ç’¼‚µ‚Ä
 				if (_knife_flag){
 					(*it)->Kill();
 				}
