@@ -18,13 +18,6 @@ void CSceneGame::Update(){
 	{
 	case 0:
 		//タイトル画面
-		//mTexture2.DrawImage(-600, 600, -440, 450, 0, 90, 90, 0);
-		//if (C_Collider::Collision(Player, Enemy, &Player->i_JumpPoint, &Enemy->m_Position)){
-		//	Enemy->m_Position.x += Enemy->m_Colimage.m_AdjustX;
-		//	Enemy->m_Position.z += Enemy->m_Colimage.m_AdjustZ;
-		//	Enemy->m_Position.x += Enemy->m_Colimage.m_AdjustX;
-		//	Enemy->m_Position.z += Enemy->m_Colimage.m_AdjustZ;
-		//}
 		if (GetKeyState(VK_RETURN) & 0x8000){
 			//プレイ画面に移動
 			GameScene = 1;
@@ -35,6 +28,17 @@ void CSceneGame::Update(){
 		//ポーズ画面でない場合
 		if (m_PawsCount == 0){
 			mTexture.DrawImage(-600, 600, -440, 450, 0, 1200, 900, 0);
+			//アイコンの描画と演出
+			float m_CoolTime = ICON_SIZE;
+			m_CoolTime = m_CoolTime / SPRAY_INTERVAL;      //スプレーのクールタイム表示（アイコン）
+
+			i_iconShadow.m_Top -= m_CoolTime;
+			if (i_iconShadow.m_Top <= i_iconShadow.m_Bottom){
+				i_iconShadow.m_Top = i_iconShadow.m_Bottom;
+			}
+			if (C_Player::m_Playerpoint->m_Anime_Spray == 0){
+				i_iconShadow.m_Top = i_iconShadow.m_Bottom + ICON_SIZE;
+			}
 			if (CKey::Once('P')){
 				//ポーズへ
 				m_PawsCount = 1;
@@ -53,4 +57,9 @@ void CSceneGame::Update(){
 		}
 		break;
 	}
+}
+
+void CSceneGame::Draw(){
+	Icon.DrawImage(-585, -495, -435, -345, 0, 90, 90, 0);
+	i_iconShadow.Render(0.0f, 0.0f, 0.0f, 0.5f);
 }

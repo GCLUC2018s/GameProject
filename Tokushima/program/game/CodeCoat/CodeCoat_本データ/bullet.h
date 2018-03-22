@@ -12,7 +12,7 @@ using namespace std;
 //’è”
 const int BULLET_SIZE = 20;
 const float BULLET_CENTER = 10.0f;
-const float BULLET_COLLISION = 10;
+const float BULLET_COLLISION = 15;
 
 //—ñ‹“‘Ì
 enum whose_number{ PLAYER = 0, ENEMY };

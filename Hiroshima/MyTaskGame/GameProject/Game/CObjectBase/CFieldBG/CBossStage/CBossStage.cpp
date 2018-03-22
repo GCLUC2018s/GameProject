@@ -7,8 +7,8 @@ CBossStage::CBossStage() :CObjectBase(eID_Ground, eU_Map, eD_Ground){
 	m_img.SetSize(SCREEN_WIDTH, 1200);
 	m_img.SetCenter(0, 1200 - SCREEN_HEIGHT);
 	m_img.SetPos(0, 0);
-	new CBoss(&(CVector3D(900, 100, -500)), &(CVector3D(750, 200, -500)),
-		&(CVector3D(1050, 200, -500)), &(CVector3D(800, 400, -500)));
+	new CBoss(&(CVector3D(900, 0, -215)), &(CVector3D(750, 100, -215)),
+		&(CVector3D(1050, 100, -215)), &(CVector3D(900, 300, -215)));
 }
 
 CBossStage::~CBossStage() {

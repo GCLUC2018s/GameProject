@@ -35,7 +35,9 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 		(t1->GetID() == eID_Player && t2->GetID() == eID_Item) ||
 		(t2->GetID() == eID_Player && t1->GetID() == eID_Item) || 
 		(t1->GetID() == eID_Enemy && t2->GetID() == eID_Bullet) ||
-		(t2->GetID() == eID_Enemy && t1->GetID() == eID_Bullet)){
+		(t2->GetID() == eID_Enemy && t1->GetID() == eID_Bullet) || 
+		(t1->GetID() == eID_Enemy && t2->GetID() == eID_Player) ||
+		(t2->GetID() == eID_Enemy && t1->GetID() == eID_Player)){
 		//PL‚ÆENE‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);

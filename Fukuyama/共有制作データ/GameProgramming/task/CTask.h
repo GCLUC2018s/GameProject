@@ -10,6 +10,8 @@
 #include "CTaskLinker.h"
 #include "windows.h"
 
+#define ICON_SIZE 90          //ƒAƒCƒRƒ“‚Ìˆê•Ó‚Ì’·‚³
+
 //ID
 enum E_ID
 {

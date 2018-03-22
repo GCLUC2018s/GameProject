@@ -223,7 +223,7 @@ void CPlayer::Nutral() {
 	}
 
 	//しゃがみ
-	if (HOLD_X && !m_jump) {
+	if (HOLD_E && !m_jump) {
 		m_squat = true;
 		m_anim = eAnimSquat;
 	}
@@ -284,7 +284,7 @@ void CPlayer::Nutral() {
 		}
 	}
 	//ジャンプ
-	if (PUSH_Z && !m_jump && !m_squat) {
+	if (PUSH_R && !m_jump && !m_squat) {
 		SOUND("SE_JUMP")->Play(false);
 		m_vec3D.z = 0;
 		m_jump = true;
@@ -321,7 +321,7 @@ void CPlayer::Nutral() {
 	}
 
 	//ジャンプしてなくて、パンチしたら
-	if (!m_jump && PUSH_R) {
+	if (!m_jump && PUSH_X) {
 		if (m_punch1 == false)
 			new CPanchEF(m_flipH, this, eAnimEffectAttack1);
 		SOUND("SE_PUNCH_KARA")->Play();
@@ -329,24 +329,25 @@ void CPlayer::Nutral() {
 		m_anim = eAnimPunch;
 		m_state = eAttack;
 	}
-	if (PUSH_V) {
-		if (m_jump) {
-			m_state = eFall;
-			m_die = 1;
-			m_jump = false;
-		}
-		else {
-			if (m_hp <= 0)
-				m_state = eFall;
-			else
-				m_state = eDamage;
-		}
-		m_vec3D.y = 0;
-		m_hp -= 2;
-		m_cnt = 0;
-	}
+	//攻撃されたときの処理
+	//if (PUSH_V) {
+	//	if (m_jump) {
+	//		m_state = eFall;
+	//		m_die = 1;
+	//		m_jump = false;
+	//	}
+	//	else {
+	//		if (m_hp <= 0)
+	//			m_state = eFall;
+	//		else
+	//			m_state = eDamage;
+	//	}
+	//	m_vec3D.y = 0;
+	//	m_hp -= 2;
+	//	m_cnt = 0;
+	//}
 	//お札
-	if (!m_jump && PUSH_E) {
+	if (!m_jump && PUSH_V) {
 		m_anim = eAnimBill;
 		m_state = eBill;
 		new COhuda(m_pos3D, m_flipH);
@@ -359,10 +360,10 @@ void CPlayer::Bill() {
 
 void CPlayer::Attack() {
 	//キック
-	if (m_punch1 && PUSH_R) {
+	if (m_punch1 && PUSH_X) {
 		m_punch2 = true;
 	}
-	if (!m_punch1 && PUSH_R) {
+	if (!m_punch1 && PUSH_X) {
 		m_kick = true;
 	}
 	//if (PUSH_ENTER) {
@@ -459,8 +460,21 @@ void CPlayer::Draw() {
 void CPlayer::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Enemy) {
-		if (t->GetState() == eAttack && m_state != eFall) {
-			m_state = eFall;
+		if (t->GetState() == eAttack && m_state != eFall && m_state != eDamage) {
+			if (m_jump) {
+				m_state = eFall;
+				m_die = 1;
+				m_jump = false;
+			}
+			else {
+				if (m_hp <= 0)
+					m_state = eFall;
+				else
+					m_state = eDamage;
+			}
+			m_vec3D.y = 0;
+			m_hp -= 2;
+			m_cnt = 0;
 		}
 	}
 }

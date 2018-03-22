@@ -54,5 +54,6 @@ public:
 //ボックス判定処理
 bool IsHitBox(CVector3D pos1, CVector3D pos2,int type);
 bool IsHitCircle(float c1, float c2, CVector3D* pos1, CVector3D* pos2);
+bool IsHitKeyTrigger(int key, int chk);
 
 #endif __MYLIB_H__

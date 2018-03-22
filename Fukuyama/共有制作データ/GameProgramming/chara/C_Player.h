@@ -33,6 +33,7 @@ public:
 		i_Shadow.SetVertex(0, 60, 0, 135);
 		//キャラクターアニメーション画像の読み込み
 		i_Chara_Motion_2.Load("image/chara/chara_motion_2_16bit.tga");
+		HP_Tex.Load("image/bg/HP/Hart/TGA/Hart.tga");
 		printf("%f\n%f\n%f\n%f\n", m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top);
 
 		//状態に応じたステータスを取得
