@@ -16,6 +16,7 @@ C_Drum::C_Drum()
 :C_Object(E_OBJ, eUDP_Object, eDWP_Object, DISPLAY_RIGHT, 0, 0)
 , m_DrumPos_Random(rand() % 3)
 {
+	mTexture.Load("../image/object/Drum.tga");
 	//0の場合、真ん中に配置
 	if (m_DrumPos_Random == 0){
 		m_Position.z += Zpos_SetPos_Center;
@@ -32,7 +33,6 @@ C_Drum::C_Drum()
 
 //更新処理
 void C_Drum::Update(){
-	mTexture.Load("object/Drum.tga");
 	//画面左端に行った時
 	if (m_Position.x < DISPLAY_LEFT){
 		SetKill();

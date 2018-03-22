@@ -25,7 +25,6 @@ public:
 	C_Player* Player;
 	CEnemy* Enemy;
 	C_BackGround* BackGround;
-	C_Manhole* Manhole;
 	C_Drum* Drum;
 	CTexture mTexture;
 	CTexture mTexture2;
