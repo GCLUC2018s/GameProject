@@ -2,7 +2,7 @@
 #define PLAYER_GUARD
 #define REPULSION 0.8f
 #define GRAVITY_DIE 1.001f
-#define PLAYER_HP 20
+#define PLAYER_HP 200
 
 #include"../CObjectBase.h"
 

@@ -27,6 +27,7 @@
 #define HOLD_ML CInput::GetState(0, CInput::eHold, CInput::eMouseL)
 
 #define PULL_ML CInput::GetState(0, CInput::ePull, CInput::eMouseL)
+#define PULL_E CInput::GetState(0, CInput::ePull, CInput::eButton8)
 
 #define PUSH_Z CInput::GetState(0, CInput::ePush, CInput::eButton1)
 #define PUSH_X CInput::GetState(0, CInput::ePush, CInput::eButton2)
