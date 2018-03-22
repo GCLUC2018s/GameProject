@@ -71,11 +71,13 @@ protected:
 		eMove,
 		eBlessAttack,
 		eTailAttack,
-		eLaser,
+		eBress,
 		eLaserShower,
 		eDown,
 		eDamage,
 		eFall,
+		eJump,
+		eDescent,
 	};
 public:
 	CBossBase();
@@ -83,7 +85,7 @@ public:
 	void Move(int boss_id);
 	void Attack(int boss_id);
 	void Fall();
-	void Damage();
+	void Damage(int boss_id);
 	void Down(int boss_id);
 	void Draw();
 	void Hit(CObjectBase * t);
@@ -111,20 +113,15 @@ public:
 		}
 	}
 private:
-	enum {
-		eIdol,
-		eMove,
-		eBlessAttack,
-		eTailAttack,
-		eBress,
-		eLaserShower,
-		eDown,
-		eDamage,
-		eFall,
-		eJump,
-		eDescent,
-	};
 	bool m_nagi;	//薙ぎ払い時使用。falseなら→に動く
+	int m_dame_time;	//ダメージ受けてる時間
+	void SetNotDame() {
+		m_color.y = 1.0;
+		m_color.z = 1.0;
+		m_damage = false;
+		m_dame_time = 0;
+		m_state = eIdol;
+	};
 };
 
 #endif // !BOSSBASEGUARD

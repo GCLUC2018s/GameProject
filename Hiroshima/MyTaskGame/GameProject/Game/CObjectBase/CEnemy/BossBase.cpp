@@ -12,6 +12,7 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_downtime = 0;
 	m_end_flag = false;
 	m_nagi = true;
+	m_dame_time = 0;
 }
 
 
@@ -98,10 +99,15 @@ void CBossBase::Fall() {
 	}
 }
 
-void CBossBase::Damage() {
-	if (m_damage) {
+void CBossBase::Damage(int boss_id) {
+	if (m_dame_time == 0) {
 		m_hp--;
-		m_damage = false;
+	}
+	m_color.y = 0.5;
+	m_color.z = 0.5;
+	m_dame_time++;
+	if (m_dame_time == 15) {
+		SetNotDame();
 	}
 }
 
@@ -167,16 +173,16 @@ void CBossBase::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Effect) {
 		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
-		if (ef->GetHit() > 1.0f && !m_damage) {
+		if (ef->GetHit() > 1.0f && !m_damage && m_state == eIdol) {
 			if ((ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_headpos3D.z) < 50)||
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_armpos3D.z) <  50) ||
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_arm2pos3D.z) < 50) ||
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_tailpos3D.z) < 50)){
 				SOUND("SE_Panch")->Play(false);
 			//	m_flipH = !(ef->GetFrip());
-				if (m_hp >= 5) {
+				if (m_hp >= 0) {
 					m_damage = true;
-					Damage();
+					m_state = eDamage;
 					//m_state = eDamage;
 					//m_state = eKnockBack;
 				}
@@ -190,9 +196,9 @@ void CBossBase::Hit(CObjectBase * t)
 					m_hp -= 50;
 				}
 				//m_flipH = !(ef->GetFrip());
-				if (m_hp >= 5) {
+				if (m_hp >= 0) {
 					m_damage = true;
-					Damage();
+					m_state = eDamage;
 					//m_state = eDamage;
 					//m_state = eKnockBack;
 				}
@@ -229,7 +235,7 @@ void CBossBase::BossBress() {
 		m_headpos3D.x += 4;
 		break;
 	case 5:
-		m_state = eIdol;
+		SetNotDame();
 		m_headpos3D = m_headoldpos3D;
 		m_armpos3D = m_armoldpos3D;
 		m_arm2pos3D = m_arm2oldpos3D;
@@ -268,6 +274,7 @@ void CBossBase::BossJump() {
 	m_arm2pos3D.y += m_arm2vec3D.y;
 	m_tailpos3D.y += m_tailvec3D.y;
 	if (m_head.GetIndex() == 1) {
+		SetNotDame();
 		m_head.SetAng(0);
 		m_arm2.SetFlipH(false);
 		m_arm2.SetAng(0);
@@ -289,7 +296,8 @@ void CBossBase::BossDescent() {
 	m_armpos3D.y  += m_armvec3D.y;
 	m_arm2pos3D.y += m_arm2vec3D.y;
 	m_tailpos3D.y += m_tailvec3D.y;
-	if (m_headpos3D.y > -125) {
+	if (m_headpos3D.y > 0) {
+		SetNotDame();
 		m_headvec3D = CVector3D(0, 0, 0);
 		m_armvec3D = CVector3D(0, 0, 0);
 		m_arm2vec3D = CVector3D(0, 0, 0);
@@ -315,6 +323,7 @@ void CBossBase::BossTailAttack() {
 		break;
 
 	case 8:
+		SetNotDame();
 		m_state = eDescent;
 		m_tailpos3D.x -= 30;
 		m_flipH = false;

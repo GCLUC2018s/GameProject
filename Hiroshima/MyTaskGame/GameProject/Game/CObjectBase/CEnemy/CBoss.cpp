@@ -1,5 +1,6 @@
 
 #include "CBoss.h"
+#include "../CBB/CBB.h"
 /*
 
 »ìŽÒ@Â–Ø
@@ -34,6 +35,7 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 }
 
 CBoss::~CBoss() {
+	CBB(0, 5, 1);
 }
 
 void CBoss::Update() {
@@ -55,18 +57,16 @@ void CBoss::Update() {
 	//if (m_test == 100) {
 	//	m_test = 0;
 	//}
-	//m_motiontest++;
-	//
-	//if(m_motiontest==0)
-	//	m_state = eIdol;
-	//if(m_motiontest==200)
-	//	m_state = eBlessAttack;
-	//if(m_motiontest==400)
-	//	m_state = eTailAttack;
-	//if(m_motiontest==600)
-	//	m_state = eDown;
-	//if (m_motiontest >= 800)
-	//	m_motiontest = -1;
+	m_motiontest++;
+	
+	if(m_motiontest==0)
+		m_state = eIdol;
+	if(m_motiontest==60*10)
+		m_state = eJump;
+	if(m_motiontest==60*30)
+		m_state = eJump;
+	if(m_motiontest==60*50)
+		m_state = eJump;
 
 
 
@@ -81,10 +81,10 @@ void CBoss::Update() {
 	Tail();
 
 
-	if (PUSH_ENTER) {
-		//m_state = eDown;
-		m_state = eJump;
-	}
+	//if (PUSH_ENTER) {
+	//	//m_state = eDown;
+	//	m_state = eJump;
+	//}
 	
 	
 //m_img.ChangeAnimation(6);
@@ -181,7 +181,7 @@ void CBoss::Head() {
 		Fall();
 		break;
 	case eDamage:
-		Damage();
+		Damage(m_parts_head);
 		break;
 	case eJump:
 		BossJump();
@@ -223,7 +223,7 @@ void CBoss::Arm() {
 		Fall();
 		break;
 	case eDamage:
-		Damage();
+		Damage(m_parts_arm);
 		break;
 	}
 
@@ -258,7 +258,7 @@ void CBoss::Arm2() {
 		Fall();
 		break;
 	case eDamage:
-		Damage();
+		Damage(m_parts_arm2);
 		break;
 	}
 
@@ -293,7 +293,7 @@ void CBoss::Tail() {
 		Fall();
 		break;
 	case eDamage:
-		Damage();
+		Damage(m_parts_tail);
 		break;
 	}
 
