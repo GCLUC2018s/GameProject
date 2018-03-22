@@ -89,7 +89,6 @@ void CSceneManager::BossScene() {
 	else pl_hp = PLAYER_HP;
 	new CBB(0, 0, true);
 	new CPlayer(pl_hp);
-	delete pl;
 	new CBossStage();
 	new CMagatama();
 	new CHPBar(true);
