@@ -85,7 +85,7 @@ void CStaffRollScreen::Update()
 void CStaffRollScreen::Draw()
 {
 	ClearDrawScreen();
-	DrawStringToHandle(100, scroll[0], "学校法人穴吹学園", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(100, scroll[0], "制作スタッフ", GetColor(255, 255, 255), m_largefont, TRUE);
 	DrawStringToHandle(100, scroll[1], "制作スタッフ", GetColor(255, 255, 255), m_largefont, TRUE);
 	DrawStringToHandle(100, scroll[2], "プランナー", GetColor(255, 255, 255), m_largefont, TRUE);
 	DrawStringToHandle(500, scroll[3], "井織諒仁", GetColor(255, 255, 255), m_largefont, TRUE);

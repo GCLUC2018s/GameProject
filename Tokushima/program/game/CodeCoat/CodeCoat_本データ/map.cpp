@@ -6,6 +6,7 @@
 #include "map_manager.h"
 #include "player_manager.h"
 #include "npc_manager.h"
+#include "se_manager.h"
 
 CMapControl::CMapControl()
 :CTask(0, eUDP_Map, eDWP_Map)
@@ -36,6 +37,7 @@ void CMapControl::Update(){
 
 	if ((m_totalmovement > m_clearpos) && m_goalflag == false){
 		m_goalflag = true;
+		PlaySoundMem(CSeManager::GetInstance()->getsnd(CLEAR_SE), DX_PLAYTYPE_BACK);
 	}
 	if (m_goalflag  == false){
 	m_posAsrc.setX(m_posAsrc.getX() - _Amount);

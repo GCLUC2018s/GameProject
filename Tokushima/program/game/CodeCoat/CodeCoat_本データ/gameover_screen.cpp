@@ -1,4 +1,5 @@
 #include "gameover_screen.h"
+#include "se_manager.h"
 
 //コンストラクタ
 CGameOverScreen::CGameOverScreen()
@@ -10,6 +11,7 @@ CGameOverScreen::CGameOverScreen()
 	m_gover_bg_img = LoadGraph("media\\img\\bg_black.png");
 	m_gover_light_img = LoadGraph("media\\img\\light.png");
 	m_gover_txt_img = LoadGraph("media\\img\\gm_over_02.png");
+	PlaySoundMem(CSeManager::GetInstance()->getsnd(OVER_SE), DX_PLAYTYPE_BACK);
 }
 
 //デストラクタ
