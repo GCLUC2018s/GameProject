@@ -54,23 +54,23 @@ void CBoss::Update() {
 		m_test = 0;
 	}
 
-	m_motiontest++;
+	//m_motiontest++;
 
-	
-	if(m_motiontest==0)
-		m_state = eIdol;
+	//
+	//if(m_motiontest==0)
+	//	m_state = eIdol;
 
-	if(m_motiontest==200)
-		m_state = eBlessAttack;
+	//if(m_motiontest==200)
+	//	m_state = eBlessAttack;
 
-	if(m_motiontest==400)
-		m_state = eTailAttack;
+	//if(m_motiontest==400)
+	//	m_state = eTailAttack;
 
-	if(m_motiontest==600)
-		m_state = eDown;
+	//if(m_motiontest==600)
+	//	m_state = eDown;
 
-	if (m_motiontest >= 800)
-		m_motiontest = -1;
+	//if (m_motiontest >= 800)
+	//	m_motiontest = -1;
 
 
 
@@ -84,12 +84,11 @@ void CBoss::Update() {
 	Arm2();
 	Tail();
 
-	if (PUSH_ENTER) {
-		//m_state = eBlessAttack;
-		//m_state = eTailAttack;
-		//m_state = eDown;
 
+	if (PUSH_ENTER) {
+		m_state = eDown;
 	}
+	
 	
 //m_img.ChangeAnimation(6);
 //m_head.ChangeAnimation(7);
