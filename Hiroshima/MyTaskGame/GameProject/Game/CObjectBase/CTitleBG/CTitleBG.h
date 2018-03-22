@@ -1,8 +1,8 @@
 #ifndef TITLE_BG_GUARD
 #define TITLE_BG_GUARD
 
-#define ROGO_SIZ_X 600
-#define ROGO_SIZ_Y 800
+#define ROGO_SIZ_X 485
+#define ROGO_SIZ_Y 735
 
 #define START_SIZ_X 350
 #define START_SIZ_Y 100
@@ -27,6 +27,7 @@ private:
 	CAnimImage m_img_rogo_s;	//ロゴ画像差分
 	CAnimImage m_img_start;		//スタート画像
 	CAnimImage m_img_start_2;		//スタート画像
+	CAnimImage m_img_huda;		//お札
 
 	CColorRGBA m_col_rogo;			//ロゴ画像カラー
 	CColorRGBA m_col_rogo_s;		//ロゴ画像差分カラー

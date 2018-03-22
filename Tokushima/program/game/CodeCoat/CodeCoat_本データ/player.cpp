@@ -77,20 +77,27 @@ void CPlayerControl::Update(){
 					m_upper_playerstate = Move;
 				}
 			}
-			if (m_jumping){
-				m_jumppower -= GRAVITY;
-				hy -= (m_jumppower * FRAMETIME);
-				m_upper_playerstate = Jump;
-				m_lower_playerstate = Jump;
-			}
 
 			if (m_playerstate == P_PURGE_ACTIVE){
-				if (m_upper_ac == 7){
+				m_jumppower += GRAVITY / 2 + GRAVITY / 3 + GRAVITY / 12;
+				if (m_upper_ac == 14){
 					m_playerstate = P_PURGE;
+					m_upper_playerstate = Move;
 					m_upper_ac = 0;
 					m_upper_animcounter = 0;
 				}
 			}
+
+			if (m_jumping){
+				m_jumppower -= GRAVITY;
+				hy -= (m_jumppower * FRAMETIME);
+				if (m_playerstate != P_PURGE_ACTIVE){
+					m_upper_playerstate = Jump;
+					m_lower_playerstate = Jump;
+				}
+			}
+
+			
 
 			//移動
 			float mv = (P_SPEED + m_buff.m_speedup) * FRAMETIME;		//270pixel/s + buff
@@ -129,11 +136,11 @@ void CPlayerControl::Update(){
 				}
 			}
 
-			/*if ((int)m_gear == 5){
+			if ((int)m_gear == 8){
 			m_gear = m_gear + m_BodyPos.getX() / (ONE_GEAR_SPACE) / 3;
-			}*/
+			}
 			if ((int)m_gear == 0){
-				m_gear = 0.0f;
+				m_gear = 0.0f + m_purge;
 			}
 
 
@@ -173,6 +180,9 @@ void CPlayerControl::Update(){
 					m_purge = TRUE;
 					m_upper_ac = 0;
 					m_upper_animcounter = 0;
+					m_jumping = true;
+					m_jumppower = 300;
+					
 					//装備を外す
 					for (int i = WEAPON; i != EQUIPMENT_COUNT; i++){
 						//スコア加算
@@ -541,6 +551,7 @@ void CPlayerControl::Draw(){
 			break;
 		case P_PURGE:
 			switch (m_upper_playerstate){
+			case Stand:
 			case Move:
 				DrawGraph((int)m_BodyPos.getX(), (int)m_BodyPos.getY() + m_BodyPos.getZ(), m_heroUpperimg[m_playerstate][(m_upper_ac % 8)], TRUE);
 				break;
@@ -552,7 +563,7 @@ void CPlayerControl::Draw(){
 			}
 			break;
 		case P_PURGE_ACTIVE:
-			DrawGraph((int)m_BodyPos.getX(), (int)m_BodyPos.getY() + m_BodyPos.getZ(), m_heroUpperimg[m_playerstate][m_upper_ac], TRUE);
+			DrawGraph((int)m_BodyPos.getX(), (int)m_BodyPos.getY() + m_BodyPos.getZ(), m_heroUpperimg[m_playerstate][m_upper_ac / 2], TRUE);
 			break;
 		default:
 			break;
