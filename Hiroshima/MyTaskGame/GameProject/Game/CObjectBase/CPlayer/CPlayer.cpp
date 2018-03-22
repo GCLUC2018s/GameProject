@@ -266,11 +266,21 @@ void CPlayer::Nutral() {
 			m_roof = true;
 		}
 	}
-	else if (m_roof &&
-		((gr->GetState() == eNomalGround && 1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592) ||
-			(gr->GetState() == eBossGround && 122 - 127 >= m_pos3D.x || m_pos3D.x >= 350 && 968 - 127 >= m_pos3D.x || m_pos3D.x >= 1280))) {
-		m_jump = true;
-		m_roof = false;
+	else if (m_roof) {
+		if (gr->GetState() == eNomalGround) {
+			if (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592) {
+				m_jump = true;
+				m_roof = false;
+
+			}
+		}
+		else if (gr->GetState() == eBossGround) {
+			if (122 - 127 >= m_pos3D.x || m_pos3D.x >= 350 && 968 - 127 >= m_pos3D.x || m_pos3D.x >= 1280) {
+				m_jump = true;
+				m_roof = false;
+
+			}
+		}
 	}
 
 	//ˆÚ“®
