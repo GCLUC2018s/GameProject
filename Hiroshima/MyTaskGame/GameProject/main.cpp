@@ -160,7 +160,7 @@ void Init(void)
 	SOUND("SE_Cursor")->Load("Sound/SE/se_030_.wav",30);
 	SOUND("SE_Panch")->Load("Sound/SE/punch-middle2.wav",20);
 
-	NEW_SCENE(eGameStart);
+	NEW_SCENE(eDebug);
 }
 
 void release()
