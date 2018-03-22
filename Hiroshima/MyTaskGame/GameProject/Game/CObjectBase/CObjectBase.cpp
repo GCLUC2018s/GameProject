@@ -62,14 +62,8 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 		//PL‚ÆBOSS‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);
-		if (t2->GetID() == eID_Boss) {
-			//o1->Hit(o2);
 			o2->Hit(o1);
-		}
-		if (t1->GetID() == eID_Boss) {
-			//o1->Hit(o2);
 			o1->Hit(o2);
-		}
 		//if (abs(o1->m_pos3D.z - o2->m_pos3D.z) < 130 || m_deathblow) {
 		//	if (o1->m_pos3D.x + o1->m_rect.m_right > o2->m_pos3D.x + o2->m_rect.m_left &&
 		//		o1->m_pos3D.x + o1->m_rect.m_left  <o2->m_pos3D.x + o2->m_rect.m_right &&

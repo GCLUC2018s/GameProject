@@ -514,5 +514,6 @@ void CPlayer::Hit(CObjectBase * t)
 			}
 		}
 	}
+
 }
 
