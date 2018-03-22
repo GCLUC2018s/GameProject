@@ -175,7 +175,7 @@ void CPlayerControl::Update(){
 
 			//パージ
 			if (key & PAD_INPUT_5 && key & PAD_INPUT_6){
-				//if (m_Equipment[WEAPON].m_name != NONE && m_Equipment[ARMOR].m_name != NONE &&m_Equipment[ITEM].m_name != NONE){
+				if (m_Equipment[WEAPON].m_name != NONE && m_Equipment[ARMOR].m_name != NONE &&m_Equipment[ITEM].m_name != NONE){
 					//アニメーション
 					PlaySoundMem(CSeManager::GetInstance()->getsnd(PURGE_SE), DX_PLAYTYPE_BACK);
 					m_playerstate = P_PURGE_ACTIVE;
@@ -203,7 +203,7 @@ void CPlayerControl::Update(){
 						if ((*it)->GetPos().getX() < 1279.9f){
 							(*it)->SetLive(false);
 						}
-					//}
+					}
 				}
 			}
 

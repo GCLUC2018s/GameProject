@@ -201,22 +201,24 @@ void CBossBase::BossBress(){
 	switch (m_head.GetIndex()) {
 	case 0:
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
-		m_headvec3D.y = m_playervec.GetNormalize().y * 10;
+		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 1:
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
-		m_headvec3D.y = m_playervec.GetNormalize().y * 10;
+		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 2:
 		new CCharge(CVector2D(m_headpos3D.x - 30, m_headpos3D.y + 330));
 		break;
 	case 3:
-		if (abs(m_headpos3D.y) < 1.0f)
-			m_headvec3D.y = -m_headpos3D.y / 10;
-		else
-			//m_headpos3D.y = 0;
 		break;
 	case 4:
+		if (abs(m_headpos3D.y) > 1.0f)
+			m_headvec3D.y = -m_headpos3D.y / 30;
+		else
+			m_headpos3D.y = 0;
+		break;
+	case 5:
 		m_state = eIdol;
 		m_headpos3D.y += 10;
 		break;
