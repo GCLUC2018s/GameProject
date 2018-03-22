@@ -10,8 +10,8 @@ int m_EnemyCount = 0;
 
 void CSceneGame::Init(){
 	//テクスチャ読み込み
-	mTexture.Load("Image(kari).tga");
-	mTexture2.Load("spray-icon.tga");
+	//mTexture.Load("Image(kari).tga");
+	//mTexture2.Load("spray-icon.tga");
 	m_PawsCount = 0;
 	GameScene = 0;
 	m_EnemyInterval = 0;

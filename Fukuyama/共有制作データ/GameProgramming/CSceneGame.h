@@ -17,7 +17,6 @@ public:
 		GameOver.Load("image/bg/GAMEOVER/GAMEOVER.tga");
 		Icon.Load("image/under/under_spray_icon.tga");
 		Title.Load("image/bg/start/Title.tga");
-		
 	}
 
 	C_Rectangle i_iconShadow;
