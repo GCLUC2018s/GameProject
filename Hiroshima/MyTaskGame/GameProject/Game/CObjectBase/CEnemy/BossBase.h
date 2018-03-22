@@ -41,6 +41,7 @@ protected:
 	CVector3D m_armvec3D;
 	CVector3D m_arm2vec3D;
 	CVector3D m_tailvec3D;
+	CVector3D m_playervec;
 	float m_shaking_head;
 	float m_shaking_arm;
 	float m_shaking_tail;
@@ -70,6 +71,7 @@ public:
 	void Damage( int boss_id);
 	void Down( int boss_id);
 	void Draw();
+	void BossBress();
 };
 
 #endif // !BOSSBASEGUARD

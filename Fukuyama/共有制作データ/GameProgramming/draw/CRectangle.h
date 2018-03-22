@@ -44,9 +44,6 @@ public:
 		, m_AdjustX(0.0f)
 		, m_AdjustZ(0.0f)
 	{}
-	~C_Rectangle(){
-		glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	}
 
 	float m_wide, m_high;
 	float m_Left, m_Right, m_Bottom, m_Top;

@@ -1,4 +1,5 @@
 #include "BossBase.h"
+#include "../CCharge.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_shaking_head = 0;
@@ -60,10 +61,7 @@ void CBossBase::Attack( int boss_id) {
 		m_shaking_head = 0;
 		m_headvec3D = CVector3D(0,0,0);
 		m_head.ChangeAnimation(eAnimBossBless);
-		if (m_head.GetIndex()==2) {
-			m_state = eIdol;
-			m_headpos3D.y += 10;
-		}
+		BossBress();
 		break;
 
 	case eTail:
@@ -142,4 +140,35 @@ void CBossBase::Draw() {
 	m_img.Draw();
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
+}
+
+void CBossBase::BossBress(){
+	m_headpos3D += m_headvec3D;
+	CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
+	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
+
+	switch (m_head.GetIndex()) {
+	case 0:
+		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
+		m_headvec3D.y = m_playervec.GetNormalize().y * 10;
+		break;
+	case 1:
+		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
+		m_headvec3D.y = m_playervec.GetNormalize().y * 10;
+		break;
+	case 2:
+		new CCharge(CVector2D(m_headpos3D.x - 30, m_headpos3D.y + 330));
+		break;
+	case 3:
+		if (abs(m_headpos3D.y) < 1.0f)
+			m_headvec3D.y = -m_headpos3D.y / 10;
+		else
+			//m_headpos3D.y = 0;
+		break;
+	case 4:
+		m_state = eIdol;
+		m_headpos3D.y += 10;
+		break;
+		
+	}
 }

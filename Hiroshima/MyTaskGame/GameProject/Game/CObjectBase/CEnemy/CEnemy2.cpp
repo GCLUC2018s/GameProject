@@ -77,7 +77,6 @@ void CEnemy2::Move() {
 	CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
 	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
 	m_cnt++;
-	if (m_pos3D.x < SCREEN_WIDTH - ENEMY_SIZ_X + m_scroll.x)
 	m_pos3D += m_vec3D;
 	if (m_pos3D.x - m_scroll.x < 0) {
 		m_pos3D.x = 0 - m_scroll.x;
@@ -89,12 +88,15 @@ void CEnemy2::Move() {
 	}
 	m_pleneVec = PL->GetPos() - m_pos3D;
 	if (m_cnt == 1) {
-		if (m_pleneVec.Length() >= 512)
-			if (TWO_RANDOM)
+		if (m_pleneVec.Length() >= 512) {
+			if (TWO_RANDOM) {
+				if (m_pos3D.x < SCREEN_WIDTH - ENEMY_SIZ_X + m_scroll.x)
 				m_vec3D.x = 2;
-			else
+			}else {
+				if (0 + m_scroll.x < m_pos3D.x)
 				m_vec3D.x = -2;
-		else if (100 <= m_pleneVec.Length())
+			}
+		}else if (100 <= m_pleneVec.Length())
 			m_vec3D.x = m_pleneVec.GetNormalize().x * CHOCHIN_SPEED;
 		else {
 			m_vec3D.x = -m_pleneVec.GetNormalize().x * CHOCHIN_SPEED;

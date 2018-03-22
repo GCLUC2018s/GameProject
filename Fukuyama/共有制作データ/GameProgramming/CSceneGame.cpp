@@ -23,7 +23,6 @@ void CSceneGame::Update(){
 			//ƒvƒŒƒC‰æ–Ê‚ÉˆÚ“®
 			GameScene = 1;
 			Drum = new C_Drum();
-			Manhole = new C_Manhole();
 			Player = new C_Player();
 			Enemy = new CEnemy();
 			Enemy->Init();
