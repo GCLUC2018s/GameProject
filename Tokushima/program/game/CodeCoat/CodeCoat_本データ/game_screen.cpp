@@ -19,6 +19,7 @@ CGameScreen::CGameScreen(){
 	m_cpos1 = CVector3D(CLEAR_TEXT_INI_X, CLEAR_TEXT1_INI_Y, 0);
 	m_cpos2 = CVector3D(CLEAR_TEXT_INI_X, CLEAR_TEXT2_INI_Y, 0);
 	m_count1 = 0;
+	m_stop_pos = CLEAR_TEXT_X;
 	CItemManager::GetInstance()->Create(&CVector3D(300,0, 300));
 	CItemManager::GetInstance()->Create(&CVector3D(500, 0, 300));
 	CItemManager::GetInstance()->Create(&CVector3D(700, 0, 300));
@@ -27,7 +28,7 @@ CGameScreen::CGameScreen(){
 	new CPlayerControl;
 	new CNpc;
 	new CMapControl;
-	CEnemyManager::getInstance()->LoadFile();
+	//CEnemyManager::getInstance()->LoadFile();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
 }
 
@@ -74,20 +75,28 @@ void CGameScreen::Draw()
 }
 
 void CGameScreen::GoalMove(){
-	if (m_cpos1.getX() > CLEAR_TEXT_X){
+	if (m_cpos1.getX() > m_stop_pos){
 		m_cpos1 -= CVector3D(30, 0, 0);
 	}
 	else{
-		if (m_cpos2.getX() > CLEAR_TEXT_X)
+		if (m_cpos2.getX() > m_stop_pos)
 			m_cpos2 -= CVector3D(30, 0, 0);
 	}
 
-	if (m_cpos2.getX() < CLEAR_TEXT_X){
+	if (m_cpos2.getX() < m_stop_pos){
 		if (m_count1 > 200){
-			m_state = GAMESCORE_SCREEN;
+			if (m_stop_pos == CLEAR_TEXT_X){
+				m_count1 = 0;
+				m_stop_pos = CLEAR_TEXT_X2;
+			}
+			else{ 
+				m_state = GAMESCORE_SCREEN; 
+			}
 		}
 		m_count1++;
 	}
+
+
 }
 
 //次のステージへ
