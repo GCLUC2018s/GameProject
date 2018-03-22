@@ -21,7 +21,7 @@ public:
 	void Draw();
 private:
 	bool m_end_flag;	//I‚í‚è‚Ü‚·‚æƒtƒ‰ƒO
-
+	CFont font;
 };
 
 #endif // !ENDEING_GUARD

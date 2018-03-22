@@ -52,7 +52,7 @@ void CItemBox::Update() {
 }
 void CItemBox::Hit(CObjectBase * t){
 	if (t->GetID() == eID_Player) {
-		if (!m_break && PUSH_V) {
+		if (!m_break && PUSH_X) {
 			m_break = true;
 			if (!m_state) {
 				m_score += 20;

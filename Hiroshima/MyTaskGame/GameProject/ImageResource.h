@@ -52,5 +52,9 @@ extern TexAnimData boss_AnimData[];
 extern TexAnimData attack_ef_AnimData[];
 //pipo-mapeffect013a-1.pngのアニメーションデータ
 extern TexAnimData aura_ef_AnimData[];
+//チャージのアニメーションデータ
+extern TexAnimData charge_ef_AnimData[];
+//ブレスのアニメーションデータ
+extern TexAnimData bress_ef_AnimData[];
 
 #endif // !IMAGE_RESOURCE_GUARD
