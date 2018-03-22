@@ -177,6 +177,12 @@ void CBoss::Head() {
 	case eDown:
 		Down(m_parts_head);
 		break;
+	case eFall:
+		Fall();
+		break;
+	case eDamage:
+		Damage();
+		break;
 	case eJump:
 		BossJump();
 		break;
@@ -213,6 +219,12 @@ void CBoss::Arm() {
 	case eDown:
 		Nutral(m_parts_arm);
 		break;
+	case eFall:
+		Fall();
+		break;
+	case eDamage:
+		Damage();
+		break;
 	}
 
 
@@ -242,6 +254,12 @@ void CBoss::Arm2() {
 	case eDown:
 		Nutral(m_parts_arm2);
 		break;
+	case eFall:
+		Fall();
+		break;
+	case eDamage:
+		Damage();
+		break;
 	}
 
 
@@ -270,6 +288,12 @@ void CBoss::Tail() {
 		break;
 	case eDown:
 		Nutral(m_parts_tail);
+		break;
+	case eFall:
+		Fall();
+		break;
+	case eDamage:
+		Damage();
 		break;
 	}
 

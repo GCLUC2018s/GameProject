@@ -1,7 +1,7 @@
 #ifndef BOSSGUARD
 #define BOSSGUARD
 
-#define BOSS_HP 100
+#define BOSS_HP 300
 #define BOSS_AT 20
 #define BOSS_SPEED 5
 
