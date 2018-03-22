@@ -4,14 +4,13 @@
 //四角形の描画
 void C_Rectangle::Render(float a, float b, float c, float d){
 
+	if (!m_Enabled) return;
 	//アルファブレンドを有効にする
 	glEnable(GL_BLEND);
 	//ブレンド方法を指定
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glColor4f(a, b, c, d);
-
-	if (!m_Enabled) return;
 	glBegin(GL_TRIANGLES);
 	glVertex2d(m_Left, m_Top);
 	glVertex2d(m_Left, m_Bottom);
