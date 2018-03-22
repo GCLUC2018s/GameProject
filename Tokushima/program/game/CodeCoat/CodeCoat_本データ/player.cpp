@@ -584,6 +584,7 @@ float CPlayerControl::getMoveAmount(){
 
 void CPlayerControl::setEquipment(CItemData* item){
 	if (m_purge == FALSE){
+		PlaySoundMem(CSeManager::GetInstance()->getsnd(GET_SE), DX_PLAYTYPE_BACK);
 		m_Equipment[item->m_type].m_img = item->m_img;
 		m_Equipment[item->m_type].m_name = item->m_name;
 		m_Equipment[item->m_type].m_type = item->m_type;
