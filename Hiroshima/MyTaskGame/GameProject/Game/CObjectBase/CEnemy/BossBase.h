@@ -62,6 +62,7 @@ public:
 	void Damage( int boss_id);
 	void Down( int boss_id);
 	void Draw();
+	void BossBress();
 };
 
 #endif // !BOSSBASEGUARD
