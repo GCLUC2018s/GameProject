@@ -92,8 +92,7 @@ void CBoss::Update() {
 
 	if (PUSH_ENTER) {
 		//m_state = eDown;
-		Fall();
-	}
+		m_state = eBlessAttack;	}
 	
 	
 //m_img.ChangeAnimation(6);

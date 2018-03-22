@@ -26,7 +26,6 @@ void CTitleScreen::Dest(){}
 //実行処理
 void CTitleScreen::Update()
 {
-	if (CheckHitKey(KEY_INPUT_V) == 1)m_state = STAFFROLL_SCREEN;
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (IsHitKeyTrigger(key, PAD_INPUT_4)){
 		if (m_titlename_pos.getX() > TITLE_TEXT_X){
@@ -53,8 +52,10 @@ void CTitleScreen::Update()
 		m_drawtime = m_count / 45 % 2;
 	}
 
-	if (m_start && m_titlename_pos.getX() < -720.0f)
+	if (m_start && m_titlename_pos.getX() < -720.0f){
 		m_state = GAME_SCREEN;
+		StopSoundMem(CSeManager::GetInstance()->getsnd(TITLE_BGM));
+	}
 
 }
 
@@ -68,8 +69,6 @@ void CTitleScreen::Draw()
 	if (m_drawtime == 0){
 		DrawGraph(m_title_akey_pos.getX(), m_title_akey_pos.getY(), m_titlePushA_img, TRUE);
 	}
-	DrawString(10, 100, "TITLE Screen Hit A key to Next Screen", GetColor
-		(255, 255, 255));
 }
 
 //次のステージへ

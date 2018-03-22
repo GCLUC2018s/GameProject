@@ -8,6 +8,7 @@
 #include "ui_manager.h"
 #include "npc_manager.h"
 #include "map_manager.h"
+#include "se_manager.h"
 
 int g_stage = 1;
 
@@ -31,11 +32,13 @@ CGameScreen::CGameScreen(){
 	CEnemyManager::getInstance()->Init();
 	CEnemyManager::getInstance()->LoadFile();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
+	PlaySoundMem(CSeManager::GetInstance()->getsnd(STAGE_BGM), DX_PLAYTYPE_LOOP);
 }
 
 //デストラクタ
 CGameScreen::~CGameScreen(){
 	CTaskManager::GetInstance()->KillAll();
+	StopSoundMem(CSeManager::GetInstance()->getsnd(STAGE_BGM));
 }
 
 void CGameScreen::Dest(){
@@ -43,31 +46,21 @@ void CGameScreen::Dest(){
 
 //更新処理
 void CGameScreen::Update(){
-	if (CheckHitKey(KEY_INPUT_V) == 1){
-		m_state = GAMESCORE_SCREEN;
-	}
 	if (CPlayerManager::GetInstance()->GetPlayerAdress()->getlive() == false){
 		m_state = GAMEOVER_SCREEN;
 	}
-	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true)//{
+	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true)
 		GoalMove();
-	//}
-	//else{
 		CTaskManager::GetInstance()->UpdateAll();
 		CTaskManager::GetInstance()->KillAppoint();
 		CPlayerManager::GetInstance()->Update();
 		CEnemyManager::getInstance()->Update();
-	//}
+
 }
 
 void CGameScreen::Draw()
 {
 	ClearDrawScreen();
-	/*m_Mcnt.draw();
-	m_Pcnt.draw();
-	m_Icnt.draw();
-	m_Tcnt.draw();
-	m_Pcnt.draw();*/
 	CTaskManager::GetInstance()->DrawAll();
 	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true){
 		DrawGraph(m_cpos1.getX(), m_cpos1.getY(), m_gameclear_img[0], TRUE);
@@ -91,7 +84,8 @@ void CGameScreen::GoalMove(){
 				m_stop_pos = CLEAR_TEXT_X2;
 			}
 			else{ 
-				m_state = GAMESCORE_SCREEN; 
+				m_state = GAMESCORE_SCREEN;
+				CUiManager::GetInstance()->setMyTotalScore(CUiManager::GetInstance()->GetPlayerAdress()->getTotalScore());
 			}
 		}
 		m_count1++;

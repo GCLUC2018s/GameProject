@@ -2,6 +2,7 @@
 #define SCOREDATA_H
 
 #include "myLib.h"
+//#include <DxLib.h>
 #include "Task\CTask.h"
 #include <string>
 #include <iostream>  //std::right, std::out, std::endl
@@ -29,6 +30,8 @@ private:
 	char linedelimiter;
 	int m_updateNum;
 	int m_scorenum_img[12];
+	int m_ranking_img;
+	bool m_updateflag;
 	SData m_rankingData[5];
 public:
 	ScoreData();

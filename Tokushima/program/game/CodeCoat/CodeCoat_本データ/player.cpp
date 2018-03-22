@@ -8,6 +8,7 @@
 #include "npc_manager.h"
 #include "enemy_manager.h"
 #include "ui_manager.h"
+#include "se_manager.h"
 
 CPlayerControl::CPlayerControl()
 :CTask(0, eUDP_Player, eDWP_Player)
@@ -32,14 +33,14 @@ CPlayerControl::CPlayerControl()
 	}
 	m_buff.m_speedup = 0;
 	m_buff.m_score_ratio = 0;
-	LoadDivGraph("media\\img\\top.png", 16, 4, 4, 167, 190, m_heroUpperimg[P_NORMAL], TRUE);
+	LoadDivGraph("media\\img\\player\\top.png", 16, 4, 4, 167, 190, m_heroUpperimg[P_NORMAL], TRUE);
 	LoadDivGraph("media\\img\\player\\coat_knife_top.png", 18, 4, 5, 167, 190, m_heroUpperimg[P_KNIFE], TRUE);
 	LoadDivGraph("media\\img\\player\\coat_handgun.png", 13, 4, 4, 167, 190, m_heroUpperimg[P_PISTOL], TRUE);
 	LoadDivGraph("media\\img\\player\\coat_shotgun.png", 15, 4, 4, 167, 190, m_heroUpperimg[P_SHOTTOGAN], TRUE);
 	LoadDivGraph("media\\img\\player\\coat_ak.png", 12, 4, 3, 167, 190, m_heroUpperimg[P_RIFLE], TRUE);
 	LoadDivGraph("media\\img\\player\\run.png", 13, 4, 4, 167, 190, m_heroUpperimg[P_PURGE], TRUE);
 	LoadDivGraph("media\\img\\player\\purge.png", 7, 4, 2, 167, 190, m_heroUpperimg[P_PURGE_ACTIVE], TRUE);
-	LoadDivGraph("media\\img\\under.png", ANIM_COUNT, 4, 4, 167, 190, m_heroLowerimg);
+	LoadDivGraph("media\\img\\player\\under.png", ANIM_COUNT, 4, 4, 167, 190, m_heroLowerimg);
 	m_shadowimg = LoadGraph("media\\img\\Pshadow.png", TRUE);
 	//CPlayerManagerにCPlayerControlのアドレスを渡すための関数
 	CPlayerManager::GetInstance()->Init(this);
@@ -153,6 +154,7 @@ void CPlayerControl::Update(){
 			//ジャンプ関連
 			if (!m_jumping){
 				if (key & PAD_INPUT_1 && hy == 0){
+					PlaySoundMem(CSeManager::GetInstance()->getsnd(JUMP_SE), DX_PLAYTYPE_BACK);
 					m_jumping = true;
 					m_jumppower = JUMP_POWER;
 					m_upper_ac = 0;
@@ -173,8 +175,9 @@ void CPlayerControl::Update(){
 
 			//パージ
 			if (key & PAD_INPUT_5 && key & PAD_INPUT_6){
-				if (m_Equipment[WEAPON].m_name != NONE && m_Equipment[ARMOR].m_name != NONE &&m_Equipment[ITEM].m_name != NONE){
+				//if (m_Equipment[WEAPON].m_name != NONE && m_Equipment[ARMOR].m_name != NONE &&m_Equipment[ITEM].m_name != NONE){
 					//アニメーション
+					PlaySoundMem(CSeManager::GetInstance()->getsnd(PURGE_SE), DX_PLAYTYPE_BACK);
 					m_playerstate = P_PURGE_ACTIVE;
 					m_upper_playerstate = Move;
 					m_purge = TRUE;
@@ -200,7 +203,7 @@ void CPlayerControl::Update(){
 						if ((*it)->GetPos().getX() < 1279.9f){
 							(*it)->SetLive(false);
 						}
-					}
+					//}
 				}
 			}
 
@@ -214,6 +217,7 @@ void CPlayerControl::Update(){
 						if (IsXKeyTrigger(key) && m_attack_time > m_Equipment[WEAPON].m_attack_rate){
 							m_Equipment[WEAPON].m_useful = 5;					//攻撃ON
 							m_attack_time = 0;
+							PlaySoundMem(CSeManager::GetInstance()->getsnd(KNIFE_SE), DX_PLAYTYPE_BACK);
 							if (m_upper_playerstate != Attack){
 								m_upper_playerstate = Attack;
 								m_upper_animcounter = 0;
@@ -228,6 +232,7 @@ void CPlayerControl::Update(){
 								CVector3D _vec(36.0f, 0.0f, 0.0f);
 								CBulletManager::GetInstance()->Create(&_pos, &_vec, 1200.0f, PLAYER);
 								m_Equipment[WEAPON].m_useful--;
+								PlaySoundMem(CSeManager::GetInstance()->getsnd(SHOT_SE), DX_PLAYTYPE_BACK);
 								if (m_upper_playerstate != Attack){
 									m_upper_playerstate = Attack;
 									m_upper_animcounter = 0;
@@ -254,6 +259,7 @@ void CPlayerControl::Update(){
 									m_upper_animcounter = 0;
 									m_upper_ac = 0;
 								}
+								PlaySoundMem(CSeManager::GetInstance()->getsnd(SHOT2_SE), DX_PLAYTYPE_BACK);
 								m_attack_time = 0;
 								m_Equipment[WEAPON].m_useful--;
 							}
@@ -274,6 +280,7 @@ void CPlayerControl::Update(){
 										m_upper_animcounter = 0;
 										m_upper_ac = 0;
 									}
+									PlaySoundMem(CSeManager::GetInstance()->getsnd(SHOT_SE), DX_PLAYTYPE_BACK);
 									m_Equipment[WEAPON].m_useful--;
 									m_attack_time = 0;
 								}
@@ -578,6 +585,7 @@ float CPlayerControl::getMoveAmount(){
 
 void CPlayerControl::setEquipment(CItemData* item){
 	if (m_purge == FALSE){
+		PlaySoundMem(CSeManager::GetInstance()->getsnd(GET_SE), DX_PLAYTYPE_BACK);
 		m_Equipment[item->m_type].m_img = item->m_img;
 		m_Equipment[item->m_type].m_name = item->m_name;
 		m_Equipment[item->m_type].m_type = item->m_type;

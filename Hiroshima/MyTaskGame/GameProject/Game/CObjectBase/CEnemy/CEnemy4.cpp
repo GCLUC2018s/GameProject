@@ -83,10 +83,14 @@ void CEnemy4::Move() {
 	m_vec3D.y = 0;
 
 	//ˆê’è‚ÌêŠ‚Ü‚Å—ˆ‚½‚ç”½“]
-	if (m_pos3D.x - m_scroll.x < 0)
+	if (m_pos3D.x - m_scroll.x < 0) {
+		m_pos3D.x = 0 - m_scroll.x;
 		m_flipH = false;
-	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+	}
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
+		m_pos3D.x = SCREEN_WIDTH - ENEMY_SIZ_X - m_scroll.x;
 		m_flipH = true;
+	}
 	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Þ
 
 	if (!m_stop) {

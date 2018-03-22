@@ -4,7 +4,7 @@
 #include "../CObjectBase.h"
 
 #define ENDEING_SIZ_X 1000
-#define ENDEING_SIZ_Y 5859
+#define ENDEING_SIZ_Y 6394
 
 /*
 
@@ -21,7 +21,7 @@ public:
 	void Draw();
 private:
 	bool m_end_flag;	//èIÇÌÇËÇ‹Ç∑ÇÊÉtÉâÉO
-
+	CFont font;
 };
 
 #endif // !ENDEING_GUARD

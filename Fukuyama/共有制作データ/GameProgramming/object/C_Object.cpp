@@ -204,6 +204,7 @@ void C_Object::RunAnime(CTexture *image, int id){
 				m_Anime = 0;
 			}
 		}
+
 	}
 }
 

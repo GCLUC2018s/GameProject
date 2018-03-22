@@ -139,6 +139,12 @@
       <Filter>Game\Object\UI\Effect\MGhit</Filter>
     </ClCompile>
     <ClCompile Include="Game\CObjectBase\CHissatuText\CHissatuText.cpp" />
+    <ClCompile Include="Game\CObjectBase\CCharge.cpp">
+      <Filter>Game\Object\UI\Effect\Charge</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CBress.cpp">
+      <Filter>Game\Object\UI\Effect\Bress</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -294,6 +300,12 @@
     </ClInclude>
     <ClInclude Include="Game\CObjectBase\CHissatuText\CHissatuText.h">
       <Filter>Game\Object\Pic\HissatuText</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CCharge.h">
+      <Filter>Game\Object\UI\Effect\Charge</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CBress.h">
+      <Filter>Game\Object\UI\Effect\Bress</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -470,6 +482,12 @@
     </Filter>
     <Filter Include="Game\Object\Field\BossStage">
       <UniqueIdentifier>{efdc9702-edb6-41f8-874d-16dcd71797ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\Charge">
+      <UniqueIdentifier>{82a0c91b-630d-4dac-9e13-5003460a8bd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\Bress">
+      <UniqueIdentifier>{dbe60625-4497-4719-8272-9e27e5da8c2c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

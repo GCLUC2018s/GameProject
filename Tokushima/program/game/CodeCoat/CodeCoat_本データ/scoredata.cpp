@@ -1,12 +1,15 @@
 #include "scoredata.h"
+#include "ui_manager.h"
 
 ScoreData::ScoreData() :
 CTask(0, eUDP_Rank,eDWP_Rank),
 linedelimiter(0),
-m_updateNum(-2)
+m_updateNum(-2),
+m_ranking_img(LoadGraph("media\\img\\ranking.png",TRUE)),
+m_updateflag(false)
 {
 	for (int i = 0; i < SCORE_NUM; i++){
-		m_rankingData[i].m_score_pos = CVector3D(-100, 250 + (i * 40),0);
+		m_rankingData[i].m_score_pos = CVector3D(410, 250 + (i * 60), 0);
 		m_rankingData[i].score = 0;
 		m_rankingData[i].livingflag = false;
 		m_rankingData[i].Aflag = true;
@@ -52,7 +55,7 @@ void ScoreData::roadFile(){
 
 void ScoreData::Update(){
 	int tempC1;
-	int tempC2 = 0;//m_total.score;
+	int tempC2 = CUiManager::GetInstance()->getMyTotalScore();//m_total.score;
 	if (m_rankingData[m_updateNum + 1].Aflag == true){
 		m_rankingData[m_updateNum + 1].Acount2 += 6;
 	}
@@ -65,23 +68,25 @@ void ScoreData::Update(){
 	else if (m_rankingData[m_updateNum + 1].Acount2 <= 0){
 		m_rankingData[m_updateNum + 1].Aflag = true;
 	}
-	for (int i = 0; i < SCORE_NUM; i++){
-		if (m_rankingData[i].score < tempC2){
-			tempC1 = m_rankingData[i].score;
-			m_rankingData[i].score = tempC2;
-			tempC2 = tempC1;
-		}
-		else{
-			if (i == 4){
-				m_updateNum = -2;
+	if (m_updateflag == false){
+		for (int i = 0; i < SCORE_NUM; i++){
+			if (m_rankingData[i].score < tempC2){
+				tempC1 = m_rankingData[i].score;
+				m_rankingData[i].score = tempC2;
+				tempC2 = tempC1;
 			}
-			else
-			{
-				m_updateNum = i;
+			else{
+				if (i == 4){
+					m_updateNum = -2;
+				}
+				else
+				{
+					m_updateNum = i;
+				}
 			}
 		}
+		updatefile();
 	}
-	updatefile();
 }
 
 void ScoreData::updatefile(){
@@ -110,11 +115,13 @@ void ScoreData::updatefile(){
 	}
 	ifs.close();
 	fs.close();
+	m_updateflag = true;	//再度ここに来ないように
 }
 
 void ScoreData::Draw(){
 	int num;
 	char buf[100];
+	DrawGraph(120, 100,m_ranking_img,TRUE);
 	for (int i = 0; i < SCORE_NUM; i++){
 		num = sprintf_s(buf, 100, "%d", m_rankingData[i].score);
 		for (int j = 0; j < num; j++){
@@ -135,25 +142,17 @@ void ScoreData::Draw(){
 			else{
 				//スコア
 				//SetDrawBlendMode(DX_BLENDMODE_ALPHA, 255 - m_rankingData[i].Acount1);
-				DrawRotaGraph(390 + m_rankingData[i].m_score_pos.getX() + j * 25,
-					m_rankingData[i].m_score_pos.getY(), 0.7, 0,
+				DrawRotaGraph(m_rankingData[i].m_score_pos.getX() + j * 25,
+					m_rankingData[i].m_score_pos.getY(), 1, 0,
 					m_scorenum_img[(buf[j] - '0')], TRUE, FALSE);
 				//SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 			}
 		}
 		//順位の数字
 		if (i < SCORE_NUM){
-			DrawRotaGraph(240 + m_rankingData[i].m_score_pos.getX(),
-				m_rankingData[i].m_score_pos.getY(), 0.7, 0,
+			DrawRotaGraph(-200 + m_rankingData[i].m_score_pos.getX(),
+				m_rankingData[i].m_score_pos.getY(), 1, 0,
 				m_scorenum_img[i + 1], TRUE, FALSE);
-		}
-		else{
-			DrawRotaGraph(230 + m_rankingData[i].m_score_pos.getX(),
-				m_rankingData[i].m_score_pos.getY(), 0.7, 0,
-				m_scorenum_img[1], TRUE, FALSE);
-			DrawRotaGraph(250 + m_rankingData[i].m_score_pos.getX(),
-				m_rankingData[i].m_score_pos.getY(), 0.7, 0,
-				m_scorenum_img[i - 9], TRUE, FALSE);
 		}
 	}
 }

@@ -32,7 +32,8 @@ TexAnim _PL_kick[] = {
 	{ 40,2 },
 };
 TexAnim _PL_damage[] = {
-	{ 50,40 },
+	{ 50,60 },
+	{ 50,1 },
 };
 TexAnim _PL_fall[] = {
 	{ 50,20 },
@@ -243,7 +244,7 @@ TexAnim _Boss_TailAttack_anim[] = {
 TexAnim _Boss_Bless_anim[] = {
 	{ 32,1 },
 	{ 32,60*2 },
-	{ 33,60*3 },
+	{ 33,1 },
 	{ 33,60*5 },
 	{ 33,1 },
 
@@ -330,4 +331,51 @@ TexAnim _MagaMax_anim[] = {
 TexAnimData aura_ef_AnimData[] = {
 	ANIMDATA(_Aura_anim),
 	ANIMDATA(_MagaMax_anim),
+};
+
+TexAnim _Charge_anim[] = {
+	{ 0,5 },
+	{ 1,5 },
+	{ 2,5 },
+	{ 3,5 },
+	{ 4,5 },
+	{ 5,5 },
+	{ 6,5 },
+	{ 7,5 },
+	{ 8,5 },
+	{ 9,5 },
+	{ 10,5 },
+};
+
+
+TexAnimData charge_ef_AnimData[] = {
+	ANIMDATA(_Charge_anim),
+};
+
+TexAnim _Bress_anim[] = {
+	{ 0,5 },
+	{ 1,5 },
+	{ 2,5 },
+	{ 3,5 },
+	{ 4,5 },
+	{ 5,5 },
+	{ 6,5 },
+	{ 7,5 },
+	{ 8,5 },
+	{ 9,5 },
+	{ 10,5 },
+	{ 11,5 },
+	{ 12,5 },
+	{ 13,5 },
+	{ 14,5 },
+	{ 15,5 },
+	{ 16,5 },
+	{ 17,5 },
+	{ 18,5 },
+	{ 19,5 },
+};
+
+
+TexAnimData bress_ef_AnimData[] = {
+	ANIMDATA(_Bress_anim),
 };
