@@ -32,20 +32,21 @@ Enemy_Push  push_enemy[32][32]{
 	{
 		{ 100	,eDaruma		,CVector3D(500, -20,-200) },
 		{ 200	,eChouchin		,CVector3D(600, -80,-250) },
-		{ 250	,eChouchin		,CVector3D(800, -40,-200) },
-		{ 400	,eDaruma		,CVector3D(400, 0,	-300) },
+		{ 350	,eHi		,CVector3D(800, -40,-200) },
+		{ 450	,eDaruma		,CVector3D(400, 0,	-300) },
 		{ 600	,eChouchin		,CVector3D(800, -40,-200) },
 		{ END_CODE }
 	},{
 
 		//第二ウェイブ
-	{ 100,eChouchin,CVector3D(  400 + SCREEN_WIDTH, 0, -300) },
-	{ 150	,eDaruma	,CVector3D(500+SCREEN_WIDTH, -20,-200) },
-	{ 200	,eChouchin	,CVector3D(600+SCREEN_WIDTH, -80,-250) },
-	{ 250	,eChouchin	,CVector3D(800+SCREEN_WIDTH, -40,-200) },
-	{ 400	,eDaruma	,CVector3D(400+SCREEN_WIDTH, 0,	-300) },
-	{ 500	,eKamaitachi		,CVector3D(500+SCREEN_WIDTH, -20,-200) },
-	{ 700	,eChouchin		,CVector3D(800+SCREEN_WIDTH, -40,-200) },
+	{ 100,eDaruma,CVector3D(400 + SCREEN_WIDTH, 0, -300) },
+	{ 250,eChouchin,CVector3D(  400 + SCREEN_WIDTH, 0, -300) },
+	{ 400	,eHi	,CVector3D(500+SCREEN_WIDTH, -20,-200) },
+	{ 500	,eHi	,CVector3D(600+SCREEN_WIDTH, -80,-250) },
+	{ 500	,eChouchin	,CVector3D(800+SCREEN_WIDTH, -40,-200) },
+	{ 650	,eDaruma	,CVector3D(400+SCREEN_WIDTH, 0,	-300) },
+	{ 800	,eKamaitachi		,CVector3D(500+SCREEN_WIDTH, -20,-200) },
+	{ 950	,eChouchin		,CVector3D(800+SCREEN_WIDTH, -40,-200) },
 	{ 1000	,eKamaitachi		,CVector3D(200+SCREEN_WIDTH, 0,   -50) },
 	{ END_CODE }
 }
@@ -53,32 +54,31 @@ Enemy_Push  push_enemy[32][32]{
 ,{
 
 	//第三ウェイブ
-	{ 100 , eKamaitachi  ,CVector3D(400 + SCREEN_WIDTH * 2, 0, -300) },
-	{ 200,eKamaitachi ,CVector3D(   500 + SCREEN_WIDTH * 2, -100, -200) },
-	{ 300,eNiku ,CVector3D(		    600 + SCREEN_WIDTH * 2, 0, -250) },
-	{ 400,eNiku ,CVector3D(	    	800 + SCREEN_WIDTH * 2, 0, -200) },
-	{ 500,eKamaitachi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
+	{ 100 , eDaruma  ,CVector3D(400 + SCREEN_WIDTH * 2, 0, -300) },
+	{ 250,eKamaitachi ,CVector3D(   500 + SCREEN_WIDTH * 2, -100, -200) },
+	{ 400,eNiku ,CVector3D(		    600 + SCREEN_WIDTH * 2, 0, -250) },
+	{ 500,eDaruma ,CVector3D(	    	800 + SCREEN_WIDTH * 2, 0, -200) },
+	{ 600,eHi ,CVector3D(   800 + SCREEN_WIDTH * 2, -50, -200) },
 	{ 600,eKamaitachi ,CVector3D(   200 + SCREEN_WIDTH * 2, 0, -50) },
 	{ 700,eNiku ,CVector3D(		    400 + SCREEN_WIDTH * 2, 0, -300) },
 	{ 800,eChouchin ,CVector3D(		600 + SCREEN_WIDTH * 2, -80, -250) },
-	{ 900,eNiku ,CVector3D(			800 + SCREEN_WIDTH * 2, 0, -200) },
-	{ 1000,eKamaitachi ,CVector3D(  200 + SCREEN_WIDTH * 2, 0, -50) },
+	{ 950,eHi ,CVector3D(			800 + SCREEN_WIDTH * 2, 0, -200) },
+	{ 1000,eNiku ,CVector3D(  200 + SCREEN_WIDTH * 2, 0, -50) },
+	{ 1050,eKamaitachi ,CVector3D(200 + SCREEN_WIDTH * 2, 0, -50) },
 	{ END_CODE }
 	}
 
 ,{
 
 	//第四ウェイブ
-	{ 100, eNiku  ,CVector3D(400 + SCREEN_WIDTH * 3, 0, -300) },
-	/*{ 200, eNiku ,CVector3D( 500 + SCREEN_WIDTH * 3, 0, -200) },
-	{ 300, eNiku ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
-	{ 400, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
-	{ 500,eDaruma ,CVector3D(800 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 100, eHi  ,CVector3D(400 + SCREEN_WIDTH * 3, 0, -300) },
+	{ 200, eNiku ,CVector3D( 500 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 350, eKamaitachi ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
+	{ 500, eHi ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
+	{ 600,eDaruma ,CVector3D(800 + SCREEN_WIDTH * 3, 0, -200) },
 	{ 600,eDaruma ,CVector3D(200 + SCREEN_WIDTH * 3, 0, -50) },
-	{ 700, eNiku ,CVector3D( 400 + SCREEN_WIDTH * 3, 0, -300) },
-	{ 800, eNiku ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
-	{ 900, eNiku ,CVector3D( 800 + SCREEN_WIDTH * 3, 0, -200) },
-	{ 1000,eNiku ,CVector3D( 200 + SCREEN_WIDTH * 3, 0, -50) },*/
+	{ 780, eNiku ,CVector3D( 400 + SCREEN_WIDTH * 3, 0, -300) },
+	{ 800, eChouchin ,CVector3D( 600 + SCREEN_WIDTH * 3, 0, -250) },
 	{ END_CODE }
 	}
 };
