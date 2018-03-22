@@ -12,7 +12,7 @@
 
 class CCharge :public CEffectBase {
 public:
-	CCharge();
+	CCharge(CVector2D pos);
 	void Update();
 	void Draw();
 };

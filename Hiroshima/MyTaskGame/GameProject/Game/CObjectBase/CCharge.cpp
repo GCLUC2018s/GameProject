@@ -2,10 +2,9 @@
 #include "CBress.h"
 
 
-CCharge::CCharge(){
-	//m_effect_type = eCharge;
+CCharge::CCharge(CVector2D pos){
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Effect_charge"));
-	m_pos2D = CVector2D(1020, 580);
+	m_pos2D = pos;
 	m_img.SetCenter(120, 120);
 	m_img.SetPos(m_pos2D);
 	CheckOverlap();

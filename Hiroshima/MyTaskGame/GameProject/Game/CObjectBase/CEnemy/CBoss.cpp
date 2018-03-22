@@ -89,7 +89,7 @@ void CBoss::Update() {
 
 
 	if (PUSH_ENTER) {
-		m_state = eDown;
+		m_state = eBlessAttack;
 	}
 	
 	

@@ -243,7 +243,7 @@ TexAnim _Boss_TailAttack_anim[] = {
 TexAnim _Boss_Bless_anim[] = {
 	{ 32,1 },
 	{ 32,60*2 },
-	{ 33,60*3 },
+	{ 33,1 },
 	{ 33,60*5 },
 	{ 33,1 },
 
