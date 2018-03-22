@@ -36,6 +36,7 @@ CUiManager::~CUiManager()
 void CUiManager::Init(Ui* ui)
 {
 	m_ui = ui;
+	m_mytotalscore = 0;
 }
 
 // I—¹ˆ—
