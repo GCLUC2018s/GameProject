@@ -94,7 +94,8 @@ void CBossBase::Fall() {
 }
 
 void CBossBase::Damage( int boss_id) {
-
+	m_hp--;
+	m_damage = false;
 }
 
 void CBossBase::Down(int boss_id) {
@@ -159,17 +160,17 @@ void CBossBase::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Effect) {
 		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
-		if (ef->GetHit() > 1.0f) {
+		if (ef->GetHit() > 1.0f && !m_damage) {
 			if ((ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_headpos3D.z) < 50)||
-				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_armpos3D.z) < 50) ||
+				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_armpos3D.z) <  50) ||
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_arm2pos3D.z) < 50) ||
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_tailpos3D.z) < 50)){
 				SOUND("SE_Panch")->Play(false);
 			//	m_flipH = !(ef->GetFrip());
 				if (m_hp >= 0) {
 					m_damage = true;
+					Damage(0);
 					//m_state = eKnockBack;
-					m_hp--;
 				}
 				else {
 					Fall();
@@ -177,11 +178,12 @@ void CBossBase::Hit(CObjectBase * t)
 			}
 			if (ef->GetEFtype() == eFire) {
 				if (m_deathblow) {
-					m_hp = -1;
+					m_hp -= 50;
 				}
 				//m_flipH = !(ef->GetFrip());
 				if (m_hp >= 0) {
-					m_hp = -1;
+					m_damage = true;
+					Damage(0);
 					//m_state = eKnockBack;
 				}
 				else {
