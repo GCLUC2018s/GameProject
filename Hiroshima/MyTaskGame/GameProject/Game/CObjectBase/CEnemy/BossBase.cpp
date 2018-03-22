@@ -167,19 +167,21 @@ void CBossBase::Hit(CObjectBase * t)
 	if (t->GetID() == eID_Effect) {
 		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
 		if (ef->GetHit() > 1.0f && !m_damage) {
-			if ((ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_headpos3D.z) < 50)||
-				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_armpos3D.z) <  50) ||
-				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_arm2pos3D.z) < 50) ||
-				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_tailpos3D.z) < 50)){
-				SOUND("SE_Panch")->Play(false);
-			//	m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
-					m_damage = true;
-					Damage(0);
-					//m_state = eKnockBack;
-				}
-				else {
-					Fall();
+			if (ef->GetEFtype() == ePanch) {
+				if (abs(ef->GetPos().z - m_headpos3D.z) < 50 ||
+					abs(ef->GetPos().z - m_armpos3D.z) < 50 ||
+					abs(ef->GetPos().z - m_arm2pos3D.z) < 50 ||
+					abs(ef->GetPos().z - m_tailpos3D.z) < 50) {
+					SOUND("SE_Panch")->Play(false);
+					//	m_flipH = !(ef->GetFrip());
+					if (m_hp >= 0) {
+						m_damage = true;
+						Damage(0);
+						//m_state = eKnockBack;
+					}
+					else {
+						Fall();
+					}
 				}
 			}
 			if (ef->GetEFtype() == eFire) {
@@ -208,15 +210,18 @@ void CBossBase::BossBress(){
 
 	switch (m_head.GetIndex()) {
 	case 0:
+		m_headpos3D.x = SCREEN_WIDTH;
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 1:
+		m_headpos3D.x -= 2;
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 2:
-		new CCharge(CVector2D(m_headpos3D.x - 30, m_headpos3D.y + 330));
+		new CCharge(CVector2D(m_headpos3D.x - 80, m_headpos3D.y + 330));
+		SOUND("SE_Mahou_Kaen")->Play(false);
 		break;
 	case 3:
 		break;
@@ -230,7 +235,7 @@ void CBossBase::BossBress(){
 		m_state = eIdol;
 		m_headpos3D.y += 10;
 		break;
-		
+
 	}
 }
 
