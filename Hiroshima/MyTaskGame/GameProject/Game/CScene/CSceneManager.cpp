@@ -46,6 +46,7 @@ void CSceneManager::SetSceneObject(int scene_num)
 //‚Ý‚ñ‚È‚ª‚¢‚¶‚Á‚Ä‚¢‚¢‚Ì‚ÍˆÈ‰º‚Ì•”•ª
 void CSceneManager::GameStartScene()
 {
+	MusicStop();
 	new CGameStart();
 }
 
