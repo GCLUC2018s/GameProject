@@ -15,6 +15,7 @@ class CUiManager
 private:
 	static CUiManager* mp_Instance;
 	Ui *m_ui;	//主人公のアドレス
+	int m_mytotalscore;		//追加
 	/// コンストラクタ
 	CUiManager();
 public:
@@ -43,6 +44,8 @@ public:
 	@brief	更新処理
 	**/
 	void Update();
+	int getMyTotalScore(){ return m_mytotalscore; };
+	void setMyTotalScore(int s){ m_mytotalscore = s; };
 };
 
 #endif __UI_MANAGER_HPP__// #ifndef __ENEMY_MANAGER_HPP__
