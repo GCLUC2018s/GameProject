@@ -78,10 +78,14 @@ void CEnemy2::Move() {
 	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
 	m_cnt++;
 	m_pos3D += m_vec3D;
-	if (m_pos3D.x - m_scroll.x < 0)
+	if (m_pos3D.x - m_scroll.x < 0) {
+		m_pos3D.x = 0 - m_scroll.x;
 		m_flipH = false;
-	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+	}
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X) {
+		m_pos3D.x = SCREEN_WIDTH - ENEMY_SIZ_X - m_scroll.x;
 		m_flipH = true;
+	}
 	m_pleneVec = PL->GetPos() - m_pos3D;
 	if (m_cnt == 1) {
 		if (m_pleneVec.Length() >= 512) {

@@ -1,4 +1,5 @@
 #include "BossBase.h"
+#include "../CEffectBase/CEffectBase.h"
 #include "../CCharge.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
@@ -9,6 +10,7 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_headvec3D = CVector3D(0, 0, 0);
 	m_down = false;
 	m_downtime = 0;
+	m_end_flag = false;
 }
 
 
@@ -78,8 +80,17 @@ void CBossBase::Attack( int boss_id) {
 	}
 }
 
-void CBossBase::Fall( int boss_id) {
-
+void CBossBase::Fall() {
+	if (m_end_flag == false) {
+		m_end_flag = true;
+		m_color.w = 2.0;
+	}
+	if (m_end_flag) {
+		m_color.w -= 0.02;
+	}
+	if (m_color.w < -1.0) {
+		SetKill();
+	}
 }
 
 void CBossBase::Damage( int boss_id) {
@@ -141,6 +152,46 @@ void CBossBase::Draw() {
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }
+<<<<<<< .mine
+
+
+void CBossBase::Hit(CObjectBase * t)
+{
+	if (t->GetID() == eID_Effect) {
+		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
+		if (ef->GetHit() > 1.0f) {
+			if ((ef->GetEFtype() == ePanch && abs(ef->GetPos().y + m_headpos3D.y) < 20)||
+				(ef->GetEFtype() == ePanch && abs(ef->GetPos().y + m_armpos3D.y) < 20) ||
+				(ef->GetEFtype() == ePanch && abs(ef->GetPos().y + m_arm2pos3D.y) < 20) ||
+				(ef->GetEFtype() == ePanch && abs(ef->GetPos().y + m_tailpos3D.y) < 20)){
+				SOUND("SE_Panch")->Play(false);
+				m_flipH = !(ef->GetFrip());
+				if (m_hp >= 0) {
+					m_damage = true;
+					//m_state = eKnockBack;
+					m_hp--;
+				}
+				else {
+					Fall();
+				}
+			}
+			if (ef->GetEFtype() == eFire) {
+				if (m_deathblow) {
+					m_hp = -1;
+				}
+				m_flipH = !(ef->GetFrip());
+				if (m_hp >= 0) {
+					m_damage = true;
+					//m_state = eKnockBack;
+				}
+				else {
+					Fall();
+				}
+			}
+		}
+	}
+}
+=======
 
 void CBossBase::BossBress(){
 	m_headpos3D += m_headvec3D;
@@ -174,3 +225,11 @@ void CBossBase::BossBress(){
 		
 	}
 }
+
+
+
+
+
+
+
+>>>>>>> .theirs
