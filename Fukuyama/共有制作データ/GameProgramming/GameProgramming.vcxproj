@@ -89,6 +89,7 @@
     <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CMain.cpp" />
     <ClCompile Include="CSceneGame.cpp" />
+    <ClCompile Include="CScore.cpp" />
     <ClCompile Include="CVector3.cpp" />
     <ClCompile Include="draw\CRectangle.cpp" />
     <ClCompile Include="draw\CTexture.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="CKey.h" />
     <ClInclude Include="CMain.h" />
     <ClInclude Include="CSceneGame.h" />
+    <ClInclude Include="CScore.h" />
     <ClInclude Include="draw\CRectangle.h" />
     <ClInclude Include="draw\CTexture.h" />
     <ClInclude Include="draw\scroll.h" />
