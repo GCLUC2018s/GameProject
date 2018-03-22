@@ -99,6 +99,9 @@
     <ClCompile Include="object\C_Spray.cpp">
       <Filter>ソース ファイル\object</Filter>
     </ClCompile>
+    <ClCompile Include="CScore.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CKey.h">
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="object\C_Spray.h">
       <Filter>ソース ファイル\object</Filter>
+    </ClInclude>
+    <ClInclude Include="CScore.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

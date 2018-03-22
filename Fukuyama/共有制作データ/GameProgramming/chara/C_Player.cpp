@@ -34,9 +34,13 @@ void C_Player::Update(){
 	if (m_SprayInterval <= SPRAY_INTERVAL)m_SprayInterval++;
 	//スプレーを再使用可能状態に変更	
 	if (m_Anime_Spray >= SPRAY_ANIME)m_Spray = E_NSPRAY;
+	//ダメージ後無敵時間用変数を回します
+	if (m_DamageInterval <= NODAMAGETIME)m_DamageInterval++;
+	//ダメージ後無敵時間を終了します
+	if (m_DamageInterval >= NODAMAGETIME)m_Damage = E_NDAMAGE;
 
-	//もし着地モーション中なら操作ができない
-	if (m_Anime_Jump > JUMP_ANIME){
+	//もし着地モーション中、または、被ダメモーション中なら操作ができない
+	if (m_Anime_Jump > JUMP_ANIME&&m_DamageInterval>=15){
 
 		//設置モーション中でなければCキーでカラーボールを投げます
 		if (CKey::Once('C')
@@ -186,128 +190,274 @@ void C_Player::Draw(){
 	//影の描画
 	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom - 3, i_Shadow.m_Top - 3, 630, 720, 275, 140);
 
-	//ジャンプしていない。かつ、投げモーション中でない。
-	if (m_Jump == E_NJUMP
-		&&m_Throw == E_NTHROW
-		&&m_Set == E_NSET
-		&&m_Spray==E_NSPRAY){
-
-		//着地アニメーション
-		if (m_Anime_Jump <= JUMP_ANIME){
+	if (m_Damage == E_DAMAGE){
+		if (m_DamageInterval <= 15){
 			if (m_Turn == E_RIGHT)
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 630, 275, 140);
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 810, 275, 140);
 			else if (m_Turn == E_LEFT)
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 540, 275, 140);
+				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 810, 720, 275, 140);
 		}
-		//着地硬直中でないなら
-		else if (m_Anime_Jump > JUMP_ANIME){
+		if (m_DamageInterval % 10 < 7 && m_DamageInterval>15){
+			//ジャンプしていない。かつ、投げモーション中でない。
+			if (m_Jump == E_NJUMP
+				&&m_Throw == E_NTHROW
+				&&m_Set == E_NSET
+				&&m_Spray == E_NSPRAY){
 
-			//移動用のキー入力があるなら
-			if (CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN)){
+				//着地アニメーション
+				if (m_Anime_Jump <= JUMP_ANIME){
+					if (m_Turn == E_RIGHT)
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 630, 275, 140);
+					else if (m_Turn == E_LEFT)
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 540, 275, 140);
+				}
+				//着地硬直中でないなら
+				else if (m_Anime_Jump > JUMP_ANIME){
 
-				//ランニングアニメーションの描画
-				RunAnime(&i_Chara_Motion_2, E_PLAYER);
+					//移動用のキー入力があるなら
+					if (CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN)){
 
+						//ランニングアニメーションの描画
+						RunAnime(&i_Chara_Motion_2, E_PLAYER);
+
+					}
+					else{
+						m_Anime = -1;       //アニメーションを0～の範囲で行うので、使用しない時はー１とします。
+
+						//待機絵の描画
+						TaikiAnime(&i_Chara_Motion_2, E_PLAYER);
+					}
+				}
 			}
-			else{
-				m_Anime = -1;       //アニメーションを0～の範囲で行うので、使用しない時はー１とします。
 
-				//待機絵の描画
-				TaikiAnime(&i_Chara_Motion_2, E_PLAYER);
+			//ジャンプ中のアニメーション
+			if (m_Jump == E_JUMP){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Speed.y > 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 450, 275, 140);
+					}
+					else if (m_Speed.y < 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 540, 275, 140);
+					}
+				}
+				//左向き
+				else if (m_Turn == E_LEFT){
+					if (m_Speed.y > 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 360, 275, 140);
+					}
+					else if (m_Speed.y < 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 450, 275, 140);
+					}
+				}
+			}
+
+
+			//投げアニメーション
+			if (m_Throw == E_THROW){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 720, 140, 5);
+					}
+					else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 810, 140, 5);
+					}
+				}
+				//右向き
+				else if (m_Turn == E_LEFT){
+					if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 630, 140, 5);
+					}
+					else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 810, 720, 140, 5);
+					}
+				}
+			}
+
+
+			//設置アニメーション
+			if (m_Set == E_SET){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 270, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 360, 275, 140);
+					}
+				}
+				//左向き
+				else if (m_Turn == E_LEFT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 180, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 270, 275, 140);
+					}
+				}
+			}
+
+
+			//スプレーアニメーション
+			if (m_Spray == E_SPRAY){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 180, 275, 140);
+					}
+				}
+				//左向き
+				else if (m_Turn == E_LEFT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 90, 275, 140);
+					}
+				}
 			}
 		}
 	}
 
-	//ジャンプ中のアニメーション
-	if (m_Jump == E_JUMP){
-		//右向き
-		if (m_Turn == E_RIGHT){
-			if (m_Speed.y > 0){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 450, 275, 140);
+	else if (m_Damage == E_NDAMAGE){
+			//ジャンプしていない。かつ、投げモーション中でない。
+			if (m_Jump == E_NJUMP
+				&&m_Throw == E_NTHROW
+				&&m_Set == E_NSET
+				&&m_Spray == E_NSPRAY){
+
+				//着地アニメーション
+				if (m_Anime_Jump <= JUMP_ANIME){
+					if (m_Turn == E_RIGHT)
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 630, 275, 140);
+					else if (m_Turn == E_LEFT)
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 540, 275, 140);
+				}
+				//着地硬直中でないなら
+				else if (m_Anime_Jump > JUMP_ANIME){
+
+					//移動用のキー入力があるなら
+					if (CKey::Push(VK_LEFT) || CKey::Push(VK_RIGHT) || CKey::Push(VK_UP) || CKey::Push(VK_DOWN)){
+
+						//ランニングアニメーションの描画
+						RunAnime(&i_Chara_Motion_2, E_PLAYER);
+
+					}
+					else{
+						m_Anime = -1;       //アニメーションを0～の範囲で行うので、使用しない時はー１とします。
+
+						//待機絵の描画
+						TaikiAnime(&i_Chara_Motion_2, E_PLAYER);
+					}
+				}
 			}
-			else if (m_Speed.y < 0){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 540, 275, 140);
+
+			//ジャンプ中のアニメーション
+			if (m_Jump == E_JUMP){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Speed.y > 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 450, 275, 140);
+					}
+					else if (m_Speed.y < 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 540, 275, 140);
+					}
+				}
+				//左向き
+				else if (m_Turn == E_LEFT){
+					if (m_Speed.y > 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 360, 275, 140);
+					}
+					else if (m_Speed.y < 0){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 450, 275, 140);
+					}
+				}
 			}
-		}
-		//左向き
-		else if (m_Turn == E_LEFT){
-			if (m_Speed.y > 0){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 450, 360, 275, 140);
-			}
-			else if (m_Speed.y < 0){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 540, 450, 275, 140);
-			}
-		}
-	}
 
 
-	//投げアニメーション
-	if (m_Throw == E_THROW){
-		//右向き
-		if (m_Turn == E_RIGHT){
-			if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 720, 140, 5);
+			//投げアニメーション
+			if (m_Throw == E_THROW){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 720, 140, 5);
+					}
+					else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 810, 140, 5);
+					}
+				}
+				//右向き
+				else if (m_Turn == E_LEFT){
+					if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 630, 140, 5);
+					}
+					else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 810, 720, 140, 5);
+					}
+				}
 			}
-			else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 810, 140, 5);
-			}
-		}
-		//右向き
-		else if (m_Turn == E_LEFT){
-			if (m_Anime_Throw <= THROW_ANIME_INTERVAL){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 720, 630, 140, 5);
-			}
-			else if (m_Anime_Throw <= (THROW_ANIME_INTERVAL * 2)){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 810, 720, 140, 5);
-			}
-		}
-	}
 
 
-	//設置アニメーション
-	if (m_Set == E_SET){
-		//右向き
-		if (m_Turn == E_RIGHT){
-			if (m_Anime_Set <= SET_ANIME_INTERVAL){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 270, 275, 140);
+			//設置アニメーション
+			if (m_Set == E_SET){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 270, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 360, 275, 140);
+					}
+				}
+				//左向き
+				else if (m_Turn == E_LEFT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 180, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 270, 275, 140);
+					}
+				}
 			}
-			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 360, 275, 140);
-			}
-		}
-		//左向き
-		else if (m_Turn == E_LEFT){
-			if (m_Anime_Set <= SET_ANIME_INTERVAL){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 270, 180, 275, 140);
-			}
-			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 2)){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 360, 270, 275, 140);
-			}
-		}
-	}
 
 
-	//スプレーアニメーション
-	if (m_Spray == E_SPRAY){
-		//右向き
-		if (m_Turn == E_RIGHT){
-			if (m_Anime_Set <= SET_ANIME_INTERVAL){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 275, 140);
-			}
-			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 180, 275, 140);
+			//スプレーアニメーション
+			if (m_Spray == E_SPRAY){
+				//右向き
+				if (m_Turn == E_RIGHT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 0, 90, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 180, 275, 140);
+					}
+				}
+				//左向き
+				else if (m_Turn == E_LEFT){
+					if (m_Anime_Set <= SET_ANIME_INTERVAL){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 275, 140);
+					}
+					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
+						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 90, 275, 140);
+					}
+				}
 			}
 		}
-		//左向き
-		else if (m_Turn == E_LEFT){
-			if (m_Anime_Set <= SET_ANIME_INTERVAL){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 90, 0, 275, 140);
-			}
-			else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
-				i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 90, 275, 140);
+
+		//HP描画
+		if (m_Player_HP >= 1){
+			HP_Tex.DrawImage(-480, -400, -430, -350, 0, 128, 128, 0);
+			if (m_Player_HP >= 2){
+				HP_Tex.DrawImage(-390, -310, -430, -350, 0, 128, 128, 0);
+				if (m_Player_HP >= 3){
+					HP_Tex.DrawImage(-300, -220, -430, -350, 0, 128, 128, 0);
+				}
 			}
 		}
-	}
 }
 
 bool C_Player::Collision(CTask* a, CTask* b){
@@ -320,11 +470,19 @@ bool C_Player::Collision(CTask* a, CTask* b){
 			q->m_Position.x += q->m_Colimage.m_AdjustX;
 			q->m_Position.z += q->m_Colimage.m_AdjustZ;
 
-			if (m_Player_HP > 0){
+			if (m_Player_HP > 0&&m_Damage==E_NDAMAGE){
 				m_Player_HP -= 1;
-				//ゲームオーバーシーンを表示
-			}
+				m_Damage = E_DAMAGE;
+				m_DamageInterval = 0;
 
+				/*
+				if(m_Player_HP==0){
+				GameOver.DrawImage(-600,600,-450,450,0,1200,900,0);
+				}
+				ゲームオーバーシーンを表示
+				*/
+
+			}
 		}
 	}
 	return true;

@@ -5,8 +5,6 @@
 #include "task/CTaskManager.h"
 #include "draw/CRectangle.h"
 
-#define ICON_SIZE 90          //ƒAƒCƒRƒ“‚Ìˆê•Ó‚Ì’·‚³
-
 class Hagi:public CTask{
 public:
 	Hagi()

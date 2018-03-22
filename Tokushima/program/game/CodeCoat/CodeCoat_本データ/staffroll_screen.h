@@ -6,6 +6,9 @@
 #include "Scene\SceneBase.h"
 
 const int GAMECLEAR_TIME = (46 * 1000);
+const int STRING_COUNT = 9;//流れる文字列の個数
+
+enum FONT_HANDLE{ A = 0,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z };
 
 //セレクトスクリーンクラス
 class CStaffRollScreen : public CSceneBase
@@ -24,7 +27,8 @@ private:
 	int m_count;
 	int m_largefont;
 	int m_lasttime;
-	int scroll[19];
+	int scroll[STRING_COUNT];
+	int m_font[26];
 	int m_rogoimage;
 	int clear_BGM;
 };
