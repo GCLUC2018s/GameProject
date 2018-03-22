@@ -79,7 +79,7 @@ void CPlayerControl::Update(){
 			}
 
 			if (m_playerstate == P_PURGE_ACTIVE){
-				m_jumppower += GRAVITY / 2;
+				m_jumppower += GRAVITY / 2 + GRAVITY / 3 + GRAVITY / 12;
 				if (m_upper_ac == 14){
 					m_playerstate = P_PURGE;
 					m_upper_playerstate = Move;
@@ -139,10 +139,8 @@ void CPlayerControl::Update(){
 			if ((int)m_gear == 8){
 			m_gear = m_gear + m_BodyPos.getX() / (ONE_GEAR_SPACE) / 3;
 			}
-			clsDx();
-			printfDx("%f", m_gear);
 			if ((int)m_gear == 0){
-				m_gear = 0.0f;
+				m_gear = 0.0f + m_purge;
 			}
 
 
@@ -175,7 +173,7 @@ void CPlayerControl::Update(){
 
 			//パージ
 			if (key & PAD_INPUT_5 && key & PAD_INPUT_6){
-				//if (m_Equipment[WEAPON].m_name != NONE && m_Equipment[ARMOR].m_name != NONE &&m_Equipment[ITEM].m_name != NONE){
+				if (m_Equipment[WEAPON].m_name != NONE && m_Equipment[ARMOR].m_name != NONE &&m_Equipment[ITEM].m_name != NONE){
 					//アニメーション
 					m_playerstate = P_PURGE_ACTIVE;
 					m_upper_playerstate = Move;
@@ -183,7 +181,7 @@ void CPlayerControl::Update(){
 					m_upper_ac = 0;
 					m_upper_animcounter = 0;
 					m_jumping = true;
-					m_jumppower = JUMP_POWER;
+					m_jumppower = 300;
 					
 					//装備を外す
 					for (int i = WEAPON; i != EQUIPMENT_COUNT; i++){
@@ -203,7 +201,7 @@ void CPlayerControl::Update(){
 							(*it)->SetLive(false);
 						}
 					}
-			//	}
+				}
 			}
 
 			//攻撃
@@ -553,6 +551,7 @@ void CPlayerControl::Draw(){
 			break;
 		case P_PURGE:
 			switch (m_upper_playerstate){
+			case Stand:
 			case Move:
 				DrawGraph((int)m_BodyPos.getX(), (int)m_BodyPos.getY() + m_BodyPos.getZ(), m_heroUpperimg[m_playerstate][(m_upper_ac % 8)], TRUE);
 				break;
