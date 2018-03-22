@@ -257,9 +257,9 @@ TexAnim _Boss_ShowerLaser_anim[] = {
 };
 
 TexAnim _Boss_Down_anim[] = {
-	{ 48,1000 },
-	{ 48,1 },
-	{ 48,1 },
+	{ 48,2000 },
+	{ 48,10 },
+	{ 48,10 },
 
 
 };

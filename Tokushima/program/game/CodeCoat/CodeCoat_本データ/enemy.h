@@ -20,9 +20,12 @@ class CEnemy :public CTask{
 private:
 	int m_hp;
 	int m_type;
-	int m_img;
+	int m_img[7];
 	int m_distance;
 	int m_attackrate;
+	int m_animframe;	//画像の切り替え				追加
+	int m_animcounter;	//切り替えのためのカウント		追加
+	bool m_animflag;	//アニメーションフラグ			追加
 	bool m_living;
 	CVector3D m_pos;
 public:

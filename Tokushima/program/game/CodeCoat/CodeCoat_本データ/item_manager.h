@@ -17,6 +17,7 @@ private:
 	std::vector<CIdata*> m_ItemList;
 	int			m_Elapsed;
 	int m_img[ITEMCOUNT];
+	float m_price[ITEMCOUNT];
 	/// コンストラクタ
 	CItemManager();
 public:
@@ -52,7 +53,9 @@ public:
 
 	//アイテムの生成をする
 	CItemData* makeItem(int num);
-
+	
+	//アイテムの売値を返却
+	float get_itemprice(ItemName name){ return m_price[name]; }
 	//画像を返す
 	int getImg(int num);
 

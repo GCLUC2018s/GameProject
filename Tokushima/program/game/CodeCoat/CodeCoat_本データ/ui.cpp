@@ -14,7 +14,7 @@ m_score_magnification(0)
 }
 
 Ui::Ui(CVector3D p_pos) :CTask(0,eUDP_Ui,eDWP_Ui),
-m_score_img(LoadGraph("media\\img\\score.png" ,TRUE)),
+m_score_img(LoadGraph("media\\img\\score2.png" ,TRUE)),
 m_map_img(LoadGraph("media\\img\\map.png", TRUE)),
 m_scorearrow_img(LoadGraph("media\\img\\power-arrow1.png", TRUE)),
 m_combotxt_img(LoadGraph("media\\img\\combo.png",TRUE)),
@@ -26,7 +26,8 @@ m_timelimit(99.9f),
 m_score_magnification(1),
 m_comb_flag(false),
 m_c_angle(COMB_MOVE_X),
-m_past_comb(0)
+m_past_comb(0),
+m_ndm_magnification(0)
 {
 	LoadDivGraph("media\\img\\time-number.png",12,6,2,70,70,m_timer_img);
 	LoadDivGraph("media\\img\\score_number2.png",12,10,2,40,40,m_scorenum_img);
@@ -45,7 +46,7 @@ Ui::~Ui()
 void Ui::Update(){
 	const float offset = 50;
 	CVector3D p_pos = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos();
-	float _totalmove = CMapManager::GetInstance()->GetPlayerAdress()->getTotalmovement();
+	float _totalmove = CMapManager::GetInstance()->GetMapAdress()->getTotalmovement();
 	float _move = 0;
 
 	//タイマーをプレイヤーに追従させる処理
@@ -272,4 +273,8 @@ void Ui::scoreAddition(){		//追加
 			CPlayerManager::GetInstance()->setNdmFalg(false);
 		}
 	}
+}
+
+void Ui::scoreFluctuation(int points){
+	m_totalscore += points;
 }

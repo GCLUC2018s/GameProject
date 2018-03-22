@@ -18,7 +18,6 @@ void CEnemyManager::clearInstance(){
 }
 
 CEnemyManager::CEnemyManager(){
-	LoadFile();
 }
 
 void CEnemyManager::LoadFile(){

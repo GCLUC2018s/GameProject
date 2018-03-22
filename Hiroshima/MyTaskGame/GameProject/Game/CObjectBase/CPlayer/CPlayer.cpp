@@ -5,6 +5,7 @@
 #include "../CItem/COhuda/COhuda.h"
 #include "../CPanchEF/CPanchEF.h"
 
+
 #define PL_CENTER_X 64
 #define PL_CENTER_Y 24
 
@@ -16,7 +17,7 @@
 
 */
 
-CPlayer::CPlayer() :CObjectBase(eID_Player, eU_Player, eD_Object), m_scoreF("HG行書体",40){
+CPlayer::CPlayer(const int HP) :CObjectBase(eID_Player, eU_Player, eD_Object), m_scoreF("HG行書体",40){
 	m_scroll = CVector2D(0, 0);
 	m_vec3D = CVector3D(0, 0, 0);
 	m_pos3D = CVector3D(PL_CENTER_X, 0, 0);
@@ -111,9 +112,9 @@ void CPlayer::Update() {
 		m_vec3D.z = 0;
 	}
 
-	if (m_hp == 0 && !m_die) {
+	if ((m_hp % 10 == 0 || m_hp <= 0) && m_hp < PLAYER_HP && !m_die) {
 		m_state = eFall;
-		m_die = 1 ;
+		m_die = 1;
 		m_cnt = 0;
 	}
 	
@@ -226,23 +227,26 @@ void CPlayer::Nutral() {
 		m_squat = true;
 		m_anim = eAnimSquat;
 	}
+	CObjectBase *gr = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Ground));
 
-	//落下中なら
-	if (m_vec3D.y > 0 &&
-		//位置判定
-		1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
-		//一番奥にいたら
-		m_pos3D.z == -400) {
-		m_pos3D.y = -448;
-		m_vec3D.y = 0;
-		m_jump = false;
-		SOUND("SE_LANDING")->Play(false);
-		m_roof = true;
-	}
-	else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
-		m_jump = true;
-		m_roof = false;
-	}
+		//落下中なら
+		if (m_vec3D.y > 0 ) {	
+			//通常ステージで
+			if (gr->GetState() == eNomalGround &&
+				//一番奥にいたら
+				1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
+				m_pos3D.z == -400) {
+				m_pos3D.y = -448;
+				m_vec3D.y = 0;
+				m_jump = false;
+				SOUND("SE_LANDING")->Play(false);
+				m_roof = true;
+			}
+		}
+		else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+			m_jump = true;
+			m_roof = false;
+		}
 
 	//移動
 	if (!m_squat) {
@@ -370,39 +374,40 @@ void CPlayer::Damage() {
 		m_state = eNutral;
 	}
 }
-
+//吹っ飛び時処理
 void CPlayer::Fall() {
 	m_cnt++;
 	if (m_cnt == 20) {
-		if(m_flipH)
+		if (m_flipH)
 			m_vec3D.x = damage_vec.x;
 		else
 			m_vec3D.x = -damage_vec.x;
 		m_vec3D.y = damage_vec.y;
 	}
-	if(m_cnt >= 20)
-		if(m_die != 4)
-			m_vec3D = Die(m_vec3D); 
+	if (m_cnt >= 20)
+		if (m_die != 4)
+			m_vec3D = Die(m_vec3D);
 	m_anim = eAnimFall;
 	//x減速
-	if(m_flipH)
+	if (m_flipH)
 		m_vec3D.x = Price_Down(m_vec3D.x, 0, 0.05f);
 	else
 		m_vec3D.x = Price_Up(m_vec3D.x, 0, 0.05f);
+	if (m_img.GetIndex() == 2 && m_vec3D.y == 0 && m_hp <= 0)
+		new CBB(0, 3, false);
 	//起き上がり
 	if (!m_die) {
 		//フラグ初期化
 		m_die = 0;
+		m_hp-=2;
 		m_state = eNutral;
 		//その他諸々
 		damage_vec.y = -10;
 		m_cnt = 0;
 		m_anim = eAnimIdol;
-		if(!m_hp)
-		m_hp = 10;
 	}
 }
-//吹っ飛び
+//吹っ飛び動き
 CVector3D CPlayer::Die(CVector3D vec) {
 	m_vec3D.z = 0;
 	m_vec3D.y += GRAVITY_DIE;

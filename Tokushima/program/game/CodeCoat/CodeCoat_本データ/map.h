@@ -12,7 +12,7 @@ using namespace std;
 
 
 const int IMAGECOUNT = 3;
-const int GOAL_POINT = 8000;		//ゴール地点
+const int GOAL_POINT = 16000;		//ゴール地点8000
 
 
 class CMapControl : public CTask{

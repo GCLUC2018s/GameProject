@@ -45,7 +45,7 @@ void CMapManager::Finish()
 }
 
 // アイテムのリスト取得
-CMapControl* CMapManager::GetPlayerAdress() const
+CMapControl* CMapManager::GetMapAdress() const
 {
 	return m_map;
 }

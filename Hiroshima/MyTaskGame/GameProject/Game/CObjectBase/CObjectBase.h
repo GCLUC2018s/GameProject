@@ -45,6 +45,8 @@ protected:
 		eKnockBack,    //ノックバック
 		eFall,			//倒れる
 		eMove,         //移動
+		eNomalGround,
+		eBossGround,
 	};
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);

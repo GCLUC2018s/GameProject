@@ -2,8 +2,8 @@
 #define BOSSBASEGUARD
 
 //ボスの各部位のサイズ
-#define BOSS_SIZ_X 384
-#define BOSS_SIZ_Y 384
+#define BOSS_SIZ_X 500
+#define BOSS_SIZ_Y 500
 
 //ノックバックする速度
 #define KNOCKBACK_SPEED 8
@@ -14,7 +14,8 @@
 
 #define BOSS_DOWN_SPEED 0.1f
 
-#define BOSS_POS_Y -200 
+#define BOSS_POS_Y 100 
+#define BOSS_POS_DOWN_Y 300 
 
 #include "../GameProject/GAME/CObjectBase/CObjectBase.h"
 
