@@ -14,6 +14,6 @@ CSake::~CSake() {
 }
 void CSake::Action(CObjectBase * a) {
 	CPlayer* PL = dynamic_cast<CPlayer*>(a);
-	PL->SetHP(5);
+	PL->SetHP(2);
 	m_score += 10;
 }

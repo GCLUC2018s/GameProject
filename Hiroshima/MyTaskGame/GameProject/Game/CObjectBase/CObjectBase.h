@@ -49,6 +49,10 @@ protected:
 		eBossGround,
 	};
 public:
+	//”½“]ƒtƒ‰ƒOæ“¾
+	bool GetFrip() {
+		return m_flipH;
+	};
 	CObjectBase(int id, int updatePrio, int drawPrio);
 	//À•Wæ“¾
 	CVector3D GetPos() {

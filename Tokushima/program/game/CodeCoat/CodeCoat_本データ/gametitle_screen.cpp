@@ -53,8 +53,10 @@ void CTitleScreen::Update()
 		m_drawtime = m_count / 45 % 2;
 	}
 
-	if (m_start && m_titlename_pos.getX() < -720.0f)
+	if (m_start && m_titlename_pos.getX() < -720.0f){
 		m_state = GAME_SCREEN;
+		StopSoundMem(CSeManager::GetInstance()->getsnd(TITLE_BGM));
+	}
 
 }
 
