@@ -18,13 +18,6 @@ void CSceneGame::Update(){
 	{
 	case 0:
 		//タイトル画面
-		//mTexture2.DrawImage(-600, 600, -440, 450, 0, 90, 90, 0);
-		//if (C_Collider::Collision(Player, Enemy, &Player->i_JumpPoint, &Enemy->m_Position)){
-		//	Enemy->m_Position.x += Enemy->m_Colimage.m_AdjustX;
-		//	Enemy->m_Position.z += Enemy->m_Colimage.m_AdjustZ;
-		//	Enemy->m_Position.x += Enemy->m_Colimage.m_AdjustX;
-		//	Enemy->m_Position.z += Enemy->m_Colimage.m_AdjustZ;
-		//}
 		if (GetKeyState(VK_RETURN) & 0x8000){
 			//プレイ画面に移動
 			GameScene = 1;
