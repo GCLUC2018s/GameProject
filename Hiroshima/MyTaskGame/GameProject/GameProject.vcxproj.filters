@@ -145,6 +145,9 @@
     <ClCompile Include="Game\CObjectBase\CBress.cpp">
       <Filter>Game\Object\UI\Effect\Bress</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CObjectBase\CBeam.cpp">
+      <Filter>Game\Object\UI\Effect\Beam</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GID.h" />
@@ -307,6 +310,9 @@
     <ClInclude Include="Game\CObjectBase\CBress.h">
       <Filter>Game\Object\UI\Effect\Bress</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CObjectBase\CBeam.h">
+      <Filter>Game\Object\UI\Effect\Beam</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -399,9 +405,6 @@
     <Filter Include="Game\Object\Item\Kakera">
       <UniqueIdentifier>{a0299258-6725-44a2-8bee-7babe92569b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\Item\Koban">
-      <UniqueIdentifier>{4586a8f5-d9fe-400e-b71d-1ebfd05b3a1c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\Object\Item\Oage">
       <UniqueIdentifier>{b52a445e-b919-4744-a118-587abc320c88}</UniqueIdentifier>
     </Filter>
@@ -488,6 +491,12 @@
     </Filter>
     <Filter Include="Game\Object\UI\Effect\Bress">
       <UniqueIdentifier>{dbe60625-4497-4719-8272-9e27e5da8c2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Item\Koban">
+      <UniqueIdentifier>{4586a8f5-d9fe-400e-b71d-1ebfd05b3a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\UI\Effect\Beam">
+      <UniqueIdentifier>{ca82541a-9ec5-4df2-916d-a1493c5a66f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

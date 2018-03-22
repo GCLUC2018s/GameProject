@@ -26,6 +26,8 @@ protected:
 		eLaser,
 		eLaserShower,
 		eDown,
+		eDamage,
+		eFall,
 
 
 	};

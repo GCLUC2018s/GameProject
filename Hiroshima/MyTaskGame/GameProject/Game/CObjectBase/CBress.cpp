@@ -2,8 +2,10 @@
 
 
 CBress::CBress(CVector2D pos) {
+	m_state = eBress;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Effect_bress"));
 	m_pos2D = pos;
+	m_rect = CRect(-960, -320, 960, 0);
 	m_img.SetCenter(960, 320);
 	m_img.SetSize(960, 640);
 	CheckOverlap();
@@ -12,6 +14,7 @@ CBress::CBress(CVector2D pos) {
 void CBress::Update() {
 	if (m_img.GetIndex() == 19)
 		SetKill();
+	m_vec3D.x+= 10;
 	m_img.ChangeAnimation(0, false);
 	m_img.UpdateAnimation();
 	CheckOverlap();
@@ -20,4 +23,5 @@ void CBress::Update() {
 void CBress::Draw() {
 	m_img.SetPos(m_pos2D.x, m_pos2D.y - m_scroll.y);
 	m_img.Draw();
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_vec3D.x - m_pos3D.z / 7/*+ m_variation*/ - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 }
