@@ -145,7 +145,7 @@ bool CEnemy::Collision(CTask* a, CTask* b){
 
 void CEnemy::Draw(){
 	if (m_Position.x >= m_TargetL.x &&m_Position.x <= m_TargetR.x&&m_Position.z==m_TargetR.z||m_Position.z==m_TargetL.z){
-		EnemyTaiki(&i_Enemy_Run, E_ENEMY);    
+		//EnemyTaiki(&i_Enemy_Run, E_ENEMY);    
 	}
 	else{
 	RunAnime(&i_Enemy_Run, E_ENEMY);

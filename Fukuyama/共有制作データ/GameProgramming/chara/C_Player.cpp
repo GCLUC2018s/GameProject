@@ -118,24 +118,24 @@ void C_Player::Update(){
 				m_Turn = E_RIGHT;
 				m_Scroll += PLAYER_LR_SPEED;
 				m_Position.x += PLAYER_LR_SPEED;
-				i_JumpPoint.x += PLAYER_LR_SPEED;
+				ShadowPos.x += PLAYER_LR_SPEED;
 			}
 			//左移動
 			if (CKey::Push(VK_LEFT) && m_Position.x >= (-W_H) / 2){
 				m_Turn = E_LEFT;
 				m_Scroll -= PLAYER_LR_SPEED;
 				m_Position.x -= PLAYER_LR_SPEED;
-				i_JumpPoint.x -= PLAYER_LR_SPEED;
+				ShadowPos.x -= PLAYER_LR_SPEED;
 			}
 			//上移動
-			if (CKey::Push(VK_UP) && i_JumpPoint.z <= DISPLAY_TOP - 390){
+			if (CKey::Push(VK_UP) && ShadowPos.z <= DISPLAY_TOP - 390){
 				m_Position.z += PLAYER_UD_SPEED;
-				i_JumpPoint.z += PLAYER_UD_SPEED;
+				ShadowPos.z += PLAYER_UD_SPEED;
 			}
 			//下移動
-			if (CKey::Push(VK_DOWN) && i_JumpPoint.z >= DISPLAY_BOTTOM + 120){
+			if (CKey::Push(VK_DOWN) && ShadowPos.z >= DISPLAY_BOTTOM + 120){
 				m_Position.z -= PLAYER_UD_SPEED;
-				i_JumpPoint.z -= PLAYER_UD_SPEED;
+				ShadowPos.z -= PLAYER_UD_SPEED;
 			}
 		}
 	}
@@ -157,12 +157,12 @@ void C_Player::Update(){
 			//ジャンプの初速を再設定
 			m_Speed.y = JUMP_FIRST_SPEED;
 			//影の位置とプレイヤーの位置を同期
-			i_JumpPoint=m_Position;
+			ShadowPos = m_Position;
 			//着地時のアニメ用変数の初期化
 			m_Anime_Jump = 0;
 			//着地時誤差調整
 			m_Position.z += 18;
-			i_JumpPoint.z += 18;
+			ShadowPos.z += 18;
 		}
 	}
 
@@ -171,14 +171,14 @@ void C_Player::Update(){
 
 	//スクロール処理（キャラと影）
 	C_Object::Scroll(&m_Position, m_Scroll);
-	C_Object::Scroll(&i_JumpPoint, m_Scroll);
+	C_Object::Scroll(&ShadowPos, m_Scroll);
 
 	//キャラの描画位置をポジションと同期
 	C_Object::Rect(&m_image,&m_Position);
 	//影の描画位置をポジションと同期
-	C_Object::Rect(&i_Shadow, &i_JumpPoint);
+	C_Object::Rect(&i_Shadow, &ShadowPos);
 
-	i_JumpPoint.x = m_Position.x;
+	ShadowPos.x = m_Position.x;
 
 	//描画順番の変更
 	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);

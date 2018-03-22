@@ -18,8 +18,7 @@
 class C_Player :public C_Object{
 public:
 	C_Player() 
-		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,0)
-		, i_JumpPoint(0,0,0)
+		: C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,0)
 		, m_SetInterval(SET_INTERVAL)
 		, m_ThrowInterval(THROW_INTERVAL)
 		, m_SprayInterval(SPRAY_INTERVAL)
@@ -46,7 +45,6 @@ public:
 		m_Playerpoint = this;
 	}
 	static C_Player *m_Playerpoint;
-	C_Vector3 i_JumpPoint;
 	bool Collision(CTask*, CTask*);
 protected:
 	//テクスチャーのインスタンス宣言
