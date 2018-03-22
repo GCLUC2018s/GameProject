@@ -134,8 +134,6 @@ public:
 	void HitCheck(CTask * t1, CTask * t2);
 	//“–‚½‚Á‚½‚Ìˆ—
 	virtual void Hit(CObjectBase *t);
-	////d‚È‚èŠm”F
-	//void CheckOverlap(CObjectBase *t1, CObjectBase *t2);
 };
 
 

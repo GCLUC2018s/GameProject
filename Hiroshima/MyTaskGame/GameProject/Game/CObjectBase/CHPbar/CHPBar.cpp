@@ -3,7 +3,7 @@
 #include "../CEnemy/CBoss.h"
 #include "../GameProject/Task/CTaskManager.h"
 
-CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
+CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_HPUI, eU_UI, eD_UI)
 {
 	m_boss_flag = boss_flag;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("HP_Icon_PL"));
@@ -38,8 +38,8 @@ void CHPBar::Update()
 	}
 	if (boss) {
 		m_boss_hp = boss->GetHP();
-		CheckOverlap();
 	}
+	CheckOverlap();
 }
 
 void CHPBar::Draw()
