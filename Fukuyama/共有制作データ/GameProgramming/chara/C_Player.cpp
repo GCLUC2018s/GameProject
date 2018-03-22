@@ -322,6 +322,7 @@ void C_Player::Draw(){
 			}
 		}
 	}
+
 	else if (m_Damage == E_NDAMAGE){
 			//ジャンプしていない。かつ、投げモーション中でない。
 			if (m_Jump == E_NJUMP
@@ -443,6 +444,17 @@ void C_Player::Draw(){
 					else if (m_Anime_Set <= (SET_ANIME_INTERVAL * 3)){
 						i_Chara_Motion_2.DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 180, 90, 275, 140);
 					}
+				}
+			}
+		}
+
+		//HP描画
+		if (m_Player_HP >= 1){
+			HP_Tex.DrawImage(-480, -400, -430, -350, 0, 128, 128, 0);
+			if (m_Player_HP >= 2){
+				HP_Tex.DrawImage(-390, -310, -430, -350, 0, 128, 128, 0);
+				if (m_Player_HP >= 3){
+					HP_Tex.DrawImage(-300, -220, -430, -350, 0, 128, 128, 0);
 				}
 			}
 		}
