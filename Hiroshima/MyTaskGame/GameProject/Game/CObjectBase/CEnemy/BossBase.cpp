@@ -74,6 +74,12 @@ void CBossBase::Attack( int boss_id) {
 		if (m_tail.GetIndex() == 3) {
 			m_state = eIdol;
 			m_tailpos3D.x -= 30;
+
+	case eArm:
+		m_shaking_arm = 0;
+		m_armvec3D = CVector3D(0, 0, 0);
+		BossLaser();
+		break;
 		}
 		
 		break;
@@ -152,7 +158,6 @@ void CBossBase::Draw() {
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
 	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }
-<<<<<<< .mine
 
 
 void CBossBase::Hit(CObjectBase * t)
@@ -191,7 +196,6 @@ void CBossBase::Hit(CObjectBase * t)
 		}
 	}
 }
-=======
 
 void CBossBase::BossBress(){
 	m_headpos3D += m_headvec3D;
@@ -226,10 +230,13 @@ void CBossBase::BossBress(){
 	}
 }
 
+void CBossBase::BossLaser(){
+
+}
 
 
 
 
 
 
->>>>>>> .theirs
+

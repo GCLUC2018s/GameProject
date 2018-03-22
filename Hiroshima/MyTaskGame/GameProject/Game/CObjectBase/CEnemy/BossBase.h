@@ -73,6 +73,7 @@ public:
 	void Draw();
 	void Hit(CObjectBase * t);
 	void BossBress();
+	void BossLaser();
 	//d‚È‚èŠm”F
 	void BossCheckOverlap() {
 		if (m_headpos3D.z <= 0) {

@@ -92,7 +92,8 @@ void CBoss::Update() {
 
 	if (PUSH_ENTER) {
 		//m_state = eDown;
-		m_state = eBlessAttack;	}
+		m_state = eLaser;
+	}
 	
 	
 //m_img.ChangeAnimation(6);
@@ -177,7 +178,7 @@ void CBoss::Head() {
 		Nutral(m_parts_head);
 		break;
 	case eLaser:
-		Nutral(m_parts_head);
+		Attack(m_parts_head);
 		break;
 	case eLaserShower:
 		Nutral(m_parts_head);
@@ -207,7 +208,7 @@ void CBoss::Arm() {
 		Nutral(m_parts_arm);
 		break;
 	case eLaser:
-		Nutral(m_parts_arm);
+		Attack(m_parts_arm);
 		break;
 	case eLaserShower:
 		Nutral(m_parts_arm);
