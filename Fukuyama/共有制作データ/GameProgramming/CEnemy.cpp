@@ -5,7 +5,6 @@
 #include"math.h"
 #include"stdio.h"
 #include"CSceneGame.h"
-extern int m_EnemyCount = 0;
 struct EnemyTable{
 	float x, y, z;
 	int m_EnemyKind;
@@ -58,8 +57,8 @@ void CEnemy::Init(){
 	m_EnemyMode = E_NORMAL;
 }
 void CEnemy::Update(){
-	m_TargetR = C_Player::m_Playerpoint->i_JumpPoint;
-	m_TargetL = C_Player::m_Playerpoint->i_JumpPoint;
+	m_TargetR = C_Player::m_Playerpoint->ShadowPos;
+	m_TargetL = C_Player::m_Playerpoint->ShadowPos;
 	m_TargetR.x += 100;
 	m_TargetL.x -= 100;
 	float m_LongR = sqrtf((m_TargetR.x - m_Position.x)*(m_TargetR.x - m_Position.x)
