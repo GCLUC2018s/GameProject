@@ -99,15 +99,20 @@ void CEnemy::Update(){
 			//¶‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
 			if (m_Position.x <= m_TargetL.x){
 				m_Position.x += diaPlayerL.x / m_LongL * ENEMY_LR_SPEED;
-				m_Position.z += diaPlayerL.z / m_LongL * ENEMY_UD_SPEED;
 				m_Turn = E_RIGHT;
 
 			}
 			//‰E‘¤‚É‚¢‚é‚Æ‚«‚Ì’ÇÕˆ—
-			else{
+			if (m_Position.x >= m_TargetR.x){
 				m_Position.x += diaPlayerR.x / m_LongR * ENEMY_LR_SPEED;
-				m_Position.z += diaPlayerR.z / m_LongR * ENEMY_UD_SPEED;
+
 				m_Turn = E_LEFT;
+			}
+			if (m_Position.z >= m_TargetL.z||m_Position.z<=m_TargetL.z&&m_EnemyMode==E_RIGHT){
+				m_Position.z += diaPlayerL.z / m_LongR * ENEMY_UD_SPEED;
+			}
+			if (m_Position.z >=m_TargetR.z||m_Position.z<=m_TargetR.z&&m_EnemyMode==E_LEFT){
+				m_Position.z += diaPlayerR.z / m_LongR * ENEMY_UD_SPEED;
 			}
 		}
 		if (m_EnemyMode == E_DEAD){
@@ -139,8 +144,8 @@ bool CEnemy::Collision(CTask* a, CTask* b){
 }
 
 void CEnemy::Draw(){
-	if (m_Position.x == m_TargetL.x || m_Position.x == m_TargetR.x){
-		TaikiAnime(&i_Enemy_Run, E_ENEMY);    
+	if (m_Position.x >= m_TargetL.x &&m_Position.x <= m_TargetR.x&&m_Position.z==m_TargetR.z||m_Position.z==m_TargetL.z){
+		EnemyTaiki(&i_Enemy_Run, E_ENEMY);    
 	}
 	else{
 	RunAnime(&i_Enemy_Run, E_ENEMY);
