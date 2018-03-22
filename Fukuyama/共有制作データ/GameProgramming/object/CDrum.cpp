@@ -1,4 +1,6 @@
 #include "CDrum.h"
+#include "../CCollider.h"
+#include "../task/CTaskManager.h"
 //テクスチャクラスをインスタンス化
 CTexture mTexture;
 
@@ -10,13 +12,13 @@ void C_Drum::Dmain(){
 //アニメーションカウント
 int m_DrumAnimationCount = 30;
 //ドラム缶の移動処理
-#define Drum_Move 10
+#define Drum_Move 4
 //コンストラクタで初期化
 C_Drum::C_Drum()
 :C_Object(E_OBJ, eUDP_Object, eDWP_Object, DISPLAY_RIGHT, 0, 0)
 , m_DrumPos_Random(rand() % 3)
 {
-	mTexture.Load("../image/object/Drum.tga");
+	mTexture.Load("object/Drum.tga");
 	//0の場合、真ん中に配置
 	if (m_DrumPos_Random == 0){
 		m_Position.z += Zpos_SetPos_Center;
@@ -33,6 +35,9 @@ C_Drum::C_Drum()
 
 //更新処理
 void C_Drum::Update(){
+	m_image.SetVertex(-64, 64, -64, 64);
+	//スクロールする
+	Scroll(&m_Position, m_Scroll);
 	//画面左端に行った時
 	if (m_Position.x < DISPLAY_LEFT){
 		SetKill();
@@ -59,11 +64,36 @@ void C_Drum::Update(){
 	else{
 		m_DrumAnimationCount = 30;
 	}
+	//衝突判定
+	m_Colimage = m_image;
+
+	CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
 }
 
+bool C_Drum::Collision(CTask* p, CTask* q){
+	C_Object* ip_My = (C_Object*)p;
+	C_Object* ip_You = (C_Object*)q;
+	ip_My->m_Collision_Wide = 50;
+	if (ip_You->m_id == E_PLAYER&&
+		C_Collider::Collision(ip_My, ip_You, &ip_My->m_Position, &ip_You->m_Position)){
+		ip_You->m_Position.x += ip_You->m_Colimage.m_AdjustX;
+		ip_You->m_Position.z += ip_You->m_Colimage.m_AdjustZ;
+		ip_You->m_Position.x += ip_You->m_Colimage.m_AdjustX;
+		ip_You->m_Position.z += ip_You->m_Colimage.m_AdjustZ;
+	}
+	return true;
+}
+void C_Drum::Drum_Rect(C_Rectangle *image, const C_Vector3* pos){
+	image->m_wide = (image->m_Right - image->m_Left) / 2;  //ポジションからC_Rectangleの左右までの距離
+	image->m_high = (image->m_Top - image->m_Bottom) / 2;  //高さ
+	image->m_Right = pos->x + image->m_wide;
+	image->m_Left = pos->x - image->m_wide;
+	image->m_Bottom = pos->z - image->m_high;
+	image->m_Top = pos->z + image->m_high;
+	return;
+}
 //描画処理
 void C_Drum::Draw(){
-	m_image.SetVertex(-64, 64, -64, 64);
-	Rect(&m_image, &m_Position);
+	Drum_Rect(&m_image, &m_Position);
 }
 
