@@ -65,6 +65,7 @@ Enemy_Push  push_enemy[32][32]{
 	{ 950,eHi ,CVector3D(			800 + SCREEN_WIDTH * 2, 0, -200) },
 	{ 1000,eNiku ,CVector3D(  200 + SCREEN_WIDTH * 2, 0, -50) },
 	{ 1050,eKamaitachi ,CVector3D(200 + SCREEN_WIDTH * 2, 0, -50) },
+	{ 1100,eKamaitachi ,CVector3D(200 + SCREEN_WIDTH * 2, 0, -50) },
 	{ END_CODE }
 	}
 
