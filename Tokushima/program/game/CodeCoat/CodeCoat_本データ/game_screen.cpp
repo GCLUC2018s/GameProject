@@ -28,7 +28,8 @@ CGameScreen::CGameScreen(){
 	new CPlayerControl;
 	new CNpc;
 	new CMapControl;
-	//CEnemyManager::getInstance()->LoadFile();
+	CEnemyManager::getInstance()->Init();
+	CEnemyManager::getInstance()->LoadFile();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
 }
 
@@ -48,15 +49,15 @@ void CGameScreen::Update(){
 	if (CPlayerManager::GetInstance()->GetPlayerAdress()->getlive() == false){
 		m_state = GAMEOVER_SCREEN;
 	}
-	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true){
+	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true)//{
 		GoalMove();
-	}
-	else{
+	//}
+	//else{
 		CTaskManager::GetInstance()->UpdateAll();
 		CTaskManager::GetInstance()->KillAppoint();
 		CPlayerManager::GetInstance()->Update();
 		CEnemyManager::getInstance()->Update();
-	}
+	//}
 }
 
 void CGameScreen::Draw()

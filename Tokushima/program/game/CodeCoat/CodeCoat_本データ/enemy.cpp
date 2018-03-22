@@ -97,6 +97,7 @@ void CEnemy::Update(){
 	//‰æ–Ê‚Ì”ÍˆÍŠO‚È‚çÁ‚·
 	if (m_pos.getX() < -200){
 		m_living = false;
+		CEnemyManager::getInstance()->SetComb(0);
 	}
 	else if (m_pos.getX() < SCREEN_SIZE_X){
 		m_attackrate++;

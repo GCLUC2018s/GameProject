@@ -109,3 +109,17 @@ bool IsHitBox(CVector3D pos1, CVector3D pos2,int type){
 	if ((ax1 < bx2) && (bx1 < ax2) && (ay1 < by2) && (by1 < ay2))return TRUE;
 	return FALSE;
 }
+
+bool IsHitKeyTrigger(int key, int chk){
+	static int g_akey_prev;
+	if (key & chk){
+		if (g_akey_prev == false){
+			g_akey_prev = true;
+			return true;
+		}
+	}
+	else{
+		g_akey_prev = false;
+	}
+	return false;
+}
