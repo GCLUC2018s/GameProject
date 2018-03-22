@@ -21,7 +21,8 @@ enum E_UpdatePrio
 	eUDP_Map,
 	eUDP_Bullet,
 	eUDP_Null,
-	eUDP_Ui
+	eUDP_Ui,
+	eUDP_Rank,
 };
 //ï`âÊèáèò
 enum E_DrawPrio
@@ -37,7 +38,8 @@ enum E_DrawPrio
 	eDWP_Item,
 	eDWP_Tutorial,
 	eDWP_Null,
-	eDWP_Ui
+	eDWP_Ui,
+	eDWP_Rank
 };
 
 class CTask

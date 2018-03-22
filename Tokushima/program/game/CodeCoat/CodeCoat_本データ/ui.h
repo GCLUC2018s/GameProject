@@ -37,7 +37,7 @@ const float TIMER_SKIP_X = 170.0f;			//コロンを飛ばしたときのX座標
 const int TIMER_SPACE = 35;					//タイマーの文字幅
 const int TIMER_COLON_CONT_X = 40;			//タイマーのコロンのX座標
 const int COMB_MOVE_X = 65;					//コンボの初期座標の65
-const int MAP_DISTANCE = 40;				//追加
+const float MAP_DISTANCE = 39.3f;				//追加
 
 class Ui :public CTask{
 private:
@@ -69,6 +69,8 @@ public:
 	void Draw();
 	void scoreMagnification(CVector3D *pos);	//
 	void scoreAddition();		//
+	void scoreFluctuation(int points);
+	int getTotalScore(){ return m_totalscore; };//現在のスコアを返却する	必要なので作った
 };
 
 #endif UI_H

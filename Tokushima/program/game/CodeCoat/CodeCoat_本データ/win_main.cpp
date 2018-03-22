@@ -1,6 +1,16 @@
 #include "myLib.h"
 #include "game.h"
 #include "Include.h"
+#include "player_manager.h"
+#include "Task\CTaskManager.h"
+#include "item_manager.h"
+#include "bullet_manager.h"
+#include "enemy_manager.h"
+#include "ui_manager.h"
+#include "npc_manager.h"
+#include "map_manager.h"
+#include "score_manager.h"
+
 
 CGame*	g_pMain = NULL;
 const bool WINDOW_SCREEN = true;   //true:ウィンドウ
@@ -66,4 +76,13 @@ void win_main_dest()
 	g_pMain->Dest();
 	delete g_pMain;
 	g_pMain = NULL;
+	CPlayerManager::ClearInstance();	//Play
+	CMapManager::ClearInstance();		//Map
+	CEnemyManager::clearInstance();		//Enemy
+	CItemManager::ClearInstance();		//Item
+	CBulletManager::ClearInstance();	//Bullet
+	CNpcManager::ClearInstance();		//Npc
+	CUiManager::ClearInstance();		//Ui
+	CTaskManager::ClearInstance();		//Task
+	CScoreManager::ClearInstance();		//score
 }
