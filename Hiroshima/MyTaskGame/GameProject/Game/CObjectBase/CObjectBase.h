@@ -45,6 +45,8 @@ protected:
 		eKnockBack,    //ノックバック
 		eFall,			//倒れる
 		eMove,         //移動
+		eNomalGround,
+		eBossGround,
 	};
 public:
 	CObjectBase(int id, int updatePrio, int drawPrio);
@@ -132,8 +134,6 @@ public:
 	void HitCheck(CTask * t1, CTask * t2);
 	//当たった時の処理
 	virtual void Hit(CObjectBase *t);
-	////重なり確認
-	//void CheckOverlap(CObjectBase *t1, CObjectBase *t2);
 };
 
 

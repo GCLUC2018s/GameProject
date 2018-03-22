@@ -101,7 +101,7 @@ void CEnemy4::Move() {
 		m_pleneVec = PL->GetPos() - m_pos3D;
 		if (m_cnt == 1) {
 				m_vec3D.x = m_pleneVec.GetNormalize().x * KAMAITACHI_SPEED;
-			if (m_vec3D.x < 0 && m_flipH)
+			if (m_vec3D.x < 0)
 				m_flipH = false;
 			else
 				m_flipH = true;

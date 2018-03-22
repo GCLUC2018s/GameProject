@@ -4,6 +4,10 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_shaking_head = 0;
 	m_shaking_arm = 0;
 	m_shaking_tail = 0;
+	m_shaking_head = 0;
+	m_headvec3D = CVector3D(0, 0, 0);
+	m_down = false;
+	m_downtime = 0;
 }
 
 
@@ -17,6 +21,7 @@ void CBossBase::Nutral( int boss_id) {
 		m_shaking_head += BOSS_FLOAT_HEAD;
 		//m_headvec3D.x = -cos(m_shaking_head + Utility::DgreeToRadian(90)) * 5;
 		m_headvec3D.y = -sin(m_shaking_head) * 1;
+		m_down = false;
 		break;
 	case eArm:
 		m_arm.ChangeAnimation(eAnimBossArm2Idol);
@@ -87,30 +92,39 @@ void CBossBase::Down(int boss_id) {
 	switch (boss_id)
 	{
 	case eHead:
-		
-		m_shaking_head = 0;
-		m_headvec3D = CVector3D(0, 0, 0);
-		//m_headpos3D.y = 0;
-		m_head.ChangeAnimation(eAnimBossDown);
-		for (; m_headpos3D.y < 0;)
-		{
-			m_headpos3D += m_headvec3D;
-			m_headvec3D.y += BOSS_DOWN_SPEED;
-			//break;
+	
+		m_headpos3D += m_headvec3D;
+
+		if (m_head.GetIndex() >= 1) {
+		}else {
+			m_head.ChangeAnimation(eAnimBossDown);
 		}
 
-		if (m_headpos3D.y > 0) {
-			m_headvec3D.y = 0;
-			for (; m_headpos3D.y > BOSS_POS_Y;) {
-				m_headpos3D += m_headvec3D;
-				m_headvec3D.y -= BOSS_DOWN_SPEED;
-				//break;
+		if (!m_down) {
+			if (m_headpos3D.y < BOSS_POS_DOWN_Y){
+				m_headvec3D.y += BOSS_DOWN_SPEED;
+			}else {
+				m_headvec3D.y = 0;
+				
+				if (m_downtime > BOSS_DOWN_TIME) {
+					m_down = true;
+				}else {
+					m_downtime++;
+				}
 			}
-			if (m_head.GetIndex() >= 1)
-			m_state = eIdol;
-			
-		}
 		
+		}else {
+			if (m_headpos3D.y > BOSS_POS_Y) {
+				m_headvec3D.y -= BOSS_DOWN_SPEED;
+			}else {
+				m_headvec3D.y = 0;
+			}
+			m_head.ChangeAnimation(eAnimBossHeadIdol);
+			if (m_headpos3D.y < BOSS_POS_Y)
+				m_state = eIdol;
+				m_downtime = 0;
+				
+		}		
 		break;
 	default:
 		break;

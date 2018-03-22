@@ -3,7 +3,7 @@
 #include "../CEnemy/CBoss.h"
 #include "../GameProject/Task/CTaskManager.h"
 
-CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
+CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_HPUI, eU_UI, eD_UI)
 {
 	m_boss_flag = boss_flag;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("HP_Icon_PL"));
@@ -27,19 +27,29 @@ CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
 	pl = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
 	boss = dynamic_cast<CBoss*>(CTaskManager::GetInstance()->GetTask(eID_Boss));
 
-	if (pl) m_pl_hp_base = PLAYER_HP;
-	if (boss)m_boss_hp_base = BOSS_HP;
+	if (pl) {
+		m_pl_hp_base = PLAYER_HP;
+		m_pl_hp = pl->GetHP();
+		if (m_pl_hp <= 0)
+			m_pl_hp = PLAYER_HP;
+	}
+	if (boss) {
+		m_boss_hp_base = BOSS_HP;
+		m_boss_hp = boss->GetHP();
+	}
 }
 
 void CHPBar::Update()
 {
+	pl = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
+	boss = dynamic_cast<CBoss*>(CTaskManager::GetInstance()->GetTask(eID_Boss));
 	if (pl) {
 		m_pl_hp = pl->GetHP();
 	}
 	if (boss) {
 		m_boss_hp = boss->GetHP();
-		CheckOverlap();
 	}
+	CheckOverlap();
 }
 
 void CHPBar::Draw()

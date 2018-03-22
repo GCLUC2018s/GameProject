@@ -46,11 +46,13 @@ void CSceneManager::SetSceneObject(int scene_num)
 //みんながいじっていいのは以下の部分
 void CSceneManager::GameStartScene()
 {
+	MusicStop();
 	new CGameStart();
 }
 
 void CSceneManager::TitleScene(){
 	//タイトル画面の要素ぶち込む
+	MusicStop();
 	SOUND("BGM_Title")->Play(true);
 	new CBB(0, 0, true);
 	new CTitleBG();
@@ -58,9 +60,9 @@ void CSceneManager::TitleScene(){
 
 void CSceneManager::MainScene() {
 	//メイン戦闘画面の要素ぶち込む
-	SOUND("BGM_Title")->Stop();
+	MusicStop();
 	new CBB(60 * 3, 1, true);
-	new CPlayer();
+	new CPlayer(PLAYER_HP);
 
 	//new CFire(&(CVector3D(500, 0, -100)));
 	/*new CItemBox(&(CVector3D(500, 0, -200)), 0);
@@ -79,10 +81,14 @@ void CSceneManager::MainScene() {
 
 void CSceneManager::BossScene() {
 	//ボス戦闘画面の要素ぶち込む
-	SOUND("BGM_Main")->Stop();
+	MusicStop();
 	SOUND("BGM_Boss")->Play(true);
+	CObjectBase *pl = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Player));
+	int pl_hp;
+	if(pl) pl_hp = pl->GetHP();
+	else pl_hp = PLAYER_HP;
 	new CBB(0, 0, true);
-	new CPlayer();
+	new CPlayer(pl_hp);
 	new CBossStage();
 	new CMagatama();
 	new CHPBar(true);
@@ -91,6 +97,6 @@ void CSceneManager::BossScene() {
 }
 void CSceneManager::EndScene(){
 	//エンディング画面の要素ぶち込む
-	SOUND("BGM_Main")->Stop();
+	MusicStop();
 	new CEnding();
 }

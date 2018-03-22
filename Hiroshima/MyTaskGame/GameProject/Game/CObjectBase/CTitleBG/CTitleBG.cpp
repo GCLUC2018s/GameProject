@@ -9,6 +9,7 @@ CTitleBG::CTitleBG() :CObjectBase(0, eU_Back, eD_Back)
 	m_img_rogo_s = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title_rogo_s"));
 	m_img_start = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title_start"));
 	m_img_start_2 = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title_start"));
+	m_img_huda = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Title_huda"));
 
 	m_img_start_2.SetCenter(START_SIZ_X / 2, START_SIZ_Y / 2);
 	//SIZ
@@ -20,8 +21,8 @@ CTitleBG::CTitleBG() :CObjectBase(0, eU_Back, eD_Back)
 	m_img_start_2.SetSize(m_st_siz);
 	//POS
 	m_img.SetPos(0, 0);
-	m_img_rogo.SetPos(688, -83);
-	m_img_rogo_s.SetPos(688, -83);
+	m_img_rogo.SetPos(749, 0);
+	m_img_rogo_s.SetPos(749, 0);
 	m_img_start.SetPos(820, 595);
 	m_img_start_2.SetPos(820 + m_st_siz.x, 595 + m_st_siz.y);
 	//col
