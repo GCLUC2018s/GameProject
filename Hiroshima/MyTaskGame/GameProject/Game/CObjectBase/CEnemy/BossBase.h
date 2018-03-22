@@ -2,8 +2,8 @@
 #define BOSSBASEGUARD
 
 //ボスの各部位のサイズ
-#define BOSS_SIZ_X 384
-#define BOSS_SIZ_Y 384
+#define BOSS_SIZ_X 500
+#define BOSS_SIZ_Y 500
 
 //ノックバックする速度
 #define KNOCKBACK_SPEED 8
