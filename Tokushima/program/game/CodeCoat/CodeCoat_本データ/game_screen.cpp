@@ -94,7 +94,8 @@ void CGameScreen::GoalMove(){
 				m_stop_pos = CLEAR_TEXT_X2;
 			}
 			else{ 
-				m_state = GAMESCORE_SCREEN; 
+				m_state = GAMESCORE_SCREEN;
+				CUiManager::GetInstance()->setMyTotalScore(CUiManager::GetInstance()->GetPlayerAdress()->getTotalScore());
 			}
 		}
 		m_count1++;

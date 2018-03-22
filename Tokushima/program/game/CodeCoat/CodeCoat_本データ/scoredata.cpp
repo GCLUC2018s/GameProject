@@ -1,4 +1,5 @@
 #include "scoredata.h"
+#include "ui_manager.h"
 
 ScoreData::ScoreData() :
 CTask(0, eUDP_Rank,eDWP_Rank),
@@ -54,7 +55,7 @@ void ScoreData::roadFile(){
 
 void ScoreData::Update(){
 	int tempC1;
-	int tempC2 = 0;//m_total.score;
+	int tempC2 = CUiManager::GetInstance()->getMyTotalScore();//m_total.score;
 	if (m_rankingData[m_updateNum + 1].Aflag == true){
 		m_rankingData[m_updateNum + 1].Acount2 += 6;
 	}

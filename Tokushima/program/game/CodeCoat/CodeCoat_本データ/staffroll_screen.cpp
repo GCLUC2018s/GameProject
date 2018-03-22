@@ -4,21 +4,21 @@
 CStaffRollScreen::CStaffRollScreen()
 {
 	m_state = STAFFROLL_SCREEN;
-}
-
-//デストラクタ
-CStaffRollScreen::~CStaffRollScreen(){
 	//初期化
 	m_lasttime = GetNowCount() &INT_MAX;
-	for (int a = 0; a < 19; a++)
+	for (int a = 0; a < STRING_COUNT; a++)
 		scroll[a] = 730;
-	m_rogoimage = LoadGraph("media\\img\\Title.png");
+	m_rogoimage = LoadGraph("media\\img\\title_02.png");
 	m_count = 0;
 	m_alpha = 255;
 	m_alphatime = -170;
 	//ロード
 	m_largefont = CreateFontToHandle("メイリオ", 50, -1, DX_FONTTYPE_ANTIALIASING);
-	clear_BGM = LoadSoundMem("media\\mp3\\staffroll\\free_bgm12.mp3");
+}
+
+//デストラクタ
+CStaffRollScreen::~CStaffRollScreen(){
+
 }
 
 void CStaffRollScreen::Dest(){}
@@ -26,53 +26,38 @@ void CStaffRollScreen::Dest(){}
 //実行処理
 void CStaffRollScreen::Update()
 {
-	if (m_count == 0){
+	/*if (m_count == 0){
 		PlaySoundMem(clear_BGM, DX_PLAYTYPE_LOOP);
 		m_count = 1;
-	}
+	}*/
 	if (((GetNowCount() & INT_MAX) - m_lasttime) > GAMECLEAR_TIME){
 		m_state = TITLE_SCREEN;//時間は調整
-		StopSoundMem(clear_BGM);
 	}
 
 	scroll[0] -= 2;
 	if (scroll[0] < 500)
 		scroll[1] -= 2;
-	if (scroll[1] < 550)
+	if (scroll[1] < 730)
 		scroll[2] -= 2;
-	if (scroll[2] < 730)
+	if (scroll[2] < 550)
 		scroll[3] -= 2;
 	if (scroll[3] < 550)
 		scroll[4] -= 2;
 	if (scroll[4] < 730)
 		scroll[5] -= 2;
-	if (scroll[5] < 650)
+	if (scroll[5] < 550)
 		scroll[6] -= 2;
-	if (scroll[6] < 650)
+	if (scroll[6] < 550)
 		scroll[7] -= 2;
-	if (scroll[7] < 550)
+	if (scroll[7] < 730)
 		scroll[8] -= 2;
-	if (scroll[8] < 730)
+	if (scroll[8] < 650)
 		scroll[9] -= 2;
 	if (scroll[9] < 650)
 		scroll[10] -= 2;
-	if (scroll[10] < 550)
+	if (scroll[10] < 650)
 		scroll[11] -= 2;
-	if (scroll[11] < 730)
-		scroll[12] -= 2;
-	if (scroll[12] < 650)
-		scroll[13] -= 2;
-	if (scroll[13] < 650)
-		scroll[14] -= 2;
-	if (scroll[14] < 650)
-		scroll[15] -= 2;
-	if (scroll[15] < 650)
-		scroll[16] -= 2;
-	if (scroll[16] < 650)
-		scroll[17] -= 2;
-	if (scroll[17] < 200 && scroll[18] > 230)
-		scroll[18] -= 2;
-	else if (scroll[18] == 230){
+	else if (scroll[11] == 230){
 		if (m_alphatime < 50)
 			m_alphatime++;
 		if (m_alphatime >= 0){
@@ -86,25 +71,18 @@ void CStaffRollScreen::Draw()
 {
 	ClearDrawScreen();
 	DrawStringToHandle(100, scroll[0], "制作スタッフ", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(100, scroll[1], "制作スタッフ", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(100, scroll[2], "プランナー", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[3], "井織諒仁", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(100, scroll[1], "プログラマー", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(500, scroll[2], "清原一真", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(500, scroll[3], "宮田拓弥", GetColor(255, 255, 255), m_largefont, TRUE);
 	DrawStringToHandle(100, scroll[4], "デザイナー", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[5], "釜内優多", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(500, scroll[5], "小濵瑠生", GetColor(255, 255, 255), m_largefont, TRUE);
 	DrawStringToHandle(500, scroll[6], "須崎　将", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[7], "大和卓生", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(100, scroll[8], "プログラマー", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[9], "清原一真", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[10], "宮田拓弥", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(100, scroll[11], "音楽提供", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[12], "魔王魂", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[13], "D.elf.com", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[14], "くらげ工匠", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[15], "ポケットサウンド", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[16], "On-Jin ～音人～", GetColor(255, 255, 255), m_largefont, TRUE);
-	DrawStringToHandle(500, scroll[17], "ニコニコモンズ", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(100, scroll[7], "音楽提供", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(500, scroll[8], "魔王魂", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(500, scroll[9], "ポケットサウンド", GetColor(255, 255, 255), m_largefont, TRUE);
+	DrawStringToHandle(500, scroll[10], "On-Jin ～音人～", GetColor(255, 255, 255), m_largefont, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, m_alpha);
-	DrawGraph(180, scroll[18], m_rogoimage, TRUE);
+	DrawGraph(180, scroll[11], m_rogoimage, TRUE);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
