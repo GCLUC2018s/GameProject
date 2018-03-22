@@ -77,8 +77,8 @@ Enemy_Push  push_enemy[32][32]{
 		{ 200, eNiku ,CVector3D(500 + SCREEN_WIDTH * 3, 0, -200) },
 		{ 350, eKamaitachi ,CVector3D(600 + SCREEN_WIDTH * 3, 0, -250) },
 		{ 500, eHi ,CVector3D(800 + SCREEN_WIDTH * 3, 0, -200) },
-		{ 600,eDaruma ,CVector3D(800 + SCREEN_WIDTH * 3, 0, -200) },
-		{ 650,eDaruma ,CVector3D(200 + SCREEN_WIDTH * 3, 0, -50) },
+		{ 600, eDaruma ,CVector3D(800 + SCREEN_WIDTH * 3, 0, -200) },
+		{ 650, eDaruma ,CVector3D(200 + SCREEN_WIDTH * 3, 0, -50) },
 		{ 780, eNiku ,CVector3D(400 + SCREEN_WIDTH * 3, 0, -300) },
 		{ 800, eChouchin ,CVector3D(600 + SCREEN_WIDTH * 3, 0, -250) },
 		{ END_CODE }
