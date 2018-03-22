@@ -67,5 +67,5 @@ void CIdata::Draw(){
 	if (_yscr > 250.0f)
 		_yscr = 250.0f;
 	//アイテムの名前によって画像が変化
-	DrawGraph(m_pos.getX(), m_pos.getY() + m_pos.getZ() - _yscr, CItemManager::GetInstance()->getImg(m_name), TRUE);
+	DrawRotaGraph(m_pos.getX() + SCALE_GAP_OFFSET_WIDTH, m_pos.getY() + m_pos.getZ() - _yscr + SCALE_GAP_OFFSET_HEIGHT, 0.6, 0, CItemManager::GetInstance()->getImg(m_name), TRUE, FALSE);
 }

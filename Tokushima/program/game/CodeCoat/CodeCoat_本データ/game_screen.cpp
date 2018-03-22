@@ -56,6 +56,9 @@ void CGameScreen::Update(){
 		CPlayerManager::GetInstance()->Update();
 		CEnemyManager::getInstance()->Update();
 
+		//§ŒÀŽžŠÔ‚ª0‚É‚È‚é‚ÆGAMEOVER
+		if (CUiManager::GetInstance()->GetPlayerAdress()->getTimeLimit() <= 0)
+			m_state = GAMEOVER_SCREEN;
 }
 
 void CGameScreen::Draw()

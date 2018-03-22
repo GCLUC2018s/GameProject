@@ -27,7 +27,7 @@ CSeManager::CSeManager()
 {
 	char *item[] = { "BGM\\neorock52.mp3", "BGM\\kakenukeru.mp3", "BGM\\event40.mp3", 
 		"SE\\clear.mp3", "SE\\failed.mp3","SE\\jump.mp3", "SE\\handgun.mp3", "SE\\shotgun.mp3",
-		"SE\\tamagire.mp3", "SE\\kiru.mp3", "SE\\pi.mp3", "SE\\damage.mp3", "SE\\get.mp3","SE\\purge.mp3" };
+		"SE\\tamagire.mp3", "SE\\kiru.wav", "SE\\pi.mp3", "SE\\damage.mp3", "SE\\get.mp3","SE\\purge.mp3" };
 	char buf[256];
 	for (int i = 0; i < SE_COUNT + BGM_COUNT; i++){
 		sprintf_s(buf, "media\\music\\%s", item[i]);
