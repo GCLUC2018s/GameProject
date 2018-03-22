@@ -16,7 +16,7 @@ enum COLORBALL_STATE{
 class C_ColorBall:public C_Object{
 public:
 	C_ColorBall()
-		:C_Object(E_OBJ, eUDP_Object, eDWP_Object, 0, 0, 0)
+		:C_Object(E_ATACK, eUDP_Object, eDWP_Object, 0, 0, 0)
 		, m_Deltatime(DELTATIME)
 		, init(false)
 	{

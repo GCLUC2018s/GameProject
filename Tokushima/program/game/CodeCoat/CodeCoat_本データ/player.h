@@ -37,7 +37,7 @@ const int ANIM_RATE = 6;//アニメーションの再生速度
 const int PLAYER_STATE = 7;
 
 const float SCORE_BUFF = 2.0f;
-const float SPEED_BUFF = 50.0f;
+const float SPEED_BUFF = 150.0f;
 
 const float GRAVITY = 78.0f;		//重力
 const float JUMP_POWER = 1150.0f;	//ジャンプ力
@@ -98,6 +98,7 @@ public:
 	void setDeath(){ m_live = false; }
 	bool getlive(){ return m_live; }
 	CItemData *getEquipment(int slot){ return &m_Equipment[slot]; }
+	SBuff *getBuff(){ return &m_buff; };
 	Ptype* getPlayerState(){ return &m_lower_playerstate; }
 	BOOL getpurge(){ return m_purge; }
 	void SetInvincibleFlag(){ m_InvincibleFlag = TRUE; }

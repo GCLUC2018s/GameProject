@@ -61,6 +61,7 @@ private:
 	float m_c_angle;				//コンボの移動量			追加
 	float m_past_comb;				//過去のコンボ数			追加
 	float m_ndm_magnification;		//走行距離倍率
+	int m_ammo[2];					//弾数と装備の回数			追加
 public:
 	Ui();
 	Ui(CVector3D p_pos);

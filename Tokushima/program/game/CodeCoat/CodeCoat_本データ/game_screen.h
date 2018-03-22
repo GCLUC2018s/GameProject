@@ -13,6 +13,7 @@ const int CLEAR_TEXT1_INI_Y = 200;
 const int CLEAR_TEXT2_INI_Y = 310;
 const int CLEAR_TEXT_X = 285;
 const int CLEAR_TEXT_Y = 200;
+const int CLEAR_TEXT_X2 = -710;
 
 //プロトタイプ
 struct GameData;
@@ -35,6 +36,7 @@ private:
 	//CMapControl m_Mcnt;
 	int m_gameclear_img[2];
 	int m_count1;
+	float m_stop_pos;
 	int m_bgm;
 };
 #endif __SCREEN_GAME_H__

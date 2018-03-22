@@ -26,7 +26,7 @@ void CGo::Update()
 	m_a += GO_TIME;
 	m_vec3D.y = sin(m_a);
 	if (m_end_flag) {
-		if (m_pos3D.x + GO_SIZ_X + 1 - m_scroll.x < SCREEN_WIDTH) {
+		if (m_pos3D.x + 300 - m_scroll.x < SCREEN_WIDTH) {
 			SetKill();
 		}
 	}
