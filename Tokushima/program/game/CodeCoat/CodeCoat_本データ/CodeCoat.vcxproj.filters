@@ -93,10 +93,10 @@
     <ClCompile Include="gameover_screen.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="scoredata.cpp">
+    <ClCompile Include="score_manager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="score_manager.cpp">
+    <ClCompile Include="scoredata.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

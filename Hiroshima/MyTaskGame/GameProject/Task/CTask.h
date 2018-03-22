@@ -99,6 +99,7 @@ public:
 		SOUND("BGM_Main")->Stop();
 		SOUND("BGM_Boss")->Stop();
 		SOUND("BGM_Ending")->Stop();
+		SOUND("BGM_GameOver")->Stop();
 	};
 
 };
