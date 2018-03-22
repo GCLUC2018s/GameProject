@@ -18,7 +18,6 @@ public:
 	~CFieldGround();
 	void Update();
 	void Draw();
-	void GroundHitCheck(CPlayer * pl);
 private:
 	//CRect m_rect_tourou1;
 	//CRect m_rect_tourou2;

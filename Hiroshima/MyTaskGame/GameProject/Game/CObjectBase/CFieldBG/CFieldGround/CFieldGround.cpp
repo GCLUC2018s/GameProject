@@ -3,6 +3,7 @@
 #include "../GameProject/stdafx.h"
 
 CFieldGround::CFieldGround(const bool flag):CObjectBase(eID_Ground,eU_Map, eD_Ground){
+	m_state = eNomalGround;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Ground"));
 	m_img.SetSize(GROUND_WIDTH, GROUND_HEIGHT);
 	m_img.SetCenter(0, GROUND_HEIGHT - SCREEN_HEIGHT + 450);
@@ -49,53 +50,4 @@ void CFieldGround::Draw()
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou2.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou2.m_top), CVector2D(m_rect_tourou2.m_right - m_rect_tourou2.m_left, m_rect_tourou2.m_bottom - m_rect_tourou2.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou3.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou3.m_top), CVector2D(m_rect_tourou3.m_right - m_rect_tourou3.m_left, m_rect_tourou3.m_bottom - m_rect_tourou3.m_top), CVector4D(1, 0, 0, 0.3));
 	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_scroll.x + m_rect_tourou4.m_left, 450 + m_pos3D.y - m_scroll.y + m_rect_tourou4.m_top), CVector2D(m_rect_tourou4.m_right - m_rect_tourou4.m_left, m_rect_tourou4.m_bottom - m_rect_tourou4.m_top), CVector4D(1, 0, 0, 0.3));
-}
-
-void CFieldGround::GroundHitCheck(CPlayer * pl)
-{
-	//PL‚ªˆê”Ô‰œ‚Ü‚Å—ˆ‚Ä‚¢‚½‚ç
-	if (pl->GetPos().z == -400) {
-		//‚Ü‚¸‚ÍŽÐH‚Æ‚Ì”»’è
-		{
-			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect.m_left &&
-				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect.m_right &&
-				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect.m_top&&
-				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect.m_bottom) {
-				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
-			}
-		}
-		//‚Æ‚¤‚ë‚¤4‚Â
-	/*	{
-			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou1.m_left &&
-				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou1.m_right &&
-				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou1.m_top&&
-				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou1.m_bottom) {
-				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
-			}
-		}
-		{
-			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou2.m_left &&
-				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou2.m_right &&
-				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou2.m_top&&
-				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou2.m_bottom) {
-				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
-			}
-		}
-		{
-			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou3.m_left &&
-				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou3.m_right &&
-				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou3.m_top&&
-				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou3.m_bottom) {
-				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
-			}
-		}
-		{
-			if (pl->GetPos().x + pl->GetRect().m_right > m_pos3D.x + m_rect_tourou4.m_left &&
-				pl->GetPos().x + pl->GetRect().m_left < m_pos3D.x + m_rect_tourou4.m_right &&
-				pl->GetPos().y + pl->GetRect().m_top < m_pos3D.y + m_rect_tourou4.m_top&&
-				pl->GetPos().y + pl->GetRect().m_bottom > m_pos3D.y + m_rect_tourou4.m_bottom) {
-				pl->SetVec(CVector3D(pl->GetVec().x, 0, -400));
-			}
-		}*/
-	}
 }
