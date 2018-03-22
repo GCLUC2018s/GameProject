@@ -106,12 +106,6 @@ void CEnemyManager::Remove(CEnemy* enemy)
 
 
 void CEnemyManager::Update(){
-	/*clsDx();
-	for (auto it = m_enemy_list.begin(); it != m_enemy_list.end(); it++){
-		auto l_e_pos = (*it)->GetPos();
-		printfDx("%f,%f\n", l_e_pos.getX(), l_e_pos.getY());
-	}*/
-
 	int _num = rand() % ITEM_RAND;		//’Ç‰Á
 
 	//“–‚½‚è”»’è

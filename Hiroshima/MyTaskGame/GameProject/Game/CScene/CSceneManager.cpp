@@ -65,8 +65,12 @@ void CSceneManager::MainScene() {
 	new CPlayer(PLAYER_HP);
 
 	//new CFire(&(CVector3D(500, 0, -100)));
-	/*new CItemBox(&(CVector3D(500, 0, -200)), 0);
-	new CItemBox(&(CVector3D(900, 0, -20)), 1);*/
+	new CItemBox(&(CVector3D(200, 0, -380)),rand()%2);
+	new CItemBox(&(CVector3D(1500, 0, -20)), rand() % 2);
+	new CItemBox(&(CVector3D(1800, 0, -320)), rand() % 2);
+	new CItemBox(&(CVector3D(2500, 0, -120)), rand() % 2);
+	new CItemBox(&(CVector3D(3200, 0, -50)), rand() % 2);
+	new CItemBox(&(CVector3D(4000, 0, -0)), rand() % 2);
 
 	new CFieldManager();
 	new CMagatama();
