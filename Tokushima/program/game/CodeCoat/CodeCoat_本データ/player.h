@@ -13,7 +13,7 @@
 #include "Task\CTask.h"
 
 //定数
-const int ANIM_COUNT = 14;			//キャラの画像枚数
+const int ANIM_COUNT = 18;			//キャラの画像枚数
 const int HEAL_ANIM_COUNT = 18;		//回復アイテム取得時のキャラ画像枚数
 const int MOVEING_RANGE_DOWN = 640;		//下の移動限界範囲
 const int MOVEING_RANGE_UP = 430;		//上の移動限界範囲
@@ -32,47 +32,39 @@ const float P_SPEED = 270.0f;	 //主人公の基本速度
 const float BASE_SCR_SPEED = 75;//画面スクロールの基本速度
 const int ONE_GEAR_SPACE = 160;//1280を8で割った値
 const int EQUIPMENT_COUNT = 3; //装備欄の数
-const float KNIFE_RAD = 2500;	//ナイフによる攻撃範囲
-const float PLAYER_COLLISION = 30;//主人公の当たり判定半径
+const float PLAYER_COLLISION = 10;//主人公の当たり判定半径
 const int ANIM_RATE = 6;//アニメーションの再生速度
+const int PLAYER_STATE = 7;
+
+const float SCORE_BUFF = 2.0f;
+const float SPEED_BUFF = 50.0f;
 
 const float GRAVITY = 78.0f;		//重力
 const float JUMP_POWER = 1150.0f;	//ジャンプ力
 
-/*
-const int MOVERATE = 7;
-const float JUMP_POWER = 1200.0f;	//750.0f
-const float GRAVITY = 60.0f;		//30.0f
-const float JUMP_FORWARD = 100.0f;	//200.0f
-const int ANIM_RATE = 6;
-const int ANIM_M_NUMBER = 6;
-const int ANIM_NUMBER = 2;
-*/
-class CKnifestats{	//後々銃弾用にタスクを作る
-public:
-	BOOL m_living;
-	BOOL m_turn;
-	CVector3D pos;
-
-};
-
 //追加、プレイヤーの描画の切り替えに使用、後々使う
 enum Ptype{
-	Move = 0, Jump = 8, Stand = 13
+	Move = 0, Jump = 8, Stand = 13, Attack = 14
+};
+
+enum PState{
+	P_NORMAL = 0, P_KNIFE, P_PISTOL, P_SHOTTOGAN, P_RIFLE, P_PURGE, P_PURGE_ACTIVE
 };
 
 //バフ管理の構造体
 struct SBuff{
 	float m_speedup;
+	int m_sppedup_time;
+	int m_speedup_delay;
 	float m_score_ratio;
+	int m_score_ratio_time;
+	int m_score_ratio_delay;
 };
 
 class CPlayerControl : public CTask{
 private:
 	CItemData m_Equipment[EQUIPMENT_COUNT];			//装備保存欄
-	CKnifestats knives[MAX_KNIVES];					//同時発射可能数
-	int m_heroimg[ANIM_COUNT + HEAL_ANIM_COUNT];	//主人公の画像枚数
-	int m_heroUpperimg[ANIM_COUNT];								//主人公の上半身画像(仮)
+	int m_heroUpperimg[PLAYER_STATE][ANIM_COUNT];									//主人公の上半身画像(仮)
 	int m_heroLowerimg[ANIM_COUNT];								//主人公の下半身画像(仮)
 	int m_shadowimg;								//主人公の影画像
 	float m_gear;									//スクロールの移動倍率
@@ -81,6 +73,7 @@ private:
 	int m_attack_time;								//攻撃間隔調整変数
 	Ptype m_upper_playerstate;						//プレイヤーの状態
 	Ptype m_lower_playerstate;
+	PState m_playerstate;
 	bool m_live;									//生きているか
 	float m_jumppower;								//ジャンプ力
 	bool m_jumping;									//ジャンプしているか
@@ -90,11 +83,15 @@ private:
 	int m_upper_ac;
 	int m_lower_ac;
 	SBuff m_buff;
+	float m_flashImgTime;
+	bool m_InvincibleFlag;
+	float m_duration;
 public:
 	CPlayerControl();
 	~CPlayerControl();
 	void Update();
 	void Draw();
+	void damageFlash(float time);
 	float getMoveAmount();							//スクロール量の返却関数
 	CVector3D getBodyPos(){ return m_BodyPos; };	//timer.cppで必要なため作らせてもらった
 	void setEquipment(CItemData* item);
@@ -102,6 +99,9 @@ public:
 	bool getlive(){ return m_live; }
 	CItemData *getEquipment(int slot){ return &m_Equipment[slot]; }
 	Ptype* getPlayerState(){ return &m_lower_playerstate; }
+	BOOL getpurge(){ return m_purge; }
+	void SetInvincibleFlag(){ m_InvincibleFlag = TRUE; }
+	bool getInvinsibleFlag(){ return m_InvincibleFlag; }
 };
 
 

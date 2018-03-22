@@ -27,6 +27,7 @@ public:
 	void Update();
 	void Draw();
 	void Dest();
+	void GoalMove();
 private:
 	SCREEN m_state;
 	CVector3D m_cpos1;		//mission•¶š‚ÌÀ•W

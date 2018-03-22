@@ -1,0 +1,6 @@
+ranking1,15000
+ranking2,4000
+ranking3,3000
+ranking4,2000
+ranking5,1000
+

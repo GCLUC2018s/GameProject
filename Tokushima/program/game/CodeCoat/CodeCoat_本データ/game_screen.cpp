@@ -27,21 +27,13 @@ CGameScreen::CGameScreen(){
 	new CPlayerControl;
 	new CNpc;
 	new CMapControl;
-	CEnemyManager::getInstance();
+	CEnemyManager::getInstance()->LoadFile();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
 }
 
 //デストラクタ
 CGameScreen::~CGameScreen(){
 	CTaskManager::GetInstance()->KillAll();
-	CPlayerManager::ClearInstance();	//Play
-	CMapManager::ClearInstance();		//Map
-	CEnemyManager::clearInstance();		//Enemy
-	CItemManager::ClearInstance();		//Item
-	CBulletManager::ClearInstance();	//Bullet
-	CNpcManager::ClearInstance();		//Npc
-	CUiManager::ClearInstance();		//Ui
-	CTaskManager::ClearInstance();		//Task
 }
 
 void CGameScreen::Dest(){
@@ -49,25 +41,14 @@ void CGameScreen::Dest(){
 
 //更新処理
 void CGameScreen::Update(){
+	if (CheckHitKey(KEY_INPUT_V) == 1){
+		m_state = GAMESCORE_SCREEN;
+	}
 	if (CPlayerManager::GetInstance()->GetPlayerAdress()->getlive() == false){
 		m_state = GAMEOVER_SCREEN;
 	}
-	if (CMapManager::GetInstance()->GetPlayerAdress()->getGoalFlag() == true){
-		if (m_cpos1.getX() > CLEAR_TEXT_X){
-			m_cpos1-=CVector3D(30,0,0);
-		}
-		else{
-			if (m_cpos2.getX() > CLEAR_TEXT_X)
-				m_cpos2 -= CVector3D(30, 0, 0);
-		}
-
-		if (m_cpos2.getX() < CLEAR_TEXT_X){
-			if (m_count1 > 200){
-				m_state = GAMESCORE_SCREEN;
-			}
-			m_count1++;
-		}
-
+	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true){
+		GoalMove();
 	}
 	else{
 		CTaskManager::GetInstance()->UpdateAll();
@@ -86,9 +67,26 @@ void CGameScreen::Draw()
 	m_Tcnt.draw();
 	m_Pcnt.draw();*/
 	CTaskManager::GetInstance()->DrawAll();
-	if (CMapManager::GetInstance()->GetPlayerAdress()->getGoalFlag() == true){
+	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true){
 		DrawGraph(m_cpos1.getX(), m_cpos1.getY(), m_gameclear_img[0], TRUE);
 		DrawGraph(m_cpos2.getX(), m_cpos2.getY(), m_gameclear_img[1], TRUE);
+	}
+}
+
+void CGameScreen::GoalMove(){
+	if (m_cpos1.getX() > CLEAR_TEXT_X){
+		m_cpos1 -= CVector3D(30, 0, 0);
+	}
+	else{
+		if (m_cpos2.getX() > CLEAR_TEXT_X)
+			m_cpos2 -= CVector3D(30, 0, 0);
+	}
+
+	if (m_cpos2.getX() < CLEAR_TEXT_X){
+		if (m_count1 > 200){
+			m_state = GAMESCORE_SCREEN;
+		}
+		m_count1++;
 	}
 }
 

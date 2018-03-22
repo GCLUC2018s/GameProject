@@ -37,7 +37,7 @@ public:
 	/*!
 	@brief	敵のリスト取得
 	**/
-	CMapControl* GetPlayerAdress() const;
+	CMapControl* GetMapAdress() const;
 
 	/*!
 	@brief	更新処理

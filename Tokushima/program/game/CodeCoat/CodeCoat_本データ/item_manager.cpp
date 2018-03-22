@@ -31,6 +31,14 @@ CItemManager::CItemManager()
 		sprintf_s(buf, "media\\img\\Item\\%s", item[i]);
 		m_img[i] = LoadGraph(buf);
 	}
+	m_price[KNIFE] = 1000.0f;
+	m_price[PISTOL] = 500.0f;
+	m_price[SHOTTOGAN] = 2000.0f;
+	m_price[RIFLE] = 2500.0f;
+	m_price[STABARMOR] = 1000.0f;
+	m_price[BULLETARMOR] = 1500.0f;
+	m_price[SCOREBOOST] = 2000.0f;
+	m_price[SPEEDUP] = 1000.0f;
 }
 
 // デストラクタ
@@ -77,7 +85,7 @@ int CItemManager::getImg(int num){
 }
 
 CItemData* CItemManager::makeItem(int name){
-	CItemData* item  = new CItemData;
+	CItemData* item = new CItemData;
 	//itemの中身を詰めていく
 	item->m_img = m_img[name];
 	item->m_name = (ItemName)name;
@@ -85,7 +93,7 @@ CItemData* CItemManager::makeItem(int name){
 	switch (name){//アイテムの種類によって数値を変更 代入される数値は仮置き
 	case KNIFE:
 		item->m_type = WEAPON;
-		item->m_attack_rate = 11;
+		item->m_attack_rate = 30;
 		break;
 	case PISTOL:
 		item->m_attack_rate = 0;
@@ -110,7 +118,7 @@ CItemData* CItemManager::makeItem(int name){
 		break;
 	case SCOREBOOST:
 	case SPEEDUP:
-		item->m_useful = 10;
+		item->m_useful = 10000;
 		item->m_type = ITEM;
 		break;
 	default:
