@@ -210,15 +210,18 @@ void CBossBase::BossBress(){
 
 	switch (m_head.GetIndex()) {
 	case 0:
+		m_headpos3D.x = SCREEN_WIDTH;
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 1:
+		m_headpos3D.x -= 2;
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 2:
 		new CCharge(CVector2D(m_headpos3D.x - 80, m_headpos3D.y + 330));
+		SOUND("SE_Mahou_Kaen")->Play(false);
 		break;
 	case 3:
 		break;
