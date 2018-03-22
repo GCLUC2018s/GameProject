@@ -9,6 +9,7 @@ CGameScoreScreen::CGameScoreScreen()
 	//初期化
 	m_lasttime = GetNowCount() & INT_MAX;
 	new ScoreData;
+	CTaskManager::GetInstance();
 }
 
 //デストラクタ
@@ -38,8 +39,6 @@ void CGameScoreScreen::Draw()
 {
 	ClearDrawScreen();
 	CTaskManager::GetInstance()->DrawAll();
-	DrawString(10, 100, "SCORE Screen 5Seconds to Next Screen", GetColor
-		(255, 255, 255));
 }
 
 

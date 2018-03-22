@@ -46,6 +46,7 @@ void CEnemyBase::Attack(const int *enemy_id) {
 void CEnemyBase::KnockBack(const int *enemy_id) {
 
 }
+
 void CEnemyBase::Fall() {
 	m_rect = CRect(0, 0, 0, 0);
 	m_pos3D += m_vec3D;

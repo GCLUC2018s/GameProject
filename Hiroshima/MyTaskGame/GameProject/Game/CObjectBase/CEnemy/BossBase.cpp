@@ -38,7 +38,7 @@ void CBossBase::Nutral( int boss_id) {
 	case eTail:
 		m_tail.ChangeAnimation(eAnimBossTailIdol);
 		m_shaking_tail += BOSS_FLOAT_TAIL;
-		m_tailvec3D.x = -cos(m_shaking_tail + Utility::DgreeToRadian(180)) * 3;
+		m_tailvec3D.x = -cos(m_shaking_tail + Utility::DgreeToRadian(180)) * 1;
 		//m_tailvec3D.y = -sin(m_shaking) * 5;
 		break;
 	}
@@ -52,6 +52,7 @@ void CBossBase::Move( int boss_id) {
 		break;
 	}
 }
+
 void CBossBase::Attack( int boss_id) {
 	switch (boss_id)
 	{

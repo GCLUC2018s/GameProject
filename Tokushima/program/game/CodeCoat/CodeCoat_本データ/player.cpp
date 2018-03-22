@@ -8,6 +8,7 @@
 #include "npc_manager.h"
 #include "enemy_manager.h"
 #include "ui_manager.h"
+#include "se_manager.h"
 
 CPlayerControl::CPlayerControl()
 :CTask(0, eUDP_Player, eDWP_Player)
@@ -153,6 +154,7 @@ void CPlayerControl::Update(){
 			//ƒWƒƒƒ“ƒvŠÖ˜A
 			if (!m_jumping){
 				if (key & PAD_INPUT_1 && hy == 0){
+					PlaySoundMem(CSeManager::GetInstance()->getsnd(JUMP_SE), DX_PLAYTYPE_BACK);
 					m_jumping = true;
 					m_jumppower = JUMP_POWER;
 					m_upper_ac = 0;
@@ -214,6 +216,7 @@ void CPlayerControl::Update(){
 						if (IsXKeyTrigger(key) && m_attack_time > m_Equipment[WEAPON].m_attack_rate){
 							m_Equipment[WEAPON].m_useful = 5;					//UŒ‚ON
 							m_attack_time = 0;
+							PlaySoundMem(CSeManager::GetInstance()->getsnd(KNIFE_SE), DX_PLAYTYPE_BACK);
 							if (m_upper_playerstate != Attack){
 								m_upper_playerstate = Attack;
 								m_upper_animcounter = 0;
@@ -228,6 +231,7 @@ void CPlayerControl::Update(){
 								CVector3D _vec(36.0f, 0.0f, 0.0f);
 								CBulletManager::GetInstance()->Create(&_pos, &_vec, 1200.0f, PLAYER);
 								m_Equipment[WEAPON].m_useful--;
+								PlaySoundMem(CSeManager::GetInstance()->getsnd(SHOT_SE), DX_PLAYTYPE_BACK);
 								if (m_upper_playerstate != Attack){
 									m_upper_playerstate = Attack;
 									m_upper_animcounter = 0;
@@ -254,6 +258,7 @@ void CPlayerControl::Update(){
 									m_upper_animcounter = 0;
 									m_upper_ac = 0;
 								}
+								PlaySoundMem(CSeManager::GetInstance()->getsnd(SHOT2_SE), DX_PLAYTYPE_BACK);
 								m_attack_time = 0;
 								m_Equipment[WEAPON].m_useful--;
 							}
@@ -274,6 +279,7 @@ void CPlayerControl::Update(){
 										m_upper_animcounter = 0;
 										m_upper_ac = 0;
 									}
+									PlaySoundMem(CSeManager::GetInstance()->getsnd(SHOT_SE), DX_PLAYTYPE_BACK);
 									m_Equipment[WEAPON].m_useful--;
 									m_attack_time = 0;
 								}
