@@ -48,6 +48,7 @@ void CBossBase::Nutral( int boss_id) {
 
 
 }
+
 void CBossBase::Move( int boss_id) {
 	switch (boss_id)
 	{
@@ -88,20 +89,29 @@ void CBossBase::Attack( int boss_id) {
 
 void CBossBase::Fall() {
 	if (m_end_flag == false) {
+		m_shaking_tail = 0;
+		m_shaking_head = 0;
+		m_shaking_arm = 0;
+		m_armvec3D = CVector3D(-1, 1, 0);
+		m_arm2vec3D = CVector3D(1, 1, 0);
+		m_headvec3D = CVector3D(0, 1, 0);
+		m_tailvec3D = CVector3D(0, 1, 0);
 		m_end_flag = true;
 		m_color.w = 2.0;
 	}
 	if (m_end_flag) {
-		m_color.w -= 0.02;
+		m_color.w -= 0.005;
 	}
 	if (m_color.w < -1.0) {
 		SetKill();
 	}
 }
 
-void CBossBase::Damage( int boss_id) {
-	m_hp--;
-	m_damage = false;
+void CBossBase::Damage() {
+	if (m_damage) {
+		m_hp--;
+		m_damage = false;
+	}
 }
 
 void CBossBase::Down(int boss_id) {
@@ -173,13 +183,15 @@ void CBossBase::Hit(CObjectBase * t)
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_tailpos3D.z) < 50)){
 				SOUND("SE_Panch")->Play(false);
 			//	m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
+				if (m_hp >= 5) {
 					m_damage = true;
-					Damage(0);
+					Damage();
+					//m_state = eDamage;
 					//m_state = eKnockBack;
 				}
 				else {
-					Fall();
+					//Fall();
+				m_state = eFall;
 				}
 			}
 			if (ef->GetEFtype() == eFire) {
@@ -187,13 +199,15 @@ void CBossBase::Hit(CObjectBase * t)
 					m_hp -= 50;
 				}
 				//m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
+				if (m_hp >= 5) {
 					m_damage = true;
-					Damage(0);
+					Damage();
+					//m_state = eDamage;
 					//m_state = eKnockBack;
 				}
 				else {
-					Fall();
+					//Fall();
+					m_state = eFall;
 				}
 			}
 		}

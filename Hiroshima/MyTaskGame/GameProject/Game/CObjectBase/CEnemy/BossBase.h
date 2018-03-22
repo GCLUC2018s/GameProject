@@ -62,13 +62,25 @@ protected:
 	CRect m_armrect;
 	CRect m_arm2rect;
 	CRect m_tailrect;
+
+	enum {
+		eIdol,
+		eMove,
+		eBlessAttack,
+		eTailAttack,
+		eLaser,
+		eLaserShower,
+		eDown,
+		eDamage,
+		eFall,
+	};
 public:
 	CBossBase();
 	void Nutral(int boss_id);
 	void Move(int boss_id);
 	void Attack(int boss_id);
 	void Fall();
-	void Damage(int boss_id);
+	void Damage();
 	void Down(int boss_id);
 	void Draw();
 	void Hit(CObjectBase * t);
