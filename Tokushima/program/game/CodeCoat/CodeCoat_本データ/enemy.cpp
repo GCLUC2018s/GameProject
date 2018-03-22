@@ -4,6 +4,7 @@
 #include "player_manager.h"
 #include "enemy_manager.h"
 #include "bullet_manager.h"
+#include "se_manager.h"
 
 CEnemy::CEnemy() :
 m_hp(0),
@@ -68,6 +69,7 @@ void CEnemy::Update(){
 		if (m_attackrate > 100){
 			m_attackrate = 0;
 			m_animflag = true;
+			PlaySoundMem(CSeManager::GetInstance()->getsnd(SHOT_SE), DX_PLAYTYPE_BACK);
 			CBulletManager::GetInstance()->Create(&CVector3D(m_pos.getX(),m_pos.getY(),m_pos.getZ()+29), &CVector3D(-8, 0, 0), 3000, ENEMY);
 		}
 		//アニメーション処理	追加
