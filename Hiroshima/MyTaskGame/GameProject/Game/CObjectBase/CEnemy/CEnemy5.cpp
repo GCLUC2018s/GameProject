@@ -63,12 +63,18 @@ void CEnemy5::Move() {
 	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
 
 	m_cnt++;
+	if(m_pos3D.x - m_scroll.x >= 50 && m_pos3D.x - m_scroll.x <= SCREEN_WIDTH - 50 - NIKU_SIZ_X)
 	m_pos3D += m_vec3D;
 
-	if (m_pos3D.x - m_scroll.x < 0)
+	//ˆê’è‚ÌêŠ‚Ü‚Å—ˆ‚½‚ç”½“]
+	if (m_pos3D.x - m_scroll.x < 50) {
+		m_pos3D.x = m_scroll.x + 50;
 		m_flipH = false;
-	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+	}
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - 50 - NIKU_SIZ_X) {
+		m_pos3D.x = m_scroll.x + SCREEN_WIDTH - 50 - ENEMY_SIZ_X;
 		m_flipH = true;
+	}
 
 	m_pleneVec = PL->GetPos() - m_pos3D;
 

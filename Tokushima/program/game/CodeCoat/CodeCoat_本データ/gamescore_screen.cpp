@@ -24,7 +24,7 @@ void CGameScoreScreen::Dest(){
 void CGameScoreScreen::Update()
 {
 	if (((GetNowCount() & INT_MAX) - m_lasttime) > BADGAMECLEAR_TIME){
-		m_state = TITLE_SCREEN;
+		m_state = STAFFROLL_SCREEN;
 		//StopSoundMem(m_GoverSound);
 	}
 	CTaskManager::GetInstance()->UpdateAll();

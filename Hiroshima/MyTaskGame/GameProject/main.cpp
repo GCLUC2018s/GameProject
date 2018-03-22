@@ -126,6 +126,8 @@ void Init(void)
 	ADD_RESOURCE("Effect_aura1", CAnimImage::LoadImage("pipo-mapeffect013a-1.png", aura_ef_AnimData, 400, 400));
 	ADD_RESOURCE("Effect_aura2", CAnimImage::LoadImage("pipo-mapeffect013a-2.png", aura_ef_AnimData, 400, 400));
 	ADD_RESOURCE("Effect_MagaMax", CAnimImage::LoadImage("pipo-gate01b480.png", aura_ef_AnimData, 480, 480));
+	ADD_RESOURCE("Effect_charge", CAnimImage::LoadImage("pipo-btleffect108g.png", charge_ef_AnimData, 240, 240));
+	ADD_RESOURCE("Effect_bress", CAnimImage::LoadImage("pipo-btleffect162.png", bress_ef_AnimData, 1280, 960));
 
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/Enishi.wav");

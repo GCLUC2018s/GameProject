@@ -83,21 +83,22 @@ void CEnemy4::Move() {
 	m_vec3D.y = 0;
 
 	//ˆê’è‚ÌêŠ‚Ü‚Å—ˆ‚½‚ç”½“]
-	if (m_pos3D.x - m_scroll.x < 0)
+	if (m_pos3D.x - m_scroll.x < 50) {
+		m_pos3D.x = m_scroll.x + 50;
 		m_flipH = false;
-	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+	}
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - 50 - ENEMY_SIZ_X) {
+		m_pos3D.x = m_scroll.x + SCREEN_WIDTH - 50 - ENEMY_SIZ_X;
 		m_flipH = true;
+	}
 	//Œü‚¢‚Ä‚¢‚é•ûŒü‚Éi‚Ş
 
 	if (!m_stop) {
 		CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
 		CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
 		m_cnt++;
+		if (m_pos3D.x - m_scroll.x >= 50 && m_pos3D.x - m_scroll.x <= SCREEN_WIDTH - 50 - ENEMY_SIZ_X)
 		m_pos3D += m_vec3D;
-		if (m_pos3D.x - m_scroll.x < 0)
-			m_flipH = false;
-		if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
-			m_flipH = true;
 		m_pleneVec = PL->GetPos() - m_pos3D;
 		if (m_cnt == 1) {
 				m_vec3D.x = m_pleneVec.GetNormalize().x * KAMAITACHI_SPEED;

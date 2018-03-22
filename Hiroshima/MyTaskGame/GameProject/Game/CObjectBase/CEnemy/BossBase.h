@@ -41,6 +41,7 @@ protected:
 	CVector3D m_armvec3D;
 	CVector3D m_arm2vec3D;
 	CVector3D m_tailvec3D;
+	CVector3D m_playervec;
 	float m_shaking_head;
 	float m_shaking_arm;
 	float m_shaking_tail;
@@ -63,14 +64,35 @@ protected:
 	CRect m_tailrect;
 public:
 	CBossBase();
-	void Nutral( int boss_id);
-	void Move( int boss_id);
-	void Attack( int boss_id);
-	void Fall( int boss_id);
-	void Damage( int boss_id);
-	void Down( int boss_id);
+	void Nutral(int boss_id);
+	void Move(int boss_id);
+	void Attack(int boss_id);
+	void Fall();
+	void Damage(int boss_id);
+	void Down(int boss_id);
 	void Draw();
-};
+	void Hit(CObjectBase * t);
+	void BossBress();
+	//èdÇ»ÇËämîF
+	void BossCheckOverlap() {
+		if (m_headpos3D.z <= 0) {
+			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_headpos3D.z);
+		}
+
+		if (m_armpos3D.z <= 0) {
+			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_armpos3D.z);
+		}
+
+		if (m_arm2pos3D.z <= 0) {
+			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_arm2pos3D.z);
+		}
+
+		if (m_tailpos3D.z <= 0) {
+			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_tailpos3D.z);
+		}
+	}
+
+	};
 
 #endif // !BOSSBASEGUARD
 

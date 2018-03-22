@@ -5,7 +5,7 @@
 #include "myLib.h"
 #include "Scene\SceneBase.h"
 
-const int GAMECLEAR_TIME = (46 * 1000);
+const int GAMECLEAR_TIME = (35 * 1000);
 const int STRING_COUNT = 12;//流れる文字列の個数
 
 //セレクトスクリーンクラス

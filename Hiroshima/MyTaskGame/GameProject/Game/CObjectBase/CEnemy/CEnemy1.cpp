@@ -63,20 +63,28 @@ void CEnemy1::Move() {
 	CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
 	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
 	m_cnt++;
-	if (m_pos3D.x < SCREEN_WIDTH - ENEMY_SIZ_X + m_scroll.x)
+	if (m_pos3D.x - m_scroll.x >= 50 && m_pos3D.x - m_scroll.x <= SCREEN_WIDTH - 50 - ENEMY_SIZ_X)
 	m_pos3D += m_vec3D;
-	if (m_pos3D.x - m_scroll.x < 0)
+	//ˆê’è‚ÌêŠ‚Ü‚Å—ˆ‚½‚ç”½“]
+	if (m_pos3D.x - m_scroll.x < 50) {
+		m_pos3D.x = m_scroll.x + 50;
 		m_flipH = false;
-	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - ENEMY_SIZ_X)
+	}
+	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - 50 - ENEMY_SIZ_X) {
+		m_pos3D.x = m_scroll.x + SCREEN_WIDTH - 50 - ENEMY_SIZ_X;
 		m_flipH = true;
+	}
 	m_pleneVec = PL->GetPos() - m_pos3D;
 	if (m_cnt == 1) {
-		if (m_pleneVec.Length() >= 512)
-			if (TWO_RANDOM)
-				m_vec3D.x = 2;
-			else
-				m_vec3D.x = -2;
-		else if (100 <= m_pleneVec.Length())
+		if (m_pleneVec.Length() >= 512) {
+			if (TWO_RANDOM) {
+				if (m_pos3D.x < SCREEN_WIDTH - ENEMY_SIZ_X + m_scroll.x)
+					m_vec3D.x = 2;
+			}else {
+				if (0 + m_scroll.x < m_pos3D.x)
+					m_vec3D.x = -2;
+			}
+		}else if (100 <= m_pleneVec.Length())
 			m_vec3D.x = m_pleneVec.GetNormalize().x * DARUMA_SPEED;
 		else {
 			m_vec3D.x = -m_pleneVec.GetNormalize().x * DARUMA_SPEED;

@@ -3,7 +3,7 @@
 #include "../object/C_Object.h"
 #include"chara\C_Player.h"
 #include"object\CVector3.h"
-#define ENEMY_UD_SPEED 2
+#define ENEMY_UD_SPEED 3
 #define ENEMY_LR_SPEED 3
 #define ACTION_INTERVAL 120
 #define TARGETINTERVAL 300
