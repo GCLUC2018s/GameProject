@@ -9,6 +9,7 @@ CBossStage::CBossStage() :CObjectBase(eID_Ground, eU_Map, eD_Ground){
 	m_img.SetPos(0, 0);
 	new CBoss(&(CVector3D(900, 0, -215)), &(CVector3D(750, 100, -215)),
 		&(CVector3D(1050, 100, -215)), &(CVector3D(900, 300, -215)));
+
 }
 
 CBossStage::~CBossStage() {
