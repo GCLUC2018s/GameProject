@@ -13,7 +13,7 @@ using namespace std;
 const int ITEMCOUNT = 8;		//アイテムの画像数
 const int ITEM_CHIPSIZE = 200;	//アイテムの画像サイズ
 const float ITEM_CENTER = 100.0f;//アイテムの中心割り出し
-const float ITEM_COLLISION =100;//アイテムの当たり判定半径
+const float ITEM_COLLISION = 50;//アイテムの当たり判定半径
 
 //作成前に必要要素のまとめ
 /*

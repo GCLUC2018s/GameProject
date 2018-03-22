@@ -17,6 +17,7 @@ private:
 	std::vector<CIdata*> m_ItemList;
 	int			m_Elapsed;
 	int m_img[ITEMCOUNT];
+	int m_snd[];//音声保存用変数
 	float m_price[ITEMCOUNT];
 	/// コンストラクタ
 	CItemManager();
