@@ -166,13 +166,11 @@ void CNpc::Draw(){
 	if (m_shop_flag){
 		float num;
 		char buf[100];
-		clsDx();
 		for (int i = 0; i < 3; i++){
 			DrawGraph(i * FLAME_INTERVAL + FLAME_INTERVAL, FLAME_YPOS, m_flame[m_sell_item[i].m_type], TRUE);
 			if (m_sell_item[i].m_name != NONE){
 				DrawRotaGraph(i * FLAME_INTERVAL + FLAME_INTERVAL + 50, FLAME_YPOS + 50, 0.4, 3.141592 / 180 * -30, m_sell_item[i].m_img, TRUE, FALSE);
 				num = sprintf_s(buf, 100, "%d", (int)CItemManager::GetInstance()->get_itemprice(m_sell_item[i].m_name));
-				printfDx("%f\n", CItemManager::GetInstance()->get_itemprice(m_sell_item[i].m_name));
 				for (int t = 0; t < num; t++){
 					DrawGraph(PRICENUM_INIT_X + t * 25 + i * FLAME_INTERVAL,
 						PRICENUM_INIT_Y, m_scorenum_img[(buf[t] - '0')], TRUE);		//'0'

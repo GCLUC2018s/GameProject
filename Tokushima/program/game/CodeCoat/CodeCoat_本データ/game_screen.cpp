@@ -46,31 +46,21 @@ void CGameScreen::Dest(){
 
 //XVˆ—
 void CGameScreen::Update(){
-	if (CheckHitKey(KEY_INPUT_V) == 1){
-		m_state = GAMESCORE_SCREEN;
-	}
 	if (CPlayerManager::GetInstance()->GetPlayerAdress()->getlive() == false){
 		m_state = GAMEOVER_SCREEN;
 	}
-	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true)//{
+	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true)
 		GoalMove();
-	//}
-	//else{
 		CTaskManager::GetInstance()->UpdateAll();
 		CTaskManager::GetInstance()->KillAppoint();
 		CPlayerManager::GetInstance()->Update();
 		CEnemyManager::getInstance()->Update();
-	//}
+
 }
 
 void CGameScreen::Draw()
 {
 	ClearDrawScreen();
-	/*m_Mcnt.draw();
-	m_Pcnt.draw();
-	m_Icnt.draw();
-	m_Tcnt.draw();
-	m_Pcnt.draw();*/
 	CTaskManager::GetInstance()->DrawAll();
 	if (CMapManager::GetInstance()->GetMapAdress()->getGoalFlag() == true){
 		DrawGraph(m_cpos1.getX(), m_cpos1.getY(), m_gameclear_img[0], TRUE);
