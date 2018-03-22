@@ -46,7 +46,6 @@ void CBossBase::Nutral( int boss_id) {
 		break;
 	}
 
-
 }
 
 void CBossBase::Move( int boss_id) {
@@ -166,8 +165,8 @@ void CBossBase::Draw() {
 	m_img.SetFlipH(m_flipH);
 	m_img.SetPos(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y);
 	m_img.Draw();
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
-	Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect.m_top), CVector2D(m_rect.m_right - m_rect.m_left, m_rect.m_bottom - m_rect.m_top), CVector4D(1, 0, 0, 0.3));
+	//Utility::DrawQuad(CVector2D(m_pos3D.x - m_pos3D.z / 7 - m_scroll.x + m_rect_F.m_left, 450 + m_pos3D.y + m_pos3D.z / 2 - m_scroll.y + m_rect_F.m_top), CVector2D(m_rect_F.m_right - m_rect_F.m_left, m_rect_F.m_bottom - m_rect_F.m_top), CVector4D(0, 0, 1, 0.2));
 }
 
 
@@ -214,40 +213,102 @@ void CBossBase::Hit(CObjectBase * t)
 	}
 }
 
-
-void CBossBase::BossBress(){
+//ブレス攻撃
+void CBossBase::BossBress() {
 	m_headpos3D += m_headvec3D;
 	CTask *p = CTaskManager::GetInstance()->GetTask(eID_Player);
 	CObjectBase *PL = dynamic_cast<CObjectBase*>(p);
 
 	switch (m_head.GetIndex()) {
 	case 0:
+		m_headpos3D.x = SCREEN_WIDTH;
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 1:
+		m_headpos3D.x -= 2;
 		m_playervec = PL->GetPos() - m_headpos3D + CVector3D(0, 200, 0);
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 2:
-		new CCharge(CVector2D(m_headpos3D.x - 30, m_headpos3D.y + 330));
-		break;
-	case 3:
+		new CCharge(CVector2D(m_headpos3D.x - 80, m_headpos3D.y + 330));
+		SOUND("SE_Mahou_Kaen")->Play(false);
 		break;
 	case 4:
-		if (abs(m_headpos3D.y) > 1.0f)
-			m_headvec3D.y = -m_headpos3D.y / 30;
-		else
-			m_headpos3D.y = 0;
+		m_headpos3D.x += 4;
 		break;
 	case 5:
 		m_state = eIdol;
-		m_headpos3D.y += 10;
+		m_headpos3D = m_headoldpos3D;
+		m_armpos3D = m_armoldpos3D;
+		m_arm2pos3D = m_arm2oldpos3D;
+		m_tailpos3D = m_tailoldpos3D;
+		m_headpos3D.y -= 600;
+		m_armpos3D.y  -= 600;
+		m_arm2pos3D.y -= 600;
+		m_tailpos3D.y -= 600;
+		m_headvec3D = CVector3D(0, 0, 0);
+		m_armvec3D = CVector3D(0, 0, 0);
+		m_arm2vec3D = CVector3D(0, 0, 0);
+		m_tailvec3D = CVector3D(0, 0, 0);
+		m_state = eDescent;
 		break;
-		
+
 	}
 }
+//じゃんぷ
+void CBossBase::BossJump() {
+	//顔が上に向いて
+	m_head.ChangeAnimation(eAnimBossJump);
+	m_head.SetAng(90);
+	m_arm2.SetFlipH(true);
+	m_arm2.SetAng(-70);
+	m_tail.SetAng(-70);
 
+	//べく操作
+	m_headvec3D.y = Price_Down(m_headvec3D.y, -5, 0.2);
+	 m_armvec3D.y = Price_Down( m_armvec3D.y, -5, 0.2);
+	m_arm2vec3D.y = Price_Down(m_arm2vec3D.y, -5, 0.2);
+	m_tailvec3D.y = Price_Down(m_tailvec3D.y, -5, 0.2);
+
+	//ポス操作
+	m_headpos3D.y += m_headvec3D.y;
+	m_armpos3D.y += m_armvec3D.y;
+	m_arm2pos3D.y += m_arm2vec3D.y;
+	m_tailpos3D.y += m_tailvec3D.y;
+	m_armpos3D.x  -= 2;
+	m_arm2pos3D.x += 2;
+	if (m_head.GetIndex() == 1) {
+		m_head.SetAng(0);
+		m_arm2.SetFlipH(false);
+		m_arm2.SetAng(0);
+		m_tail.SetAng(0);
+		m_state = eBress;
+	}
+
+}
+//じゃんぷ
+void CBossBase::BossDescent() {
+	//べく操作
+	m_headvec3D.y = Price_Up(m_headvec3D.y, 5, 0.2);
+	 m_armvec3D.y = Price_Up(m_armvec3D.y,  5, 0.2);
+	m_arm2vec3D.y = Price_Up(m_arm2vec3D.y, 5, 0.2);
+	m_tailvec3D.y = Price_Up(m_tailvec3D.y, 5, 0.2);
+
+	//ポス操作
+	m_headpos3D.y += m_headvec3D.y;
+	m_armpos3D.y  += m_armvec3D.y;
+	m_arm2pos3D.y += m_arm2vec3D.y;
+	m_tailpos3D.y += m_tailvec3D.y;
+	if (m_headpos3D.y > -125) {
+		m_headvec3D = CVector3D(0, 0, 0);
+		m_armvec3D = CVector3D(0, 0, 0);
+		m_arm2vec3D = CVector3D(0, 0, 0);
+		m_tailvec3D = CVector3D(0, 0, 0);
+		m_state = eIdol;
+	}
+
+}
 void CBossBase::BossLaser(){
 
 }

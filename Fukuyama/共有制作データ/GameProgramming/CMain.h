@@ -5,6 +5,7 @@
 #include"Hagi.h"
 #include"Hako.h"
 #include"CSceneGame.h"
+#include"chara\C_Player.h"
 
 class CMain {
 public:
@@ -14,6 +15,7 @@ public:
 	Nagao *ip_Nagao;
 	Hagi *ip_Hagi;
 	Hako *ip_Hako;
+	C_Player *ip_Player;
 	CSceneGame *ip_SceneGame;
 	CMain() : mState(0) {}
 

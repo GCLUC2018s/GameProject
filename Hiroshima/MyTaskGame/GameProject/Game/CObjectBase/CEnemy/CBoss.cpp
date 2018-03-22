@@ -13,9 +13,9 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 	m_tail = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Boss"));
 	//m_img.SetSize(BOSS_SIZ_X , BOSS_SIZ_Y );
 	m_headpos3D = m_headoldpos3D = *headpos;
-	m_armpos3D = *armpos;
-	m_arm2pos3D = *arm2pos;
-	m_tailpos3D = *tailpos;
+	m_armpos3D = m_armoldpos3D = *armpos;
+	m_arm2pos3D = m_arm2oldpos3D = *arm2pos;
+	m_tailpos3D = m_tailoldpos3D = *tailpos;
 	m_hp = BOSS_HP;
 	m_at = BOSS_AT;
 	m_test = 0;
@@ -41,7 +41,6 @@ void CBoss::Update() {
 	
 	//if(m_state!=eTailAttack)
 	//m_test++;
-
 	//if (m_test >= 50) {
 	//	m_flipH = true;
 	//}else if(m_test < 50){
@@ -52,28 +51,20 @@ void CBoss::Update() {
 	//}
 	//if (m_test == 100) {
 	//	m_tailpos3D.x -= 113;
+	//}	
+	//if (m_test == 100) {
+	//	m_test = 0;
 	//}
-	
-	/*
-	if (m_test == 100) {
-		m_test = 0;
-	}*/
-
 	//m_motiontest++;
-
 	//
 	//if(m_motiontest==0)
 	//	m_state = eIdol;
-
 	//if(m_motiontest==200)
 	//	m_state = eBlessAttack;
-
 	//if(m_motiontest==400)
 	//	m_state = eTailAttack;
-
 	//if(m_motiontest==600)
 	//	m_state = eDown;
-
 	//if (m_motiontest >= 800)
 	//	m_motiontest = -1;
 
@@ -92,7 +83,7 @@ void CBoss::Update() {
 
 	if (PUSH_ENTER) {
 		//m_state = eDown;
-		m_state = eLaser;
+		m_state = eJump;
 	}
 	
 	
@@ -177,7 +168,7 @@ void CBoss::Head() {
 	case eTailAttack:
 		Nutral(m_parts_head);
 		break;
-	case eLaser:
+	case eBress:
 		Attack(m_parts_head);
 		break;
 	case eLaserShower:
@@ -191,6 +182,12 @@ void CBoss::Head() {
 		break;
 	case eDamage:
 		Damage();
+		break;
+	case eJump:
+		BossJump();
+		break;
+	case eDescent:
+		BossDescent();
 		break;
 	}
 	
@@ -213,7 +210,7 @@ void CBoss::Arm() {
 	case eTailAttack:
 		Nutral(m_parts_arm);
 		break;
-	case eLaser:
+	case eBress:
 		Attack(m_parts_arm);
 		break;
 	case eLaserShower:
@@ -248,7 +245,7 @@ void CBoss::Arm2() {
 	case eTailAttack:
 		Nutral(m_parts_arm2);
 		break;
-	case eLaser:
+	case eBress:
 		Nutral(m_parts_arm2);
 		break;
 	case eLaserShower:
@@ -283,7 +280,7 @@ void CBoss::Tail() {
 	case eTailAttack:
 		Attack(m_parts_tail);
 		break;
-	case eLaser:
+	case eBress:
 		Nutral(m_parts_tail);
 		break;
 	case eLaserShower:

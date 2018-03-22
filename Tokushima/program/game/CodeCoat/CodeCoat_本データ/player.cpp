@@ -42,6 +42,7 @@ CPlayerControl::CPlayerControl()
 	LoadDivGraph("media\\img\\player\\purge.png", 7, 4, 2, 167, 190, m_heroUpperimg[P_PURGE_ACTIVE], TRUE);
 	LoadDivGraph("media\\img\\player\\under.png", ANIM_COUNT, 4, 4, 167, 190, m_heroLowerimg);
 	m_shadowimg = LoadGraph("media\\img\\Pshadow.png", TRUE);
+	m_getimg = LoadGraph("media\\img\\get2.png", TRUE);
 	//CPlayerManagerにCPlayerControlのアドレスを渡すための関数
 	CPlayerManager::GetInstance()->Init(this);
 }
@@ -576,6 +577,28 @@ void CPlayerControl::Draw(){
 			break;
 		}
 	}
+
+	for (auto it = m_getList.begin(); it != m_getList.end(); it++){
+		float temp = 0;
+		//移動量
+		if ((*it)->m_accele < 90){
+			(*it)->m_accele++;
+		}
+		temp = sin((*it)->m_accele * PI / 180);
+
+		//アルファ計算
+		if ((*it)->m_alphatime < 50)
+			(*it)->m_alphatime++;
+		if ((*it)->m_alphatime >= 0){
+			(*it)->m_alpha = 255 - (255 / 35)*(*it)->m_alphatime;		//透明化処理
+		}
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, (*it)->m_alpha);
+		DrawRotaGraph((*it)->x, (*it)->y - GET_SPEED * temp, 1.2, 0,
+			m_getimg, TRUE, FALSE);
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+	}
+
 }
 
 float CPlayerControl::getMoveAmount(){
@@ -586,6 +609,14 @@ float CPlayerControl::getMoveAmount(){
 void CPlayerControl::setEquipment(CItemData* item){
 	if (m_purge == FALSE){
 		PlaySoundMem(CSeManager::GetInstance()->getsnd(GET_SE), DX_PLAYTYPE_BACK);
+		Get *_get = new Get;
+		_get->m_accele = ACCELE_START;
+		_get->m_alpha = 255;
+		_get->m_alphatime = -20;
+		_get->x = m_BodyPos.getX() + PLAYER_CENTER + PLAYER_CENTER + PLAYER_SHADOW_WIDTH_POS;
+		_get->y = m_BodyPos.getZ() + PLAYER_SHADOW_HEIGHT_POS + PLAYER_SHADOW_HEIGHT_POS + PLAYER_HEIGHT_SIZE;
+		m_getList.push_back(_get);
+
 		m_Equipment[item->m_type].m_img = item->m_img;
 		m_Equipment[item->m_type].m_name = item->m_name;
 		m_Equipment[item->m_type].m_type = item->m_type;
