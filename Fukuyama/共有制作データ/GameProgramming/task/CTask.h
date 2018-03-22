@@ -15,6 +15,7 @@ enum E_ID
 {
 	E_PLAYER,
 	E_ENEMY,
+	E_ATACK,
 	E_BG,
 	E_OBJ,
 	E_UI,
