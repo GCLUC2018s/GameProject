@@ -27,8 +27,8 @@ CHPBar::CHPBar(const bool &boss_flag) : CObjectBase(eID_UI, eU_UI, eD_UI)
 	pl = dynamic_cast<CPlayer*>(CTaskManager::GetInstance()->GetTask(eID_Player));
 	boss = dynamic_cast<CBoss*>(CTaskManager::GetInstance()->GetTask(eID_Boss));
 
-	if (pl) m_pl_hp_base = pl->GetHP();
-	if (boss)m_boss_hp_base = boss->GetHP();
+	if (pl) m_pl_hp_base = PLAYER_HP;
+	if (boss)m_boss_hp_base = BOSS_HP;
 }
 
 void CHPBar::Update()
