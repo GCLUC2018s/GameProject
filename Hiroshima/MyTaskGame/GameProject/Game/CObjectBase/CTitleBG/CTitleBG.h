@@ -35,11 +35,15 @@ private:
 	CColorRGBA m_col_start_2;			//スタート画像カラー
 
 	CVector2D m_st_siz;
+	CVector2D m_logo_siz;
 
 	bool m_end_flag;			//本当に終わりますよフラグ
 	bool m_sabun_flag;			//falseなら差分が消える。trueなら差分が出る
 	float m_f_time;					//(フェードアウト量参考)
 	int   m_time;					//エンターキーを押してからの時間(フェードアウト量参考)
+
+	int m_log_time;		//ロゴがバーンってなる時間
+	float m_ohuda_time;	//お札回転用
 
 	void RogoUpdate();			//ロゴ画像本体のアップデート
 	void PushStartUpdate();		//PushStart画像本体のアップデート
