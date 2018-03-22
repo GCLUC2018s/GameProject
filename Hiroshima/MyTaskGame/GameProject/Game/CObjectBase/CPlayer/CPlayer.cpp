@@ -32,11 +32,11 @@ CPlayer::CPlayer(const int HP) :CObjectBase(eID_Player, eU_Player, eD_Object), m
 	m_kick = false;
 	m_jump = false;
 	m_roof = false;
-	m_hp = PLAYER_HP;
+	m_hp = HP;
 	m_anim = eAnimIdol;
 	m_state = eNutral;
 	m_cnt = 0;
-	m_die = false;
+	m_die = 0;
 	damage_vec = CVector2D(5, -10);
 	m_sc_plus = 0.0;
 	//影設定
@@ -112,7 +112,7 @@ void CPlayer::Update() {
 		m_vec3D.z = 0;
 	}
 
-	if ((m_hp % 10 == 0 || m_hp <= 0) && m_hp < PLAYER_HP && !m_die) {
+	if ((m_hp % 20 == 0 || m_hp <= 0) && m_hp < PLAYER_HP && !m_die) {
 		m_state = eFall;
 		m_die = 1;
 		m_cnt = 0;
@@ -229,24 +229,24 @@ void CPlayer::Nutral() {
 	}
 	CObjectBase *gr = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Ground));
 
-		//落下中なら
-		if (m_vec3D.y > 0 ) {	
-			//通常ステージで
-			if (gr->GetState() == eNomalGround &&
-				//一番奥にいたら
-				1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
-				m_pos3D.z == -400) {
-				m_pos3D.y = -448;
-				m_vec3D.y = 0;
-				m_jump = false;
-				SOUND("SE_LANDING")->Play(false);
-				m_roof = true;
-			}
+	//落下中なら
+	if (m_vec3D.y > 0) {
+		//通常ステージで
+		if (gr->GetState() == eNomalGround &&
+			//一番奥にいたら
+			1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
+			m_pos3D.z == -400) {
+			m_pos3D.y = -448;
+			m_vec3D.y = 0;
+			m_jump = false;
+			SOUND("SE_LANDING")->Play(false);
+			m_roof = true;
 		}
-		else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
-			m_jump = true;
-			m_roof = false;
-		}
+	}
+	else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+		m_jump = true;
+		m_roof = false;
+	}
 
 	//移動
 	if (!m_squat) {
@@ -273,7 +273,8 @@ void CPlayer::Nutral() {
 			m_flipH = false;
 			m_anim = eAnimDash;
 			m_cnt++;
-		}else if (HOLD_LEFT) {
+		}
+		else if (HOLD_LEFT) {
 			//加速
 			m_vec3D.x = Price_Down(m_vec3D.x, -10, 1.0f);
 			m_move_side = true;
@@ -335,7 +336,10 @@ void CPlayer::Nutral() {
 			m_jump = false;
 		}
 		else {
-			m_state = eDamage;
+			if (m_hp <= 0)
+				m_state = eFall;
+			else
+				m_state = eDamage;
 		}
 		m_vec3D.y = 0;
 		m_hp -= 2;

@@ -35,6 +35,7 @@ enum {
 //ID
 enum {
 	eID_UI,
+	eID_HPUI,
 	eID_Player,
 	eID_Bullet,
 	eID_Enemy,
@@ -89,9 +90,16 @@ public:
 	void SetKill()
 	{
 		m_destroy = true;
-	}
+	};
 	friend class CTaskManager;
 
+	//‚·‚×‚Ä‚Ì‰¹Šy‚ð’âŽ~
+	void MusicStop() {
+		SOUND("BGM_Title")->Stop();
+		SOUND("BGM_Main")->Stop();
+		SOUND("BGM_Boss")->Stop();
+		SOUND("BGM_Ending")->Stop();
+	};
 
 };
 
