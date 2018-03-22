@@ -64,6 +64,7 @@ private:
 	int		m_cnt;			//足音SE再生用。m_cnt % 30 == 0なら足音が再生される
 	int		m_dash;			//3種類ある足音をランダムで再生する用
 	float	m_variation;	//奥に行ったら少しずれるようにしたくて、その数値
+	int		m_old_hp;		//前回のHP値
 };
 
 #endif // !PLAYER_GUARD

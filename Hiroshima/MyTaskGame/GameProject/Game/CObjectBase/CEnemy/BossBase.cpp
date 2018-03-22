@@ -167,19 +167,21 @@ void CBossBase::Hit(CObjectBase * t)
 	if (t->GetID() == eID_Effect) {
 		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
 		if (ef->GetHit() > 1.0f && !m_damage) {
-			if ((ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_headpos3D.z) < 50)||
-				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_armpos3D.z) <  50) ||
-				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_arm2pos3D.z) < 50) ||
-				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_tailpos3D.z) < 50)){
-				SOUND("SE_Panch")->Play(false);
-			//	m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
-					m_damage = true;
-					Damage(0);
-					//m_state = eKnockBack;
-				}
-				else {
-					Fall();
+			if (ef->GetEFtype() == ePanch) {
+				if (abs(ef->GetPos().z - m_headpos3D.z) < 50 ||
+					abs(ef->GetPos().z - m_armpos3D.z) < 50 ||
+					abs(ef->GetPos().z - m_arm2pos3D.z) < 50 ||
+					abs(ef->GetPos().z - m_tailpos3D.z) < 50) {
+					SOUND("SE_Panch")->Play(false);
+					//	m_flipH = !(ef->GetFrip());
+					if (m_hp >= 0) {
+						m_damage = true;
+						Damage(0);
+						//m_state = eKnockBack;
+					}
+					else {
+						Fall();
+					}
 				}
 			}
 			if (ef->GetEFtype() == eFire) {
@@ -216,7 +218,7 @@ void CBossBase::BossBress(){
 		m_headvec3D.y = m_playervec.GetNormalize().y * 30;
 		break;
 	case 2:
-		new CCharge(CVector2D(m_headpos3D.x - 30, m_headpos3D.y + 330));
+		new CCharge(CVector2D(m_headpos3D.x - 80, m_headpos3D.y + 330));
 		break;
 	case 3:
 		break;
@@ -230,7 +232,7 @@ void CBossBase::BossBress(){
 		m_state = eIdol;
 		m_headpos3D.y += 10;
 		break;
-		
+
 	}
 }
 
