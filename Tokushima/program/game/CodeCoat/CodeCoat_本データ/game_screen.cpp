@@ -8,6 +8,7 @@
 #include "ui_manager.h"
 #include "npc_manager.h"
 #include "map_manager.h"
+#include "se_manager.h"
 
 int g_stage = 1;
 
@@ -31,11 +32,13 @@ CGameScreen::CGameScreen(){
 	CEnemyManager::getInstance()->Init();
 	CEnemyManager::getInstance()->LoadFile();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
+	PlaySoundMem(CSeManager::GetInstance()->getsnd(STAGE_BGM), DX_PLAYTYPE_LOOP);
 }
 
 //デストラクタ
 CGameScreen::~CGameScreen(){
 	CTaskManager::GetInstance()->KillAll();
+	StopSoundMem(CSeManager::GetInstance()->getsnd(STAGE_BGM));
 }
 
 void CGameScreen::Dest(){

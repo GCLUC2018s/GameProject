@@ -7,6 +7,7 @@
 #include "map_manager.h"
 #include "player_manager.h"
 #include "ui_manager.h"
+#include "se_manager.h"
 
 CNpc::CNpc()
 :CTask(0, eUDP_Npc, eDWP_Npc)
@@ -110,11 +111,13 @@ void CNpc::Update(){
 	if (m_shop_flag){
 		int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 		if (IsLeftKeyTrigger(key)){
+			PlaySoundMem(CSeManager::GetInstance()->getsnd(ITEM_SE), DX_PLAYTYPE_BACK);
 			m_cursor--;
 			if (m_cursor < 0)
 				m_cursor = 0;
 		}
 		if (IsRightKeyTrigger(key)){
+			PlaySoundMem(CSeManager::GetInstance()->getsnd(ITEM_SE), DX_PLAYTYPE_BACK);
 			m_cursor++;
 			if (m_cursor > 3)
 				m_cursor = 3;

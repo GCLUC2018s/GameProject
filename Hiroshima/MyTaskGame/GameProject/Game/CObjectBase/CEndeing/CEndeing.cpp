@@ -14,12 +14,12 @@ CEnding::CEnding() :CObjectBase(0, eU_Back, eD_UI)
 CEnding::~CEnding()
 {
 	SOUND("BGM_Ending")->Stop();
-	NEW_SCENE(eTitle)
+	NEW_SCENE(eGameStart)
 }
 
 void CEnding::Update()
 {
-	if (m_pos3D.y - SCREEN_HEIGHT / 1.2 + ENDEING_SIZ_Y / 2 > 0)
+	if (m_pos3D.y - SCREEN_HEIGHT / 1.1 + ENDEING_SIZ_Y / 2 > 0)
 		m_pos3D.y--;
 	else
 		m_color.w -= 0.01;

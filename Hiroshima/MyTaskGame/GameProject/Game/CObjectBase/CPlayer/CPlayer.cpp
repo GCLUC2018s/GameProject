@@ -243,18 +243,32 @@ void CPlayer::Nutral() {
 			m_roof = true;
 		}
 		//ボスステージで
+		//ひだり
 		if (gr->GetState() == eBossGround &&
 			//一番奥にいたら
-			1869 - 127 < m_pos3D.x && m_pos3D.x < 2592 && m_pos3D.y > -448 &&
+			122 - 127 < m_pos3D.x && m_pos3D.x < 350 && m_pos3D.y > -520 &&
 			m_pos3D.z == -400) {
-			m_pos3D.y = -448;
+			m_pos3D.y = -520;
+			m_vec3D.y = 0;
+			m_jump = false;
+			SOUND("SE_LANDING")->Play(false);
+			m_roof = true;
+		}
+		//みぎ
+		if (gr->GetState() == eBossGround &&
+			//一番奥にいたら
+			968 - 127 < m_pos3D.x && m_pos3D.x < 1280 && m_pos3D.y > -500 &&
+			m_pos3D.z == -400) {
+			m_pos3D.y = -500;
 			m_vec3D.y = 0;
 			m_jump = false;
 			SOUND("SE_LANDING")->Play(false);
 			m_roof = true;
 		}
 	}
-	else if (m_roof && (1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592)) {
+	else if (m_roof &&
+		((gr->GetState() == eNomalGround && 1869 - 127 >= m_pos3D.x || m_pos3D.x >= 2592) ||
+			(gr->GetState() == eBossGround && 122 - 127 >= m_pos3D.x || m_pos3D.x >= 350 && 968 - 127 >= m_pos3D.x || m_pos3D.x >= 1280))) {
 		m_jump = true;
 		m_roof = false;
 	}

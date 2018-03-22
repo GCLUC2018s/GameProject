@@ -7,7 +7,7 @@
 #include "bullet_manager.h"
 #include "item_manager.h"
 #include "enemy_manager.h"
-//#include "map_manager.h"
+#include "se_manager.h"
 
 CPlayerManager* CPlayerManager::mp_Instance = nullptr;
 
@@ -79,8 +79,6 @@ void CPlayerManager::Update()
 		CPlayerManager::GetInstance()->setNoDamageMovement(0);	//追加
 	}
 
-
-
 	//主人公の腹部
 	CVector3D _p_pos = m_player->getBodyPos() + CVector3D(PLAYER_CENTER, 0, PLAYER_LOWER_SIZE);
 	auto _bullet_list = CBulletManager::GetInstance()->GetBulletList();
@@ -88,6 +86,7 @@ void CPlayerManager::Update()
 		if ((*it)->getWhoseBullet()){
 			if (IsHitCircle(PLAYER_COLLISION + _knife_coli, BULLET_COLLISION, &_p_pos, &CVector3D((*it)->getPos().getX() + BULLET_CENTER, (*it)->getPos().getY(), (*it)->getPos().getZ() + BULLET_CENTER)))
 			{
+				PlaySoundMem(CSeManager::GetInstance()->getsnd(DAMAGE_SE), DX_PLAYTYPE_BACK);
 				if (_knife_flag){
 					(*it)->Kill();
 				}
@@ -120,6 +119,7 @@ void CPlayerManager::Update()
 	for (auto it2 = _enemy_list.begin(); it2 != _enemy_list.end(); it2++){
 		//ナイフのみの判定が欲しかったので追加
 		if (IsHitCircle(PLAYER_COLLISION + _knife_coli, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
+			PlaySoundMem(CSeManager::GetInstance()->getsnd(DAMAGE_SE), DX_PLAYTYPE_BACK);
 			if (_knife_flag){
 				(*it2)->SetLive(false);
 				CEnemyManager::getInstance()->SetDel(true);
@@ -162,7 +162,6 @@ void CPlayerManager::Update()
 	auto _item_list = CItemManager::GetInstance()->GetItemList();
 	for (auto it3 = _item_list.begin(); it3 != _item_list.end(); ){
 		if (IsHitCircle(PLAYER_COLLISION, ITEM_COLLISION, &_p_pos, &CVector3D((*it3)->GetPos().getX() + ITEM_CENTER, (*it3)->GetPos().getY(), (*it3)->GetPos().getZ() + ITEM_CENTER))){
-			
 			(*it3)->SetKill();
 			CItemData *item;
 			item = CItemManager::GetInstance()->makeItem((int)(*it3)->GetName());
