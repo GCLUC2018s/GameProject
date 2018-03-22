@@ -4,6 +4,8 @@
 #include"random"
 #include"math.h"
 #include"stdio.h"
+#include"CSceneGame.h"
+extern int m_EnemyCount = 0;
 struct EnemyTable{
 	float x, y, z;
 	int m_EnemyKind;

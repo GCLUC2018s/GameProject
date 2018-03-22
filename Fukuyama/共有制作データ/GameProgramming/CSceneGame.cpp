@@ -13,6 +13,7 @@ void CSceneGame::Init(){
 	m_PawsCount = 0;
 	GameScene = 0;
 	m_EnemyInterval = 0;
+	m_EnemyCount = 0;
 }
 
 void CSceneGame::Update(){
