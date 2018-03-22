@@ -90,6 +90,7 @@ void CBossBase::Fall() {
 		m_tailvec3D = CVector3D(0, 1, 0);
 		m_end_flag = true;
 		m_color.w = 2.0;
+		m_head.ChangeAnimation(eAnimBossDown);
 	}
 	if (m_end_flag) {
 		m_color.w -= 0.005;

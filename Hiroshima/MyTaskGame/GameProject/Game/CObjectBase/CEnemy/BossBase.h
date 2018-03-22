@@ -113,6 +113,19 @@ public:
 		}
 	}
 private:
+	/*enum {
+		eIdol,
+		eMove,
+		eBlessAttack,
+		eTailAttack,
+		eBress,
+		eLaserShower,
+		eDown,
+		eDamage,
+		eFall,
+		eJump,
+		eDescent,
+	};*/
 	bool m_nagi;	//薙ぎ払い時使用。falseなら→に動く
 	int m_dame_time;	//ダメージ受けてる時間
 	void SetNotDame() {
