@@ -76,6 +76,7 @@ protected:
 		eDown,
 		eDamage,
 		eFall,
+		eDescent,
 	};
 public:
 	CBossBase();
@@ -110,7 +111,7 @@ public:
 		}
 	}
 private:
-	enum {
+	/*enum {
 		eIdol,
 		eMove,
 		eBlessAttack,
@@ -122,7 +123,7 @@ private:
 		eFall,
 		eJump,
 		eDescent,
-	};
+	};*/
 };
 
 #endif // !BOSSBASEGUARD
