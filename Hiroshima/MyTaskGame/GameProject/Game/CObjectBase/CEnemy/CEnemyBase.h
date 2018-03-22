@@ -43,6 +43,9 @@ public:
 	void Damage();
 	void Draw();
 	void Hit(CObjectBase * t);
+
+
+					
 };
 
 #endif // !ENEMYBASEGUARD
