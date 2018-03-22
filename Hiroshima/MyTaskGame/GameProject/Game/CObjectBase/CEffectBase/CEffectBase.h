@@ -12,6 +12,7 @@
 enum {
 	eFire,
 	ePanch,
+	eBress,
 };
 
 class CEffectBase :public CObjectBase {
