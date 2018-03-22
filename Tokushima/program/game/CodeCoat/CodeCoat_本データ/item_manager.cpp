@@ -25,7 +25,7 @@ void CItemManager::ClearInstance()
 CItemManager::CItemManager()
 : m_Elapsed(0)
 {
-	char *item[] = { "knife.png", "pistol.png", "shottogan.png","rifle.png","stabarmor.png","bulletarmor.png","speedup.png","x2score.png" };
+	char *item[] = { "knife.png", "pistol.png", "shottogan.png","rifle.png","stabarmor.png","bulletarmor.png","x2score.png","speedup.png" };
 	char buf[256];
 	for (int i = 0; i < ITEMCOUNT; i++){
 		sprintf_s(buf, "media\\img\\Item\\%s", item[i]);
