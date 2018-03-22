@@ -19,6 +19,7 @@ public:
 	~CEnemyManager();
 	static CEnemyManager* getInstance();
 	static void clearInstance();
+	void Init();
 	void Update();
 	void Draw();
 	void LoadFile();

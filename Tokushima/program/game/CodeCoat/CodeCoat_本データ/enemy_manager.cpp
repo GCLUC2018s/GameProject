@@ -90,6 +90,11 @@ out:
 	fclose(fp);
 }
 
+void CEnemyManager::Init(){
+	m_comb = 0;
+	m_del_point = 0;
+}
+
 CEnemyManager::~CEnemyManager(){}
 
 void CEnemyManager::Remove(CEnemy* enemy)

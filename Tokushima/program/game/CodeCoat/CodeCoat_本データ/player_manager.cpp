@@ -74,7 +74,7 @@ void CPlayerManager::Update()
 	CItemData *_Armor = m_player->getEquipment(ARMOR);
 	if (_Idata->m_name == KNIFE && _Idata->m_useful > 0)
 	{
-		_knife_coli = 40.0f;
+		_knife_coli = 50.0f;
 		_knife_flag = true;
 		CPlayerManager::GetInstance()->setNoDamageMovement(0);	//’Ç‰Á
 	}
@@ -122,7 +122,8 @@ void CPlayerManager::Update()
 		if (IsHitCircle(PLAYER_COLLISION + _knife_coli, ENEMY_COLLISION, &_p_pos, &CVector3D((*it2)->GetPos().getX() + ENEMY_CENTER, (*it2)->GetPos().getY(), (*it2)->GetPos().getZ() + ENEMY_LOWER_SIZE))){
 			if (_knife_flag){
 				(*it2)->SetLive(false);
-				CEnemyManager::getInstance()->CombInc();
+				CEnemyManager::getInstance()->SetDel(true);
+				CEnemyManager::getInstance()->CombInc();		//’Ç‰Á
 				if (_num == 1){
 					CItemManager::GetInstance()->Create(&(*it2)->GetPos());	//’Ç‰Á
 				}

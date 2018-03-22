@@ -52,6 +52,12 @@ void Ui::Update(){
 		CVector3D p_pos = CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos();
 		float _totalmove = CMapManager::GetInstance()->GetMapAdress()->getTotalmovement();
 		float _move = 0;
+		//弾数		追加
+		for (int i = 0; i < 2; i++){
+			m_ammo[i] = CPlayerManager::GetInstance()->GetPlayerAdress()->getEquipment(i)->m_useful;
+			if (CPlayerManager::GetInstance()->GetPlayerAdress()->getEquipment(i)->m_name == 0)
+				m_ammo[i] = 0;
+		}
 
 		//タイマーをプレイヤーに追従させる処理
 		if (p_pos.getX() < 100){	//タイマーが見切れるなら
@@ -86,6 +92,9 @@ void Ui::Update(){
 void Ui::Draw(){
 	int offset1 = 0;	//タイマーで使用
 	int offset2 = 1;	//スコア倍率で使用
+	int offset3 = 0;	//走行倍率で使用	追加
+	int offset4 = 0;	//追加
+
 	char buf[100];
 	float num;
 	//タイマーの描画　小数点第二位まで
@@ -184,6 +193,15 @@ void Ui::Draw(){
 		}
 	}
 
+	//弾薬や装備の使用回数		追加
+	for (int j = 0; j < 2; j++){
+		num = sprintf_s(buf, 100, "%d", m_ammo[j]);
+		for (int i = 0; i < num; i++){
+			DrawRotaGraph(((ITEM_FRAME_X + 70 + (j * 100))) + i * 17,
+				ITEM_FRAME_Y + 80, 0.7, 0, m_scorenum_img[(buf[i] - '0')], TRUE, FALSE);		//'0'
+		}
+	}
+
 	//コンボ数		追加
 	if (m_comb_flag == true){
 		float temp = 0;
@@ -221,9 +239,9 @@ void Ui::Draw(){
 				DrawGraph((BONUS_X * temp) + 30,
 					COMB_Y, m_scorenum_img[10], TRUE);
 			}
-			if (i == 1){
-				DrawGraph((BONUS_X * temp) + SCORE_MAGNIFICATION_X + (i * 32),
-					COMB_Y, m_scorenum_img[11], TRUE);
+			if (i - offset3 == 1){
+				DrawGraph((BONUS_X * temp) + (SCORE_MAGNIFICATION_X - offset4) + (i * 32),
+					COMB_Y, m_scorenum_img[11], TRUE);		//.
 			}
 			else{
 				DrawGraph((BONUS_X * temp) + SCORE_MAGNIFICATION_X + (i * 20),
@@ -257,8 +275,10 @@ void Ui::scoreAddition(){		//追加
 	//出現判定
 	if (_comb < 1)
 		m_comb_flag = false;
-	else
+	else{
 		m_comb_flag = true;
+		CPlayerManager::GetInstance()->setNoDamageMovement(0);
+	}
 
 	//倍率の初期値が1.0
 	//_comb = (_comb / 10) + 1;
@@ -268,6 +288,7 @@ void Ui::scoreAddition(){		//追加
 		_s = (m_score_magnification+_comb) * 100;		//画面内の倍率＋コンボ
 		m_totalscore += _s;
 		CEnemyManager::getInstance()->SetDel(false);
+
 	}
 
 	//攻撃せず一定距離まで走れば
