@@ -25,7 +25,6 @@ void CBulletManager::ClearInstance()
 CBulletManager::CBulletManager()
 : m_Elapsed(0)
 {
-	m_img = LoadGraph("media\\img\\bullet.png");
 }
 
 // デストラクタ
@@ -37,6 +36,7 @@ CBulletManager::~CBulletManager()
 // 初期化処理
 void CBulletManager::Init()
 {
+	m_img = LoadGraph("media\\img\\bullet.png");
 }
 
 // 終了処理

@@ -29,6 +29,7 @@ CGameScreen::CGameScreen(){
 	new CPlayerControl;
 	new CNpc;
 	new CMapControl;
+	CBulletManager::GetInstance()->Init();
 	CEnemyManager::getInstance()->Init();
 	CEnemyManager::getInstance()->LoadFile();
 	new Ui(CPlayerManager::GetInstance()->GetPlayerAdress()->getBodyPos());
