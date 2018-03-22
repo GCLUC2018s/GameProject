@@ -460,8 +460,21 @@ void CPlayer::Draw() {
 void CPlayer::Hit(CObjectBase * t)
 {
 	if (t->GetID() == eID_Enemy) {
-		if (t->GetState() == eAttack && m_state != eFall) {
-			m_state = eFall;
+		if (t->GetState() == eAttack && m_state != eFall && m_state != eDamage) {
+			if (m_jump) {
+				m_state = eFall;
+				m_die = 1;
+				m_jump = false;
+			}
+			else {
+				if (m_hp <= 0)
+					m_state = eFall;
+				else
+					m_state = eDamage;
+			}
+			m_vec3D.y = 0;
+			m_hp -= 2;
+			m_cnt = 0;
 		}
 	}
 }

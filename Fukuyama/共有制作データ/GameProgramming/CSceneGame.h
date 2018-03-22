@@ -18,7 +18,14 @@ public:
 		Enemy = new CEnemy();
 		Enemy->Init();
 		BackGround = new C_BackGround();
+		i_iconShadow.SetVertex(-585, -495, -435, -434);
+		i_Icon.SetVertex(-585, -495, -435, -345);
+		Icon.Load("image/under/under_spray_icon.tga");
 	}
+
+	C_Rectangle i_iconShadow;
+	C_Rectangle i_Icon;   //スプレーのアイコン
+	CTexture Icon;      //スプレーアイコンのテクスチャー
 	C_Player* Player;
 	CEnemy* Enemy;
 	C_BackGround* BackGround;
@@ -30,6 +37,7 @@ public:
 	int GameScene;
 	void Init();
 	void Update();
+	void Draw();
 };
 
 #endif
