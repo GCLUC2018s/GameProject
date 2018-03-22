@@ -99,7 +99,7 @@ void Init(void)
 	//テキスト関係
 	ADD_RESOURCE("GameStartText", CAnimImage::LoadImage("text00.png"));
 	ADD_RESOURCE("MainText", CAnimImage::LoadImage("text01.png"));
-	ADD_RESOURCE("EndHissatuStaff", CAnimImage::LoadImage("ending.png"));
+	ADD_RESOURCE("EndStaff", CAnimImage::LoadImage("ending.png"));
 	ADD_RESOURCE("Hissatu", CAnimImage::LoadImage("text02.png"));
 
 	//アイテム関係
