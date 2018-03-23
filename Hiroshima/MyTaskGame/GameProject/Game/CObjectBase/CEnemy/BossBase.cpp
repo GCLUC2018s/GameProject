@@ -30,6 +30,12 @@ void CBossBase::Nutral( int boss_id) {
 		//m_headvec3D.x = -cos(m_shaking_head + Utility::DgreeToRadian(90)) * 5;
 		m_headvec3D.y = -sin(m_shaking_head) * 1;
 		m_down = false;
+		if (m_flipH) {
+			BossRight();
+		}
+		else {
+			BossLeft();
+		}
 		break;
 	case eArm:
 		m_arm.ChangeAnimation(eAnimBossArm2Idol);
@@ -312,32 +318,27 @@ void CBossBase::BossDescent() {
 }
 //←
 void CBossBase::BossLeft() {
-	//べく操作
-	m_headvec3D.x = Price_Down(m_headvec3D.x, -5, 0.2);
-	 m_armvec3D.x = Price_Down( m_armvec3D.x, -5, 0.2);
-	m_arm2vec3D.x = Price_Down(m_arm2vec3D.x, -5, 0.2);
-	m_tailvec3D.x = Price_Down(m_tailvec3D.x, -5, 0.2);
 
 	//ポス操作
-	m_headpos3D.x += m_headvec3D.x;
-	 m_armpos3D.x +=  m_armvec3D.x;
-	m_arm2pos3D.x += m_arm2vec3D.x;
-	m_tailpos3D.x += m_tailvec3D.x;
+	m_headpos3D.x--;
+	 m_armpos3D.x--;
+	m_arm2pos3D.x--;
+	m_tailpos3D.x--;
+	if (m_headpos3D.x < 600) {
+		m_flipH = !m_flipH;
+	}
 
 }
 //→
 void CBossBase::BossRight() {
-	//べく操作
-	m_headvec3D.x = Price_Up(m_headvec3D.x, 5, 0.2);
-	 m_armvec3D.x = Price_Up( m_armvec3D.x, 5, 0.2);
-	m_arm2vec3D.x = Price_Up(m_arm2vec3D.x, 5, 0.2);
-	m_tailvec3D.x = Price_Up(m_tailvec3D.x, 5, 0.2);
-
 	//ポス操作
-	m_headpos3D.x += m_headvec3D.x;
-	 m_armpos3D.x +=  m_armvec3D.x;
-	m_arm2pos3D.x += m_arm2vec3D.x;
-	m_tailpos3D.x += m_tailvec3D.x;
+	m_headpos3D.x++;
+	 m_armpos3D.x++;
+	m_arm2pos3D.x++;
+	m_tailpos3D.x++;
+	if (m_headpos3D.x > 800) {
+		m_flipH = !m_flipH;
+	}
 
 }
 void CBossBase::BossLaser() {

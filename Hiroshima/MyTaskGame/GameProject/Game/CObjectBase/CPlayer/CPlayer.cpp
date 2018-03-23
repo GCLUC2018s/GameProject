@@ -227,6 +227,10 @@ void CPlayer::Nutral() {
 	if (HOLD_E && !m_jump) {
 		m_squat = true;
 		m_anim = eAnimSquat;
+		m_rect = CRect(0, 100, 127, 215);
+	}
+	else {
+		m_rect = CRect(0, 0, 127, 215);
 	}
 	CObjectBase *gr = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Ground));
 

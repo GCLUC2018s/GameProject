@@ -49,9 +49,6 @@ void CItemBox::Update() {
 		
 	m_img.UpdateAnimation();
 	CheckOverlap();
-	if (m_pos3D.x - m_scroll.x < -10) {
-		SetKill();
-	}
 }
 void CItemBox::Hit(CObjectBase * t){
 	if (t->GetID() == eID_Player) {
