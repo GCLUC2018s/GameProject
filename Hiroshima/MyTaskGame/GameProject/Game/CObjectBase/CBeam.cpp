@@ -2,13 +2,14 @@
 
 
 CBeam::CBeam(CVector2D pos) {
+	m_effect_type = eBress;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Effect_beam"));
 	m_pos2D = pos;
 	m_pos3D.x = pos.x;
 	m_pos3D.y = pos.y;
+	m_rect = CRect(-640, 0, 640, 960);
 	m_img.SetCenter(640, 0);
 	m_img.SetSize(1280, 960);
-	m_rect = CRect(-640, 0, 640, 960);
 	CheckOverlap();
 }
 

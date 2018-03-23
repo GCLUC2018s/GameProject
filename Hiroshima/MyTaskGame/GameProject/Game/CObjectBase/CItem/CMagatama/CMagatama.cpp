@@ -8,7 +8,7 @@ CMagatama::CMagatama() :CObjectBase(eID_Magatama, eU_Item, eD_Object) {
 	m_img.SetRect(0, 0, 128, 128);
 	m_img.SetSize(100, 100);
 	m_pos3D = CVector3D(20, 20, 0);
-	m_cnt = 0;
+	m_cnt = 10;
 	m_img_max.SetSize(180, 180);
 	m_img_max.SetPos(m_pos3D.x -40, m_pos3D.y -40);
 	m_img_max.ChangeAnimation(1);
@@ -54,7 +54,7 @@ void CMagatama::SetAttack()
 
 	*/
 
-	m_cnt = 0;
+	m_cnt = 10;
 	new CMahouzin();
 	new CCutIn();
 	//カットイン発動
