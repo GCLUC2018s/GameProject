@@ -1,0 +1,15 @@
+Loop,1,,,
+TextureName,Maiku/enemyA_wait_1.bmp,,,
+Width,440,,,
+Height,108,,,
+x,0,110,220,330
+y,0,0,0,0
+w,110,110,110,110
+h,108,108,108,108
+OffsetX,0,0,0,0
+OffsetY,0,0,0,0
+PlayTime,5,5,5,5
+HitX,0,110,220,330
+HitY,0,0,0,0
+HitW,110,110,110,110
+HitH,108,108,108,108

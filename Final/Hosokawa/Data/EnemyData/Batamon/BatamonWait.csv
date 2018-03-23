@@ -1,0 +1,15 @@
+Loop,1,
+TextureName,Batamon/boss_wait.bmp,
+Width,990,
+Height,230,
+x,0,330
+y,0,0
+w,330,330
+h,230,230
+OffsetX,0,0
+OffsetY,0,0
+PlayTime,5,5
+HitX,25,25
+HitY,218,218
+HitW,260,260
+HitH,185,185

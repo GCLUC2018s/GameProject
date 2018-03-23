@@ -1,0 +1,16 @@
+Loop,0,
+TextureName,Bane/enemyB_set_jump.bmp,
+Width,370,
+Height,208,
+x,0,185
+y,0,0
+w,185,185
+h,208,208
+OffsetX,0,0
+OffsetY,0,0
+PlayTime,10,10
+HitX,78,78
+HitY,168,135
+HitW,56,56
+HitH,164,125
+HitHeight,1,

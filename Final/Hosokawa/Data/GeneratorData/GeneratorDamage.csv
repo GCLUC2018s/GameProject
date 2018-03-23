@@ -1,0 +1,15 @@
+Loop,0,,,
+TextureName,Generate/generate_damage.bmp,,,
+Width,920,,,
+Height,230,,,
+x,0,230,460,690
+y,0,0,0,0
+w,230,230,230,230
+h,230,230,230,230
+OffsetX,0,0,0,0
+OffsetY,0,0,0,0
+PlayTime,6,6,6,6
+HitX,0,0,0,0
+HitY,0,0,0,0
+HitW,230,230,230,230
+HitH,230,230,230,230
