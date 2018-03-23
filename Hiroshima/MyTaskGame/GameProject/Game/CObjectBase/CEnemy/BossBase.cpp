@@ -282,7 +282,7 @@ void CBossBase::BossJump() {
 		m_arm2.SetFlipH(false);
 		m_arm2.SetAng(0);
 		m_tail.SetAng(0);
-		m_state = eBress;
+		m_state = eLaserShower;
 	}
 
 }
@@ -310,11 +310,12 @@ void CBossBase::BossDescent() {
 
 }
 void CBossBase::BossLaser() {
-	m_armpos3D += m_armvec3D;
+//	m_armpos3D += m_armvec3D;
 	m_armtime++;
 
 	if (m_armtime < 180) {
-		if (m_playervec.Length() >= 5.0f) {
+//		m_armvec3D.y = Price_Up(m_armvec3D.y, 5, 0.2);
+		if (m_armpos3D.y < -350) {
 			m_playervec = CVector3D(695, -350, 0) - m_armpos3D;
 			m_armvec3D = m_playervec.GetNormalize() * 4;
 		}
@@ -323,21 +324,38 @@ void CBossBase::BossLaser() {
 			m_armvec3D = CVector3D(0, 0, 0);
 		}
 	}
-	if (m_armtime == 180)
+	if (m_armtime == 180) {
 		new CBeam(CVector2D(640, -240));
+		m_armvec3D.y = 0;
+	}
 	if (m_armtime >= 300) {
-		if (abs(m_armpos3D.y) > 1.0f) {
-			m_armvec3D.y = -m_armpos3D.y / 30;
-			m_armvec3D.x = 50 / 30;
-		}
-		else {
-			m_armpos3D.y = 0;
-			m_armpos3D.x = 750;
-		}
+		//m_armpos3D.y -= 50;
+
+		//if (abs(m_armpos3D.y) > 1.0f) {
+		//	m_armvec3D.y = -m_armpos3D.y / 30;
+		//	m_armvec3D.x = 50 / 30;
+		//}
+		//else {
+		//	m_armpos3D.y = 0;
+		//	m_armpos3D.x = 750;
+		//}
 	}
 	if (m_armtime == 420) {
 		m_armtime = 0;
-		m_state = eIdol;
+		SetNotDame();
+		m_headpos3D = m_headoldpos3D;
+		m_armpos3D = m_armoldpos3D;
+		m_arm2pos3D = m_arm2oldpos3D;
+		m_tailpos3D = m_tailoldpos3D;
+		m_headpos3D.y -= 600;
+		m_armpos3D.y -= 600;
+		m_arm2pos3D.y -= 600;
+		m_tailpos3D.y -= 600;
+		m_headvec3D = CVector3D(0, 0, 0);
+		m_armvec3D = CVector3D(0, 0, 0);
+		m_arm2vec3D = CVector3D(0, 0, 0);
+		m_tailvec3D = CVector3D(0, 0, 0);
+		m_state = eDescent;
 	}
 }
 

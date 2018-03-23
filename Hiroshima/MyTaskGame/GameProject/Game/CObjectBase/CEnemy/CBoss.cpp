@@ -32,6 +32,7 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 	m_parts_arm = eArm;
 	m_parts_arm2 = eArm2;
 	m_parts_tail = eTail;
+	m_state = eIdol;
 	m_rect_F = m_armrect;
 }
 
@@ -58,16 +59,14 @@ void CBoss::Update() {
 	//if (m_test == 100) {
 	//	m_test = 0;
 	//}
-	m_motiontest++;
-	
-	if(m_motiontest==0)
-		m_state = eIdol;
-	if(m_motiontest==60*10)
-		m_state = eJump;
-	if(m_motiontest==60*30)
-		m_state = eJump;
-	if(m_motiontest==60*50)
-		m_state = eJump;
+	//m_motiontest++;
+
+	//if(m_motiontest==60*10)
+	//	m_state = eJump;
+	//if(m_motiontest==60*30)
+	//	m_state = eJump;
+	//if(m_motiontest==60*50)
+	//	m_state = eJump;
 
 
 
@@ -82,10 +81,10 @@ void CBoss::Update() {
 	Tail();
 
 
-	//if (PUSH_ENTER) {
-	//	//m_state = eDown;
-	//	m_state = eJump;
-	//}
+	if (PUSH_ENTER) {
+		//m_state = eDown;
+		m_state = eJump;
+	}
 	
 	
 //m_img.ChangeAnimation(6);
@@ -215,7 +214,7 @@ void CBoss::Arm() {
 		Attack(m_parts_arm);
 		break;
 	case eLaserShower:
-		Nutral(m_parts_arm);
+		BossLaser();
 		break;
 	case eDown:
 		Nutral(m_parts_arm);
