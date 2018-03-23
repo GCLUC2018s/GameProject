@@ -72,7 +72,7 @@ void CEnemy5::Move() {
 		m_flipH = false;
 	}
 	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - 50 - NIKU_SIZ_X) {
-		m_pos3D.x = m_scroll.x + SCREEN_WIDTH - 50 - ENEMY_SIZ_X;
+		m_pos3D.x = m_scroll.x + SCREEN_WIDTH - 50 - NIKU_SIZ_X;
 		m_flipH = true;
 	}
 
