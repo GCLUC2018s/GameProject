@@ -234,3 +234,9 @@ void C_Object::TaikiAnime(CTexture *image, int id){
 			image->DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 630, 540, 140, 5);
 	}
 }
+void C_Object::EnemyTaiki(CTexture *image, int id){
+	if (m_Turn == E_RIGHT)
+		image->DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 714, 804, 140, 5);
+	else if (m_Turn == E_LEFT)
+		image->DrawImage(m_image.m_Left, m_image.m_Right, m_image.m_Bottom, m_image.m_Top, 804, 714, 140, 5);
+}

@@ -4,6 +4,8 @@
 #include"random"
 #include"math.h"
 #include"stdio.h"
+#include"CSceneGame.h"
+
 struct EnemyTable{
 	float x, y, z;
 	int m_EnemyKind;
@@ -47,6 +49,7 @@ EnemyTable s_enemy_table[] = {
 			E_ESCAPE, },
 
 };
+
 void CEnemy::Init(){
 	m_ActionInterval = ACTION_INTERVAL;
 	m_EnemySet = rand()/100 % 12;
@@ -55,9 +58,10 @@ void CEnemy::Init(){
 	m_EnemyKind = data->m_EnemyKind;
 	m_EnemyMode = E_NORMAL;
 }
+
 void CEnemy::Update(){
-	m_TargetR = C_Player::m_Playerpoint->i_JumpPoint;
-	m_TargetL = C_Player::m_Playerpoint->i_JumpPoint;
+	m_TargetR = C_Player::m_Playerpoint->ShadowPos;
+	m_TargetL = C_Player::m_Playerpoint->ShadowPos;
 	m_TargetR.x += 100;
 	m_TargetL.x -= 100;
 	float m_LongR = sqrtf((m_TargetR.x - m_Position.x)*(m_TargetR.x - m_Position.x)
@@ -116,22 +120,35 @@ void CEnemy::Update(){
 			}
 		}
 		if (m_EnemyMode == E_DEAD){
-			m_Position.x += ENEMY_LR_SPEED;
+			m_Position.x += ENEMY_LR_SPEED*3;
 			m_Turn = E_RIGHT;
 			if (m_Position.x >= 700){
 				SetKill();
 			}
 		}
+
+		//影の位置をエネミーのポジションと同期します
+		ShadowPos.x = m_Position.x;
+		ShadowPos.y = m_Position.y;
+		ShadowPos.z = m_Position.z;
+
 		//描画順番の変更
 		CTaskManager::GetInstance()->ChangeDrawPrio(this, -m_Position.z);
 		C_Object::Scroll(&m_Position, m_Scroll);
 		C_Object::Rect(&m_image, &m_Position);
+
+		//影のスクロール
+		C_Object::Scroll(&ShadowPos, m_Scroll);
+		//影の描画位置をポジションと同期
+		C_Object::Rect(&i_Shadow, &ShadowPos);
+
 		m_Colimage = m_image;
 }
 bool CEnemy::Collision(CTask* a, CTask* b){
 	C_Object* p = (C_Object*)a;
 	C_Object* q = (C_Object*)b;
-	if (C_Collider::Collision(p, q, &p->m_Position, &q->m_Position)){
+	p = this;
+	if (C_Collider::Collision(p, q, &p->ShadowPos, &q->ShadowPos)){
 		if (q->m_id ==E_ATACK ){
 			q->m_Position.x += q->m_Colimage.m_AdjustX;
 			q->m_Position.z += q->m_Colimage.m_AdjustZ;
@@ -144,8 +161,12 @@ bool CEnemy::Collision(CTask* a, CTask* b){
 }
 
 void CEnemy::Draw(){
+
+	//影の描画
+	i_Chara_Motion_2.DrawImage(i_Shadow.m_Left, i_Shadow.m_Right, i_Shadow.m_Bottom - 3, i_Shadow.m_Top - 3, 630, 720, 275, 140);
+
 	if (m_Position.x >= m_TargetL.x &&m_Position.x <= m_TargetR.x&&m_Position.z==m_TargetR.z||m_Position.z==m_TargetL.z){
-		EnemyTaiki(&i_Enemy_Run, E_ENEMY);    
+		//EnemyTaiki(&i_Enemy_Run, E_ENEMY);    
 	}
 	else{
 	RunAnime(&i_Enemy_Run, E_ENEMY);

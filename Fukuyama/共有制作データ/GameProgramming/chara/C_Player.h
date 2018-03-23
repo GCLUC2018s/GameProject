@@ -18,8 +18,7 @@
 class C_Player :public C_Object{
 public:
 	C_Player() 
-		:C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,0)
-		, i_JumpPoint(0,0,0)
+		: C_Object(E_PLAYER, eUDP_Player, eDWP_Player,0,0,0)
 		, m_SetInterval(SET_INTERVAL)
 		, m_ThrowInterval(THROW_INTERVAL)
 		, m_SprayInterval(SPRAY_INTERVAL)
@@ -46,7 +45,7 @@ public:
 		m_Playerpoint = this;
 	}
 	static C_Player *m_Playerpoint;
-	C_Vector3 i_JumpPoint;
+	int m_Player_HP;           //プレイヤーのHP
 	bool Collision(CTask*, CTask*);
 protected:
 	//テクスチャーのインスタンス宣言
@@ -57,7 +56,6 @@ protected:
 	int m_ThrowInterval;          //投擲間隔
 	int m_SprayInterval;          //スプレー使用間隔
 	int m_DamageInterval;        //ダメージ後の無敵時間管理
-	int m_Player_HP;           //プレイヤーのHP
 	void Jump(C_Vector3& pos, C_Vector3& speed, const C_Vector3& gravity, float deltatime);
 	virtual void Update();
 	virtual void Draw();

@@ -17,7 +17,6 @@ class C_ColorBall:public C_Object{
 public:
 	C_ColorBall()
 		:C_Object(E_ATACK, eUDP_Object, eDWP_Object, 0, 0, 0)
-		, ShadowPos(0.0f,0.0f,0.0f)
 		, m_Deltatime(DELTATIME)
 		, init(false)
 	{
@@ -29,7 +28,6 @@ public:
 		i_ColorBall.Load("image/bg/color/tga/colorball03.tga");
 	}
 private:
-	C_Vector3 ShadowPos;
 	CTexture i_ColorBall;
 	float m_Deltatime;       //1•bŠÔ‚Ìˆ—‰ñ”
 	C_Vector3 i_Throwpos;         //“Š‚°‚½ˆÊ’u

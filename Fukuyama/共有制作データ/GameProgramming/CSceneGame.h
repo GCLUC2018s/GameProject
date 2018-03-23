@@ -14,6 +14,7 @@ public:
 	CSceneGame(){
 		i_iconShadow.SetVertex(-585, -495, -435, -434);
 		i_Icon.SetVertex(-585, -495, -435, -345);
+		GameOver.Load("image/bg/GAMEOVER/GAMEOVER.tga");
 		Icon.Load("image/under/under_spray_icon.tga");
 		Title.Load("image/bg/start/Title.tga");
 	}
@@ -23,11 +24,15 @@ public:
 	CTexture Icon;      //スプレーアイコンのテクスチャー
 	CTexture Title;       //タイトルのテクスチャー
 	C_Player* Player;
+	CTexture GameOver;
 	CEnemy* Enemy;
 	C_BackGround* BackGround;
 	C_Drum* Drum;
 	CTexture mTexture;
 	CTexture mTexture2;
+	int m_EnemyInterval;
+	int m_EnemyCount; //フィールド上の敵の数
+
 	int m_PawsCount;
 	int GameScene;
 	void Init();

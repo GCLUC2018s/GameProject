@@ -35,7 +35,7 @@ CBB::~CBB()
 		SOUND("BGM_Main")->Play(true);
 		break;
 	case 2:
-		NEW_SCENE(eEnd)
+		NEW_SCENE(eBoss)
 			break;
 	case 4:
 		if (m_vec3D.y == 0)
@@ -43,6 +43,9 @@ CBB::~CBB()
 		if (m_vec3D.y == 150)
 			NEW_SCENE(eGameStart)
 		break;
+	case 5:
+		NEW_SCENE(eEnd)
+			break;
 	default:
 		break;
 	}

@@ -35,6 +35,8 @@ const int EQUIPMENT_COUNT = 3; //装備欄の数
 const float PLAYER_COLLISION = 10;//主人公の当たり判定半径
 const int ANIM_RATE = 6;//アニメーションの再生速度
 const int PLAYER_STATE = 7;
+const int ACCELE_START = 65;
+const float GET_SPEED = 300.0f;
 
 const float SCORE_BUFF = 2.0f;
 const float SPEED_BUFF = 150.0f;
@@ -61,8 +63,18 @@ struct SBuff{
 	int m_score_ratio_delay;
 };
 
+struct Get{
+	float x;
+	float y;
+	float m_accele;
+	float m_alpha;
+	float m_alphatime;
+};
+
+
 class CPlayerControl : public CTask{
 private:
+	list<Get*> m_getList;
 	CItemData m_Equipment[EQUIPMENT_COUNT];			//装備保存欄
 	int m_heroUpperimg[PLAYER_STATE][ANIM_COUNT];									//主人公の上半身画像(仮)
 	int m_heroLowerimg[ANIM_COUNT];								//主人公の下半身画像(仮)
@@ -86,6 +98,7 @@ private:
 	float m_flashImgTime;
 	bool m_InvincibleFlag;
 	float m_duration;
+	int m_getimg;
 public:
 	CPlayerControl();
 	~CPlayerControl();

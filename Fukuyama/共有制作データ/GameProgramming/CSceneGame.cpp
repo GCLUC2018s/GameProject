@@ -2,15 +2,20 @@
 #include"CKey.h"
 #include"windows.h"
 #include "CCollider.h"
+#include"CMain.h"
+
 //ポーズ画面の判定用
 int PawsCount = 0;
+int m_EnemyCount = 0;
 
 void CSceneGame::Init(){
 	//テクスチャ読み込み
-	mTexture.Load("Image(kari).tga");
-	mTexture2.Load("spray-icon.tga");
+	//mTexture.Load("Image(kari).tga");
+	//mTexture2.Load("spray-icon.tga");
 	m_PawsCount = 0;
 	GameScene = 0;
+	m_EnemyInterval = 0;
+	m_EnemyCount = 0;
 }
 
 void CSceneGame::Update(){
@@ -39,6 +44,15 @@ void CSceneGame::Update(){
 			m_CoolTime = m_CoolTime / SPRAY_INTERVAL;      //スプレーのクールタイム表示（アイコン）
 
 			i_iconShadow.m_Top -= m_CoolTime;
+			if (m_EnemyInterval < 60){
+				m_EnemyInterval += 1;
+			}
+			if (m_EnemyInterval == 60 && m_EnemyCount < 10){
+				Enemy = new CEnemy();
+				Enemy->Init();
+				m_EnemyInterval = 0;
+				m_EnemyCount += 1;
+			}
 			if (i_iconShadow.m_Top <= i_iconShadow.m_Bottom){
 				i_iconShadow.m_Top = i_iconShadow.m_Bottom;
 			}
@@ -49,6 +63,13 @@ void CSceneGame::Update(){
 				//ポーズへ
 				m_PawsCount = 1;
 			}
+			//if (Player->m_Player_HP == 0){
+			//	Drum->m_destroyFlg = true;
+			//	/*CTaskManager::GetInstance()->Kill(Player);
+			//	CTaskManager::GetInstance()->Kill(Enemy);
+			//	CTaskManager::GetInstance()->Kill(BackGround);*/
+			//	GameScene = 2;
+			//}
 		}
 		else{
 			if (CKey::Once('P')){
@@ -61,6 +82,9 @@ void CSceneGame::Update(){
 				m_PawsCount = 0;
 			}
 		}
+		break;
+	case 2:
+		GameOver.DrawImage(0, 1200, 900, 0, 0, 1200, 900, 0);
 		break;
 	}
 }

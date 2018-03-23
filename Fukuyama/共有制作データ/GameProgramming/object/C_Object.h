@@ -45,6 +45,7 @@ public:
 		:CTask(id, updatePrio, drawPrio)
 		, init(false)
 		, m_Position(posx, posy, posz)
+		, ShadowPos(0.0f, 0.0f, 0.0f)
 		, m_Anime(0)        //アニメーションカウンタの初期化
 		, m_Anime_Jump(50)      //ジャンプ用アニメーションカウンタの初期化
 		, m_Anime_Set(SET_ANIME+2)       //設置アニメーションカウンタの初期化
@@ -77,9 +78,11 @@ public:
 
 	void RunAnime(CTexture *image, int id);      //走りアニメ
 	void TaikiAnime(CTexture *image, int id);    //待機アニメ
+	void EnemyTaiki(CTexture *image, int id);//待機アニメ
 	C_Rectangle m_Colimage;  //判定処理をメンバー変数にする
 	float m_Collision_Wide=10.0f;
 	CollisionState ColState;
+	C_Vector3 ShadowPos;
 	void SetCol(){
 		m_Colimage = m_image;
 	}

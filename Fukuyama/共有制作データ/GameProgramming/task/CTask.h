@@ -48,13 +48,13 @@ enum E_DrawPrio
 class CTask
 {
 protected:
-	bool m_destroyFlg;				//削除フラグ
 	bool m_pauseFlg;				//更新停止フラグ
 
 	CTaskLinker		m_updLinker;		// Update用のCTaskLinker 
 	CTaskLinker		m_drwLinker;		// Draw用のCTaskLinker 
 
 public:
+	bool m_destroyFlg;				//削除フラグ
 	CTask();						//CTaskクラスのコンストラクタ
 	CTask(int id, int updateprio, int drawPrio);
 	virtual ~CTask();				//CTaskクラスのデストラクタ
