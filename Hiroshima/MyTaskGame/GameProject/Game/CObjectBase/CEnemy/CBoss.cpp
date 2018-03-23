@@ -64,21 +64,21 @@ void CBoss::Update() {
 
 	if (m_motiontest == 60 * 10) {
 		m_state = eJump;
-		m_attack_id = false;
+		m_attack_id = true;
 	}
 
 	if (m_motiontest == 60 * 25) {
 		m_state = eJump;
-		m_attack_id = true;
+		m_attack_id = false;
 	}
 	if (m_motiontest == 60 * 40) {
 		m_state = eJump;
-		m_attack_id = false;
+		m_attack_id = true;
 	}
 
 	if (m_motiontest == 60 * 55) {
 		m_state = eJump;
-		m_attack_id = true;
+		m_attack_id = false;
 		m_motiontest = 0;
 	}
 

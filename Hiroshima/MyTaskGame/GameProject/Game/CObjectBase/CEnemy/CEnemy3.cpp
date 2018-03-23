@@ -87,6 +87,8 @@ void CEnemy3::Move() {
 		m_vec3D = CVector3D(0, 0, 0);
 	}
 	else if (m_cnt == 100) {
+		if (192 >= m_pleneVec.Length())
+			m_state = eAttack;
 		m_cnt = 0;
 	}
 
