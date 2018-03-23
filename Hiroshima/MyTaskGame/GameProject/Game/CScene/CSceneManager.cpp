@@ -68,7 +68,7 @@ void CSceneManager::MainScene() {
 	new CItemBox(&(CVector3D(200, 0, -380)),rand()%2);
 	new CItemBox(&(CVector3D(1500, 0, -20)), rand() % 2);
 	new CItemBox(&(CVector3D(1800, 0, -320)), rand() % 2);
-	new CItemBox(&(CVector3D(2000, -460, -400)), rand() % 2);
+	new CItemBox(&(CVector3D(2000, -430, -400)), rand() % 2);
 	new CItemBox(&(CVector3D(2500, 0, -120)), rand() % 2);
 	new CItemBox(&(CVector3D(3200, 0, -50)), rand() % 2);
 	new CItemBox(&(CVector3D(4000, 0, -0)), rand() % 2);

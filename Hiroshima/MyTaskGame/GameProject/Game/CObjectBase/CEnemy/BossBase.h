@@ -94,6 +94,8 @@ public:
 	void BossBress();
 	void BossJump();
 	void BossDescent();
+	void BossRight();
+	void BossLeft();
 	void BossLaser();
 	void BossTailAttack();
 	//èdÇ»ÇËämîF

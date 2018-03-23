@@ -509,7 +509,7 @@ void CPlayer::Hit(CObjectBase * t)
 				else
 					m_state = eFall;
 				m_vec3D.y = 0;
-				m_hp -= 10;
+				m_hp -= 20;
 				m_cnt = 0;
 			}
 		}

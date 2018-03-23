@@ -22,7 +22,6 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 
 
 void CBossBase::Nutral( int boss_id) {
-
 	switch (boss_id)
 	{
 	case eHead:
@@ -84,6 +83,7 @@ void CBossBase::Attack(int boss_id) {
 }
 
 void CBossBase::Fall() {
+		m_hp = -1;
 	if (m_end_flag == false) {
 		m_shaking_tail = 0;
 		m_shaking_head = 0;
@@ -185,31 +185,23 @@ void CBossBase::Hit(CObjectBase * t)
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_arm2pos3D.z) < 50) ||
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_tailpos3D.z) < 50)){
 				SOUND("SE_Panch")->Play(false);
-			//	m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
+				if (m_hp > 0) {
 					m_damage = true;
 					m_state = eDamage;
-					//m_state = eDamage;
-					//m_state = eKnockBack;
 				}
 				else {
-					//Fall();
-				m_state = eFall;
+					m_state = eFall;
 				}
 			}
 			if (ef->GetEFtype() == eFire) {
 				if (m_deathblow) {
 					m_hp -= 2;
 				}
-				//m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
+				if (m_hp > 0) {
 					m_damage = true;
 					m_state = eDamage;
-					//m_state = eDamage;
-					//m_state = eKnockBack;
 				}
 				else {
-					//Fall();
 					m_state = eFall;
 				}
 			}
@@ -316,6 +308,36 @@ void CBossBase::BossDescent() {
 		m_tailvec3D = CVector3D(0, 0, 0);
 		m_state = eIdol;
 	}
+
+}
+//←
+void CBossBase::BossLeft() {
+	//べく操作
+	m_headvec3D.x = Price_Down(m_headvec3D.x, -5, 0.2);
+	 m_armvec3D.x = Price_Down( m_armvec3D.x, -5, 0.2);
+	m_arm2vec3D.x = Price_Down(m_arm2vec3D.x, -5, 0.2);
+	m_tailvec3D.x = Price_Down(m_tailvec3D.x, -5, 0.2);
+
+	//ポス操作
+	m_headpos3D.x += m_headvec3D.x;
+	 m_armpos3D.x +=  m_armvec3D.x;
+	m_arm2pos3D.x += m_arm2vec3D.x;
+	m_tailpos3D.x += m_tailvec3D.x;
+
+}
+//→
+void CBossBase::BossRight() {
+	//べく操作
+	m_headvec3D.x = Price_Up(m_headvec3D.x, 5, 0.2);
+	 m_armvec3D.x = Price_Up( m_armvec3D.x, 5, 0.2);
+	m_arm2vec3D.x = Price_Up(m_arm2vec3D.x, 5, 0.2);
+	m_tailvec3D.x = Price_Up(m_tailvec3D.x, 5, 0.2);
+
+	//ポス操作
+	m_headpos3D.x += m_headvec3D.x;
+	 m_armpos3D.x +=  m_armvec3D.x;
+	m_arm2pos3D.x += m_arm2vec3D.x;
+	m_tailpos3D.x += m_tailvec3D.x;
 
 }
 void CBossBase::BossLaser() {
