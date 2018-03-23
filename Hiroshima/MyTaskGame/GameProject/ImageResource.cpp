@@ -270,7 +270,7 @@ TexAnim _Boss_Down_anim[] = {
 
 };
 TexAnim _Boss_Jump_anim[] = {
-	{ 32,60*2 },
+	{ 32,60*3 },
 	{ 32,1 },
 
 

@@ -317,7 +317,7 @@ void CBossBase::BossLaser() {
 //		m_armvec3D.y = Price_Up(m_armvec3D.y, 5, 0.2);
 		if (m_armpos3D.y < -350) {
 			m_playervec = CVector3D(695, -350, 0) - m_armpos3D;
-			m_armvec3D = m_playervec.GetNormalize() * 4;
+			m_armvec3D = m_playervec.GetNormalize() * 10;
 		}
 		else {
 			m_armpos3D = CVector3D(695, -350, 0);
@@ -330,15 +330,8 @@ void CBossBase::BossLaser() {
 	}
 	if (m_armtime >= 300) {
 		//m_armpos3D.y -= 50;
-
-		//if (abs(m_armpos3D.y) > 1.0f) {
-		//	m_armvec3D.y = -m_armpos3D.y / 30;
-		//	m_armvec3D.x = 50 / 30;
-		//}
-		//else {
-		//	m_armpos3D.y = 0;
-		//	m_armpos3D.x = 750;
-		//}
+			m_armvec3D.y = -70 / 10;
+			m_armvec3D.x = 50 / 50;
 	}
 	if (m_armtime == 420) {
 		m_armtime = 0;
