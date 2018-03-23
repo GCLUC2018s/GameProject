@@ -74,7 +74,7 @@ void CSceneManager::MainScene() {
 	new CItemBox(&(CVector3D(4000, 0, -0)), rand() % 2);
 
 	new CFieldManager();
-	new CMagatama();
+	new CMagatama(0);
 	new CHPBar(false);
 	new CEnemyManager();
 
@@ -92,7 +92,8 @@ void CSceneManager::BossScene() {
 	new CBB(0, 0, true);
 	new CPlayer(pl_hp);
 	new CBossStage();
-	new CMagatama();
+	CMagatama *m = dynamic_cast<CMagatama*>(CTaskManager::GetInstance()->GetTask(eID_Magatama));
+	new CMagatama(0);
 	new CHPBar(true);
 	new CHPBar(false);
 

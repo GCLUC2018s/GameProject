@@ -15,11 +15,11 @@
 
 class CMagatama :public CObjectBase {
 private:
-	static int m_Maga_cnt;
+	int m_maga_cnt;
 	CAnimImage m_img_max;
 
 public:
-	CMagatama();
+	CMagatama(int cnt);
 	~CMagatama();
 	void Update();
 	void Draw();
@@ -27,6 +27,9 @@ public:
 	void Hit(CObjectBase *t);
 	//•KŽE‹Z”­“®
 	void SetAttack();
+	int Getcnt() {
+		return m_maga_cnt;
+	};
 };
 
 #endif // !MAGATAMA_GUARD

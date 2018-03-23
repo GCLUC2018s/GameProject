@@ -34,6 +34,7 @@ protected:
 	static 	bool m_sc_flag_x;	//プレイヤーが動いたことによるスクロールフラグ。trueならプレイヤーの動きは止まる
 	static 	int m_score;	//すこあ
 	static 	bool m_deathblow;	//必殺技
+	static 	bool m_Nomal_Ac;	//trueなら、通常ステージ
 	int m_hp;  //体力
 	int m_at;  //攻撃力
 	int m_state; //状態

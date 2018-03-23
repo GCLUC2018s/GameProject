@@ -107,7 +107,6 @@ void CBossBase::Fall() {
 		m_color.w -= 0.005;
 	}
 	if (m_color.w < -1.0) {
-		new CBB(0, 2, false);
 		SetKill();
 	}
 }

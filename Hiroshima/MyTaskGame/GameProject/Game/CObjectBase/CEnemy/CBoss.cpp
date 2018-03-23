@@ -37,6 +37,7 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 }
 
 CBoss::~CBoss() {
+	new CBB(0, 2, false);
 }
 
 void CBoss::Update() {
@@ -60,7 +61,7 @@ void CBoss::Update() {
 	//}
 
 	if(m_state!=eFall)
-	m_motiontest++;
+		m_motiontest++;
 
 	if (m_motiontest == 60 * 10) {
 		m_state = eJump;
@@ -80,6 +81,9 @@ void CBoss::Update() {
 		m_state = eJump;
 		AttackPattern();
 		m_motiontest = 0;
+	}
+	if (m_hp <= 0) {
+		m_state = eFall;
 	}
 
 	
