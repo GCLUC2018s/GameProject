@@ -2,7 +2,7 @@
 #include "CBress.h"
 #include "../GameProject/Game/CObjectBase/CEnemy/BossBase.h"
 
-CCharge::CCharge(CVector2D pos, bool flag){
+CCharge::CCharge(CVector2D pos, bool flag) {
 	m_effect_type = eBress;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Effect_charge"));
 	m_pos2D = pos;
@@ -12,6 +12,8 @@ CCharge::CCharge(CVector2D pos, bool flag){
 	m_rect = CRect(-120, -120, 0, 0);
 	m_img.SetPos(m_pos2D);
 	m_flag = flag;
+	m_img.ChangeAnimation(0, false);
+	m_img.UpdateAnimation();
 	CheckOverlap();
 }
 
@@ -21,14 +23,14 @@ void CCharge::Update() {
 			new CBress(m_pos2D);
 			SetKill();
 		}
-		m_img.ChangeAnimation(0, false);
-		m_img.UpdateAnimation();
-		CheckOverlap();
 	}
 	else {
 		//CBossBase *ene = dynamic_cast<CBossBase*>(CTaskManager::GetInstance()->GetTask(eID_Boss));
 		//m_pos3D.x = ene->GetPos().x;
 	}
+	m_img.ChangeAnimation(0, false);
+	m_img.UpdateAnimation();
+	CheckOverlap();
 }
 
 void CCharge::Draw(){

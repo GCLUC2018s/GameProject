@@ -93,7 +93,11 @@ void CSceneManager::BossScene() {
 	new CPlayer(pl_hp);
 	new CBossStage();
 	CMagatama *m = dynamic_cast<CMagatama*>(CTaskManager::GetInstance()->GetTask(eID_Magatama));
+	if(m)
+	new CMagatama(m->Getcnt());
+	else
 	new CMagatama(0);
+
 	new CHPBar(true);
 	new CHPBar(false);
 
