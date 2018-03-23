@@ -59,7 +59,7 @@ void CBoss::Update() {
 	//	m_test = 0;
 	//}
 
-
+	if(m_state!=eFall)
 	m_motiontest++;
 
 	if (m_motiontest == 60 * 10) {
