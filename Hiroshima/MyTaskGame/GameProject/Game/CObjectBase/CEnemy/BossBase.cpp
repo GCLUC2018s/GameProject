@@ -16,6 +16,7 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_end_flag = false;
 	m_nagi = true;
 	m_dame_time = 0;
+	//m_attack_id = true;
 }
 
 
@@ -284,7 +285,13 @@ void CBossBase::BossJump() {
 		m_arm2.SetFlipH(false);
 		m_arm2.SetAng(0);
 		m_tail.SetAng(0);
-		m_state = eBress;
+
+		if (m_attack_id) {
+			m_state = eBress;
+		}
+		else {
+			m_state = eLaserShower;
+		}
 	}
 
 }
