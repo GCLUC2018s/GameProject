@@ -45,7 +45,7 @@ void CMGHit::Draw()
 
 void CMGHit::Hit(CObjectBase * t)
 {
-	if (t->GetID() == eID_Enemy) {
+	if (t->GetID() == eID_Enemy || t->GetID() == eID_Boss) {
 		if (t->GetHP() >= 0)
 			new CFire(t);
 	}

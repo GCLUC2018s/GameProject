@@ -37,7 +37,6 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 }
 
 CBoss::~CBoss() {
-	CBB(0, 5, 1);
 }
 
 void CBoss::Update() {

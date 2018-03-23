@@ -44,6 +44,9 @@ void CItemBase::Update()
 
 	if (m_get)
 		Vanush();
+	if (m_pos3D.x - m_scroll.x < -10) {
+		SetKill();
+	}
 
 	CheckOverlap();
 }

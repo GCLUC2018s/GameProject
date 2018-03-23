@@ -2,6 +2,7 @@
 #include "../CEffectBase/CEffectBase.h"
 #include "../CCharge.h"
 #include "../CBeam.h"
+#include "../CBB/CBB.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_shaking_head = 0;
@@ -75,9 +76,9 @@ void CBossBase::Attack(int boss_id) {
 		BossTailAttack();
 		break;
 	case eArm:
-		m_shaking_arm = 0;
-		m_armvec3D = CVector3D(0, 0, 0);
-		BossLaser();
+		//m_shaking_arm = 0;
+		//m_armvec3D = CVector3D(0, 0, 0);
+	//	BossLaser();
 		break;
 	}
 }
@@ -99,6 +100,7 @@ void CBossBase::Fall() {
 		m_color.w -= 0.005;
 	}
 	if (m_color.w < -1.0) {
+		new CBB(0, 2, false);
 		SetKill();
 	}
 }
@@ -197,7 +199,7 @@ void CBossBase::Hit(CObjectBase * t)
 			}
 			if (ef->GetEFtype() == eFire) {
 				if (m_deathblow) {
-					m_hp -= 50;
+					m_hp -= 2;
 				}
 				//m_flipH = !(ef->GetFrip());
 				if (m_hp >= 0) {
