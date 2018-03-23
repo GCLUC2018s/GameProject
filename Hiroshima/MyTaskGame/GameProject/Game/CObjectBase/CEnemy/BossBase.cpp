@@ -2,6 +2,7 @@
 #include "../CEffectBase/CEffectBase.h"
 #include "../CCharge.h"
 #include "../CBeam.h"
+#include "../CCleave.h"
 #include "../CBB/CBB.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
@@ -390,7 +391,7 @@ void CBossBase::BossTailAttack() {
 	switch (m_tail.GetIndex())
 	{
 	case 0:
-		CCharge(CVector2D(m_tailpos3D.x, m_tailpos3D.y), false);
+		CCleave(CVector2D(m_tailpos3D.x, m_tailpos3D.y));
 		m_tailpos3D.x = -1000;
 		m_tailpos3D.y = +200;
 		m_tailvec3D = CVector3D(0, 0, 0);

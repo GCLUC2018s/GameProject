@@ -64,21 +64,21 @@ void CBoss::Update() {
 
 	if (m_motiontest == 60 * 10) {
 		m_state = eJump;
-		m_attack_id = true;
+		AttackPattern();
 	}
 
 	if (m_motiontest == 60 * 25) {
 		m_state = eJump;
-		m_attack_id = false;
+		AttackPattern();
 	}
 	if (m_motiontest == 60 * 40) {
 		m_state = eJump;
-		m_attack_id = true;
+		AttackPattern();
 	}
 
 	if (m_motiontest == 60 * 55) {
 		m_state = eJump;
-		m_attack_id = false;
+		AttackPattern();
 		m_motiontest = 0;
 	}
 
@@ -315,4 +315,11 @@ void CBoss::Tail() {
 	
 
 	
+}
+
+void CBoss::AttackPattern(){
+	if(TWO_RANDOM)
+		m_attack_id = true;
+	else
+		m_attack_id = false;
 }
