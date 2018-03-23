@@ -14,6 +14,7 @@ CGameStart::CGameStart() :CObjectBase(eID_Null, eU_Back, eD_Null)
 	m_end_flag = false;
 	m_color.w = -0.1;
 	m_cnt = 0;
+	m_score = 0;
 }
 
 CGameStart::~CGameStart()

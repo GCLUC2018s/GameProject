@@ -87,7 +87,7 @@ void CSceneManager::BossScene() {
 	SOUND("BGM_Boss")->Play(true);
 	CObjectBase *pl = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Player));
 	int pl_hp;
-	if(pl) pl_hp = pl->GetHP();
+	if (pl && pl->GetHP() > 0) pl_hp = pl->GetHP();
 	else pl_hp = PLAYER_HP;
 	new CBB(0, 0, true);
 	new CPlayer(pl_hp);
@@ -98,7 +98,6 @@ void CSceneManager::BossScene() {
 	else
 	new CMagatama(0);
 
-	new CHPBar(true);
 	new CHPBar(false);
 
 }

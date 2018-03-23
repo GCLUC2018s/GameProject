@@ -1,6 +1,7 @@
 
 #include "CBoss.h"
 #include "../CBB/CBB.h"
+#include "../CHPbar/CHPBar.h"
 /*
 
 êªçÏé“Å@ê¬ñÿ
@@ -34,10 +35,12 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 	m_parts_tail = eTail;
 	m_state = eIdol;
 	m_rect_F = m_armrect;
+
+	new CHPBar(true);
 }
 
 CBoss::~CBoss() {
-	new CBB(0, 2, false);
+//	new CBB(0, 2, false);
 }
 
 void CBoss::Update() {

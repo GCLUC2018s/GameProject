@@ -4,6 +4,7 @@
 
 CFieldGround::CFieldGround(const bool flag):CObjectBase(eID_Ground,eU_Map, eD_Ground){
 	m_state = eNomalGround;
+	m_Nomal_Ac = true;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Ground"));
 	m_img.SetSize(GROUND_WIDTH, GROUND_HEIGHT);
 	m_img.SetCenter(0, GROUND_HEIGHT - SCREEN_HEIGHT + 450);
