@@ -1,0 +1,15 @@
+Loop,1,,
+TextureName,Batamon/boss_walk.bmp,,
+Width,990,,
+Height,230,,
+x,0,330,660
+y,0,0,0
+w,330,330,330
+h,230,230,230
+OffsetX,0,0,0
+OffsetY,0,0,0
+PlayTime,6,6,6
+HitX,30,30,30
+HitY,195,195,195
+HitW,220,220,220
+HitH,165,165,165
