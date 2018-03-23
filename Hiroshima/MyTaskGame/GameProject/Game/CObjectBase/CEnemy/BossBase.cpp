@@ -2,6 +2,8 @@
 #include "../CEffectBase/CEffectBase.h"
 #include "../CCharge.h"
 #include "../CBeam.h"
+#include "../CCleave.h"
+#include "../CBB/CBB.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_shaking_head = 0;
@@ -15,6 +17,7 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_end_flag = false;
 	m_nagi = true;
 	m_dame_time = 0;
+	//m_attack_id = true;
 }
 
 
@@ -74,9 +77,9 @@ void CBossBase::Attack(int boss_id) {
 		BossTailAttack();
 		break;
 	case eArm:
-		m_shaking_arm = 0;
-		m_armvec3D = CVector3D(0, 0, 0);
-		BossLaser();
+		//m_shaking_arm = 0;
+		//m_armvec3D = CVector3D(0, 0, 0);
+	//	BossLaser();
 		break;
 	}
 }
@@ -98,6 +101,7 @@ void CBossBase::Fall() {
 		m_color.w -= 0.005;
 	}
 	if (m_color.w < -1.0) {
+		new CBB(0, 2, false);
 		SetKill();
 	}
 }
@@ -196,7 +200,7 @@ void CBossBase::Hit(CObjectBase * t)
 			}
 			if (ef->GetEFtype() == eFire) {
 				if (m_deathblow) {
-					m_hp -= 50;
+					m_hp -= 2;
 				}
 				//m_flipH = !(ef->GetFrip());
 				if (m_hp >= 0) {
@@ -282,7 +286,13 @@ void CBossBase::BossJump() {
 		m_arm2.SetFlipH(false);
 		m_arm2.SetAng(0);
 		m_tail.SetAng(0);
-		m_state = eLaserShower;
+
+		if (m_attack_id) {
+			m_state = eBress;
+		}
+		else {
+			m_state = eLaserShower;
+		}
 	}
 
 }
@@ -317,7 +327,7 @@ void CBossBase::BossLaser() {
 //		m_armvec3D.y = Price_Up(m_armvec3D.y, 5, 0.2);
 		if (m_armpos3D.y < -350) {
 			m_playervec = CVector3D(695, -350, 0) - m_armpos3D;
-			m_armvec3D = m_playervec.GetNormalize() * 4;
+			m_armvec3D = m_playervec.GetNormalize() * 10;
 		}
 		else {
 			m_armpos3D = CVector3D(695, -350, 0);
@@ -330,15 +340,8 @@ void CBossBase::BossLaser() {
 	}
 	if (m_armtime >= 300) {
 		//m_armpos3D.y -= 50;
-
-		//if (abs(m_armpos3D.y) > 1.0f) {
-		//	m_armvec3D.y = -m_armpos3D.y / 30;
-		//	m_armvec3D.x = 50 / 30;
-		//}
-		//else {
-		//	m_armpos3D.y = 0;
-		//	m_armpos3D.x = 750;
-		//}
+			m_armvec3D.y = -70 / 10;
+			m_armvec3D.x = 50 / 50;
 	}
 	if (m_armtime == 420) {
 		m_armtime = 0;
@@ -365,7 +368,7 @@ void CBossBase::BossTailAttack() {
 	switch (m_tail.GetIndex())
 	{
 	case 0:
-		CCharge(CVector2D(m_tailpos3D.x, m_tailpos3D.y), false);
+		CCleave(CVector2D(m_tailpos3D.x, m_tailpos3D.y));
 		m_tailpos3D.x = -1000;
 		m_tailpos3D.y = +200;
 		m_tailvec3D = CVector3D(0, 0, 0);

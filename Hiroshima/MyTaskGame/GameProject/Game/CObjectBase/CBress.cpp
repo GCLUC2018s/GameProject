@@ -7,7 +7,7 @@ CBress::CBress(CVector2D pos) {
 	m_pos2D = pos;
 	m_pos3D.x = pos.x;
 	m_pos3D.y = pos.y;
-	m_rect = CRect(-1000, -120 - 450, 0, 120 - 450);
+	m_rect = CRect(-1000, -120 - 450, 500, 120 - 450);
 	m_img.SetCenter(1000, 320);
 	m_img.SetSize(1000, 640);
 	m_color.w = 2.0;

@@ -160,6 +160,8 @@ void Init(void)
 	SOUND("SE_BB")->Load("Sound/SE/incorrect2.wav",30);
 	SOUND("SE_Mahou_Charge")->Load("Sound/SE/aura1.wav");
 	SOUND("SE_Mahou_Kaen")->Load("Sound/SE/magic-flame2.wav");
+	SOUND("SE_Beam_Charge")->Load("Sound/SE/beam-gun-charge1.wav");
+	SOUND("SE_Beam")->Load("Sound/SE/beamgun3.wav");
 	SOUND("SE_Cursor")->Load("Sound/SE/se_030_.wav",30);
 	SOUND("SE_Panch")->Load("Sound/SE/punch-middle2.wav",20);
 

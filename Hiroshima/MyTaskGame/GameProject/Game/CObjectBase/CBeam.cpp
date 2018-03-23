@@ -2,17 +2,25 @@
 
 
 CBeam::CBeam(CVector2D pos) {
+	m_effect_type = eBress;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("Effect_beam"));
 	m_pos2D = pos;
 	m_pos3D.x = pos.x;
 	m_pos3D.y = pos.y;
+	m_color.w = 2.0f;
 	m_img.SetCenter(640, 0);
 	m_img.SetSize(1280, 960);
-	m_rect = CRect(-640, 0, 640, 960);
+	m_rect = CRect(-640, 120, -320, 960);
 	CheckOverlap();
 }
 
 void CBeam::Update() {
+	if (m_img.GetIndex() == 1)
+		SOUND("SE_Beam")->Play(false);
+	if (6 <= m_img.GetIndex() && m_img.GetIndex() <= 26)
+		m_rect.m_right += 960 / 40;
+	if (12 <= m_img.GetIndex() && m_img.GetIndex() <= 26)
+		m_rect.m_left += 960 / 40;
 	if (m_img.GetIndex() == 26)
 		SetKill();
 	m_img.ChangeAnimation(0, false);

@@ -37,7 +37,6 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 }
 
 CBoss::~CBoss() {
-	CBB(0, 5, 1);
 }
 
 void CBoss::Update() {
@@ -59,15 +58,31 @@ void CBoss::Update() {
 	//if (m_test == 100) {
 	//	m_test = 0;
 	//}
-	//m_motiontest++;
 
-	//if(m_motiontest==60*10)
-	//	m_state = eJump;
-	//if(m_motiontest==60*30)
-	//	m_state = eJump;
-	//if(m_motiontest==60*50)
-	//	m_state = eJump;
 
+	m_motiontest++;
+
+	if (m_motiontest == 60 * 10) {
+		m_state = eJump;
+		AttackPattern();
+	}
+
+	if (m_motiontest == 60 * 25) {
+		m_state = eJump;
+		AttackPattern();
+	}
+	if (m_motiontest == 60 * 40) {
+		m_state = eJump;
+		AttackPattern();
+	}
+
+	if (m_motiontest == 60 * 55) {
+		m_state = eJump;
+		AttackPattern();
+		m_motiontest = 0;
+	}
+
+	
 
 
 	m_headpos3D += m_headvec3D;
@@ -81,10 +96,10 @@ void CBoss::Update() {
 	Tail();
 
 
-	if (PUSH_ENTER) {
-		//m_state = eDown;
-		m_state = eJump;
-	}
+	//if (PUSH_ENTER) {
+	//	//m_state = eDown;
+	//	m_state = eJump;
+	//}
 	
 	
 //m_img.ChangeAnimation(6);
@@ -300,4 +315,11 @@ void CBoss::Tail() {
 	
 
 	
+}
+
+void CBoss::AttackPattern(){
+	if(TWO_RANDOM)
+		m_attack_id = true;
+	else
+		m_attack_id = false;
 }

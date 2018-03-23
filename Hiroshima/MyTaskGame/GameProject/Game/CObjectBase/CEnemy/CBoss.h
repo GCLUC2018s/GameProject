@@ -27,6 +27,7 @@ public:
 	void Arm();
 	void Arm2();
 	void Tail();
+	void AttackPattern();
 
 };
 
