@@ -15,6 +15,8 @@ CBeam::CBeam(CVector2D pos) {
 }
 
 void CBeam::Update() {
+	if (m_img.GetIndex() == 1)
+		SOUND("SE_Beam")->Play(false);
 	if (6 <= m_img.GetIndex() && m_img.GetIndex() <= 26)
 		m_rect.m_right += 960 / 40;
 	if (12 <= m_img.GetIndex() && m_img.GetIndex() <= 26)
