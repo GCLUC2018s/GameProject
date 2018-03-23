@@ -132,6 +132,7 @@
     <ClInclude Include="Game\CObjectBase\CBeam.h" />
     <ClInclude Include="Game\CObjectBase\CBress.h" />
     <ClInclude Include="Game\CObjectBase\CCharge.h" />
+    <ClInclude Include="Game\CObjectBase\CCleave.h" />
     <ClInclude Include="Game\CObjectBase\CCutIn\CCutIn.h" />
     <ClInclude Include="Game\CObjectBase\CEffectBase\CEffectBase.h" />
     <ClInclude Include="Game\CObjectBase\CEndeing\CEndeing.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="Game\CObjectBase\CBeam.cpp" />
     <ClCompile Include="Game\CObjectBase\CBress.cpp" />
     <ClCompile Include="Game\CObjectBase\CCharge.cpp" />
+    <ClCompile Include="Game\CObjectBase\CCleave.cpp" />
     <ClCompile Include="Game\CObjectBase\CCutIn\CCutIn.cpp" />
     <ClCompile Include="Game\CObjectBase\CEffectBase\CEffectBase.cpp" />
     <ClCompile Include="Game\CObjectBase\CEndeing\CEndeing.cpp" />
