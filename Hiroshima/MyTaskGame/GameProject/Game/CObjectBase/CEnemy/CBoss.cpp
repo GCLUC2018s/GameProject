@@ -59,15 +59,32 @@ void CBoss::Update() {
 	//if (m_test == 100) {
 	//	m_test = 0;
 	//}
-	//m_motiontest++;
 
-	//if(m_motiontest==60*10)
-	//	m_state = eJump;
-	//if(m_motiontest==60*30)
-	//	m_state = eJump;
-	//if(m_motiontest==60*50)
-	//	m_state = eJump;
 
+	m_motiontest++;
+
+	if (m_motiontest == 60 * 10) {
+		m_state = eJump;
+		m_attack_id = false;
+	}
+
+	if (m_motiontest == 60 * 30) {
+		m_state = eJump;
+		m_attack_id = true;
+	}
+	if (m_motiontest == 60 * 50) {
+		m_state = eJump;
+		m_attack_id = false;
+	}
+
+	if (m_motiontest == 60 * 70) {
+		m_state = eJump;
+		m_attack_id = true;
+	}
+
+	if (m_motiontest == 60 * 90) {
+		m_motiontest = 0;
+	}
 
 
 	m_headpos3D += m_headvec3D;

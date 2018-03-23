@@ -80,6 +80,7 @@ protected:
 		eJump,
 		eDescent,
 	};
+	bool m_attack_id;
 public:
 	CBossBase();
 	void Nutral(int boss_id);
