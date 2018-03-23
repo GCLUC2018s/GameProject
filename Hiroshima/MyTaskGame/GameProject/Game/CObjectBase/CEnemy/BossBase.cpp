@@ -1,6 +1,7 @@
 #include "BossBase.h"
 #include "../CEffectBase/CEffectBase.h"
 #include "../CCharge.h"
+#include "../CBeam.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_shaking_head = 0;
@@ -10,6 +11,7 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_headvec3D = CVector3D(0, 0, 0);
 	m_down = false;
 	m_downtime = 0;
+	m_armtime = 0;
 	m_end_flag = false;
 }
 
@@ -235,11 +237,31 @@ void CBossBase::BossBress(){
 }
 
 void CBossBase::BossLaser(){
+	m_armpos3D += m_armvec3D;
+	m_armtime++;
 
+	if (m_armtime < 180) {
+		if (m_playervec.Length() >= 5.0f) {
+			m_playervec = CVector3D(695, -350, 0) - m_armpos3D;
+			m_armvec3D = m_playervec.GetNormalize() * 4;
+		}else {
+			m_armpos3D = CVector3D(695, -350, 0);
+			m_armvec3D = CVector3D(0, 0, 0);
+		}
+	}
+	if (m_armtime == 180)
+		new CBeam(CVector2D(640, -240));
+	if (m_armtime >= 300) {
+		if (abs(m_armpos3D.y) > 1.0f) {
+			m_armvec3D.y = -m_armpos3D.y / 30;
+			m_armvec3D.x = 50 / 30;
+		}else {
+			m_armpos3D.y = 0;
+			m_armpos3D.x = 750;
+		}
+	}
+	if (m_armtime == 420) {
+		m_armtime = 0;
+		m_state = eIdol;
+	}
 }
-
-
-
-
-
-

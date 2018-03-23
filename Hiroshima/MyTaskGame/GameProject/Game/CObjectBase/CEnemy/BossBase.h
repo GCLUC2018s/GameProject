@@ -58,6 +58,7 @@ protected:
 	CVector3D m_headoldpos3D;
 	bool m_down;
 	int m_downtime;
+	int m_armtime;
 	CRect m_headrect;
 	CRect m_armrect;
 	CRect m_arm2rect;
