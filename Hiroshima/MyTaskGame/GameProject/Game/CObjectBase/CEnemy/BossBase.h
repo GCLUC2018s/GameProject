@@ -61,6 +61,7 @@ protected:
 	CVector3D m_tailoldpos3D;
 	bool m_down;
 	int m_downtime;
+	int m_armtime;
 	CRect m_headrect;
 	CRect m_armrect;
 	CRect m_arm2rect;
@@ -79,6 +80,7 @@ protected:
 		eJump,
 		eDescent,
 	};
+	bool m_attack_id;
 public:
 	CBossBase();
 	void Nutral(int boss_id);
@@ -92,6 +94,8 @@ public:
 	void BossBress();
 	void BossJump();
 	void BossDescent();
+	void BossRight();
+	void BossLeft();
 	void BossLaser();
 	void BossTailAttack();
 	//èdÇ»ÇËämîF

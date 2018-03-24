@@ -16,7 +16,7 @@ CGo::~CGo()
 	m_wave_flag = true;
 	m_sc_flag_x = false;
 	if (m_end_flag) {
-		new CBB(0, 2, false);
+		new CBB(0, 5, false);
 	}
 }
 

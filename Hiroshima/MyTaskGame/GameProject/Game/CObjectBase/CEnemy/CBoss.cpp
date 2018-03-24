@@ -1,6 +1,7 @@
 
 #include "CBoss.h"
 #include "../CBB/CBB.h"
+#include "../CHPbar/CHPBar.h"
 /*
 
 êªçÏé“Å@ê¬ñÿ
@@ -32,11 +33,14 @@ CBoss::CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D 
 	m_parts_arm = eArm;
 	m_parts_arm2 = eArm2;
 	m_parts_tail = eTail;
+	m_state = eIdol;
 	m_rect_F = m_armrect;
+
+	new CHPBar(true);
 }
 
 CBoss::~CBoss() {
-	CBB(0, 5, 1);
+//	new CBB(0, 2, false);
 }
 
 void CBoss::Update() {
@@ -58,17 +62,34 @@ void CBoss::Update() {
 	//if (m_test == 100) {
 	//	m_test = 0;
 	//}
-	m_motiontest++;
-	
-	if(m_motiontest==0)
-		m_state = eIdol;
-	if(m_motiontest==60*10)
-		m_state = eJump;
-	if(m_motiontest==60*30)
-		m_state = eJump;
-	if(m_motiontest==60*50)
-		m_state = eJump;
 
+	if(m_state!=eFall)
+		m_motiontest++;
+
+	if (m_motiontest == 60 * 10) {
+		m_state = eJump;
+		AttackPattern();
+	}
+
+	if (m_motiontest == 60 * 25) {
+		m_state = eJump;
+		AttackPattern();
+	}
+	if (m_motiontest == 60 * 40) {
+		m_state = eJump;
+		AttackPattern();
+	}
+
+	if (m_motiontest == 60 * 55) {
+		m_state = eJump;
+		AttackPattern();
+		m_motiontest = 0;
+	}
+	if (m_hp <= 0) {
+		m_state = eFall;
+	}
+
+	
 
 
 	m_headpos3D += m_headvec3D;
@@ -215,7 +236,7 @@ void CBoss::Arm() {
 		Attack(m_parts_arm);
 		break;
 	case eLaserShower:
-		Nutral(m_parts_arm);
+		BossLaser();
 		break;
 	case eDown:
 		Nutral(m_parts_arm);
@@ -301,4 +322,11 @@ void CBoss::Tail() {
 	
 
 	
+}
+
+void CBoss::AttackPattern(){
+	if(TWO_RANDOM)
+		m_attack_id = true;
+	else
+		m_attack_id = false;
 }

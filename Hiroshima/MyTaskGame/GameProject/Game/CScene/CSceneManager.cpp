@@ -68,13 +68,13 @@ void CSceneManager::MainScene() {
 	new CItemBox(&(CVector3D(200, 0, -380)),rand()%2);
 	new CItemBox(&(CVector3D(1500, 0, -20)), rand() % 2);
 	new CItemBox(&(CVector3D(1800, 0, -320)), rand() % 2);
-	new CItemBox(&(CVector3D(2000, -460, -400)), rand() % 2);
+	new CItemBox(&(CVector3D(2000, -430, -400)), rand() % 2);
 	new CItemBox(&(CVector3D(2500, 0, -120)), rand() % 2);
 	new CItemBox(&(CVector3D(3200, 0, -50)), rand() % 2);
 	new CItemBox(&(CVector3D(4000, 0, -0)), rand() % 2);
 
 	new CFieldManager();
-	new CMagatama();
+	new CMagatama(0);
 	new CHPBar(false);
 	new CEnemyManager();
 
@@ -87,13 +87,17 @@ void CSceneManager::BossScene() {
 	SOUND("BGM_Boss")->Play(true);
 	CObjectBase *pl = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Player));
 	int pl_hp;
-	if(pl) pl_hp = pl->GetHP();
+	if (pl && pl->GetHP() > 0) pl_hp = pl->GetHP();
 	else pl_hp = PLAYER_HP;
 	new CBB(0, 0, true);
 	new CPlayer(pl_hp);
 	new CBossStage();
-	new CMagatama();
-	new CHPBar(true);
+	CMagatama *m = dynamic_cast<CMagatama*>(CTaskManager::GetInstance()->GetTask(eID_Magatama));
+	if(m)
+	new CMagatama(m->Getcnt());
+	else
+	new CMagatama(0);
+
 	new CHPBar(false);
 
 }

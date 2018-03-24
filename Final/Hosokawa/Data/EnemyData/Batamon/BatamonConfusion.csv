@@ -1,0 +1,15 @@
+Loop,1,,
+TextureName,Batamon/boss_confusion.bmp,,
+Width,990,,
+Height,230,,
+x,0,330,660
+y,0,0,0
+w,330,330,330
+h,230,230,230
+OffsetX,0,0,0
+OffsetY,0,0,0
+PlayTime,5,5,5
+HitX,25,25,25
+HitY,220,220,220
+HitW,260,260,260
+HitH,190,190,190

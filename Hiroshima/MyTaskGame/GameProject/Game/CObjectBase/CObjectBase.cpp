@@ -7,6 +7,7 @@ bool CObjectBase::m_wave_flag = true;
 bool CObjectBase::m_sc_flag_x = false;
 int CObjectBase::m_score = 0;
 bool CObjectBase::m_deathblow = false;
+bool CObjectBase::m_Nomal_Ac = true;
 
 CObjectBase::CObjectBase(int id, int updatePrio, int drawPrio) :
 	CTask(id, updatePrio, drawPrio) ,
@@ -39,7 +40,9 @@ void CObjectBase::HitCheck(CTask * t1, CTask * t2)
 		(t1->GetID() == eID_Enemy && t2->GetID() == eID_Bullet) ||
 		(t2->GetID() == eID_Enemy && t1->GetID() == eID_Bullet) ||
 		(t1->GetID() == eID_Enemy && t2->GetID() == eID_Player) ||
-		(t2->GetID() == eID_Enemy && t1->GetID() == eID_Player)) {
+		(t2->GetID() == eID_Enemy && t1->GetID() == eID_Player) ||
+		(t1->GetID() == eID_Bullet && t2->GetID() == eID_Boss) ||
+		(t2->GetID() == eID_Bullet && t1->GetID() == eID_Boss)) {
 		//PL‚ÆENE‚Ì”»’è
 		CObjectBase* o1 = dynamic_cast<CObjectBase*>(t1);
 		CObjectBase* o2 = dynamic_cast<CObjectBase*>(t2);

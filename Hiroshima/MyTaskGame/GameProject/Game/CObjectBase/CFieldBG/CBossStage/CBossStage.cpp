@@ -1,7 +1,9 @@
 #include"CBossStage.h"
 #include"../GameProject/Game/CObjectBase/CEnemy/CBoss.h"
 
+
 CBossStage::CBossStage() :CObjectBase(eID_Ground, eU_Map, eD_Ground){
+	m_Nomal_Ac = false;
 	m_state = eBossGround;
 	m_img = *dynamic_cast<CAnimImage*>(GET_RESOURCE("BossStage"));
 	m_img.SetSize(SCREEN_WIDTH, 1200);

@@ -1,6 +1,9 @@
 #include "BossBase.h"
 #include "../CEffectBase/CEffectBase.h"
 #include "../CCharge.h"
+#include "../CBeam.h"
+#include "../CCleave.h"
+#include "../CBB/CBB.h"
 
 CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_shaking_head = 0;
@@ -10,15 +13,16 @@ CBossBase::CBossBase() :CObjectBase(eID_Boss, eU_Enemy, eD_Object) {
 	m_headvec3D = CVector3D(0, 0, 0);
 	m_down = false;
 	m_downtime = 0;
+	m_armtime = 0;
 	m_end_flag = false;
 	m_nagi = true;
 	m_dame_time = 0;
+	//m_attack_id = true;
 }
 
 
 
 void CBossBase::Nutral( int boss_id) {
-
 	switch (boss_id)
 	{
 	case eHead:
@@ -27,6 +31,12 @@ void CBossBase::Nutral( int boss_id) {
 		//m_headvec3D.x = -cos(m_shaking_head + Utility::DgreeToRadian(90)) * 5;
 		m_headvec3D.y = -sin(m_shaking_head) * 1;
 		m_down = false;
+		if (m_flipH) {
+			BossRight();
+		}
+		else {
+			BossLeft();
+		}
 		break;
 	case eArm:
 		m_arm.ChangeAnimation(eAnimBossArm2Idol);
@@ -72,14 +82,15 @@ void CBossBase::Attack(int boss_id) {
 		BossTailAttack();
 		break;
 	case eArm:
-		m_shaking_arm = 0;
-		m_armvec3D = CVector3D(0, 0, 0);
-		BossLaser();
+		//m_shaking_arm = 0;
+		//m_armvec3D = CVector3D(0, 0, 0);
+	//	BossLaser();
 		break;
 	}
 }
 
 void CBossBase::Fall() {
+		m_hp = -1;
 	if (m_end_flag == false) {
 		m_shaking_tail = 0;
 		m_shaking_head = 0;
@@ -180,31 +191,23 @@ void CBossBase::Hit(CObjectBase * t)
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_arm2pos3D.z) < 50) ||
 				(ef->GetEFtype() == ePanch && abs(ef->GetPos().z - m_tailpos3D.z) < 50)){
 				SOUND("SE_Panch")->Play(false);
-			//	m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
+				if (m_hp > 0) {
 					m_damage = true;
 					m_state = eDamage;
-					//m_state = eDamage;
-					//m_state = eKnockBack;
 				}
 				else {
-					//Fall();
-				m_state = eFall;
+					m_state = eFall;
 				}
 			}
 			if (ef->GetEFtype() == eFire) {
 				if (m_deathblow) {
-					m_hp -= 50;
+					m_hp -= 2;
 				}
-				//m_flipH = !(ef->GetFrip());
-				if (m_hp >= 0) {
+				if (m_hp > 0) {
 					m_damage = true;
 					m_state = eDamage;
-					//m_state = eDamage;
-					//m_state = eKnockBack;
 				}
 				else {
-					//Fall();
 					m_state = eFall;
 				}
 			}
@@ -280,7 +283,13 @@ void CBossBase::BossJump() {
 		m_arm2.SetFlipH(false);
 		m_arm2.SetAng(0);
 		m_tail.SetAng(0);
-		m_state = eBress;
+
+		if (m_attack_id) {
+			m_state = eBress;
+		}
+		else {
+			m_state = eLaserShower;
+		}
 	}
 
 }
@@ -307,8 +316,72 @@ void CBossBase::BossDescent() {
 	}
 
 }
-void CBossBase::BossLaser(){
+//←
+void CBossBase::BossLeft() {
 
+	//ポス操作
+	m_headpos3D.x--;
+	 m_armpos3D.x--;
+	m_arm2pos3D.x--;
+	m_tailpos3D.x--;
+	if (m_headpos3D.x < 600) {
+		m_flipH = !m_flipH;
+	}
+
+}
+//→
+void CBossBase::BossRight() {
+	//ポス操作
+	m_headpos3D.x++;
+	 m_armpos3D.x++;
+	m_arm2pos3D.x++;
+	m_tailpos3D.x++;
+	if (m_headpos3D.x > 800) {
+		m_flipH = !m_flipH;
+	}
+
+}
+void CBossBase::BossLaser() {
+//	m_armpos3D += m_armvec3D;
+	m_armtime++;
+
+	if (m_armtime < 180) {
+//		m_armvec3D.y = Price_Up(m_armvec3D.y, 5, 0.2);
+		if (m_armpos3D.y < -350) {
+			m_playervec = CVector3D(695, -350, 0) - m_armpos3D;
+			m_armvec3D = m_playervec.GetNormalize() * 10;
+		}
+		else {
+			m_armpos3D = CVector3D(695, -350, 0);
+			m_armvec3D = CVector3D(0, 0, 0);
+		}
+	}
+	if (m_armtime == 180) {
+		new CBeam(CVector2D(640, -240));
+		m_armvec3D.y = 0;
+	}
+	if (m_armtime >= 300) {
+		//m_armpos3D.y -= 50;
+			m_armvec3D.y = -70 / 10;
+			m_armvec3D.x = 50 / 50;
+	}
+	if (m_armtime == 420) {
+		m_armtime = 0;
+		SetNotDame();
+		m_headpos3D = m_headoldpos3D;
+		m_armpos3D = m_armoldpos3D;
+		m_arm2pos3D = m_arm2oldpos3D;
+		m_tailpos3D = m_tailoldpos3D;
+		m_headpos3D.y -= 600;
+		m_armpos3D.y -= 600;
+		m_arm2pos3D.y -= 600;
+		m_tailpos3D.y -= 600;
+		m_headvec3D = CVector3D(0, 0, 0);
+		m_armvec3D = CVector3D(0, 0, 0);
+		m_arm2vec3D = CVector3D(0, 0, 0);
+		m_tailvec3D = CVector3D(0, 0, 0);
+		m_state = eDescent;
+	}
 }
 
 void CBossBase::BossTailAttack() {
@@ -317,7 +390,7 @@ void CBossBase::BossTailAttack() {
 	switch (m_tail.GetIndex())
 	{
 	case 0:
-		CCharge(CVector2D(m_tailpos3D.x, m_tailpos3D.y), false);
+		CCleave(CVector2D(m_tailpos3D.x, m_tailpos3D.y));
 		m_tailpos3D.x = -1000;
 		m_tailpos3D.y = +200;
 		m_tailvec3D = CVector3D(0, 0, 0);
@@ -346,8 +419,4 @@ void CBossBase::BossTailAttack() {
 	m_shaking_tail = 0;
 
 }
-
-
-
-
 
