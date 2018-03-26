@@ -35,13 +35,22 @@ CBB::~CBB()
 		SOUND("BGM_Main")->Play(true);
 		break;
 	case 2:
-		NEW_SCENE(eEnd)
-			break;
+		NEW_SCENE(eEnd);
+		break;
 	case 4:
-		if (m_vec3D.y == 0)
-			NEW_SCENE(eMain)
-		if (m_vec3D.y == 150)
-			NEW_SCENE(eGameStart)
+		if (m_vec3D.y == 0) {
+			if (m_Nomal_Ac) {
+				NEW_SCENE(eMain);
+			}
+			else { NEW_SCENE(eBoss); }
+		}
+		if (m_vec3D.y == 150) {
+			NEW_SCENE(eGameStart);
+		}
+
+		break;
+	case 5:
+		NEW_SCENE(eBoss);
 		break;
 	default:
 		break;
@@ -71,7 +80,7 @@ void CBB::Update()
 			SOUND("SE_Cursor")->Play(false);
 			m_vec3D.y = 150;
 		}
-		if (PUSH_ENTER) {
+		if (PUSH_X) {
 			SOUND("SE_KKN")->Play(false);
 			m_flag = 4;
 		}
@@ -79,7 +88,7 @@ void CBB::Update()
 	else if (m_flag == 4) {
 		m_color.w -= BB_COL_DOWN_2;
 
-		if (PUSH_ENTER && m_color.w < -2.0 && m_vec3D.y == 150) {
+		if (m_vec3D.y == 150 && PUSH_X && m_color.w < -2.0 && m_vec3D.y == 150) {
 			m_color.w = -100;
 		}
 		if (m_color.w < (-2.0 -(m_vec3D.y / 10))) {

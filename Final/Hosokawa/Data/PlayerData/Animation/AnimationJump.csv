@@ -1,0 +1,16 @@
+Loop,0,
+TextureName,Player/player_jump.bmp,
+Width,380,
+Height,216,
+x,0,190
+y,0,0
+w,180,180
+h,208,208
+OffsetX,0,0
+OffsetY,0,0
+PlayTime,1,5
+HitX,55,55
+HitY,38,38
+HitW,73,73
+HitH,170,170
+HitHeight,1,

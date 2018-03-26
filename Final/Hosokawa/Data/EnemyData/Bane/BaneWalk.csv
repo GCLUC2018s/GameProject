@@ -1,0 +1,16 @@
+Loop,1,,,
+TextureName,Bane/enemyB_walk.bmp,,,
+Width,740,,,
+Height,208,,,
+x,0,185,370,555
+y,0,0,0,0
+w,185,185,185,185
+h,208,208,208,208
+OffsetX,0,0,0,0
+OffsetY,0,0,0,0
+PlayTime,5,5,5,5
+HitX,77,77,77,77
+HitY,168,168,168,168
+HitW,60,60,60,60
+HitH,164,164,164,164
+HitHeight,1,,,

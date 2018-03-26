@@ -72,6 +72,7 @@ public:
 	void scoreAddition();		//
 	void scoreFluctuation(int points);
 	int getTotalScore(){ return m_totalscore; };//現在のスコアを返却する	必要なので作った
+	float getTimeLimit(){ return m_timelimit; }//残り制限時間を返却する
 };
 
 #endif UI_H

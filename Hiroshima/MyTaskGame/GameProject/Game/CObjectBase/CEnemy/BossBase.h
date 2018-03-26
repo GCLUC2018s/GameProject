@@ -56,12 +56,31 @@ protected:
 		eTail,
 	};
 	CVector3D m_headoldpos3D;
+	CVector3D m_armoldpos3D;
+	CVector3D m_arm2oldpos3D;
+	CVector3D m_tailoldpos3D;
 	bool m_down;
 	int m_downtime;
+	int m_armtime;
 	CRect m_headrect;
 	CRect m_armrect;
 	CRect m_arm2rect;
 	CRect m_tailrect;
+
+	enum {
+		eIdol,
+		eMove,
+		eBlessAttack,
+		eTailAttack,
+		eBress,
+		eLaserShower,
+		eDown,
+		eDamage,
+		eFall,
+		eJump,
+		eDescent,
+	};
+	bool m_attack_id;
 public:
 	CBossBase();
 	void Nutral(int boss_id);
@@ -73,7 +92,12 @@ public:
 	void Draw();
 	void Hit(CObjectBase * t);
 	void BossBress();
+	void BossJump();
+	void BossDescent();
+	void BossRight();
+	void BossLeft();
 	void BossLaser();
+	void BossTailAttack();
 	//重なり確認
 	void BossCheckOverlap() {
 		if (m_headpos3D.z <= 0) {
@@ -92,8 +116,30 @@ public:
 			CTaskManager::GetInstance()->ChangeDrawPrio(this, SCREEN_HEIGHT + m_tailpos3D.z);
 		}
 	}
-
+private:
+	/*enum {
+		eIdol,
+		eMove,
+		eBlessAttack,
+		eTailAttack,
+		eBress,
+		eLaserShower,
+		eDown,
+		eDamage,
+		eFall,
+		eJump,
+		eDescent,
+	};*/
+	bool m_nagi;	//薙ぎ払い時使用。falseなら→に動く
+	int m_dame_time;	//ダメージ受けてる時間
+	void SetNotDame() {
+		m_color.y = 1.0;
+		m_color.z = 1.0;
+		m_damage = false;
+		m_dame_time = 0;
+		m_state = eIdol;
 	};
+};
 
 #endif // !BOSSBASEGUARD
 

@@ -18,19 +18,6 @@ class CBoss :public CBossBase {
 protected:
 	int m_test;
 	int m_motiontest;
-	enum {
-		eIdol,
-		eMove,
-		eBlessAttack,
-		eTailAttack,
-		eLaser,
-		eLaserShower,
-		eDown,
-		eDamage,
-		eFall,
-
-
-	};
 public:
 	CBoss(const CVector3D *headpos, const CVector3D *armpos, const CVector3D *arm2pos, const CVector3D *tailpos);
 	~CBoss();
@@ -40,6 +27,7 @@ public:
 	void Arm();
 	void Arm2();
 	void Tail();
+	void AttackPattern();
 
 };
 

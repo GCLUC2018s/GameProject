@@ -60,7 +60,7 @@ void COhuda::Draw(){
 
 void COhuda::Hit(CObjectBase * t)
 {
-	if (t->GetID() == eID_Enemy) {
+	if (t->GetID() == eID_Enemy || t->GetID() == eID_Boss) {
 		new CFire(t);
 		SetKill();
 	}

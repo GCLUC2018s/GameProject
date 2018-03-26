@@ -32,7 +32,7 @@ CPlayer::CPlayer(const int HP) :CObjectBase(eID_Player, eU_Player, eD_Object), m
 	m_kick = false;
 	m_jump = false;
 	m_roof = false;
-	m_hp = HP;
+	m_hp = m_old_hp = HP;
 	m_anim = eAnimIdol;
 	m_state = eNutral;
 	m_cnt = 0;
@@ -112,7 +112,7 @@ void CPlayer::Update() {
 		m_vec3D.z = 0;
 	}
 
-	if ((m_hp % 20 == 0 || m_hp <= 0) && m_hp < PLAYER_HP && !m_die) {
+	if ((m_hp % 20 == 0 || m_hp <= 0) && m_hp < PLAYER_HP && !m_die && m_old_hp > m_hp) {
 		m_state = eFall;
 		m_die = 1;
 		m_cnt = 0;
@@ -211,6 +211,7 @@ void CPlayer::Update() {
 	CheckOverlap();
 	m_rect_F.m_bottom = m_rect.m_bottom - m_pos3D.y;
 
+	m_old_hp = m_hp;
 }
 
 void CPlayer::Nutral() {
@@ -226,6 +227,10 @@ void CPlayer::Nutral() {
 	if (HOLD_E && !m_jump) {
 		m_squat = true;
 		m_anim = eAnimSquat;
+		m_rect = CRect(0, 100, 127, 215);
+	}
+	else {
+		m_rect = CRect(0, 0, 127, 215);
 	}
 	CObjectBase *gr = dynamic_cast<CObjectBase*>(CTaskManager::GetInstance()->GetTask(eID_Ground));
 
@@ -421,7 +426,6 @@ void CPlayer::Fall() {
 	if (!m_die) {
 		//ƒtƒ‰ƒO‰Šú‰»
 		m_die = 0;
-		m_hp-=2;
 		m_state = eNutral;
 		//‚»‚Ì‘¼”X
 		damage_vec.y = -10;
@@ -496,5 +500,24 @@ void CPlayer::Hit(CObjectBase * t)
 			m_cnt = 0;
 		}
 	}
+	if (t->GetID() == eID_Effect) {
+		CEffectBase *ef = dynamic_cast<CEffectBase*>(t);
+		if (ef->GetHit() > 1.0f  && m_state != eFall && m_state != eDamage) {
+			if (ef->GetEFtype() == eBress) {
+				SOUND("SE_Panch")->Play(false);
+				if (m_jump) {
+					m_state = eFall;
+					m_die = 1;
+					m_jump = false;
+				}
+				else
+					m_state = eFall;
+				m_vec3D.y = 0;
+				m_hp -= 20;
+				m_cnt = 0;
+			}
+		}
+	}
+
 }
 

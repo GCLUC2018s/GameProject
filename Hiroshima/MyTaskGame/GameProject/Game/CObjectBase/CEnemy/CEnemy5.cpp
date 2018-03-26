@@ -72,7 +72,7 @@ void CEnemy5::Move() {
 		m_flipH = false;
 	}
 	if (m_pos3D.x - m_scroll.x > SCREEN_WIDTH - 50 - NIKU_SIZ_X) {
-		m_pos3D.x = m_scroll.x + SCREEN_WIDTH - 50 - ENEMY_SIZ_X;
+		m_pos3D.x = m_scroll.x + SCREEN_WIDTH - 50 - NIKU_SIZ_X;
 		m_flipH = true;
 	}
 
@@ -90,7 +90,10 @@ void CEnemy5::Move() {
 		m_vec3D = CVector3D(0, 0, 0);
 	}
 	else if (m_cnt == 180) {
+		if (192 >= m_pleneVec.Length())
+			m_state = eAttack;
 		m_cnt = 0;
+
 	}
 	m_img.ChangeAnimation(eAnimEnemyMove);
 }

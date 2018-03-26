@@ -1,0 +1,16 @@
+Loop,0,,,
+TextureName,Bane/enemyB_dead.bmp,,,
+Width,740,,,
+Height,208,,,
+x,0,185,370,555
+y,0,0,0,0
+w,185,185,185,185
+h,208,208,208,208
+OffsetX,0,0,0,0
+OffsetY,0,0,0,0
+PlayTime,5,5,5,5
+HitX,42,42,42,42
+HitY,180,173,138,68
+HitW,108,108,108,108
+HitH,173,165,120,62
+HitHeight,1,,,

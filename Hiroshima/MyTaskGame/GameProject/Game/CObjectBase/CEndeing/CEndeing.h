@@ -22,6 +22,9 @@ public:
 private:
 	bool m_end_flag;	//終わりますよフラグ
 	CFont font;
+	int m_time;			//経過時間
+	int m_taxt;			//表示場所
+	bool m_ac;			//フェードタイミング　trueならプラス
 };
 
 #endif // !ENDEING_GUARD
